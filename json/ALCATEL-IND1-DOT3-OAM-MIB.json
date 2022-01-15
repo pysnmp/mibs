@@ -5,54 +5,54 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEventLogWindowLo",
-      "dot3OamEventLogThresholdHi",
-      "dot3OamEventLogTimestamp",
-      "dot3OamEventLogValue",
-      "dot3OamEventLogRunningTotal",
-      "dot3OamEventLogThresholdLo",
-      "dot3OamEventLogLocation",
-      "dot3OamEntry",
       "dot3OamEventLogEventTotal",
-      "dot3OamStatsEntry",
-      "dot3OamEventLogType",
-      "dot3OamEventLogWindowHi",
       "dot3OamEventLogOui",
-      "dot3OamLoopbackEntry"
+      "dot3OamEventLogType",
+      "dot3OamEventLogThresholdLo",
+      "dot3OamEventLogTimestamp",
+      "dot3OamEventLogLocation",
+      "dot3OamEventLogThresholdHi",
+      "dot3OamLoopbackEntry",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamStatsEntry",
+      "dot3OamEventLogValue",
+      "dot3OamEventLogWindowLo",
+      "dot3OamEntry",
+      "dot3OamEventLogWindowHi"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1Dot3OamMIB": {
     "name": "alcatelIND1Dot3OamMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -63,37 +63,37 @@
   },
   "alcatelIND1Dot3OamNotifications": {
     "name": "alcatelIND1Dot3OamNotifications",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.0",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1Dot3OamMIBObjects": {
     "name": "alcatelIND1Dot3OamMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1Dot3OamMIBConformance": {
     "name": "alcatelIND1Dot3OamMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1Dot3OamMIBGroups": {
     "name": "alcatelIND1Dot3OamMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1Dot3OamMIBCompliances": {
     "name": "alcatelIND1Dot3OamMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaDot3OamStatus": {
     "name": "alaDot3OamStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -117,7 +117,7 @@
   },
   "alaDot3OamGlobalClearStats": {
     "name": "alaDot3OamGlobalClearStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -141,7 +141,7 @@
   },
   "alaDot3OamGlobalClearEventLogs": {
     "name": "alaDot3OamGlobalClearEventLogs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -165,7 +165,7 @@
   },
   "alaDot3OamGlobalClearVariableTransactions": {
     "name": "alaDot3OamGlobalClearVariableTransactions",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -189,7 +189,7 @@
   },
   "alaDot3OamMultiplePduCount": {
     "name": "alaDot3OamMultiplePduCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -215,12 +215,12 @@
   },
   "alaDot3OamPortConfig": {
     "name": "alaDot3OamPortConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.8",
     "class": "objectidentity"
   },
   "alaDot3OamTable": {
     "name": "alaDot3OamTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.8.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -228,7 +228,7 @@
   },
   "alaDot3OamEntry": {
     "name": "alaDot3OamEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.8.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -241,7 +241,7 @@
   },
   "alaDot3OamKeepAliveInterval": {
     "name": "alaDot3OamKeepAliveInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.8.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -267,7 +267,7 @@
   },
   "alaDot3OamHelloInterval": {
     "name": "alaDot3OamHelloInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.8.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -294,7 +294,7 @@
   },
   "alaDot3OamNextTransactionId": {
     "name": "alaDot3OamNextTransactionId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.8.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.8.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -314,12 +314,12 @@
   },
   "alaDot3OamPortLoopbackControl": {
     "name": "alaDot3OamPortLoopbackControl",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9",
     "class": "objectidentity"
   },
   "alaDot3OamLoopbackTable": {
     "name": "alaDot3OamLoopbackTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -327,7 +327,7 @@
   },
   "alaDot3OamLoopbackEntry": {
     "name": "alaDot3OamLoopbackEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -340,7 +340,7 @@
   },
   "alaDot3OamPortL1PingFramesConf": {
     "name": "alaDot3OamPortL1PingFramesConf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -366,7 +366,7 @@
   },
   "alaDot3OamPortL1PingFramesDelay": {
     "name": "alaDot3OamPortL1PingFramesDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -393,7 +393,7 @@
   },
   "alaDot3OamPortL1PingStatus": {
     "name": "alaDot3OamPortL1PingStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -414,7 +414,7 @@
   },
   "alaDot3OamPortL1PingFramesSent": {
     "name": "alaDot3OamPortL1PingFramesSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -426,7 +426,7 @@
   },
   "alaDot3OamPortL1PingFramesReceived": {
     "name": "alaDot3OamPortL1PingFramesReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -438,7 +438,7 @@
   },
   "alaDot3OamPortL1PingAverageRoundTripDelay": {
     "name": "alaDot3OamPortL1PingAverageRoundTripDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.9.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.9.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -450,12 +450,12 @@
   },
   "alaDot3OamPortStats": {
     "name": "alaDot3OamPortStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.10",
     "class": "objectidentity"
   },
   "alaDot3OamStatsTable": {
     "name": "alaDot3OamStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.10.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -463,7 +463,7 @@
   },
   "alaDot3OamStatsEntry": {
     "name": "alaDot3OamStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.10.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -476,7 +476,7 @@
   },
   "alaDot3OamPortClearStats": {
     "name": "alaDot3OamPortClearStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.10.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.10.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -500,12 +500,12 @@
   },
   "alaDot3OamPortEventLogs": {
     "name": "alaDot3OamPortEventLogs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.11",
     "class": "objectidentity"
   },
   "alaDot3OamEventLogTable": {
     "name": "alaDot3OamEventLogTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.11.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -513,7 +513,7 @@
   },
   "alaDot3OamEventLogEntry": {
     "name": "alaDot3OamEventLogEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.11.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -528,7 +528,7 @@
   },
   "alaDot3OamPortClearEventLogs": {
     "name": "alaDot3OamPortClearEventLogs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.11.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.11.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -552,12 +552,12 @@
   },
   "alaDot3OamRetrieveRequest": {
     "name": "alaDot3OamRetrieveRequest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12",
     "class": "objectidentity"
   },
   "alaDot3OamRetrieveRequestTable": {
     "name": "alaDot3OamRetrieveRequestTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -565,7 +565,7 @@
   },
   "alaDot3OamRetrieveRequestEntry": {
     "name": "alaDot3OamRetrieveRequestEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -595,19 +595,27 @@
   },
   "alaDot3OamTransactionId": {
     "name": "alaDot3OamTransactionId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
   "alaDot3OamVariableRequestBranch": {
     "name": "alaDot3OamVariableRequestBranch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -632,7 +640,7 @@
   },
   "alaDot3OamVariableRequestLeaf": {
     "name": "alaDot3OamVariableRequestLeaf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -652,7 +660,7 @@
   },
   "alaDot3OamVariableRequestRetrieveStatus": {
     "name": "alaDot3OamVariableRequestRetrieveStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -671,7 +679,7 @@
   },
   "alaDot3OamVariableRequestRowStatus": {
     "name": "alaDot3OamVariableRequestRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -683,7 +691,7 @@
   },
   "alaDot3OamPortClearVariableTransactions": {
     "name": "alaDot3OamPortClearVariableTransactions",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.12.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.12.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -707,12 +715,12 @@
   },
   "alaDot3OamRetrieveResponse": {
     "name": "alaDot3OamRetrieveResponse",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.13",
     "class": "objectidentity"
   },
   "alaDot3OamRetrieveResponseTable": {
     "name": "alaDot3OamRetrieveResponseTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.13.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -720,7 +728,7 @@
   },
   "alaDot3OamRetrieveResponseEntry": {
     "name": "alaDot3OamRetrieveResponseEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.13.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -750,7 +758,7 @@
   },
   "alaDot3OamVariableResponseBranch": {
     "name": "alaDot3OamVariableResponseBranch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.13.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -769,7 +777,7 @@
   },
   "alaDot3OamVariableResponseLeaf": {
     "name": "alaDot3OamVariableResponseLeaf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.13.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -789,7 +797,7 @@
   },
   "alaDot3OamVariableResponseValue": {
     "name": "alaDot3OamVariableResponseValue",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.1.13.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.1.13.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -809,7 +817,7 @@
   },
   "alaDot3OamThresholdEventClear": {
     "name": "alaDot3OamThresholdEventClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -861,7 +869,7 @@
   },
   "alaDot3OamNonThresholdEventClear": {
     "name": "alaDot3OamNonThresholdEventClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -889,7 +897,7 @@
   },
   "alcatelIND1Dot3OamMIBCompliance": {
     "name": "alcatelIND1Dot3OamMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -929,7 +937,7 @@
   },
   "alaDot3OamBaseGroup": {
     "name": "alaDot3OamBaseGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -957,7 +965,7 @@
   },
   "alaDot3OamPortConfigGroup": {
     "name": "alaDot3OamPortConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -977,7 +985,7 @@
   },
   "alaDot3OamPortLoopbackControlGroup": {
     "name": "alaDot3OamPortLoopbackControlGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1009,7 +1017,7 @@
   },
   "alaDot3OamPortStatsGroup": {
     "name": "alaDot3OamPortStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1021,7 +1029,7 @@
   },
   "alaDot3OamPortEventLogsGroup": {
     "name": "alaDot3OamPortEventLogsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1033,7 +1041,7 @@
   },
   "alaDot3OamRetrieveRequestGroup": {
     "name": "alaDot3OamRetrieveRequestGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1053,7 +1061,7 @@
   },
   "alaDot3OamRetrieveResponseGroup": {
     "name": "alaDot3OamRetrieveResponseGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -1065,7 +1073,7 @@
   },
   "alaDot3OamNotificationGroup": {
     "name": "alaDot3OamNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.52.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.52.1.2.1.8",
     "class": "notificationgroup",
     "objects": [
       {
@@ -1082,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

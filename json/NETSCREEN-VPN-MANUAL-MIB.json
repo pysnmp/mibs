@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-SMI": [
-      "netscreenVpnMibModule",
-      "netscreenVpn"
+      "netscreenVpn",
+      "netscreenVpnMibModule"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-IDENTITY",
       "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Counter64",
-      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "netscreenVpnManualMibModule": {
@@ -295,8 +295,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-VPN-MANUAL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:07:14 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:39:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NETSCREEN-VPN-MANUAL-MIB"

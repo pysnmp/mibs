@@ -1,17 +1,18 @@
 #
 # PySNMP MIB module RADLAN-HWENVIROMENT (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/RADLAN-HWENVIROMENT
-# Produced by pysmi-1.1.8 at Thu Jan 13 23:47:31 2022
-# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-HWENVIROMENT
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:21:09 2022
+# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, IpAddress, Counter32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks, Counter64, NotificationType, Integer32, Bits, ModuleIdentity, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "IpAddress", "Counter32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks", "Counter64", "NotificationType", "Integer32", "Bits", "ModuleIdentity", "Unsigned32", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+ObjectIdentity, TimeTicks, MibIdentifier, NotificationType, Counter32, Integer32, ModuleIdentity, Counter64, iso, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "MibIdentifier", "NotificationType", "Counter32", "Integer32", "ModuleIdentity", "Counter64", "iso", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+DisplayString, = mibBuilder.importSymbols("SNMPv2-TC-v1", "DisplayString")
 rlEnv = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 83))
 rlEnv.setRevisions(('2003-09-21 00:00',))
 
@@ -22,16 +23,10 @@ if mibBuilder.loadTexts: rlEnv.setOrganization('Radlan Computer Communications L
 if mibBuilder.loadTexts: rlEnv.setContactInfo('radlan.com')
 if mibBuilder.loadTexts: rlEnv.setDescription('The private MIB module definition for environment of Radlan devices.')
 class RlEnvMonState(TextualConvention, Integer32):
-    description = 'Represents the state of a device being monitored.\n                 Valid values are:\n\n                 normal(1):         the environment is good, such as low\n                                    temperature or full battery charge.\n\n                 warning(2):        the environment is bad, such as temperature\n                                    above normal operation range but not too\n                                    high, or battery discharge.\n\n                 critical(3):       the environment is very bad, such as\n                                    temperature much higher than normal\n                                    operation limit or critically low battery charge.\n\n                 shutdown(4):       the environment is the worst, the system\n                                    should be shutdown immediately.\n\n                 notPresent(5):     the environmental monitor is not present,\n                                    such as temperature sensors or battery does not exist.\n\n                 notFunctioning(6): the environmental monitor does not\n                                    function properly, such as a temperature\n                                    sensor generates a abnormal data like\n                                    1000 or error happens while reading battery\n                                    state.\n                                \n                 restore(7):        the environment is restoring its normal state,\n                                    such as battery recharging.\n                '
+    description = 'Represents the state of a device being monitored.\n                 Valid values are:\n\n                 normal(1):         the environment is good, such as low\n                                    temperature.\n\n                 warning(2):        the environment is bad, such as temperature\n                                    above normal operation range but not too\n                                    high.\n\n                 critical(3):       the environment is very bad, such as\n                                    temperature much higher than normal\n                                    operation limit.\n\n                 shutdown(4):       the environment is the worst, the system\n                                    should be shutdown immediately.\n\n                 notPresent(5):     the environmental monitor is not present,\n                                    such as temperature sensors do not exist.\n\n                 notFunctioning(6): the environmental monitor does not\n                                    function properly, such as a temperature\n                                    sensor generates a abnormal data like\n                                    1000 C.\n                '
     status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("normal", 1), ("warning", 2), ("critical", 3), ("shutdown", 4), ("notPresent", 5), ("notFunctioning", 6), ("restore", 7), ("notAvailable", 8), ("backingUp", 9))
-
-class RlEnvMonDirection(TextualConvention, Integer32):
-    description = 'Represents the state of a device being monitored.\n                 Valid values are:\n\n                 unKnown(1):        if the board not support air flow direction.\n\n                 frontToBack(2):    the air flow direction of the fan is front to back.\n\n                 backToFront(3):    the air flow direction of the fan is back to front.\n\n                 clockwise(4):      the air flow direction of the fan is clock wise\n\n                 unClockwise(5):    the air flow direction of the fan is unclock wise\n\n                 insideOutside(6):  the air flow direction of the fan is inside outside\n\n                 outsideInside(7):  the air flow direction of the fan is outside inside\n\n                 rightToLeft(8):    the air flow direction of the fan is from right to left\n\n                 leftToRight(9):    the air flow direction of the fan is from left to right\n\n                '
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("unKnown", 1), ("frontToBack", 2), ("backToFront", 3), ("clockwise", 4), ("unClockwise", 5), ("insideOut", 6), ("outsideIn", 7), ("rightToLeft", 8), ("leftToRight", 9))
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
+    namedValues = NamedValues(("normal", 1), ("warning", 2), ("critical", 3), ("shutdown", 4), ("notPresent", 5), ("notFunctioning", 6))
 
 rlEnvPhysicalDescription = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 83, 1))
 rlEnvMonFanStatusTable = MibTable((1, 3, 6, 1, 4, 1, 89, 83, 1, 1), )
@@ -67,74 +62,4 @@ if mibBuilder.loadTexts: rlEnvMonSupplyState.setDescription('The mandatory  stat
 rlEnvMonSupplySource = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("ac", 2), ("dc", 3), ("externalPowerSupply", 4), ("internalRedundant", 5)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlEnvMonSupplySource.setStatus('current')
 if mibBuilder.loadTexts: rlEnvMonSupplySource.setDescription('The power supply source.\n                 unknown - Power supply source unknown\n                 ac      - AC power supply\n                 dc      - DC power supply\n                 externalPowerSupply - External power supply\n                 internalRedundant - Internal redundant power supply\n                ')
-rlEnvMonSupplyFanDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 1, 2, 1, 5), RlEnvMonDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonSupplyFanDirection.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonSupplyFanDirection.setDescription("The direction of the power supply's fan.")
-rlEnvMonIndexTable = MibTable((1, 3, 6, 1, 4, 1, 89, 83, 1, 10), )
-if mibBuilder.loadTexts: rlEnvMonIndexTable.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonIndexTable.setDescription('The table that can help building indexes for EnvMon tables.')
-rlEnvMonIndexEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 83, 1, 10, 1), ).setIndexNames((0, "RADLAN-HWENVIROMENT", "rlEnvMonIndexUnitId"), (0, "RADLAN-HWENVIROMENT", "rlEnvMonIndexObjType"), (0, "RADLAN-HWENVIROMENT", "rlEnvMonIndexObjIndex"))
-if mibBuilder.loadTexts: rlEnvMonIndexEntry.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonIndexEntry.setDescription('An entry in table, representing the index input parameters.')
-rlEnvMonIndexUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 1, 10, 1, 1), Integer32())
-if mibBuilder.loadTexts: rlEnvMonIndexUnitId.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonIndexUnitId.setDescription('Unit ID.')
-rlEnvMonIndexObjType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 1, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 6, 14))).clone(namedValues=NamedValues(("powerSupply", 5), ("fan", 6), ("thermalSensorUnderCard", 14))))
-if mibBuilder.loadTexts: rlEnvMonIndexObjType.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonIndexObjType.setDescription('Object type.')
-rlEnvMonIndexObjIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 1, 10, 1, 3), Integer32())
-if mibBuilder.loadTexts: rlEnvMonIndexObjIndex.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonIndexObjIndex.setDescription('Index of object.')
-rlEnvMonIndexValue = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 1, 10, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonIndexValue.setStatus('current')
-if mibBuilder.loadTexts: rlEnvMonIndexValue.setDescription('Calculated index value.')
-rlEnvFanData = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 83, 5))
-rlEnvFanDataTable = MibTable((1, 3, 6, 1, 4, 1, 89, 83, 5, 1), )
-if mibBuilder.loadTexts: rlEnvFanDataTable.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataTable.setDescription('For each unit in a stack')
-rlEnvFanDataEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1), ).setIndexNames((0, "RADLAN-HWENVIROMENT", "rlEnvFanDataStackUnit"))
-if mibBuilder.loadTexts: rlEnvFanDataEntry.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataEntry.setDescription('An entry of this table specifies a unit')
-rlEnvFanDataStackUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataStackUnit.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataStackUnit.setDescription('The number of the stack unit')
-rlEnvFanDataTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataTemp.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataTemp.setDescription('The unit temperature')
-rlEnvFanDataSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataSpeed.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataSpeed.setDescription('Fan speed in RPM')
-rlEnvFanDataOperLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataOperLevel.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataOperLevel.setDescription('Fan speed operative level')
-rlEnvFanDataAdminLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlEnvFanDataAdminLevel.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataAdminLevel.setDescription('Configured fan speed level')
-rlEnvFanDataDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 5, 1, 1, 6), RlEnvMonDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataDirection.setStatus('current')
-if mibBuilder.loadTexts: rlEnvFanDataDirection.setDescription("The direction of the system's fan.")
-class RlEnvRedundantFanStatus(TextualConvention, Integer32):
-    description = 'Represents the status of a redundant fan.\n                                Valid values are:\n                                Ready(1):        fan is ready and not active (all fans are O.K)\n                                Active(2):        fan is active (one or more fan failed)\n                                Failure(3): fan failure '
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("ready", 1), ("active", 2), ("failure", 3), ("notPresent", 4))
-
-rlEnvRedundantFanTable = MibTable((1, 3, 6, 1, 4, 1, 89, 83, 6), )
-if mibBuilder.loadTexts: rlEnvRedundantFanTable.setStatus('current')
-if mibBuilder.loadTexts: rlEnvRedundantFanTable.setDescription('Table of redundant fan status')
-rlEnvRedundantFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 83, 6, 1), ).setIndexNames((0, "RADLAN-HWENVIROMENT", "rlEnvRedundantFanUnitId"), (0, "RADLAN-HWENVIROMENT", "rlEnvRedundantFanIndex"))
-if mibBuilder.loadTexts: rlEnvRedundantFanEntry.setStatus('current')
-if mibBuilder.loadTexts: rlEnvRedundantFanEntry.setDescription('An entry in the redundant fan status table, representing the status of the associated fan ')
-rlEnvRedundantFanUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 6, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanUnitId.setStatus('current')
-if mibBuilder.loadTexts: rlEnvRedundantFanUnitId.setDescription('The number of the stack unit')
-rlEnvRedundantFanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 6, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanIndex.setStatus('current')
-if mibBuilder.loadTexts: rlEnvRedundantFanIndex.setDescription('The fan index')
-rlEnvRedundantFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 6, 1, 3), RlEnvRedundantFanStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanStatus.setStatus('current')
-if mibBuilder.loadTexts: rlEnvRedundantFanStatus.setDescription('The fan status')
-rlEnvRedundantFanSupported = MibScalar((1, 3, 6, 1, 4, 1, 89, 83, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanSupported.setStatus('current')
-if mibBuilder.loadTexts: rlEnvRedundantFanSupported.setDescription('Defines whether Redundant Fan feature is supported')
-mibBuilder.exportSymbols("RADLAN-HWENVIROMENT", rlEnvPhysicalDescription=rlEnvPhysicalDescription, rlEnvMonSupplyState=rlEnvMonSupplyState, rlEnvMonIndexObjType=rlEnvMonIndexObjType, RlEnvRedundantFanStatus=RlEnvRedundantFanStatus, rlEnvRedundantFanUnitId=rlEnvRedundantFanUnitId, rlEnv=rlEnv, rlEnvRedundantFanStatus=rlEnvRedundantFanStatus, rlEnvMonFanStatusEntry=rlEnvMonFanStatusEntry, rlEnvMonSupplyStatusIndex=rlEnvMonSupplyStatusIndex, rlEnvMonIndexTable=rlEnvMonIndexTable, rlEnvFanDataAdminLevel=rlEnvFanDataAdminLevel, rlEnvMonSupplyStatusEntry=rlEnvMonSupplyStatusEntry, rlEnvFanDataTemp=rlEnvFanDataTemp, rlEnvMonSupplyFanDirection=rlEnvMonSupplyFanDirection, rlEnvFanDataSpeed=rlEnvFanDataSpeed, rlEnvMonSupplyStatusTable=rlEnvMonSupplyStatusTable, rlEnvRedundantFanTable=rlEnvRedundantFanTable, rlEnvFanDataTable=rlEnvFanDataTable, rlEnvMonFanStatusTable=rlEnvMonFanStatusTable, rlEnvMonSupplyStatusDescr=rlEnvMonSupplyStatusDescr, rlEnvMonFanStatusDescr=rlEnvMonFanStatusDescr, rlEnvFanDataStackUnit=rlEnvFanDataStackUnit, rlEnvFanData=rlEnvFanData, rlEnvFanDataOperLevel=rlEnvFanDataOperLevel, rlEnvMonFanState=rlEnvMonFanState, rlEnvMonIndexValue=rlEnvMonIndexValue, rlEnvMonIndexObjIndex=rlEnvMonIndexObjIndex, rlEnvFanDataEntry=rlEnvFanDataEntry, rlEnvFanDataDirection=rlEnvFanDataDirection, rlEnvRedundantFanIndex=rlEnvRedundantFanIndex, RlEnvMonDirection=RlEnvMonDirection, rlEnvRedundantFanSupported=rlEnvRedundantFanSupported, rlEnvRedundantFanEntry=rlEnvRedundantFanEntry, rlEnvMonSupplySource=rlEnvMonSupplySource, rlEnvMonIndexEntry=rlEnvMonIndexEntry, rlEnvMonFanStatusIndex=rlEnvMonFanStatusIndex, RlEnvMonState=RlEnvMonState, PYSNMP_MODULE_ID=rlEnv, rlEnvMonIndexUnitId=rlEnvMonIndexUnitId)
+mibBuilder.exportSymbols("RADLAN-HWENVIROMENT", rlEnvMonSupplySource=rlEnvMonSupplySource, rlEnvMonSupplyStatusIndex=rlEnvMonSupplyStatusIndex, RlEnvMonState=RlEnvMonState, rlEnvMonSupplyState=rlEnvMonSupplyState, rlEnvMonFanStatusTable=rlEnvMonFanStatusTable, rlEnv=rlEnv, PYSNMP_MODULE_ID=rlEnv, rlEnvMonFanStatusIndex=rlEnvMonFanStatusIndex, rlEnvMonFanStatusDescr=rlEnvMonFanStatusDescr, rlEnvMonFanState=rlEnvMonFanState, rlEnvPhysicalDescription=rlEnvPhysicalDescription, rlEnvMonSupplyStatusTable=rlEnvMonSupplyStatusTable, rlEnvMonFanStatusEntry=rlEnvMonFanStatusEntry, rlEnvMonSupplyStatusEntry=rlEnvMonSupplyStatusEntry, rlEnvMonSupplyStatusDescr=rlEnvMonSupplyStatusDescr)

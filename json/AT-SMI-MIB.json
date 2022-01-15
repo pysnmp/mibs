@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Counter32",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -33,16 +33,20 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2006-06-14 00:00",
-        "description": "Initial version of this MIB module."
+        "revision": "2014-09-30 00:00",
+        "description": "Merged object IDs from ATKK-WLAN-SMI-MIB for Wireless Products."
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
       },
       {
         "revision": "2008-02-28 00:00",
         "description": "Standardized the file head."
       },
       {
-        "revision": "2010-06-15 00:15",
-        "description": "MIB revision history dates in descriptions updated."
+        "revision": "2006-06-14 00:00",
+        "description": "Initial version of this MIB module."
       }
     ]
   },
@@ -62,6 +66,12 @@
     "class": "objectidentity",
     "status": "current"
   },
+  "wirelesslan": {
+    "name": "wirelesslan",
+    "oid": "1.3.6.1.4.1.207.1.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "mibObject": {
     "name": "mibObject",
     "oid": "1.3.6.1.4.1.207.8",
@@ -71,6 +81,18 @@
   "brouterMib": {
     "name": "brouterMib",
     "oid": "1.3.6.1.4.1.207.8.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "wirelessLanmMIB": {
+    "name": "wirelessLanmMIB",
+    "oid": "1.3.6.1.4.1.207.8.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atUWC": {
+    "name": "atUWC",
+    "oid": "1.3.6.1.4.1.207.8.42.8",
     "class": "objectidentity",
     "status": "current"
   },
@@ -125,8 +147,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SMI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:34:44 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:10:51 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-SMI-MIB"

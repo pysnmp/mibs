@@ -4,59 +4,123 @@
     "ALCATEL-IND1-BASE": [
       "softentIND1Ipv6"
     ],
+    "ALCATEL-IND1-VIRTUALROUTER-MIB": [
+      "alaVirtualRouterName"
+    ],
     "IPV6-MIB": [
-      "ipv6IfIndex",
-      "ipv6RouteEntry"
+      "ipv6RouteEntry",
+      "ipv6IfIndex"
     ],
     "IPV6-TC": [
       "Ipv6Address",
       "Ipv6IfIndexOrZero"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "PhysAddress",
-      "DisplayString",
-      "DateAndTime",
       "TruthValue",
+      "RowStatus",
       "TimeStamp",
+      "DateAndTime",
+      "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1IPv6MIB": {
     "name": "alcatelIND1IPv6MIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2008-07-24 00:00",
+        "revision": "2016-04-12 00:00",
+        "description": "Correct specification of objects included in alaIPv6InterfaceNeighborLimitExceeded trap."
+      },
+      {
+        "revision": "2015-03-24 00:00",
+        "description": "Router Advertisement filtering changes."
+      },
+      {
+        "revision": "2014-10-14 00:00",
+        "description": "Module compliance section update."
+      },
+      {
+        "revision": "2014-09-18 00:00",
+        "description": "Added alaIPv6InterfaceStatsTable."
+      },
+      {
+        "revision": "2014-08-12 00:00",
+        "description": "Added alaIPv6NeighborPortIfIndex. Deprecated alaIPv6NeighborChassis, alaIPv6NeighborSlot, alaIPv6NeighborPort and alaIPv6RAFilterTrustedTable. Added alaIPv6RAFilterTrustedPortTable. Obsoleted alaIPv6RAFilterTrustedTable."
+      },
+      {
+        "revision": "2014-05-20 00:00",
+        "description": "Added alaIPv6InterfaceRouterPreference."
+      },
+      {
+        "revision": "2014-02-28 00:00",
+        "description": "Updated alaIPv6InterfaceTable description for loopback0 support. Changed range/updated description for alaIPv6InterfaceEUI64AddressPrefixLength."
+      },
+      {
+        "revision": "2013-07-30 00:00",
+        "description": "Added alaIPv6InterfaceRetransBackoff and alaIPv6InterfaceRetransMax"
+      },
+      {
+        "revision": "2013-07-29 00:00",
+        "description": "Allow 0 as valid value for alaIPv6InterfaceDADTransmits."
+      },
+      {
+        "revision": "2013-03-13 00:00",
+        "description": "Added neighbour cache limit objects (global, per-VRF, per-interface). Added Local Proxy Neighbor Discovery objects."
+      },
+      {
+        "revision": "2012-02-07 00:00",
+        "description": "Added alaIPv6NeighborChassis"
+      },
+      {
+        "revision": "2011-03-09 00:00",
+        "description": "Increased size of alaIPv6InterfaceName to 32"
+      },
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
+      {
+        "revision": "2010-01-06 00:00",
         "description": "The latest version of this MIB Module."
       }
     ]
   },
+  "alcatelIND1IPv6MIBNotifications": {
+    "name": "alcatelIND1IPv6MIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1IPv6MIBObjects": {
     "name": "alcatelIND1IPv6MIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1",
     "class": "objectidentity"
   },
   "AlaIPv6AddressPrefix": {
@@ -77,14 +141,65 @@
     "displayhint": "2x:",
     "status": "current"
   },
+  "AlaIPv6RAFilterTrustedSourceType": {
+    "name": "AlaIPv6RAFilterTrustedSourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port": 1,
+          "netAddress": 2,
+          "physAddress": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AlaIPv6RAFilterTrustedSourceValue": {
+    "name": "AlaIPv6RAFilterTrustedSourceValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AlaIPv6RAFilterTrustedSourceIfIndex": {
+    "name": "AlaIPv6RAFilterTrustedSourceIfIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "4d",
+    "status": "current"
+  },
   "alaIPv6Config": {
     "name": "alaIPv6Config",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1",
     "class": "objectidentity"
   },
   "alaIPv6ClearNeighbors": {
     "name": "alaIPv6ClearNeighbors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -101,7 +216,7 @@
   },
   "alaIPv6ClearTraffic": {
     "name": "alaIPv6ClearTraffic",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -118,7 +233,7 @@
   },
   "alaIPv6ClearPMTUTable": {
     "name": "alaIPv6ClearPMTUTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -135,7 +250,7 @@
   },
   "alaIPv6PMTUMinLifetime": {
     "name": "alaIPv6PMTUMinLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -162,7 +277,7 @@
   },
   "alaIPv6NeighborStaleLifetime": {
     "name": "alaIPv6NeighborStaleLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -179,7 +294,7 @@
     },
     "default": {
       "default": {
-        "value": 1440,
+        "value": 10,
         "format": "decimal"
       }
     },
@@ -189,7 +304,7 @@
   },
   "alaIPv6GlobalID": {
     "name": "alaIPv6GlobalID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -207,9 +322,63 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "alaIPv6VirtualSourceMAC": {
+    "name": "alaIPv6VirtualSourceMAC",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIPv6NeighborLimit": {
+    "name": "alaIPv6NeighborLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 8000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaIPv6NeighborVRFLimit": {
+    "name": "alaIPv6NeighborVRFLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "alaIPv6InterfaceTable": {
     "name": "alaIPv6InterfaceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -217,7 +386,7 @@
   },
   "alaIPv6InterfaceEntry": {
     "name": "alaIPv6InterfaceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -232,7 +401,7 @@
   },
   "alaIPv6InterfaceRowStatus": {
     "name": "alaIPv6InterfaceRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -244,11 +413,11 @@
   },
   "alaIPv6InterfaceDescription": {
     "name": "alaIPv6InterfaceDescription",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -264,7 +433,7 @@
   },
   "alaIPv6InterfaceMtu": {
     "name": "alaIPv6InterfaceMtu",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -276,7 +445,7 @@
   },
   "alaIPv6InterfaceType": {
     "name": "alaIPv6InterfaceType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -296,7 +465,7 @@
   },
   "alaIPv6InterfaceAdminStatus": {
     "name": "alaIPv6InterfaceAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -314,7 +483,7 @@
   },
   "alaIPv6InterfaceSendRouterAdvertisements": {
     "name": "alaIPv6InterfaceSendRouterAdvertisements",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -338,7 +507,7 @@
   },
   "alaIPv6InterfaceMaxRtrAdvInterval": {
     "name": "alaIPv6InterfaceMaxRtrAdvInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -365,7 +534,7 @@
   },
   "alaIPv6InterfaceAdvManagedFlag": {
     "name": "alaIPv6InterfaceAdvManagedFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -383,7 +552,7 @@
   },
   "alaIPv6InterfaceAdvOtherConfigFlag": {
     "name": "alaIPv6InterfaceAdvOtherConfigFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -401,7 +570,7 @@
   },
   "alaIPv6InterfaceAdvReachableTime": {
     "name": "alaIPv6InterfaceAdvReachableTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -422,7 +591,7 @@
   },
   "alaIPv6InterfaceAdvRetransTimer": {
     "name": "alaIPv6InterfaceAdvRetransTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -435,7 +604,7 @@
   },
   "alaIPv6InterfaceAdvDefaultLifetime": {
     "name": "alaIPv6InterfaceAdvDefaultLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -462,17 +631,17 @@
   },
   "alaIPv6InterfaceName": {
     "name": "alaIPv6InterfaceName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
             "min": 1,
-            "max": 20
+            "max": 32
           }
         ]
       }
@@ -482,7 +651,7 @@
   },
   "alaIPv6InterfaceAdvSendMtu": {
     "name": "alaIPv6InterfaceAdvSendMtu",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -500,7 +669,7 @@
   },
   "alaIPv6InterfaceReachableTime": {
     "name": "alaIPv6InterfaceReachableTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -513,7 +682,7 @@
   },
   "alaIPv6InterfaceBaseReachableTime": {
     "name": "alaIPv6InterfaceBaseReachableTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -534,7 +703,7 @@
   },
   "alaIPv6InterfaceMinRtrAdvInterval": {
     "name": "alaIPv6InterfaceMinRtrAdvInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -555,7 +724,7 @@
   },
   "alaIPv6InterfaceClockSkew": {
     "name": "alaIPv6InterfaceClockSkew",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -582,7 +751,7 @@
   },
   "alaIPv6InterfaceRetransTimer": {
     "name": "alaIPv6InterfaceRetransTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -609,7 +778,7 @@
   },
   "alaIPv6InterfaceDADTransmits": {
     "name": "alaIPv6InterfaceDADTransmits",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -618,7 +787,7 @@
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 10
           }
         ]
@@ -635,7 +804,7 @@
   },
   "alaIPv6InterfaceAdvHopLimit": {
     "name": "alaIPv6InterfaceAdvHopLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.2.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -659,14 +828,133 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "alaIPv6InterfaceLPND": {
+    "name": "alaIPv6InterfaceLPND",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPv6InterfaceRAFilter": {
+    "name": "alaIPv6InterfaceRAFilter",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alaIPv6InterfaceNeighborLimit": {
+    "name": "alaIPv6InterfaceNeighborLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPv6InterfaceRetransBackoff": {
+    "name": "alaIPv6InterfaceRetransBackoff",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPv6InterfaceRetransMax": {
+    "name": "alaIPv6InterfaceRetransMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPv6InterfaceRouterPreference": {
+    "name": "alaIPv6InterfaceRouterPreference",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "medium": 0,
+          "high": 1,
+          "low": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "alaIPv6TunnelConfig": {
     "name": "alaIPv6TunnelConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.3",
     "class": "objectidentity"
   },
   "alaIPv6ConfigTunnelTable": {
     "name": "alaIPv6ConfigTunnelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.3.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -674,7 +962,7 @@
   },
   "alaIPv6ConfigTunnelEntry": {
     "name": "alaIPv6ConfigTunnelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.3.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.3.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -689,7 +977,7 @@
   },
   "alaIPv6ConfigTunnelV4Source": {
     "name": "alaIPv6ConfigTunnelV4Source",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.3.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.3.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -701,7 +989,7 @@
   },
   "alaIPv6ConfigTunnelV4Dest": {
     "name": "alaIPv6ConfigTunnelV4Dest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.3.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.3.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -713,7 +1001,7 @@
   },
   "alaIPv6InterfaceAddressTable": {
     "name": "alaIPv6InterfaceAddressTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -721,7 +1009,7 @@
   },
   "alaIPv6InterfaceAddressEntry": {
     "name": "alaIPv6InterfaceAddressEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -741,7 +1029,7 @@
   },
   "alaIPv6InterfaceAddressRowStatus": {
     "name": "alaIPv6InterfaceAddressRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -753,7 +1041,7 @@
   },
   "alaIPv6InterfaceAddress": {
     "name": "alaIPv6InterfaceAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -765,7 +1053,7 @@
   },
   "alaIPv6InterfaceAddressPrefixLength": {
     "name": "alaIPv6InterfaceAddressPrefixLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -785,7 +1073,7 @@
   },
   "alaIPv6InterfaceAddressAnycastFlag": {
     "name": "alaIPv6InterfaceAddressAnycastFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -803,7 +1091,7 @@
   },
   "alaIPv6InterfaceAddressDADStatus": {
     "name": "alaIPv6InterfaceAddressDADStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -824,7 +1112,7 @@
   },
   "alaIPv6InterfaceEUI64AddressTable": {
     "name": "alaIPv6InterfaceEUI64AddressTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -832,7 +1120,7 @@
   },
   "alaIPv6InterfaceEUI64AddressEntry": {
     "name": "alaIPv6InterfaceEUI64AddressEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -852,7 +1140,7 @@
   },
   "alaIPv6InterfaceEUI64AddressRowStatus": {
     "name": "alaIPv6InterfaceEUI64AddressRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -864,7 +1152,7 @@
   },
   "alaIPv6InterfaceEUI64AddressPrefix": {
     "name": "alaIPv6InterfaceEUI64AddressPrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -876,27 +1164,19 @@
   },
   "alaIPv6InterfaceEUI64AddressPrefixLength": {
     "name": "alaIPv6InterfaceEUI64AddressPrefixLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 3,
-            "max": 64
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "alaIPv6InterfaceEUI64AddressIdentifier": {
     "name": "alaIPv6InterfaceEUI64AddressIdentifier",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -916,7 +1196,7 @@
   },
   "alaIPv6NeighborTable": {
     "name": "alaIPv6NeighborTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -924,7 +1204,7 @@
   },
   "alaIPv6NeighborEntry": {
     "name": "alaIPv6NeighborEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -944,7 +1224,7 @@
   },
   "alaIPv6NeighborNetAddress": {
     "name": "alaIPv6NeighborNetAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -956,7 +1236,7 @@
   },
   "alaIPv6NeighborPhysAddress": {
     "name": "alaIPv6NeighborPhysAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -968,7 +1248,7 @@
   },
   "alaIPv6NeighborSlot": {
     "name": "alaIPv6NeighborSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -976,11 +1256,11 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaIPv6NeighborPort": {
     "name": "alaIPv6NeighborPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -988,11 +1268,11 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaIPv6NeighborType": {
     "name": "alaIPv6NeighborType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1012,7 +1292,7 @@
   },
   "alaIPv6NeighborState": {
     "name": "alaIPv6NeighborState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1034,7 +1314,7 @@
   },
   "alaIPv6NeighborLastUpdated": {
     "name": "alaIPv6NeighborLastUpdated",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1046,7 +1326,7 @@
   },
   "alaIPv6NeighborRowStatus": {
     "name": "alaIPv6NeighborRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1058,7 +1338,7 @@
   },
   "alaIPv6NeighborLifetime": {
     "name": "alaIPv6NeighborLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1071,7 +1351,7 @@
   },
   "alaIPv6NeighborReachability": {
     "name": "alaIPv6NeighborReachability",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.6.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1088,9 +1368,33 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "alaIPv6NeighborChassis": {
+    "name": "alaIPv6NeighborChassis",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alaIPv6NeighborPortIfIndex": {
+    "name": "alaIPv6NeighborPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "alaIPv6StaticRouteTable": {
     "name": "alaIPv6StaticRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1098,7 +1402,7 @@
   },
   "alaIPv6StaticRouteEntry": {
     "name": "alaIPv6StaticRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1118,7 +1422,7 @@
   },
   "alaIPv6StaticRouteDest": {
     "name": "alaIPv6StaticRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1130,11 +1434,11 @@
   },
   "alaIPv6StaticRoutePfxLength": {
     "name": "alaIPv6StaticRoutePfxLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1150,7 +1454,7 @@
   },
   "alaIPv6StaticRouteIfIndex": {
     "name": "alaIPv6StaticRouteIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1162,7 +1466,7 @@
   },
   "alaIPv6StaticRouteNextHop": {
     "name": "alaIPv6StaticRouteNextHop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1174,7 +1478,7 @@
   },
   "alaIPv6StaticRouteMetric": {
     "name": "alaIPv6StaticRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1192,7 +1496,7 @@
   },
   "alaIPv6StaticRouteRowStatus": {
     "name": "alaIPv6StaticRouteRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.7.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.7.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1204,7 +1508,7 @@
   },
   "alaIPv6HostTable": {
     "name": "alaIPv6HostTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1212,7 +1516,7 @@
   },
   "alaIPv6HostEntry": {
     "name": "alaIPv6HostEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1232,11 +1536,11 @@
   },
   "alaIPv6HostName": {
     "name": "alaIPv6HostName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1252,7 +1556,7 @@
   },
   "alaIPv6HostAddress": {
     "name": "alaIPv6HostAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1264,7 +1568,7 @@
   },
   "alaIPv6HostRowStatus": {
     "name": "alaIPv6HostRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1276,7 +1580,7 @@
   },
   "alaIPv6InterfacePrefixTable": {
     "name": "alaIPv6InterfacePrefixTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1284,7 +1588,7 @@
   },
   "alaIPv6InterfacePrefixEntry": {
     "name": "alaIPv6InterfacePrefixEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1309,7 +1613,7 @@
   },
   "alaIPv6InterfacePrefixRowStatus": {
     "name": "alaIPv6InterfacePrefixRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1321,7 +1625,7 @@
   },
   "alaIPv6InterfacePrefix": {
     "name": "alaIPv6InterfacePrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1333,7 +1637,7 @@
   },
   "alaIPv6InterfacePrefixLength": {
     "name": "alaIPv6InterfacePrefixLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1353,7 +1657,7 @@
   },
   "alaIPv6InterfacePrefixValidLifetime": {
     "name": "alaIPv6InterfacePrefixValidLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1372,7 +1676,7 @@
   },
   "alaIPv6InterfacePrefixOnLinkFlag": {
     "name": "alaIPv6InterfacePrefixOnLinkFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1390,7 +1694,7 @@
   },
   "alaIPv6InterfacePrefixPreferredLifetime": {
     "name": "alaIPv6InterfacePrefixPreferredLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1409,7 +1713,7 @@
   },
   "alaIPv6InterfacePrefixAutonomousFlag": {
     "name": "alaIPv6InterfacePrefixAutonomousFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1427,7 +1731,7 @@
   },
   "alaIPv6InterfacePrefixSource": {
     "name": "alaIPv6InterfacePrefixSource",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1446,7 +1750,7 @@
   },
   "alaIPv6InterfacePrefixValidLifetimeDecrement": {
     "name": "alaIPv6InterfacePrefixValidLifetimeDecrement",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1464,7 +1768,7 @@
   },
   "alaIPv6InterfacePrefixValidLifetimeExpire": {
     "name": "alaIPv6InterfacePrefixValidLifetimeExpire",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1476,7 +1780,7 @@
   },
   "alaIPv6InterfacePrefixPreferredLifetimeDecrement": {
     "name": "alaIPv6InterfacePrefixPreferredLifetimeDecrement",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1494,7 +1798,7 @@
   },
   "alaIPv6InterfacePrefixPreferredLifetimeExpire": {
     "name": "alaIPv6InterfacePrefixPreferredLifetimeExpire",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.9.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.9.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1506,7 +1810,7 @@
   },
   "alaIPv6PMTUTable": {
     "name": "alaIPv6PMTUTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1514,7 +1818,7 @@
   },
   "alaIPv6PMTUEntry": {
     "name": "alaIPv6PMTUEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1529,7 +1833,7 @@
   },
   "alaIPv6PMTUDest": {
     "name": "alaIPv6PMTUDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1541,7 +1845,7 @@
   },
   "alaIPv6PMTU": {
     "name": "alaIPv6PMTU",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1553,7 +1857,7 @@
   },
   "alaIPv6PMTUExpire": {
     "name": "alaIPv6PMTUExpire",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1566,7 +1870,7 @@
   },
   "alaIPv6PMTUHits": {
     "name": "alaIPv6PMTUHits",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1578,7 +1882,7 @@
   },
   "alaIPv6PMTUUpdates": {
     "name": "alaIPv6PMTUUpdates",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.10.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.10.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1590,7 +1894,7 @@
   },
   "alaIPv6RouteFlagsTable": {
     "name": "alaIPv6RouteFlagsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1598,7 +1902,7 @@
   },
   "alaIPv6RouteFlagsEntry": {
     "name": "alaIPv6RouteFlagsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1611,7 +1915,7 @@
   },
   "alaIPv6RouteFlagsUp": {
     "name": "alaIPv6RouteFlagsUp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1623,7 +1927,7 @@
   },
   "alaIPv6RouteFlagsGateway": {
     "name": "alaIPv6RouteFlagsGateway",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1635,7 +1939,7 @@
   },
   "alaIPv6RouteFlagsHost": {
     "name": "alaIPv6RouteFlagsHost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1647,7 +1951,7 @@
   },
   "alaIPv6RouteFlagsStatic": {
     "name": "alaIPv6RouteFlagsStatic",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1659,7 +1963,7 @@
   },
   "alaIPv6RouteFlagsCloneable": {
     "name": "alaIPv6RouteFlagsCloneable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1671,7 +1975,7 @@
   },
   "alaIPv6RouteFlagsDiscard": {
     "name": "alaIPv6RouteFlagsDiscard",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1683,7 +1987,19 @@
   },
   "alaIPv6RouteFlagsECMP": {
     "name": "alaIPv6RouteFlagsECMP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.11.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaIPv6RouteFlagsTransient": {
+    "name": "alaIPv6RouteFlagsTransient",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.11.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1695,7 +2011,7 @@
   },
   "alaIPv6LocalUnicastTable": {
     "name": "alaIPv6LocalUnicastTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1703,7 +2019,7 @@
   },
   "alaIPv6LocalUnicastEntry": {
     "name": "alaIPv6LocalUnicastEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1733,7 +2049,7 @@
   },
   "alaIPv6LocalUnicastGlobalID": {
     "name": "alaIPv6LocalUnicastGlobalID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1753,7 +2069,7 @@
   },
   "alaIPv6LocalUnicastSubnetID": {
     "name": "alaIPv6LocalUnicastSubnetID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1773,7 +2089,7 @@
   },
   "alaIPv6LocalUnicastInterfaceID": {
     "name": "alaIPv6LocalUnicastInterfaceID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1793,7 +2109,7 @@
   },
   "alaIPv6LocalUnicastPrefixLength": {
     "name": "alaIPv6LocalUnicastPrefixLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1819,7 +2135,7 @@
   },
   "alaIPv6LocalUnicastEUI64": {
     "name": "alaIPv6LocalUnicastEUI64",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1837,7 +2153,7 @@
   },
   "alaIPv6LocalUnicastRowStatus": {
     "name": "alaIPv6LocalUnicastRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.13.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.13.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1847,24 +2163,266 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "alaIPv6RAFilterTrustedPortTable": {
+    "name": "alaIPv6RAFilterTrustedPortTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaIPv6RAFilterTrustedPortEntry": {
+    "name": "alaIPv6RAFilterTrustedPortEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterTrustedPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "alaIPv6RAFilterTrustedPortIfIndex": {
+    "name": "alaIPv6RAFilterTrustedPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "alaIPv6RAFilterTrustedPortRowStatus": {
+    "name": "alaIPv6RAFilterTrustedPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "alaIPv6RAFilterInterfaceTable": {
+    "name": "alaIPv6RAFilterInterfaceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPv6RAFilterInterfaceEntry": {
+    "name": "alaIPv6RAFilterInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterInterfaceVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPv6RAFilterInterfaceVlan": {
+    "name": "alaIPv6RAFilterInterfaceVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPv6RAFilterInterfaceAdminStatus": {
+    "name": "alaIPv6RAFilterInterfaceAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPv6RAFilterInterfaceRowStatus": {
+    "name": "alaIPv6RAFilterInterfaceRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIPv6RAFilterTrustedSourceTable": {
+    "name": "alaIPv6RAFilterTrustedSourceTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPv6RAFilterTrustedSourceEntry": {
+    "name": "alaIPv6RAFilterTrustedSourceEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterInterfaceVlan",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterTrustedSourceType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterTrustedSourceValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPv6RAFilterTrustedSourceType": {
+    "name": "alaIPv6RAFilterTrustedSourceType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIPv6RAFilterTrustedSourceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPv6RAFilterTrustedSourceValue": {
+    "name": "alaIPv6RAFilterTrustedSourceValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIPv6RAFilterTrustedSourceValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIPv6RAFilterTrustedSourceRowStatus": {
+    "name": "alaIPv6RAFilterTrustedSourceRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ndpMaxLimitReached": {
+    "name": "ndpMaxLimitReached",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.0.1",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "alaIPv6NeighborLimitExceeded": {
+    "name": "alaIPv6NeighborLimitExceeded",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPv6NeighborVRFLimitExceeded": {
+    "name": "alaIPv6NeighborVRFLimitExceeded",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterName"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborVRFLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPv6InterfaceNeighborLimitExceeded": {
+    "name": "alaIPv6InterfaceNeighborLimitExceeded",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceNeighborLimit"
+      }
+    ],
+    "status": "current"
+  },
   "alcatelIND1IPv6MIBConformance": {
     "name": "alcatelIND1IPv6MIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1IPv6MIBCompliances": {
     "name": "alcatelIND1IPv6MIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1IPv6MIBGroups": {
     "name": "alcatelIND1IPv6MIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2",
     "class": "objectidentity"
   },
   "alaIPv6Compliance": {
     "name": "alaIPv6Compliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1877,10 +2435,6 @@
       },
       {
         "object": "alaIPv6NeighborGroup",
-        "module": "ALCATEL-IND1-IPV6-MIB"
-      },
-      {
-        "object": "alaIPv6StaticRouteGroup",
         "module": "ALCATEL-IND1-IPV6-MIB"
       },
       {
@@ -1910,13 +2464,17 @@
       {
         "object": "alaIPv6LocalUnicastGroup",
         "module": "ALCATEL-IND1-IPV6-MIB"
+      },
+      {
+        "object": "alaIPv6RAFilterGroup",
+        "module": "ALCATEL-IND1-IPV6-MIB"
       }
     ],
     "status": "current"
   },
   "alaIPv6TunnelConfigGroup": {
     "name": "alaIPv6TunnelConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1932,7 +2490,7 @@
   },
   "alaIPv6ConfigGroup": {
     "name": "alaIPv6ConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1958,26 +2516,30 @@
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6GlobalID"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6VirtualSourceMAC"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborVRFLimit"
       }
     ],
     "status": "current"
   },
   "alaIPv6NeighborGroup": {
     "name": "alaIPv6NeighborGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6NeighborPhysAddress"
-      },
-      {
-        "module": "ALCATEL-IND1-IPV6-MIB",
-        "object": "alaIPv6NeighborSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-IPV6-MIB",
-        "object": "alaIPv6NeighborPort"
       },
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
@@ -1998,13 +2560,17 @@
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6NeighborReachability"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborPortIfIndex"
       }
     ],
     "status": "current"
   },
   "alaIPv6StaticRouteGroup": {
     "name": "alaIPv6StaticRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -2028,7 +2594,7 @@
   },
   "alaIPv6InterfaceGroup": {
     "name": "alaIPv6InterfaceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -2085,6 +2651,10 @@
       },
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceAdvSendMtu"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6InterfaceReachableTime"
       },
       {
@@ -2110,13 +2680,33 @@
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6InterfaceAdvHopLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceLPND"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceNeighborLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceRetransBackoff"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceRetransMax"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceRouterPreference"
       }
     ],
     "status": "current"
   },
   "alaIPv6InterfaceAddressGroup": {
     "name": "alaIPv6InterfaceAddressGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -2130,13 +2720,17 @@
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6InterfaceAddressAnycastFlag"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceAddressDADStatus"
       }
     ],
     "status": "current"
   },
   "alaIPv6InterfaceEUI64AddressGroup": {
     "name": "alaIPv6InterfaceEUI64AddressGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -2156,7 +2750,7 @@
   },
   "alaIPv6InterfacePrefixGroup": {
     "name": "alaIPv6InterfacePrefixGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -2204,7 +2798,7 @@
   },
   "alaIPv6PMTUGroup": {
     "name": "alaIPv6PMTUGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.9",
     "class": "objectgroup",
     "objects": [
       {
@@ -2228,7 +2822,7 @@
   },
   "alaIPv6RouteFlagsGroup": {
     "name": "alaIPv6RouteFlagsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.10",
     "class": "objectgroup",
     "objects": [
       {
@@ -2258,13 +2852,17 @@
       {
         "module": "ALCATEL-IND1-IPV6-MIB",
         "object": "alaIPv6RouteFlagsECMP"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RouteFlagsTransient"
       }
     ],
     "status": "current"
   },
   "alaIPv6LocalUnicastGroup": {
     "name": "alaIPv6LocalUnicastGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.2.2.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.11",
     "class": "objectgroup",
     "objects": [
       {
@@ -2282,27 +2880,107 @@
     ],
     "status": "current"
   },
-  "alcatelIND1IPv6Traps": {
-    "name": "alcatelIND1IPv6Traps",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.12",
-    "class": "objectidentity"
+  "alaIPv6HostGroup": {
+    "name": "alaIPv6HostGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6HostRowStatus"
+      }
+    ],
+    "status": "current"
   },
-  "alcatelIND1IPv6TrapsRoot": {
-    "name": "alcatelIND1IPv6TrapsRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.12.0",
-    "class": "objectidentity"
+  "alcatelIND1IPv6NotificationGroup": {
+    "name": "alcatelIND1IPv6NotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborLimitExceeded"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborVRFLimitExceeded"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceNeighborLimitExceeded"
+      }
+    ],
+    "status": "current"
   },
-  "ndpMaxLimitReached": {
-    "name": "ndpMaxLimitReached",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.1.1.12.0.1",
-    "class": "notificationtype",
+  "alcatelIND1IPv6DeprecatedObjectGroup": {
+    "name": "alcatelIND1IPv6DeprecatedObjectGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborPort"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborState"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6NeighborChassis"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6InterfaceRAFilter"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterTrustedPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1IPv6DeprecatedNotificationGroup": {
+    "name": "alcatelIND1IPv6DeprecatedNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "ndpMaxLimitReached"
+      }
+    ],
+    "status": "current"
+  },
+  "alaIPv6RAFilterGroup": {
+    "name": "alaIPv6RAFilterGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.1.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterInterfaceAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterInterfaceRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IPV6-MIB",
+        "object": "alaIPv6RAFilterTrustedSourceRowStatus"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPV6-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-IPV6-MIB"

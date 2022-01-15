@@ -5,24 +5,24 @@
       "softentIND1Ssh"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -32,7 +32,7 @@
   },
   "alcatelIND1SshMIB": {
     "name": "alcatelIND1SshMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -43,31 +43,31 @@
   },
   "alcatelIND1SshMIBObjects": {
     "name": "alcatelIND1SshMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SshMIBConformance": {
     "name": "alcatelIND1SshMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SshMIBGroups": {
     "name": "alcatelIND1SshMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SshMIBCompliances": {
     "name": "alcatelIND1SshMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaSshAdminStatus": {
     "name": "alaSshAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -91,7 +91,7 @@
   },
   "alaScpSftpAdminStatus": {
     "name": "alaScpSftpAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -115,7 +115,7 @@
   },
   "alaSshPubKeyEnforceAdminStatus": {
     "name": "alaSshPubKeyEnforceAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -139,7 +139,7 @@
   },
   "alcatelIND1SshMIBCompliance": {
     "name": "alcatelIND1SshMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -151,7 +151,7 @@
   },
   "alaSshConfigGroup": {
     "name": "alaSshConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.39.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.39.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -172,8 +172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SSH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-SSH-MIB"

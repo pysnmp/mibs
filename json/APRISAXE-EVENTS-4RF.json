@@ -6,19 +6,19 @@
       "aprisaXEEvents"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEPortNumber",
       "AprisaXECardType",
       "AprisaXESlotNumber",
-      "AprisaXEDataStatus",
-      "AprisaXEAlarmType"
+      "AprisaXEAlarmType",
+      "AprisaXEPortNumber",
+      "AprisaXEDataStatus"
     ],
     "COMMON-TC-4RF": [
       "FourRFAlarmPresent",
-      "FourRFHardwareVersion",
-      "FourRFAlarmStatus",
-      "FourRFAlarmSeverity",
       "FourRFAlarmEnabled",
-      "FourRFImageVersion"
+      "FourRFImageVersion",
+      "FourRFAlarmSeverity",
+      "FourRFAlarmStatus",
+      "FourRFHardwareVersion"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,25 +27,25 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
       "IpAddress",
       "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "Counter64",
       "Bits",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:33:25 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:41 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

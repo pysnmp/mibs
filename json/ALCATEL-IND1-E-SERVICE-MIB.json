@@ -7,48 +7,40 @@
     "IF-MIB": [
       "InterfaceIndex"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1EServiceMIB": {
     "name": "alcatelIND1EServiceMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2010-01-20 00:00",
-        "description": "Added notAssigned value for objects alaEServiceSapProfilePriorityMapMode and alaEServiceSapProfileBandwidthShare."
-      },
-      {
-        "revision": "2009-12-16 00:00",
-        "description": "The below listed objects are made as read-create in 6.6.1.680.R01 Post GA. alaEServiceUNIProfile8021xTreatment, alaEServiceUNIProfile8021ABTreatment, alaEServiceUNIProfile8023adTreatment & alaEServiceUNIProfileAmapTreatment."
-      }
-    ]
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1",
+    "class": "moduleidentity"
   },
   "AlaEServiceUNIProfileProtocolTreatment": {
     "name": "AlaEServiceUNIProfileProtocolTreatment",
@@ -60,8 +52,7 @@
         "enumeration": {
           "tunnel": 1,
           "drop": 2,
-          "peer": 3,
-          "macTunnel": 4
+          "peer": 3
         }
       }
     },
@@ -69,41 +60,41 @@
   },
   "alcatelIND1eServiceMIBObjects": {
     "name": "alcatelIND1eServiceMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1EServiceMIBConformance": {
     "name": "alcatelIND1EServiceMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1EServiceMIBGroups": {
     "name": "alcatelIND1EServiceMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1EServiceMIBCompliances": {
     "name": "alcatelIND1EServiceMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaEService": {
     "name": "alaEService",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1",
     "class": "objectidentity"
   },
   "alaEServiceInfo": {
     "name": "alaEServiceInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.1",
     "class": "objectidentity"
   },
   "alaEServiceMode": {
     "name": "alaEServiceMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -125,33 +116,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaEServiceStatReset": {
-    "name": "alaEServiceStatReset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "default": 0,
-          "reset": 1
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "default",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
   "alaEServiceSapProfileTable": {
     "name": "alaEServiceSapProfileTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -159,7 +126,7 @@
   },
   "alaEServiceSapProfileEntry": {
     "name": "alaEServiceSapProfileEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -174,11 +141,11 @@
   },
   "alaEServiceSapProfileID": {
     "name": "alaEServiceSapProfileID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -194,7 +161,7 @@
   },
   "alaEServiceSapProfileCVLANTreatment": {
     "name": "alaEServiceSapProfileCVLANTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -219,11 +186,11 @@
   },
   "alaEServiceSapProfileReplacementCVLAN": {
     "name": "alaEServiceSapProfileReplacementCVLAN",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -239,7 +206,7 @@
   },
   "alaEServiceSapProfilePriorityMapMode": {
     "name": "alaEServiceSapProfilePriorityMapMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -265,11 +232,11 @@
   },
   "alaEServiceSapProfileFixedPriority": {
     "name": "alaEServiceSapProfileFixedPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -285,7 +252,7 @@
   },
   "alaEServiceSapProfileIngressBW": {
     "name": "alaEServiceSapProfileIngressBW",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -297,7 +264,7 @@
   },
   "alaEServiceSapProfileBandwidthShare": {
     "name": "alaEServiceSapProfileBandwidthShare",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -307,8 +274,7 @@
         "enumeration": {
           "notApplicable": 0,
           "shared": 1,
-          "notShared": 2,
-          "notAssigned": 3
+          "notShared": 2
         }
       }
     },
@@ -323,7 +289,7 @@
   },
   "alaEServiceSapProfileRowStatus": {
     "name": "alaEServiceSapProfileRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -335,55 +301,7 @@
   },
   "alaEServiceSapProfileEgressBW": {
     "name": "alaEServiceSapProfileEgressBW",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceSapProfileCIR": {
-    "name": "alaEServiceSapProfileCIR",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceSapProfileCBS": {
-    "name": "alaEServiceSapProfileCBS",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceSapProfilePIR": {
-    "name": "alaEServiceSapProfilePIR",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceSapProfilePBS": {
-    "name": "alaEServiceSapProfilePBS",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.2.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -395,7 +313,7 @@
   },
   "alaEServiceUNIProfileTable": {
     "name": "alaEServiceUNIProfileTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -403,7 +321,7 @@
   },
   "alaEServiceUNIProfileEntry": {
     "name": "alaEServiceUNIProfileEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -418,11 +336,11 @@
   },
   "alaEServiceUNIProfileID": {
     "name": "alaEServiceUNIProfileID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -438,7 +356,7 @@
   },
   "alaEServiceUNIProfileStpBpduTreatment": {
     "name": "alaEServiceUNIProfileStpBpduTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -456,7 +374,7 @@
   },
   "alaEServiceUNIProfile8021xTreatment": {
     "name": "alaEServiceUNIProfile8021xTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -474,7 +392,7 @@
   },
   "alaEServiceUNIProfile8021ABTreatment": {
     "name": "alaEServiceUNIProfile8021ABTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -492,7 +410,7 @@
   },
   "alaEServiceUNIProfile8023adTreatment": {
     "name": "alaEServiceUNIProfile8023adTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -510,7 +428,7 @@
   },
   "alaEServiceUNIProfileGvrpTreatment": {
     "name": "alaEServiceUNIProfileGvrpTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -524,11 +442,11 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaEServiceUNIProfileAmapTreatment": {
     "name": "alaEServiceUNIProfileAmapTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -544,9 +462,27 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "alaEServiceUNIProfileMvrpTreatment": {
+    "name": "alaEServiceUNIProfileMvrpTreatment",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaEServiceUNIProfileProtocolTreatment",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "alaEServiceUNIProfileRowStatus": {
     "name": "alaEServiceUNIProfileRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -556,219 +492,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alaEServiceUNIProfileMvrpTreatment": {
-    "name": "alaEServiceUNIProfileMvrpTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "tunnel",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileTunnelMac": {
-    "name": "alaEServiceUNIProfileTunnelMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileLacpMarkerTreatment": {
-    "name": "alaEServiceUNIProfileLacpMarkerTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "peer",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileOamTreatment": {
-    "name": "alaEServiceUNIProfileOamTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "peer",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoPagpTreatment": {
-    "name": "alaEServiceUNIProfileCiscoPagpTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoUdldTreatment": {
-    "name": "alaEServiceUNIProfileCiscoUdldTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoCdpTreatment": {
-    "name": "alaEServiceUNIProfileCiscoCdpTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoVtpTreatment": {
-    "name": "alaEServiceUNIProfileCiscoVtpTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoDtpTreatment": {
-    "name": "alaEServiceUNIProfileCiscoDtpTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.17",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoPvstTreatment": {
-    "name": "alaEServiceUNIProfileCiscoPvstTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.18",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoVlanTreatment": {
-    "name": "alaEServiceUNIProfileCiscoVlanTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.19",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaEServiceUNIProfileCiscoUplinkTreatment": {
-    "name": "alaEServiceUNIProfileCiscoUplinkTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.3.1.20",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaEServiceUNIProfileProtocolTreatment",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "drop",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "alaEServiceTable": {
     "name": "alaEServiceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -776,7 +502,7 @@
   },
   "alaEServiceEntry": {
     "name": "alaEServiceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -791,11 +517,11 @@
   },
   "alaEServiceID": {
     "name": "alaEServiceID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -811,11 +537,11 @@
   },
   "alaEServiceSVLAN": {
     "name": "alaEServiceSVLAN",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -831,7 +557,7 @@
   },
   "alaEServiceVlanType": {
     "name": "alaEServiceVlanType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -850,7 +576,7 @@
   },
   "alaEServiceRowStatus": {
     "name": "alaEServiceRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -860,45 +586,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alaEServiceStatGreenCount": {
-    "name": "alaEServiceStatGreenCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "alaEServiceStatYellowCount": {
-    "name": "alaEServiceStatYellowCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "alaEServiceStatRedCount": {
-    "name": "alaEServiceStatRedCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.4.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "alaEServiceSapTable": {
     "name": "alaEServiceSapTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -906,7 +596,7 @@
   },
   "alaEServiceSapEntry": {
     "name": "alaEServiceSapEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -921,23 +611,31 @@
   },
   "alaEServiceSapID": {
     "name": "alaEServiceSapID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
   "alaEServiceSapServiceID": {
     "name": "alaEServiceSapServiceID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -953,11 +651,11 @@
   },
   "alaEServiceSapProfile": {
     "name": "alaEServiceSapProfile",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -973,7 +671,7 @@
   },
   "alaEServiceSapRowStatus": {
     "name": "alaEServiceSapRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -985,7 +683,7 @@
   },
   "alaEServiceSapCvlanTable": {
     "name": "alaEServiceSapCvlanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -993,7 +691,7 @@
   },
   "alaEServiceSapCvlanEntry": {
     "name": "alaEServiceSapCvlanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1013,23 +711,31 @@
   },
   "alaEServiceSapCvlanSapID": {
     "name": "alaEServiceSapCvlanSapID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
   "alaEServiceSapCvlanCvlan": {
     "name": "alaEServiceSapCvlanCvlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1045,7 +751,7 @@
   },
   "alaEServiceSapCvlanMapType": {
     "name": "alaEServiceSapCvlanMapType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1070,7 +776,7 @@
   },
   "alaEServiceSapCvlanRowStatus": {
     "name": "alaEServiceSapCvlanRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1082,7 +788,7 @@
   },
   "alaEServicePortTable": {
     "name": "alaEServicePortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1090,7 +796,7 @@
   },
   "alaEServicePortEntry": {
     "name": "alaEServicePortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1105,7 +811,7 @@
   },
   "alaEServicePortID": {
     "name": "alaEServicePortID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1117,7 +823,7 @@
   },
   "alaEServicePortType": {
     "name": "alaEServicePortType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1136,12 +842,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaEServicePortVendorTpid": {
     "name": "alaEServicePortVendorTpid",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1154,12 +860,12 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaEServicePortLegacyStpBpdu": {
     "name": "alaEServicePortLegacyStpBpdu",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1179,12 +885,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaEServicePortLegacyGvrpPdu": {
     "name": "alaEServicePortLegacyGvrpPdu",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1204,16 +910,16 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
-    "status": "current"
+    "maxaccess": "read-create",
+    "status": "deprecated"
   },
   "alaEServicePortUniProfile": {
     "name": "alaEServicePortUniProfile",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1224,12 +930,12 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaEServicePortTransBridging": {
     "name": "alaEServicePortTransBridging",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1248,12 +954,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaEServicePortLegacyMvrpPdu": {
     "name": "alaEServicePortLegacyMvrpPdu",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.7.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1273,12 +979,24 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaEServicePortRowStatus": {
+    "name": "alaEServicePortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaEServiceSapUniTable": {
     "name": "alaEServiceSapUniTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1286,7 +1004,7 @@
   },
   "alaEServiceSapUniEntry": {
     "name": "alaEServiceSapUniEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1306,19 +1024,27 @@
   },
   "alaEServiceSapUniSap": {
     "name": "alaEServiceSapUniSap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
   "alaEServiceSapUniUni": {
     "name": "alaEServiceSapUniUni",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1330,7 +1056,7 @@
   },
   "alaEServiceSapUniRowStatus": {
     "name": "alaEServiceSapUniRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1342,7 +1068,7 @@
   },
   "alaEServiceNniSvlanTable": {
     "name": "alaEServiceNniSvlanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1350,7 +1076,7 @@
   },
   "alaEServiceNniSvlanEntry": {
     "name": "alaEServiceNniSvlanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1370,7 +1096,7 @@
   },
   "alaEServiceNniSvlanNni": {
     "name": "alaEServiceNniSvlanNni",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1382,11 +1108,11 @@
   },
   "alaEServiceNniSvlanSvlan": {
     "name": "alaEServiceNniSvlanSvlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.9.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1402,7 +1128,7 @@
   },
   "alaEServiceNniSvlanRowStatus": {
     "name": "alaEServiceNniSvlanRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.9.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1414,7 +1140,7 @@
   },
   "alaEServiceNniSvlanVpaType": {
     "name": "alaEServiceNniSvlanVpaType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.9.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1436,122 +1162,38 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alaEServiceSapCvlanPortStatTable": {
-    "name": "alaEServiceSapCvlanPortStatTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
+  "alaEServiceGlobals": {
+    "name": "alaEServiceGlobals",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.10",
+    "class": "objectidentity"
   },
-  "alaEServiceSapCvlanPortStatEntry": {
-    "name": "alaEServiceSapCvlanPortStatEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapCvlanPortStatSapID",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapCvlanPortStatCvlanID",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapCvlanPortStatPortID",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "alaEServiceSapCvlanPortStatSapID": {
-    "name": "alaEServiceSapCvlanPortStatSapID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "alaEServiceSapCvlanPortStatCvlanID": {
-    "name": "alaEServiceSapCvlanPortStatCvlanID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1.2",
-    "nodetype": "column",
+  "alaEServiceGlobalTransBridging": {
+    "name": "alaEServiceGlobalTransBridging",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.1.1.10.1",
+    "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
       "class": "type",
       "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 4094
-          }
-        ]
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
       }
     },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "alaEServiceSapCvlanPortStatPortID": {
-    "name": "alaEServiceSapCvlanPortStatPortID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InterfaceIndex",
-      "class": "type"
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
     },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "alaEServiceSapCvlanPortStatGreenCount": {
-    "name": "alaEServiceSapCvlanPortStatGreenCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "alaEServiceSapCvlanPortStatYellowCount": {
-    "name": "alaEServiceSapCvlanPortStatYellowCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "alaEServiceSapCvlanPortStatRedCount": {
-    "name": "alaEServiceSapCvlanPortStatRedCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.1.1.10.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "alcatelIND1EServiceMIBCompliance": {
     "name": "alcatelIND1EServiceMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1587,11 +1229,11 @@
         "module": "ALCATEL-IND1-E-SERVICE-MIB"
       },
       {
-        "object": "alaEServiceSapCvlanPortStatGroup",
+        "object": "alaEServiceInfoGroup",
         "module": "ALCATEL-IND1-E-SERVICE-MIB"
       },
       {
-        "object": "alaEServiceInfoGroup",
+        "object": "alaEServiceGlobalGroup",
         "module": "ALCATEL-IND1-E-SERVICE-MIB"
       }
     ],
@@ -1599,7 +1241,7 @@
   },
   "alaEServiceSapProfileGroup": {
     "name": "alaEServiceSapProfileGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1633,29 +1275,13 @@
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
         "object": "alaEServiceSapProfileEgressBW"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapProfileCIR"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapProfileCBS"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapProfilePIR"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapProfilePBS"
       }
     ],
     "status": "current"
   },
   "alaEServiceUNIProfileGroup": {
     "name": "alaEServiceUNIProfileGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1684,62 +1310,18 @@
       },
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
         "object": "alaEServiceUNIProfileMvrpTreatment"
       },
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileTunnelMac"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileLacpMarkerTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileOamTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoPagpTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoUdldTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoCdpTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoVtpTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoDtpTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoPvstTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoVlanTreatment"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceUNIProfileCiscoUplinkTreatment"
+        "object": "alaEServiceUNIProfileRowStatus"
       }
     ],
     "status": "current"
   },
   "alaEServiceGroup": {
     "name": "alaEServiceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1753,25 +1335,13 @@
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
         "object": "alaEServiceRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceStatGreenCount"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceStatYellowCount"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceStatRedCount"
       }
     ],
     "status": "current"
   },
   "alaEServiceSapGroup": {
     "name": "alaEServiceSapGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1791,7 +1361,7 @@
   },
   "alaEServiceSapCvlanGroup": {
     "name": "alaEServiceSapCvlanGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1807,7 +1377,7 @@
   },
   "alaEServicePortGroup": {
     "name": "alaEServicePortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1837,13 +1407,17 @@
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
         "object": "alaEServicePortLegacyMvrpPdu"
+      },
+      {
+        "module": "ALCATEL-IND1-E-SERVICE-MIB",
+        "object": "alaEServicePortRowStatus"
       }
     ],
     "status": "current"
   },
   "alaEServiceSapUniGroup": {
     "name": "alaEServiceSapUniGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -1855,7 +1429,7 @@
   },
   "alaEServiceNniSvlanGroup": {
     "name": "alaEServiceNniSvlanGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -1869,38 +1443,26 @@
     ],
     "status": "current"
   },
-  "alaEServiceSapCvlanPortStatGroup": {
-    "name": "alaEServiceSapCvlanPortStatGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.9",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapCvlanPortStatGreenCount"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapCvlanPortStatYellowCount"
-      },
-      {
-        "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceSapCvlanPortStatRedCount"
-      }
-    ],
-    "status": "current"
-  },
   "alaEServiceInfoGroup": {
     "name": "alaEServiceInfoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.50.1.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.9",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
         "object": "alaEServiceMode"
-      },
+      }
+    ],
+    "status": "current"
+  },
+  "alaEServiceGlobalGroup": {
+    "name": "alaEServiceGlobalGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.50.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
       {
         "module": "ALCATEL-IND1-E-SERVICE-MIB",
-        "object": "alaEServiceStatReset"
+        "object": "alaEServiceGlobalTransBridging"
       }
     ],
     "status": "current"
@@ -1908,8 +1470,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-E-SERVICE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-E-SERVICE-MIB"

@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-SN-AGENT-MIB": [
-      "DisplayString",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "switch"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
       "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
       "TimeTicks",
-      "IpAddress",
+      "iso",
       "Bits",
+      "Counter32",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -10589,9 +10589,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FOUNDRY-SN-SWITCH-GROUP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:37:34 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-SWITCH-GROUP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:22:26 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FOUNDRY-SN-SWITCH-GROUP-MIB"

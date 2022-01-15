@@ -1,42 +1,40 @@
 {
   "imports": {
     "class": "imports",
-    "FOUNDRY-SN-ROOT-MIB": [
-      "pwe3"
-    ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "IpAddress",
       "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "iso"
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaPwe3MIB": {
     "name": "ianaPwe3MIB",
-    "oid": "1.3.6.1.4.1.1991.3.1.3",
+    "oid": "1.3.6.1.2.1.174",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2007-02-04 12:00",
-        "description": "Original version, published as part of RFC yyyy."
+        "revision": "2009-06-11 00:00",
+        "description": "Original version, published as part of RFC 5601."
       }
     ]
   },
@@ -114,9 +112,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANA-PWE3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:45:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IANA-PWE3-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:25 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IANA-PWE3-MIB"

@@ -1,0 +1,37 @@
+#
+# PySNMP MIB module NMS-SMI (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/NMS-SMI
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:09:01 2022
+# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
+#
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Bits, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, IpAddress, MibIdentifier, Gauge32, ModuleIdentity, enterprises, iso, Integer32, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "IpAddress", "MibIdentifier", "Gauge32", "ModuleIdentity", "enterprises", "iso", "Integer32", "Unsigned32", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+nms = ModuleIdentity((1, 3, 6, 1, 4, 1, 3320))
+if mibBuilder.loadTexts: nms.setLastUpdated('20000628Z')
+if mibBuilder.loadTexts: nms.setOrganization('')
+nmsProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 1))
+if mibBuilder.loadTexts: nmsProducts.setStatus('current')
+nmslocal = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 2))
+if mibBuilder.loadTexts: nmslocal.setStatus('current')
+nmstemporary = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 3))
+if mibBuilder.loadTexts: nmstemporary.setStatus('current')
+nmsMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 9))
+if mibBuilder.loadTexts: nmsMgmt.setStatus('current')
+nmsModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 12))
+if mibBuilder.loadTexts: nmsModules.setStatus('current')
+nmsPolicyAuto = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 18))
+if mibBuilder.loadTexts: nmsPolicyAuto.setStatus('current')
+nmsPibToMib = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 18, 2))
+if mibBuilder.loadTexts: nmsPibToMib.setStatus('current')
+nmsWorkGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 20))
+if mibBuilder.loadTexts: nmsWorkGroup.setStatus('current')
+nmsEPONGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 101))
+if mibBuilder.loadTexts: nmsEPONGroup.setStatus('current')
+nmsPTNGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 3320, 102))
+if mibBuilder.loadTexts: nmsPTNGroup.setStatus('current')
+mibBuilder.exportSymbols("NMS-SMI", nmsModules=nmsModules, nmstemporary=nmstemporary, nmslocal=nmslocal, nmsProducts=nmsProducts, nmsPTNGroup=nmsPTNGroup, PYSNMP_MODULE_ID=nms, nmsPolicyAuto=nmsPolicyAuto, nmsWorkGroup=nmsWorkGroup, nms=nms, nmsMgmt=nmsMgmt, nmsEPONGroup=nmsEPONGroup, nmsPibToMib=nmsPibToMib)

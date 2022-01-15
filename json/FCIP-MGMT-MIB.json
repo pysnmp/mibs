@@ -1,0 +1,1215 @@
+{
+  "imports": {
+    "class": "imports",
+    "FC-MGMT-MIB": [
+      "FcNameIdOrZero"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Counter32",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus"
+    ]
+  },
+  "fcipMIB": {
+    "name": "fcipMIB",
+    "oid": "1.3.6.1.2.1.224",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-02-06 00:00",
+        "description": "Initial version of this module, published as RFC 4404."
+      }
+    ]
+  },
+  "fcipObjects": {
+    "name": "fcipObjects",
+    "oid": "1.3.6.1.2.1.224.1",
+    "class": "objectidentity"
+  },
+  "fcipConformance": {
+    "name": "fcipConformance",
+    "oid": "1.3.6.1.2.1.224.2",
+    "class": "objectidentity"
+  },
+  "fcipConfig": {
+    "name": "fcipConfig",
+    "oid": "1.3.6.1.2.1.224.1.1",
+    "class": "objectidentity"
+  },
+  "FcipDomainIdInOctetForm": {
+    "name": "FcipDomainIdInOctetForm",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FcipEntityMode": {
+    "name": "FcipEntityMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ePortMode": 1,
+          "bPortMode": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FcipEntityId": {
+    "name": "FcipEntityId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "fcipDynIpConfType": {
+    "name": "fcipDynIpConfType",
+    "oid": "1.3.6.1.2.1.224.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slpv2": 1,
+          "none": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcipDeviceWWN": {
+    "name": "fcipDeviceWWN",
+    "oid": "1.3.6.1.2.1.224.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipEntitySACKOption": {
+    "name": "fcipEntitySACKOption",
+    "oid": "1.3.6.1.2.1.224.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipEntityInstanceTable": {
+    "name": "fcipEntityInstanceTable",
+    "oid": "1.3.6.1.2.1.224.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipEntityInstanceEntry": {
+    "name": "fcipEntityInstanceEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipEntityId": {
+    "name": "fcipEntityId",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcipEntityId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipEntityName": {
+    "name": "fcipEntityName",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipEntityAddressType": {
+    "name": "fcipEntityAddressType",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipEntityAddress": {
+    "name": "fcipEntityAddress",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipEntityTcpConnPort": {
+    "name": "fcipEntityTcpConnPort",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipEntitySeqNumWrap": {
+    "name": "fcipEntitySeqNumWrap",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipEntityPHBSupport": {
+    "name": "fcipEntityPHBSupport",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipEntityStatus": {
+    "name": "fcipEntityStatus",
+    "oid": "1.3.6.1.2.1.224.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkTable": {
+    "name": "fcipLinkTable",
+    "oid": "1.3.6.1.2.1.224.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipLinkEntry": {
+    "name": "fcipLinkEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipLinkIndex": {
+    "name": "fcipLinkIndex",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipLinkIfIndex": {
+    "name": "fcipLinkIfIndex",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkCost": {
+    "name": "fcipLinkCost",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkLocalFcipEntityMode": {
+    "name": "fcipLinkLocalFcipEntityMode",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcipEntityMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkLocalFcipEntityAddressType": {
+    "name": "fcipLinkLocalFcipEntityAddressType",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkLocalFcipEntityAddress": {
+    "name": "fcipLinkLocalFcipEntityAddress",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkRemFcipEntityWWN": {
+    "name": "fcipLinkRemFcipEntityWWN",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkRemFcipEntityId": {
+    "name": "fcipLinkRemFcipEntityId",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcipEntityId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkRemFcipEntityAddressType": {
+    "name": "fcipLinkRemFcipEntityAddressType",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkRemFcipEntityAddress": {
+    "name": "fcipLinkRemFcipEntityAddress",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkStatus": {
+    "name": "fcipLinkStatus",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipLinkCreateTime": {
+    "name": "fcipLinkCreateTime",
+    "oid": "1.3.6.1.2.1.224.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipTcpConnTable": {
+    "name": "fcipTcpConnTable",
+    "oid": "1.3.6.1.2.1.224.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipTcpConnEntry": {
+    "name": "fcipTcpConnEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkIndex",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipTcpConnLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipTcpConnRemPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipTcpConnLocalPort": {
+    "name": "fcipTcpConnLocalPort",
+    "oid": "1.3.6.1.2.1.224.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipTcpConnRemPort": {
+    "name": "fcipTcpConnRemPort",
+    "oid": "1.3.6.1.2.1.224.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipTcpConnRWSize": {
+    "name": "fcipTcpConnRWSize",
+    "oid": "1.3.6.1.2.1.224.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipTcpConnMSS": {
+    "name": "fcipTcpConnMSS",
+    "oid": "1.3.6.1.2.1.224.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipDynamicRouteTable": {
+    "name": "fcipDynamicRouteTable",
+    "oid": "1.3.6.1.2.1.224.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipDynamicRouteEntry": {
+    "name": "fcipDynamicRouteEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipDynamicRouteDID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipDynamicRouteDID": {
+    "name": "fcipDynamicRouteDID",
+    "oid": "1.3.6.1.2.1.224.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcipDomainIdInOctetForm",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipDynamicRouteLinkIndex": {
+    "name": "fcipDynamicRouteLinkIndex",
+    "oid": "1.3.6.1.2.1.224.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipStaticRouteTable": {
+    "name": "fcipStaticRouteTable",
+    "oid": "1.3.6.1.2.1.224.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipStaticRouteEntry": {
+    "name": "fcipStaticRouteEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipStaticRouteDID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipStaticRouteDID": {
+    "name": "fcipStaticRouteDID",
+    "oid": "1.3.6.1.2.1.224.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcipDomainIdInOctetForm",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipStaticRouteLinkIndex": {
+    "name": "fcipStaticRouteLinkIndex",
+    "oid": "1.3.6.1.2.1.224.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipStaticRouteStatus": {
+    "name": "fcipStaticRouteStatus",
+    "oid": "1.3.6.1.2.1.224.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcipDiscoveryDomainTable": {
+    "name": "fcipDiscoveryDomainTable",
+    "oid": "1.3.6.1.2.1.224.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipDiscoveryDomainEntry": {
+    "name": "fcipDiscoveryDomainEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipDiscoveryDomainIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipDiscoveryDomainIndex": {
+    "name": "fcipDiscoveryDomainIndex",
+    "oid": "1.3.6.1.2.1.224.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipDiscoveryDomainName": {
+    "name": "fcipDiscoveryDomainName",
+    "oid": "1.3.6.1.2.1.224.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcipLinkErrorsTable": {
+    "name": "fcipLinkErrorsTable",
+    "oid": "1.3.6.1.2.1.224.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcipLinkErrorsEntry": {
+    "name": "fcipLinkErrorsEntry",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityId",
+        "implied": 0
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcipLinkFcipLossofFcSynchs": {
+    "name": "fcipLinkFcipLossofFcSynchs",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipEncapErrors": {
+    "name": "fcipLinkFcipEncapErrors",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipNotReceivedSfResps": {
+    "name": "fcipLinkFcipNotReceivedSfResps",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipSfRespMismatches": {
+    "name": "fcipLinkFcipSfRespMismatches",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipSfInvalidNonces": {
+    "name": "fcipLinkFcipSfInvalidNonces",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipReceivedSfDuplicates": {
+    "name": "fcipLinkFcipReceivedSfDuplicates",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipSfInvalidWWNs": {
+    "name": "fcipLinkFcipSfInvalidWWNs",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipBB2LkaTimeOuts": {
+    "name": "fcipLinkFcipBB2LkaTimeOuts",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkFcipSntpExpiredTimeStamps": {
+    "name": "fcipLinkFcipSntpExpiredTimeStamps",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkTcpTooManyErrors": {
+    "name": "fcipLinkTcpTooManyErrors",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkTcpExcessiveDroppedDatagrams": {
+    "name": "fcipLinkTcpExcessiveDroppedDatagrams",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipLinkTcpSaParamMismatches": {
+    "name": "fcipLinkTcpSaParamMismatches",
+    "oid": "1.3.6.1.2.1.224.1.1.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcipCompliances": {
+    "name": "fcipCompliances",
+    "oid": "1.3.6.1.2.1.224.2.1",
+    "class": "objectidentity"
+  },
+  "fcipGroups": {
+    "name": "fcipGroups",
+    "oid": "1.3.6.1.2.1.224.2.2",
+    "class": "objectidentity"
+  },
+  "fcipCompliance": {
+    "name": "fcipCompliance",
+    "oid": "1.3.6.1.2.1.224.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcipEntityScalarGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipEntityInstanceGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipLinkGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipTcpConnGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipDiscoveryDomainGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipLinkErrorsGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipDynamicRouteGroup",
+        "module": "FCIP-MGMT-MIB"
+      },
+      {
+        "object": "fcipStaticRouteGroup",
+        "module": "FCIP-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipEntityScalarGroup": {
+    "name": "fcipEntityScalarGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipDynIpConfType"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipDeviceWWN"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntitySACKOption"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipEntityInstanceGroup": {
+    "name": "fcipEntityInstanceGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityName"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityAddressType"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityAddress"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityTcpConnPort"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntitySeqNumWrap"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityPHBSupport"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipEntityStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipLinkGroup": {
+    "name": "fcipLinkGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkIfIndex"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkCost"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkLocalFcipEntityMode"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkLocalFcipEntityAddressType"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkLocalFcipEntityAddress"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkRemFcipEntityWWN"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkRemFcipEntityId"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkRemFcipEntityAddressType"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkRemFcipEntityAddress"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkStatus"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkCreateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipTcpConnGroup": {
+    "name": "fcipTcpConnGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipTcpConnRWSize"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipTcpConnMSS"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipDiscoveryDomainGroup": {
+    "name": "fcipDiscoveryDomainGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipDiscoveryDomainName"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipLinkErrorsGroup": {
+    "name": "fcipLinkErrorsGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipLossofFcSynchs"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipEncapErrors"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipNotReceivedSfResps"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipSfRespMismatches"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipSfInvalidNonces"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipReceivedSfDuplicates"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipSfInvalidWWNs"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipBB2LkaTimeOuts"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkFcipSntpExpiredTimeStamps"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkTcpTooManyErrors"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkTcpExcessiveDroppedDatagrams"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipLinkTcpSaParamMismatches"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipDynamicRouteGroup": {
+    "name": "fcipDynamicRouteGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipDynamicRouteLinkIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fcipStaticRouteGroup": {
+    "name": "fcipStaticRouteGroup",
+    "oid": "1.3.6.1.2.1.224.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipStaticRouteLinkIndex"
+      },
+      {
+        "module": "FCIP-MGMT-MIB",
+        "object": "fcipStaticRouteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/FCIP-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:24 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "FCIP-MGMT-MIB"
+  }
+}

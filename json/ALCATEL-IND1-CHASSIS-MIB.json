@@ -2,56 +2,72 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "hardentIND1Chassis",
       "hardentIND1Physical",
-      "chassisTraps"
+      "hardentIND1Chassis"
     ],
     "ENTITY-MIB": [
-      "entPhysicalIndex",
-      "PhysicalIndex"
+      "PhysicalIndex",
+      "entPhysicalIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1ChassisMIB": {
     "name": "alcatelIND1ChassisMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2009-06-09 00:00",
-        "description": "Added new object chasEntPhysPowerType and TEXTUAL-CONVENTION ChasEntPhysPowerType."
+        "revision": "2014-09-02 00:00",
+        "description": "Added chasEntPhysFanSpeed object."
       },
       {
-        "revision": "2009-06-26 00:00",
-        "description": "Added new object chasEntPhysPowerControlChecksum."
+        "revision": "2011-10-31 00:00",
+        "description": "Added changes for virtual chassis."
+      },
+      {
+        "revision": "2011-10-14 00:00",
+        "description": "Added chasEntPhysPowerUsed object."
+      },
+      {
+        "revision": "2011-08-05 00:00",
+        "description": "Added chasEntTemperatureTable."
+      },
+      {
+        "revision": "2011-03-23 00:00",
+        "description": "Added image file MD5 checksum changed alert, airflow, and temperature alerts"
+      },
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
       },
       {
         "revision": "2007-06-18 00:00",
@@ -59,57 +75,149 @@
       }
     ]
   },
+  "alcatelIND1ChassisMIBNotifications": {
+    "name": "alcatelIND1ChassisMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1ChassisMIBObjects": {
     "name": "alcatelIND1ChassisMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisMIBConformance": {
     "name": "alcatelIND1ChassisMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisMIBGroups": {
     "name": "alcatelIND1ChassisMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisMIBCompliances": {
     "name": "alcatelIND1ChassisMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisPhysMIBObjects": {
     "name": "alcatelIND1ChassisPhysMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisPhysMIBConformance": {
     "name": "alcatelIND1ChassisPhysMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisPhysMIBGroups": {
     "name": "alcatelIND1ChassisPhysMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ChassisPhysMIBCompliances": {
     "name": "alcatelIND1ChassisPhysMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2.2",
     "class": "objectidentity",
+    "status": "current"
+  },
+  "AlaChasBpsShelfId": {
+    "name": "AlaChasBpsShelfId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ChasTrapsBPSPowerSupply": {
+    "name": "ChasTrapsBPSPowerSupply",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpsSysPower1": 1,
+          "bpsSysPower2": 2,
+          "bpsPoePower1": 3,
+          "bpsPoePower2": 4,
+          "bpsPoePower3": 5,
+          "notApplicable": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ChasTrapsBPSFetState": {
+    "name": "ChasTrapsBPSFetState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ChasTrapsBPSEventAlert": {
+    "name": "ChasTrapsBPSEventAlert",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpsPsPlugged": 1,
+          "bpsPsUnPlugged": 2,
+          "bpsModeChanged": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ChasTrapsBPSFwType": {
+    "name": "ChasTrapsBPSFwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpsFwCmcu": 1,
+          "bpsFwMmcu": 2,
+          "bpsFwCpld": 3,
+          "notApplicable": 4
+        }
+      }
+    },
     "status": "current"
   },
   "chasControlModuleTable": {
     "name": "chasControlModuleTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -117,7 +225,7 @@
   },
   "chasControlModuleEntry": {
     "name": "chasControlModuleEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -130,32 +238,13 @@
     ],
     "status": "current"
   },
-  "chasControlRunningVersion": {
-    "name": "chasControlRunningVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unknown": 1,
-          "working": 2,
-          "certified": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "chasControlActivateTimeout": {
     "name": "chasControlActivateTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -171,7 +260,7 @@
   },
   "chasControlVersionMngt": {
     "name": "chasControlVersionMngt",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -185,7 +274,9 @@
           "flashSynchro": 4,
           "restore": 5,
           "activate": 6,
-          "issu": 7
+          "issu": 7,
+          "shutdown": 8,
+          "vcConvert": 9
         }
       }
     },
@@ -194,7 +285,7 @@
   },
   "chasControlDelayedActivateTimer": {
     "name": "chasControlDelayedActivateTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -214,7 +305,7 @@
   },
   "chasControlCertifyStatus": {
     "name": "chasControlCertifyStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -233,7 +324,7 @@
   },
   "chasControlSynchronizationStatus": {
     "name": "chasControlSynchronizationStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -253,7 +344,7 @@
   },
   "chasControlAcrossCmmWorkingSynchroStatus": {
     "name": "chasControlAcrossCmmWorkingSynchroStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -273,7 +364,7 @@
   },
   "chasControlAcrossCmmCertifiedSynchroStatus": {
     "name": "chasControlAcrossCmmCertifiedSynchroStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -291,9 +382,109 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "chasControlNextRunningVersion": {
+    "name": "chasControlNextRunningVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasControlCurrentRunningVersion": {
+    "name": "chasControlCurrentRunningVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasControlWorkingVersion": {
+    "name": "chasControlWorkingVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasControlRedundancyTime": {
+    "name": "chasControlRedundancyTime",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasControlEmpIpAddress": {
+    "name": "chasControlEmpIpAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "chasControlEmpIpMask": {
+    "name": "chasControlEmpIpMask",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "chasControlChassisId": {
+    "name": "chasControlChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "chasControlRedundantTable": {
     "name": "chasControlRedundantTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -301,7 +492,7 @@
   },
   "chasControlRedundantEntry": {
     "name": "chasControlRedundantEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -316,7 +507,7 @@
   },
   "chasControlNumberOfTakeover": {
     "name": "chasControlNumberOfTakeover",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -328,7 +519,7 @@
   },
   "chasControlDelayedRebootTimer": {
     "name": "chasControlDelayedRebootTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -346,9 +537,35 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "chasControlDelayedResetAll": {
+    "name": "chasControlDelayedResetAll",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "chasChassisTable": {
     "name": "chasChassisTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -356,7 +573,7 @@
   },
   "chasChassisEntry": {
     "name": "chasChassisEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -371,7 +588,7 @@
   },
   "chasFreeSlots": {
     "name": "chasFreeSlots",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -391,11 +608,11 @@
   },
   "chasPowerLeft": {
     "name": "chasPowerLeft",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -411,7 +628,7 @@
   },
   "chasNumberOfResets": {
     "name": "chasNumberOfResets",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -421,49 +638,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasHardwareBoardTemp": {
-    "name": "chasHardwareBoardTemp",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 200
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "chasHardwareCpuTemp": {
-    "name": "chasHardwareCpuTemp",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 200
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "chasTempRange": {
     "name": "chasTempRange",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -484,11 +661,11 @@
   },
   "chasTempThreshold": {
     "name": "chasTempThreshold",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -504,11 +681,11 @@
   },
   "chasDangerTempThreshold": {
     "name": "chasDangerTempThreshold",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -524,11 +701,11 @@
   },
   "chasPrimaryPhysicalIndex": {
     "name": "chasPrimaryPhysicalIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -542,9 +719,377 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "chasCPMAHardwareBoardTemp": {
+    "name": "chasCPMAHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasCFMAHardwareBoardTemp": {
+    "name": "chasCFMAHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasCPMBHardwareBoardTemp": {
+    "name": "chasCPMBHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasCFMBHardwareBoardTemp": {
+    "name": "chasCFMBHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasCFMCHardwareBoardTemp": {
+    "name": "chasCFMCHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasCFMDHardwareBoardTemp": {
+    "name": "chasCFMDHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasFTAHardwareBoardTemp": {
+    "name": "chasFTAHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasFTBHardwareBoardTemp": {
+    "name": "chasFTBHardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI1HardwareBoardTemp": {
+    "name": "chasNI1HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI2HardwareBoardTemp": {
+    "name": "chasNI2HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI3HardwareBoardTemp": {
+    "name": "chasNI3HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI4HardwareBoardTemp": {
+    "name": "chasNI4HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI5HardwareBoardTemp": {
+    "name": "chasNI5HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI6HardwareBoardTemp": {
+    "name": "chasNI6HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI7HardwareBoardTemp": {
+    "name": "chasNI7HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasNI8HardwareBoardTemp": {
+    "name": "chasNI8HardwareBoardTemp",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasPowerSupplyRedundancy": {
+    "name": "chasPowerSupplyRedundancy",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasPowerSupplyRedundancyReserve": {
+    "name": "chasPowerSupplyRedundancyReserve",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "chasEntPhysicalTable": {
     "name": "chasEntPhysicalTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -552,7 +1097,7 @@
   },
   "chasEntPhysicalEntry": {
     "name": "chasEntPhysicalEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -584,25 +1129,9 @@
     },
     "status": "current"
   },
-  "ChasEntPhysPowerType": {
-    "name": "ChasEntPhysPowerType",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "notApplicable": 0,
-          "ac": 1,
-          "dc": 2
-        }
-      }
-    },
-    "status": "current"
-  },
   "chasEntPhysAdminStatus": {
     "name": "chasEntPhysAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -618,7 +1147,9 @@
           "resetAll": 6,
           "standby": 7,
           "resetWithFabric": 8,
-          "takeoverWithFabrc": 9
+          "takeoverWithFabrc": 9,
+          "vcTakeover": 10,
+          "resetVcAll": 11
         }
       }
     },
@@ -627,7 +1158,7 @@
   },
   "chasEntPhysOperStatus": {
     "name": "chasEntPhysOperStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -642,66 +1173,22 @@
           "secondary": 5,
           "notPresent": 6,
           "unpowered": 7,
-          "master": 8
+          "master": 8,
+          "idle": 9,
+          "pwrsave": 10
         }
       }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysLedStatus": {
-    "name": "chasEntPhysLedStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "ok1GreenLSBit": 0,
-        "ok1GreenMSBit": 1,
-        "ok1AmberLSBit": 2,
-        "ok1AmberMSBit": 3,
-        "ok2GreenLSBit": 4,
-        "ok2GreenMSBit": 5,
-        "ok2AmberLSBit": 6,
-        "ok2AmberMSBit": 7,
-        "controlGreenLSBit": 8,
-        "controlGreenMSBit": 9,
-        "controlAmberLSBIt": 10,
-        "controlAmberMSBIt": 11,
-        "fabricGreenLSBit": 12,
-        "fabricGreenMSBit": 13,
-        "fabricAmberLSBit": 14,
-        "fabricAmberMSBit": 15,
-        "tempGreenLSBit": 16,
-        "tempGreenMSBit": 17,
-        "tempAmberLSBit": 18,
-        "tempAmberMSBit": 19,
-        "fanGreenLSBit": 20,
-        "fanGreenMSBit": 21,
-        "fanAmberLSBit": 22,
-        "fanAmberMSBit": 23,
-        "powerSupGreenLSBit": 24,
-        "powerSupGreenMSBit": 25,
-        "powerSupAmberLSBit": 26,
-        "powerSupAmberMSBit": 27,
-        "backupPowerSupGreenLSBit": 28,
-        "backupPowerSupGreenMSBit": 29,
-        "backupPowerSupAmberLSBit": 30,
-        "backupPowerSupAmberMSBit": 31
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
   "chasEntPhysPower": {
     "name": "chasEntPhysPower",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -717,7 +1204,7 @@
   },
   "chasEntPhysModuleType": {
     "name": "chasEntPhysModuleType",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -727,29 +1214,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysMfgDate": {
-    "name": "chasEntPhysMfgDate",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 11
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "chasEntPhysPartNumber": {
     "name": "chasEntPhysPartNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -769,7 +1236,7 @@
   },
   "chasEntPhysLedStatusOk1": {
     "name": "chasEntPhysLedStatusOk1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -781,7 +1248,7 @@
   },
   "chasEntPhysLedStatusOk2": {
     "name": "chasEntPhysLedStatusOk2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -793,7 +1260,7 @@
   },
   "chasEntPhysLedStatusPrimaryCMM": {
     "name": "chasEntPhysLedStatusPrimaryCMM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -805,7 +1272,7 @@
   },
   "chasEntPhysLedStatusSecondaryCMM": {
     "name": "chasEntPhysLedStatusSecondaryCMM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -817,7 +1284,7 @@
   },
   "chasEntPhysLedStatusTemperature": {
     "name": "chasEntPhysLedStatusTemperature",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -829,43 +1296,7 @@
   },
   "chasEntPhysLedStatusFan": {
     "name": "chasEntPhysLedStatusFan",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "ChasEntPhysLed",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "chasEntPhysLedStatusFan1": {
-    "name": "chasEntPhysLedStatusFan1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "ChasEntPhysLed",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "chasEntPhysLedStatusFan2": {
-    "name": "chasEntPhysLedStatusFan2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "ChasEntPhysLed",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "chasEntPhysLedStatusFan3": {
-    "name": "chasEntPhysLedStatusFan3",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -877,7 +1308,7 @@
   },
   "chasEntPhysLedStatusBackupPS": {
     "name": "chasEntPhysLedStatusBackupPS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -889,7 +1320,7 @@
   },
   "chasEntPhysLedStatusInternalPS": {
     "name": "chasEntPhysLedStatusInternalPS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -901,7 +1332,7 @@
   },
   "chasEntPhysLedStatusControl": {
     "name": "chasEntPhysLedStatusControl",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -913,7 +1344,7 @@
   },
   "chasEntPhysLedStatusFabric": {
     "name": "chasEntPhysLedStatusFabric",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -923,9 +1354,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysLedStatusPSU": {
-    "name": "chasEntPhysLedStatusPSU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.21",
+  "chasEntPhysLedStatusPS": {
+    "name": "chasEntPhysLedStatusPS",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -935,9 +1366,109 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysAsicRev": {
-    "name": "chasEntPhysAsicRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.22",
+  "chasEntPhysAsic1Rev": {
+    "name": "chasEntPhysAsic1Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntPhysAsic2Rev": {
+    "name": "chasEntPhysAsic2Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntPhysAsic3Rev": {
+    "name": "chasEntPhysAsic3Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntPhysAsic4Rev": {
+    "name": "chasEntPhysAsic4Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntPhysAsic5Rev": {
+    "name": "chasEntPhysAsic5Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntPhysAsic6Rev": {
+    "name": "chasEntPhysAsic6Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -957,7 +1488,7 @@
   },
   "chasEntPhysCpldRev": {
     "name": "chasEntPhysCpldRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -975,9 +1506,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysDefaultMinibootRev": {
-    "name": "chasEntPhysDefaultMinibootRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.24",
+  "chasEntPhysDaughterFpga1Rev": {
+    "name": "chasEntPhysDaughterFpga1Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -995,29 +1526,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysBackUpMinibootRev": {
-    "name": "chasEntPhysBackUpMinibootRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.25",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 14
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "chasEntPhysBootromRev": {
-    "name": "chasEntPhysBootromRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.26",
+  "chasEntPhysDaughterFpga2Rev": {
+    "name": "chasEntPhysDaughterFpga2Rev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1037,11 +1548,11 @@
   },
   "chasEntPhysNiNum": {
     "name": "chasEntPhysNiNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1057,11 +1568,11 @@
   },
   "chasEntPhysGbicNum": {
     "name": "chasEntPhysGbicNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.28",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1077,11 +1588,11 @@
   },
   "chasEntPhysWaveLen": {
     "name": "chasEntPhysWaveLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.29",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.28",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1097,7 +1608,7 @@
   },
   "chasEntPhysUbootRev": {
     "name": "chasEntPhysUbootRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.30",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.29",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1117,7 +1628,7 @@
   },
   "chasEntPhysUbootMinibootRev": {
     "name": "chasEntPhysUbootMinibootRev",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.31",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.30",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1137,7 +1648,7 @@
   },
   "chasEntPhysMacAddress": {
     "name": "chasEntPhysMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.32",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.31",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1147,49 +1658,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysPoeSwVersion": {
-    "name": "chasEntPhysPoeSwVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.33",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 16
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "chasEntPhysC20LFailCont": {
-    "name": "chasEntPhysC20LFailCont",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.34",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "chasEntPhysCpuModel": {
     "name": "chasEntPhysCpuModel",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.35",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.32",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1207,33 +1678,172 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysPowerType": {
-    "name": "chasEntPhysPowerType",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.36",
+  "chasEntPhysAirflow": {
+    "name": "chasEntPhysAirflow",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.33",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "ChasEntPhysPowerType",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frontToRear": 0,
+          "rearToFront": 1,
+          "notApplicable": 2
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chasEntPhysPowerControlChecksum": {
-    "name": "chasEntPhysPowerControlChecksum",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.37",
+  "chasEntPhysPowerUsed": {
+    "name": "chasEntPhysPowerUsed",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.34",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type"
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntPhysPowerType": {
+    "name": "chasEntPhysPowerType",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "ac": 1,
+          "dc": 2,
+          "bps": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntTemperatureTable": {
+    "name": "chasEntTemperatureTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "chasEntTemperatureEntry": {
+    "name": "chasEntTemperatureEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "chasEntTempCurrent": {
+    "name": "chasEntTempCurrent",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntTempThreshold": {
+    "name": "chasEntTempThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntTempDangerThreshold": {
+    "name": "chasEntTempDangerThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 150
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasEntTempStatus": {
+    "name": "chasEntTempStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notPresent": 2,
+          "underThreshold": 3,
+          "overFirstThreshold": 4,
+          "overDangerThreshold": 5
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
   "chasSupervisionRfsLsTable": {
     "name": "chasSupervisionRfsLsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1241,7 +1851,7 @@
   },
   "chasSupervisionRfsLsEntry": {
     "name": "chasSupervisionRfsLsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1256,11 +1866,11 @@
   },
   "chasSupervisionRfsLsFileIndex": {
     "name": "chasSupervisionRfsLsFileIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1276,7 +1886,7 @@
   },
   "chasSupervisionRfsLsSlot": {
     "name": "chasSupervisionRfsLsSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1288,11 +1898,11 @@
   },
   "chasSupervisionRfsLsDirName": {
     "name": "chasSupervisionRfsLsDirName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1314,11 +1924,11 @@
   },
   "chasSupervisionRfsLsFileName": {
     "name": "chasSupervisionRfsLsFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1334,7 +1944,7 @@
   },
   "chasSupervisionRfsLsFileType": {
     "name": "chasSupervisionRfsLsFileType",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1360,7 +1970,7 @@
   },
   "chasSupervisionRfsLsFileSize": {
     "name": "chasSupervisionRfsLsFileSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1372,7 +1982,7 @@
   },
   "chasSupervisionRfsLsFileAttr": {
     "name": "chasSupervisionRfsLsFileAttr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1398,11 +2008,11 @@
   },
   "chasSupervisionRfsLsFileDateTime": {
     "name": "chasSupervisionRfsLsFileDateTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1418,7 +2028,7 @@
   },
   "chasSupervisionRfsDfTable": {
     "name": "chasSupervisionRfsDfTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1426,7 +2036,7 @@
   },
   "chasSupervisionRfsDfEntry": {
     "name": "chasSupervisionRfsDfEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1441,47 +2051,19 @@
   },
   "chasSupervisionRfsDfSlot": {
     "name": "chasSupervisionRfsDfSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
-        "enumeration": {
-          "slot1Flash": 1,
-          "slot2Flash": 2,
-          "slot3Flash": 3,
-          "slot4Flash": 4,
-          "slot5Flash": 5,
-          "slot6Flash": 6,
-          "slot7Flash": 7,
-          "slot8Flash": 8,
-          "slot9Flash": 9,
-          "slot10Flash": 10,
-          "slot11Flash": 11,
-          "slot12Flash": 12,
-          "slot13Flash": 13,
-          "slot14Flash": 14,
-          "slot15Flash": 15,
-          "slot16Flash": 16,
-          "slot1Uflash": 17,
-          "slot2Uflash": 18,
-          "slot3Uflash": 19,
-          "slot4Uflash": 20,
-          "slot5Uflash": 21,
-          "slot6Uflash": 22,
-          "slot7Uflash": 23,
-          "slot8Uflash": 24,
-          "slot9Uflash": 25,
-          "slot10Uflash": 26,
-          "slot11Uflash": 27,
-          "slot12Uflash": 28,
-          "slot13Uflash": 29,
-          "slot14Uflash": 30,
-          "slot15Uflash": 31,
-          "slot16Uflash": 32
-        }
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
       }
     },
     "maxaccess": "not-accessible",
@@ -1489,7 +2071,7 @@
   },
   "chasSupervisionRfsDfFlashFree": {
     "name": "chasSupervisionRfsDfFlashFree",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1501,7 +2083,7 @@
   },
   "chasSupervisionRfsDfFlashSize": {
     "name": "chasSupervisionRfsDfFlashSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1511,9 +2093,35 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "chasSupervisionRfsDfUsbFree": {
+    "name": "chasSupervisionRfsDfUsbFree",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kb",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasSupervisionRfsDfUsbSize": {
+    "name": "chasSupervisionRfsDfUsbSize",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kb",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "chasSupervisionFlashMemTable": {
     "name": "chasSupervisionFlashMemTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1521,7 +2129,7 @@
   },
   "chasSupervisionFlashMemEntry": {
     "name": "chasSupervisionFlashMemEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1536,17 +2144,17 @@
   },
   "chasSupervisionSlot": {
     "name": "chasSupervisionSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 8
+            "max": 16
           }
         ]
       }
@@ -1556,7 +2164,7 @@
   },
   "chasSupervisionFlashSize": {
     "name": "chasSupervisionFlashSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.9.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1568,7 +2176,7 @@
   },
   "chasSupervisionFlashFree": {
     "name": "chasSupervisionFlashFree",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.9.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1580,11 +2188,11 @@
   },
   "chasSupervisionFlashUsed": {
     "name": "chasSupervisionFlashUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.9.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1600,7 +2208,7 @@
   },
   "chasSupervisionCmmCertifiedTable": {
     "name": "chasSupervisionCmmCertifiedTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.10",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1608,7 +2216,7 @@
   },
   "chasSupervisionCmmCertifiedEntry": {
     "name": "chasSupervisionCmmCertifiedEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.10.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1623,17 +2231,17 @@
   },
   "chasSupervisionCmmNum": {
     "name": "chasSupervisionCmmNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.10.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 8
+            "max": 16
           }
         ]
       }
@@ -1643,7 +2251,7 @@
   },
   "chasSupervisionCmmCertifiedStatus": {
     "name": "chasSupervisionCmmCertifiedStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.10.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.10.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1662,7 +2270,7 @@
   },
   "alaChasEntPhysFanTable": {
     "name": "alaChasEntPhysFanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1670,7 +2278,7 @@
   },
   "alaChasEntPhysFanEntry": {
     "name": "alaChasEntPhysFanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1690,11 +2298,11 @@
   },
   "alaChasEntPhysFanLocalIndex": {
     "name": "alaChasEntPhysFanLocalIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1710,7 +2318,7 @@
   },
   "alaChasEntPhysFanStatus": {
     "name": "alaChasEntPhysFanStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1727,99 +2335,59 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaChasHashMode": {
-    "name": "alaChasHashMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.12",
-    "nodetype": "scalar",
+  "alaChasEntPhysFanAirflow": {
+    "name": "alaChasEntPhysFanAirflow",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.3",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
-          "brief": 1,
-          "extended": 2
+          "frontToRear": 0,
+          "rearToFront": 1,
+          "notApplicable": 2
         }
       }
     },
-    "default": {
-      "default": {
-        "value": "extended",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
-  "alaChasUdpTcpPortMode": {
-    "name": "alaChasUdpTcpPortMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.13",
-    "nodetype": "scalar",
+  "alaChasEntPhysFanSpeed": {
+    "name": "alaChasEntPhysFanSpeed",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.4",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enabled": 1,
-          "disabled": 2
-        }
-      }
+      "type": "Unsigned32",
+      "class": "type"
     },
-    "default": {
-      "default": {
-        "value": "disabled",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "alaChasNonUCHashControl": {
-    "name": "alaChasNonUCHashControl",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "disable": 0,
-          "enable": 1
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
+    "units": "rpm",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "alcatelIND1ChassisSupervisionRfsCommands": {
     "name": "alcatelIND1ChassisSupervisionRfsCommands",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5",
     "class": "objectidentity",
     "status": "current"
   },
   "chasSupervisionRfsCommandsSlot": {
     "name": "chasSupervisionRfsCommandsSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "chasSupervisionRfsCommandsCommand": {
     "name": "chasSupervisionRfsCommandsCommand",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1832,20 +2400,22 @@
           "rcp": 2,
           "rls": 3,
           "rdf": 4,
-          "reserved": 5
+          "rget": 5,
+          "rput": 6,
+          "reserved": 7
         }
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "chasSupervisionRfsCommandsSrcFileName": {
     "name": "chasSupervisionRfsCommandsSrcFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1856,16 +2426,16 @@
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "chasSupervisionRfsCommandsDestFileName": {
     "name": "chasSupervisionRfsCommandsDestFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1876,16 +2446,16 @@
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "chasSupervisionRfsCommandsRlsDirName": {
     "name": "chasSupervisionRfsCommandsRlsDirName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1902,32 +2472,32 @@
         "format": "string"
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "chasSupervisionRfsCommandsRlsFileName": {
     "name": "chasSupervisionRfsCommandsRlsFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
             "min": 0,
-            "max": 33
+            "max": 255
           }
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "chasSupervisionRfsCommandsProcessingState": {
     "name": "chasSupervisionRfsCommandsProcessingState",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1945,7 +2515,7 @@
   },
   "chasSupervisionRfsCommandsStatusCode": {
     "name": "chasSupervisionRfsCommandsStatusCode",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.5.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.5.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1962,7 +2532,8 @@
           "noDiskSpace": 7,
           "systemBusy": 8,
           "systemError": 9,
-          "directoryNotAllowToRemove": 10
+          "directoryNotAllowToRemove": 10,
+          "permissionDenied": 11
         }
       }
     },
@@ -1971,7 +2542,7 @@
   },
   "chasControlReloadStatusTable": {
     "name": "chasControlReloadStatusTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1979,7 +2550,7 @@
   },
   "chasControlReloadEntry": {
     "name": "chasControlReloadEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1994,17 +2565,17 @@
   },
   "chasControlReloadIndex": {
     "name": "chasControlReloadIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 16
+            "max": 64
           }
         ]
       }
@@ -2014,7 +2585,7 @@
   },
   "chasControlReloadStatus": {
     "name": "chasControlReloadStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2040,16 +2611,16 @@
   },
   "chasGlobalControl": {
     "name": "chasGlobalControl",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7",
     "class": "objectidentity"
   },
   "chasGlobalControlDelayedResetAll": {
     "name": "chasGlobalControlDelayedResetAll",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2071,7 +2642,7 @@
   },
   "chasGlobalControlLongCommand": {
     "name": "chasGlobalControlLongCommand",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.7.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2083,7 +2654,13 @@
           "certifySynchro": 2,
           "certifyNoSynchro": 3,
           "flashSynchro": 4,
-          "restore": 5
+          "restore": 5,
+          "reload": 6,
+          "rfs": 7,
+          "issu": 8,
+          "shutdown": 9,
+          "vcConvert": 10,
+          "macRelease": 11
         }
       }
     },
@@ -2098,7 +2675,7 @@
   },
   "chasGlobalControlLongCommandStatus": {
     "name": "chasGlobalControlLongCommandStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.1.7.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2109,7 +2686,8 @@
           "none": 1,
           "inProgress": 2,
           "completeSuccess": 3,
-          "completeFailure": 4
+          "completeFailure": 4,
+          "confirmationRequired": 5
         }
       }
     },
@@ -2122,14 +2700,754 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "chassisTrapsDesc": {
-    "name": "chassisTrapsDesc",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.1",
+  "chasGlobalControlUpdateFirmware": {
+    "name": "chasGlobalControlUpdateFirmware",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ubootCmm": 2,
+          "ubootNi": 3,
+          "ubootNiAll": 4,
+          "ubootCmmAll": 5,
+          "fpgaCmm": 6,
+          "fpgaNi": 7,
+          "fpgaNiDaughterBoard1": 8,
+          "fpgaNiDaughterBoard2": 9,
+          "fpgaCmmAll": 10,
+          "fpgaCmmPower": 11,
+          "fpgaNiPower": 12
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasGlobalControlUpdateSlot": {
+    "name": "chasGlobalControlUpdateSlot",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasGlobalControlUpdateFilename": {
+    "name": "chasGlobalControlUpdateFilename",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasGlobalControlUpdateStatus": {
+    "name": "chasGlobalControlUpdateStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noUpdate": 1,
+          "updateInProgress": 2,
+          "updateSuccess": 3,
+          "updateFailed": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noUpdate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasGlobalControlConfirmOperation": {
+    "name": "chasGlobalControlConfirmOperation",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "chasGlobalControlConfirmMessage": {
+    "name": "chasGlobalControlConfirmMessage",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsObjects": {
+    "name": "alaChasBpsObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14",
     "class": "objectidentity"
+  },
+  "alaChasBpsFwTable": {
+    "name": "alaChasBpsFwTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsFwEntry": {
+    "name": "alaChasBpsFwEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsShelfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsShelfId": {
+    "name": "alaChasBpsShelfId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaChasBpsShelfId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsUpdateFirmware": {
+    "name": "alaChasBpsUpdateFirmware",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaChasBpsCpldRev": {
+    "name": "alaChasBpsCpldRev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsMmcuRev": {
+    "name": "alaChasBpsMmcuRev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsCmcuRev": {
+    "name": "alaChasBpsCmcuRev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsConnectorPriorityTable": {
+    "name": "alaChasBpsConnectorPriorityTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsConnectorPriorityEntry": {
+    "name": "alaChasBpsConnectorPriorityEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsChassisId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsChassisId": {
+    "name": "alaChasBpsChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsConnectorShelfId": {
+    "name": "alaChasBpsConnectorShelfId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaChasBpsShelfId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsConnectorPriority": {
+    "name": "alaChasBpsConnectorPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaChasBpsConnectorNum": {
+    "name": "alaChasBpsConnectorNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsSerialNum": {
+    "name": "alaChasBpsSerialNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 14
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsModeTable": {
+    "name": "alaChasBpsModeTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsModeEntry": {
+    "name": "alaChasBpsModeEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsShelfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsMode": {
+    "name": "alaChasBpsMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "full": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "single",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyTable": {
+    "name": "alaChasBpsPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyEntry": {
+    "name": "alaChasBpsPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyShelfId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyShelfId": {
+    "name": "alaChasBpsPowerSupplyShelfId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaChasBpsShelfId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyIndex": {
+    "name": "alaChasBpsPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyName": {
+    "name": "alaChasBpsPowerSupplyName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyDescr": {
+    "name": "alaChasBpsPowerSupplyDescr",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyModuleType": {
+    "name": "alaChasBpsPowerSupplyModuleType",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyPartNumber": {
+    "name": "alaChasBpsPowerSupplyPartNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyHardwareRev": {
+    "name": "alaChasBpsPowerSupplyHardwareRev",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplySerialNum": {
+    "name": "alaChasBpsPowerSupplySerialNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyMfgDate": {
+    "name": "alaChasBpsPowerSupplyMfgDate",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyOperStatus": {
+    "name": "alaChasBpsPowerSupplyOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyPowerProv": {
+    "name": "alaChasBpsPowerSupplyPowerProv",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsTotalPowerAllocTable": {
+    "name": "alaChasBpsTotalPowerAllocTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaChasBpsTotalPowerAllocEntry": {
+    "name": "alaChasBpsTotalPowerAllocEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsShelfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsSysTotalAvailablePower": {
+    "name": "alaChasBpsSysTotalAvailablePower",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsSysTotalAllocation": {
+    "name": "alaChasBpsSysTotalAllocation",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPoeTotalAvailablePower": {
+    "name": "alaChasBpsPoeTotalAvailablePower",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaChasBpsPoeTotalAllocation": {
+    "name": "alaChasBpsPoeTotalAllocation",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "chassisTrapsObj": {
     "name": "chassisTrapsObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13",
     "class": "objectidentity"
   },
   "ChassisTrapsStrLevel": {
@@ -2152,7 +3470,7 @@
     "name": "ChassisTrapsStrAppID",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2169,7 +3487,7 @@
     "name": "ChassisTrapsStrSnapID",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2186,7 +3504,7 @@
     "name": "ChassisTrapsStrfileLineNb",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2203,7 +3521,7 @@
     "name": "ChassisTrapsStrErrorNb",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2257,7 +3575,7 @@
     "name": "ChassisTrapsObjectNumber",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2334,7 +3652,12 @@
           "c20UpgradeFailed": 54,
           "c20RestoreOk": 55,
           "c20RestoreFailed": 56,
-          "c20NiFailed": 57
+          "c20NiFailed": 57,
+          "airflowReverse": 58,
+          "tempSWHigh": 59,
+          "tempHWHigh": 60,
+          "tempDanger": 61,
+          "imageFileChecksumChanged": 62
         }
       }
     },
@@ -2342,7 +3665,7 @@
   },
   "chassisTrapsStr": {
     "name": "chassisTrapsStr",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.1.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2382,7 +3705,7 @@
   },
   "chassisTrapsAlert": {
     "name": "chassisTrapsAlert",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.1.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -2410,7 +3733,7 @@
   },
   "chassisTrapsStateChange": {
     "name": "chassisTrapsStateChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.1.0.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -2432,9 +3755,89 @@
     ],
     "status": "current"
   },
+  "chasTrapsBPSLessAllocSysPwr": {
+    "name": "chasTrapsBPSLessAllocSysPwr",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "physicalIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsNiRqstdBpsSysPower"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsNiGrantdBpsSysPower"
+      }
+    ],
+    "status": "current"
+  },
+  "chasTrapsBPSStateChange": {
+    "name": "chasTrapsBPSStateChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapBPSShelfId"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSPowerSupply"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSEventAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "chasTrapsNiBPSFETStateChange": {
+    "name": "chasTrapsNiBPSFETStateChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "physicalIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSSystemFETChange"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSPoeFETChange"
+      }
+    ],
+    "status": "current"
+  },
+  "chasTrapsBPSFwUpgradeAlert": {
+    "name": "chasTrapsBPSFwUpgradeAlert",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapBPSShelfId"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSFwType"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSFwVersion"
+      }
+    ],
+    "status": "current"
+  },
   "chassisTrapsStrLevel": {
     "name": "chassisTrapsStrLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2446,7 +3849,7 @@
   },
   "chassisTrapsStrAppID": {
     "name": "chassisTrapsStrAppID",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2458,7 +3861,7 @@
   },
   "chassisTrapsStrSnapID": {
     "name": "chassisTrapsStrSnapID",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2470,7 +3873,7 @@
   },
   "chassisTrapsStrfileName": {
     "name": "chassisTrapsStrfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2490,7 +3893,7 @@
   },
   "chassisTrapsStrfileLineNb": {
     "name": "chassisTrapsStrfileLineNb",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2502,7 +3905,7 @@
   },
   "chassisTrapsStrErrorNb": {
     "name": "chassisTrapsStrErrorNb",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2514,7 +3917,7 @@
   },
   "chassisTrapsStrcomments": {
     "name": "chassisTrapsStrcomments",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2534,7 +3937,7 @@
   },
   "chassisTrapsStrdataInfo": {
     "name": "chassisTrapsStrdataInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2546,7 +3949,7 @@
   },
   "chassisTrapsObjectType": {
     "name": "chassisTrapsObjectType",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2558,7 +3961,7 @@
   },
   "chassisTrapsObjectNumber": {
     "name": "chassisTrapsObjectNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2570,7 +3973,7 @@
   },
   "chassisTrapsAlertNumber": {
     "name": "chassisTrapsAlertNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2582,7 +3985,7 @@
   },
   "chassisTrapsAlertDescr": {
     "name": "chassisTrapsAlertDescr",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2602,7 +4005,7 @@
   },
   "physicalIndex": {
     "name": "physicalIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2612,9 +4015,149 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "chasTrapsNiRqstdBpsSysPower": {
+    "name": "chasTrapsNiRqstdBpsSysPower",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsNiGrantdBpsSysPower": {
+    "name": "chasTrapsNiGrantdBpsSysPower",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapBPSShelfId": {
+    "name": "chasTrapBPSShelfId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsBPSPowerSupply": {
+    "name": "chasTrapsBPSPowerSupply",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChasTrapsBPSPowerSupply",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsBPSEventAlert": {
+    "name": "chasTrapsBPSEventAlert",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChasTrapsBPSEventAlert",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsBPSSystemFETChange": {
+    "name": "chasTrapsBPSSystemFETChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChasTrapsBPSFetState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsBPSPoeFETChange": {
+    "name": "chasTrapsBPSPoeFETChange",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChasTrapsBPSFetState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsBPSFwVersion": {
+    "name": "chasTrapsBPSFwVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "chasTrapsBPSFwType": {
+    "name": "chasTrapsBPSFwType",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.1.13.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChasTrapsBPSFwType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "alcatelIND1ChassisMIBCompliance": {
     "name": "alcatelIND1ChassisMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2646,7 +4189,47 @@
         "module": "ALCATEL-IND1-CHASSIS-MIB"
       },
       {
-        "object": "alaChasHashControlGroup",
+        "object": "alaChasNotificationObjectGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "chassisSupervisionRfsCommandsGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "chasSupervisionCmmCertifiedEntryGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "chasSupervisionFlashMemEntryGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "chasSupervisionRfsDfEntryGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "chasSupervisionRfsLsEntryGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "alaChasBpsFwGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "alaChasBpsConnectorPriorityGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "alaChasBpsModeGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "alaChasBpsPowerSupplyGroup",
+        "module": "ALCATEL-IND1-CHASSIS-MIB"
+      },
+      {
+        "object": "alaChasBpsTotalPowerAllocGroup",
         "module": "ALCATEL-IND1-CHASSIS-MIB"
       }
     ],
@@ -2654,7 +4237,7 @@
   },
   "alcatelIND1ChassisPhysMIBCompliance": {
     "name": "alcatelIND1ChassisPhysMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2670,13 +4253,9 @@
   },
   "chasControlModuleGroup": {
     "name": "chasControlModuleGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.1",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasControlRunningVersion"
-      },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasControlActivateTimeout"
@@ -2688,13 +4267,57 @@
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasControlDelayedActivateTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlCertifyStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlSynchronizationStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlAcrossCmmWorkingSynchroStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlAcrossCmmCertifiedSynchroStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlNextRunningVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlCurrentRunningVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlWorkingVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlRedundancyTime"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlEmpIpAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlEmpIpMask"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlChassisId"
       }
     ],
     "status": "current"
   },
   "chasControlRedundantGroup": {
     "name": "chasControlRedundantGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -2704,13 +4327,17 @@
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasControlDelayedRebootTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasControlDelayedResetAll"
       }
     ],
     "status": "current"
   },
   "chasChassisGroup": {
     "name": "chasChassisGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -2727,14 +4354,6 @@
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasHardwareBoardTemp"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasHardwareCpuTemp"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasTempRange"
       },
       {
@@ -2748,13 +4367,85 @@
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasPrimaryPhysicalIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasCPMAHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasCFMAHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasCPMBHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasCFMBHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasCFMCHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasCFMDHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasFTAHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasFTBHardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI1HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI2HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI3HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI4HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI5HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI6HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI7HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasNI8HardwareBoardTemp"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasPowerSupplyRedundancy"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasPowerSupplyRedundancyReserve"
       }
     ],
     "status": "current"
   },
   "chasControlReloadStatusGroup": {
     "name": "chasControlReloadStatusGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -2766,7 +4457,7 @@
   },
   "chasGlobalControlGroup": {
     "name": "chasGlobalControlGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -2780,13 +4471,37 @@
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasGlobalControlLongCommandStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasGlobalControlUpdateFirmware"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasGlobalControlUpdateSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasGlobalControlUpdateFilename"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasGlobalControlUpdateStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasGlobalControlConfirmOperation"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasGlobalControlConfirmMessage"
       }
     ],
     "status": "current"
   },
   "chassisNotificationGroup": {
     "name": "chassisNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.6",
     "class": "notificationgroup",
     "objects": [
       {
@@ -2796,41 +4511,409 @@
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chassisTrapsAlert"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSLessAllocSysPwr"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSStateChange"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsNiBPSFETStateChange"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSFwUpgradeAlert"
       }
     ],
     "status": "current"
   },
   "alaChasEntPhysFanGroup": {
     "name": "alaChasEntPhysFanGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "alaChasEntPhysFanStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasEntPhysFanAirflow"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasEntPhysFanSpeed"
       }
     ],
     "status": "current"
   },
-  "alaChasHashControlGroup": {
-    "name": "alaChasHashControlGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.3.1.2.1.8",
+  "alaChasNotificationObjectGroup": {
+    "name": "alaChasNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.9",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "alaChasHashMode"
+        "object": "chassisTrapsStrLevel"
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "alaChasUdpTcpPortMode"
+        "object": "chassisTrapsStrAppID"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsStrSnapID"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsStrfileName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsStrfileLineNb"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsStrErrorNb"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsStrcomments"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsStrdataInfo"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsObjectType"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsObjectNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsAlertNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chassisTrapsAlertDescr"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "physicalIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsNiRqstdBpsSysPower"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsNiGrantdBpsSysPower"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapBPSShelfId"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSPowerSupply"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSEventAlert"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSSystemFETChange"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSPoeFETChange"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSFwVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasTrapsBPSFwType"
+      }
+    ],
+    "status": "current"
+  },
+  "chassisSupervisionRfsCommandsGroup": {
+    "name": "chassisSupervisionRfsCommandsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsCommand"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsSrcFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsDestFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsRlsDirName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsRlsFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsProcessingState"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsCommandsStatusCode"
+      }
+    ],
+    "status": "current"
+  },
+  "chasSupervisionCmmCertifiedEntryGroup": {
+    "name": "chasSupervisionCmmCertifiedEntryGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionCmmCertifiedStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "chasSupervisionFlashMemEntryGroup": {
+    "name": "chasSupervisionFlashMemEntryGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionFlashSize"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionFlashFree"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionFlashUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "chasSupervisionRfsDfEntryGroup": {
+    "name": "chasSupervisionRfsDfEntryGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsDfFlashFree"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsDfFlashSize"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsDfUsbFree"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsDfUsbSize"
+      }
+    ],
+    "status": "current"
+  },
+  "chasSupervisionRfsLsEntryGroup": {
+    "name": "chasSupervisionRfsLsEntryGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsFileIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsSlot"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsDirName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsFileType"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsFileSize"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsFileAttr"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasSupervisionRfsLsFileDateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsFwGroup": {
+    "name": "alaChasBpsFwGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsUpdateFirmware"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsCpldRev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsMmcuRev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsCmcuRev"
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsConnectorPriorityGroup": {
+    "name": "alaChasBpsConnectorPriorityGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsConnectorShelfId"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsConnectorPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsConnectorNum"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsSerialNum"
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsModeGroup": {
+    "name": "alaChasBpsModeGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsPowerSupplyGroup": {
+    "name": "alaChasBpsPowerSupplyGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyName"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyDescr"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyModuleType"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyPartNumber"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyHardwareRev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplySerialNum"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyMfgDate"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPowerSupplyPowerProv"
+      }
+    ],
+    "status": "current"
+  },
+  "alaChasBpsTotalPowerAllocGroup": {
+    "name": "alaChasBpsTotalPowerAllocGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.3.1.2.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsSysTotalAvailablePower"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsSysTotalAllocation"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPoeTotalAvailablePower"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "alaChasBpsPoeTotalAllocation"
       }
     ],
     "status": "current"
   },
   "chasEntPhysicalGroup": {
     "name": "chasEntPhysicalGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -2843,19 +4926,11 @@
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysLedStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasEntPhysPower"
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasEntPhysModuleType"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysMfgDate"
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
@@ -2887,18 +4962,6 @@
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysLedStatusFan1"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysLedStatusFan2"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysLedStatusFan3"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasEntPhysLedStatusBackupPS"
       },
       {
@@ -2915,22 +4978,90 @@
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysLedStatusPSU"
+        "object": "chasEntPhysLedStatusPS"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAsic1Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAsic2Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAsic3Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAsic4Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAsic5Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAsic6Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysCpldRev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysDaughterFpga1Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysDaughterFpga2Rev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysNiNum"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysGbicNum"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysWaveLen"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysUbootRev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysUbootMinibootRev"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysMacAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysCpuModel"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysAirflow"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntPhysPowerUsed"
       },
       {
         "module": "ALCATEL-IND1-CHASSIS-MIB",
         "object": "chasEntPhysPowerType"
-      },
-      {
-        "module": "ALCATEL-IND1-CHASSIS-MIB",
-        "object": "chasEntPhysPowerControlChecksum"
       }
     ],
     "status": "current"
   },
   "chassisPhysNotificationGroup": {
     "name": "chassisPhysNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2.1.2",
     "class": "notificationgroup",
     "objects": [
       {
@@ -2948,11 +5079,35 @@
     ],
     "status": "current"
   },
+  "chassisTemperatureGroup": {
+    "name": "chassisTemperatureGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntTempCurrent"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntTempDangerThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntTempStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "chasEntTempThreshold"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-CHASSIS-MIB"

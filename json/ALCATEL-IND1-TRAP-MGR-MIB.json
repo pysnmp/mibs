@@ -2,83 +2,100 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "softentIND1TrapMgr",
-      "trapMgrTraps"
+      "softentIND1TrapMgr"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1TrapMgrMIB": {
     "name": "alcatelIND1TrapMgrMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1",
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
+      {
         "revision": "2007-08-07 00:00",
         "description": "The latest version of this MIB Module."
+      },
+      {
+        "revision": "2014-09-18 00:00",
+        "description": "Added additional table event action scripting. "
       }
     ]
   },
+  "alcatelIND1TrapMgrMIBNotifications": {
+    "name": "alcatelIND1TrapMgrMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1TrapMgrMIBObjects": {
     "name": "alcatelIND1TrapMgrMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1TrapMgrMIBConformance": {
     "name": "alcatelIND1TrapMgrMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1TrapMgrMIBGroups": {
     "name": "alcatelIND1TrapMgrMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1TrapMgrMIBCompliances": {
     "name": "alcatelIND1TrapMgrMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "trapMgt": {
     "name": "trapMgt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1",
     "class": "objectidentity"
   },
   "trapConfigTable": {
     "name": "trapConfigTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -86,7 +103,7 @@
   },
   "trapConfigEntry": {
     "name": "trapConfigEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -101,11 +118,11 @@
   },
   "trapIndex": {
     "name": "trapIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -121,11 +138,11 @@
   },
   "trapName": {
     "name": "trapName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -141,11 +158,11 @@
   },
   "trapFamily": {
     "name": "trapFamily",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -161,11 +178,11 @@
   },
   "trapAbsorbPeriod": {
     "name": "trapAbsorbPeriod",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -181,7 +198,7 @@
   },
   "trapStationTable": {
     "name": "trapStationTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -189,7 +206,7 @@
   },
   "trapStationEntry": {
     "name": "trapStationEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -204,7 +221,7 @@
   },
   "trapStationIP": {
     "name": "trapStationIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -216,7 +233,7 @@
   },
   "trapStationPort": {
     "name": "trapStationPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -229,24 +246,24 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "trapStationRowStatus": {
     "name": "trapStationRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "trapStationProtocol": {
     "name": "trapStationProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -266,16 +283,16 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "trapStationUser": {
     "name": "trapStationUser",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -286,24 +303,24 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "trapStationReplay": {
     "name": "trapStationReplay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "trapStationNextSeq": {
     "name": "trapStationNextSeq",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -315,7 +332,7 @@
   },
   "trapFilterTable": {
     "name": "trapFilterTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -323,7 +340,7 @@
   },
   "trapFilterEntry": {
     "name": "trapFilterEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -343,7 +360,7 @@
   },
   "trapFilterStatus": {
     "name": "trapFilterStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -367,7 +384,7 @@
   },
   "trapAbsorption": {
     "name": "trapAbsorption",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -391,7 +408,7 @@
   },
   "trapToWebView": {
     "name": "trapToWebView",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -415,7 +432,7 @@
   },
   "alaTrapInetStationTable": {
     "name": "alaTrapInetStationTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -423,7 +440,7 @@
   },
   "alaTrapInetStationEntry": {
     "name": "alaTrapInetStationEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -443,7 +460,7 @@
   },
   "alaTrapInetStationIPType": {
     "name": "alaTrapInetStationIPType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -455,7 +472,7 @@
   },
   "alaTrapInetStationIP": {
     "name": "alaTrapInetStationIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -479,7 +496,7 @@
   },
   "alaTrapInetStationPort": {
     "name": "alaTrapInetStationPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -497,7 +514,7 @@
   },
   "alaTrapInetStationRowStatus": {
     "name": "alaTrapInetStationRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -509,7 +526,7 @@
   },
   "alaTrapInetStationProtocol": {
     "name": "alaTrapInetStationProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -534,11 +551,11 @@
   },
   "alaTrapInetStationUser": {
     "name": "alaTrapInetStationUser",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -554,7 +571,7 @@
   },
   "alaTrapInetStationReplay": {
     "name": "alaTrapInetStationReplay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -566,7 +583,7 @@
   },
   "alaTrapInetStationNextSeq": {
     "name": "alaTrapInetStationNextSeq",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.6.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -578,7 +595,7 @@
   },
   "alaTrapInetFilterTable": {
     "name": "alaTrapInetFilterTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -586,7 +603,7 @@
   },
   "alaTrapInetFilterEntry": {
     "name": "alaTrapInetFilterEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -611,7 +628,7 @@
   },
   "alaTrapInetFilterStatus": {
     "name": "alaTrapInetFilterStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -633,9 +650,160 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "alaDgTrapStationTable": {
+    "name": "alaDgTrapStationTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDgTrapStationEntry": {
+    "name": "alaDgTrapStationEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationIPType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationIP",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaDgTrapStationIPType": {
+    "name": "alaDgTrapStationIPType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDgTrapStationIP": {
+    "name": "alaDgTrapStationIP",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaDgTrapStationPort": {
+    "name": "alaDgTrapStationPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 162,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDgTrapStationProtocol": {
+    "name": "alaDgTrapStationProtocol",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2,
+          "v3": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "v3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDgTrapStationUser": {
+    "name": "alaDgTrapStationUser",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDgTrapStationReplay": {
+    "name": "alaDgTrapStationReplay",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDgTrapStationNextSeq": {
+    "name": "alaDgTrapStationNextSeq",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "trapAbsorptionTrap": {
     "name": "trapAbsorptionTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.12.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -659,12 +827,12 @@
   },
   "trapNotif": {
     "name": "trapNotif",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.3",
     "class": "objectidentity"
   },
   "trapAbsorStamp": {
     "name": "trapAbsorStamp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -676,11 +844,11 @@
   },
   "trapAbsorTrapId": {
     "name": "trapAbsorTrapId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -696,7 +864,7 @@
   },
   "trapAbsorCounter": {
     "name": "trapAbsorCounter",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.3.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.3.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -708,7 +876,7 @@
   },
   "trapAbsorTime": {
     "name": "trapAbsorTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.1.3.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.1.3.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -720,7 +888,7 @@
   },
   "alcatelIND1TrapMgrMIBCompliance": {
     "name": "alcatelIND1TrapMgrMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -740,7 +908,7 @@
   },
   "trapMgtGroup": {
     "name": "trapMgtGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -826,13 +994,33 @@
       {
         "module": "ALCATEL-IND1-TRAP-MGR-MIB",
         "object": "alaTrapInetFilterStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationPort"
+      },
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationProtocol"
+      },
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationUser"
+      },
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationReplay"
+      },
+      {
+        "module": "ALCATEL-IND1-TRAP-MGR-MIB",
+        "object": "alaDgTrapStationNextSeq"
       }
     ],
     "status": "current"
   },
   "trapTrapsGroup": {
     "name": "trapTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2.1.2",
     "class": "notificationgroup",
     "objects": [
       {
@@ -844,7 +1032,7 @@
   },
   "trapNotifGroup": {
     "name": "trapNotifGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.2.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.2.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -869,8 +1057,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TRAP-MGR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-TRAP-MGR-MIB"

@@ -2,73 +2,87 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "switchMgtTraps",
       "softentIND1Sesmgr"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1SessionMgrMIB": {
     "name": "alcatelIND1SessionMgrMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1",
-    "class": "moduleidentity"
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      }
+    ]
+  },
+  "alcatelIND1SessionMgrMIBNotifications": {
+    "name": "alcatelIND1SessionMgrMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.0",
+    "class": "objectidentity",
+    "status": "current"
   },
   "alcatelIND1SessionMgrMIBObjects": {
     "name": "alcatelIND1SessionMgrMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SessionMgrMIBConformance": {
     "name": "alcatelIND1SessionMgrMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SessionMgrMIBGroups": {
     "name": "alcatelIND1SessionMgrMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SessionMgrMIBCompliances": {
     "name": "alcatelIND1SessionMgrMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "sessionMgr": {
     "name": "sessionMgr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1",
     "class": "objectidentity"
   },
   "sessionConfigTable": {
     "name": "sessionConfigTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -76,7 +90,7 @@
   },
   "sessionConfigEntry": {
     "name": "sessionConfigEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -91,7 +105,7 @@
   },
   "sessionType": {
     "name": "sessionType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -101,8 +115,7 @@
         "enumeration": {
           "cli": 1,
           "http": 2,
-          "ftp": 3,
-          "snmp": 4
+          "ftp": 3
         }
       }
     },
@@ -111,11 +124,11 @@
   },
   "sessionBannerFileName": {
     "name": "sessionBannerFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -131,11 +144,11 @@
   },
   "sessionInactivityTimerValue": {
     "name": "sessionInactivityTimerValue",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -157,11 +170,11 @@
   },
   "sessionDefaultPromptString": {
     "name": "sessionDefaultPromptString",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -183,7 +196,7 @@
   },
   "sessionActiveTable": {
     "name": "sessionActiveTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -191,7 +204,7 @@
   },
   "sessionActiveEntry": {
     "name": "sessionActiveEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -206,11 +219,11 @@
   },
   "sessionIndex": {
     "name": "sessionIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -226,7 +239,7 @@
   },
   "sessionAccessType": {
     "name": "sessionAccessType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -238,7 +251,8 @@
           "telnet": 2,
           "ftp": 3,
           "http": 4,
-          "ssh": 5
+          "ssh": 5,
+          "https": 6
         }
       }
     },
@@ -247,7 +261,7 @@
   },
   "sessionPhysicalPort": {
     "name": "sessionPhysicalPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -256,9 +270,8 @@
       "constraints": {
         "enumeration": {
           "notSignificant": 0,
-          "emp": 1,
-          "ni": 2,
-          "local": 3
+          "local": 1,
+          "ether": 2
         }
       }
     },
@@ -267,11 +280,11 @@
   },
   "sessionUserName": {
     "name": "sessionUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -287,7 +300,7 @@
   },
   "sessionUserReadPrivileges": {
     "name": "sessionUserReadPrivileges",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -307,7 +320,7 @@
   },
   "sessionUserWritePrivileges": {
     "name": "sessionUserWritePrivileges",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -327,11 +340,11 @@
   },
   "sessionUserProfileName": {
     "name": "sessionUserProfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -343,11 +356,11 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "obsolete"
   },
   "sessionUserIpAddress": {
     "name": "sessionUserIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -359,23 +372,23 @@
   },
   "sessionRowStatus": {
     "name": "sessionRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "sessionLoginTimeout": {
     "name": "sessionLoginTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -397,11 +410,11 @@
   },
   "sessionLoginAttempt": {
     "name": "sessionLoginAttempt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -423,7 +436,7 @@
   },
   "sessionCliCommandLogEnable": {
     "name": "sessionCliCommandLogEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -447,7 +460,7 @@
   },
   "sessionXonXoffEnable": {
     "name": "sessionXonXoffEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -469,19 +482,14 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "switchMgtTrapsDesc": {
-    "name": "switchMgtTrapsDesc",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.1",
-    "class": "objectidentity"
-  },
   "switchMgtTrapsObj": {
     "name": "switchMgtTrapsObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.7",
     "class": "objectidentity"
   },
   "sessionAuthenticationTrap": {
     "name": "sessionAuthenticationTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.1.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -505,7 +513,7 @@
   },
   "sessionAuthFailure": {
     "name": "sessionAuthFailure",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.11.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.1.1.7.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -522,7 +530,7 @@
   },
   "alcatelIND1SessionMgrMIBCompliance": {
     "name": "alcatelIND1SessionMgrMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -534,6 +542,10 @@
         "module": "ALCATEL-IND1-SESSION-MGR-MIB"
       },
       {
+        "object": "sessionObjectGroup",
+        "module": "ALCATEL-IND1-SESSION-MGR-MIB"
+      },
+      {
         "object": "sessionTrapsGroup",
         "module": "ALCATEL-IND1-SESSION-MGR-MIB"
       }
@@ -542,7 +554,7 @@
   },
   "sessionConfigGroup": {
     "name": "sessionConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -566,7 +578,7 @@
   },
   "sessionActiveGroup": {
     "name": "sessionActiveGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -610,7 +622,7 @@
   },
   "sessionTrapsGroup": {
     "name": "sessionTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.7.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.1.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -620,11 +632,39 @@
     ],
     "status": "current"
   },
+  "sessionObjectGroup": {
+    "name": "sessionObjectGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.7.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SESSION-MGR-MIB",
+        "object": "sessionLoginTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-SESSION-MGR-MIB",
+        "object": "sessionLoginAttempt"
+      },
+      {
+        "module": "ALCATEL-IND1-SESSION-MGR-MIB",
+        "object": "sessionCliCommandLogEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-SESSION-MGR-MIB",
+        "object": "sessionXonXoffEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-SESSION-MGR-MIB",
+        "object": "sessionAuthFailure"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SESSION-MGR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-SESSION-MGR-MIB"

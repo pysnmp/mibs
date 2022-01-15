@@ -5,24 +5,24 @@
       "dasan"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "iso"
     ],
     "SNMPv2-TC": [
@@ -1767,8 +1767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-CONFIG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:44:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:18:55 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SLE-CONFIG-MIB"

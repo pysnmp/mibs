@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "Timeout"
     ],
     "JUNIPER-SMI": [
       "jnxXstpMibs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
       "MibIdentifier",
-      "enterprises"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "enterprises",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "MacAddress"
     ]
   },
   "jnxMIMstMIB": {
@@ -2827,9 +2827,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-MIMSTP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:56:38 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MIMSTP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:30:30 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-MIMSTP-MIB"

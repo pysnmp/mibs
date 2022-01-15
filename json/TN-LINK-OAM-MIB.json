@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "DOT3-OAM-MIB": [
+      "dot3OamEntry",
       "dot3OamEventConfigEntry",
-      "dot3OamStatsEntry",
       "dot3OamPeerEntry",
-      "dot3OamEntry"
+      "dot3OamStatsEntry"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
       "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ],
     "TRANSITION-SMI": [
       "tnProducts"
@@ -755,8 +755,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-LINK-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:10:15 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:41:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TN-LINK-OAM-MIB"

@@ -2,82 +2,95 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "sourceLearningTraps",
       "softentIND1MacAddress"
     ],
     "ALCATEL-IND1-SYSTEM-MIB": [
-      "systemServicesDate",
-      "systemServicesTime"
+      "systemServicesTime",
+      "systemServicesDate"
     ],
     "IF-MIB": [
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1LearnedPortSecurityMIB": {
     "name": "alcatelIND1LearnedPortSecurityMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "The MIB module for Learned Port Security entity."
       }
     ]
   },
+  "alcatelIND1LearnedPortSecurityMIBNotifications": {
+    "name": "alcatelIND1LearnedPortSecurityMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1LearnedPortSecurityMIBObjects": {
     "name": "alcatelIND1LearnedPortSecurityMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1LearnedPortSecurityMIBConformance": {
     "name": "alcatelIND1LearnedPortSecurityMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1LearnedPortSecurityMIBGroups": {
     "name": "alcatelIND1LearnedPortSecurityMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1LearnedPortSecurityMIBCompliances": {
     "name": "alcatelIND1LearnedPortSecurityMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "learnedPortSecurityTable": {
     "name": "learnedPortSecurityTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -85,7 +98,7 @@
   },
   "learnedPortSecurityEntry": {
     "name": "learnedPortSecurityEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -100,7 +113,7 @@
   },
   "lpsViolationOption": {
     "name": "lpsViolationOption",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -109,7 +122,8 @@
       "constraints": {
         "enumeration": {
           "restrict": 1,
-          "shutdown": 2
+          "shutdown": 2,
+          "discard": 3
         }
       }
     },
@@ -119,22 +133,22 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsMaxMacNum": {
     "name": "lpsMaxMacNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 100
+            "max": 1000
           }
         ]
       }
@@ -145,12 +159,12 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsLoMacRange": {
     "name": "lpsLoMacRange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -159,16 +173,16 @@
     },
     "default": {
       "default": {
-        "value": "00:00:00:00:00:00",
-        "format": "string"
+        "value": "000000000000",
+        "format": "hex"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsHiMacRange": {
     "name": "lpsHiMacRange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -177,16 +191,16 @@
     },
     "default": {
       "default": {
-        "value": "ff:ff:ff:ff:ff:ff",
-        "format": "string"
+        "value": "ffffffffffff",
+        "format": "hex"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsAdminStatus": {
     "name": "lpsAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -194,23 +208,24 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "up": 1,
-          "down": 2
+          "enabled": 1,
+          "disabled": 2,
+          "locked": 3
         }
       }
     },
     "default": {
       "default": {
-        "value": "up",
+        "value": "enabled",
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsOperStatus": {
     "name": "lpsOperStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -220,7 +235,8 @@
         "enumeration": {
           "up": 1,
           "down": 2,
-          "securityViolated": 3
+          "securityViolated": 3,
+          "locked": 4
         }
       }
     },
@@ -229,19 +245,19 @@
   },
   "lpsRowStatus": {
     "name": "lpsRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsRelease": {
     "name": "lpsRelease",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -253,16 +269,16 @@
         }
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsMaxFilteredMacNum": {
     "name": "lpsMaxFilteredMacNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -279,22 +295,22 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "lpsLearnTrapThreshold": {
     "name": "lpsLearnTrapThreshold",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 100
+            "max": 1000
           }
         ]
       }
@@ -305,97 +321,45 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
-  "learnedPortSecurityMacAddressTable": {
-    "name": "learnedPortSecurityMacAddressTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.2",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "learnedPortSecurityMacAddressEntry": {
-    "name": "learnedPortSecurityMacAddressEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.2.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "IF-MIB",
-        "object": "ifIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-LPS-MIB",
-        "object": "lpsMacAddress",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "lpsMacAddress": {
-    "name": "lpsMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.2.1.1",
+  "lpsViolatingMac": {
+    "name": "lpsViolatingMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "MacAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "lpsMacAddressLearnType": {
-    "name": "lpsMacAddressLearnType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.2.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "configured": 1,
-          "dynamic": 2
-        }
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
       }
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "lpsMacAddressRowStatus": {
-    "name": "lpsMacAddressRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.2.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
   "learnedPortSecurityGlobalGroup": {
     "name": "learnedPortSecurityGlobalGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3",
     "class": "objectidentity"
   },
   "lpsLearningWindowTime": {
     "name": "lpsLearningWindowTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 65536
+            "max": 2880
           }
         ]
       }
@@ -405,7 +369,7 @@
   },
   "lpsLearningWindowTimeWithStaticConversion": {
     "name": "lpsLearningWindowTimeWithStaticConversion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -423,17 +387,17 @@
   },
   "lpsConvertToStatic": {
     "name": "lpsConvertToStatic",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.3.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
-            "min": 0,
-            "max": 0
+            "min": 2147483647,
+            "max": 2147483647
           },
           {
             "min": 1001,
@@ -447,7 +411,7 @@
   },
   "lpsLearningWindowNoAging": {
     "name": "lpsLearningWindowNoAging",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.3.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -461,11 +425,85 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "obsolete"
+    "status": "current"
+  },
+  "lpsLearningWindowBootupStatus": {
+    "name": "lpsLearningWindowBootupStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lpsLearningWindowTimeRemaining": {
+    "name": "lpsLearningWindowTimeRemaining",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 172800
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lpsLearningWindowLearnAsStatic": {
+    "name": "lpsLearningWindowLearnAsStatic",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lpsLearningWindowPseudoMacMove": {
+    "name": "lpsLearningWindowPseudoMacMove",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
   },
   "learnedPortSecurityL2MacAddressTable": {
     "name": "learnedPortSecurityL2MacAddressTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -473,7 +511,7 @@
   },
   "learnedPortSecurityL2MacAddressEntry": {
     "name": "learnedPortSecurityL2MacAddressEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -498,39 +536,39 @@
   },
   "lpsL2VlanId": {
     "name": "lpsL2VlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
-            "min": 0,
+            "min": 1,
             "max": 4094
           }
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "lpsL2MacAddress": {
     "name": "lpsL2MacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "MacAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "lpsL2MacAddressLearnType": {
     "name": "lpsL2MacAddressLearnType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -550,34 +588,123 @@
   },
   "lpsL2MacAddressRowStatus": {
     "name": "lpsL2MacAddressRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
-  "lpsTraps": {
-    "name": "lpsTraps",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2",
-    "class": "objectidentity"
+  "learnedPortSecurityAgL2MacAddressTable": {
+    "name": "learnedPortSecurityAgL2MacAddressTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
   },
-  "lpsTrapsDesc": {
-    "name": "lpsTrapsDesc",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.1",
-    "class": "objectidentity"
+  "learnedPortSecurityAgL2MacAddressEntry": {
+    "name": "learnedPortSecurityAgL2MacAddressEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsAgL2MacAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsAgL2VlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lpsAgL2MacAddress": {
+    "name": "lpsAgL2MacAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lpsAgL2VlanId": {
+    "name": "lpsAgL2VlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lpsAgL2MacAddressLearnType": {
+    "name": "lpsAgL2MacAddressLearnType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configured": 1,
+          "dynamic": 2,
+          "filtered": 3,
+          "quarantined": 4,
+          "configuredFiltered": 5,
+          "pseudoStatic": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lpsAgL2MacAddressRowStatus": {
+    "name": "lpsAgL2MacAddressRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lpsTrapsObj": {
     "name": "lpsTrapsObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5",
     "class": "objectidentity"
   },
   "lpsViolationTrap": {
     "name": "lpsViolationTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.1.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -605,19 +732,27 @@
         "object": "lpsTrapViolationType"
       },
       {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapSwitchVlan"
+      },
+      {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
         "object": "systemServicesDate"
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
         "object": "systemServicesTime"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapIfIndex"
       }
     ],
     "status": "current"
   },
   "lpsPortUpAfterLearningWindowExpiredTrap": {
     "name": "lpsPortUpAfterLearningWindowExpiredTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.1.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -645,7 +780,7 @@
   },
   "lpsLearnMac": {
     "name": "lpsLearnMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.1.0.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -665,23 +800,31 @@
         "object": "lpsTrapSwitchVlan"
       },
       {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapBridgeMac"
+      },
+      {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
         "object": "systemServicesDate"
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
         "object": "systemServicesTime"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapIfIndex"
       }
     ],
     "status": "current"
   },
   "lpsTrapSwitchName": {
     "name": "lpsTrapSwitchName",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -697,7 +840,7 @@
   },
   "lpsTrapSwitchIpAddr": {
     "name": "lpsTrapSwitchIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -709,7 +852,7 @@
   },
   "lpsTrapSwitchSlice": {
     "name": "lpsTrapSwitchSlice",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -717,11 +860,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "lpsTrapSwitchPort": {
     "name": "lpsTrapSwitchPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -729,11 +872,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "lpsTrapViolatingMac": {
     "name": "lpsTrapViolatingMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -745,7 +888,7 @@
   },
   "lpsTrapViolationType": {
     "name": "lpsTrapViolationType",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -753,9 +896,9 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "learnWindowExpired": 1,
-          "macOutOfRange": 2,
-          "macsLearnLimitReached": 3
+          "restrict": 1,
+          "shutdown": 2,
+          "discard": 3
         }
       }
     },
@@ -764,7 +907,7 @@
   },
   "lpsTrapSwitchVlan": {
     "name": "lpsTrapSwitchVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.2.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -774,17 +917,37 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "lpsTrapBridgeMac": {
+    "name": "lpsTrapBridgeMac",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lpsTrapIfIndex": {
+    "name": "lpsTrapIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "alcatelIND1LearnedPortSecurityMIBCompliance": {
     "name": "alcatelIND1LearnedPortSecurityMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
         "object": "learnedPortSecurityGroup",
-        "module": "ALCATEL-IND1-LPS-MIB"
-      },
-      {
-        "object": "learnedPortSecurityMacAddressGroup",
         "module": "ALCATEL-IND1-LPS-MIB"
       },
       {
@@ -794,13 +957,17 @@
       {
         "object": "learnedPortSecurityTrapsGroup",
         "module": "ALCATEL-IND1-LPS-MIB"
+      },
+      {
+        "object": "learnedPortSecurityTrapsObjGroup",
+        "module": "ALCATEL-IND1-LPS-MIB"
       }
     ],
     "status": "current"
   },
   "learnedPortSecurityGroup": {
     "name": "learnedPortSecurityGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -838,33 +1005,21 @@
       {
         "module": "ALCATEL-IND1-LPS-MIB",
         "object": "lpsMaxFilteredMacNum"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearnTrapThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsViolatingMac"
       }
     ],
     "status": "current"
   },
-  "learnedPortSecurityMacAddressGroup": {
-    "name": "learnedPortSecurityMacAddressGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.1.2",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-LPS-MIB",
-        "object": "lpsMacAddress"
-      },
-      {
-        "module": "ALCATEL-IND1-LPS-MIB",
-        "object": "lpsMacAddressLearnType"
-      },
-      {
-        "module": "ALCATEL-IND1-LPS-MIB",
-        "object": "lpsRowStatus"
-      }
-    ],
-    "status": "deprecated"
-  },
   "learnedPortSecurityGlobGroup": {
     "name": "learnedPortSecurityGlobGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -882,13 +1037,29 @@
       {
         "module": "ALCATEL-IND1-LPS-MIB",
         "object": "lpsLearningWindowNoAging"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearningWindowBootupStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearningWindowTimeRemaining"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearningWindowLearnAsStatic"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearningWindowPseudoMacMove"
       }
     ],
     "status": "current"
   },
   "learnedPortSecurityTrapsGroup": {
     "name": "learnedPortSecurityTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -898,13 +1069,17 @@
       {
         "module": "ALCATEL-IND1-LPS-MIB",
         "object": "lpsPortUpAfterLearningWindowExpiredTrap"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearnMac"
       }
     ],
     "status": "current"
   },
   "learnedPortSecurityL2MacAddressGroup": {
     "name": "learnedPortSecurityL2MacAddressGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.2.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -913,7 +1088,71 @@
       },
       {
         "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsAgL2MacAddressLearnType"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
         "object": "lpsL2MacAddressRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsAgL2MacAddressRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "learnedPortSecurityTrapsObjGroup": {
+    "name": "learnedPortSecurityTrapsObjGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapSwitchName"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapSwitchIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapSwitchSlice"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapSwitchPort"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapViolatingMac"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapViolationType"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapSwitchVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapBridgeMac"
+      },
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsTrapIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "learnedPortSecurityNotificationGroup": {
+    "name": "learnedPortSecurityNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.2.2.1.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LPS-MIB",
+        "object": "lpsLearnMac"
       }
     ],
     "status": "current"
@@ -921,8 +1160,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LPS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-LPS-MIB"

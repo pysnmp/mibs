@@ -8,36 +8,36 @@
       "Unsigned32"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "IpAddress",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "iso",
-      "Integer32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nmsQosPIBMIB": {
     "name": "nmsQosPIBMIB",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -257,17 +257,17 @@
   },
   "qosPIBConformance": {
     "name": "qosPIBConformance",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1",
     "class": "objectidentity"
   },
   "qosDeviceConfig": {
     "name": "qosDeviceConfig",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2",
     "class": "objectidentity"
   },
   "qosDevicePibIncarnationTable": {
     "name": "qosDevicePibIncarnationTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -275,7 +275,7 @@
   },
   "qosDevicePibIncarnationEntry": {
     "name": "qosDevicePibIncarnationEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -290,7 +290,7 @@
   },
   "qosDeviceIncarnationId": {
     "name": "qosDeviceIncarnationId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -302,7 +302,7 @@
   },
   "qosDevicePdpName": {
     "name": "qosDevicePdpName",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -314,7 +314,7 @@
   },
   "qosDevicePibIncarnation": {
     "name": "qosDevicePibIncarnation",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -334,7 +334,7 @@
   },
   "qosDevicePibTtl": {
     "name": "qosDevicePibTtl",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -346,7 +346,7 @@
   },
   "qosDeviceAttributeTable": {
     "name": "qosDeviceAttributeTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -354,7 +354,7 @@
   },
   "qosDeviceAttributeEntry": {
     "name": "qosDeviceAttributeEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -369,7 +369,7 @@
   },
   "qosDeviceAttributeId": {
     "name": "qosDeviceAttributeId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -381,7 +381,7 @@
   },
   "qosDevicePepDomain": {
     "name": "qosDevicePepDomain",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -393,7 +393,7 @@
   },
   "qosDevicePrimaryPdp": {
     "name": "qosDevicePrimaryPdp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -405,7 +405,7 @@
   },
   "qosDeviceSecondaryPdp": {
     "name": "qosDeviceSecondaryPdp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -417,7 +417,7 @@
   },
   "qosDeviceMaxMessageSize": {
     "name": "qosDeviceMaxMessageSize",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -429,7 +429,7 @@
   },
   "qosDeviceCapabilities": {
     "name": "qosDeviceCapabilities",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.2.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -447,7 +447,7 @@
   },
   "qosInterfaceTypeTable": {
     "name": "qosInterfaceTypeTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -455,7 +455,7 @@
   },
   "qosInterfaceTypeEntry": {
     "name": "qosInterfaceTypeEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.3.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -470,7 +470,7 @@
   },
   "qosInterfaceTypeId": {
     "name": "qosInterfaceTypeId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.3.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -482,7 +482,7 @@
   },
   "qosInterfaceQueueType": {
     "name": "qosInterfaceQueueType",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.3.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -494,7 +494,7 @@
   },
   "qosInterfaceTypeRoles": {
     "name": "qosInterfaceTypeRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.3.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -506,7 +506,7 @@
   },
   "qosInterfaceTypeCapabilities": {
     "name": "qosInterfaceTypeCapabilities",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.2.3.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.2.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -518,12 +518,12 @@
   },
   "qosDomainConfig": {
     "name": "qosDomainConfig",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3",
     "class": "objectidentity"
   },
   "qosDiffServMappingTable": {
     "name": "qosDiffServMappingTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -531,7 +531,7 @@
   },
   "qosDiffServMappingEntry": {
     "name": "qosDiffServMappingEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -546,7 +546,7 @@
   },
   "qosDscp": {
     "name": "qosDscp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -558,7 +558,7 @@
   },
   "qosMarkedDscp": {
     "name": "qosMarkedDscp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -570,7 +570,7 @@
   },
   "qosL2Cos": {
     "name": "qosL2Cos",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -582,7 +582,7 @@
   },
   "qosCosToDscpTable": {
     "name": "qosCosToDscpTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -590,7 +590,7 @@
   },
   "qosCosToDscpEntry": {
     "name": "qosCosToDscpEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -605,7 +605,7 @@
   },
   "qosCosToDscpCos": {
     "name": "qosCosToDscpCos",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -617,7 +617,7 @@
   },
   "qosCosToDscpDscp": {
     "name": "qosCosToDscpDscp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.3.2.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.3.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -629,12 +629,12 @@
   },
   "qosUnmatchedPolicy": {
     "name": "qosUnmatchedPolicy",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4",
     "class": "objectidentity"
   },
   "qosUnmatchedPolicyTable": {
     "name": "qosUnmatchedPolicyTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -642,7 +642,7 @@
   },
   "qosUnmatchedPolicyEntry": {
     "name": "qosUnmatchedPolicyEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -657,7 +657,7 @@
   },
   "qosUnmatchedPolicyId": {
     "name": "qosUnmatchedPolicyId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -669,7 +669,7 @@
   },
   "qosUnmatchedPolicyRole": {
     "name": "qosUnmatchedPolicyRole",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -681,7 +681,7 @@
   },
   "qosUnmatchedPolicyDirection": {
     "name": "qosUnmatchedPolicyDirection",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -699,7 +699,7 @@
   },
   "qosUnmatchedPolicyDscp": {
     "name": "qosUnmatchedPolicyDscp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -711,7 +711,7 @@
   },
   "qosUnmatchedPolicyDscpTrusted": {
     "name": "qosUnmatchedPolicyDscpTrusted",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -723,7 +723,7 @@
   },
   "qosUnmatchPolMicroFlowPolicerId": {
     "name": "qosUnmatchPolMicroFlowPolicerId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -735,7 +735,7 @@
   },
   "qosUnmatchedPolicyAggregateId": {
     "name": "qosUnmatchedPolicyAggregateId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.4.1.1.7",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.4.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -747,12 +747,12 @@
   },
   "qosPolicer": {
     "name": "qosPolicer",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5",
     "class": "objectidentity"
   },
   "qosPolicerTable": {
     "name": "qosPolicerTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -760,7 +760,7 @@
   },
   "qosPolicerEntry": {
     "name": "qosPolicerEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -775,7 +775,7 @@
   },
   "qosPolicerId": {
     "name": "qosPolicerId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -787,7 +787,7 @@
   },
   "qosPolicerRate": {
     "name": "qosPolicerRate",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -799,7 +799,7 @@
   },
   "qosPolicerNormalBurst": {
     "name": "qosPolicerNormalBurst",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -811,7 +811,7 @@
   },
   "qosPolicerExcessBurst": {
     "name": "qosPolicerExcessBurst",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -823,7 +823,7 @@
   },
   "qosPolicerAction": {
     "name": "qosPolicerAction",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.1.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -842,7 +842,7 @@
   },
   "qosAggregateTable": {
     "name": "qosAggregateTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -850,7 +850,7 @@
   },
   "qosAggregateEntry": {
     "name": "qosAggregateEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -865,7 +865,7 @@
   },
   "qosAggregateId": {
     "name": "qosAggregateId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -877,7 +877,7 @@
   },
   "qosAggregatePolicerId": {
     "name": "qosAggregatePolicerId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.5.2.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.5.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -889,12 +889,12 @@
   },
   "qosMacQos": {
     "name": "qosMacQos",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6",
     "class": "objectidentity"
   },
   "qosMacClassificationTable": {
     "name": "qosMacClassificationTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -902,7 +902,7 @@
   },
   "qosMacClassificationEntry": {
     "name": "qosMacClassificationEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -917,7 +917,7 @@
   },
   "qosMacClassificationId": {
     "name": "qosMacClassificationId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -929,7 +929,7 @@
   },
   "qosDstMacVlan": {
     "name": "qosDstMacVlan",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -949,7 +949,7 @@
   },
   "qosDstMacAddress": {
     "name": "qosDstMacAddress",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -961,7 +961,7 @@
   },
   "qosDstMacCos": {
     "name": "qosDstMacCos",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.6.1.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.6.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -973,12 +973,12 @@
   },
   "qosIpQos": {
     "name": "qosIpQos",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7",
     "class": "objectidentity"
   },
   "qosIpAceTable": {
     "name": "qosIpAceTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -986,7 +986,7 @@
   },
   "qosIpAceEntry": {
     "name": "qosIpAceEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1001,7 +1001,7 @@
   },
   "qosIpAceId": {
     "name": "qosIpAceId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1013,7 +1013,7 @@
   },
   "qosIpAceDstAddr": {
     "name": "qosIpAceDstAddr",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1025,7 +1025,7 @@
   },
   "qosIpAceDstAddrMask": {
     "name": "qosIpAceDstAddrMask",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1037,7 +1037,7 @@
   },
   "qosIpAceSrcAddr": {
     "name": "qosIpAceSrcAddr",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1049,7 +1049,7 @@
   },
   "qosIpAceSrcAddrMask": {
     "name": "qosIpAceSrcAddrMask",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1061,7 +1061,7 @@
   },
   "qosIpAceDscpMin": {
     "name": "qosIpAceDscpMin",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1073,7 +1073,7 @@
   },
   "qosIpAceDscpMax": {
     "name": "qosIpAceDscpMax",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.7",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1085,7 +1085,7 @@
   },
   "qosIpAceProtocol": {
     "name": "qosIpAceProtocol",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.8",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1105,7 +1105,7 @@
   },
   "qosIpAceDstL4PortMin": {
     "name": "qosIpAceDstL4PortMin",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.9",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1125,7 +1125,7 @@
   },
   "qosIpAceDstL4PortMax": {
     "name": "qosIpAceDstL4PortMax",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.10",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1145,7 +1145,7 @@
   },
   "qosIpAceSrcL4PortMin": {
     "name": "qosIpAceSrcL4PortMin",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.11",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1165,7 +1165,7 @@
   },
   "qosIpAceSrcL4PortMax": {
     "name": "qosIpAceSrcL4PortMax",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.12",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1185,7 +1185,7 @@
   },
   "qosIpAcePermit": {
     "name": "qosIpAcePermit",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.1.1.13",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1197,7 +1197,7 @@
   },
   "qosIpAclDefinitionTable": {
     "name": "qosIpAclDefinitionTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1205,7 +1205,7 @@
   },
   "qosIpAclDefinitionEntry": {
     "name": "qosIpAclDefinitionEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1220,7 +1220,7 @@
   },
   "qosIpAclDefinitionId": {
     "name": "qosIpAclDefinitionId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1232,7 +1232,7 @@
   },
   "qosIpAclId": {
     "name": "qosIpAclId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.2.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1244,7 +1244,7 @@
   },
   "qosIpAceOrder": {
     "name": "qosIpAceOrder",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.2.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1256,7 +1256,7 @@
   },
   "qosIpAclDefAceId": {
     "name": "qosIpAclDefAceId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.2.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1268,7 +1268,7 @@
   },
   "qosIpAclActionTable": {
     "name": "qosIpAclActionTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1276,7 +1276,7 @@
   },
   "qosIpAclActionEntry": {
     "name": "qosIpAclActionEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1291,7 +1291,7 @@
   },
   "qosIpAclActionId": {
     "name": "qosIpAclActionId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1303,7 +1303,7 @@
   },
   "qosIpAclActAclId": {
     "name": "qosIpAclActAclId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1315,7 +1315,7 @@
   },
   "qosIpAclInterfaceRoles": {
     "name": "qosIpAclInterfaceRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1327,7 +1327,7 @@
   },
   "qosIpAclInterfaceDirection": {
     "name": "qosIpAclInterfaceDirection",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1345,7 +1345,7 @@
   },
   "qosIpAclOrder": {
     "name": "qosIpAclOrder",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1357,7 +1357,7 @@
   },
   "qosIpAclDscp": {
     "name": "qosIpAclDscp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1369,7 +1369,7 @@
   },
   "qosIpAclDscpTrusted": {
     "name": "qosIpAclDscpTrusted",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.7",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1381,7 +1381,7 @@
   },
   "qosIpAclMicroFlowPolicerId": {
     "name": "qosIpAclMicroFlowPolicerId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.8",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1393,7 +1393,7 @@
   },
   "qosIpAclAggregateId": {
     "name": "qosIpAclAggregateId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.7.3.1.9",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.7.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1405,12 +1405,12 @@
   },
   "qosIfParameters": {
     "name": "qosIfParameters",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8",
     "class": "objectidentity"
   },
   "qosIfSchedulingPreferencesTable": {
     "name": "qosIfSchedulingPreferencesTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1418,7 +1418,7 @@
   },
   "qosIfSchedulingPreferenceEntry": {
     "name": "qosIfSchedulingPreferenceEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1433,7 +1433,7 @@
   },
   "qosIfSchedulingPreferenceId": {
     "name": "qosIfSchedulingPreferenceId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1445,7 +1445,7 @@
   },
   "qosIfSchedulingRoles": {
     "name": "qosIfSchedulingRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1457,7 +1457,7 @@
   },
   "qosIfSchedulingPreference": {
     "name": "qosIfSchedulingPreference",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1477,7 +1477,7 @@
   },
   "qosIfSchedulingDiscipline": {
     "name": "qosIfSchedulingDiscipline",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1501,7 +1501,7 @@
   },
   "qosIfSchedulingQueueType": {
     "name": "qosIfSchedulingQueueType",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.1.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1513,7 +1513,7 @@
   },
   "qosIfDropPreferenceTable": {
     "name": "qosIfDropPreferenceTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1521,7 +1521,7 @@
   },
   "qosIfDropPreferenceEntry": {
     "name": "qosIfDropPreferenceEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1536,7 +1536,7 @@
   },
   "qosIfDropPreferenceId": {
     "name": "qosIfDropPreferenceId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.2.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1548,7 +1548,7 @@
   },
   "qosIfDropRoles": {
     "name": "qosIfDropRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.2.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1560,7 +1560,7 @@
   },
   "qosIfDropPreference": {
     "name": "qosIfDropPreference",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.2.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1580,7 +1580,7 @@
   },
   "qosIfDropDiscipline": {
     "name": "qosIfDropDiscipline",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.2.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1598,7 +1598,7 @@
   },
   "qosIfDscpAssignmentTable": {
     "name": "qosIfDscpAssignmentTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1606,7 +1606,7 @@
   },
   "qosIfDscpAssignmentEntry": {
     "name": "qosIfDscpAssignmentEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1621,7 +1621,7 @@
   },
   "qosIfDscpAssignmentId": {
     "name": "qosIfDscpAssignmentId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1633,7 +1633,7 @@
   },
   "qosIfDscpRoles": {
     "name": "qosIfDscpRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1645,7 +1645,7 @@
   },
   "qosIfQueueType": {
     "name": "qosIfQueueType",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1657,7 +1657,7 @@
   },
   "qosIfDscp": {
     "name": "qosIfDscp",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1669,7 +1669,7 @@
   },
   "qosIfQueue": {
     "name": "qosIfQueue",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1689,7 +1689,7 @@
   },
   "qosIfThresholdSet": {
     "name": "qosIfThresholdSet",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.3.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1709,7 +1709,7 @@
   },
   "qosIfRedTable": {
     "name": "qosIfRedTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1717,7 +1717,7 @@
   },
   "qosIfRedEntry": {
     "name": "qosIfRedEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1732,7 +1732,7 @@
   },
   "qosIfRedId": {
     "name": "qosIfRedId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1744,7 +1744,7 @@
   },
   "qosIfRedRoles": {
     "name": "qosIfRedRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1756,7 +1756,7 @@
   },
   "qosIfRedNumThresholdSets": {
     "name": "qosIfRedNumThresholdSets",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1768,7 +1768,7 @@
   },
   "qosIfRedThresholdSet": {
     "name": "qosIfRedThresholdSet",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1788,7 +1788,7 @@
   },
   "qosIfRedThresholdSetLower": {
     "name": "qosIfRedThresholdSetLower",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1800,7 +1800,7 @@
   },
   "qosIfRedThresholdSetUpper": {
     "name": "qosIfRedThresholdSetUpper",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.4.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1812,7 +1812,7 @@
   },
   "qosIfTailDropTable": {
     "name": "qosIfTailDropTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1820,7 +1820,7 @@
   },
   "qosIfTailDropEntry": {
     "name": "qosIfTailDropEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1835,7 +1835,7 @@
   },
   "qosIfTailDropId": {
     "name": "qosIfTailDropId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1847,7 +1847,7 @@
   },
   "qosIfTailDropRoles": {
     "name": "qosIfTailDropRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1859,7 +1859,7 @@
   },
   "qosIfTailDropNumThresholdSets": {
     "name": "qosIfTailDropNumThresholdSets",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1871,7 +1871,7 @@
   },
   "qosIfTailDropThresholdSet": {
     "name": "qosIfTailDropThresholdSet",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1891,7 +1891,7 @@
   },
   "qosIfTailDropThresholdSetValue": {
     "name": "qosIfTailDropThresholdSetValue",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.5.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1903,7 +1903,7 @@
   },
   "qosIfWeightsTable": {
     "name": "qosIfWeightsTable",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1911,7 +1911,7 @@
   },
   "qosIfWeightsEntry": {
     "name": "qosIfWeightsEntry",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1926,7 +1926,7 @@
   },
   "qosIfWeightsId": {
     "name": "qosIfWeightsId",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1938,7 +1938,7 @@
   },
   "qosIfWeightsRoles": {
     "name": "qosIfWeightsRoles",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1950,7 +1950,7 @@
   },
   "qosIfWeightsNumQueues": {
     "name": "qosIfWeightsNumQueues",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1962,7 +1962,7 @@
   },
   "qosIfWeightsQueue": {
     "name": "qosIfWeightsQueue",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1982,7 +1982,7 @@
   },
   "qosIfWeightsDrainSize": {
     "name": "qosIfWeightsDrainSize",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1994,7 +1994,7 @@
   },
   "qosIfWeightsQueueSize": {
     "name": "qosIfWeightsQueueSize",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.8.6.1.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.8.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2006,17 +2006,17 @@
   },
   "qosPIBCompliances": {
     "name": "qosPIBCompliances",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.1",
     "class": "objectidentity"
   },
   "qosPIBGroups": {
     "name": "qosPIBGroups",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2",
     "class": "objectidentity"
   },
   "qosPIBCompliance": {
     "name": "qosPIBCompliance",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.1.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2036,7 +2036,7 @@
   },
   "qosDevicePibIncarnationTableGroup": {
     "name": "qosDevicePibIncarnationTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.1",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -2056,7 +2056,7 @@
   },
   "qosDeviceAttributeTableGroup": {
     "name": "qosDeviceAttributeTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.2",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -2084,7 +2084,7 @@
   },
   "qosInterfaceTypeTableGroup": {
     "name": "qosInterfaceTypeTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.3",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -2104,7 +2104,7 @@
   },
   "qosDiffServMappingTableGroup": {
     "name": "qosDiffServMappingTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.4",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -2120,7 +2120,7 @@
   },
   "qosCosToDscpTableGroup": {
     "name": "qosCosToDscpTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.5",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -2132,7 +2132,7 @@
   },
   "qosUnmatchedPolicyTableGroup": {
     "name": "qosUnmatchedPolicyTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.6",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -2164,7 +2164,7 @@
   },
   "qosPolicerTableGroup": {
     "name": "qosPolicerTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.7",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -2188,7 +2188,7 @@
   },
   "qosAggregateTableGroup": {
     "name": "qosAggregateTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.8",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -2200,7 +2200,7 @@
   },
   "qosMacClassificationTableGroup": {
     "name": "qosMacClassificationTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.9",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.9",
     "class": "objectgroup",
     "objects": [
       {
@@ -2220,7 +2220,7 @@
   },
   "qosIpAceTableGroup": {
     "name": "qosIpAceTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.10",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.10",
     "class": "objectgroup",
     "objects": [
       {
@@ -2276,7 +2276,7 @@
   },
   "qosIpAclDefinitionTableGroup": {
     "name": "qosIpAclDefinitionTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.11",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.11",
     "class": "objectgroup",
     "objects": [
       {
@@ -2296,7 +2296,7 @@
   },
   "qosIpAclActionTableGroup": {
     "name": "qosIpAclActionTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.12",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.12",
     "class": "objectgroup",
     "objects": [
       {
@@ -2336,7 +2336,7 @@
   },
   "qosIfSchedulingPreferencesTableGroup": {
     "name": "qosIfSchedulingPreferencesTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.13",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.13",
     "class": "objectgroup",
     "objects": [
       {
@@ -2360,7 +2360,7 @@
   },
   "qosIfDropPreferenceTableGroup": {
     "name": "qosIfDropPreferenceTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.14",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.14",
     "class": "objectgroup",
     "objects": [
       {
@@ -2380,7 +2380,7 @@
   },
   "qosIfDscpAssignmentTableGroup": {
     "name": "qosIfDscpAssignmentTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.15",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.15",
     "class": "objectgroup",
     "objects": [
       {
@@ -2408,7 +2408,7 @@
   },
   "qosIfRedTableGroup": {
     "name": "qosIfRedTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.16",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.16",
     "class": "objectgroup",
     "objects": [
       {
@@ -2436,7 +2436,7 @@
   },
   "qosIfTailDropTableGroup": {
     "name": "qosIfTailDropTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.17",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.17",
     "class": "objectgroup",
     "objects": [
       {
@@ -2460,7 +2460,7 @@
   },
   "qosIfWeightsTableGroup": {
     "name": "qosIfWeightsTableGroup",
-    "oid": "1.3.6.1.4.1.11606.10.18.2.1.1.2.18",
+    "oid": "1.3.6.1.4.1.3320.18.2.1.1.2.18",
     "class": "objectgroup",
     "objects": [
       {
@@ -2489,8 +2489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/NMS-QOS-PIB-MIB.MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:03:34 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:35:53 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NMS-QOS-PIB-MIB"

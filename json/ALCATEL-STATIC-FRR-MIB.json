@@ -8,8 +8,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressIPv4"
     ],
     "MPLS-LSR-MIB": [
       "MplsLabel",
@@ -20,26 +20,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-TC-MIB": [
       "TmnxOperState"
@@ -47,7 +47,7 @@
   },
   "alcatelStaticFrrMIBModule": {
     "name": "alcatelStaticFrrMIBModule",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -58,13 +58,13 @@
   },
   "alcatelStaticFrrMIBModuleObjs": {
     "name": "alcatelStaticFrrMIBModuleObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "vRtrStaticFrrMplsInSegmentTable": {
     "name": "vRtrStaticFrrMplsInSegmentTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -72,7 +72,7 @@
   },
   "vRtrStaticFrrMplsInSegmentEntry": {
     "name": "vRtrStaticFrrMplsInSegmentEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -92,7 +92,7 @@
   },
   "vRtrStaticFrrMplsInSegmentIfIndex": {
     "name": "vRtrStaticFrrMplsInSegmentIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -104,7 +104,7 @@
   },
   "vRtrStaticFrrMplsInSegmentLabel": {
     "name": "vRtrStaticFrrMplsInSegmentLabel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -116,7 +116,7 @@
   },
   "vRtrStaticFrrMplsInSegmentNPop": {
     "name": "vRtrStaticFrrMplsInSegmentNPop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -142,7 +142,7 @@
   },
   "vRtrStaticFrrMplsInSegmentXCIndex": {
     "name": "vRtrStaticFrrMplsInSegmentXCIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -162,7 +162,7 @@
   },
   "vRtrStaticFrrMplsInSegmentOwner": {
     "name": "vRtrStaticFrrMplsInSegmentOwner",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -180,7 +180,7 @@
   },
   "vRtrStaticFrrMplsInSegmentRowStatus": {
     "name": "vRtrStaticFrrMplsInSegmentRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -192,7 +192,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentIndexNext": {
     "name": "vRtrStaticFrrMplsOutSegmentIndexNext",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -212,7 +212,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentTable": {
     "name": "vRtrStaticFrrMplsOutSegmentTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -220,7 +220,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentEntry": {
     "name": "vRtrStaticFrrMplsOutSegmentEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -235,7 +235,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentIndex": {
     "name": "vRtrStaticFrrMplsOutSegmentIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -255,7 +255,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentIfIndex": {
     "name": "vRtrStaticFrrMplsOutSegmentIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -267,7 +267,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentPushTopLabel": {
     "name": "vRtrStaticFrrMplsOutSegmentPushTopLabel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -279,7 +279,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentTopLabel": {
     "name": "vRtrStaticFrrMplsOutSegmentTopLabel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -291,7 +291,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentNextHopIpAddrType": {
     "name": "vRtrStaticFrrMplsOutSegmentNextHopIpAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -309,7 +309,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentNextHopIpv4Addr": {
     "name": "vRtrStaticFrrMplsOutSegmentNextHopIpv4Addr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -321,7 +321,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentXCIndex": {
     "name": "vRtrStaticFrrMplsOutSegmentXCIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -341,7 +341,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentOwner": {
     "name": "vRtrStaticFrrMplsOutSegmentOwner",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -359,7 +359,7 @@
   },
   "vRtrStaticFrrMplsOutSegmentRowStatus": {
     "name": "vRtrStaticFrrMplsOutSegmentRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -371,7 +371,7 @@
   },
   "vRtrStaticFrrMplsXCIndexNext": {
     "name": "vRtrStaticFrrMplsXCIndexNext",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -391,7 +391,7 @@
   },
   "vRtrStaticFrrMplsXCTable": {
     "name": "vRtrStaticFrrMplsXCTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -399,7 +399,7 @@
   },
   "vRtrStaticFrrMplsXCEntry": {
     "name": "vRtrStaticFrrMplsXCEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -429,7 +429,7 @@
   },
   "vRtrStaticFrrMplsXCIndex": {
     "name": "vRtrStaticFrrMplsXCIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -449,7 +449,7 @@
   },
   "vRtrStaticFrrMplsXCOwner": {
     "name": "vRtrStaticFrrMplsXCOwner",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -461,7 +461,7 @@
   },
   "vRtrStaticFrrMplsXCRowStatus": {
     "name": "vRtrStaticFrrMplsXCRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -473,7 +473,7 @@
   },
   "vRtrStaticFrrMplsXCAdminStatus": {
     "name": "vRtrStaticFrrMplsXCAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -491,7 +491,7 @@
   },
   "vRtrStaticFrrMplsXCOperStatus": {
     "name": "vRtrStaticFrrMplsXCOperStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.53.1.1.5.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.53.1.1.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -511,8 +511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-STATIC-FRR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-STATIC-FRR-MIB"

@@ -4,67 +4,80 @@
     "ALCATEL-IND1-BASE": [
       "routingIND1Pim"
     ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "PIM-STD-MIB": [
+      "pimInterfaceEntry"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1PIMMIB": {
     "name": "alcatelIND1PIMMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1",
     "class": "moduleidentity",
     "revisions": [
       {
         "revision": "2007-04-03 00:00",
         "description": "The latest version of this MIB Module."
+      },
+      {
+        "revision": "2015-05-28 00:00",
+        "description": "Added V4/V6 bidir ssm compatibility, bidir fast-join, asm fast-join and ssm-fast-join."
       }
     ]
   },
   "alcatelIND1PIMMIBObjects": {
     "name": "alcatelIND1PIMMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1",
     "class": "objectidentity"
   },
   "alaPimsmGlobalConfig": {
     "name": "alaPimsmGlobalConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1",
-    "class": "objectidentity"
-  },
-  "alaPimsmDebugConfig": {
-    "name": "alaPimsmDebugConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1",
     "class": "objectidentity"
   },
   "alaPimdmGlobalConfig": {
     "name": "alaPimdmGlobalConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaPimGlobalConfig": {
+    "name": "alaPimGlobalConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3",
     "class": "objectidentity"
   },
   "alaPimsmAdminStatus": {
     "name": "alaPimsmAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -86,179 +99,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaPimsmAdminBSRAddress": {
-    "name": "alaPimsmAdminBSRAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "alaPimsmAdminBSRHashmasklen": {
-    "name": "alaPimsmAdminBSRHashmasklen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 30,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmAdminBSRPriority": {
-    "name": "alaPimsmAdminBSRPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "alaPimsmCRPExpiryTime": {
-    "name": "alaPimsmCRPExpiryTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 300
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 300,
-        "format": "decimal"
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmCRPInterval": {
-    "name": "alaPimsmCRPInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 300
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 60,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmAdminCRPAddress": {
-    "name": "alaPimsmAdminCRPAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmAdminCRPPriority": {
-    "name": "alaPimsmAdminCRPPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 128
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmDataTimeout": {
-    "name": "alaPimsmDataTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 300
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 210,
-        "format": "decimal"
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
   "alaPimsmMaxRPs": {
     "name": "alaPimsmMaxRPs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -284,7 +127,7 @@
   },
   "alaPimsmProbeTime": {
     "name": "alaPimsmProbeTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -311,7 +154,7 @@
   },
   "alaPimsmOldRegisterMessageSupport": {
     "name": "alaPimsmOldRegisterMessageSupport",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -333,141 +176,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaPimsmRegisterSuppressionTimeout": {
-    "name": "alaPimsmRegisterSuppressionTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 300
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 60,
-        "format": "decimal"
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmAdminStaticRPConfig": {
-    "name": "alaPimsmAdminStaticRPConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaPimsmStaticRPTable": {
-    "name": "alaPimsmStaticRPTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "obsolete"
-  },
-  "alaPimsmStaticRPEntry": {
-    "name": "alaPimsmStaticRPEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmStaticRPGroupAddress",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmStaticRPGroupMask",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmStaticRPAddress",
-        "implied": 0
-      }
-    ],
-    "status": "obsolete"
-  },
-  "alaPimsmStaticRPGroupAddress": {
-    "name": "alaPimsmStaticRPGroupAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "obsolete"
-  },
-  "alaPimsmStaticRPGroupMask": {
-    "name": "alaPimsmStaticRPGroupMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "obsolete"
-  },
-  "alaPimsmStaticRPAddress": {
-    "name": "alaPimsmStaticRPAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "obsolete"
-  },
-  "alaPimsmStaticRPRowStatus": {
-    "name": "alaPimsmStaticRPRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "obsolete"
-  },
   "alaPimsmAdminSPTConfig": {
     "name": "alaPimsmAdminSPTConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -491,7 +202,7 @@
   },
   "alaPimsmRPThreshold": {
     "name": "alaPimsmRPThreshold",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -517,7 +228,7 @@
   },
   "alaPimsmV6AdminStatus": {
     "name": "alaPimsmV6AdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -541,7 +252,7 @@
   },
   "alaPimsmV6SPTConfig": {
     "name": "alaPimsmV6SPTConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -565,7 +276,7 @@
   },
   "alaPimsmV6RPSwitchover": {
     "name": "alaPimsmV6RPSwitchover",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -587,9 +298,33 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaPimsmDebugLevel": {
-    "name": "alaPimsmDebugLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.1",
+  "alaPimsmBidirStatus": {
+    "name": "alaPimsmBidirStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmBidirPeriodicInterval": {
+    "name": "alaPimsmBidirPeriodicInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -599,17 +334,24 @@
         "range": [
           {
             "min": 0,
-            "max": 255
+            "max": 2000
           }
         ]
       }
     },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugError": {
-    "name": "alaPimsmDebugError",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.2",
+  "alaPimsmBidirDFAbort": {
+    "name": "alaPimsmBidirDFAbort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -629,11 +371,98 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugHello": {
-    "name": "alaPimsmDebugHello",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.3",
+  "alaPimsmNonBidirHelloPeriod": {
+    "name": "alaPimsmNonBidirHelloPeriod",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 65535,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmNonBidirHelloMsgsRcvd": {
+    "name": "alaPimsmNonBidirHelloMsgsRcvd",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaPimsmNonBidirHelloAddressType": {
+    "name": "alaPimsmNonBidirHelloAddressType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaPimsmNonBidirHelloOrigin": {
+    "name": "alaPimsmNonBidirHelloOrigin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaPimsmV6BidirStatus": {
+    "name": "alaPimsmV6BidirStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.17",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -653,11 +482,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugNbr": {
-    "name": "alaPimsmDebugNbr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.4",
+  "alaPimsmRPHashStatus": {
+    "name": "alaPimsmRPHashStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -677,11 +506,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugBootstrap": {
-    "name": "alaPimsmDebugBootstrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.5",
+  "alaPimsmBidirSsmCompat": {
+    "name": "alaPimsmBidirSsmCompat",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.19",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -701,11 +530,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugCRP": {
-    "name": "alaPimsmDebugCRP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.6",
+  "alaPimsmV6BidirSsmCompat": {
+    "name": "alaPimsmV6BidirSsmCompat",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.20",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -725,11 +554,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugRoute": {
-    "name": "alaPimsmDebugRoute",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.7",
+  "alaPimsmBidirFastJoin": {
+    "name": "alaPimsmBidirFastJoin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.21",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -749,11 +578,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugJoinPrune": {
-    "name": "alaPimsmDebugJoinPrune",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.8",
+  "alaPimsmV6BidirFastJoin": {
+    "name": "alaPimsmV6BidirFastJoin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.22",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -773,11 +602,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugAssert": {
-    "name": "alaPimsmDebugAssert",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.9",
+  "alaPimsmAsmFastJoin": {
+    "name": "alaPimsmAsmFastJoin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.23",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -797,11 +626,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugTime": {
-    "name": "alaPimsmDebugTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.10",
+  "alaPimsmV6AsmFastJoin": {
+    "name": "alaPimsmV6AsmFastJoin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.24",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -821,11 +650,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugIgmp": {
-    "name": "alaPimsmDebugIgmp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.11",
+  "alaPimsmSsmFastJoin": {
+    "name": "alaPimsmSsmFastJoin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.25",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -845,11 +674,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
-  "alaPimsmDebugSpt": {
-    "name": "alaPimsmDebugSpt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.12",
+  "alaPimsmV6SsmFastJoin": {
+    "name": "alaPimsmV6SsmFastJoin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.1.26",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -869,155 +698,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaPimsmDebugMip": {
-    "name": "alaPimsmDebugMip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaPimsmDebugInit": {
-    "name": "alaPimsmDebugInit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaPimsmDebugTm": {
-    "name": "alaPimsmDebugTm",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.15",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaPimsmDebugIpmrm": {
-    "name": "alaPimsmDebugIpmrm",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.16",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaPimsmDebugMisc": {
-    "name": "alaPimsmDebugMisc",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.17",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaPimsmDebugAll": {
-    "name": "alaPimsmDebugAll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.18",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
   "alaPimdmAdminStatus": {
     "name": "alaPimdmAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1041,7 +726,7 @@
   },
   "alaPimdmStateRefreshTimeToLive": {
     "name": "alaPimdmStateRefreshTimeToLive",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1059,7 +744,7 @@
   },
   "alaPimdmStateRefreshLimitInterval": {
     "name": "alaPimdmStateRefreshLimitInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1071,7 +756,7 @@
   },
   "alaPimdmV6AdminStatus": {
     "name": "alaPimdmV6AdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1093,24 +778,423 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "alaPimdmDenseGroupTable": {
+    "name": "alaPimdmDenseGroupTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaPimdmDenseGroupEntry": {
+    "name": "alaPimdmDenseGroupEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmDenseGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmDenseGroupGrpAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmDenseGroupGrpPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimdmDenseGroupAddressType": {
+    "name": "alaPimdmDenseGroupAddressType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaPimdmDenseGroupGrpAddress": {
+    "name": "alaPimdmDenseGroupGrpAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaPimdmDenseGroupGrpPrefixLength": {
+    "name": "alaPimdmDenseGroupGrpPrefixLength",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaPimdmDenseGroupOverrideDynamic": {
+    "name": "alaPimdmDenseGroupOverrideDynamic",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaPimdmDenseGroupPrecedence": {
+    "name": "alaPimdmDenseGroupPrecedence",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaPimdmDenseGroupRowStatus": {
+    "name": "alaPimdmDenseGroupRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaPimBfdStatus": {
+    "name": "alaPimBfdStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimBfdAllInterfaceStatus": {
+    "name": "alaPimBfdAllInterfaceStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimMoFRRStatus": {
+    "name": "alaPimMoFRRStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimMoFRRAllRouteStatus": {
+    "name": "alaPimMoFRRAllRouteStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimInterfaceAugTable": {
+    "name": "alaPimInterfaceAugTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaPimInterfaceAugEntry": {
+    "name": "alaPimInterfaceAugEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alaPimInterfaceAugEntry",
+      "module": "ALCATEL-IND1-PIM-MIB",
+      "object": "pimInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "alaPimInterfaceBfdStatus": {
+    "name": "alaPimInterfaceBfdStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimMbrAllSourcesStatus": {
+    "name": "alaPimMbrAllSourcesStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimMbrOperStatus": {
+    "name": "alaPimMbrOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaPimV6BfdStatus": {
+    "name": "alaPimV6BfdStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimV6BfdAllInterfaceStatus": {
+    "name": "alaPimV6BfdAllInterfaceStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimNotifications": {
+    "name": "alaPimNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.0",
+    "class": "objectidentity"
+  },
+  "alaPimNonBidirHello": {
+    "name": "alaPimNonBidirHello",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmNonBidirHelloAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmNonBidirHelloOrigin"
+      }
+    ],
+    "status": "current"
+  },
   "alcatelIND1PIMMIBConformance": {
     "name": "alcatelIND1PIMMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1PIMMIBCompliances": {
     "name": "alcatelIND1PIMMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1PIMMIBGroups": {
     "name": "alcatelIND1PIMMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.2",
     "class": "objectidentity"
   },
   "alaPimsmCompliance": {
     "name": "alaPimsmCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1118,7 +1202,7 @@
         "module": "ALCATEL-IND1-PIM-MIB"
       },
       {
-        "object": "alaPimsmDebugMIBGroup",
+        "object": "alaPimConfigMIBGroup",
         "module": "ALCATEL-IND1-PIM-MIB"
       }
     ],
@@ -1126,11 +1210,15 @@
   },
   "alaPimdmCompliance": {
     "name": "alaPimdmCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.1.2",
     "class": "modulecompliance",
     "modulecompliance": [
       {
         "object": "alaPimdmConfigMIBGroup",
+        "module": "ALCATEL-IND1-PIM-MIB"
+      },
+      {
+        "object": "alaPimConfigMIBGroup",
         "module": "ALCATEL-IND1-PIM-MIB"
       }
     ],
@@ -1138,44 +1226,12 @@
   },
   "alaPimsmConfigMIBGroup": {
     "name": "alaPimsmConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-PIM-MIB",
         "object": "alaPimsmAdminStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmAdminBSRAddress"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmAdminBSRHashmasklen"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmAdminBSRPriority"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmCRPExpiryTime"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmCRPInterval"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmAdminCRPAddress"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmAdminCRPPriority"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDataTimeout"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
@@ -1188,18 +1244,6 @@
       {
         "module": "ALCATEL-IND1-PIM-MIB",
         "object": "alaPimsmOldRegisterMessageSupport"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmRegisterSuppressionTimeout"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmAdminStaticRPConfig"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmStaticRPRowStatus"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
@@ -1220,93 +1264,73 @@
       {
         "module": "ALCATEL-IND1-PIM-MIB",
         "object": "alaPimsmV6RPSwitchover"
-      }
-    ],
-    "status": "current"
-  },
-  "alaPimsmDebugMIBGroup": {
-    "name": "alaPimsmDebugMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2.2",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugLevel"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugError"
+        "object": "alaPimsmBidirStatus"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugHello"
+        "object": "alaPimsmBidirPeriodicInterval"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugNbr"
+        "object": "alaPimsmBidirDFAbort"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugBootstrap"
+        "object": "alaPimsmNonBidirHelloPeriod"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugCRP"
+        "object": "alaPimsmNonBidirHelloMsgsRcvd"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugRoute"
+        "object": "alaPimsmV6BidirStatus"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugJoinPrune"
+        "object": "alaPimsmRPHashStatus"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugAssert"
+        "object": "alaPimsmBidirSsmCompat"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugTime"
+        "object": "alaPimsmV6BidirSsmCompat"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugIgmp"
+        "object": "alaPimsmBidirFastJoin"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugSpt"
+        "object": "alaPimsmV6BidirFastJoin"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugMip"
+        "object": "alaPimsmAsmFastJoin"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugInit"
+        "object": "alaPimsmV6AsmFastJoin"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugTm"
+        "object": "alaPimsmSsmFastJoin"
       },
       {
         "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugIpmrm"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugMisc"
-      },
-      {
-        "module": "ALCATEL-IND1-PIM-MIB",
-        "object": "alaPimsmDebugAll"
+        "object": "alaPimsmV6SsmFastJoin"
       }
     ],
     "status": "current"
   },
   "alaPimdmConfigMIBGroup": {
     "name": "alaPimdmConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1324,6 +1348,90 @@
       {
         "module": "ALCATEL-IND1-PIM-MIB",
         "object": "alaPimdmV6AdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmDenseGroupOverrideDynamic"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmDenseGroupPrecedence"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmDenseGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimConfigMIBGroup": {
+    "name": "alaPimConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimBfdStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimBfdAllInterfaceStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimMoFRRStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimMoFRRAllRouteStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimInterfaceBfdStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimMbrAllSourcesStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimMbrOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimV6BfdStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimV6BfdAllInterfaceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimOptionalGroup": {
+    "name": "alaPimOptionalGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmNonBidirHelloAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmNonBidirHelloOrigin"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimNotificationGroup": {
+    "name": "alaPimNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.6.1.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimNonBidirHello"
       }
     ],
     "status": "current"
@@ -1331,8 +1439,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-PIM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-PIM-MIB"

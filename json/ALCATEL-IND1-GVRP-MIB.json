@@ -11,24 +11,24 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -38,42 +38,52 @@
   },
   "alcatelIND1GVRPMIB": {
     "name": "alcatelIND1GVRPMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-07-02 00:00",
         "description": "The GVRP MIB defines a set of GVRP related management objects for VLANs and ports that support GARP VLAN registration protocol (GVRP). GVRP as a protocol provides mechanisms to dynamically learn and further propagate VLAN membership information across a bridged network, as recommended in standards IEEE Draft Std. P802.1Q-REV/D5.0 and 802.1D 2004 Editions. This GVRP MIB extends already existing AOS-REUSE IETF_Q_BRIDGE MIB which is based on RFC 2674 (Bridges with Traffic Classes, Multicast Filtering and Virtual LAN Extensions), to accomodate the proprietary behavior of the device and for defining objects as recommended by standards. This MIB comprises proprietary managed objects as well the objects required for conforming to the standards. However, the set of objects defined in this MIB, do not duplicate, nor conflict with any MIB object definitions defined in the IETF_Q_MIB."
       }
     ]
   },
+  "alcatelIND1GVRPMIBNotifications": {
+    "name": "alcatelIND1GVRPMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1GVRPMIBObjects": {
     "name": "alcatelIND1GVRPMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1GVRPMIBConformance": {
     "name": "alcatelIND1GVRPMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1GVRPMIBGroups": {
     "name": "alcatelIND1GVRPMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1GVRPMIBCompliances": {
     "name": "alcatelIND1GVRPMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaGvrpGlobalClearStats": {
     "name": "alaGvrpGlobalClearStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -97,7 +107,7 @@
   },
   "alaGvrpTransparentSwitching": {
     "name": "alaGvrpTransparentSwitching",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -121,11 +131,11 @@
   },
   "alaGvrpMaxVlanLimit": {
     "name": "alaGvrpMaxVlanLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -145,34 +155,14 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaGvrpVlanConflictInfo": {
-    "name": "alaGvrpVlanConflictInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "gvrpPortConfig": {
     "name": "gvrpPortConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4",
     "class": "objectidentity"
   },
   "alaGvrpPortConfigTable": {
     "name": "alaGvrpPortConfigTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -180,7 +170,7 @@
   },
   "alaGvrpPortConfigEntry": {
     "name": "alaGvrpPortConfigEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -195,7 +185,7 @@
   },
   "alaGvrpPortConfigIfIndex": {
     "name": "alaGvrpPortConfigIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -207,7 +197,7 @@
   },
   "alaGvrpPortConfigRegistrarMode": {
     "name": "alaGvrpPortConfigRegistrarMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -232,7 +222,7 @@
   },
   "alaGvrpPortConfigApplicantMode": {
     "name": "alaGvrpPortConfigApplicantMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -257,7 +247,7 @@
   },
   "alaGvrpPortConfigRestrictedRegistrationBitmap": {
     "name": "alaGvrpPortConfigRestrictedRegistrationBitmap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -269,7 +259,7 @@
   },
   "alaGvrpPortConfigAllowRegistrationBitmap": {
     "name": "alaGvrpPortConfigAllowRegistrationBitmap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -281,7 +271,7 @@
   },
   "alaGvrpPortConfigRegistrationBitmap": {
     "name": "alaGvrpPortConfigRegistrationBitmap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -293,7 +283,7 @@
   },
   "alaGvrpPortConfigRestrictedApplicantBitmap": {
     "name": "alaGvrpPortConfigRestrictedApplicantBitmap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -305,7 +295,7 @@
   },
   "alaGvrpPortConfigAllowApplicantBitmap": {
     "name": "alaGvrpPortConfigAllowApplicantBitmap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -317,7 +307,7 @@
   },
   "alaGvrpPortConfigApplicantBitmap": {
     "name": "alaGvrpPortConfigApplicantBitmap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -329,7 +319,7 @@
   },
   "alaGvrpPortConfigRegistrationToStaticVlanLearn": {
     "name": "alaGvrpPortConfigRegistrationToStaticVlanLearn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -341,7 +331,7 @@
   },
   "alaGvrpPortConfigRegistrationToStaticVlanRestrict": {
     "name": "alaGvrpPortConfigRegistrationToStaticVlanRestrict",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -353,7 +343,7 @@
   },
   "alaGvrpPortConfigRegistrationToStaticVlan": {
     "name": "alaGvrpPortConfigRegistrationToStaticVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -365,7 +355,7 @@
   },
   "alaGvrpPortConfigJoinTimer": {
     "name": "alaGvrpPortConfigJoinTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -392,7 +382,7 @@
   },
   "alaGvrpPortConfigLeaveTimer": {
     "name": "alaGvrpPortConfigLeaveTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -419,7 +409,7 @@
   },
   "alaGvrpPortConfigLeaveAllTimer": {
     "name": "alaGvrpPortConfigLeaveAllTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -446,7 +436,7 @@
   },
   "alaGvrpPortConfigProviderBpduMac": {
     "name": "alaGvrpPortConfigProviderBpduMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.4.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.4.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -464,12 +454,12 @@
   },
   "gvrpPortStats": {
     "name": "gvrpPortStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5",
     "class": "objectidentity"
   },
   "alaGvrpPortStatsTable": {
     "name": "alaGvrpPortStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -477,7 +467,7 @@
   },
   "alaGvrpPortStatsEntry": {
     "name": "alaGvrpPortStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -492,7 +482,7 @@
   },
   "alaGvrpPortStatsIfIndex": {
     "name": "alaGvrpPortStatsIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -504,7 +494,7 @@
   },
   "alaGvrpPortStatsJoinEmptyReceived": {
     "name": "alaGvrpPortStatsJoinEmptyReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -516,7 +506,7 @@
   },
   "alaGvrpPortStatsJoinInReceived": {
     "name": "alaGvrpPortStatsJoinInReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -528,7 +518,7 @@
   },
   "alaGvrpPortStatsEmptyReceived": {
     "name": "alaGvrpPortStatsEmptyReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -540,7 +530,7 @@
   },
   "alaGvrpPortStatsLeaveInReceived": {
     "name": "alaGvrpPortStatsLeaveInReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -552,7 +542,7 @@
   },
   "alaGvrpPortStatsLeaveEmptyReceived": {
     "name": "alaGvrpPortStatsLeaveEmptyReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -564,7 +554,7 @@
   },
   "alaGvrpPortStatsLeaveAllReceived": {
     "name": "alaGvrpPortStatsLeaveAllReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -576,7 +566,7 @@
   },
   "alaGvrpPortStatsJoinEmptyTransmitted": {
     "name": "alaGvrpPortStatsJoinEmptyTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -588,7 +578,7 @@
   },
   "alaGvrpPortStatsJoinInTransmitted": {
     "name": "alaGvrpPortStatsJoinInTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -600,7 +590,7 @@
   },
   "alaGvrpPortStatsEmptyTransmitted": {
     "name": "alaGvrpPortStatsEmptyTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -612,7 +602,7 @@
   },
   "alaGvrpPortStatsLeaveInTransmitted": {
     "name": "alaGvrpPortStatsLeaveInTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -624,7 +614,7 @@
   },
   "alaGvrpPortStatsLeaveEmptyTransmitted": {
     "name": "alaGvrpPortStatsLeaveEmptyTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -636,7 +626,7 @@
   },
   "alaGvrpPortStatsLeaveAllTransmitted": {
     "name": "alaGvrpPortStatsLeaveAllTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -648,7 +638,7 @@
   },
   "alaGvrpPortStatsTotalPDUReceived": {
     "name": "alaGvrpPortStatsTotalPDUReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -660,7 +650,7 @@
   },
   "alaGvrpPortStatsTotalPDUTransmitted": {
     "name": "alaGvrpPortStatsTotalPDUTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -672,7 +662,7 @@
   },
   "alaGvrpPortStatsTotalMsgsReceived": {
     "name": "alaGvrpPortStatsTotalMsgsReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -684,7 +674,7 @@
   },
   "alaGvrpPortStatsTotalMsgsTransmitted": {
     "name": "alaGvrpPortStatsTotalMsgsTransmitted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -696,7 +686,7 @@
   },
   "alaGvrpPortStatsInvalidMsgsReceived": {
     "name": "alaGvrpPortStatsInvalidMsgsReceived",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -708,7 +698,7 @@
   },
   "alaGvrpPortStatsClearStats": {
     "name": "alaGvrpPortStatsClearStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.1.5.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.1.5.1.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -730,14 +720,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaGvrpEvents": {
-    "name": "alaGvrpEvents",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.3",
-    "class": "objectidentity"
-  },
   "gvrpVlanLimitReachedEvent": {
     "name": "gvrpVlanLimitReachedEvent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.3.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -747,21 +732,9 @@
     ],
     "status": "current"
   },
-  "e2eGvrpVlanConflictTrap": {
-    "name": "e2eGvrpVlanConflictTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.3.0.2",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-GVRP-MIB",
-        "object": "alaGvrpVlanConflictInfo"
-      }
-    ],
-    "status": "current"
-  },
   "alcatelIND1GVRPMIBCompliance": {
     "name": "alcatelIND1GVRPMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -775,13 +748,17 @@
       {
         "object": "gvrpPortStatsGroup",
         "module": "ALCATEL-IND1-GVRP-MIB"
+      },
+      {
+        "object": "gvrpNotificationGroup",
+        "module": "ALCATEL-IND1-GVRP-MIB"
       }
     ],
     "status": "current"
   },
   "gvrpPortBaseGroup": {
     "name": "gvrpPortBaseGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -801,7 +778,7 @@
   },
   "gvrpPortConfigGroup": {
     "name": "gvrpPortConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -859,13 +836,17 @@
       {
         "module": "ALCATEL-IND1-GVRP-MIB",
         "object": "alaGvrpPortConfigLeaveAllTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-GVRP-MIB",
+        "object": "alaGvrpPortConfigProviderBpduMac"
       }
     ],
     "status": "current"
   },
   "gvrpPortStatsGroup": {
     "name": "gvrpPortStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.36.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -943,11 +924,23 @@
     ],
     "status": "current"
   },
+  "gvrpNotificationGroup": {
+    "name": "gvrpNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.36.1.2.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-GVRP-MIB",
+        "object": "gvrpVlanLimitReachedEvent"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-GVRP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-GVRP-MIB"

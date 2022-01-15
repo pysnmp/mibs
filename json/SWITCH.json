@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -19,38 +19,38 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Gauge32",
-      "mib-2",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
+      "Unsigned32",
       "enterprises",
+      "Bits",
+      "iso",
       "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
       "OBJECT-TYPE",
-      "Bits"
+      "Integer32",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
-      "TimeStamp",
-      "PhysAddress",
-      "DisplayString",
-      "TruthValue",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "AutonomousType",
-      "TestAndIncr"
+      "TimeStamp",
+      "DisplayString",
+      "DateAndTime",
+      "PhysAddress",
+      "RowStatus",
+      "TestAndIncr",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:49:51 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:23:28 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SWITCH"

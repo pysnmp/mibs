@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARConfs",
-      "aluSARObjs",
+      "aluSARMIBModules",
       "aluSARNotifyPrefix",
-      "aluSARMIBModules"
+      "aluSARObjs",
+      "aluSARConfs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "DateAndTime",
       "TruthValue",
       "TimeStamp",
+      "RowStatus",
+      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-CHASSIS-MIB": [
@@ -47,9 +47,9 @@
     ],
     "TIMETRA-TC-MIB": [
       "TmnxActionType",
-      "TNamedItemOrEmpty",
+      "TmnxDisplayStringURL",
       "TmnxPortID",
-      "TmnxDisplayStringURL"
+      "TNamedItemOrEmpty"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

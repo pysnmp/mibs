@@ -1,11 +1,3 @@
--- *****************************************************************************
--- eso-consortium-mib
---
--- Copyright (c) 2003 The ESO Consortium
--- All rights reserved.
---
--- *****************************************************************************
-
 ESO-CONSORTIUM-MIB DEFINITIONS ::= BEGIN
 
       IMPORTS
@@ -15,7 +7,7 @@ ESO-CONSORTIUM-MIB DEFINITIONS ::= BEGIN
              enterprises                        FROM SNMPv2-SMI;
 
       esoConsortiumMIB MODULE-IDENTITY
-          LAST-UPDATED "200302030000Z"		-- 03 February 2003
+          LAST-UPDATED "200406230000Z"          -- 23 June 2004, midnight
           ORGANIZATION "ESO (Extended Security Options) Consortium"
           CONTACT-INFO "
                   ESO Consortium Coordinator
@@ -46,6 +38,12 @@ ESO-CONSORTIUM-MIB DEFINITIONS ::= BEGIN
                   usmUserPrivProtocol when managing SNMPv3 users
                   via the snmpUsmMIB.
                 "
+          REVISION     "200406230000Z"          -- 23 June 2004, midnight
+          DESCRIPTION  
+                " Deprecated usmAESCfb128PrivProtocol subsequent to
+		  the publication of RFC3826, containing the 
+                  standard track object usmAesCfb128Protocol."
+           
           REVISION     "200302030000Z"          -- 03 February 2003, midnight
           DESCRIPTION  
                 " Changes in preparation for public release.
@@ -111,7 +109,7 @@ ESO-CONSORTIUM-MIB DEFINITIONS ::= BEGIN
 --
 
        usmAESCfb128PrivProtocol OBJECT-IDENTITY
-          STATUS        current
+          STATUS        deprecated
           DESCRIPTION  
                 "The CFB128-AES-128 Privacy Protocol.
 
@@ -128,6 +126,9 @@ ESO-CONSORTIUM-MIB DEFINITIONS ::= BEGIN
                  have been encountered with draft-blumenthal-aes-usm-05
                  (also available at http://www.snmp.com/eso) for 
                  this privacy protocol.
+
+                 Note that this object has been deprecated due to the
+                 publication of RFC3826.
                 "
 
           REFERENCE    

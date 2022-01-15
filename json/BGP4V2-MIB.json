@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2IdentifierTC",
       "Bgp4V2SubsequentAddressFamilyIdentifierTC",
-      "Bgp4V2AddressFamilyIdentifierTC"
+      "Bgp4V2AddressFamilyIdentifierTC",
+      "Bgp4V2IdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
+      "InetAddressPrefixLength",
       "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
       "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "mib-2",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter64",
       "iso",
-      "TimeTicks",
-      "IpAddress",
       "Bits",
+      "Counter32",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "DisplayString",
-      "TruthValue",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "bgp4V2": {
@@ -979,9 +979,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:37:34 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:22:26 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BGP4V2-MIB"

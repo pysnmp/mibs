@@ -8,111 +8,124 @@
       "InetAddressType",
       "InetAddress"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1NTPMIB": {
     "name": "alcatelIND1NTPMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "The latest version of this MIB Module."
       }
     ]
   },
+  "alcatelIND1NTPMIBNotifications": {
+    "name": "alcatelIND1NTPMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1NTPMIBObjects": {
     "name": "alcatelIND1NTPMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alaNtpConfig": {
     "name": "alaNtpConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1",
     "class": "objectidentity"
   },
   "alaNtpInfo": {
     "name": "alaNtpInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2",
     "class": "objectidentity"
   },
   "alaNtpStats": {
     "name": "alaNtpStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3",
     "class": "objectidentity"
   },
   "alaNtpStatsStat": {
     "name": "alaNtpStatsStat",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4",
     "class": "objectidentity"
   },
   "alaNtpStatsLoop": {
     "name": "alaNtpStatsLoop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.5",
     "class": "objectidentity"
   },
   "alaNtpStatsIo": {
     "name": "alaNtpStatsIo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6",
     "class": "objectidentity"
   },
   "alaNtpAccess": {
     "name": "alaNtpAccess",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7",
     "class": "objectidentity"
   },
   "alaNtpLocalInfo": {
     "name": "alaNtpLocalInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8",
     "class": "objectidentity"
   },
   "alaIND1NtpMIBConformance": {
     "name": "alaIND1NtpMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIND1NtpMIBGroups": {
     "name": "alaIND1NtpMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIND1NtpMIBCompliances": {
     "name": "alaIND1NtpMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaNtpEnable": {
     "name": "alaNtpEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -136,7 +149,7 @@
   },
   "alaNtpMonitorEnable": {
     "name": "alaNtpMonitorEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -160,7 +173,7 @@
   },
   "alaNtpBroadcastEnable": {
     "name": "alaNtpBroadcastEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -184,7 +197,7 @@
   },
   "alaNtpPeerTable": {
     "name": "alaNtpPeerTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -192,7 +205,7 @@
   },
   "alaNtpPeerEntry": {
     "name": "alaNtpPeerEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -212,7 +225,7 @@
   },
   "alaNtpPeerAddressType": {
     "name": "alaNtpPeerAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -224,7 +237,7 @@
   },
   "alaNtpPeerAddress": {
     "name": "alaNtpPeerAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -236,7 +249,7 @@
   },
   "alaNtpPeerIpAddress": {
     "name": "alaNtpPeerIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -248,7 +261,7 @@
   },
   "alaNtpPeerType": {
     "name": "alaNtpPeerType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -271,16 +284,16 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpPeerAuth": {
     "name": "alaNtpPeerAuth",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -291,16 +304,16 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpPeerVersion": {
     "name": "alaNtpPeerVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -317,16 +330,16 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpPeerMinpoll": {
     "name": "alaNtpPeerMinpoll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -343,12 +356,12 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpPeerPrefer": {
     "name": "alaNtpPeerPrefer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -367,28 +380,28 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpPeerAdmin": {
     "name": "alaNtpPeerAdmin",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpPeerName": {
     "name": "alaNtpPeerName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -396,11 +409,11 @@
   },
   "alaNtpPeerStratum": {
     "name": "alaNtpPeerStratum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.4.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.4.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -417,16 +430,16 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpAuthDelay": {
     "name": "alaNtpAuthDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -442,11 +455,11 @@
   },
   "alaNtpBroadcastDelay": {
     "name": "alaNtpBroadcastDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -468,11 +481,11 @@
   },
   "alaNtpKeysFile": {
     "name": "alaNtpKeysFile",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -480,11 +493,11 @@
   },
   "alaNtpConfigReqKeyId": {
     "name": "alaNtpConfigReqKeyId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -500,11 +513,11 @@
   },
   "alaNtpConfigCtlKeyId": {
     "name": "alaNtpConfigCtlKeyId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -520,11 +533,11 @@
   },
   "alaNtpConfigCfgKeyId": {
     "name": "alaNtpConfigCfgKeyId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -540,11 +553,11 @@
   },
   "alaNtpPrecision": {
     "name": "alaNtpPrecision",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -566,7 +579,7 @@
   },
   "alaNtpPeerTests": {
     "name": "alaNtpPeerTests",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -590,7 +603,7 @@
   },
   "alaNtpSysStratum": {
     "name": "alaNtpSysStratum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -616,7 +629,7 @@
   },
   "alaNtpMaxAssociation": {
     "name": "alaNtpMaxAssociation",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -642,7 +655,7 @@
   },
   "alaNtpAuthenticate": {
     "name": "alaNtpAuthenticate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -666,7 +679,7 @@
   },
   "alaNtpPeerListTable": {
     "name": "alaNtpPeerListTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -674,7 +687,7 @@
   },
   "alaNtpPeerListEntry": {
     "name": "alaNtpPeerListEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -694,7 +707,7 @@
   },
   "alaNtpPeerListAddressType": {
     "name": "alaNtpPeerListAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -706,7 +719,7 @@
   },
   "alaNtpPeerListAddress": {
     "name": "alaNtpPeerListAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -718,7 +731,7 @@
   },
   "alaNtpPeerListIpAddress": {
     "name": "alaNtpPeerListIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -730,7 +743,7 @@
   },
   "alaNtpPeerListLocal": {
     "name": "alaNtpPeerListLocal",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -742,11 +755,11 @@
   },
   "alaNtpPeerListStratum": {
     "name": "alaNtpPeerListStratum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -762,11 +775,11 @@
   },
   "alaNtpPeerListPoll": {
     "name": "alaNtpPeerListPoll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -782,11 +795,11 @@
   },
   "alaNtpPeerListReach": {
     "name": "alaNtpPeerListReach",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -802,11 +815,11 @@
   },
   "alaNtpPeerListDelay": {
     "name": "alaNtpPeerListDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -814,11 +827,11 @@
   },
   "alaNtpPeerListOffset": {
     "name": "alaNtpPeerListOffset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -826,11 +839,11 @@
   },
   "alaNtpPeerListDispersion": {
     "name": "alaNtpPeerListDispersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -838,7 +851,7 @@
   },
   "alaNtpPeerListSynced": {
     "name": "alaNtpPeerListSynced",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -856,11 +869,11 @@
   },
   "alaNtpPeerListName": {
     "name": "alaNtpPeerListName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -868,7 +881,7 @@
   },
   "alaNtpInfoPeer": {
     "name": "alaNtpInfoPeer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -880,11 +893,11 @@
   },
   "alaNtpInfoMode": {
     "name": "alaNtpInfoMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -892,7 +905,7 @@
   },
   "alaNtpInfoLeapIndicator": {
     "name": "alaNtpInfoLeapIndicator",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -912,11 +925,11 @@
   },
   "alaNtpInfoStratum": {
     "name": "alaNtpInfoStratum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -932,11 +945,11 @@
   },
   "alaNtpInfoPrecision": {
     "name": "alaNtpInfoPrecision",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -952,11 +965,11 @@
   },
   "alaNtpInfoDistance": {
     "name": "alaNtpInfoDistance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -964,11 +977,11 @@
   },
   "alaNtpInfoDispersion": {
     "name": "alaNtpInfoDispersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -976,11 +989,11 @@
   },
   "alaNtpInfoReferenceId": {
     "name": "alaNtpInfoReferenceId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -988,11 +1001,11 @@
   },
   "alaNtpInfoReferenceTime": {
     "name": "alaNtpInfoReferenceTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1000,11 +1013,11 @@
   },
   "alaNtpInfoFrequency": {
     "name": "alaNtpInfoFrequency",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1012,11 +1025,11 @@
   },
   "alaNtpInfoStability": {
     "name": "alaNtpInfoStability",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1024,11 +1037,11 @@
   },
   "alaNtpInfoBroadcastDelay": {
     "name": "alaNtpInfoBroadcastDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1036,11 +1049,11 @@
   },
   "alaNtpInfoAuthDelay": {
     "name": "alaNtpInfoAuthDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.8.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.8.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1048,7 +1061,7 @@
   },
   "alaNtpPeerShowTable": {
     "name": "alaNtpPeerShowTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1056,7 +1069,7 @@
   },
   "alaNtpPeerShowEntry": {
     "name": "alaNtpPeerShowEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1076,7 +1089,7 @@
   },
   "alaNtpPeerShowRemoteAddressType": {
     "name": "alaNtpPeerShowRemoteAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1088,7 +1101,7 @@
   },
   "alaNtpPeerShowRemoteAddress": {
     "name": "alaNtpPeerShowRemoteAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1100,7 +1113,7 @@
   },
   "alaNtpPeerShowRemoteIpAddress": {
     "name": "alaNtpPeerShowRemoteIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1112,7 +1125,7 @@
   },
   "alaNtpPeerShowLocal": {
     "name": "alaNtpPeerShowLocal",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1124,11 +1137,11 @@
   },
   "alaNtpPeerShowHmode": {
     "name": "alaNtpPeerShowHmode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1136,11 +1149,11 @@
   },
   "alaNtpPeerShowPmode": {
     "name": "alaNtpPeerShowPmode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1148,11 +1161,11 @@
   },
   "alaNtpPeerShowStratum": {
     "name": "alaNtpPeerShowStratum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1168,11 +1181,11 @@
   },
   "alaNtpPeerShowPrecision": {
     "name": "alaNtpPeerShowPrecision",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1188,7 +1201,7 @@
   },
   "alaNtpPeerShowLeapIndicator": {
     "name": "alaNtpPeerShowLeapIndicator",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1208,11 +1221,11 @@
   },
   "alaNtpPeerShowReferenceId": {
     "name": "alaNtpPeerShowReferenceId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1220,11 +1233,11 @@
   },
   "alaNtpPeerShowRootDistance": {
     "name": "alaNtpPeerShowRootDistance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1232,11 +1245,11 @@
   },
   "alaNtpPeerShowRootDispersion": {
     "name": "alaNtpPeerShowRootDispersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1244,11 +1257,11 @@
   },
   "alaNtpPeerShowPpoll": {
     "name": "alaNtpPeerShowPpoll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1264,11 +1277,11 @@
   },
   "alaNtpPeerShowHpoll": {
     "name": "alaNtpPeerShowHpoll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1284,11 +1297,11 @@
   },
   "alaNtpPeerShowKeyid": {
     "name": "alaNtpPeerShowKeyid",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1304,11 +1317,11 @@
   },
   "alaNtpPeerShowVersion": {
     "name": "alaNtpPeerShowVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1324,11 +1337,11 @@
   },
   "alaNtpPeerShowAssociation": {
     "name": "alaNtpPeerShowAssociation",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1344,7 +1357,7 @@
   },
   "alaNtpPeerShowValid": {
     "name": "alaNtpPeerShowValid",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1362,11 +1375,11 @@
   },
   "alaNtpPeerShowReach": {
     "name": "alaNtpPeerShowReach",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1382,11 +1395,11 @@
   },
   "alaNtpPeerShowUnreach": {
     "name": "alaNtpPeerShowUnreach",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1402,11 +1415,11 @@
   },
   "alaNtpPeerShowFlash": {
     "name": "alaNtpPeerShowFlash",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1422,11 +1435,11 @@
   },
   "alaNtpPeerShowBroadcastOffset": {
     "name": "alaNtpPeerShowBroadcastOffset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1434,11 +1447,11 @@
   },
   "alaNtpPeerShowTTL": {
     "name": "alaNtpPeerShowTTL",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1454,11 +1467,11 @@
   },
   "alaNtpPeerShowTimer": {
     "name": "alaNtpPeerShowTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1474,11 +1487,11 @@
   },
   "alaNtpPeerShowFlags": {
     "name": "alaNtpPeerShowFlags",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1494,11 +1507,11 @@
   },
   "alaNtpPeerShowReferenceTime": {
     "name": "alaNtpPeerShowReferenceTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1506,11 +1519,11 @@
   },
   "alaNtpPeerShowOriginateTime": {
     "name": "alaNtpPeerShowOriginateTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1518,11 +1531,11 @@
   },
   "alaNtpPeerShowReceiveTime": {
     "name": "alaNtpPeerShowReceiveTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.28",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.28",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1530,11 +1543,11 @@
   },
   "alaNtpPeerShowTransmitTime": {
     "name": "alaNtpPeerShowTransmitTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.29",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.29",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1542,11 +1555,11 @@
   },
   "alaNtpPeerShowOffset": {
     "name": "alaNtpPeerShowOffset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.30",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.30",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1554,11 +1567,11 @@
   },
   "alaNtpPeerShowDelay": {
     "name": "alaNtpPeerShowDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.31",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.31",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1566,11 +1579,11 @@
   },
   "alaNtpPeerShowDispersion": {
     "name": "alaNtpPeerShowDispersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.32",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.32",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1578,11 +1591,11 @@
   },
   "alaNtpPeerShowName": {
     "name": "alaNtpPeerShowName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.33",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.33",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1590,7 +1603,7 @@
   },
   "alaNtpPeerShowStatus": {
     "name": "alaNtpPeerShowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.3.1.34",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.3.1.34",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1616,7 +1629,7 @@
   },
   "alaNtpStatsStatUptime": {
     "name": "alaNtpStatsStatUptime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1628,7 +1641,7 @@
   },
   "alaNtpStatsStatReset": {
     "name": "alaNtpStatsStatReset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1640,7 +1653,7 @@
   },
   "alaNtpStatsStatBadStratum": {
     "name": "alaNtpStatsStatBadStratum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1652,7 +1665,7 @@
   },
   "alaNtpStatsStatOldVersion": {
     "name": "alaNtpStatsStatOldVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1664,7 +1677,7 @@
   },
   "alaNtpStatsStatNewVersion": {
     "name": "alaNtpStatsStatNewVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1676,7 +1689,7 @@
   },
   "alaNtpStatsStatUnknownVersion": {
     "name": "alaNtpStatsStatUnknownVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1688,7 +1701,7 @@
   },
   "alaNtpStatsStatBadLength": {
     "name": "alaNtpStatsStatBadLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1700,7 +1713,7 @@
   },
   "alaNtpStatsStatProcessed": {
     "name": "alaNtpStatsStatProcessed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1712,7 +1725,7 @@
   },
   "alaNtpStatsStatBadAuth": {
     "name": "alaNtpStatsStatBadAuth",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1724,7 +1737,7 @@
   },
   "alaNtpStatsStatLimitRejects": {
     "name": "alaNtpStatsStatLimitRejects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.4.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.4.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1736,7 +1749,7 @@
   },
   "alaNtpStatsPeerTable": {
     "name": "alaNtpStatsPeerTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1744,7 +1757,7 @@
   },
   "alaNtpStatsPeerEntry": {
     "name": "alaNtpStatsPeerEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1764,7 +1777,7 @@
   },
   "alaNtpStatsPeerAddressType": {
     "name": "alaNtpStatsPeerAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1776,7 +1789,7 @@
   },
   "alaNtpStatsPeerAddress": {
     "name": "alaNtpStatsPeerAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1788,7 +1801,7 @@
   },
   "alaNtpStatsPeerIpAddress": {
     "name": "alaNtpStatsPeerIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1800,7 +1813,7 @@
   },
   "alaNtpStatsPeerLocal": {
     "name": "alaNtpStatsPeerLocal",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1812,7 +1825,7 @@
   },
   "alaNtpStatsPeerLastRcv": {
     "name": "alaNtpStatsPeerLastRcv",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1824,7 +1837,7 @@
   },
   "alaNtpStatsPeerNextSend": {
     "name": "alaNtpStatsPeerNextSend",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1836,7 +1849,7 @@
   },
   "alaNtpStatsPeerReachChange": {
     "name": "alaNtpStatsPeerReachChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1848,7 +1861,7 @@
   },
   "alaNtpStatsPeerPacketsSent": {
     "name": "alaNtpStatsPeerPacketsSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1860,7 +1873,7 @@
   },
   "alaNtpStatsPeerPacketsRcvd": {
     "name": "alaNtpStatsPeerPacketsRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1872,7 +1885,7 @@
   },
   "alaNtpStatsPeerBadAuth": {
     "name": "alaNtpStatsPeerBadAuth",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1884,7 +1897,7 @@
   },
   "alaNtpStatsPeerBogusOrigin": {
     "name": "alaNtpStatsPeerBogusOrigin",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1896,7 +1909,7 @@
   },
   "alaNtpStatsPeerDuplicate": {
     "name": "alaNtpStatsPeerDuplicate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1908,7 +1921,7 @@
   },
   "alaNtpStatsPeerBadDispersion": {
     "name": "alaNtpStatsPeerBadDispersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1920,7 +1933,7 @@
   },
   "alaNtpStatsPeerBadRefTime": {
     "name": "alaNtpStatsPeerBadRefTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1932,7 +1945,7 @@
   },
   "alaNtpStatsPeerCandidateOrder": {
     "name": "alaNtpStatsPeerCandidateOrder",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1944,11 +1957,11 @@
   },
   "alaNtpStatsPeerReset": {
     "name": "alaNtpStatsPeerReset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1964,11 +1977,11 @@
   },
   "alaNtpStatsPeerName": {
     "name": "alaNtpStatsPeerName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.2.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.2.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1976,11 +1989,11 @@
   },
   "alaNtpStatsLoopOffset": {
     "name": "alaNtpStatsLoopOffset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1988,11 +2001,11 @@
   },
   "alaNtpStatsLoopFrequency": {
     "name": "alaNtpStatsLoopFrequency",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.5.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2000,11 +2013,11 @@
   },
   "alaNtpStatsLoopPollAdjust": {
     "name": "alaNtpStatsLoopPollAdjust",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.5.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.5.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2020,7 +2033,7 @@
   },
   "alaNtpStatsLoopWatchdog": {
     "name": "alaNtpStatsLoopWatchdog",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.5.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.5.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2032,7 +2045,7 @@
   },
   "alaNtpStatsIoReset": {
     "name": "alaNtpStatsIoReset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2044,7 +2057,7 @@
   },
   "alaNtpStatsIoRcvBuffers": {
     "name": "alaNtpStatsIoRcvBuffers",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2056,7 +2069,7 @@
   },
   "alaNtpStatsIoFreeRcvBuffers": {
     "name": "alaNtpStatsIoFreeRcvBuffers",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2068,7 +2081,7 @@
   },
   "alaNtpStatsIoUsedRcvBuffers": {
     "name": "alaNtpStatsIoUsedRcvBuffers",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2080,7 +2093,7 @@
   },
   "alaNtpStatsIoRefills": {
     "name": "alaNtpStatsIoRefills",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2092,7 +2105,7 @@
   },
   "alaNtpStatsIoDroppedPackets": {
     "name": "alaNtpStatsIoDroppedPackets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2104,7 +2117,7 @@
   },
   "alaNtpStatsIoIgnoredPackets": {
     "name": "alaNtpStatsIoIgnoredPackets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2116,7 +2129,7 @@
   },
   "alaNtpStatsIoRcvPackets": {
     "name": "alaNtpStatsIoRcvPackets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2128,7 +2141,7 @@
   },
   "alaNtpStatsIoSentPackets": {
     "name": "alaNtpStatsIoSentPackets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2140,7 +2153,7 @@
   },
   "alaNtpStatsIoNotSentPackets": {
     "name": "alaNtpStatsIoNotSentPackets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2152,7 +2165,7 @@
   },
   "alaNtpStatsIoInterrupts": {
     "name": "alaNtpStatsIoInterrupts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2164,7 +2177,7 @@
   },
   "alaNtpStatsIoInterruptsRcv": {
     "name": "alaNtpStatsIoInterruptsRcv",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.6.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.6.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2176,11 +2189,11 @@
   },
   "alaNtpStatsReset": {
     "name": "alaNtpStatsReset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2196,7 +2209,7 @@
   },
   "alaNtpStatsMonitorTable": {
     "name": "alaNtpStatsMonitorTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2204,7 +2217,7 @@
   },
   "alaNtpStatsMonitorEntry": {
     "name": "alaNtpStatsMonitorEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2219,7 +2232,7 @@
   },
   "alaNtpStatsMonitorIndex": {
     "name": "alaNtpStatsMonitorIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2239,7 +2252,7 @@
   },
   "alaNtpStatsMonitorAddress": {
     "name": "alaNtpStatsMonitorAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2251,11 +2264,11 @@
   },
   "alaNtpStatsMonitorPort": {
     "name": "alaNtpStatsMonitorPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2271,7 +2284,7 @@
   },
   "alaNtpStatsMonitorLocalAddress": {
     "name": "alaNtpStatsMonitorLocalAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2283,7 +2296,7 @@
   },
   "alaNtpStatsMonitorCount": {
     "name": "alaNtpStatsMonitorCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2295,11 +2308,11 @@
   },
   "alaNtpStatsMonitorMode": {
     "name": "alaNtpStatsMonitorMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2307,11 +2320,11 @@
   },
   "alaNtpStatsMonitorVersion": {
     "name": "alaNtpStatsMonitorVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2327,7 +2340,7 @@
   },
   "alaNtpStatsMonitorDrop": {
     "name": "alaNtpStatsMonitorDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2339,7 +2352,7 @@
   },
   "alaNtpStatsMonitorLast": {
     "name": "alaNtpStatsMonitorLast",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2351,7 +2364,7 @@
   },
   "alaNtpStatsMonitorFirst": {
     "name": "alaNtpStatsMonitorFirst",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2363,11 +2376,11 @@
   },
   "alaNtpStatsMonitorName": {
     "name": "alaNtpStatsMonitorName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.3.6.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.3.6.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2375,7 +2388,7 @@
   },
   "alaNtpAccessKeyIdTable": {
     "name": "alaNtpAccessKeyIdTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2383,7 +2396,7 @@
   },
   "alaNtpAccessKeyIdEntry": {
     "name": "alaNtpAccessKeyIdEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2398,11 +2411,11 @@
   },
   "alaNtpAccessKeyIdKeyId": {
     "name": "alaNtpAccessKeyIdKeyId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2418,7 +2431,7 @@
   },
   "alaNtpAccessKeyIdTrust": {
     "name": "alaNtpAccessKeyIdTrust",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2442,7 +2455,7 @@
   },
   "alaNtpAccessRestrictedTable": {
     "name": "alaNtpAccessRestrictedTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2450,7 +2463,7 @@
   },
   "alaNtpAccessRestrictedEntry": {
     "name": "alaNtpAccessRestrictedEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2470,7 +2483,7 @@
   },
   "alaNtpAccessRestrictedIpAddress": {
     "name": "alaNtpAccessRestrictedIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2482,7 +2495,7 @@
   },
   "alaNtpAccessRestrictedMask": {
     "name": "alaNtpAccessRestrictedMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2494,11 +2507,11 @@
   },
   "alaNtpAccessRestrictedRestrictions": {
     "name": "alaNtpAccessRestrictedRestrictions",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2509,12 +2522,12 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpAccessRestrictedCount": {
     "name": "alaNtpAccessRestrictedCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2526,19 +2539,19 @@
   },
   "alaNtpAccessRestrictedRowStatus": {
     "name": "alaNtpAccessRestrictedRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaNtpAccessRereadKeyFile": {
     "name": "alaNtpAccessRereadKeyFile",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.7.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.7.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2564,7 +2577,7 @@
   },
   "ntpClientConfig": {
     "name": "ntpClientConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2580,8 +2593,8 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "default",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -2589,7 +2602,7 @@
   },
   "ntpClientIP": {
     "name": "ntpClientIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2601,7 +2614,7 @@
   },
   "alaNtpSrcIpConfig": {
     "name": "alaNtpSrcIpConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2617,16 +2630,16 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "default",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
-    "status": "obsolete"
+    "status": "current"
   },
   "alaNtpSrcIp": {
     "name": "alaNtpSrcIp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2634,11 +2647,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "obsolete"
+    "status": "current"
   },
   "alaIND1NtpMonitorMIBCompliance": {
     "name": "alaIND1NtpMonitorMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2680,13 +2693,17 @@
       {
         "object": "alaNtpSrcIpGroup",
         "module": "ALCATEL-IND1-NTP-MIB"
+      },
+      {
+        "object": "alaNtpStatsMonitorGroup",
+        "module": "ALCATEL-IND1-NTP-MIB"
       }
     ],
     "status": "current"
   },
   "alaNtpConfigGroup": {
     "name": "alaNtpConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -2759,6 +2776,10 @@
       },
       {
         "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpConfigCfgKeyId"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
         "object": "alaNtpPrecision"
       },
       {
@@ -2782,7 +2803,7 @@
   },
   "alaNtpInfoGroup": {
     "name": "alaNtpInfoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -2966,7 +2987,7 @@
   },
   "alaNtpStatsGroup": {
     "name": "alaNtpStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -3038,7 +3059,7 @@
   },
   "alaNtpStatsStatGroup": {
     "name": "alaNtpStatsStatGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -3086,7 +3107,7 @@
   },
   "alaNtpStatsLoopGroup": {
     "name": "alaNtpStatsLoopGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -3110,7 +3131,7 @@
   },
   "alaNtpStatsIoGroup": {
     "name": "alaNtpStatsIoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -3166,7 +3187,7 @@
   },
   "alaNtpAccessGroup": {
     "name": "alaNtpAccessGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -3194,7 +3215,7 @@
   },
   "alaNtpLocalInfoGroup": {
     "name": "alaNtpLocalInfoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -3254,7 +3275,7 @@
   },
   "alaNtpEventsGroup": {
     "name": "alaNtpEventsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.9",
     "class": "notificationgroup",
     "objects": [
       {
@@ -3266,7 +3287,7 @@
   },
   "alaNtpSrcIpGroup": {
     "name": "alaNtpSrcIpGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.10",
     "class": "objectgroup",
     "objects": [
       {
@@ -3276,13 +3297,69 @@
       {
         "module": "ALCATEL-IND1-NTP-MIB",
         "object": "alaNtpSrcIp"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "ntpClientConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "ntpClientIP"
+      }
+    ],
+    "status": "current"
+  },
+  "alaNtpStatsMonitorGroup": {
+    "name": "alaNtpStatsMonitorGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorPort"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorLocalAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorCount"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorMode"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorDrop"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorLast"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorFirst"
+      },
+      {
+        "module": "ALCATEL-IND1-NTP-MIB",
+        "object": "alaNtpStatsMonitorName"
       }
     ],
     "status": "current"
   },
   "alaNtpClientListTable": {
     "name": "alaNtpClientListTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3290,7 +3367,7 @@
   },
   "alaNtpClientListEntry": {
     "name": "alaNtpClientListEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3310,7 +3387,7 @@
   },
   "alaNtpClientListAddressType": {
     "name": "alaNtpClientListAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3330,7 +3407,7 @@
   },
   "alaNtpClientListAddress": {
     "name": "alaNtpClientListAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3342,7 +3419,7 @@
   },
   "alaNtpClientListVersion": {
     "name": "alaNtpClientListVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3368,7 +3445,7 @@
   },
   "alaNtpClientKey": {
     "name": "alaNtpClientKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.1.2.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.1.2.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3386,19 +3463,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaNtpEvents": {
-    "name": "alaNtpEvents",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.3",
-    "class": "objectidentity"
-  },
-  "alaNtpEventsRoot": {
-    "name": "alaNtpEventsRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.3.0",
-    "class": "objectidentity"
-  },
   "alaNtpMaxAssocTrap": {
     "name": "alaNtpMaxAssocTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.26.1.3.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.26.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3411,8 +3478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-NTP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-NTP-MIB"

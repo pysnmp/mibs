@@ -1,118 +1,338 @@
 {
   "imports": {
     "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Opaque",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "enterprises",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "iso",
+      "enterprises",
+      "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Gauge32",
-      "MibIdentifier"
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DateAndTime",
+      "MacAddress",
+      "DisplayString"
     ]
   },
-  "eaton": {
-    "name": "eaton",
-    "oid": "1.3.6.1.4.1.534",
+  "raritan": {
+    "name": "raritan",
+    "oid": "1.3.6.1.4.1.13742",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2008-03-14 00:00",
-        "description": "Modified MIB in effort to better support HP Openview and other SNMP managers."
+        "revision": "2016-02-22 00:00",
+        "description": "1) Added inletCurrentUnbalanceHysteresis to inletTable. "
       },
       {
-        "revision": "2007-02-14 00:00",
+        "revision": "2016-02-03 00:00",
+        "description": "1) Added varbind sensorDescr to the following traps managingenvironmentalSensor, unmanagingenvironmentalSensor. "
+      },
+      {
+        "revision": "2015-11-02 00:00",
+        "description": "1) Added ipmiOverLAN to the info table. "
+      },
+      {
+        "revision": "2015-10-26 00:00",
+        "description": "1) Added Comment above primaryNTPServerAddressType "
+      },
+      {
+        "revision": "2015-10-16 00:00",
+        "description": "1) Modified DESCRIPTION clauses of the following traps. ipmiOverLANEnabled, ipmiOverLANDisabled 2) Added the following traps to the NOTIFICATION-GROUP trapsGroup ipmiOverLANEnabled, ipmiOverLANDisabled "
+      },
+      {
+        "revision": "2015-10-02 00:00",
+        "description": "1) Modified DESCRIPTION clause of thresholdAlarm trap "
+      },
+      {
+        "revision": "2015-06-19 00:00",
+        "description": "1) Modified DESCRIPTION clauses of dataLogAvgExternalSensorValue, dataLogMaxExternalSensorValue, dataLogAvgExternalSensorValue 2) Modified DESCRIPTION CLAUSE of reorderexternalSensorTableEntries "
+      },
+      {
+        "revision": "2015-03-11 00:00",
+        "description": "1) Added the following under info. thresholdValue, sensorValue 2) Added thresholdValue and sensorValue to the following traps thresholdAlarm "
+      },
+      {
+        "revision": "2014-04-03 00:00",
+        "description": "1) Modified the DESCRIPTION of the following. inletActiveEnergy inletPoleMaxCurrent inletPoleActivePower inletPoleApparentPower inletPolePowerFactor inletPoleActiveEnergy neutralCurrentUpperWarning neutralCurrentUppeCritical dataLogAvgInletPoleActivePower dataLogMaxInletPoleActivePower dataLogMinInletPoleActivePower dataLogAvgInletPoleApparentPower dataLogMaxInletPoleApparentPower dataLogMinInletPoleApparentPower dataLogAvgInletPoleActiveEnergy dataLogMaxInletPoleActiveEnergy dataLogMinInletPoleActiveEnergy currentUnbalance 2) Added the following traps managingenvironmentalSensor, unmanagingenvironmentalSensor "
+      },
+      {
+        "revision": "2012-03-22 00:00",
+        "description": "1) Added dataLogExternalSensorChanged to dataLogExternalSensorTable. "
+      },
+      {
+        "revision": "2012-03-15 00:00",
+        "description": "1) Added support for NTP servers. Added the following objects under info synchronizeWithNTPServer, useDHCPProvidedNTPServer, primaryNTPServerAddressType, primaryNTPServerAddress, secondaryNTPServerAddressType, secondaryNTPServerAddress, daylightSavingsTime "
+      },
+      {
+        "revision": "2012-03-14 00:00",
+        "description": "1) Added support for external sensors in the data log Added dataLogExternalSensorTable "
+      },
+      {
+        "revision": "2011-11-30 00:00",
+        "description": "1) Modified DESCRIPTION of configureAlerts to note that Policy Name is case-sensitive "
+      },
+      {
+        "revision": "2011-11-07 00:00",
+        "description": "1) Added configureAlerts under info Added SensorClassEnumeration, EventTypeEnumeration, EventDirectionEnumeration "
+      },
+      {
+        "revision": "2011-10-06 00:00",
+        "description": "1) Added fipsMode under info 2) Added EnabledDisabledEnumeration 3) Added fipsModeEnabled and fipsModeDisabled traps "
+      },
+      {
+        "revision": "2011-05-17 00:00",
+        "description": "1) Added altitude under info "
+      },
+      {
+        "revision": "2011-05-11 00:00",
+        "description": "1) Modified the DESCRIPTION clause of dataLoggingInterval and measurementsPerLogEntry 2) Added reorderExternaSensorTableEntries to specify the order of the entries in externalSensorTable 3) Added voltageMeasurementFailure trap "
+      },
+      {
+        "revision": "2011-04-18 00:00",
+        "description": "1) Added dataLogAvgActivePower,dataLogMaxActivePower,dataLogMinActivePower, dataLogAvgApparentPower,dataLogMaxApparentPower, dataLogMinApparentPower to DataLogEntryStruct 2) Added dataLogAvgOutletCurrent,dataLogMaxOutletCurrent,dataLogMinOutletCurrent, dataLogAvgOutletVoltage,dataLogMaxOutletVoltage,dataLogMinOutletVoltage, dataLogAvgOutletPowerFactor,dataLogMaxOutletPowerFactor,dataLogMinOutletPowerFactor, dataLogAvgOutletWattHours,dataLogMaxOutletWattHours,dataLogMinOutletWattHours to DataLogOutletEntryStruct 3) Added dataLogAvgCircuitBreakerCurrent,dataLogMaxCircuitBreakerCurrent,dataLogMinCircuitBreakerCurrent to DataLogCircuitBreakerEntryStruct 4) Added dataLogAvgInletCurrentUnbalance,dataLogMaxInletCurrentUnbalance,dataLogMinInletCurrentUnbalance, dataLogAvgInletActivePower,dataLogMaxInletActivePower,dataLogMinInletActivePower, dataLogAvgInletApparentPower,dataLogMaxInletApparentPower,dataLogMinInletApparentPower, dataLogAvgInletActiveEnergy,dataLogMaxInletActiveEnergy,dataLogMinInletActiveEnergy, to DataLogInletEntryStruct 5) Added dataLogAvgInletPoleCurrent,dataLogMaxInletPoleCurrent,dataLogMinInletPoleCurrent, dataLogAvgInletPoleVoltage,dataLogMaxInletPoleVoltage,dataLogMinInletPoleVoltage, dataLogAvgInletPoleActivePower,dataLogMaxInletPoleActivePower,dataLogMinInletPoleActivePower, dataLogAvgInletPoleApparentPower,dataLogMaxInletPoleApparentPower,dataLogMinInletPoleApparentPower, dataLogAvgInletPoleActiveEnergy,dataLogMaxInletPoleActiveEnergy,dataLogMinInletPoleActiveEnergy to DataLogInletPoleEntryStruct 6) Added measurementsPerLogEntry under info. 7) Deprecated dataLogActivePower,dataLogApparentPower,dataLogOutletCurrent, dataLogOutletVoltage,dataLogOutletPowerFactor, dataLogOutletOnTime, dataLogCircuitBreakerCurrent,dataLogOutletWattHours,dataLogInletPoleCurrent, dataLogInletPoleVoltage,dataLogInletCurrentUnbalance,dataLogInletActivePower, dataLogInletApparentPower,dataLogInletActiveEnergy 8) Deprecated dataLoggingInterval "
+      },
+      {
+        "revision": "2011-02-14 00:00",
+        "description": "1) Added PowerCIMStatusEnumeration and powerCIMStatus "
+      },
+      {
+        "revision": "2011-01-24 00:00",
+        "description": "1) Added lastUpgradeStatus,lastUpgradeTimestamp, lastUpgradeErrorDescription "
+      },
+      {
+        "revision": "2010-11-30 00:00",
+        "description": "1) Added externalSensorNumber,externalSensorType, externalSensorName, externalSensorChannelNumber, externalBinarySensorSubtype, externalSensorSerialNumber to environmentalSensorsConnectivityRestored trap 2) Added externalSensorNumber,externalSensorType, externalSensorName, externalSensorChannelNumber, externalBinarySensorSubtype, externalSensorSerialNumber to environmentalSensorsConnectivityLost trap 3) Added externalSensorSerialNumber to externalOnOffSensorStateChange 4) Added sensorIdentificationString to thresholdAlarm trap 5) Added none to TypeOfSensorEnumeration "
+      },
+      {
+        "revision": "2010-11-04 00:00",
+        "description": "1) Added environmentalSensorsConnectivityRestored trap 2) Changed MAX-ACCESS of inlineMeter to read-only "
+      },
+      {
+        "revision": "2010-07-21 00:00",
+        "description": "1) Renamed externalBinarySensorStateChange trap to externalOnOffSensorStateChange "
+      },
+      {
+        "revision": "2010-07-19 00:00",
+        "description": "1) Added externalBinarySensorStateChange trap 2) Added contact to TypeOfSensorEnumeration"
+      },
+      {
+        "revision": "2010-07-15 00:00",
+        "description": "1) Added binary to TypeOfSensorEnumeration 2) Added externalBinarySensorSubtype to ExternalSensorEntryStruct"
+      },
+      {
+        "revision": "2010-07-13 00:00",
+        "description": "Added outletCurrentHysteresis circuitBreakerCurrentHysteresis unitOrLineVoltageHysteresis, unitOrLineCurrentHysteresis, unitTempHysteresis, currentUnbalanceHysteresis inletCurrentHysteresis, inletVoltageHysteresis, externalSensorHysteresis"
+      },
+      {
+        "revision": "2010-06-29 00:00",
+        "description": "Added externalSensorChannelNumber to externalSensorTable"
+      },
+      {
+        "revision": "2010-06-07 00:00",
+        "description": "Added Alarmed to StateOfSensorEnumeration"
+      },
+      {
+        "revision": "2010-05-27 00:00",
+        "description": "Moved the externalSensorTable from under board to under pdu"
+      },
+      {
+        "revision": "2010-05-20 00:00",
+        "description": "In the externalSensorTable, changed SYNTAX of externalSensorLowerCriticalThreshold, externalSensorLowerWarningThreshold,externalSensorUpperCriticalThreshold, externalSensorUpperWarningThreshold to Integer32"
+      },
+      {
+        "revision": "2010-05-17 00:00",
+        "description": "Added externalSensorTable for representing all types of external sensors Deprecated tempSensorTable and humiditySensorTable"
+      },
+      {
+        "revision": "2009-06-09 00:00",
+        "description": "Added support for multiple inlets/inline meters"
+      },
+      {
+        "revision": "2009-04-20 00:00",
+        "description": "For PX 1.3.5;Deprecated SensorStateEnumeration & SensorTypeEnumeration"
+      },
+      {
+        "revision": "2009-02-13 00:00",
+        "description": "For PX 1.3.5;Added support for environmental sensor coordinates: added tempXCoordinate,tempYCoordinate,tempZCoordinate to tempSensorTable added humidityXCoordinate,humidityYCoordinate,humidityZCoordinate to humiditySensorTable added externalSensorsZCoordinateUnits under info "
+      },
+      {
+        "revision": "2009-02-12 00:00",
+        "description": "For PX 1.3.5;Added support for current unbalance: enabling/disabling, unbalance value and thresholds currentUnbalanceSupport,currentUnbalance,currentUnbalanceUpperWarning,currentUnbalanceUpper"
+      },
+      {
+        "revision": "2008-12-01 00:00",
+        "description": "For PX 1.3;Added outletEnergySupport to indicate whether outlet energy is supported"
+      },
+      {
+        "revision": "2008-10-24 00:00",
+        "description": "For PX 1.3;Added Watt-Hours for outlets, lower current warning & lower critical thresholds for outlets"
+      },
+      {
+        "revision": "2008-09-25 00:00",
+        "description": "Added trap for environmental sensors disconnected"
+      },
+      {
+        "revision": "2008-09-05 00:00",
+        "description": "Add support for data Log ( line, circuit breaker,outlet ) Retrieval"
+      },
+      {
+        "revision": "2008-06-05 00:00",
+        "description": "PX 1.2 MIB supports 3-phase PDUs."
+      },
+      {
+        "revision": "2007-11-28 00:00",
+        "description": "Modfied MIB in effort to better support HP OpenView and other SNMP managers."
+      },
+      {
+        "revision": "2007-06-20 00:00",
         "description": "Updated version for remote access to pdu."
       }
     ]
   },
-  "product": {
-    "name": "product",
-    "oid": "1.3.6.1.4.1.534.6",
-    "class": "objectidentity"
-  },
-  "pduagent": {
-    "name": "pduagent",
-    "oid": "1.3.6.1.4.1.534.6.6",
-    "class": "objectidentity"
-  },
   "pdu": {
     "name": "pdu",
-    "oid": "1.3.6.1.4.1.534.6.6.6",
+    "oid": "1.3.6.1.4.1.13742.4",
     "class": "objectidentity"
   },
   "traps": {
     "name": "traps",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0",
+    "oid": "1.3.6.1.4.1.13742.4.0",
     "class": "objectidentity"
   },
   "board": {
     "name": "board",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1",
+    "oid": "1.3.6.1.4.1.13742.4.1",
     "class": "objectidentity"
   },
   "environmental": {
     "name": "environmental",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2",
+    "oid": "1.3.6.1.4.1.13742.4.2",
+    "class": "objectidentity"
+  },
+  "externalSensors": {
+    "name": "externalSensors",
+    "oid": "1.3.6.1.4.1.13742.4.3",
     "class": "objectidentity"
   },
   "conformance": {
     "name": "conformance",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9",
+    "oid": "1.3.6.1.4.1.13742.4.9",
     "class": "objectidentity"
   },
   "info": {
     "name": "info",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1",
+    "oid": "1.3.6.1.4.1.13742.4.1.1",
     "class": "objectidentity"
   },
   "outlets": {
     "name": "outlets",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2",
+    "oid": "1.3.6.1.4.1.13742.4.1.2",
     "class": "objectidentity"
   },
   "unit": {
     "name": "unit",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3",
+    "oid": "1.3.6.1.4.1.13742.4.1.3",
+    "class": "objectidentity"
+  },
+  "lineCurrents": {
+    "name": "lineCurrents",
+    "oid": "1.3.6.1.4.1.13742.4.1.4",
+    "class": "objectidentity"
+  },
+  "circuitBreaker": {
+    "name": "circuitBreaker",
+    "oid": "1.3.6.1.4.1.13742.4.1.5",
+    "class": "objectidentity"
+  },
+  "lineVoltages": {
+    "name": "lineVoltages",
+    "oid": "1.3.6.1.4.1.13742.4.1.6",
+    "class": "objectidentity"
+  },
+  "dataLog": {
+    "name": "dataLog",
+    "oid": "1.3.6.1.4.1.13742.4.1.7",
+    "class": "objectidentity"
+  },
+  "inlets": {
+    "name": "inlets",
+    "oid": "1.3.6.1.4.1.13742.4.1.20",
+    "class": "objectidentity"
+  },
+  "inletPole": {
+    "name": "inletPole",
+    "oid": "1.3.6.1.4.1.13742.4.1.21",
+    "class": "objectidentity"
+  },
+  "dataLogOutlet": {
+    "name": "dataLogOutlet",
+    "oid": "1.3.6.1.4.1.13742.4.1.10",
+    "class": "objectidentity"
+  },
+  "dataLogCircuitBreaker": {
+    "name": "dataLogCircuitBreaker",
+    "oid": "1.3.6.1.4.1.13742.4.1.15",
+    "class": "objectidentity"
+  },
+  "dataLogInputLine": {
+    "name": "dataLogInputLine",
+    "oid": "1.3.6.1.4.1.13742.4.1.14",
+    "class": "objectidentity"
+  },
+  "dataLogInlet": {
+    "name": "dataLogInlet",
+    "oid": "1.3.6.1.4.1.13742.4.1.12",
+    "class": "objectidentity"
+  },
+  "dataLogInletPole": {
+    "name": "dataLogInletPole",
+    "oid": "1.3.6.1.4.1.13742.4.1.13",
+    "class": "objectidentity"
+  },
+  "dataLogExternalSensor": {
+    "name": "dataLogExternalSensor",
+    "oid": "1.3.6.1.4.1.13742.4.1.16",
     "class": "objectidentity"
   },
   "unitReadings": {
     "name": "unitReadings",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1",
     "class": "objectidentity"
   },
   "compliances": {
     "name": "compliances",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.1",
+    "oid": "1.3.6.1.4.1.13742.4.9.1",
     "class": "objectidentity"
   },
   "groups": {
     "name": "groups",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2",
+    "oid": "1.3.6.1.4.1.13742.4.9.2",
     "class": "objectidentity"
   },
   "compliance": {
     "name": "compliance",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.1.1",
+    "oid": "1.3.6.1.4.1.13742.4.9.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -140,11 +360,247 @@
         "module": "PDU-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "complianceRev1": {
+    "name": "complianceRev1",
+    "oid": "1.3.6.1.4.1.13742.4.9.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "infoGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "outletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "unitSensorsGroupRev",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalTemperatureGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalHumidityGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "trapsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "lineCurrentGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "circuitBreakerGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "lineVoltageGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "dataLogGroup",
+        "module": "PDU-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "complianceRev2": {
+    "name": "complianceRev2",
+    "oid": "1.3.6.1.4.1.13742.4.9.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "infoGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "outletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "unitSensorsGroupRev",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalTemperatureGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalHumidityGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "trapsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "circuitBreakerGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "dataLogGroup",
+        "module": "PDU-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "complianceRev3": {
+    "name": "complianceRev3",
+    "oid": "1.3.6.1.4.1.13742.4.9.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "infoGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "inletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "outletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "unitSensorsGroupRev2",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalTemperatureGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalHumidityGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "trapsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "inletPoleGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "circuitBreakerGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "dataLogGroupRev",
+        "module": "PDU-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "complianceRev4": {
+    "name": "complianceRev4",
+    "oid": "1.3.6.1.4.1.13742.4.9.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "infoGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "inletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "outletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "unitSensorsGroupRev2",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalSensorsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "trapsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "inletPoleGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "circuitBreakerGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "dataLogGroupRev",
+        "module": "PDU-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "complianceRev5": {
+    "name": "complianceRev5",
+    "oid": "1.3.6.1.4.1.13742.4.9.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "infoGroupRev2",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "inletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "outletsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "unitSensorsGroupRev2",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "externalSensorsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "trapsGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "inletPoleGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "circuitBreakerGroup",
+        "module": "PDU-MIB"
+      },
+      {
+        "object": "dataLogGroupRev2",
+        "module": "PDU-MIB"
+      }
+    ],
     "status": "current"
   },
   "infoGroup": {
     "name": "infoGroup",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.1",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLoggingInterval"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "infoGroupRev2": {
+    "name": "infoGroupRev2",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.22",
     "class": "objectgroup",
     "objects": [
       {
@@ -222,13 +678,141 @@
       {
         "module": "PDU-MIB",
         "object": "slaveIpAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inputCurrentRating"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ratedVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ratedPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletSwitching"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogging"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataCollectionInterval"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletEnergySupport"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalanceSupport"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorsZCoordinateUnits"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inlineMeter"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "oldSensorState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorIdentificationString"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lastUpgradeStatus"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lastUpgradeTimestamp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lastUpgradeErrorDescription"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "powerCIMStatus"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "measurementsPerLogEntry"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "psocNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "altitude"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "configureAlerts"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "fipsMode"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "synchronizeWithNTPServer"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "useDHCPProvidedNTPServer"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "primaryNTPServerAddressType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "primaryNTPServerAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "secondaryNTPServerAddressType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "secondaryNTPServerAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "daylightSavingsTime"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdValue"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorValue"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipmiOverLAN"
       }
     ],
     "status": "current"
   },
   "outletsGroup": {
     "name": "outletsGroup",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.2",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -238,6 +822,10 @@
       {
         "module": "PDU-MIB",
         "object": "outletLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrentRating"
       },
       {
         "module": "PDU-MIB",
@@ -274,13 +862,29 @@
       {
         "module": "PDU-MIB",
         "object": "outletCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrentLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrentLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletCurrentHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "outletWattHours"
       }
     ],
     "status": "current"
   },
   "unitSensorsGroup": {
     "name": "unitSensorsGroup",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.4",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -302,30 +906,6 @@
       {
         "module": "PDU-MIB",
         "object": "unitCpuTemp"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "unitCircuitBreak0State"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "unitCircuitBreak1State"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "unitCircuitBreak2State"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "unitCircuitBreak0Current"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "unitCircuitBreak1Current"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "unitCircuitBreak2Current"
       },
       {
         "module": "PDU-MIB",
@@ -368,11 +948,11 @@
         "object": "unitTempUpperCritical"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "externalTemperatureGroup": {
     "name": "externalTemperatureGroup",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.6",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -405,26 +985,22 @@
       },
       {
         "module": "PDU-MIB",
-        "object": "tempLowerWarningReset"
+        "object": "tempXCoordinate"
       },
       {
         "module": "PDU-MIB",
-        "object": "tempUpperWarningReset"
+        "object": "tempYCoordinate"
       },
       {
         "module": "PDU-MIB",
-        "object": "tempLowerCriticalReset"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "tempUpperCriticalReset"
+        "object": "tempZCoordinate"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "externalHumidityGroup": {
     "name": "externalHumidityGroup",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.7",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -457,26 +1033,22 @@
       },
       {
         "module": "PDU-MIB",
-        "object": "humidityLowerWarningReset"
+        "object": "humidityXCoordinate"
       },
       {
         "module": "PDU-MIB",
-        "object": "humidityUpperWarningReset"
+        "object": "humidityYCoordinate"
       },
       {
         "module": "PDU-MIB",
-        "object": "humidityLowerCriticalReset"
-      },
-      {
-        "module": "PDU-MIB",
-        "object": "humidityUpperCriticalReset"
+        "object": "humidityZCoordinate"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "trapsGroup": {
     "name": "trapsGroup",
-    "oid": "1.3.6.1.4.1.534.6.6.6.9.2.9",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.9",
     "class": "notificationgroup",
     "objects": [
       {
@@ -570,6 +1142,906 @@
       {
         "module": "PDU-MIB",
         "object": "outletGroupingConnectivityLost"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerTripped"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerRecovered"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "bulkConfigurationSaved"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "bulkConfigurationCopied"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "environmentalSensorsConnectivityLost"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalOnOffSensorStateChange"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "environmentalSensorsConnectivityRestored"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "voltageMeasurementError"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "fipsModeEnabled"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "fipsModeDisabled"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "managingenvironmentalSensor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unmanagingenvironmentalSensor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipmiOverLANEnabled"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipmiOverLANDisabled"
+      }
+    ],
+    "status": "current"
+  },
+  "lineCurrentGroup": {
+    "name": "lineCurrentGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "lineCurrentCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lineCurrentLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lineCurrent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "circuitBreakerGroup": {
+    "name": "circuitBreakerGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerCurrentRating"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerCurrentHysteresis"
+      }
+    ],
+    "status": "current"
+  },
+  "lineVoltageGroup": {
+    "name": "lineVoltageGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "lineVoltageCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lineVoltageLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "lineVoltage"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "unitSensorsGroupRev": {
+    "name": "unitSensorsGroupRev",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "unitActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitCpuTemp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "neutralCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "neutralCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalanceUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalanceUpperCritical"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "unitSensorsGroupRev2": {
+    "name": "unitSensorsGroupRev2",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "unitCpuTemp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "neutralCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "neutralCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalanceUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalanceUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineVoltageHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitOrLineCurrentHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "unitTempHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "currentUnbalanceHysteresis"
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogGroup": {
+    "name": "dataLogGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogLatestIndex"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogTimeStamp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletOnTime"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogCircuitBreakerCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInputLineCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInputLineVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletWattHours"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dataLogGroupRev": {
+    "name": "dataLogGroupRev",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogLatestIndex"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogTimeStamp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletOnTime"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogCircuitBreakerCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletWattHours"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletPoleCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletPoleVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletCurrentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletActiveEnergy"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dataLogGroupRev2": {
+    "name": "dataLogGroupRev2",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogLatestIndex"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogTimeStamp"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgOutletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxOutletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinOutletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgOutletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxOutletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinOutletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgOutletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxOutletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinOutletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgOutletWattHours"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxOutletWattHours"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinOutletWattHours"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgCircuitBreakerCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxCircuitBreakerCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinCircuitBreakerCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletCurrentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletCurrentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletCurrentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletPoleCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletPoleCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletPoleCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletPoleVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletPoleVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletPoleVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletPoleActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletPoleActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletPoleActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletPoleApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletPoleApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletPoleApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgInletPoleActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxInletPoleActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinInletPoleActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogExternalSensorChanged"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogExternalSensorState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogAvgExternalSensorValue"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMaxExternalSensorValue"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogMinExternalSensorValue"
+      }
+    ],
+    "status": "current"
+  },
+  "inletPoleGroup": {
+    "name": "inletPoleGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleLabel"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleMaxCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPolePowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleActiveEnergy"
+      }
+    ],
+    "status": "current"
+  },
+  "inletsGroup": {
+    "name": "inletsGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "inletCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentRating"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentUnbalanceUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentUnbalanceUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentUnbalance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletActivePower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletApparentPower"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrent"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletVoltage"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPowerFactor"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletActiveEnergy"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletVoltageUpperWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletVoltageUpperCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletVoltageLowerWarning"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletVoltageLowerCritical"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletVoltageHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletCurrentUnbalanceHysteresis"
+      }
+    ],
+    "status": "current"
+  },
+  "externalSensorsGroup": {
+    "name": "externalSensorsGroup",
+    "oid": "1.3.6.1.4.1.13742.4.9.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorCount"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorSerialNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorChannelNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorXCoordinate"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorYCoordinate"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorZCoordinate"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalBinarySensorSubtype"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorUnits"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorDecimalDigits"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorLowerCriticalThreshold"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorLowerWarningThreshold"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorUpperCriticalThreshold"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorUpperWarningThreshold"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorValue"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorHysteresis"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "reorderexternalSensorTableEntries"
       }
     ],
     "status": "current"
@@ -581,6 +2053,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "displayhint": "d",
     "status": "current"
   },
   "MilliVolts": {
@@ -590,6 +2063,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "displayhint": "d",
     "status": "current"
   },
   "Watts": {
@@ -599,6 +2073,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "displayhint": "d",
     "status": "current"
   },
   "VoltAmps": {
@@ -608,6 +2083,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "displayhint": "d",
     "status": "current"
   },
   "DegreesCelsius": {
@@ -617,6 +2093,17 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "TenthDegreesCelsius": {
+    "name": "TenthDegreesCelsius",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
     "status": "current"
   },
   "Hertz": {
@@ -626,6 +2113,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "displayhint": "d",
     "status": "current"
   },
   "RelativeHumidity": {
@@ -643,6 +2131,7 @@
         ]
       }
     },
+    "displayhint": "d",
     "status": "current"
   },
   "PowerFactorPercentage": {
@@ -660,6 +2149,25 @@
         ]
       }
     },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Percentage": {
+    "name": "Percentage",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
     "status": "current"
   },
   "SensorTypeEnumeration": {
@@ -704,6 +2212,7 @@
           "unitCpuTemp": 503,
           "unitActivePower": 504,
           "unitApparentPower": 505,
+          "unitFrequency": 506,
           "unitCircuitBreak0State": 550,
           "unitCircuitBreak1State": 551,
           "unitCircuitBreak2State": 552,
@@ -713,7 +2222,7 @@
         }
       }
     },
-    "status": "current"
+    "status": "deprecated"
   },
   "SensorStateEnumeration": {
     "name": "SensorStateEnumeration",
@@ -732,11 +2241,195 @@
         }
       }
     },
+    "status": "deprecated"
+  },
+  "StateOfSensorEnumeration": {
+    "name": "StateOfSensorEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unavailable": -1,
+          "open": 0,
+          "closed": 1,
+          "belowLowerCritical": 2,
+          "belowLowerWarning": 3,
+          "normal": 4,
+          "aboveUpperWarning": 5,
+          "aboveUpperCritical": 6,
+          "on": 7,
+          "off": 8,
+          "detected": 9,
+          "notDetected": 10,
+          "alarmed": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TypeOfSensorEnumeration": {
+    "name": "TypeOfSensorEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rmsCurrent": 1,
+          "peakCurrent": 2,
+          "unbalancedCurrent": 3,
+          "rmsVoltage": 4,
+          "activePower": 5,
+          "apparentPower": 6,
+          "powerFactor": 7,
+          "activeEnergy": 8,
+          "apparentEnergy": 9,
+          "temperature": 10,
+          "humidity": 11,
+          "airFlow": 12,
+          "airPressure": 13,
+          "onOff": 14,
+          "trip": 15,
+          "vibration": 16,
+          "waterDetection": 17,
+          "smokeDetection": 18,
+          "binary": 19,
+          "contact": 20,
+          "other": 30,
+          "none": 31
+        }
+      }
+    },
+    "status": "current"
+  },
+  "WattHours": {
+    "name": "WattHours",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SensorUnitsEnumeration": {
+    "name": "SensorUnitsEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": -1,
+          "other": 0,
+          "volt": 1,
+          "amp": 2,
+          "watt": 3,
+          "voltamp": 4,
+          "wattHour": 5,
+          "voltampHour": 6,
+          "degreeC": 7,
+          "hertz": 8,
+          "percent": 9,
+          "meterpersec": 10,
+          "pascal": 11,
+          "psi": 12,
+          "g": 13,
+          "degreeF": 14,
+          "feet": 15,
+          "inches": 16,
+          "cm": 17,
+          "meters": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PowerCIMStatusEnumeration": {
+    "name": "PowerCIMStatusEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnabledDisabledEnumeration": {
+    "name": "EnabledDisabledEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SensorClassEnumeration": {
+    "name": "SensorClassEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "externalTemperature": 0,
+          "externalHumidity": 1,
+          "externalAirFlow": 2,
+          "externalAirPressure": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventTypeEnumeration": {
+    "name": "EventTypeEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aboveUpperCritical": 0,
+          "aboveUpperNonCritical": 1,
+          "belowLowerNonCritical": 2,
+          "belowLowerCritical": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventDirectionEnumeration": {
+    "name": "EventDirectionEnumeration",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asserted": 0,
+          "deasserted": 1,
+          "both": 2
+        }
+      }
+    },
     "status": "current"
   },
   "firmwareVersion": {
     "name": "firmwareVersion",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.1",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -748,7 +2441,7 @@
   },
   "serialNumber": {
     "name": "serialNumber",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.2",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -760,7 +2453,7 @@
   },
   "ipAddress": {
     "name": "ipAddress",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.3",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -772,7 +2465,7 @@
   },
   "netmask": {
     "name": "netmask",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.4",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -784,7 +2477,7 @@
   },
   "gateway": {
     "name": "gateway",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.5",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -796,7 +2489,7 @@
   },
   "mac": {
     "name": "mac",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.6",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -808,7 +2501,7 @@
   },
   "hardwareRev": {
     "name": "hardwareRev",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.7",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -828,7 +2521,7 @@
   },
   "userName": {
     "name": "userName",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.10",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -840,7 +2533,7 @@
   },
   "objectName": {
     "name": "objectName",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.12",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -852,7 +2545,7 @@
   },
   "objectInstance": {
     "name": "objectInstance",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.13",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -864,7 +2557,7 @@
   },
   "targetUser": {
     "name": "targetUser",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.14",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -876,7 +2569,7 @@
   },
   "groupName": {
     "name": "groupName",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.15",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -888,7 +2581,7 @@
   },
   "imageVersion": {
     "name": "imageVersion",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.18",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -900,7 +2593,7 @@
   },
   "sensorDescr": {
     "name": "sensorDescr",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.19",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.19",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -912,7 +2605,7 @@
   },
   "thresholdDescr": {
     "name": "thresholdDescr",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.20",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.20",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -924,7 +2617,7 @@
   },
   "thresholdSeverity": {
     "name": "thresholdSeverity",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.21",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.21",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -936,7 +2629,7 @@
   },
   "thresholdEventType": {
     "name": "thresholdEventType",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.22",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.22",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -948,7 +2641,7 @@
   },
   "status": {
     "name": "status",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.23",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.23",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -960,7 +2653,7 @@
   },
   "slaveIpAddress": {
     "name": "slaveIpAddress",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.1.24",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.24",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -970,9 +2663,899 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "inputCurrentRating": {
+    "name": "inputCurrentRating",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ratedVoltage": {
+    "name": "ratedVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ratedPower": {
+    "name": "ratedPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletSwitching": {
+    "name": "outletSwitching",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataLogging": {
+    "name": "dataLogging",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataLoggingInterval": {
+    "name": "dataLoggingInterval",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "dataCollectionInterval": {
+    "name": "dataCollectionInterval",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletEnergySupport": {
+    "name": "outletEnergySupport",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentUnbalanceSupport": {
+    "name": "currentUnbalanceSupport",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "externalSensorsZCoordinateUnits": {
+    "name": "externalSensorsZCoordinateUnits",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inlineMeter": {
+    "name": "inlineMeter",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "oldSensorState": {
+    "name": "oldSensorState",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StateOfSensorEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "externalSensorNumber": {
+    "name": "externalSensorNumber",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sensorIdentificationString": {
+    "name": "sensorIdentificationString",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "lastUpgradeStatus": {
+    "name": "lastUpgradeStatus",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mainController": 0,
+        "psoc1": 1,
+        "psoc2": 2,
+        "psoc3": 3,
+        "psoc4": 4,
+        "psoc5": 5,
+        "psoc6": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastUpgradeTimestamp": {
+    "name": "lastUpgradeTimestamp",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lastUpgradeErrorDescription": {
+    "name": "lastUpgradeErrorDescription",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerCIMStatus": {
+    "name": "powerCIMStatus",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerCIMStatusEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "measurementsPerLogEntry": {
+    "name": "measurementsPerLogEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "psocNumber": {
+    "name": "psocNumber",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "altitude": {
+    "name": "altitude",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configureAlerts": {
+    "name": "configureAlerts",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fipsMode": {
+    "name": "fipsMode",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "synchronizeWithNTPServer": {
+    "name": "synchronizeWithNTPServer",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "useDHCPProvidedNTPServer": {
+    "name": "useDHCPProvidedNTPServer",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "primaryNTPServerAddressType": {
+    "name": "primaryNTPServerAddressType",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "primaryNTPServerAddress": {
+    "name": "primaryNTPServerAddress",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secondaryNTPServerAddressType": {
+    "name": "secondaryNTPServerAddressType",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "secondaryNTPServerAddress": {
+    "name": "secondaryNTPServerAddress",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "daylightSavingsTime": {
+    "name": "daylightSavingsTime",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "thresholdValue": {
+    "name": "thresholdValue",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sensorValue": {
+    "name": "sensorValue",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ipmiOverLAN": {
+    "name": "ipmiOverLAN",
+    "oid": "1.3.6.1.4.1.13742.4.1.1.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCount": {
+    "name": "inletCount",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletTable": {
+    "name": "inletTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inletEntry": {
+    "name": "inletEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "inletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inletIndex": {
+    "name": "inletIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inletPoleCount": {
+    "name": "inletPoleCount",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletCurrentRating": {
+    "name": "inletCurrentRating",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletCurrent": {
+    "name": "inletCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletVoltage": {
+    "name": "inletVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletActivePower": {
+    "name": "inletActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletApparentPower": {
+    "name": "inletApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPowerFactor": {
+    "name": "inletPowerFactor",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletActiveEnergy": {
+    "name": "inletActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletCurrentUnbalance": {
+    "name": "inletCurrentUnbalance",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletCurrentUpperWarning": {
+    "name": "inletCurrentUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentUpperCritical": {
+    "name": "inletCurrentUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentLowerWarning": {
+    "name": "inletCurrentLowerWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentLowerCritical": {
+    "name": "inletCurrentLowerCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletVoltageUpperWarning": {
+    "name": "inletVoltageUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletVoltageUpperCritical": {
+    "name": "inletVoltageUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletVoltageLowerWarning": {
+    "name": "inletVoltageLowerWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletVoltageLowerCritical": {
+    "name": "inletVoltageLowerCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentUnbalanceUpperCritical": {
+    "name": "inletCurrentUnbalanceUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentUnbalanceUpperWarning": {
+    "name": "inletCurrentUnbalanceUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentHysteresis": {
+    "name": "inletCurrentHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletVoltageHysteresis": {
+    "name": "inletVoltageHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletCurrentUnbalanceHysteresis": {
+    "name": "inletCurrentUnbalanceHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.20.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inletPoleTable": {
+    "name": "inletPoleTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inletPoleEntry": {
+    "name": "inletPoleEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "inletIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "inletPoleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inletPoleIndex": {
+    "name": "inletPoleIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inletPoleLabel": {
+    "name": "inletPoleLabel",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPoleCurrent": {
+    "name": "inletPoleCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPoleVoltage": {
+    "name": "inletPoleVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPoleMaxCurrent": {
+    "name": "inletPoleMaxCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPoleActivePower": {
+    "name": "inletPoleActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPoleApparentPower": {
+    "name": "inletPoleApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPolePowerFactor": {
+    "name": "inletPolePowerFactor",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inletPoleActiveEnergy": {
+    "name": "inletPoleActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.21.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "outletCount": {
     "name": "outletCount",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.1",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -984,7 +3567,7 @@
   },
   "outletTable": {
     "name": "outletTable",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -992,7 +3575,7 @@
   },
   "outletEntry": {
     "name": "outletEntry",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1007,7 +3590,7 @@
   },
   "outletIndex": {
     "name": "outletIndex",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1016,18 +3599,18 @@
       "constraints": {
         "range": [
           {
-            "min": 0,
-            "max": 255
+            "min": 1,
+            "max": 256
           }
         ]
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "outletLabel": {
     "name": "outletLabel",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1039,7 +3622,7 @@
   },
   "outletOperationalState": {
     "name": "outletOperationalState",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1059,7 +3642,7 @@
   },
   "outletCurrent": {
     "name": "outletCurrent",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1071,7 +3654,7 @@
   },
   "outletMaxCurrent": {
     "name": "outletMaxCurrent",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1083,7 +3666,7 @@
   },
   "outletVoltage": {
     "name": "outletVoltage",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.6",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1095,7 +3678,7 @@
   },
   "outletActivePower": {
     "name": "outletActivePower",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.7",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1107,7 +3690,7 @@
   },
   "outletApparentPower": {
     "name": "outletApparentPower",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.8",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1119,7 +3702,7 @@
   },
   "outletPowerFactor": {
     "name": "outletPowerFactor",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.9",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1131,7 +3714,7 @@
   },
   "outletCurrentUpperWarning": {
     "name": "outletCurrentUpperWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.21",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1143,7 +3726,7 @@
   },
   "outletCurrentUpperCritical": {
     "name": "outletCurrentUpperCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.2.2.1.23",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1153,10 +3736,46 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "unitCurrent": {
-    "name": "unitCurrent",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.1",
-    "nodetype": "scalar",
+  "outletCurrentLowerWarning": {
+    "name": "outletCurrentLowerWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentLowerCritical": {
+    "name": "outletCurrentLowerCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentHysteresis": {
+    "name": "outletCurrentHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentRating": {
+    "name": "outletCurrentRating",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.30",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "MilliAmps",
@@ -1165,9 +3784,33 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "outletWattHours": {
+    "name": "outletWattHours",
+    "oid": "1.3.6.1.4.1.13742.4.1.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitCurrent": {
+    "name": "unitCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
   "unitVoltage": {
     "name": "unitVoltage",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.2",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1175,11 +3818,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitActivePower": {
     "name": "unitActivePower",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.3",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1187,120 +3830,27 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitApparentPower": {
     "name": "unitApparentPower",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.4",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Watts",
+      "type": "VoltAmps",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitCpuTemp": {
     "name": "unitCpuTemp",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.5",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DegreesCelsius",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "unitCircuitBreak0State": {
-    "name": "unitCircuitBreak0State",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.20",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unavailable": -1,
-          "ok": 0,
-          "tripped": 1
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "unitCircuitBreak1State": {
-    "name": "unitCircuitBreak1State",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.21",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unavailable": -1,
-          "ok": 0,
-          "tripped": 1
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "unitCircuitBreak2State": {
-    "name": "unitCircuitBreak2State",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.22",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unavailable": -1,
-          "ok": 0,
-          "tripped": 1
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "unitCircuitBreak0Current": {
-    "name": "unitCircuitBreak0Current",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.40",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MilliAmps",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "unitCircuitBreak1Current": {
-    "name": "unitCircuitBreak1Current",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.41",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MilliAmps",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "unitCircuitBreak2Current": {
-    "name": "unitCircuitBreak2Current",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.42",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MilliAmps",
+      "type": "TenthDegreesCelsius",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1308,7 +3858,7 @@
   },
   "unitVoltageLowerWarning": {
     "name": "unitVoltageLowerWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.60",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.60",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1316,11 +3866,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitVoltageLowerCritical": {
     "name": "unitVoltageLowerCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.61",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.61",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1328,11 +3878,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitVoltageUpperWarning": {
     "name": "unitVoltageUpperWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.62",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.62",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1340,11 +3890,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitVoltageUpperCritical": {
     "name": "unitVoltageUpperCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.63",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.63",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1352,11 +3902,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitCurrentUpperWarning": {
     "name": "unitCurrentUpperWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.70",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.70",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1364,11 +3914,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "unitCurrentUpperCritical": {
     "name": "unitCurrentUpperCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.71",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.71",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1376,11 +3926,107 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "unitOrLineVoltageLowerWarning": {
+    "name": "unitOrLineVoltageLowerWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.90",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineVoltageLowerCritical": {
+    "name": "unitOrLineVoltageLowerCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.91",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineVoltageUpperWarning": {
+    "name": "unitOrLineVoltageUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.92",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineVoltageUpperCritical": {
+    "name": "unitOrLineVoltageUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.93",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineCurrentUpperWarning": {
+    "name": "unitOrLineCurrentUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.94",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineCurrentUpperCritical": {
+    "name": "unitOrLineCurrentUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.95",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neutralCurrentUpperWarning": {
+    "name": "neutralCurrentUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.96",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "neutralCurrentUpperCritical": {
+    "name": "neutralCurrentUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.97",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "unitTempLowerWarning": {
     "name": "unitTempLowerWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.80",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.80",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1392,7 +4038,7 @@
   },
   "unitTempLowerCritical": {
     "name": "unitTempLowerCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.81",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.81",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1404,7 +4050,7 @@
   },
   "unitTempUpperWarning": {
     "name": "unitTempUpperWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.82",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.82",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1416,7 +4062,7 @@
   },
   "unitTempUpperCritical": {
     "name": "unitTempUpperCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.1.3.1.83",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.83",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1426,9 +4072,93 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "currentUnbalance": {
+    "name": "currentUnbalance",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentUnbalanceUpperWarning": {
+    "name": "currentUnbalanceUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "currentUnbalanceUpperCritical": {
+    "name": "currentUnbalanceUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percentage",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineCurrentHysteresis": {
+    "name": "unitOrLineCurrentHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.98",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitOrLineVoltageHysteresis": {
+    "name": "unitOrLineVoltageHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitTempHysteresis": {
+    "name": "unitTempHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "currentUnbalanceHysteresis": {
+    "name": "currentUnbalanceHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.3.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "tempSensorCount": {
     "name": "tempSensorCount",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.1",
+    "oid": "1.3.6.1.4.1.13742.4.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1436,19 +4166,19 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "tempSensorTable": {
     "name": "tempSensorTable",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2",
+    "oid": "1.3.6.1.4.1.13742.4.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "tempSensorEntry": {
     "name": "tempSensorEntry",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1459,11 +4189,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "tempSensorIndex": {
     "name": "tempSensorIndex",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.1",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1472,18 +4202,18 @@
       "constraints": {
         "range": [
           {
-            "min": 0,
-            "max": 255
+            "min": 1,
+            "max": 256
           }
         ]
       }
     },
-    "maxaccess": "read-only",
-    "status": "current"
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
   },
   "tempSensorLabel": {
     "name": "tempSensorLabel",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.2",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1491,23 +4221,23 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "temperature": {
     "name": "temperature",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.3",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DegreesCelsius",
+      "type": "TenthDegreesCelsius",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "tempLowerWarning": {
     "name": "tempLowerWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.4",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1515,11 +4245,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "tempUpperWarning": {
     "name": "tempUpperWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.5",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1527,11 +4257,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "tempLowerCritical": {
     "name": "tempLowerCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.6",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1539,11 +4269,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "tempUpperCritical": {
     "name": "tempUpperCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.7",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1551,59 +4281,47 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
-  "tempLowerWarningReset": {
-    "name": "tempLowerWarningReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.8",
+  "tempXCoordinate": {
+    "name": "tempXCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DegreesCelsius",
+      "type": "DisplayString",
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
-  "tempUpperWarningReset": {
-    "name": "tempUpperWarningReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.9",
+  "tempYCoordinate": {
+    "name": "tempYCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DegreesCelsius",
+      "type": "DisplayString",
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
-  "tempLowerCriticalReset": {
-    "name": "tempLowerCriticalReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.10",
+  "tempZCoordinate": {
+    "name": "tempZCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.2.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DegreesCelsius",
+      "type": "DisplayString",
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
-  },
-  "tempUpperCriticalReset": {
-    "name": "tempUpperCriticalReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.2.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DegreesCelsius",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "humiditySensorCount": {
     "name": "humiditySensorCount",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.3",
+    "oid": "1.3.6.1.4.1.13742.4.2.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1611,19 +4329,19 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "humiditySensorTable": {
     "name": "humiditySensorTable",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4",
+    "oid": "1.3.6.1.4.1.13742.4.2.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "humiditySensorEntry": {
     "name": "humiditySensorEntry",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1634,12 +4352,140 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "humiditySensorIndex": {
     "name": "humiditySensorIndex",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.1",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.1",
     "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "humiditySensorLabel": {
+    "name": "humiditySensorLabel",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidity": {
+    "name": "humidity",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "humidityLowerWarning": {
+    "name": "humidityLowerWarning",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidityUpperWarning": {
+    "name": "humidityUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidityLowerCritical": {
+    "name": "humidityLowerCritical",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidityUpperCritical": {
+    "name": "humidityUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RelativeHumidity",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidityXCoordinate": {
+    "name": "humidityXCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidityYCoordinate": {
+    "name": "humidityYCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "humidityZCoordinate": {
+    "name": "humidityZCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "externalSensorCount": {
+    "name": "externalSensorCount",
+    "oid": "1.3.6.1.4.1.13742.4.3.1",
+    "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
@@ -1656,9 +4502,88 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "humiditySensorLabel": {
-    "name": "humiditySensorLabel",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.2",
+  "reorderexternalSensorTableEntries": {
+    "name": "reorderexternalSensorTableEntries",
+    "oid": "1.3.6.1.4.1.13742.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "externalSensorTable": {
+    "name": "externalSensorTable",
+    "oid": "1.3.6.1.4.1.13742.4.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "externalSensorEntry": {
+    "name": "externalSensorEntry",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "sensorID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensorID": {
+    "name": "sensorID",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "externalSensorType": {
+    "name": "externalSensorType",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TypeOfSensorEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalSensorSerialNumber": {
+    "name": "externalSensorSerialNumber",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalSensorName": {
+    "name": "externalSensorName",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1668,117 +4593,1688 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidity": {
-    "name": "humidity",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.3",
+  "externalSensorChannelNumber": {
+    "name": "externalSensorChannelNumber",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "humidityLowerWarning": {
-    "name": "humidityLowerWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.4",
+  "externalSensorXCoordinate": {
+    "name": "externalSensorXCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "DisplayString",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityUpperWarning": {
-    "name": "humidityUpperWarning",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.5",
+  "externalSensorYCoordinate": {
+    "name": "externalSensorYCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "DisplayString",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityLowerCritical": {
-    "name": "humidityLowerCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.6",
+  "externalSensorZCoordinate": {
+    "name": "externalSensorZCoordinate",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "DisplayString",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityUpperCritical": {
-    "name": "humidityUpperCritical",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.7",
+  "externalBinarySensorSubtype": {
+    "name": "externalBinarySensorSubtype",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "TypeOfSensorEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalSensorUnits": {
+    "name": "externalSensorUnits",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SensorUnitsEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalSensorDecimalDigits": {
+    "name": "externalSensorDecimalDigits",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalSensorLowerCriticalThreshold": {
+    "name": "externalSensorLowerCriticalThreshold",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityLowerWarningReset": {
-    "name": "humidityLowerWarningReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.8",
+  "externalSensorLowerWarningThreshold": {
+    "name": "externalSensorLowerWarningThreshold",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.32",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityUpperWarningReset": {
-    "name": "humidityUpperWarningReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.9",
+  "externalSensorUpperCriticalThreshold": {
+    "name": "externalSensorUpperCriticalThreshold",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.33",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityLowerCriticalReset": {
-    "name": "humidityLowerCriticalReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.10",
+  "externalSensorUpperWarningThreshold": {
+    "name": "externalSensorUpperWarningThreshold",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.34",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "humidityUpperCriticalReset": {
-    "name": "humidityUpperCriticalReset",
-    "oid": "1.3.6.1.4.1.534.6.6.6.2.4.1.11",
+  "externalSensorHysteresis": {
+    "name": "externalSensorHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.35",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RelativeHumidity",
+      "type": "Unsigned32",
       "class": "type"
     },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "externalSensorState": {
+    "name": "externalSensorState",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StateOfSensorEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "externalSensorValue": {
+    "name": "externalSensorValue",
+    "oid": "1.3.6.1.4.1.13742.4.3.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lineCurrentCount": {
+    "name": "lineCurrentCount",
+    "oid": "1.3.6.1.4.1.13742.4.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lineCurrentTable": {
+    "name": "lineCurrentTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lineCurrentEntry": {
+    "name": "lineCurrentEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "lineCurrentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lineCurrentIndex": {
+    "name": "lineCurrentIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lineCurrentLabel": {
+    "name": "lineCurrentLabel",
+    "oid": "1.3.6.1.4.1.13742.4.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lineCurrent": {
+    "name": "lineCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "circuitBreakerCount": {
+    "name": "circuitBreakerCount",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "circuitBreakerTable": {
+    "name": "circuitBreakerTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "circuitBreakerEntry": {
+    "name": "circuitBreakerEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "circuitBreakerIndex": {
+    "name": "circuitBreakerIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "circuitBreakerLabel": {
+    "name": "circuitBreakerLabel",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "circuitBreakerState": {
+    "name": "circuitBreakerState",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "tripped": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "circuitBreakerCurrentRating": {
+    "name": "circuitBreakerCurrentRating",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "circuitBreakerCurrent": {
+    "name": "circuitBreakerCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "circuitBreakerCurrentUpperWarning": {
+    "name": "circuitBreakerCurrentUpperWarning",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "circuitBreakerCurrentUpperCritical": {
+    "name": "circuitBreakerCurrentUpperCritical",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "circuitBreakerCurrentHysteresis": {
+    "name": "circuitBreakerCurrentHysteresis",
+    "oid": "1.3.6.1.4.1.13742.4.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lineVoltageCount": {
+    "name": "lineVoltageCount",
+    "oid": "1.3.6.1.4.1.13742.4.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lineVoltageTable": {
+    "name": "lineVoltageTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lineVoltageEntry": {
+    "name": "lineVoltageEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "lineVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "lineVoltageIndex": {
+    "name": "lineVoltageIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "lineVoltageLabel": {
+    "name": "lineVoltageLabel",
+    "oid": "1.3.6.1.4.1.13742.4.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "lineVoltage": {
+    "name": "lineVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogCount": {
+    "name": "dataLogCount",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogLatestIndex": {
+    "name": "dataLogLatestIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogTable": {
+    "name": "dataLogTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogEntry": {
+    "name": "dataLogEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogIndex": {
+    "name": "dataLogIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogTimeStamp": {
+    "name": "dataLogTimeStamp",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogActivePower": {
+    "name": "dataLogActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogApparentPower": {
+    "name": "dataLogApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogAvgActivePower": {
+    "name": "dataLogAvgActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxActivePower": {
+    "name": "dataLogMaxActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinActivePower": {
+    "name": "dataLogMinActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgApparentPower": {
+    "name": "dataLogAvgApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxApparentPower": {
+    "name": "dataLogMaxApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinApparentPower": {
+    "name": "dataLogMinApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.7.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogOutletTable": {
+    "name": "dataLogOutletTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogOutletEntry": {
+    "name": "dataLogOutletEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogOutletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogOutletIndex": {
+    "name": "dataLogOutletIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogOutletCurrent": {
+    "name": "dataLogOutletCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogOutletVoltage": {
+    "name": "dataLogOutletVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogOutletPowerFactor": {
+    "name": "dataLogOutletPowerFactor",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogOutletOnTime": {
+    "name": "dataLogOutletOnTime",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogOutletWattHours": {
+    "name": "dataLogOutletWattHours",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogAvgOutletCurrent": {
+    "name": "dataLogAvgOutletCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxOutletCurrent": {
+    "name": "dataLogMaxOutletCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinOutletCurrent": {
+    "name": "dataLogMinOutletCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgOutletVoltage": {
+    "name": "dataLogAvgOutletVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxOutletVoltage": {
+    "name": "dataLogMaxOutletVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinOutletVoltage": {
+    "name": "dataLogMinOutletVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgOutletPowerFactor": {
+    "name": "dataLogAvgOutletPowerFactor",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxOutletPowerFactor": {
+    "name": "dataLogMaxOutletPowerFactor",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinOutletPowerFactor": {
+    "name": "dataLogMinOutletPowerFactor",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PowerFactorPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgOutletWattHours": {
+    "name": "dataLogAvgOutletWattHours",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxOutletWattHours": {
+    "name": "dataLogMaxOutletWattHours",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinOutletWattHours": {
+    "name": "dataLogMinOutletWattHours",
+    "oid": "1.3.6.1.4.1.13742.4.1.10.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogCircuitBreakerTable": {
+    "name": "dataLogCircuitBreakerTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogCircuitBreakerEntry": {
+    "name": "dataLogCircuitBreakerEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogCircuitBreakerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogCircuitBreakerIndex": {
+    "name": "dataLogCircuitBreakerIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogCircuitBreakerCurrent": {
+    "name": "dataLogCircuitBreakerCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogAvgCircuitBreakerCurrent": {
+    "name": "dataLogAvgCircuitBreakerCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxCircuitBreakerCurrent": {
+    "name": "dataLogMaxCircuitBreakerCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinCircuitBreakerCurrent": {
+    "name": "dataLogMinCircuitBreakerCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogInputLineTable": {
+    "name": "dataLogInputLineTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dataLogInputLineEntry": {
+    "name": "dataLogInputLineEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInputLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "dataLogInputLineIndex": {
+    "name": "dataLogInputLineIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "dataLogInputLineCurrent": {
+    "name": "dataLogInputLineCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogInputLineVoltage": {
+    "name": "dataLogInputLineVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogInletTable": {
+    "name": "dataLogInletTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogInletEntry": {
+    "name": "dataLogInletEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogInletIndex": {
+    "name": "dataLogInletIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogInletCurrentUnbalance": {
+    "name": "dataLogInletCurrentUnbalance",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogInletActivePower": {
+    "name": "dataLogInletActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogInletApparentPower": {
+    "name": "dataLogInletApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogInletActiveEnergy": {
+    "name": "dataLogInletActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogAvgInletCurrentUnbalance": {
+    "name": "dataLogAvgInletCurrentUnbalance",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletCurrentUnbalance": {
+    "name": "dataLogMaxInletCurrentUnbalance",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletCurrentUnbalance": {
+    "name": "dataLogMinInletCurrentUnbalance",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletActivePower": {
+    "name": "dataLogAvgInletActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletActivePower": {
+    "name": "dataLogMaxInletActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletActivePower": {
+    "name": "dataLogMinInletActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletApparentPower": {
+    "name": "dataLogAvgInletApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletApparentPower": {
+    "name": "dataLogMaxInletApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletApparentPower": {
+    "name": "dataLogMinInletApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletActiveEnergy": {
+    "name": "dataLogAvgInletActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletActiveEnergy": {
+    "name": "dataLogMaxInletActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletActiveEnergy": {
+    "name": "dataLogMinInletActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.12.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogInletPoleTable": {
+    "name": "dataLogInletPoleTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogInletPoleEntry": {
+    "name": "dataLogInletPoleEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogInletPoleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogInletPoleIndex": {
+    "name": "dataLogInletPoleIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogInletPoleCurrent": {
+    "name": "dataLogInletPoleCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogInletPoleVoltage": {
+    "name": "dataLogInletPoleVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dataLogAvgInletPoleCurrent": {
+    "name": "dataLogAvgInletPoleCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletPoleCurrent": {
+    "name": "dataLogMaxInletPoleCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletPoleCurrent": {
+    "name": "dataLogMinInletPoleCurrent",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletPoleVoltage": {
+    "name": "dataLogAvgInletPoleVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletPoleVoltage": {
+    "name": "dataLogMaxInletPoleVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletPoleVoltage": {
+    "name": "dataLogMinInletPoleVoltage",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MilliVolts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletPoleActivePower": {
+    "name": "dataLogAvgInletPoleActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletPoleActivePower": {
+    "name": "dataLogMaxInletPoleActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletPoleActivePower": {
+    "name": "dataLogMinInletPoleActivePower",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Watts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletPoleApparentPower": {
+    "name": "dataLogAvgInletPoleApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletPoleApparentPower": {
+    "name": "dataLogMaxInletPoleApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletPoleApparentPower": {
+    "name": "dataLogMinInletPoleApparentPower",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VoltAmps",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgInletPoleActiveEnergy": {
+    "name": "dataLogAvgInletPoleActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxInletPoleActiveEnergy": {
+    "name": "dataLogMaxInletPoleActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinInletPoleActiveEnergy": {
+    "name": "dataLogMinInletPoleActiveEnergy",
+    "oid": "1.3.6.1.4.1.13742.4.1.13.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WattHours",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogExternalSensorTable": {
+    "name": "dataLogExternalSensorTable",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogExternalSensorEntry": {
+    "name": "dataLogExternalSensorEntry",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogIndex",
+        "implied": 0
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "dataLogExternalSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataLogExternalSensorIndex": {
+    "name": "dataLogExternalSensorIndex",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataLogExternalSensorChanged": {
+    "name": "dataLogExternalSensorChanged",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogExternalSensorState": {
+    "name": "dataLogExternalSensorState",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StateOfSensorEnumeration",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogAvgExternalSensorValue": {
+    "name": "dataLogAvgExternalSensorValue",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMaxExternalSensorValue": {
+    "name": "dataLogMaxExternalSensorValue",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataLogMinExternalSensorValue": {
+    "name": "dataLogMinExternalSensorValue",
+    "oid": "1.3.6.1.4.1.13742.4.1.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "rebootStarted": {
     "name": "rebootStarted",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.1",
+    "oid": "1.3.6.1.4.1.13742.4.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1798,7 +6294,7 @@
   },
   "rebootCompleted": {
     "name": "rebootCompleted",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.2",
+    "oid": "1.3.6.1.4.1.13742.4.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1814,7 +6310,7 @@
   },
   "userLogin": {
     "name": "userLogin",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.3",
+    "oid": "1.3.6.1.4.1.13742.4.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -1838,7 +6334,7 @@
   },
   "userLogout": {
     "name": "userLogout",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.4",
+    "oid": "1.3.6.1.4.1.13742.4.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -1862,7 +6358,7 @@
   },
   "userAuthenticationFailure": {
     "name": "userAuthenticationFailure",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.5",
+    "oid": "1.3.6.1.4.1.13742.4.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -1886,7 +6382,7 @@
   },
   "userSessionTimeout": {
     "name": "userSessionTimeout",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.8",
+    "oid": "1.3.6.1.4.1.13742.4.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -1910,7 +6406,7 @@
   },
   "userAdded": {
     "name": "userAdded",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.11",
+    "oid": "1.3.6.1.4.1.13742.4.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -1934,7 +6430,7 @@
   },
   "userModified": {
     "name": "userModified",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.12",
+    "oid": "1.3.6.1.4.1.13742.4.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -1958,7 +6454,7 @@
   },
   "userDeleted": {
     "name": "userDeleted",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.13",
+    "oid": "1.3.6.1.4.1.13742.4.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -1982,7 +6478,7 @@
   },
   "groupAdded": {
     "name": "groupAdded",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.14",
+    "oid": "1.3.6.1.4.1.13742.4.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -2006,7 +6502,7 @@
   },
   "groupModified": {
     "name": "groupModified",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.15",
+    "oid": "1.3.6.1.4.1.13742.4.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -2030,7 +6526,7 @@
   },
   "groupDeleted": {
     "name": "groupDeleted",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.16",
+    "oid": "1.3.6.1.4.1.13742.4.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -2054,7 +6550,7 @@
   },
   "deviceUpdateStarted": {
     "name": "deviceUpdateStarted",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.20",
+    "oid": "1.3.6.1.4.1.13742.4.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -2082,7 +6578,7 @@
   },
   "userBlocked": {
     "name": "userBlocked",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.22",
+    "oid": "1.3.6.1.4.1.13742.4.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -2106,7 +6602,7 @@
   },
   "powerControl": {
     "name": "powerControl",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.23",
+    "oid": "1.3.6.1.4.1.13742.4.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -2138,7 +6634,7 @@
   },
   "userPasswordChanged": {
     "name": "userPasswordChanged",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.24",
+    "oid": "1.3.6.1.4.1.13742.4.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -2166,7 +6662,7 @@
   },
   "passwordSettingsChanged": {
     "name": "passwordSettingsChanged",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.28",
+    "oid": "1.3.6.1.4.1.13742.4.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -2190,7 +6686,7 @@
   },
   "firmwareFileDiscarded": {
     "name": "firmwareFileDiscarded",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.36",
+    "oid": "1.3.6.1.4.1.13742.4.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -2210,7 +6706,7 @@
   },
   "firmwareValidationFailed": {
     "name": "firmwareValidationFailed",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.38",
+    "oid": "1.3.6.1.4.1.13742.4.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -2230,7 +6726,7 @@
   },
   "securityViolation": {
     "name": "securityViolation",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.39",
+    "oid": "1.3.6.1.4.1.13742.4.0.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -2254,7 +6750,7 @@
   },
   "logFileCleared": {
     "name": "logFileCleared",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.41",
+    "oid": "1.3.6.1.4.1.13742.4.0.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -2274,7 +6770,7 @@
   },
   "thresholdAlarm": {
     "name": "thresholdAlarm",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.45",
+    "oid": "1.3.6.1.4.1.13742.4.0.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -2304,13 +6800,25 @@
       {
         "module": "PDU-MIB",
         "object": "thresholdEventType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorIdentificationString"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "thresholdValue"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorValue"
       }
     ],
     "status": "current"
   },
   "outletGroupingConnectivityLost": {
     "name": "outletGroupingConnectivityLost",
-    "oid": "1.3.6.1.4.1.534.6.6.6.0.50",
+    "oid": "1.3.6.1.4.1.13742.4.0.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -2332,11 +6840,443 @@
     ],
     "status": "current"
   },
+  "circuitBreakerTripped": {
+    "name": "circuitBreakerTripped",
+    "oid": "1.3.6.1.4.1.13742.4.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "circuitBreakerRecovered": {
+    "name": "circuitBreakerRecovered",
+    "oid": "1.3.6.1.4.1.13742.4.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "circuitBreakerLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "bulkConfigurationSaved": {
+    "name": "bulkConfigurationSaved",
+    "oid": "1.3.6.1.4.1.13742.4.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "bulkConfigurationCopied": {
+    "name": "bulkConfigurationCopied",
+    "oid": "1.3.6.1.4.1.13742.4.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "environmentalSensorsConnectivityLost": {
+    "name": "environmentalSensorsConnectivityLost",
+    "oid": "1.3.6.1.4.1.13742.4.0.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorChannelNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalBinarySensorSubtype"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "externalOnOffSensorStateChange": {
+    "name": "externalOnOffSensorStateChange",
+    "oid": "1.3.6.1.4.1.13742.4.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorChannelNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalBinarySensorSubtype"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "oldSensorState"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "environmentalSensorsConnectivityRestored": {
+    "name": "environmentalSensorsConnectivityRestored",
+    "oid": "1.3.6.1.4.1.13742.4.0.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorChannelNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalBinarySensorSubtype"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "voltageMeasurementError": {
+    "name": "voltageMeasurementError",
+    "oid": "1.3.6.1.4.1.13742.4.0.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "psocNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "fipsModeEnabled": {
+    "name": "fipsModeEnabled",
+    "oid": "1.3.6.1.4.1.13742.4.0.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "fipsModeDisabled": {
+    "name": "fipsModeDisabled",
+    "oid": "1.3.6.1.4.1.13742.4.0.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "managingenvironmentalSensor": {
+    "name": "managingenvironmentalSensor",
+    "oid": "1.3.6.1.4.1.13742.4.0.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorChannelNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalBinarySensorSubtype"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "unmanagingenvironmentalSensor": {
+    "name": "unmanagingenvironmentalSensor",
+    "oid": "1.3.6.1.4.1.13742.4.0.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "ipAddress"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "sensorDescr"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorType"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorChannelNumber"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalBinarySensorSubtype"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "externalSensorSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "ipmiOverLANEnabled": {
+    "name": "ipmiOverLANEnabled",
+    "oid": "1.3.6.1.4.1.13742.4.0.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "ipmiOverLANDisabled": {
+    "name": "ipmiOverLANDisabled",
+    "oid": "1.3.6.1.4.1.13742.4.0.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PDU-MIB",
+        "object": "objectName"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "objectInstance"
+      },
+      {
+        "module": "PDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/PDU-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:46:34 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raritan/PDU-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:38:10 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PDU-MIB"

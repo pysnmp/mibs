@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "snmpModules",
-      "Bits",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "snmpModules",
+      "Counter64",
+      "Integer32",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "AutonomousType",
@@ -34,6 +34,10 @@
     "oid": "1.3.6.1.4.1.14832",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2004-06-23 00:00",
+        "description": " Deprecated usmAESCfb128PrivProtocol subsequent to the publication of RFC3826, containing the standard track object usmAesCfb128Protocol."
+      },
       {
         "revision": "2003-02-03 00:00",
         "description": " Changes in preparation for public release. - Added Object Identities for AES use while AES is being standardized. - As of this writing, there are no additional authentication protocols specified in this document. "
@@ -59,7 +63,7 @@
     "name": "usmAESCfb128PrivProtocol",
     "oid": "1.3.6.1.4.1.14832.1.2",
     "class": "objectidentity",
-    "status": "current"
+    "status": "deprecated"
   },
   "usmAESCfb192PrivProtocol": {
     "name": "usmAESCfb192PrivProtocol",
@@ -75,9 +79,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/ESO-CONSORTIUM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:36:22 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eso/ESO-CONSORTIUM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:21:57 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ESO-CONSORTIUM-MIB"

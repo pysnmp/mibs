@@ -2,8 +2,10 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "sourceLearningTraps",
       "softentIND1MacAddress"
+    ],
+    "ALCATEL-IND1-VLAN-MGR-MIB": [
+      "vlanNumber"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -11,66 +13,79 @@
     "Q-BRIDGE-MIB": [
       "dot1qVlanIndex"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1MacAddressMIB": {
     "name": "alcatelIND1MacAddressMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "The MIB module for Source Learning Mac Address entity."
       }
     ]
   },
+  "alcatelIND1MacAddressMIBNotifications": {
+    "name": "alcatelIND1MacAddressMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1MacAddressMIBObjects": {
     "name": "alcatelIND1MacAddressMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1MacAddressMIBConformance": {
     "name": "alcatelIND1MacAddressMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1MacAddressMIBGroups": {
     "name": "alcatelIND1MacAddressMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1MacAddressMIBCompliances": {
     "name": "alcatelIND1MacAddressMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
@@ -78,7 +93,7 @@
     "name": "MacAddressProtocolType",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -92,132 +107,9 @@
     "displayhint": "x",
     "status": "current"
   },
-  "slMacAddressTable": {
-    "name": "slMacAddressTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "slMacAddressEntry": {
-    "name": "slMacAddressEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "IF-MIB",
-        "object": "ifIndex",
-        "implied": 0
-      },
-      {
-        "module": "Q-BRIDGE-MIB",
-        "object": "dot1qVlanIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacAddress",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "slMacAddress": {
-    "name": "slMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slMacAddressManagement": {
-    "name": "slMacAddressManagement",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "permanent": 1,
-          "deleteOnReset": 2,
-          "deleteOnTimeout": 3,
-          "learned": 4,
-          "staticMulticast": 5
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "permanent",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slMacAddressDisposition": {
-    "name": "slMacAddressDisposition",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "bridging": 1,
-          "filtering": 2,
-          "quarantined": 3,
-          "hostIntegrity": 4,
-          "userNetworkProf": 5
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "bridging",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slMacAddressRowStatus": {
-    "name": "slMacAddressRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slMacAddressProtocol": {
-    "name": "slMacAddressProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddressProtocolType",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "slMacAddressAgingTable": {
     "name": "slMacAddressAgingTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -225,7 +117,7 @@
   },
   "slMacAddressAgingEntry": {
     "name": "slMacAddressAgingEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -240,11 +132,11 @@
   },
   "slMacAgingValue": {
     "name": "slMacAgingValue",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -261,237 +153,24 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "slMacAgingRowStatus": {
     "name": "slMacAgingRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slPCamTrapObj": {
-    "name": "slPCamTrapObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.3",
-    "class": "objectidentity"
-  },
-  "slPCAMSlotNumber": {
-    "name": "slPCAMSlotNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.3.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 16
-          }
-        ]
-      }
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "slPCAMSliceNumber": {
-    "name": "slPCAMSliceNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.3.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 4
-          }
-        ]
-      }
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "slPCAMStatus": {
-    "name": "slPCAMStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.3.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "lowWaterMark": 1,
-          "highWaterMark": 2,
-          "floodWaterMark": 3,
-          "full": 4
-        }
-      }
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "slMacToPortMacTable": {
-    "name": "slMacToPortMacTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.4",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "slMacToPortMacEntry": {
-    "name": "slMacToPortMacEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.4.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacToPortMacVlanId",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacToPortMacAddress",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "slMacToPortMacVlanId": {
-    "name": "slMacToPortMacVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.4.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 4094
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slMacToPortMacAddress": {
-    "name": "slMacToPortMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.4.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slMacToPortMacRowStatus": {
-    "name": "slMacToPortMacRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.4.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "slPCAMStatusTrap": {
-    "name": "slPCAMStatusTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.1",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slPCAMSlotNumber"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slPCAMSliceNumber"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slPCAMStatus"
-      }
-    ],
-    "status": "current"
-  },
-  "bcmHashCollisionTrap": {
-    "name": "bcmHashCollisionTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.3",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "bcmHashCollisionMac"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "bcmHashCollisionSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "bcmHashCollisionPort"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "bcmHashCollisionVlan"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "bcmHashCollisionTable"
-      }
-    ],
-    "status": "current"
-  },
-  "halHashCollisionTrap": {
-    "name": "halHashCollisionTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.9.0.4",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "halHashCollisionMac"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "halHashCollisionSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "halHashCollisionPort"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "halHashCollisionVlan"
-      },
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "halHashCollisionTable"
-      }
-    ],
+    "maxaccess": "read-create",
     "status": "current"
   },
   "slDistributedMacMode": {
     "name": "slDistributedMacMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -513,155 +192,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "bcmHashCollisionTrapObj": {
-    "name": "bcmHashCollisionTrapObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.6",
-    "class": "objectidentity"
-  },
-  "bcmHashCollisionMac": {
-    "name": "bcmHashCollisionMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.6.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "bcmHashCollisionSlot": {
-    "name": "bcmHashCollisionSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.6.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "bcmHashCollisionPort": {
-    "name": "bcmHashCollisionPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.6.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "bcmHashCollisionVlan": {
-    "name": "bcmHashCollisionVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.6.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "bcmHashCollisionTable": {
-    "name": "bcmHashCollisionTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.6.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "halHashCollisionTrapObj": {
-    "name": "halHashCollisionTrapObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.10",
-    "class": "objectidentity"
-  },
-  "halHashCollisionMac": {
-    "name": "halHashCollisionMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.10.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "halHashCollisionSlot": {
-    "name": "halHashCollisionSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.10.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "halHashCollisionPort": {
-    "name": "halHashCollisionPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.10.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "halHashCollisionVlan": {
-    "name": "halHashCollisionVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.10.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "halHashCollisionTable": {
-    "name": "halHashCollisionTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.10.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
   "slMacLearningControlTable": {
     "name": "slMacLearningControlTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -669,7 +202,7 @@
   },
   "slMacLearningControlEntry": {
     "name": "slMacLearningControlEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -684,7 +217,54 @@
   },
   "slMacLearningControlStatus": {
     "name": "slMacLearningControlStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slMacLearningVlanControlTable": {
+    "name": "slMacLearningVlanControlTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slMacLearningVlanControlEntry": {
+    "name": "slMacLearningVlanControlEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VLAN-MGR-MIB",
+        "object": "vlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slMacLearningVlanControlStatus": {
+    "name": "slMacLearningVlanControlStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.10.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -708,7 +288,7 @@
   },
   "alaSlMacAddressGlobalTable": {
     "name": "alaSlMacAddressGlobalTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -716,7 +296,7 @@
   },
   "alaSlMacAddressGlobalEntry": {
     "name": "alaSlMacAddressGlobalEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -756,7 +336,7 @@
   },
   "slMacDomain": {
     "name": "slMacDomain",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -766,7 +346,11 @@
         "enumeration": {
           "all": 0,
           "vlan": 1,
-          "vpls": 2
+          "vpls": 2,
+          "spbm": 3,
+          "evb": 4,
+          "local": 5,
+          "vxlan": 6
         }
       }
     },
@@ -781,7 +365,7 @@
   },
   "slLocaleType": {
     "name": "slLocaleType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -806,34 +390,18 @@
   },
   "slOriginId": {
     "name": "slOriginId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "slServiceId": {
-    "name": "slServiceId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
+            "max": 0
+          },
           {
             "min": 1,
             "max": 2147483647
@@ -844,13 +412,37 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "slSubId": {
-    "name": "slSubId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.5",
+  "slServiceId": {
+    "name": "slServiceId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slSubId": {
+    "name": "slSubId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -866,7 +458,7 @@
   },
   "slMacAddressGbl": {
     "name": "slMacAddressGbl",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -878,7 +470,7 @@
   },
   "slMacAddressGblManagement": {
     "name": "slMacAddressGblManagement",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -900,12 +492,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "slMacAddressGblDisposition": {
     "name": "slMacAddressGblDisposition",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -917,7 +509,8 @@
           "filtering": 2,
           "quarantined": 3,
           "hostIntegrity": 4,
-          "userNetworkProf": 5
+          "userNetworkProf": 5,
+          "servicing": 6
         }
       }
     },
@@ -927,12 +520,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "slMacAddressGblRowStatus": {
     "name": "slMacAddressGblRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -944,19 +537,79 @@
   },
   "slMacAddressGblProtocol": {
     "name": "slMacAddressGblProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.1.8.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "MacAddressProtocolType",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slMacAddressGblGroupField": {
+    "name": "slMacAddressGblGroupField",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slSvcISID": {
+    "name": "slSvcISID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 256,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slVxLanVnID": {
+    "name": "slVxLanVnID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alcatelIND1MacAddressMIBCompliance": {
     "name": "alcatelIND1MacAddressMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -968,15 +621,15 @@
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB"
       },
       {
-        "object": "slPCamNotificationGroup",
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB"
-      },
-      {
         "object": "slMacGeneralGroup",
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB"
       },
       {
         "object": "slMacLearningGroup",
+        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB"
+      },
+      {
+        "object": "slMacVlanLearningGroup",
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB"
       }
     ],
@@ -984,35 +637,43 @@
   },
   "slMacAddressGroup": {
     "name": "slMacAddressGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacAddress"
+        "object": "slMacAddressGblManagement"
       },
       {
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacAddressManagement"
+        "object": "slMacAddressGblDisposition"
       },
       {
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacAddressDisposition"
+        "object": "slMacAddressGblRowStatus"
       },
       {
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacAddressRowStatus"
+        "object": "slMacAddressGblProtocol"
       },
       {
         "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slMacAddressProtocol"
+        "object": "slMacAddressGblGroupField"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
+        "object": "slSvcISID"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
+        "object": "slVxLanVnID"
       }
     ],
     "status": "current"
   },
   "slMacAgingGroup": {
     "name": "slMacAgingGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1026,21 +687,9 @@
     ],
     "status": "current"
   },
-  "slPCamNotificationGroup": {
-    "name": "slPCamNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.1.3",
-    "class": "notificationgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
-        "object": "slPCAMStatusTrap"
-      }
-    ],
-    "status": "current"
-  },
   "slMacGeneralGroup": {
     "name": "slMacGeneralGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1052,7 +701,7 @@
   },
   "slMacLearningGroup": {
     "name": "slMacLearningGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.8.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1062,11 +711,23 @@
     ],
     "status": "current"
   },
+  "slMacVlanLearningGroup": {
+    "name": "slMacVlanLearningGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.8.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MAC-ADDRESS-MIB",
+        "object": "slMacLearningVlanControlStatus"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-MAC-ADDRESS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-MAC-ADDRESS-MIB"

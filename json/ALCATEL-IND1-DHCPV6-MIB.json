@@ -19,39 +19,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "PhysAddress",
-      "DisplayString",
-      "DateAndTime",
       "TruthValue",
+      "RowStatus",
       "TimeStamp",
+      "DateAndTime",
+      "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DHCPv6MIB": {
     "name": "alcatelIND1DHCPv6MIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -62,17 +62,17 @@
   },
   "alcatelIND1DHCPv6MIBObjects": {
     "name": "alcatelIND1DHCPv6MIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1",
     "class": "objectidentity"
   },
   "alaDHCPv6RelayConfig": {
     "name": "alaDHCPv6RelayConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.1",
     "class": "objectidentity"
   },
   "alaDHCPv6RelayAdminStatus": {
     "name": "alaDHCPv6RelayAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -90,12 +90,12 @@
   },
   "alaDHCPv6SrvConfig": {
     "name": "alaDHCPv6SrvConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.2",
     "class": "objectidentity"
   },
   "alaDHCPv6SrvGlobalConfigStatus": {
     "name": "alaDHCPv6SrvGlobalConfigStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -119,7 +119,7 @@
   },
   "alaDHCPv6SrvGlobalRestart": {
     "name": "alaDHCPv6SrvGlobalRestart",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.2.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -143,7 +143,7 @@
   },
   "alaDHCPv6SrvGlobalClearStat": {
     "name": "alaDHCPv6SrvGlobalClearStat",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.2.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -167,7 +167,7 @@
   },
   "alaDHCPv6RelayInterfaceTable": {
     "name": "alaDHCPv6RelayInterfaceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -175,7 +175,7 @@
   },
   "alaDHCPv6RelayInterfaceEntry": {
     "name": "alaDHCPv6RelayInterfaceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -190,7 +190,7 @@
   },
   "alaDHCPv6RelayInterfaceAdminStatus": {
     "name": "alaDHCPv6RelayInterfaceAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -208,7 +208,7 @@
   },
   "alaDHCPv6RelayDestinationTable": {
     "name": "alaDHCPv6RelayDestinationTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -216,7 +216,7 @@
   },
   "alaDHCPv6RelayDestinationEntry": {
     "name": "alaDHCPv6RelayDestinationEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -241,7 +241,7 @@
   },
   "alaDHCPv6RelayDestinationAddressType": {
     "name": "alaDHCPv6RelayDestinationAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -253,7 +253,7 @@
   },
   "alaDHCPv6RelayDestinationAddress": {
     "name": "alaDHCPv6RelayDestinationAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -265,7 +265,7 @@
   },
   "alaDHCPv6RelayDestinationRowStatus": {
     "name": "alaDHCPv6RelayDestinationRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -277,12 +277,12 @@
   },
   "alaDHCPv6SrvLease": {
     "name": "alaDHCPv6SrvLease",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5",
     "class": "objectidentity"
   },
   "alaDHCPv6SrvLeaseTable": {
     "name": "alaDHCPv6SrvLeaseTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -290,7 +290,7 @@
   },
   "alaDHCPv6SrvLeaseEntry": {
     "name": "alaDHCPv6SrvLeaseEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -305,7 +305,7 @@
   },
   "alaDHCPv6SrvLeaseIpv6Address": {
     "name": "alaDHCPv6SrvLeaseIpv6Address",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -317,7 +317,7 @@
   },
   "alaDHCPv6SrvLeaseLeaseGrant": {
     "name": "alaDHCPv6SrvLeaseLeaseGrant",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -329,7 +329,7 @@
   },
   "alaDHCPv6SrvLeasePrefLeaseExpiry": {
     "name": "alaDHCPv6SrvLeasePrefLeaseExpiry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -341,7 +341,7 @@
   },
   "alaDHCPv6SrvLeaseValidLeaseExpiry": {
     "name": "alaDHCPv6SrvLeaseValidLeaseExpiry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -353,7 +353,7 @@
   },
   "alaDHCPv6SrvLeaseType": {
     "name": "alaDHCPv6SrvLeaseType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.5.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.5.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -372,17 +372,17 @@
   },
   "alcatelIND1DHCPv6MIBNotifications": {
     "name": "alcatelIND1DHCPv6MIBNotifications",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.0",
     "class": "objectidentity"
   },
   "alaDHCPv6SrvTrapsObj": {
     "name": "alaDHCPv6SrvTrapsObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.6",
     "class": "objectidentity"
   },
   "alaDHCPv6SrvLeaseUtilizationThresholdTrap": {
     "name": "alaDHCPv6SrvLeaseUtilizationThresholdTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -398,7 +398,7 @@
   },
   "alaDHCPv6SrvLeaseThresholdStatus": {
     "name": "alaDHCPv6SrvLeaseThresholdStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.6.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -417,7 +417,7 @@
   },
   "alaDHCPv6SrvSubnetDescriptor": {
     "name": "alaDHCPv6SrvSubnetDescriptor",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.1.6.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.1.6.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -429,22 +429,22 @@
   },
   "alcatelIND1DHCPv6MIBConformance": {
     "name": "alcatelIND1DHCPv6MIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1DHCPv6MIBCompliances": {
     "name": "alcatelIND1DHCPv6MIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1DHCPv6MIBGroups": {
     "name": "alcatelIND1DHCPv6MIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.2",
     "class": "objectidentity"
   },
   "alaDHCPv6Compliance": {
     "name": "alaDHCPv6Compliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -468,7 +468,7 @@
   },
   "alaDHCPv6RelayGroup": {
     "name": "alaDHCPv6RelayGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -488,7 +488,7 @@
   },
   "alaDHCPv6SrvGroup": {
     "name": "alaDHCPv6SrvGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -524,7 +524,7 @@
   },
   "alaDHCPv6SrvNotificationsGroup": {
     "name": "alaDHCPv6SrvNotificationsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.2.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -536,7 +536,7 @@
   },
   "alaDHCPv6SrvLeaseUtilizationThresholdGroup": {
     "name": "alaDHCPv6SrvLeaseUtilizationThresholdGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.29.2.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.29.2.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -552,9 +552,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-DHCPV6-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DHCPV6-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DHCPV6-MIB"

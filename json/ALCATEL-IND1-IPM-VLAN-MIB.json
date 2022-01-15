@@ -8,74 +8,74 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1IPMVlanMIB": {
     "name": "alcatelIND1IPMVlanMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1",
     "class": "moduleidentity"
   },
   "alcatelIND1IPMVlanMIBObjects": {
     "name": "alcatelIND1IPMVlanMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1IPMVlanMIBConformance": {
     "name": "alcatelIND1IPMVlanMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1IPMVlanMIBGroups": {
     "name": "alcatelIND1IPMVlanMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1IPMVlanMIBCompliances": {
     "name": "alcatelIND1IPMVlanMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaipmvVlanPort": {
     "name": "alaipmvVlanPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1",
     "class": "objectidentity"
   },
   "alaipmvVlanPortTable": {
     "name": "alaipmvVlanPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -83,7 +83,7 @@
   },
   "alaipmvVlanPortEntry": {
     "name": "alaipmvVlanPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -108,7 +108,7 @@
   },
   "alaipmvVlanPortIPMVlanNumber": {
     "name": "alaipmvVlanPortIPMVlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -128,7 +128,7 @@
   },
   "alaipmvVlanPortNumber": {
     "name": "alaipmvVlanPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -140,7 +140,7 @@
   },
   "alaipmvVlanPortType": {
     "name": "alaipmvVlanPortType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -158,7 +158,7 @@
   },
   "alaipmvVlanPortRowStatus": {
     "name": "alaipmvVlanPortRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -170,12 +170,12 @@
   },
   "alaipmvVlanIpAddr": {
     "name": "alaipmvVlanIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2",
     "class": "objectidentity"
   },
   "alaipmvVlanIpAddrTable": {
     "name": "alaipmvVlanIpAddrTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -183,7 +183,7 @@
   },
   "alaipmvVlanIpAddrEntry": {
     "name": "alaipmvVlanIpAddrEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -208,7 +208,7 @@
   },
   "alaipmvVlanIpAddrVlanNumber": {
     "name": "alaipmvVlanIpAddrVlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -228,7 +228,7 @@
   },
   "alaipmvVlanIpAddrType": {
     "name": "alaipmvVlanIpAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -248,7 +248,7 @@
   },
   "alaipmvVlanIpAddress": {
     "name": "alaipmvVlanIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -260,7 +260,7 @@
   },
   "alaipmvVlanIpAddrRowStatus": {
     "name": "alaipmvVlanIpAddrRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -272,12 +272,12 @@
   },
   "alaipmvVlanCtagT": {
     "name": "alaipmvVlanCtagT",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.3",
     "class": "objectidentity"
   },
   "alaipmvVlanCtagTable": {
     "name": "alaipmvVlanCtagTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -285,7 +285,7 @@
   },
   "alaipmvVlanCtagEntry": {
     "name": "alaipmvVlanCtagEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -305,7 +305,7 @@
   },
   "alaipmvVlanNumber": {
     "name": "alaipmvVlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -325,7 +325,7 @@
   },
   "alaipmvVlanCtag": {
     "name": "alaipmvVlanCtag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -345,7 +345,7 @@
   },
   "alaipmvVlanCtagRowStatus": {
     "name": "alaipmvVlanCtagRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -357,12 +357,12 @@
   },
   "alaipmvVlanIpAddrMask": {
     "name": "alaipmvVlanIpAddrMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.4",
     "class": "objectidentity"
   },
   "alaipmvVlanIpAddrMaskTable": {
     "name": "alaipmvVlanIpAddrMaskTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -370,7 +370,7 @@
   },
   "alaipmvVlanIpAddrMaskEntry": {
     "name": "alaipmvVlanIpAddrMaskEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -400,7 +400,7 @@
   },
   "alaipmvVlanIpAddrMaskVlanNumber": {
     "name": "alaipmvVlanIpAddrMaskVlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -420,7 +420,7 @@
   },
   "alaipmvVlanIpAddrMaskType": {
     "name": "alaipmvVlanIpAddrMaskType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -440,7 +440,7 @@
   },
   "alaipmvVlanIpAddrMaskAddress": {
     "name": "alaipmvVlanIpAddrMaskAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -464,7 +464,7 @@
   },
   "alaipmvVlanIpAddrMaskPrefixLen": {
     "name": "alaipmvVlanIpAddrMaskPrefixLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -476,7 +476,7 @@
   },
   "alaipmvVlanIpAddrMaskRowStatus": {
     "name": "alaipmvVlanIpAddrMaskRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -488,7 +488,7 @@
   },
   "alcatelIND1IPMVlanMIBCompliance": {
     "name": "alcatelIND1IPMVlanMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -512,7 +512,7 @@
   },
   "alaipmvlanPortGroup": {
     "name": "alaipmvlanPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -536,7 +536,7 @@
   },
   "alaipmvlanIPAddressGroup": {
     "name": "alaipmvlanIPAddressGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -560,7 +560,7 @@
   },
   "alaipmvlanCtagGroup": {
     "name": "alaipmvlanCtagGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -580,7 +580,7 @@
   },
   "alaipmvlanIPAddrMaskGroup": {
     "name": "alaipmvlanIPAddrMaskGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.41.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.41.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -593,8 +593,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPM-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-IPM-VLAN-MIB"

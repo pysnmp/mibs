@@ -8,35 +8,35 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1StackMgrMIB": {
     "name": "alcatelIND1StackMgrMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -83,22 +83,22 @@
   },
   "alcatelIND1StackMgrMIBObjects": {
     "name": "alcatelIND1StackMgrMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1",
     "class": "objectidentity"
   },
   "alcatelIND1StackMgrMIBConformance": {
     "name": "alcatelIND1StackMgrMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1StackMgrTrapObjects": {
     "name": "alcatelIND1StackMgrTrapObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.3",
     "class": "objectidentity"
   },
   "alaStackMgrTraps": {
     "name": "alaStackMgrTraps",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4",
     "class": "objectidentity"
   },
   "AlaStackMgrLinkNumber": {
@@ -266,7 +266,7 @@
   },
   "alaStackMgrChassisTable": {
     "name": "alaStackMgrChassisTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -274,7 +274,7 @@
   },
   "alaStackMgrChassisEntry": {
     "name": "alaStackMgrChassisEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -289,7 +289,7 @@
   },
   "alaStackMgrSlotNINumber": {
     "name": "alaStackMgrSlotNINumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -301,7 +301,7 @@
   },
   "alaStackMgrSlotCMMNumber": {
     "name": "alaStackMgrSlotCMMNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -321,7 +321,7 @@
   },
   "alaStackMgrChasRole": {
     "name": "alaStackMgrChasRole",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -333,7 +333,7 @@
   },
   "alaStackMgrLocalLinkStateA": {
     "name": "alaStackMgrLocalLinkStateA",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -345,7 +345,7 @@
   },
   "alaStackMgrRemoteNISlotA": {
     "name": "alaStackMgrRemoteNISlotA",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -357,7 +357,7 @@
   },
   "alaStackMgrRemoteLinkA": {
     "name": "alaStackMgrRemoteLinkA",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -369,7 +369,7 @@
   },
   "alaStackMgrLocalLinkStateB": {
     "name": "alaStackMgrLocalLinkStateB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -381,7 +381,7 @@
   },
   "alaStackMgrRemoteNISlotB": {
     "name": "alaStackMgrRemoteNISlotB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -393,7 +393,7 @@
   },
   "alaStackMgrRemoteLinkB": {
     "name": "alaStackMgrRemoteLinkB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -405,7 +405,7 @@
   },
   "alaStackMgrChasState": {
     "name": "alaStackMgrChasState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -417,7 +417,7 @@
   },
   "alaStackMgrSavedSlotNINumber": {
     "name": "alaStackMgrSavedSlotNINumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -429,7 +429,7 @@
   },
   "alaStackMgrCommandAction": {
     "name": "alaStackMgrCommandAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -441,7 +441,7 @@
   },
   "alaStackMgrCommandStatus": {
     "name": "alaStackMgrCommandStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -453,7 +453,7 @@
   },
   "alaStackMgrOperStackingMode": {
     "name": "alaStackMgrOperStackingMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -465,7 +465,7 @@
   },
   "alaStackMgrAdminStackingMode": {
     "name": "alaStackMgrAdminStackingMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -477,7 +477,7 @@
   },
   "alaStackMgrStatsTable": {
     "name": "alaStackMgrStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -485,7 +485,7 @@
   },
   "alaStackMgrStatsEntry": {
     "name": "alaStackMgrStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -505,7 +505,7 @@
   },
   "alaStackMgrStatLinkNumber": {
     "name": "alaStackMgrStatLinkNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -517,7 +517,7 @@
   },
   "alaStackMgrStatPktsRx": {
     "name": "alaStackMgrStatPktsRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -529,7 +529,7 @@
   },
   "alaStackMgrStatPktsTx": {
     "name": "alaStackMgrStatPktsTx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -541,7 +541,7 @@
   },
   "alaStackMgrStatErrorsRx": {
     "name": "alaStackMgrStatErrorsRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -553,7 +553,7 @@
   },
   "alaStackMgrStatErrorsTx": {
     "name": "alaStackMgrStatErrorsTx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -565,7 +565,7 @@
   },
   "alaStackMgrStatDelayFromLastMsg": {
     "name": "alaStackMgrStatDelayFromLastMsg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -585,7 +585,7 @@
   },
   "alaStackMgrStackStatus": {
     "name": "alaStackMgrStackStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -597,7 +597,7 @@
   },
   "alaStackMgrTokensUsed": {
     "name": "alaStackMgrTokensUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -617,7 +617,7 @@
   },
   "alaStackMgrTokensAvailable": {
     "name": "alaStackMgrTokensAvailable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -637,7 +637,7 @@
   },
   "alaStackMgrStaticRouteTable": {
     "name": "alaStackMgrStaticRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -645,7 +645,7 @@
   },
   "alaStackMgrStaticRouteEntry": {
     "name": "alaStackMgrStaticRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -675,7 +675,7 @@
   },
   "alaStackMgrStaticRouteSrcStartIf": {
     "name": "alaStackMgrStaticRouteSrcStartIf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -687,7 +687,7 @@
   },
   "alaStackMgrStaticRouteSrcEndIf": {
     "name": "alaStackMgrStaticRouteSrcEndIf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -699,7 +699,7 @@
   },
   "alaStackMgrStaticRouteDstStartIf": {
     "name": "alaStackMgrStaticRouteDstStartIf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -711,7 +711,7 @@
   },
   "alaStackMgrStaticRouteDstEndIf": {
     "name": "alaStackMgrStaticRouteDstEndIf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -723,7 +723,7 @@
   },
   "alaStackMgrStaticRoutePort": {
     "name": "alaStackMgrStaticRoutePort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -741,7 +741,7 @@
   },
   "alaStackMgrStaticRoutePortState": {
     "name": "alaStackMgrStaticRoutePortState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -753,7 +753,7 @@
   },
   "alaStackMgrStaticRouteStatus": {
     "name": "alaStackMgrStaticRouteStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -777,7 +777,7 @@
   },
   "alaStackMgrStaticRouteRowStatus": {
     "name": "alaStackMgrStaticRouteRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.1.6.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.1.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -789,7 +789,7 @@
   },
   "alaStackMgrTrapLinkNumber": {
     "name": "alaStackMgrTrapLinkNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -801,7 +801,7 @@
   },
   "alaStackMgrPrimary": {
     "name": "alaStackMgrPrimary",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -813,7 +813,7 @@
   },
   "alaStackMgrSecondary": {
     "name": "alaStackMgrSecondary",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.3.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.3.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -825,7 +825,7 @@
   },
   "alaStackMgrDuplicateSlotTrap": {
     "name": "alaStackMgrDuplicateSlotTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -837,7 +837,7 @@
   },
   "alaStackMgrNeighborChangeTrap": {
     "name": "alaStackMgrNeighborChangeTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -857,7 +857,7 @@
   },
   "alaStackMgrRoleChangeTrap": {
     "name": "alaStackMgrRoleChangeTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -873,7 +873,7 @@
   },
   "alaStackMgrDuplicateRoleTrap": {
     "name": "alaStackMgrDuplicateRoleTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -889,7 +889,7 @@
   },
   "alaStackMgrClearedSlotTrap": {
     "name": "alaStackMgrClearedSlotTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -901,13 +901,13 @@
   },
   "alaStackMgrOutOfSlotsTrap": {
     "name": "alaStackMgrOutOfSlotsTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.6",
     "class": "notificationtype",
     "status": "current"
   },
   "alaStackMgrOutOfTokensTrap": {
     "name": "alaStackMgrOutOfTokensTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -919,13 +919,13 @@
   },
   "alaStackMgrOutOfPassThruSlotsTrap": {
     "name": "alaStackMgrOutOfPassThruSlotsTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.8",
     "class": "notificationtype",
     "status": "current"
   },
   "alaStackMgrBadMixTrap": {
     "name": "alaStackMgrBadMixTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.4.0.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.4.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -937,17 +937,17 @@
   },
   "alcatelIND1StackMgrMIBGroups": {
     "name": "alcatelIND1StackMgrMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1StackMgrMIBCompliances": {
     "name": "alcatelIND1StackMgrMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.2.2",
     "class": "objectidentity"
   },
   "alaStackMgrCfgMgrGroup": {
     "name": "alaStackMgrCfgMgrGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1015,7 +1015,7 @@
   },
   "alaStackMgrNotificationGroup": {
     "name": "alaStackMgrNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.2.1.2",
     "class": "notificationgroup",
     "objects": [
       {
@@ -1059,7 +1059,7 @@
   },
   "alcatelIND1StackMgrMIBCompliance": {
     "name": "alcatelIND1StackMgrMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.24.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.24.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1076,8 +1076,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-STACK-MANAGER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-STACK-MANAGER-MIB"

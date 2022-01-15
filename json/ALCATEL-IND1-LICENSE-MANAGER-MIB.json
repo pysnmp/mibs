@@ -5,39 +5,39 @@
       "softentIND1LicenseManager"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "aluLicenseManagerMIB": {
     "name": "aluLicenseManagerMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -48,36 +48,36 @@
   },
   "aluLicenseManagerMIBNotifications": {
     "name": "aluLicenseManagerMIBNotifications",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.0",
     "class": "objectidentity"
   },
   "aluLicenseManagerMIBObjects": {
     "name": "aluLicenseManagerMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "aluLicenseManagerMIBConformance": {
     "name": "aluLicenseManagerMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "aluLicenseManagerMIBGroups": {
     "name": "aluLicenseManagerMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "aluLicenseManagerMIBCompliances": {
     "name": "aluLicenseManagerMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "aluLicenseManagerLicenseExpired": {
     "name": "aluLicenseManagerLicenseExpired",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.0.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.0.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -93,12 +93,12 @@
   },
   "aluLicenseManagerConfig": {
     "name": "aluLicenseManagerConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.1",
     "class": "objectidentity"
   },
   "aluLicenseManagerApplyLicense": {
     "name": "aluLicenseManagerApplyLicense",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -116,7 +116,7 @@
   },
   "aluLicenseManagerInfoTable": {
     "name": "aluLicenseManagerInfoTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -124,7 +124,7 @@
   },
   "aluLicenseManagerInfoEntry": {
     "name": "aluLicenseManagerInfoEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -139,7 +139,7 @@
   },
   "aluLicenseId": {
     "name": "aluLicenseId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -159,7 +159,7 @@
   },
   "aluLicensedApplication": {
     "name": "aluLicensedApplication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -179,7 +179,7 @@
   },
   "aluLicenseType": {
     "name": "aluLicenseType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -197,7 +197,7 @@
   },
   "aluLicenseTimeRemaining": {
     "name": "aluLicenseTimeRemaining",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -217,7 +217,7 @@
   },
   "aluLicenseManagerFileInfoTable": {
     "name": "aluLicenseManagerFileInfoTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -225,7 +225,7 @@
   },
   "aluLicenseManagerFileInfoEntry": {
     "name": "aluLicenseManagerFileInfoEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -240,7 +240,7 @@
   },
   "aluLicenseFileIndex": {
     "name": "aluLicenseFileIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -252,7 +252,7 @@
   },
   "aluSwitchMacAddress": {
     "name": "aluSwitchMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -264,7 +264,7 @@
   },
   "aluLicensedFileApplication": {
     "name": "aluLicensedFileApplication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -284,7 +284,7 @@
   },
   "aluLicenseManagerMIBCompliance": {
     "name": "aluLicenseManagerMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -304,7 +304,7 @@
   },
   "aluLicenseManagerConfigGroup": {
     "name": "aluLicenseManagerConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -316,7 +316,7 @@
   },
   "aluLicenseManagerInfoGroup": {
     "name": "aluLicenseManagerInfoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -336,7 +336,7 @@
   },
   "aluLicenseManagerNotificationsGroup": {
     "name": "aluLicenseManagerNotificationsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.1.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -348,7 +348,7 @@
   },
   "aluLicenseManagerFileInfoGroup": {
     "name": "aluLicenseManagerFileInfoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.54.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.54.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -365,8 +365,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LICENSE-MANAGER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-LICENSE-MANAGER-MIB"

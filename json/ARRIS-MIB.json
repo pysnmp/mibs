@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "enterprises",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "enterprises",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "iso",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Integer32",
       "Bits",
-      "Counter64"
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -32,6 +32,18 @@
     "oid": "1.3.6.1.4.1.4115",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "1910-09-25 00:00",
+        "description": "Added Product Identifier 'arrisD5AM' for D5 Application Manager to the arrisProdIdVideo group"
+      },
+      {
+        "revision": "1905-03-14 00:00",
+        "description": "Updated Q5 naming to D5"
+      },
+      {
+        "revision": "1904-09-10 00:00",
+        "description": "Added Product Group 'arrisProdIdVideo' for ARRIS video products. Also added Product Identifier 'arrisQ5Wan' for Q5 WAN device."
+      },
       {
         "revision": "1904-02-02 00:00",
         "description": "Added Product Identifier 'cmtsCommon' for common CMTS products."
@@ -89,6 +101,11 @@
     "oid": "1.3.6.1.4.1.4115.1.6",
     "class": "objectidentity"
   },
+  "arrisProdIdVideo": {
+    "name": "arrisProdIdVideo",
+    "oid": "1.3.6.1.4.1.4115.1.8",
+    "class": "objectidentity"
+  },
   "tcm": {
     "name": "tcm",
     "oid": "1.3.6.1.4.1.4115.1.3.8",
@@ -144,11 +161,21 @@
     "oid": "1.3.6.1.4.1.4115.1.6.2",
     "class": "objectidentity"
   },
+  "arrisD5UEQam": {
+    "name": "arrisD5UEQam",
+    "oid": "1.3.6.1.4.1.4115.1.8.1",
+    "class": "objectidentity"
+  },
+  "arrisD5AM": {
+    "name": "arrisD5AM",
+    "oid": "1.3.6.1.4.1.4115.1.8.2",
+    "class": "objectidentity"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:35:35 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:11:34 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ARRIS-MIB"

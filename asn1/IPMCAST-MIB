@@ -1955,21 +1955,27 @@ ipMcastMIBComplianceRouter MODULE-COMPLIANCE
           "Write access is not required."
 
       OBJECT     ipMcastRouteUpstreamNeighborType
+      SYNTAX     InetAddressType { unknown(0), ipv4(1), ipv6(2),
+                                   ipv4z(3), ipv6z(4) }
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           or ipv6."
 
       OBJECT     ipMcastRouteUpstreamNeighbor
+      SYNTAX     InetAddress (SIZE (0|4|8|16|20))
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           or ipv6."
 
       OBJECT     ipMcastRouteRtAddressType
+      SYNTAX     InetAddressType { unknown(0), ipv4(1), ipv6(2),
+                                   ipv4z(3), ipv6z(4) }
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           or ipv6."
 
       OBJECT     ipMcastRouteRtAddress
+      SYNTAX     InetAddress (SIZE (0|4|8|16|20))
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           or ipv6."
@@ -1988,6 +1994,7 @@ ipMcastMIBComplianceRouter MODULE-COMPLIANCE
       DESCRIPTION
           "This group is not mandatory, but SHOULD be supported where
           hardware permits."
+
       GROUP        ipMcastMIBPktsOutGroup
       DESCRIPTION
           "This group is optional."
@@ -2131,6 +2138,7 @@ ipMcastMIBComplianceBorderRouter MODULE-COMPLIANCE
                        ipMcastMIBRouteGroup,
                        ipMcastMIBBoundaryIfGroup,
                        ipMcastMIBScopeNameGroup }
+
       OBJECT     ipMcastEnabled
       MIN-ACCESS read-only
       DESCRIPTION
@@ -2157,21 +2165,27 @@ ipMcastMIBComplianceBorderRouter MODULE-COMPLIANCE
           "Write access is not required."
 
       OBJECT     ipMcastRouteUpstreamNeighborType
+      SYNTAX     InetAddressType { unknown(0), ipv4(1), ipv6(2),
+                                   ipv4z(3), ipv6z(4) }
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           and ipv4z, or ipv6 and ipv6z."
 
       OBJECT     ipMcastRouteUpstreamNeighbor
+      SYNTAX     InetAddress (SIZE (0|4|8|16|20))
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           and ipv4z, or ipv6 and ipv6z."
 
       OBJECT     ipMcastRouteRtAddressType
+      SYNTAX     InetAddressType { unknown(0), ipv4(1), ipv6(2),
+                                   ipv4z(3), ipv6z(4) }
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           and ipv4z, or ipv6 and ipv6z."
 
       OBJECT     ipMcastRouteRtAddress
+      SYNTAX     InetAddress (SIZE (0|4|8|16|20))
       DESCRIPTION
           "This compliance requires support for unknown and either ipv4
           and ipv4z, or ipv6 and ipv6z."
@@ -2212,12 +2226,15 @@ ipMcastMIBComplianceBorderRouter MODULE-COMPLIANCE
           "This group is optional."
 
       OBJECT     ipMcastZoneScopeAddressType
+      SYNTAX     InetAddressType { ipv4(1), ipv6(2) }
       DESCRIPTION
           "This compliance requires support for ipv4 or ipv6."
 
       OBJECT     ipMcastZoneScopeAddress
+      SYNTAX     InetAddress (SIZE (4|16))
       DESCRIPTION
           "This compliance requires support for ipv4 or ipv6."
+
     ::= { ipMcastMIBCompliances 3 }
 
 --

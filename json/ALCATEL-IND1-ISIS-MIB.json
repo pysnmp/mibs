@@ -8,53 +8,53 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "ISIS-MIB": [
-      "SNPAAddress",
-      "isisISAdjState",
-      "isisSysL2State",
       "isisSysInstance",
+      "isisSysL2State",
+      "isisSysL1State",
+      "isisManAreaAddrExistState",
+      "isisISAdjState",
       "isisISAdjEntry",
       "SystemID",
-      "isisManAreaAddrExistState",
-      "isisSysL1State"
+      "SNPAAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowStatus",
+      "TimeStamp",
       "DisplayString",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "timetraIsisMIBModule": {
     "name": "timetraIsisMIBModule",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -130,52 +130,52 @@
   },
   "vRtrIsisObjs": {
     "name": "vRtrIsisObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10",
     "class": "objectidentity"
   },
   "vRtrIsisScalarObjs": {
     "name": "vRtrIsisScalarObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.1",
     "class": "objectidentity"
   },
   "vRtrIsisSystemObjs": {
     "name": "vRtrIsisSystemObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2",
     "class": "objectidentity"
   },
   "vRtrIsisIfObjs": {
     "name": "vRtrIsisIfObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3",
     "class": "objectidentity"
   },
   "vRtrIsisAdjObjs": {
     "name": "vRtrIsisAdjObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4",
     "class": "objectidentity"
   },
   "vRtrIsisNotificationObjs": {
     "name": "vRtrIsisNotificationObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5",
     "class": "objectidentity"
   },
   "vRtrIsisDatabaseClearObjs": {
     "name": "vRtrIsisDatabaseClearObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.6",
     "class": "objectidentity"
   },
   "vRtrIsisNotifications": {
     "name": "vRtrIsisNotifications",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11",
     "class": "objectidentity"
   },
   "vRtrIsisMIBConformance": {
     "name": "vRtrIsisMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12",
     "class": "objectidentity"
   },
   "vRtrIsisStatisticsClear": {
     "name": "vRtrIsisStatisticsClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -193,7 +193,7 @@
   },
   "vRtrIsisLSPClear": {
     "name": "vRtrIsisLSPClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -211,7 +211,7 @@
   },
   "vRtrIsisISAdjClear": {
     "name": "vRtrIsisISAdjClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -229,7 +229,7 @@
   },
   "vRtrIsisSpfClear": {
     "name": "vRtrIsisSpfClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -247,7 +247,7 @@
   },
   "vRtrIsisTable": {
     "name": "vRtrIsisTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -255,7 +255,7 @@
   },
   "vRtrIsisEntry": {
     "name": "vRtrIsisEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -270,7 +270,7 @@
   },
   "vRtrIsisLastEnabledTime": {
     "name": "vRtrIsisLastEnabledTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -290,7 +290,7 @@
   },
   "vRtrIsisAuthKey": {
     "name": "vRtrIsisAuthKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -316,7 +316,7 @@
   },
   "vRtrIsisAuthType": {
     "name": "vRtrIsisAuthType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -341,7 +341,7 @@
   },
   "vRtrIsisAuthCheck": {
     "name": "vRtrIsisAuthCheck",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -359,7 +359,7 @@
   },
   "vRtrIsisLspLifetime": {
     "name": "vRtrIsisLspLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -386,7 +386,7 @@
   },
   "vRtrIsisOverloadTimeout": {
     "name": "vRtrIsisOverloadTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -411,7 +411,7 @@
   },
   "vRtrIsisOperState": {
     "name": "vRtrIsisOperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -423,7 +423,7 @@
   },
   "vRtrIsisShortCuts": {
     "name": "vRtrIsisShortCuts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -441,7 +441,7 @@
   },
   "vRtrIsisSpfHoldTime": {
     "name": "vRtrIsisSpfHoldTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -468,7 +468,7 @@
   },
   "vRtrIsisLastSpfRun": {
     "name": "vRtrIsisLastSpfRun",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -488,7 +488,7 @@
   },
   "vRtrIsisGracefulRestart": {
     "name": "vRtrIsisGracefulRestart",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -506,7 +506,7 @@
   },
   "vRtrIsisOverloadOnBoot": {
     "name": "vRtrIsisOverloadOnBoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -531,7 +531,7 @@
   },
   "vRtrIsisOverloadOnBootTimeout": {
     "name": "vRtrIsisOverloadOnBootTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -556,7 +556,7 @@
   },
   "vRtrIsisSpfWait": {
     "name": "vRtrIsisSpfWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -583,7 +583,7 @@
   },
   "vRtrIsisSpfInitialWait": {
     "name": "vRtrIsisSpfInitialWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -610,7 +610,7 @@
   },
   "vRtrIsisSpfSecondWait": {
     "name": "vRtrIsisSpfSecondWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -637,7 +637,7 @@
   },
   "vRtrIsisLspMaxWait": {
     "name": "vRtrIsisLspMaxWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -664,7 +664,7 @@
   },
   "vRtrIsisLspInitialWait": {
     "name": "vRtrIsisLspInitialWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -685,7 +685,7 @@
   },
   "vRtrIsisLspSecondWait": {
     "name": "vRtrIsisLspSecondWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -712,7 +712,7 @@
   },
   "vRtrIsisCsnpAuthentication": {
     "name": "vRtrIsisCsnpAuthentication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -730,7 +730,7 @@
   },
   "vRtrIsisHelloAuthentication": {
     "name": "vRtrIsisHelloAuthentication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -748,7 +748,7 @@
   },
   "vRtrIsisPsnpAuthentication": {
     "name": "vRtrIsisPsnpAuthentication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -766,7 +766,7 @@
   },
   "vRtrIsisGRRestartDuration": {
     "name": "vRtrIsisGRRestartDuration",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.28",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.28",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -793,7 +793,7 @@
   },
   "vRtrIsisGRHelperMode": {
     "name": "vRtrIsisGRHelperMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.29",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.29",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -811,7 +811,7 @@
   },
   "vRtrIsisStrictAdjacencyCheck": {
     "name": "vRtrIsisStrictAdjacencyCheck",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.30",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.30",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -829,7 +829,7 @@
   },
   "vRtrIsisSpfMaxWait": {
     "name": "vRtrIsisSpfMaxWait",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.31",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.31",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -856,7 +856,7 @@
   },
   "vRtrIsisActivateIPv4": {
     "name": "vRtrIsisActivateIPv4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.32",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.32",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -874,7 +874,7 @@
   },
   "vRtrIsisActivateIPv6": {
     "name": "vRtrIsisActivateIPv6",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.33",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.33",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -892,7 +892,7 @@
   },
   "vRtrIsisMTEnabled": {
     "name": "vRtrIsisMTEnabled",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.34",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.34",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -910,7 +910,7 @@
   },
   "vRtrIsisBfdStatus": {
     "name": "vRtrIsisBfdStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.35",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.35",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -928,7 +928,7 @@
   },
   "vRtrIsisBfdAllVlanStatus": {
     "name": "vRtrIsisBfdAllVlanStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.1.1.36",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.1.1.36",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -946,7 +946,7 @@
   },
   "vRtrIsisLevelTable": {
     "name": "vRtrIsisLevelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -954,7 +954,7 @@
   },
   "vRtrIsisLevelEntry": {
     "name": "vRtrIsisLevelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -974,7 +974,7 @@
   },
   "vRtrIsisLevel": {
     "name": "vRtrIsisLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -992,7 +992,7 @@
   },
   "vRtrIsisLevelAuthKey": {
     "name": "vRtrIsisLevelAuthKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1018,7 +1018,7 @@
   },
   "vRtrIsisLevelAuthType": {
     "name": "vRtrIsisLevelAuthType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1044,7 +1044,7 @@
   },
   "vRtrIsisLevelWideMetricsOnly": {
     "name": "vRtrIsisLevelWideMetricsOnly",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1062,7 +1062,7 @@
   },
   "vRtrIsisLevelOverloadStatus": {
     "name": "vRtrIsisLevelOverloadStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1082,7 +1082,7 @@
   },
   "vRtrIsisLevelOverloadTimeLeft": {
     "name": "vRtrIsisLevelOverloadTimeLeft",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1094,7 +1094,7 @@
   },
   "vRtrIsisLevelNumLSPs": {
     "name": "vRtrIsisLevelNumLSPs",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1106,7 +1106,7 @@
   },
   "vRtrIsisLevelCsnpAuthentication": {
     "name": "vRtrIsisLevelCsnpAuthentication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1124,7 +1124,7 @@
   },
   "vRtrIsisLevelHelloAuthentication": {
     "name": "vRtrIsisLevelHelloAuthentication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1142,7 +1142,7 @@
   },
   "vRtrIsisLevelPsnpAuthentication": {
     "name": "vRtrIsisLevelPsnpAuthentication",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1160,7 +1160,7 @@
   },
   "vRtrIsisStatsTable": {
     "name": "vRtrIsisStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1168,7 +1168,7 @@
   },
   "vRtrIsisStatsEntry": {
     "name": "vRtrIsisStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1183,7 +1183,7 @@
   },
   "vRtrIsisSpfRuns": {
     "name": "vRtrIsisSpfRuns",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1195,7 +1195,7 @@
   },
   "vRtrIsisLSPRegenerations": {
     "name": "vRtrIsisLSPRegenerations",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1207,7 +1207,7 @@
   },
   "vRtrIsisInitiatedPurges": {
     "name": "vRtrIsisInitiatedPurges",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1219,7 +1219,7 @@
   },
   "vRtrIsisLSPRecd": {
     "name": "vRtrIsisLSPRecd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1231,7 +1231,7 @@
   },
   "vRtrIsisLSPDrop": {
     "name": "vRtrIsisLSPDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1243,7 +1243,7 @@
   },
   "vRtrIsisLSPSent": {
     "name": "vRtrIsisLSPSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1255,7 +1255,7 @@
   },
   "vRtrIsisLSPRetrans": {
     "name": "vRtrIsisLSPRetrans",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1267,7 +1267,7 @@
   },
   "vRtrIsisIIHRecd": {
     "name": "vRtrIsisIIHRecd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1279,7 +1279,7 @@
   },
   "vRtrIsisIIHDrop": {
     "name": "vRtrIsisIIHDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1291,7 +1291,7 @@
   },
   "vRtrIsisIIHSent": {
     "name": "vRtrIsisIIHSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1303,7 +1303,7 @@
   },
   "vRtrIsisIIHRetrans": {
     "name": "vRtrIsisIIHRetrans",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1315,7 +1315,7 @@
   },
   "vRtrIsisCSNPRecd": {
     "name": "vRtrIsisCSNPRecd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1327,7 +1327,7 @@
   },
   "vRtrIsisCSNPDrop": {
     "name": "vRtrIsisCSNPDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1339,7 +1339,7 @@
   },
   "vRtrIsisCSNPSent": {
     "name": "vRtrIsisCSNPSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1351,7 +1351,7 @@
   },
   "vRtrIsisCSNPRetrans": {
     "name": "vRtrIsisCSNPRetrans",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1363,7 +1363,7 @@
   },
   "vRtrIsisPSNPRecd": {
     "name": "vRtrIsisPSNPRecd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1375,7 +1375,7 @@
   },
   "vRtrIsisPSNPDrop": {
     "name": "vRtrIsisPSNPDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1387,7 +1387,7 @@
   },
   "vRtrIsisPSNPSent": {
     "name": "vRtrIsisPSNPSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1399,7 +1399,7 @@
   },
   "vRtrIsisPSNPRetrans": {
     "name": "vRtrIsisPSNPRetrans",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1411,7 +1411,7 @@
   },
   "vRtrIsisUnknownRecd": {
     "name": "vRtrIsisUnknownRecd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1423,7 +1423,7 @@
   },
   "vRtrIsisUnknownDrop": {
     "name": "vRtrIsisUnknownDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1435,7 +1435,7 @@
   },
   "vRtrIsisUnknownSent": {
     "name": "vRtrIsisUnknownSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1447,7 +1447,7 @@
   },
   "vRtrIsisUnknownRetrans": {
     "name": "vRtrIsisUnknownRetrans",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1459,7 +1459,7 @@
   },
   "vRtrIsisCSPFRequests": {
     "name": "vRtrIsisCSPFRequests",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1471,7 +1471,7 @@
   },
   "vRtrIsisCSPFDroppedRequests": {
     "name": "vRtrIsisCSPFDroppedRequests",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1483,7 +1483,7 @@
   },
   "vRtrIsisCSPFPathsFound": {
     "name": "vRtrIsisCSPFPathsFound",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1495,7 +1495,7 @@
   },
   "vRtrIsisCSPFPathsNotFound": {
     "name": "vRtrIsisCSPFPathsNotFound",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.3.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.3.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1507,7 +1507,7 @@
   },
   "vRtrIsisHostnameTable": {
     "name": "vRtrIsisHostnameTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1515,7 +1515,7 @@
   },
   "vRtrIsisHostnameEntry": {
     "name": "vRtrIsisHostnameEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1535,7 +1535,7 @@
   },
   "vRtrIsisSysID": {
     "name": "vRtrIsisSysID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1547,7 +1547,7 @@
   },
   "vRtrIsisHostname": {
     "name": "vRtrIsisHostname",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1559,7 +1559,7 @@
   },
   "vRtrIsisRouteTable": {
     "name": "vRtrIsisRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1567,7 +1567,7 @@
   },
   "vRtrIsisRouteEntry": {
     "name": "vRtrIsisRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1597,7 +1597,7 @@
   },
   "vRtrIsisRouteDest": {
     "name": "vRtrIsisRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1609,7 +1609,7 @@
   },
   "vRtrIsisRouteMask": {
     "name": "vRtrIsisRouteMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1621,7 +1621,7 @@
   },
   "vRtrIsisRouteNexthopIP": {
     "name": "vRtrIsisRouteNexthopIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1633,7 +1633,7 @@
   },
   "vRtrIsisRouteLevel": {
     "name": "vRtrIsisRouteLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1651,7 +1651,7 @@
   },
   "vRtrIsisRouteSpfVersion": {
     "name": "vRtrIsisRouteSpfVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1663,7 +1663,7 @@
   },
   "vRtrIsisRouteMetric": {
     "name": "vRtrIsisRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1675,7 +1675,7 @@
   },
   "vRtrIsisRouteType": {
     "name": "vRtrIsisRouteType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1693,7 +1693,7 @@
   },
   "vRtrIsisRouteNHopSysID": {
     "name": "vRtrIsisRouteNHopSysID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.5.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.5.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1705,7 +1705,7 @@
   },
   "vRtrIsisPathTable": {
     "name": "vRtrIsisPathTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1713,7 +1713,7 @@
   },
   "vRtrIsisPathEntry": {
     "name": "vRtrIsisPathEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1743,7 +1743,7 @@
   },
   "vRtrIsisPathID": {
     "name": "vRtrIsisPathID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1763,7 +1763,7 @@
   },
   "vRtrIsisPathIfIndex": {
     "name": "vRtrIsisPathIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1775,7 +1775,7 @@
   },
   "vRtrIsisPathNHopSysID": {
     "name": "vRtrIsisPathNHopSysID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1787,7 +1787,7 @@
   },
   "vRtrIsisPathMetric": {
     "name": "vRtrIsisPathMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1799,7 +1799,7 @@
   },
   "vRtrIsisPathSNPA": {
     "name": "vRtrIsisPathSNPA",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1811,7 +1811,7 @@
   },
   "vRtrIsisLSPTable": {
     "name": "vRtrIsisLSPTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1819,7 +1819,7 @@
   },
   "vRtrIsisLSPEntry": {
     "name": "vRtrIsisLSPEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1844,7 +1844,7 @@
   },
   "vRtrIsisLSPId": {
     "name": "vRtrIsisLSPId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1864,7 +1864,7 @@
   },
   "vRtrIsisLSPSeq": {
     "name": "vRtrIsisLSPSeq",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1876,7 +1876,7 @@
   },
   "vRtrIsisLSPChecksum": {
     "name": "vRtrIsisLSPChecksum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1896,7 +1896,7 @@
   },
   "vRtrIsisLSPLifetimeRemain": {
     "name": "vRtrIsisLSPLifetimeRemain",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1917,7 +1917,7 @@
   },
   "vRtrIsisLSPVersion": {
     "name": "vRtrIsisLSPVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1929,7 +1929,7 @@
   },
   "vRtrIsisLSPPktType": {
     "name": "vRtrIsisLSPPktType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1941,7 +1941,7 @@
   },
   "vRtrIsisLSPPktVersion": {
     "name": "vRtrIsisLSPPktVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1953,7 +1953,7 @@
   },
   "vRtrIsisLSPMaxArea": {
     "name": "vRtrIsisLSPMaxArea",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1965,7 +1965,7 @@
   },
   "vRtrIsisLSPSysIdLen": {
     "name": "vRtrIsisLSPSysIdLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1977,7 +1977,7 @@
   },
   "vRtrIsisLSPAttributes": {
     "name": "vRtrIsisLSPAttributes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1989,7 +1989,7 @@
   },
   "vRtrIsisLSPUsedLen": {
     "name": "vRtrIsisLSPUsedLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2001,7 +2001,7 @@
   },
   "vRtrIsisLSPAllocLen": {
     "name": "vRtrIsisLSPAllocLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2013,7 +2013,7 @@
   },
   "vRtrIsisLSPBuff": {
     "name": "vRtrIsisLSPBuff",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2033,7 +2033,7 @@
   },
   "vRtrIsisLSPZeroRLT": {
     "name": "vRtrIsisLSPZeroRLT",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.7.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.7.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2045,7 +2045,7 @@
   },
   "vRtrIsisIfTable": {
     "name": "vRtrIsisIfTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2053,7 +2053,7 @@
   },
   "vRtrIsisIfEntry": {
     "name": "vRtrIsisIfEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2073,7 +2073,7 @@
   },
   "vRtrIsisIfIndex": {
     "name": "vRtrIsisIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2085,7 +2085,7 @@
   },
   "vRtrIsisIfRowStatus": {
     "name": "vRtrIsisIfRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2097,7 +2097,7 @@
   },
   "vRtrIsisIfLastChangeTime": {
     "name": "vRtrIsisIfLastChangeTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2109,7 +2109,7 @@
   },
   "vRtrIsisIfAdminState": {
     "name": "vRtrIsisIfAdminState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2127,7 +2127,7 @@
   },
   "vRtrIsisIfOperState": {
     "name": "vRtrIsisIfOperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2139,7 +2139,7 @@
   },
   "vRtrIsisIfCsnpInterval": {
     "name": "vRtrIsisIfCsnpInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2166,7 +2166,7 @@
   },
   "vRtrIsisIfHelloAuthKey": {
     "name": "vRtrIsisIfHelloAuthKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2192,7 +2192,7 @@
   },
   "vRtrIsisIfHelloAuthType": {
     "name": "vRtrIsisIfHelloAuthType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2217,7 +2217,7 @@
   },
   "vRtrIsisIfLspPacingInterval": {
     "name": "vRtrIsisIfLspPacingInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2244,7 +2244,7 @@
   },
   "vRtrIsisIfCircIndex": {
     "name": "vRtrIsisIfCircIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2264,7 +2264,7 @@
   },
   "vRtrIsisIfRetransmitInterval": {
     "name": "vRtrIsisIfRetransmitInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2291,7 +2291,7 @@
   },
   "vRtrIsisIfTypeDefault": {
     "name": "vRtrIsisIfTypeDefault",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2309,7 +2309,7 @@
   },
   "vRtrIsisIfAddressFamily": {
     "name": "vRtrIsisIfAddressFamily",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2337,7 +2337,7 @@
   },
   "vRtrIsisIfBfdStatus": {
     "name": "vRtrIsisIfBfdStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2355,7 +2355,7 @@
   },
   "vRtrIsisIfLevelTable": {
     "name": "vRtrIsisIfLevelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2363,7 +2363,7 @@
   },
   "vRtrIsisIfLevelEntry": {
     "name": "vRtrIsisIfLevelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2388,7 +2388,7 @@
   },
   "vRtrIsisIfLevel": {
     "name": "vRtrIsisIfLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2406,7 +2406,7 @@
   },
   "vRtrIsisIfLevelLastChangeTime": {
     "name": "vRtrIsisIfLevelLastChangeTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2418,7 +2418,7 @@
   },
   "vRtrIsisIfLevelHelloAuthKey": {
     "name": "vRtrIsisIfLevelHelloAuthKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2444,7 +2444,7 @@
   },
   "vRtrIsisIfLevelHelloAuthType": {
     "name": "vRtrIsisIfLevelHelloAuthType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2470,7 +2470,7 @@
   },
   "vRtrIsisIfLevelPassive": {
     "name": "vRtrIsisIfLevelPassive",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2488,7 +2488,7 @@
   },
   "vRtrIsisIfLevelTeMetric": {
     "name": "vRtrIsisIfLevelTeMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2508,7 +2508,7 @@
   },
   "vRtrIsisIfLevelNumAdjacencies": {
     "name": "vRtrIsisIfLevelNumAdjacencies",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2520,7 +2520,7 @@
   },
   "vRtrIsisIfLevelISPriority": {
     "name": "vRtrIsisIfLevelISPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2540,7 +2540,7 @@
   },
   "vRtrIsisIfLevelHelloTimer": {
     "name": "vRtrIsisIfLevelHelloTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2560,7 +2560,7 @@
   },
   "vRtrIsisIfLevelAdminMetric": {
     "name": "vRtrIsisIfLevelAdminMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2580,7 +2580,7 @@
   },
   "vRtrIsisIfLevelOperMetric": {
     "name": "vRtrIsisIfLevelOperMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.3.2.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.3.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2600,7 +2600,7 @@
   },
   "vRtrIsisISAdjTable": {
     "name": "vRtrIsisISAdjTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2608,7 +2608,7 @@
   },
   "vRtrIsisISAdjEntry": {
     "name": "vRtrIsisISAdjEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2621,7 +2621,7 @@
   },
   "vRtrIsisISAdjExpiresIn": {
     "name": "vRtrIsisISAdjExpiresIn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2642,7 +2642,7 @@
   },
   "vRtrIsisISAdjCircLevel": {
     "name": "vRtrIsisISAdjCircLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2668,7 +2668,7 @@
   },
   "vRtrIsisISAdjNeighborIP": {
     "name": "vRtrIsisISAdjNeighborIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2680,7 +2680,7 @@
   },
   "vRtrIsisISAdjRestartSupport": {
     "name": "vRtrIsisISAdjRestartSupport",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2692,7 +2692,7 @@
   },
   "vRtrIsisISAdjRestartStatus": {
     "name": "vRtrIsisISAdjRestartStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2712,7 +2712,7 @@
   },
   "vRtrIsisISAdjRestartSupressed": {
     "name": "vRtrIsisISAdjRestartSupressed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2724,7 +2724,7 @@
   },
   "vRtrIsisISAdjNumRestarts": {
     "name": "vRtrIsisISAdjNumRestarts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2736,7 +2736,7 @@
   },
   "vRtrIsisISAdjLastRestartTime": {
     "name": "vRtrIsisISAdjLastRestartTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2748,7 +2748,7 @@
   },
   "vRtrIsisISAdjNeighborIPv6Type": {
     "name": "vRtrIsisISAdjNeighborIPv6Type",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2760,7 +2760,7 @@
   },
   "vRtrIsisISAdjNeighborIpv6": {
     "name": "vRtrIsisISAdjNeighborIpv6",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2772,7 +2772,7 @@
   },
   "vRtrIsisISAdjMTIdMask": {
     "name": "vRtrIsisISAdjMTIdMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.4.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.4.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2792,7 +2792,7 @@
   },
   "vRtrIsisSpfLogTable": {
     "name": "vRtrIsisSpfLogTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2800,7 +2800,7 @@
   },
   "vRtrIsisSpfLogEntry": {
     "name": "vRtrIsisSpfLogEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2820,7 +2820,7 @@
   },
   "vRtrIsisSpfTimeStamp": {
     "name": "vRtrIsisSpfTimeStamp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2832,7 +2832,7 @@
   },
   "vRtrIsisSpfRunTime": {
     "name": "vRtrIsisSpfRunTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2844,7 +2844,7 @@
   },
   "vRtrIsisSpfL1Nodes": {
     "name": "vRtrIsisSpfL1Nodes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2856,7 +2856,7 @@
   },
   "vRtrIsisSpfL2Nodes": {
     "name": "vRtrIsisSpfL2Nodes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2868,7 +2868,7 @@
   },
   "vRtrIsisSpfEventCount": {
     "name": "vRtrIsisSpfEventCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2880,7 +2880,7 @@
   },
   "vRtrIsisSpfLastTriggerLSPId": {
     "name": "vRtrIsisSpfLastTriggerLSPId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2900,7 +2900,7 @@
   },
   "vRtrIsisSpfTriggerReason": {
     "name": "vRtrIsisSpfTriggerReason",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.8.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.8.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2927,7 +2927,7 @@
   },
   "vRtrIsisSummaryTable": {
     "name": "vRtrIsisSummaryTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2935,7 +2935,7 @@
   },
   "vRtrIsisSummaryEntry": {
     "name": "vRtrIsisSummaryEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2960,7 +2960,7 @@
   },
   "vRtrIsisSummPrefix": {
     "name": "vRtrIsisSummPrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2972,7 +2972,7 @@
   },
   "vRtrIsisSummMask": {
     "name": "vRtrIsisSummMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.9.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2984,7 +2984,7 @@
   },
   "vRtrIsisSummRowStatus": {
     "name": "vRtrIsisSummRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.9.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2996,7 +2996,7 @@
   },
   "vRtrIsisSummLevel": {
     "name": "vRtrIsisSummLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.9.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3021,7 +3021,7 @@
   },
   "vRtrIsisInetRouteTable": {
     "name": "vRtrIsisInetRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3029,7 +3029,7 @@
   },
   "vRtrIsisInetRouteEntry": {
     "name": "vRtrIsisInetRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3069,7 +3069,7 @@
   },
   "vRtrIsisInetRouteDestType": {
     "name": "vRtrIsisInetRouteDestType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3081,7 +3081,7 @@
   },
   "vRtrIsisInetRouteDest": {
     "name": "vRtrIsisInetRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3093,7 +3093,7 @@
   },
   "vRtrIsisInetRoutePrefixLength": {
     "name": "vRtrIsisInetRoutePrefixLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3105,7 +3105,7 @@
   },
   "vRtrIsisInetRouteNexthopIPType": {
     "name": "vRtrIsisInetRouteNexthopIPType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3117,7 +3117,7 @@
   },
   "vRtrIsisInetRouteNexthopIP": {
     "name": "vRtrIsisInetRouteNexthopIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3129,7 +3129,7 @@
   },
   "vRtrIsisInetRouteLevel": {
     "name": "vRtrIsisInetRouteLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3147,7 +3147,7 @@
   },
   "vRtrIsisInetRouteSpfRunNumber": {
     "name": "vRtrIsisInetRouteSpfRunNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3159,7 +3159,7 @@
   },
   "vRtrIsisInetRouteMetric": {
     "name": "vRtrIsisInetRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3171,7 +3171,7 @@
   },
   "vRtrIsisInetRouteType": {
     "name": "vRtrIsisInetRouteType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3189,7 +3189,7 @@
   },
   "vRtrIsisInetRouteNHopSysID": {
     "name": "vRtrIsisInetRouteNHopSysID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.10.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.10.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3201,7 +3201,7 @@
   },
   "vRtrIsisInetSummaryTable": {
     "name": "vRtrIsisInetSummaryTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3209,7 +3209,7 @@
   },
   "vRtrIsisInetSummaryEntry": {
     "name": "vRtrIsisInetSummaryEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3239,7 +3239,7 @@
   },
   "vRtrIsisInetSummPrefixType": {
     "name": "vRtrIsisInetSummPrefixType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3251,7 +3251,7 @@
   },
   "vRtrIsisInetSummPrefix": {
     "name": "vRtrIsisInetSummPrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3263,7 +3263,7 @@
   },
   "vRtrIsisInetSummPrefixLength": {
     "name": "vRtrIsisInetSummPrefixLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3275,7 +3275,7 @@
   },
   "vRtrIsisInetSummRowStatus": {
     "name": "vRtrIsisInetSummRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3287,7 +3287,7 @@
   },
   "vRtrIsisInetSummLevel": {
     "name": "vRtrIsisInetSummLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.2.11.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.2.11.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3312,7 +3312,7 @@
   },
   "vRtrIsisNotificationTable": {
     "name": "vRtrIsisNotificationTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3320,7 +3320,7 @@
   },
   "vRtrIsisNotificationEntry": {
     "name": "vRtrIsisNotificationEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3335,7 +3335,7 @@
   },
   "vRtrIsisTrapLSPID": {
     "name": "vRtrIsisTrapLSPID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3359,7 +3359,7 @@
   },
   "vRtrIsisSystemLevel": {
     "name": "vRtrIsisSystemLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3378,7 +3378,7 @@
   },
   "vRtrIsisPDUFragment": {
     "name": "vRtrIsisPDUFragment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3398,7 +3398,7 @@
   },
   "vRtrIsisFieldLen": {
     "name": "vRtrIsisFieldLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3418,7 +3418,7 @@
   },
   "vRtrIsisMaxAreaAddress": {
     "name": "vRtrIsisMaxAreaAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3438,7 +3438,7 @@
   },
   "vRtrIsisProtocolVersion": {
     "name": "vRtrIsisProtocolVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3458,7 +3458,7 @@
   },
   "vRtrIsisLSPSize": {
     "name": "vRtrIsisLSPSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3478,7 +3478,7 @@
   },
   "vRtrIsisOriginatingBufferSize": {
     "name": "vRtrIsisOriginatingBufferSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3498,7 +3498,7 @@
   },
   "vRtrIsisProtocolsSupported": {
     "name": "vRtrIsisProtocolsSupported",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.5.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.5.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3518,7 +3518,7 @@
   },
   "vRtrIsisDatabaseClearTable": {
     "name": "vRtrIsisDatabaseClearTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.6.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3526,7 +3526,7 @@
   },
   "vRtrIsisDatabaseClearEntry": {
     "name": "vRtrIsisDatabaseClearEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.6.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -3546,7 +3546,7 @@
   },
   "vRtrIsisAdjDatabaseClear": {
     "name": "vRtrIsisAdjDatabaseClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.6.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.6.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3564,7 +3564,7 @@
   },
   "vRtrIsisLSPDatabaseClear": {
     "name": "vRtrIsisLSPDatabaseClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.10.6.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.10.6.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3582,7 +3582,7 @@
   },
   "vRtrIsisDatabaseOverload": {
     "name": "vRtrIsisDatabaseOverload",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3602,7 +3602,7 @@
   },
   "vRtrIsisManualAddressDrops": {
     "name": "vRtrIsisManualAddressDrops",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -3614,7 +3614,7 @@
   },
   "vRtrIsisCorruptedLSPDetected": {
     "name": "vRtrIsisCorruptedLSPDetected",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -3630,7 +3630,7 @@
   },
   "vRtrIsisMaxSeqExceedAttempt": {
     "name": "vRtrIsisMaxSeqExceedAttempt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -3646,7 +3646,7 @@
   },
   "vRtrIsisIDLenMismatch": {
     "name": "vRtrIsisIDLenMismatch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -3666,7 +3666,7 @@
   },
   "vRtrIsisMaxAreaAddrsMismatch": {
     "name": "vRtrIsisMaxAreaAddrsMismatch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -3686,7 +3686,7 @@
   },
   "vRtrIsisOwnLSPPurge": {
     "name": "vRtrIsisOwnLSPPurge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -3706,7 +3706,7 @@
   },
   "vRtrIsisSequenceNumberSkip": {
     "name": "vRtrIsisSequenceNumberSkip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -3726,7 +3726,7 @@
   },
   "vRtrIsisAutTypeFail": {
     "name": "vRtrIsisAutTypeFail",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -3746,7 +3746,7 @@
   },
   "vRtrIsisAuthFail": {
     "name": "vRtrIsisAuthFail",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -3766,7 +3766,7 @@
   },
   "vRtrIsisVersionSkew": {
     "name": "vRtrIsisVersionSkew",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -3790,7 +3790,7 @@
   },
   "vRtrIsisAreaMismatch": {
     "name": "vRtrIsisAreaMismatch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -3814,7 +3814,7 @@
   },
   "vRtrIsisRejectedAdjacency": {
     "name": "vRtrIsisRejectedAdjacency",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -3830,7 +3830,7 @@
   },
   "vRtrIsisLSPTooLargeToPropagate": {
     "name": "vRtrIsisLSPTooLargeToPropagate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -3854,7 +3854,7 @@
   },
   "vRtrIsisOrigLSPBufSizeMismatch": {
     "name": "vRtrIsisOrigLSPBufSizeMismatch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -3878,7 +3878,7 @@
   },
   "vRtrIsisProtoSuppMismatch": {
     "name": "vRtrIsisProtoSuppMismatch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -3902,7 +3902,7 @@
   },
   "vRtrIsisAdjacencyChange": {
     "name": "vRtrIsisAdjacencyChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -3926,7 +3926,7 @@
   },
   "vRtrIsisCircIdExhausted": {
     "name": "vRtrIsisCircIdExhausted",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -3938,7 +3938,7 @@
   },
   "vRtrIsisAdjRestartStatusChange": {
     "name": "vRtrIsisAdjRestartStatusChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.11.0.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.11.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -3958,17 +3958,17 @@
   },
   "vRtrIsisMIBConformances": {
     "name": "vRtrIsisMIBConformances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.1",
     "class": "objectidentity"
   },
   "vRtrIsisMIBGroups": {
     "name": "vRtrIsisMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2",
     "class": "objectidentity"
   },
   "vRtrIsisMIBCompliance": {
     "name": "vRtrIsisMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -4008,7 +4008,7 @@
   },
   "vRtrIsisMIBR2r1Compliance": {
     "name": "vRtrIsisMIBR2r1Compliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.1.2",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -4056,7 +4056,7 @@
   },
   "vRtrIsisMIBV3v0Compliance": {
     "name": "vRtrIsisMIBV3v0Compliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.1.3",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -4104,7 +4104,7 @@
   },
   "vRtrIsisMIBV4v0Compliance": {
     "name": "vRtrIsisMIBV4v0Compliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.1.4",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -4160,7 +4160,7 @@
   },
   "vRtrIsisGroup": {
     "name": "vRtrIsisGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -4380,7 +4380,7 @@
   },
   "vRtrIsisHostGroup": {
     "name": "vRtrIsisHostGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -4396,7 +4396,7 @@
   },
   "vRtrIsisRouteGroup": {
     "name": "vRtrIsisRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -4436,7 +4436,7 @@
   },
   "vRtrIsisPathGroup": {
     "name": "vRtrIsisPathGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -4464,7 +4464,7 @@
   },
   "vRtrIsisLSPGroup": {
     "name": "vRtrIsisLSPGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -4528,7 +4528,7 @@
   },
   "vRtrIsisIfGroup": {
     "name": "vRtrIsisIfGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -4624,7 +4624,7 @@
   },
   "vRtrIsisAdjGroup": {
     "name": "vRtrIsisAdjGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -4644,7 +4644,7 @@
   },
   "vRtrIsisNotificationObjGroup": {
     "name": "vRtrIsisNotificationObjGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -4688,7 +4688,7 @@
   },
   "vRtrIsisNotificationsGroup": {
     "name": "vRtrIsisNotificationsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.9",
     "class": "notificationgroup",
     "objects": [
       {
@@ -4768,7 +4768,7 @@
   },
   "vRtrIsisSpfGroup": {
     "name": "vRtrIsisSpfGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.10",
     "class": "objectgroup",
     "objects": [
       {
@@ -4800,7 +4800,7 @@
   },
   "vRtrIsisSummaryGroup": {
     "name": "vRtrIsisSummaryGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.11",
     "class": "objectgroup",
     "objects": [
       {
@@ -4816,7 +4816,7 @@
   },
   "vRtrIsisR2r1Group": {
     "name": "vRtrIsisR2r1Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.12",
     "class": "objectgroup",
     "objects": [
       {
@@ -5056,7 +5056,7 @@
   },
   "vRtrIsisV3v0Group": {
     "name": "vRtrIsisV3v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.13",
     "class": "objectgroup",
     "objects": [
       {
@@ -5304,7 +5304,7 @@
   },
   "vRtrIsisAdjV3v0Group": {
     "name": "vRtrIsisAdjV3v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.14",
     "class": "objectgroup",
     "objects": [
       {
@@ -5344,7 +5344,7 @@
   },
   "vRtrIsisNotificationV3v0Group": {
     "name": "vRtrIsisNotificationV3v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.15",
     "class": "notificationgroup",
     "objects": [
       {
@@ -5428,7 +5428,7 @@
   },
   "vRtrIsisV4v0Group": {
     "name": "vRtrIsisV4v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.16",
     "class": "objectgroup",
     "objects": [
       {
@@ -5700,7 +5700,7 @@
   },
   "vRtrIsisRouteV4v0Group": {
     "name": "vRtrIsisRouteV4v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.17",
     "class": "objectgroup",
     "objects": [
       {
@@ -5760,7 +5760,7 @@
   },
   "vRtrIsisSummaryV4v0Group": {
     "name": "vRtrIsisSummaryV4v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.18",
     "class": "objectgroup",
     "objects": [
       {
@@ -5784,7 +5784,7 @@
   },
   "vRtrIsisAdjV4v0Group": {
     "name": "vRtrIsisAdjV4v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.19",
     "class": "objectgroup",
     "objects": [
       {
@@ -5836,7 +5836,7 @@
   },
   "vRtrIsisIfV4v0Group": {
     "name": "vRtrIsisIfV4v0Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.20",
     "class": "objectgroup",
     "objects": [
       {
@@ -5936,7 +5936,7 @@
   },
   "vRtrIsisScalarObjsGroup": {
     "name": "vRtrIsisScalarObjsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.21",
     "class": "objectgroup",
     "objects": [
       {
@@ -5960,7 +5960,7 @@
   },
   "vRtrIsisDBClearObjsGroup": {
     "name": "vRtrIsisDBClearObjsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.14.1.12.2.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.14.1.12.2.22",
     "class": "objectgroup",
     "objects": [
       {
@@ -5976,9 +5976,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-ISIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-ISIS-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-ISIS-MIB"

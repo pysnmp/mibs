@@ -1,8 +1,8 @@
 {
   "imports": {
     "class": "imports",
-    "ATM-TC-MIB": [
-      "AtmVpIdentifier"
+    "CISCO-SMI": [
+      "ciscoExperiment"
     ],
     "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
       "AddressFamilyNumbers"
@@ -17,36 +17,46 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "experimental",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
-      "iso",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Integer32",
       "TimeTicks",
-      "Bits",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "StorageType",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowPointer",
+      "TimeStamp",
+      "TimeInterval",
+      "RowStatus"
     ]
   },
   "mplsLdpMIB": {
     "name": "mplsLdpMIB",
-    "oid": "1.3.6.1.3.97",
-    "class": "moduleidentity"
+    "oid": "1.3.6.1.4.1.9.10.65",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-04 00:00",
+        "description": "Imported Unsigned32 from SNMPv2-SMI."
+      },
+      {
+        "revision": "2000-03-04 12:00",
+        "description": "Initial version of the mib module."
+      }
+    ]
   },
   "MplsLsrIdentifier": {
     "name": "MplsLsrIdentifier",
@@ -86,13 +96,13 @@
     "name": "MplsLabel",
     "class": "textualconvention",
     "type": {
-      "type": "Integer32",
+      "type": "Unsigned32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 2147483647
+            "max": 4294967295
           }
         ]
       }
@@ -132,17 +142,34 @@
     },
     "status": "current"
   },
-  "MplsAtmVcIdentifier": {
-    "name": "MplsAtmVcIdentifier",
+  "AtmVcIdentifier": {
+    "name": "AtmVcIdentifier",
     "class": "textualconvention",
     "type": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
           {
-            "min": 32,
+            "min": 0,
             "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AtmVpIdentifier": {
+    "name": "AtmVpIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
           }
         ]
       }
@@ -151,32 +178,32 @@
   },
   "mplsLdpObjects": {
     "name": "mplsLdpObjects",
-    "oid": "1.3.6.1.3.97.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1",
     "class": "objectidentity"
   },
   "mplsLdpNotifications": {
     "name": "mplsLdpNotifications",
-    "oid": "1.3.6.1.3.97.2",
+    "oid": "1.3.6.1.4.1.9.10.65.2",
     "class": "objectidentity"
   },
   "mplsLdpConformance": {
     "name": "mplsLdpConformance",
-    "oid": "1.3.6.1.3.97.3",
+    "oid": "1.3.6.1.4.1.9.10.65.3",
     "class": "objectidentity"
   },
   "mplsLdpLsrObjects": {
     "name": "mplsLdpLsrObjects",
-    "oid": "1.3.6.1.3.97.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.1",
     "class": "objectidentity"
   },
   "mplsLdpEntityObjects": {
     "name": "mplsLdpEntityObjects",
-    "oid": "1.3.6.1.3.97.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2",
     "class": "objectidentity"
   },
   "mplsLdpLsrId": {
     "name": "mplsLdpLsrId",
-    "oid": "1.3.6.1.3.97.1.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -186,9 +213,27 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "mplsLdpLsrLabelRetentionMode": {
+    "name": "mplsLdpLsrLabelRetentionMode",
+    "oid": "1.3.6.1.4.1.9.10.65.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conservative": 1,
+          "liberal": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "mplsLdpLsrLoopDetectionCapable": {
     "name": "mplsLdpLsrLoopDetectionCapable",
-    "oid": "1.3.6.1.3.97.1.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -209,7 +254,7 @@
   },
   "mplsLdpEntityIndexNext": {
     "name": "mplsLdpEntityIndexNext",
-    "oid": "1.3.6.1.3.97.1.2.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -229,7 +274,7 @@
   },
   "mplsLdpEntityTable": {
     "name": "mplsLdpEntityTable",
-    "oid": "1.3.6.1.3.97.1.2.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -237,7 +282,7 @@
   },
   "mplsLdpEntityEntry": {
     "name": "mplsLdpEntityEntry",
-    "oid": "1.3.6.1.3.97.1.2.2.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -257,7 +302,7 @@
   },
   "mplsLdpEntityLdpId": {
     "name": "mplsLdpEntityLdpId",
-    "oid": "1.3.6.1.3.97.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -269,7 +314,7 @@
   },
   "mplsLdpEntityIndex": {
     "name": "mplsLdpEntityIndex",
-    "oid": "1.3.6.1.3.97.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -289,25 +334,19 @@
   },
   "mplsLdpEntityProtocolVersion": {
     "name": "mplsLdpEntityProtocolVersion",
-    "oid": "1.3.6.1.3.97.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
       "class": "type"
     },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
     "maxaccess": "read-create",
     "status": "current"
   },
   "mplsLdpEntityAdminStatus": {
     "name": "mplsLdpEntityAdminStatus",
-    "oid": "1.3.6.1.3.97.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -331,7 +370,7 @@
   },
   "mplsLdpEntityOperStatus": {
     "name": "mplsLdpEntityOperStatus",
-    "oid": "1.3.6.1.3.97.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -348,45 +387,21 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "mplsLdpEntityWellKnownTcpDiscoveryPort": {
-    "name": "mplsLdpEntityWellKnownTcpDiscoveryPort",
-    "oid": "1.3.6.1.3.97.1.2.2.1.6",
+  "mplsLdpEntityWellKnownDiscoveryPort": {
+    "name": "mplsLdpEntityWellKnownDiscoveryPort",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 646,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsLdpEntityWellKnownUdpDiscoveryPort": {
-    "name": "mplsLdpEntityWellKnownUdpDiscoveryPort",
-    "oid": "1.3.6.1.3.97.1.2.2.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 646,
-        "format": "decimal"
-      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "mplsLdpEntityMaxPduLength": {
     "name": "mplsLdpEntityMaxPduLength",
-    "oid": "1.3.6.1.3.97.1.2.2.1.8",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -401,19 +416,12 @@
         ]
       }
     },
-    "default": {
-      "default": {
-        "value": 4096,
-        "format": "decimal"
-      }
-    },
-    "units": "octets",
     "maxaccess": "read-create",
     "status": "current"
   },
   "mplsLdpEntityKeepAliveHoldTimer": {
     "name": "mplsLdpEntityKeepAliveHoldTimer",
-    "oid": "1.3.6.1.3.97.1.2.2.1.9",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -428,19 +436,13 @@
         ]
       }
     },
-    "default": {
-      "default": {
-        "value": 40,
-        "format": "decimal"
-      }
-    },
     "units": "seconds",
     "maxaccess": "read-create",
     "status": "current"
   },
   "mplsLdpEntityHelloHoldTimer": {
     "name": "mplsLdpEntityHelloHoldTimer",
-    "oid": "1.3.6.1.3.97.1.2.2.1.10",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -461,7 +463,7 @@
   },
   "mplsLdpEntityFailedInitSessionTrapEnable": {
     "name": "mplsLdpEntityFailedInitSessionTrapEnable",
-    "oid": "1.3.6.1.3.97.1.2.2.1.11",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -485,25 +487,19 @@
   },
   "mplsLdpEntityFailedInitSessionThreshold": {
     "name": "mplsLdpEntityFailedInitSessionThreshold",
-    "oid": "1.3.6.1.3.97.1.2.2.1.12",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
       "class": "type"
     },
-    "default": {
-      "default": {
-        "value": 8,
-        "format": "decimal"
-      }
-    },
     "maxaccess": "read-create",
     "status": "current"
   },
   "mplsLdpEntityLabelDistributionMethod": {
     "name": "mplsLdpEntityLabelDistributionMethod",
-    "oid": "1.3.6.1.3.97.1.2.2.1.13",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -519,27 +515,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "mplsLdpEntityLabelRetentionMode": {
-    "name": "mplsLdpEntityLabelRetentionMode",
-    "oid": "1.3.6.1.3.97.1.2.2.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "conservative": 1,
-          "liberal": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "mplsLdpEntityPVLimitMismatchTrapEnable": {
     "name": "mplsLdpEntityPVLimitMismatchTrapEnable",
-    "oid": "1.3.6.1.3.97.1.2.2.1.15",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -563,7 +541,7 @@
   },
   "mplsLdpEntityPathVectorLimit": {
     "name": "mplsLdpEntityPathVectorLimit",
-    "oid": "1.3.6.1.3.97.1.2.2.1.16",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -581,13 +559,31 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "mplsLdpEntityHopCountLimit": {
-    "name": "mplsLdpEntityHopCountLimit",
-    "oid": "1.3.6.1.3.97.1.2.2.1.17",
+  "mplsLdpEntityHopCountLoopDetection": {
+    "name": "mplsLdpEntityHopCountLoopDetection",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsLdpEntityHopCount": {
+    "name": "mplsLdpEntityHopCount",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
       "class": "type",
       "constraints": {
         "range": [
@@ -603,7 +599,7 @@
   },
   "mplsLdpEntityTargetedPeer": {
     "name": "mplsLdpEntityTargetedPeer",
-    "oid": "1.3.6.1.3.97.1.2.2.1.18",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -621,7 +617,7 @@
   },
   "mplsLdpEntityTargetedPeerAddrType": {
     "name": "mplsLdpEntityTargetedPeerAddrType",
-    "oid": "1.3.6.1.3.97.1.2.2.1.19",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -633,7 +629,7 @@
   },
   "mplsLdpEntityTargetedPeerAddr": {
     "name": "mplsLdpEntityTargetedPeerAddr",
-    "oid": "1.3.6.1.3.97.1.2.2.1.20",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -645,7 +641,7 @@
   },
   "mplsLdpEntityOptionalParameters": {
     "name": "mplsLdpEntityOptionalParameters",
-    "oid": "1.3.6.1.3.97.1.2.2.1.21",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -657,7 +653,7 @@
   },
   "mplsLdpEntityDiscontinuityTime": {
     "name": "mplsLdpEntityDiscontinuityTime",
-    "oid": "1.3.6.1.3.97.1.2.2.1.22",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -669,7 +665,7 @@
   },
   "mplsLdpEntityStorageType": {
     "name": "mplsLdpEntityStorageType",
-    "oid": "1.3.6.1.3.97.1.2.2.1.23",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -681,7 +677,7 @@
   },
   "mplsLdpEntityRowStatus": {
     "name": "mplsLdpEntityRowStatus",
-    "oid": "1.3.6.1.3.97.1.2.2.1.24",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.2.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -693,20 +689,20 @@
   },
   "mplsLdpEntityGenericObjects": {
     "name": "mplsLdpEntityGenericObjects",
-    "oid": "1.3.6.1.3.97.1.2.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3",
     "class": "objectidentity"
   },
-  "mplsLdpEntityConfGenericLabelRangeTable": {
-    "name": "mplsLdpEntityConfGenericLabelRangeTable",
-    "oid": "1.3.6.1.3.97.1.2.3.1",
+  "mplsLdpEntityConfGenericTable": {
+    "name": "mplsLdpEntityConfGenericTable",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "mplsLdpEntityConfGenericLabelRangeEntry": {
-    "name": "mplsLdpEntityConfGenericLabelRangeEntry",
-    "oid": "1.3.6.1.3.97.1.2.3.1.1",
+  "mplsLdpEntityConfGenericEntry": {
+    "name": "mplsLdpEntityConfGenericEntry",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -723,20 +719,15 @@
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityConfGenericLabelRangeMinimum",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityConfGenericLabelRangeMaximum",
+        "object": "mplsLdpConfGenericIndex",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "mplsLdpEntityConfGenericLabelRangeMinimum": {
-    "name": "mplsLdpEntityConfGenericLabelRangeMinimum",
-    "oid": "1.3.6.1.3.97.1.2.3.1.1.1",
+  "mplsLdpConfGenericIndex": {
+    "name": "mplsLdpConfGenericIndex",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -745,8 +736,8 @@
       "constraints": {
         "range": [
           {
-            "min": 0,
-            "max": 1048575
+            "min": 1,
+            "max": 4294967295
           }
         ]
       }
@@ -754,29 +745,9 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "mplsLdpEntityConfGenericLabelRangeMaximum": {
-    "name": "mplsLdpEntityConfGenericLabelRangeMaximum",
-    "oid": "1.3.6.1.3.97.1.2.3.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1048575
-          }
-        ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpEntityConfGenericIfIndexOrZero": {
-    "name": "mplsLdpEntityConfGenericIfIndexOrZero",
-    "oid": "1.3.6.1.3.97.1.2.3.1.1.3",
+  "mplsLdpConfGenericIfIndexOrZero": {
+    "name": "mplsLdpConfGenericIfIndexOrZero",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -786,9 +757,29 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "mplsLdpEntityConfGenericLabelRangeStorageType": {
-    "name": "mplsLdpEntityConfGenericLabelRangeStorageType",
-    "oid": "1.3.6.1.3.97.1.2.3.1.1.4",
+  "mplsLdpConfGenericLabel": {
+    "name": "mplsLdpConfGenericLabel",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsLdpConfGenericStorageType": {
+    "name": "mplsLdpConfGenericStorageType",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -798,9 +789,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "mplsLdpEntityConfGenericLabelRangeRowStatus": {
-    "name": "mplsLdpEntityConfGenericLabelRangeRowStatus",
-    "oid": "1.3.6.1.3.97.1.2.3.1.1.5",
+  "mplsLdpConfGenericRowStatus": {
+    "name": "mplsLdpConfGenericRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.3.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -812,12 +803,12 @@
   },
   "mplsLdpEntityAtmObjects": {
     "name": "mplsLdpEntityAtmObjects",
-    "oid": "1.3.6.1.3.97.1.2.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4",
     "class": "objectidentity"
   },
   "mplsLdpEntityAtmParmsTable": {
     "name": "mplsLdpEntityAtmParmsTable",
-    "oid": "1.3.6.1.3.97.1.2.4.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -825,7 +816,7 @@
   },
   "mplsLdpEntityAtmParmsEntry": {
     "name": "mplsLdpEntityAtmParmsEntry",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -845,7 +836,7 @@
   },
   "mplsLdpEntityAtmIfIndexOrZero": {
     "name": "mplsLdpEntityAtmIfIndexOrZero",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -857,7 +848,7 @@
   },
   "mplsLdpEntityAtmMergeCap": {
     "name": "mplsLdpEntityAtmMergeCap",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -866,7 +857,9 @@
       "constraints": {
         "enumeration": {
           "notSupported": 0,
-          "vcMerge": 2
+          "vpMerge": 1,
+          "vcMerge": 2,
+          "vpAndVcMerge": 3
         }
       }
     },
@@ -875,7 +868,7 @@
   },
   "mplsLdpEntityAtmLabelRangeComponents": {
     "name": "mplsLdpEntityAtmLabelRangeComponents",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -895,7 +888,7 @@
   },
   "mplsLdpEntityAtmVcDirectionality": {
     "name": "mplsLdpEntityAtmVcDirectionality",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -913,7 +906,7 @@
   },
   "mplsLdpEntityAtmLsrConnectivity": {
     "name": "mplsLdpEntityAtmLsrConnectivity",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -937,7 +930,7 @@
   },
   "mplsLdpEntityDefaultControlVpi": {
     "name": "mplsLdpEntityDefaultControlVpi",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.6",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -949,11 +942,11 @@
   },
   "mplsLdpEntityDefaultControlVci": {
     "name": "mplsLdpEntityDefaultControlVci",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.7",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MplsAtmVcIdentifier",
+      "type": "AtmVcIdentifier",
       "class": "type"
     },
     "default": {
@@ -967,7 +960,7 @@
   },
   "mplsLdpEntityUnlabTrafVpi": {
     "name": "mplsLdpEntityUnlabTrafVpi",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.8",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -979,11 +972,11 @@
   },
   "mplsLdpEntityUnlabTrafVci": {
     "name": "mplsLdpEntityUnlabTrafVci",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.9",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MplsAtmVcIdentifier",
+      "type": "AtmVcIdentifier",
       "class": "type"
     },
     "default": {
@@ -997,7 +990,7 @@
   },
   "mplsLdpEntityAtmStorageType": {
     "name": "mplsLdpEntityAtmStorageType",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.10",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1009,7 +1002,7 @@
   },
   "mplsLdpEntityAtmRowStatus": {
     "name": "mplsLdpEntityAtmRowStatus",
-    "oid": "1.3.6.1.3.97.1.2.4.1.1.11",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1021,7 +1014,7 @@
   },
   "mplsLdpEntityConfAtmLabelRangeTable": {
     "name": "mplsLdpEntityConfAtmLabelRangeTable",
-    "oid": "1.3.6.1.3.97.1.2.4.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1029,7 +1022,7 @@
   },
   "mplsLdpEntityConfAtmLabelRangeEntry": {
     "name": "mplsLdpEntityConfAtmLabelRangeEntry",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1059,7 +1052,7 @@
   },
   "mplsLdpEntityConfAtmLabelRangeMinimumVpi": {
     "name": "mplsLdpEntityConfAtmLabelRangeMinimumVpi",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1071,11 +1064,11 @@
   },
   "mplsLdpEntityConfAtmLabelRangeMinimumVci": {
     "name": "mplsLdpEntityConfAtmLabelRangeMinimumVci",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MplsAtmVcIdentifier",
+      "type": "AtmVcIdentifier",
       "class": "type"
     },
     "maxaccess": "not-accessible",
@@ -1083,7 +1076,7 @@
   },
   "mplsLdpEntityConfAtmLabelRangeMaximumVpi": {
     "name": "mplsLdpEntityConfAtmLabelRangeMaximumVpi",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1095,11 +1088,11 @@
   },
   "mplsLdpEntityConfAtmLabelRangeMaximumVci": {
     "name": "mplsLdpEntityConfAtmLabelRangeMaximumVci",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MplsAtmVcIdentifier",
+      "type": "AtmVcIdentifier",
       "class": "type"
     },
     "maxaccess": "read-create",
@@ -1107,7 +1100,7 @@
   },
   "mplsLdpEntityConfAtmLabelRangeStorageType": {
     "name": "mplsLdpEntityConfAtmLabelRangeStorageType",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1119,7 +1112,7 @@
   },
   "mplsLdpEntityConfAtmLabelRangeRowStatus": {
     "name": "mplsLdpEntityConfAtmLabelRangeRowStatus",
-    "oid": "1.3.6.1.3.97.1.2.4.2.1.6",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.4.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1131,12 +1124,12 @@
   },
   "mplsLdpEntityFrameRelayObjects": {
     "name": "mplsLdpEntityFrameRelayObjects",
-    "oid": "1.3.6.1.3.97.1.2.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5",
     "class": "objectidentity"
   },
   "mplsLdpEntityFrameRelayParmsTable": {
     "name": "mplsLdpEntityFrameRelayParmsTable",
-    "oid": "1.3.6.1.3.97.1.2.5.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1144,7 +1137,7 @@
   },
   "mplsLdpEntityFrameRelayParmsEntry": {
     "name": "mplsLdpEntityFrameRelayParmsEntry",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1164,7 +1157,7 @@
   },
   "mplsLdpEntityFrIfIndexOrZero": {
     "name": "mplsLdpEntityFrIfIndexOrZero",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1176,7 +1169,7 @@
   },
   "mplsLdpEntityFrMergeCap": {
     "name": "mplsLdpEntityFrMergeCap",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1194,7 +1187,7 @@
   },
   "mplsLdpEntityFrLabelRangeComponents": {
     "name": "mplsLdpEntityFrLabelRangeComponents",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1214,7 +1207,7 @@
   },
   "mplsLdpEntityFrLen": {
     "name": "mplsLdpEntityFrLen",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1232,7 +1225,7 @@
   },
   "mplsLdpEntityFrVcDirectionality": {
     "name": "mplsLdpEntityFrVcDirectionality",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1250,7 +1243,7 @@
   },
   "mplsLdpEntityFrParmsStorageType": {
     "name": "mplsLdpEntityFrParmsStorageType",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.6",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1262,7 +1255,7 @@
   },
   "mplsLdpEntityFrParmsRowStatus": {
     "name": "mplsLdpEntityFrParmsRowStatus",
-    "oid": "1.3.6.1.3.97.1.2.5.1.1.7",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1274,7 +1267,7 @@
   },
   "mplsLdpEntityConfFrLabelRangeTable": {
     "name": "mplsLdpEntityConfFrLabelRangeTable",
-    "oid": "1.3.6.1.3.97.1.2.5.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1282,7 +1275,7 @@
   },
   "mplsLdpEntityConfFrLabelRangeEntry": {
     "name": "mplsLdpEntityConfFrLabelRangeEntry",
-    "oid": "1.3.6.1.3.97.1.2.5.2.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1307,7 +1300,7 @@
   },
   "mplsLdpConfFrMinimumDlci": {
     "name": "mplsLdpConfFrMinimumDlci",
-    "oid": "1.3.6.1.3.97.1.2.5.2.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1327,7 +1320,7 @@
   },
   "mplsLdpConfFrMaximumDlci": {
     "name": "mplsLdpConfFrMaximumDlci",
-    "oid": "1.3.6.1.3.97.1.2.5.2.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1347,7 +1340,7 @@
   },
   "mplsLdpConfFrStorageType": {
     "name": "mplsLdpConfFrStorageType",
-    "oid": "1.3.6.1.3.97.1.2.5.2.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1359,7 +1352,7 @@
   },
   "mplsLdpConfFrRowStatus": {
     "name": "mplsLdpConfFrRowStatus",
-    "oid": "1.3.6.1.3.97.1.2.5.2.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.5.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1371,7 +1364,7 @@
   },
   "mplsLdpEntityStatsTable": {
     "name": "mplsLdpEntityStatsTable",
-    "oid": "1.3.6.1.3.97.1.2.6",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1379,7 +1372,7 @@
   },
   "mplsLdpEntityStatsEntry": {
     "name": "mplsLdpEntityStatsEntry",
-    "oid": "1.3.6.1.3.97.1.2.6.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1392,7 +1385,7 @@
   },
   "mplsLdpAttemptedSessions": {
     "name": "mplsLdpAttemptedSessions",
-    "oid": "1.3.6.1.3.97.1.2.6.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1404,7 +1397,7 @@
   },
   "mplsLdpSessionRejectedNoHelloErrors": {
     "name": "mplsLdpSessionRejectedNoHelloErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1416,7 +1409,7 @@
   },
   "mplsLdpSessionRejectedAdvertisementErrors": {
     "name": "mplsLdpSessionRejectedAdvertisementErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1428,7 +1421,7 @@
   },
   "mplsLdpSessionRejectedMaxPduErrors": {
     "name": "mplsLdpSessionRejectedMaxPduErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1440,7 +1433,7 @@
   },
   "mplsLdpSessionRejectedLabelRangeErrors": {
     "name": "mplsLdpSessionRejectedLabelRangeErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1452,7 +1445,7 @@
   },
   "mplsLdpBadLdpIdentifierErrors": {
     "name": "mplsLdpBadLdpIdentifierErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.6",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1464,7 +1457,7 @@
   },
   "mplsLdpBadPduLengthErrors": {
     "name": "mplsLdpBadPduLengthErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.7",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1476,7 +1469,7 @@
   },
   "mplsLdpBadMessageLengthErrors": {
     "name": "mplsLdpBadMessageLengthErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.8",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1488,7 +1481,7 @@
   },
   "mplsLdpBadTlvLengthErrors": {
     "name": "mplsLdpBadTlvLengthErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.9",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1500,7 +1493,7 @@
   },
   "mplsLdpMalformedTlvValueErrors": {
     "name": "mplsLdpMalformedTlvValueErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.10",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1512,7 +1505,7 @@
   },
   "mplsLdpKeepAliveTimerExpiredErrors": {
     "name": "mplsLdpKeepAliveTimerExpiredErrors",
-    "oid": "1.3.6.1.3.97.1.2.6.1.11",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1524,7 +1517,7 @@
   },
   "mplsLdpShutdownNotifReceived": {
     "name": "mplsLdpShutdownNotifReceived",
-    "oid": "1.3.6.1.3.97.1.2.6.1.12",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1536,7 +1529,7 @@
   },
   "mplsLdpShutdownNotifSent": {
     "name": "mplsLdpShutdownNotifSent",
-    "oid": "1.3.6.1.3.97.1.2.6.1.13",
+    "oid": "1.3.6.1.4.1.9.10.65.1.2.6.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1546,22 +1539,22 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "mplsLdpSessionObjects": {
-    "name": "mplsLdpSessionObjects",
-    "oid": "1.3.6.1.3.97.1.3",
+  "mplsLdpEntityPeerObjects": {
+    "name": "mplsLdpEntityPeerObjects",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3",
     "class": "objectidentity"
   },
-  "mplsLdpPeerTable": {
-    "name": "mplsLdpPeerTable",
-    "oid": "1.3.6.1.3.97.1.3.1",
+  "mplsLdpEntityPeerTable": {
+    "name": "mplsLdpEntityPeerTable",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "mplsLdpPeerEntry": {
-    "name": "mplsLdpPeerEntry",
-    "oid": "1.3.6.1.3.97.1.3.1.1",
+  "mplsLdpEntityPeerEntry": {
+    "name": "mplsLdpEntityPeerEntry",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1586,7 +1579,7 @@
   },
   "mplsLdpPeerLdpId": {
     "name": "mplsLdpPeerLdpId",
-    "oid": "1.3.6.1.3.97.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1598,7 +1591,7 @@
   },
   "mplsLdpPeerLabelDistributionMethod": {
     "name": "mplsLdpPeerLabelDistributionMethod",
-    "oid": "1.3.6.1.3.97.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1616,7 +1609,7 @@
   },
   "mplsLdpPeerLoopDetectionForPV": {
     "name": "mplsLdpPeerLoopDetectionForPV",
-    "oid": "1.3.6.1.3.97.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1634,7 +1627,7 @@
   },
   "mplsLdpPeerPathVectorLimit": {
     "name": "mplsLdpPeerPathVectorLimit",
-    "oid": "1.3.6.1.3.97.1.3.1.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1654,12 +1647,12 @@
   },
   "mplsLdpHelloAdjacencyObjects": {
     "name": "mplsLdpHelloAdjacencyObjects",
-    "oid": "1.3.6.1.3.97.1.3.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.2",
     "class": "objectidentity"
   },
   "mplsLdpHelloAdjacencyTable": {
     "name": "mplsLdpHelloAdjacencyTable",
-    "oid": "1.3.6.1.3.97.1.3.2.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1667,7 +1660,7 @@
   },
   "mplsLdpHelloAdjacencyEntry": {
     "name": "mplsLdpHelloAdjacencyEntry",
-    "oid": "1.3.6.1.3.97.1.3.2.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1697,7 +1690,7 @@
   },
   "mplsLdpHelloAdjacencyIndex": {
     "name": "mplsLdpHelloAdjacencyIndex",
-    "oid": "1.3.6.1.3.97.1.3.2.1.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1717,7 +1710,7 @@
   },
   "mplsLdpHelloAdjacencyHoldTimeRemaining": {
     "name": "mplsLdpHelloAdjacencyHoldTimeRemaining",
-    "oid": "1.3.6.1.3.97.1.3.2.1.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1729,7 +1722,7 @@
   },
   "mplsLdpHelloAdjacencyType": {
     "name": "mplsLdpHelloAdjacencyType",
-    "oid": "1.3.6.1.3.97.1.3.2.1.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1745,9 +1738,14 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "mplsLdpSessionObjects": {
+    "name": "mplsLdpSessionObjects",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3",
+    "class": "objectidentity"
+  },
   "mplsLdpSessionUpDownTrapEnable": {
     "name": "mplsLdpSessionUpDownTrapEnable",
-    "oid": "1.3.6.1.3.97.1.3.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1771,7 +1769,7 @@
   },
   "mplsLdpSessionTable": {
     "name": "mplsLdpSessionTable",
-    "oid": "1.3.6.1.3.97.1.3.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1779,20 +1777,32 @@
   },
   "mplsLdpSessionEntry": {
     "name": "mplsLdpSessionEntry",
-    "oid": "1.3.6.1.3.97.1.3.4.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "mplsLdpSessionEntry",
-      "module": "MPLS-LDP-MIB",
-      "object": "mplsLdpPeerEntry"
-    },
+    "indices": [
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpEntityLdpId",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpPeerLdpId",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "mplsLdpSessionState": {
     "name": "mplsLdpSessionState",
-    "oid": "1.3.6.1.3.97.1.3.4.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1813,7 +1823,7 @@
   },
   "mplsLdpSessionProtocolVersion": {
     "name": "mplsLdpSessionProtocolVersion",
-    "oid": "1.3.6.1.3.97.1.3.4.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1833,7 +1843,7 @@
   },
   "mplsLdpSessionKeepAliveHoldTimeRemaining": {
     "name": "mplsLdpSessionKeepAliveHoldTimeRemaining",
-    "oid": "1.3.6.1.3.97.1.3.4.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1845,7 +1855,7 @@
   },
   "mplsLdpSessionMaxPduLength": {
     "name": "mplsLdpSessionMaxPduLength",
-    "oid": "1.3.6.1.3.97.1.3.4.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1865,7 +1875,7 @@
   },
   "mplsLdpSessionDiscontinuityTime": {
     "name": "mplsLdpSessionDiscontinuityTime",
-    "oid": "1.3.6.1.3.97.1.3.4.1.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1877,7 +1887,7 @@
   },
   "mplsLdpAtmSessionTable": {
     "name": "mplsLdpAtmSessionTable",
-    "oid": "1.3.6.1.3.97.1.3.5",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1885,7 +1895,7 @@
   },
   "mplsLdpAtmSessionEntry": {
     "name": "mplsLdpAtmSessionEntry",
-    "oid": "1.3.6.1.3.97.1.3.5.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1920,7 +1930,7 @@
   },
   "mplsLdpSessionAtmLabelRangeLowerBoundVpi": {
     "name": "mplsLdpSessionAtmLabelRangeLowerBoundVpi",
-    "oid": "1.3.6.1.3.97.1.3.5.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1932,11 +1942,11 @@
   },
   "mplsLdpSessionAtmLabelRangeLowerBoundVci": {
     "name": "mplsLdpSessionAtmLabelRangeLowerBoundVci",
-    "oid": "1.3.6.1.3.97.1.3.5.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MplsAtmVcIdentifier",
+      "type": "AtmVcIdentifier",
       "class": "type"
     },
     "maxaccess": "not-accessible",
@@ -1944,7 +1954,7 @@
   },
   "mplsLdpSessionAtmLabelRangeUpperBoundVpi": {
     "name": "mplsLdpSessionAtmLabelRangeUpperBoundVpi",
-    "oid": "1.3.6.1.3.97.1.3.5.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1956,11 +1966,11 @@
   },
   "mplsLdpSessionAtmLabelRangeUpperBoundVci": {
     "name": "mplsLdpSessionAtmLabelRangeUpperBoundVci",
-    "oid": "1.3.6.1.3.97.1.3.5.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MplsAtmVcIdentifier",
+      "type": "AtmVcIdentifier",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1968,7 +1978,7 @@
   },
   "mplsLdpFrameRelaySessionTable": {
     "name": "mplsLdpFrameRelaySessionTable",
-    "oid": "1.3.6.1.3.97.1.3.6",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1976,7 +1986,7 @@
   },
   "mplsLdpFrameRelaySessionEntry": {
     "name": "mplsLdpFrameRelaySessionEntry",
-    "oid": "1.3.6.1.3.97.1.3.6.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2006,7 +2016,7 @@
   },
   "mplsLdpFrSessionMinDlci": {
     "name": "mplsLdpFrSessionMinDlci",
-    "oid": "1.3.6.1.3.97.1.3.6.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2026,7 +2036,7 @@
   },
   "mplsLdpFrSessionMaxDlci": {
     "name": "mplsLdpFrSessionMaxDlci",
-    "oid": "1.3.6.1.3.97.1.3.6.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2046,7 +2056,7 @@
   },
   "mplsLdpFrSessionLen": {
     "name": "mplsLdpFrSessionLen",
-    "oid": "1.3.6.1.3.97.1.3.6.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2064,7 +2074,7 @@
   },
   "mplsLdpSessionStatsTable": {
     "name": "mplsLdpSessionStatsTable",
-    "oid": "1.3.6.1.3.97.1.3.7",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2072,20 +2082,20 @@
   },
   "mplsLdpSessionStatsEntry": {
     "name": "mplsLdpSessionStatsEntry",
-    "oid": "1.3.6.1.3.97.1.3.7.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "augmention": {
       "name": "mplsLdpSessionStatsEntry",
       "module": "MPLS-LDP-MIB",
-      "object": "mplsLdpPeerEntry"
+      "object": "mplsLdpSessionEntry"
     },
     "status": "current"
   },
   "mplsLdpSessionStatsUnknownMessageTypeErrors": {
     "name": "mplsLdpSessionStatsUnknownMessageTypeErrors",
-    "oid": "1.3.6.1.3.97.1.3.7.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2097,7 +2107,7 @@
   },
   "mplsLdpSessionStatsUnknownTlvErrors": {
     "name": "mplsLdpSessionStatsUnknownTlvErrors",
-    "oid": "1.3.6.1.3.97.1.3.7.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2107,541 +2117,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "mplsFecObjects": {
-    "name": "mplsFecObjects",
-    "oid": "1.3.6.1.3.97.1.3.8",
-    "class": "objectidentity"
-  },
-  "mplsFecIndexNext": {
-    "name": "mplsFecIndexNext",
-    "oid": "1.3.6.1.3.97.1.3.8.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 4294967295
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsFecTable": {
-    "name": "mplsFecTable",
-    "oid": "1.3.6.1.3.97.1.3.8.2",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsFecEntry": {
-    "name": "mplsFecEntry",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsFecIndex",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "mplsFecIndex": {
-    "name": "mplsFecIndex",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 4294967295
-          }
-        ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsFecType": {
-    "name": "mplsFecType",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "prefix": 1,
-          "hostAddress": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsFecAddressLength": {
-    "name": "mplsFecAddressLength",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsFecAddressFamily": {
-    "name": "mplsFecAddressFamily",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AddressFamilyNumbers",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsFecAddress": {
-    "name": "mplsFecAddress",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MplsLdpGenAddr",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsFecStorageType": {
-    "name": "mplsFecStorageType",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "StorageType",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsFecRowStatus": {
-    "name": "mplsFecRowStatus",
-    "oid": "1.3.6.1.3.97.1.3.8.2.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "mplsLdpSessionInLabelMapTable": {
-    "name": "mplsLdpSessionInLabelMapTable",
-    "oid": "1.3.6.1.3.97.1.3.9",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionInLabelMapEntry": {
-    "name": "mplsLdpSessionInLabelMapEntry",
-    "oid": "1.3.6.1.3.97.1.3.9.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpPeerLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabelIfIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabel",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "mplsLdpSessionInLabelIfIndex": {
-    "name": "mplsLdpSessionInLabelIfIndex",
-    "oid": "1.3.6.1.3.97.1.3.9.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InterfaceIndex",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionInLabel": {
-    "name": "mplsLdpSessionInLabel",
-    "oid": "1.3.6.1.3.97.1.3.9.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MplsLabel",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionInLabelType": {
-    "name": "mplsLdpSessionInLabelType",
-    "oid": "1.3.6.1.3.97.1.3.9.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MplsLdpLabelTypes",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsLdpSessionInLabelConnectionType": {
-    "name": "mplsLdpSessionInLabelConnectionType",
-    "oid": "1.3.6.1.3.97.1.3.9.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unknown": 1,
-          "xconnect": 2,
-          "terminates": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsLdpSessionOutLabelMapTable": {
-    "name": "mplsLdpSessionOutLabelMapTable",
-    "oid": "1.3.6.1.3.97.1.3.10",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionOutLabelMapEntry": {
-    "name": "mplsLdpSessionOutLabelMapEntry",
-    "oid": "1.3.6.1.3.97.1.3.10.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpPeerLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabelIfIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabel",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "mplsLdpSessionOutLabelIfIndex": {
-    "name": "mplsLdpSessionOutLabelIfIndex",
-    "oid": "1.3.6.1.3.97.1.3.10.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InterfaceIndex",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionOutLabel": {
-    "name": "mplsLdpSessionOutLabel",
-    "oid": "1.3.6.1.3.97.1.3.10.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MplsLabel",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionOutLabelType": {
-    "name": "mplsLdpSessionOutLabelType",
-    "oid": "1.3.6.1.3.97.1.3.10.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MplsLdpLabelTypes",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsLdpSessionOutLabelConnectionType": {
-    "name": "mplsLdpSessionOutLabelConnectionType",
-    "oid": "1.3.6.1.3.97.1.3.10.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unknown": 1,
-          "xconnect": 2,
-          "starts": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsLdpSessionOutSegmentIndex": {
-    "name": "mplsLdpSessionOutSegmentIndex",
-    "oid": "1.3.6.1.3.97.1.3.10.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsLdpSessionXCMapTable": {
-    "name": "mplsLdpSessionXCMapTable",
-    "oid": "1.3.6.1.3.97.1.3.11",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsLdpSessionXCMapEntry": {
-    "name": "mplsLdpSessionXCMapEntry",
-    "oid": "1.3.6.1.3.97.1.3.11.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpPeerLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabelIfIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabel",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabelIfIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabel",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "mplsLdpSessionXCIndex": {
-    "name": "mplsLdpSessionXCIndex",
-    "oid": "1.3.6.1.3.97.1.3.11.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsXCsFecsTable": {
-    "name": "mplsXCsFecsTable",
-    "oid": "1.3.6.1.3.97.1.3.13",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "mplsXCsFecsEntry": {
-    "name": "mplsXCsFecsEntry",
-    "oid": "1.3.6.1.3.97.1.3.13.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpPeerLdpId",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabelIfIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabel",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabelIfIndex",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabel",
-        "implied": 0
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsFecIndex",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "mplsXCFecOperStatus": {
-    "name": "mplsXCFecOperStatus",
-    "oid": "1.3.6.1.3.97.1.3.13.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unknown": 1,
-          "inUse": 2,
-          "notInUse": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mplsXCFecOperStatusLastChange": {
-    "name": "mplsXCFecOperStatusLastChange",
-    "oid": "1.3.6.1.3.97.1.3.13.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeStamp",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "mplsLdpSessionPeerAddressTable": {
     "name": "mplsLdpSessionPeerAddressTable",
-    "oid": "1.3.6.1.3.97.1.3.12",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2649,7 +2127,7 @@
   },
   "mplsLdpSessionPeerAddressEntry": {
     "name": "mplsLdpSessionPeerAddressEntry",
-    "oid": "1.3.6.1.3.97.1.3.12.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2679,7 +2157,7 @@
   },
   "mplsLdpSessionPeerAddressIndex": {
     "name": "mplsLdpSessionPeerAddressIndex",
-    "oid": "1.3.6.1.3.97.1.3.12.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2699,7 +2177,7 @@
   },
   "mplsLdpSessionPeerNextHopAddressType": {
     "name": "mplsLdpSessionPeerNextHopAddressType",
-    "oid": "1.3.6.1.3.97.1.3.12.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2711,7 +2189,7 @@
   },
   "mplsLdpSessionPeerNextHopAddress": {
     "name": "mplsLdpSessionPeerNextHopAddress",
-    "oid": "1.3.6.1.3.97.1.3.12.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.1.3.3.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2721,14 +2199,326 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "mplsLdpLibObjects": {
+    "name": "mplsLdpLibObjects",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6",
+    "class": "objectidentity"
+  },
+  "mplsLdpLibLspUpDownTrapEnable": {
+    "name": "mplsLdpLibLspUpDownTrapEnable",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mplsLdpLibTable": {
+    "name": "mplsLdpLibTable",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpLibEntry": {
+    "name": "mplsLdpLibEntry",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibLspId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsLdpLibLspId": {
+    "name": "mplsLdpLibLspId",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpLibLabelInIfIndex": {
+    "name": "mplsLdpLibLabelInIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibLabelOutIfIndex": {
+    "name": "mplsLdpLibLabelOutIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibInLabelType": {
+    "name": "mplsLdpLibInLabelType",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpLabelTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibInLabel": {
+    "name": "mplsLdpLibInLabel",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibOutLabelType": {
+    "name": "mplsLdpLibOutLabelType",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpLabelTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibOutLabel": {
+    "name": "mplsLdpLibOutLabel",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibOperationStatus": {
+    "name": "mplsLdpLibOperationStatus",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpLibLspLastChange": {
+    "name": "mplsLdpLibLspLastChange",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsLdpFecTable": {
+    "name": "mplsLdpFecTable",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpFecEntry": {
+    "name": "mplsLdpFecEntry",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpFecType",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpFecAddressFamily",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpFecAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpFecAddress",
+        "implied": 0
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpFecLspId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsLdpFecType": {
+    "name": "mplsLdpFecType",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prefix": 1,
+          "hostAddress": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpFecAddressFamily": {
+    "name": "mplsLdpFecAddressFamily",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpFecAddressLength": {
+    "name": "mplsLdpFecAddressLength",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpFecAddress": {
+    "name": "mplsLdpFecAddress",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpGenAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpFecLspId": {
+    "name": "mplsLdpFecLspId",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsLdpFecSessionRowPointer": {
+    "name": "mplsLdpFecSessionRowPointer",
+    "oid": "1.3.6.1.4.1.9.10.65.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "mplsLdpNotificationPrefix": {
     "name": "mplsLdpNotificationPrefix",
-    "oid": "1.3.6.1.3.97.2.0",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0",
     "class": "objectidentity"
   },
   "mplsLdpFailedInitSessionThresholdExceeded": {
     "name": "mplsLdpFailedInitSessionThresholdExceeded",
-    "oid": "1.3.6.1.3.97.2.0.1",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2740,7 +2530,7 @@
   },
   "mplsLdpPathVectorLimitMismatch": {
     "name": "mplsLdpPathVectorLimitMismatch",
-    "oid": "1.3.6.1.3.97.2.0.2",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -2756,7 +2546,7 @@
   },
   "mplsLdpSessionUp": {
     "name": "mplsLdpSessionUp",
-    "oid": "1.3.6.1.3.97.2.0.3",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -2768,7 +2558,7 @@
   },
   "mplsLdpSessionDown": {
     "name": "mplsLdpSessionDown",
-    "oid": "1.3.6.1.3.97.2.0.4",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -2778,19 +2568,43 @@
     ],
     "status": "current"
   },
+  "mplsLdpLibLspUp": {
+    "name": "mplsLdpLibLspUp",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibOperationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsLdpLibLspDown": {
+    "name": "mplsLdpLibLspDown",
+    "oid": "1.3.6.1.4.1.9.10.65.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibOperationStatus"
+      }
+    ],
+    "status": "current"
+  },
   "mplsLdpGroups": {
     "name": "mplsLdpGroups",
-    "oid": "1.3.6.1.3.97.3.1",
+    "oid": "1.3.6.1.4.1.9.10.65.3.1",
     "class": "objectidentity"
   },
   "mplsLdpCompliances": {
     "name": "mplsLdpCompliances",
-    "oid": "1.3.6.1.3.97.3.2",
+    "oid": "1.3.6.1.4.1.9.10.65.3.2",
     "class": "objectidentity"
   },
   "mplsLdpModuleCompliance": {
     "name": "mplsLdpModuleCompliance",
-    "oid": "1.3.6.1.3.97.3.2.1",
+    "oid": "1.3.6.1.4.1.9.10.65.3.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2802,10 +2616,6 @@
         "module": "MPLS-LDP-MIB"
       },
       {
-        "object": "mplsLdpGenericGroup",
-        "module": "MPLS-LDP-MIB"
-      },
-      {
         "object": "mplsLdpAtmGroup",
         "module": "MPLS-LDP-MIB"
       },
@@ -2814,7 +2624,7 @@
         "module": "MPLS-LDP-MIB"
       },
       {
-        "object": "mplsLdpMappingGroup",
+        "object": "mplsLdpGenericGroup",
         "module": "MPLS-LDP-MIB"
       }
     ],
@@ -2822,12 +2632,16 @@
   },
   "mplsLdpGeneralGroup": {
     "name": "mplsLdpGeneralGroup",
-    "oid": "1.3.6.1.3.97.3.1.1",
+    "oid": "1.3.6.1.4.1.9.10.65.3.1.1",
     "class": "objectgroup",
     "objects": [
       {
         "module": "MPLS-LDP-MIB",
         "object": "mplsLdpLsrId"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLsrLabelRetentionMode"
       },
       {
         "module": "MPLS-LDP-MIB",
@@ -2851,11 +2665,7 @@
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityWellKnownTcpDiscoveryPort"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityWellKnownUdpDiscoveryPort"
+        "object": "mplsLdpEntityWellKnownDiscoveryPort"
       },
       {
         "module": "MPLS-LDP-MIB",
@@ -2883,10 +2693,6 @@
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityLabelRetentionMode"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
         "object": "mplsLdpEntityPVLimitMismatchTrapEnable"
       },
       {
@@ -2895,7 +2701,11 @@
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityHopCountLimit"
+        "object": "mplsLdpEntityHopCountLoopDetection"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpEntityHopCount"
       },
       {
         "module": "MPLS-LDP-MIB",
@@ -3039,58 +2849,74 @@
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecIndexNext"
+        "object": "mplsLdpLibLspUpDownTrapEnable"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecType"
+        "object": "mplsLdpLibLabelInIfIndex"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecAddressFamily"
+        "object": "mplsLdpLibLabelOutIfIndex"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecAddressLength"
+        "object": "mplsLdpLibInLabelType"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecAddress"
+        "object": "mplsLdpLibInLabel"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecStorageType"
+        "object": "mplsLdpLibOutLabelType"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsFecRowStatus"
+        "object": "mplsLdpLibOutLabel"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibOperationStatus"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibLspLastChange"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpFecSessionRowPointer"
       }
     ],
     "status": "current"
   },
   "mplsLdpGenericGroup": {
     "name": "mplsLdpGenericGroup",
-    "oid": "1.3.6.1.3.97.3.1.2",
+    "oid": "1.3.6.1.4.1.9.10.65.3.1.2",
     "class": "objectgroup",
     "objects": [
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityConfGenericIfIndexOrZero"
+        "object": "mplsLdpConfGenericIfIndexOrZero"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityConfGenericLabelRangeStorageType"
+        "object": "mplsLdpConfGenericLabel"
       },
       {
         "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpEntityConfGenericLabelRangeRowStatus"
+        "object": "mplsLdpConfGenericStorageType"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpConfGenericRowStatus"
       }
     ],
     "status": "current"
   },
   "mplsLdpAtmGroup": {
     "name": "mplsLdpAtmGroup",
-    "oid": "1.3.6.1.3.97.3.1.3",
+    "oid": "1.3.6.1.4.1.9.10.65.3.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -3166,7 +2992,7 @@
   },
   "mplsLdpFrameRelayGroup": {
     "name": "mplsLdpFrameRelayGroup",
-    "oid": "1.3.6.1.3.97.3.1.4",
+    "oid": "1.3.6.1.4.1.9.10.65.3.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -3220,49 +3046,9 @@
     ],
     "status": "current"
   },
-  "mplsLdpMappingGroup": {
-    "name": "mplsLdpMappingGroup",
-    "oid": "1.3.6.1.3.97.3.1.5",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabelType"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionInLabelConnectionType"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabelType"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutLabelConnectionType"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionOutSegmentIndex"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsLdpSessionXCIndex"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsXCFecOperStatus"
-      },
-      {
-        "module": "MPLS-LDP-MIB",
-        "object": "mplsXCFecOperStatusLastChange"
-      }
-    ],
-    "status": "current"
-  },
   "mplsLdpNotificationsGroup": {
     "name": "mplsLdpNotificationsGroup",
-    "oid": "1.3.6.1.3.97.3.1.6",
+    "oid": "1.3.6.1.4.1.9.10.65.3.1.5",
     "class": "notificationgroup",
     "objects": [
       {
@@ -3280,15 +3066,23 @@
       {
         "module": "MPLS-LDP-MIB",
         "object": "mplsLdpSessionDown"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibLspUp"
+      },
+      {
+        "module": "MPLS-LDP-MIB",
+        "object": "mplsLdpLibLspDown"
       }
     ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:38 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-LDP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:26 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MPLS-LDP-MIB"

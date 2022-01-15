@@ -9,35 +9,35 @@
       "Ipv6AddressPrefix"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1RIPNGMIB": {
     "name": "alcatelIND1RIPNGMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -48,36 +48,36 @@
   },
   "alcatelIND1RIPNGMIBObjects": {
     "name": "alcatelIND1RIPNGMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1RIPNGMIBConformance": {
     "name": "alcatelIND1RIPNGMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1RIPNGMIBGroups": {
     "name": "alcatelIND1RIPNGMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1RIPNGMIBCompliances": {
     "name": "alcatelIND1RIPNGMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaProtocolRipng": {
     "name": "alaProtocolRipng",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1",
     "class": "objectidentity"
   },
   "alaRipngProtoStatus": {
     "name": "alaRipngProtoStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -101,7 +101,7 @@
   },
   "alaRipngUpdateInterval": {
     "name": "alaRipngUpdateInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -128,7 +128,7 @@
   },
   "alaRipngInvalidTimer": {
     "name": "alaRipngInvalidTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -155,7 +155,7 @@
   },
   "alaRipngHolddownTimer": {
     "name": "alaRipngHolddownTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -175,7 +175,7 @@
   },
   "alaRipngGarbageTimer": {
     "name": "alaRipngGarbageTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -201,7 +201,7 @@
   },
   "alaRipngRouteCount": {
     "name": "alaRipngRouteCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -221,7 +221,7 @@
   },
   "alaRipngGlobalRouteTag": {
     "name": "alaRipngGlobalRouteTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -241,7 +241,7 @@
   },
   "alaRipngTriggeredSends": {
     "name": "alaRipngTriggeredSends",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -257,8 +257,8 @@
     },
     "default": {
       "default": {
-        "value": 2,
-        "format": "decimal"
+        "value": "onlyupdated",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -266,7 +266,7 @@
   },
   "alaRipngJitter": {
     "name": "alaRipngJitter",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -293,7 +293,7 @@
   },
   "alaRipngPort": {
     "name": "alaRipngPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -317,394 +317,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaRipngDebug": {
-    "name": "alaRipngDebug",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2",
-    "class": "objectidentity"
-  },
-  "alaRipngDebugLevel": {
-    "name": "alaRipngDebugLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugError": {
-    "name": "alaRipngDebugError",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugWarn": {
-    "name": "alaRipngDebugWarn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugRecv": {
-    "name": "alaRipngDebugRecv",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugSend": {
-    "name": "alaRipngDebugSend",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugRdb": {
-    "name": "alaRipngDebugRdb",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugAge": {
-    "name": "alaRipngDebugAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugMip": {
-    "name": "alaRipngDebugMip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugInfo": {
-    "name": "alaRipngDebugInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugSetup": {
-    "name": "alaRipngDebugSetup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugTime": {
-    "name": "alaRipngDebugTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.11",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugTm": {
-    "name": "alaRipngDebugTm",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.12",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugRouteFilter": {
-    "name": "alaRipngDebugRouteFilter",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugNexthopFilter": {
-    "name": "alaRipngDebugNexthopFilter",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugSummary": {
-    "name": "alaRipngDebugSummary",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.15",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngDebugAll": {
-    "name": "alaRipngDebugAll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.2.16",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
   "alaRipngInterfaceTable": {
     "name": "alaRipngInterfaceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -712,7 +327,7 @@
   },
   "alaRipngInterfaceEntry": {
     "name": "alaRipngInterfaceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -725,9 +340,29 @@
     ],
     "status": "current"
   },
+  "alaRipngInterfaceIndex": {
+    "name": "alaRipngInterfaceIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
   "alaRipngInterfaceStatus": {
     "name": "alaRipngInterfaceStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -740,24 +375,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "alaRipngInterfaceIndex": {
-    "name": "alaRipngInterfaceIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRipngInterfaceMetric": {
     "name": "alaRipngInterfaceMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -778,12 +401,12 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRipngInterfaceRecvStatus": {
     "name": "alaRipngInterfaceRecvStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -798,16 +421,16 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "enabled",
+        "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRipngInterfaceSendStatus": {
     "name": "alaRipngInterfaceSendStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -822,16 +445,16 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "enabled",
+        "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRipngInterfaceHorizon": {
     "name": "alaRipngInterfaceHorizon",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -847,16 +470,16 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "none",
+        "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRipngInterfacePacketsSent": {
     "name": "alaRipngInterfacePacketsSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -868,7 +491,7 @@
   },
   "alaRipngInterfacePacketsRcvd": {
     "name": "alaRipngInterfacePacketsRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -880,7 +503,7 @@
   },
   "alaRipngInterfaceMTU": {
     "name": "alaRipngInterfaceMTU",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -892,7 +515,7 @@
   },
   "alaRipngInterfaceNextUpdate": {
     "name": "alaRipngInterfaceNextUpdate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.11.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -902,345 +525,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaRipngInterfaceJitter": {
-    "name": "alaRipngInterfaceJitter",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.11.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 60
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 3,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngNexthopFilterTable": {
-    "name": "alaRipngNexthopFilterTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.12",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "alaRipngNexthopFilterEntry": {
-    "name": "alaRipngNexthopFilterEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.12.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngNexthopFilterAddress",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "alaRipngNexthopFilterStatus": {
-    "name": "alaRipngNexthopFilterStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.12.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngNexthopFilterAddress": {
-    "name": "alaRipngNexthopFilterAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.12.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Ipv6Address",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationTable": {
-    "name": "alaRipngSummarizationTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationEntry": {
-    "name": "alaRipngSummarizationEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationSourcePrefix",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationSourcePrefixLen",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationPrefix",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationPrefixLen",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationStatus": {
-    "name": "alaRipngSummarizationStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationSourcePrefix": {
-    "name": "alaRipngSummarizationSourcePrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Ipv6AddressPrefix",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationSourcePrefixLen": {
-    "name": "alaRipngSummarizationSourcePrefixLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 128
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationPrefix": {
-    "name": "alaRipngSummarizationPrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Ipv6AddressPrefix",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationPrefixLen": {
-    "name": "alaRipngSummarizationPrefixLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 128
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngSummarizationSubnets": {
-    "name": "alaRipngSummarizationSubnets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.13.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "include": 1,
-          "donotinclude": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterTable": {
-    "name": "alaRipngRouteFilterTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterEntry": {
-    "name": "alaRipngRouteFilterEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterPrefix",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterPrefixLen",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterDirection",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterStatus": {
-    "name": "alaRipngRouteFilterStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterPrefix": {
-    "name": "alaRipngRouteFilterPrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Ipv6AddressPrefix",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterPrefixLen": {
-    "name": "alaRipngRouteFilterPrefixLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 128
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterDirection": {
-    "name": "alaRipngRouteFilterDirection",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "in": 1,
-          "out": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipngRouteFilterSubnets": {
-    "name": "alaRipngRouteFilterSubnets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.14.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "include": 1,
-          "donotinclude": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
   "alaRipngPeerTable": {
     "name": "alaRipngPeerTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1248,7 +535,7 @@
   },
   "alaRipngPeerEntry": {
     "name": "alaRipngPeerEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1268,7 +555,7 @@
   },
   "alaRipngPeerAddress": {
     "name": "alaRipngPeerAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1278,9 +565,29 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
+  "alaRipngPeerIndex": {
+    "name": "alaRipngPeerIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
   "alaRipngPeerLastUpdate": {
     "name": "alaRipngPeerLastUpdate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1292,7 +599,7 @@
   },
   "alaRipngPeerNumUpdates": {
     "name": "alaRipngPeerNumUpdates",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1304,7 +611,7 @@
   },
   "alaRipngPeerNumRoutes": {
     "name": "alaRipngPeerNumRoutes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1316,7 +623,7 @@
   },
   "alaRipngPeerBadPackets": {
     "name": "alaRipngPeerBadPackets",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1328,7 +635,7 @@
   },
   "alaRipngPeerBadRoutes": {
     "name": "alaRipngPeerBadRoutes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.15.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1338,21 +645,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaRipngPeerIndex": {
-    "name": "alaRipngPeerIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.15.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
   "alaRipngRouteTable": {
     "name": "alaRipngRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1360,7 +655,7 @@
   },
   "alaRipngRouteEntry": {
     "name": "alaRipngRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1385,7 +680,7 @@
   },
   "alaRipngRoutePrefix": {
     "name": "alaRipngRoutePrefix",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1397,7 +692,7 @@
   },
   "alaRipngRoutePrefixLen": {
     "name": "alaRipngRoutePrefixLen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1417,7 +712,7 @@
   },
   "alaRipngRouteNextHop": {
     "name": "alaRipngRouteNextHop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1429,7 +724,7 @@
   },
   "alaRipngRouteType": {
     "name": "alaRipngRouteType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1449,7 +744,7 @@
   },
   "alaRipngRouteAge": {
     "name": "alaRipngRouteAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1461,7 +756,7 @@
   },
   "alaRipngRouteTag": {
     "name": "alaRipngRouteTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1481,7 +776,7 @@
   },
   "alaRipngRouteMetric": {
     "name": "alaRipngRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1501,19 +796,25 @@
   },
   "alaRipngRouteStatus": {
     "name": "alaRipngRouteStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RowStatus",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 0,
+          "active": 1
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
   "alaRipngRouteFlags": {
     "name": "alaRipngRouteFlags",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1533,7 +834,7 @@
   },
   "alaRipngRouteIndex": {
     "name": "alaRipngRouteIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.1.1.16.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.1.1.16.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1545,7 +846,7 @@
   },
   "alcatelIND1RIPMIBCompliance": {
     "name": "alcatelIND1RIPMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1553,23 +854,7 @@
         "module": "ALCATEL-IND1-RIPNG-MIB"
       },
       {
-        "object": "alaRipngDebugGroup",
-        "module": "ALCATEL-IND1-RIPNG-MIB"
-      },
-      {
         "object": "alaRipngInterfaceGroup",
-        "module": "ALCATEL-IND1-RIPNG-MIB"
-      },
-      {
-        "object": "alaRipngNexthopFilterGroup",
-        "module": "ALCATEL-IND1-RIPNG-MIB"
-      },
-      {
-        "object": "alaRipngSummarizationGroup",
-        "module": "ALCATEL-IND1-RIPNG-MIB"
-      },
-      {
-        "object": "alaRipngRouteFilterGroup",
         "module": "ALCATEL-IND1-RIPNG-MIB"
       },
       {
@@ -1585,7 +870,7 @@
   },
   "alaRipngGlobalGroup": {
     "name": "alaRipngGlobalGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1619,73 +904,21 @@
       {
         "module": "ALCATEL-IND1-RIPNG-MIB",
         "object": "alaRipngTriggeredSends"
-      }
-    ],
-    "status": "current"
-  },
-  "alaRipngDebugGroup": {
-    "name": "alaRipngDebugGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.2",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugLevel"
       },
       {
         "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugError"
+        "object": "alaRipngJitter"
       },
       {
         "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugWarn"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugRecv"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugSend"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugRdb"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugAge"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugMip"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugInfo"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugSetup"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugTime"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugTm"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngDebugAll"
+        "object": "alaRipngPort"
       }
     ],
     "status": "current"
   },
   "alaRipngInterfaceGroup": {
     "name": "alaRipngInterfaceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1723,93 +956,13 @@
       {
         "module": "ALCATEL-IND1-RIPNG-MIB",
         "object": "alaRipngInterfaceNextUpdate"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngInterfaceJitter"
-      }
-    ],
-    "status": "current"
-  },
-  "alaRipngNexthopFilterGroup": {
-    "name": "alaRipngNexthopFilterGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.4",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngNexthopFilterStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngNexthopFilterAddress"
-      }
-    ],
-    "status": "current"
-  },
-  "alaRipngSummarizationGroup": {
-    "name": "alaRipngSummarizationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.5",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationSourcePrefix"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationSourcePrefixLen"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationPrefix"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationPrefixLen"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngSummarizationSubnets"
-      }
-    ],
-    "status": "current"
-  },
-  "alaRipngRouteFilterGroup": {
-    "name": "alaRipngRouteFilterGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.6",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterPrefix"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterPrefixLen"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterDirection"
-      },
-      {
-        "module": "ALCATEL-IND1-RIPNG-MIB",
-        "object": "alaRipngRouteFilterSubnets"
       }
     ],
     "status": "current"
   },
   "alaRipngPeerGroup": {
     "name": "alaRipngPeerGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -1837,7 +990,7 @@
   },
   "alaRipngRouteGroup": {
     "name": "alaRipngRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.1.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -1873,25 +1026,37 @@
   },
   "alcatelIND1RIPNGTraps": {
     "name": "alcatelIND1RIPNGTraps",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.3",
     "class": "objectidentity"
   },
   "alcatelIND1RIPNGTrapsRoot": {
     "name": "alcatelIND1RIPNGTrapsRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.3.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.3.0",
     "class": "objectidentity"
   },
   "ripngRouteMaxLimitReached": {
     "name": "ripngRouteMaxLimitReached",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.12.1.3.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.3.0.1",
     "class": "notificationtype",
+    "status": "current"
+  },
+  "alcatelIND1RIPNGTrapsGroup": {
+    "name": "alcatelIND1RIPNGTrapsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.12.1.2.1.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-RIPNG-MIB",
+        "object": "ripngRouteMaxLimitReached"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-RIPNG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:57 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:06 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-RIPNG-MIB"

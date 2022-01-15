@@ -4,69 +4,92 @@
     "ALCATEL-IND1-BASE": [
       "hardentIND1System"
     ],
+    "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB": [
+      "virtualChassisOperChasId",
+      "VirtualOperChassisId"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1SystemMIB": {
     "name": "alcatelIND1SystemMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2007-06-18 00:00",
+        "revision": "2011-01-23 00:00",
         "description": "The latest version of this MIB Module."
       }
     ]
   },
   "alcatelIND1SystemMIBObjects": {
     "name": "alcatelIND1SystemMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SystemMIBConformance": {
     "name": "alcatelIND1SystemMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SystemMIBTrapObjects": {
+    "name": "alcatelIND1SystemMIBTrapObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1SystemMIBTraps": {
+    "name": "alcatelIND1SystemMIBTraps",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.4",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SystemMIBGroups": {
     "name": "alcatelIND1SystemMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1SystemMIBCompliances": {
     "name": "alcatelIND1SystemMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
@@ -104,28 +127,11 @@
     },
     "status": "current"
   },
-  "MicrocodeDirectoryIndex": {
-    "name": "MicrocodeDirectoryIndex",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "loaded": 1,
-          "certified": 2,
-          "working": 3,
-          "issu": 4
-        }
-      }
-    },
-    "status": "current"
-  },
   "AppIdIndex": {
     "name": "AppIdIndex",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -176,15 +182,15 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "severityLevelOff": 1,
-          "severityLevelAlarm": 2,
-          "severityLevelError": 3,
-          "severityLevelAlert": 4,
-          "severityLevelWarn": 5,
-          "severityLevelInfo": 6,
-          "severityLevelDbg1": 7,
-          "severityLevelDbg2": 8,
-          "severityLevelDbg3": 9
+          "severityLevelOff": 0,
+          "severityLevelAlarm": 1,
+          "severityLevelError": 2,
+          "severityLevelAlert": 3,
+          "severityLevelWarn": 4,
+          "severityLevelInfo": 5,
+          "severityLevelDbg1": 6,
+          "severityLevelDbg2": 7,
+          "severityLevelDbg3": 8
         }
       }
     },
@@ -231,7 +237,7 @@
     "name": "CommandPercentComplete",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -244,79 +250,93 @@
     },
     "status": "current"
   },
+  "VrfId": {
+    "name": "VrfId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AgeLimit": {
+    "name": "AgeLimit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
   "systemMicrocode": {
     "name": "systemMicrocode",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1",
     "class": "objectidentity"
   },
   "systemBootParams": {
     "name": "systemBootParams",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.2",
     "class": "objectidentity"
   },
   "systemHardware": {
     "name": "systemHardware",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3",
     "class": "objectidentity"
   },
   "systemFileSystem": {
     "name": "systemFileSystem",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4",
     "class": "objectidentity"
   },
   "systemServices": {
     "name": "systemServices",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5",
     "class": "objectidentity"
   },
   "systemSwitchLogging": {
     "name": "systemSwitchLogging",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6",
     "class": "objectidentity"
   },
   "systemDNS": {
     "name": "systemDNS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7",
     "class": "objectidentity"
   },
-  "systemMicrocodeTable": {
-    "name": "systemMicrocodeTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
+  "systemBlueToothServices": {
+    "name": "systemBlueToothServices",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8",
+    "class": "objectidentity"
   },
-  "systemMicrocodeEntry": {
-    "name": "systemMicrocodeEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeIndex",
-        "implied": 0
-      }
-    ],
-    "status": "current"
+  "systemFips": {
+    "name": "systemFips",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.9",
+    "class": "objectidentity"
   },
-  "systemMicrocodeIndex": {
-    "name": "systemMicrocodeIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MicrocodeDirectoryIndex",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
+  "systemVcHardware": {
+    "name": "systemVcHardware",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10",
+    "class": "objectidentity"
   },
   "systemMicrocodePackageTable": {
     "name": "systemMicrocodePackageTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -324,14 +344,19 @@
   },
   "systemMicrocodePackageEntry": {
     "name": "systemMicrocodePackageEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeIndex",
+        "object": "systemMicrocodePackageDirectoryIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemMicrocodePackageDirectory",
         "implied": 0
       },
       {
@@ -342,25 +367,57 @@
     ],
     "status": "current"
   },
-  "systemMicrocodePackageIndex": {
-    "name": "systemMicrocodePackageIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1.1",
+  "systemMicrocodePackageDirectoryIndex": {
+    "name": "systemMicrocodePackageDirectoryIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemMicrocodePackageDirectory": {
+    "name": "systemMicrocodePackageDirectory",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 108
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemMicrocodePackageIndex": {
+    "name": "systemMicrocodePackageIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "systemMicrocodePackageVersion": {
     "name": "systemMicrocodePackageVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -376,11 +433,11 @@
   },
   "systemMicrocodePackageName": {
     "name": "systemMicrocodePackageName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -396,11 +453,11 @@
   },
   "systemMicrocodePackageDescription": {
     "name": "systemMicrocodePackageDescription",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -416,7 +473,7 @@
   },
   "systemMicrocodePackageStatus": {
     "name": "systemMicrocodePackageStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -441,7 +498,7 @@
   },
   "systemMicrocodePackageSize": {
     "name": "systemMicrocodePackageSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -451,241 +508,136 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "systemMicrocodeComponentTable": {
-    "name": "systemMicrocodeComponentTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3",
+  "systemMicrocodeLoadedTable": {
+    "name": "systemMicrocodeLoadedTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "systemMicrocodeComponentEntry": {
-    "name": "systemMicrocodeComponentEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1",
+  "systemMicrocodeLoadedEntry": {
+    "name": "systemMicrocodeLoadedEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodePackageIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentIndex",
+        "object": "systemMicrocodeLoadedIndex",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "systemMicrocodeComponentIndex": {
-    "name": "systemMicrocodeComponentIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1.1",
+  "systemMicrocodeLoadedIndex": {
+    "name": "systemMicrocodeLoadedIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeComponentVersion": {
-    "name": "systemMicrocodeComponentVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeComponentName": {
-    "name": "systemMicrocodeComponentName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeComponentDescription": {
-    "name": "systemMicrocodeComponentDescription",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeComponentStatus": {
-    "name": "systemMicrocodeComponentStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "undefined": 1,
-          "ok": 2,
-          "inuse": 3
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "undefined",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeComponentSize": {
-    "name": "systemMicrocodeComponentSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.3.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeDependencyTable": {
-    "name": "systemMicrocodeDependencyTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.4",
-    "nodetype": "table",
-    "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "systemMicrocodeDependencyEntry": {
-    "name": "systemMicrocodeDependencyEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.4.1",
-    "nodetype": "row",
+  "systemMicrocodeLoadedDirectory": {
+    "name": "systemMicrocodeLoadedDirectory",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1.2",
+    "nodetype": "column",
     "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodePackageIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeDependencyIndex",
-        "implied": 0
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 108
+          }
+        ]
       }
-    ],
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
-  "systemMicrocodeDependencyIndex": {
-    "name": "systemMicrocodeDependencyIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.4.1.1",
+  "systemMicrocodeLoadedVersion": {
+    "name": "systemMicrocodeLoadedVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemMicrocodeLoadedName": {
+    "name": "systemMicrocodeLoadedName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemMicrocodeLoadedDescription": {
+    "name": "systemMicrocodeLoadedDescription",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemMicrocodeLoadedSize": {
+    "name": "systemMicrocodeLoadedSize",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeDependencyPackageName": {
-    "name": "systemMicrocodeDependencyPackageName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.4.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemMicrocodeDependencyVersion": {
-    "name": "systemMicrocodeDependencyVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.1.4.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
   "systemBootNetwork": {
     "name": "systemBootNetwork",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -697,7 +649,7 @@
   },
   "systemBootNetworkGateway": {
     "name": "systemBootNetworkGateway",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.2.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -709,7 +661,7 @@
   },
   "systemBootNetworkNetmask": {
     "name": "systemBootNetworkNetmask",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.2.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -721,43 +673,7 @@
   },
   "systemHardwareFlashMfg": {
     "name": "systemHardwareFlashMfg",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "amd": 2,
-          "intel": 3,
-          "atmel": 4,
-          "toshiba": 7,
-          "sandisk": 8,
-          "sst": 9,
-          "spansion": 10
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemHardwareFlashSize": {
-    "name": "systemHardwareFlashSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemHardwareMemoryMfg": {
-    "name": "systemHardwareMemoryMfg",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -771,6 +687,47 @@
           "atmel": 4,
           "micron": 5,
           "kingston": 6,
+          "toshiba": 7,
+          "sandisk": 8,
+          "sst": 9,
+          "spansion": 10,
+          "wintec": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemHardwareFlashSize": {
+    "name": "systemHardwareFlashSize",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemHardwareMemoryMfg": {
+    "name": "systemHardwareMemoryMfg",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "amd": 2,
+          "intel": 3,
+          "atmel": 4,
+          "micron": 5,
+          "kingston": 6,
+          "toshiba": 7,
+          "agilent": 8,
           "dataram": 10,
           "interward": 11,
           "notreadable": 12
@@ -782,7 +739,7 @@
   },
   "systemHardwareMemorySize": {
     "name": "systemHardwareMemorySize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -794,7 +751,7 @@
   },
   "systemHardwareNVRAMBatteryLow": {
     "name": "systemHardwareNVRAMBatteryLow",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -806,7 +763,7 @@
   },
   "systemHardwareBootCpuType": {
     "name": "systemHardwareBootCpuType",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -818,7 +775,9 @@
           "sparc380": 2,
           "sparcV9": 3,
           "ppc": 4,
-          "ppc8540": 5
+          "ppc8540": 5,
+          "ppc8572": 6,
+          "arm": 7
         }
       }
     },
@@ -827,7 +786,7 @@
   },
   "systemHardwareJumperInterruptBoot": {
     "name": "systemHardwareJumperInterruptBoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -845,7 +804,7 @@
   },
   "systemHardwareJumperForceUartDefaults": {
     "name": "systemHardwareJumperForceUartDefaults",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -863,7 +822,7 @@
   },
   "systemHardwareJumperRunExtendedMemoryDiagnostics": {
     "name": "systemHardwareJumperRunExtendedMemoryDiagnostics",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -881,7 +840,7 @@
   },
   "systemHardwareJumperSpare": {
     "name": "systemHardwareJumperSpare",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -899,7 +858,7 @@
   },
   "systemHardwareFpgaVersionTable": {
     "name": "systemHardwareFpgaVersionTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -907,7 +866,7 @@
   },
   "systemHardwareFpgaVersionEntry": {
     "name": "systemHardwareFpgaVersionEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -922,11 +881,11 @@
   },
   "systemHardwareFpgaVersionIndex": {
     "name": "systemHardwareFpgaVersionIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -942,7 +901,7 @@
   },
   "systemHardwareFpgaVersion": {
     "name": "systemHardwareFpgaVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -954,11 +913,11 @@
   },
   "systemHardwareBootRomVersion": {
     "name": "systemHardwareBootRomVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -974,11 +933,11 @@
   },
   "systemHardwareBackupMiniBootVersion": {
     "name": "systemHardwareBackupMiniBootVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -994,11 +953,11 @@
   },
   "systemHardwareDefaultMiniBootVersion": {
     "name": "systemHardwareDefaultMiniBootVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1014,11 +973,11 @@
   },
   "systemHardwareMinorFpgaVersion": {
     "name": "systemHardwareMinorFpgaVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1034,11 +993,11 @@
   },
   "systemHardwareCpldVersion": {
     "name": "systemHardwareCpldVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1054,11 +1013,11 @@
   },
   "systemHardwareUbootVersion": {
     "name": "systemHardwareUbootVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.17",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1074,11 +1033,11 @@
   },
   "systemHardwareProdRegId": {
     "name": "systemHardwareProdRegId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1094,11 +1053,11 @@
   },
   "systemHardwareRevisionRegister": {
     "name": "systemHardwareRevisionRegister",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.19",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1114,11 +1073,11 @@
   },
   "systemHardwareXfpId": {
     "name": "systemHardwareXfpId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.20",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1134,11 +1093,11 @@
   },
   "systemHardwareUbootMinibootVersion": {
     "name": "systemHardwareUbootMinibootVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.3.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.3.21",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1154,11 +1113,11 @@
   },
   "systemServicesDate": {
     "name": "systemServicesDate",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1174,11 +1133,11 @@
   },
   "systemServicesTime": {
     "name": "systemServicesTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1194,11 +1153,11 @@
   },
   "systemServicesTimezone": {
     "name": "systemServicesTimezone",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1214,7 +1173,7 @@
   },
   "systemServicesTimezoneStartWeek": {
     "name": "systemServicesTimezoneStartWeek",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1226,7 +1185,7 @@
   },
   "systemServicesTimezoneStartDay": {
     "name": "systemServicesTimezoneStartDay",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1238,7 +1197,7 @@
   },
   "systemServicesTimezoneStartMonth": {
     "name": "systemServicesTimezoneStartMonth",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1250,7 +1209,7 @@
   },
   "systemServicesTimezoneStartTime": {
     "name": "systemServicesTimezoneStartTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1262,7 +1221,7 @@
   },
   "systemServicesTimezoneOffset": {
     "name": "systemServicesTimezoneOffset",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1274,7 +1233,7 @@
   },
   "systemServicesTimezoneEndWeek": {
     "name": "systemServicesTimezoneEndWeek",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1286,7 +1245,7 @@
   },
   "systemServicesTimezoneEndDay": {
     "name": "systemServicesTimezoneEndDay",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1298,7 +1257,7 @@
   },
   "systemServicesTimezoneEndMonth": {
     "name": "systemServicesTimezoneEndMonth",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1310,7 +1269,7 @@
   },
   "systemServicesTimezoneEndTime": {
     "name": "systemServicesTimezoneEndTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1322,7 +1281,7 @@
   },
   "systemServicesEnableDST": {
     "name": "systemServicesEnableDST",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1340,11 +1299,11 @@
   },
   "systemServicesWorkingDirectory": {
     "name": "systemServicesWorkingDirectory",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1366,11 +1325,11 @@
   },
   "systemServicesArg1": {
     "name": "systemServicesArg1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1386,11 +1345,11 @@
   },
   "systemServicesArg2": {
     "name": "systemServicesArg2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1406,11 +1365,11 @@
   },
   "systemServicesArg3": {
     "name": "systemServicesArg3",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.17",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1426,11 +1385,11 @@
   },
   "systemServicesArg4": {
     "name": "systemServicesArg4",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1446,11 +1405,11 @@
   },
   "systemServicesArg5": {
     "name": "systemServicesArg5",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.19",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1466,11 +1425,11 @@
   },
   "systemServicesArg6": {
     "name": "systemServicesArg6",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.20",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1486,11 +1445,11 @@
   },
   "systemServicesArg7": {
     "name": "systemServicesArg7",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.21",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1506,11 +1465,11 @@
   },
   "systemServicesArg8": {
     "name": "systemServicesArg8",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.22",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1526,11 +1485,11 @@
   },
   "systemServicesArg9": {
     "name": "systemServicesArg9",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.23",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1546,7 +1505,7 @@
   },
   "systemServicesAction": {
     "name": "systemServicesAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.24",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1598,13 +1557,12 @@
           "ssh6": 41,
           "sftp6": 42,
           "mount": 43,
-          "umount": 44,
+          "unmount": 44,
           "backup": 45,
           "restore": 46,
           "tftp": 47,
           "fscollect": 48,
-          "fpgani": 49,
-          "fscollectForce": 50
+          "fpgani": 49
         }
       }
     },
@@ -1613,7 +1571,7 @@
   },
   "systemServicesResultCode": {
     "name": "systemServicesResultCode",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.25",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1625,11 +1583,11 @@
   },
   "systemServicesResultString": {
     "name": "systemServicesResultString",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.26",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1645,7 +1603,7 @@
   },
   "systemServicesKtraceEnable": {
     "name": "systemServicesKtraceEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.27",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1659,11 +1617,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesSystraceEnable": {
     "name": "systemServicesSystraceEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.28",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.28",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1677,11 +1635,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesTtyLines": {
     "name": "systemServicesTtyLines",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.29",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.29",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1707,7 +1665,7 @@
   },
   "systemServicesTtyColumns": {
     "name": "systemServicesTtyColumns",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.30",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.30",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1733,7 +1691,7 @@
   },
   "systemServicesMemMonitorEnable": {
     "name": "systemServicesMemMonitorEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.31",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.31",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1751,15 +1709,15 @@
   },
   "systemServicesKtraceLevelTable": {
     "name": "systemServicesKtraceLevelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.32",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.32",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesKtraceLevelEntry": {
     "name": "systemServicesKtraceLevelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.32.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.32.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1770,11 +1728,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesKtraceLevelAppId": {
     "name": "systemServicesKtraceLevelAppId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.32.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.32.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1782,11 +1740,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesKtraceLevel": {
     "name": "systemServicesKtraceLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.32.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.32.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1800,19 +1758,19 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesSystraceLevelTable": {
     "name": "systemServicesSystraceLevelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.33",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.33",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesSystraceLevelEntry": {
     "name": "systemServicesSystraceLevelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.33.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.33.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1823,11 +1781,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesSystraceLevelAppId": {
     "name": "systemServicesSystraceLevelAppId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.33.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.33.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1835,11 +1793,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemServicesSystraceLevel": {
     "name": "systemServicesSystraceLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.33.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.33.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1853,11 +1811,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "systemUpdateStatusTable": {
     "name": "systemUpdateStatusTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.34",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.34",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1865,7 +1823,7 @@
   },
   "systemUpdateStatusEntry": {
     "name": "systemUpdateStatusEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.34.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.34.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1880,11 +1838,11 @@
   },
   "systemUpdateIndex": {
     "name": "systemUpdateIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.34.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.34.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1900,7 +1858,7 @@
   },
   "systemUpdateStatus": {
     "name": "systemUpdateStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.34.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.34.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1920,7 +1878,7 @@
   },
   "systemUpdateErrorCode": {
     "name": "systemUpdateErrorCode",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.34.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.34.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1964,7 +1922,7 @@
   },
   "systemServicesActionPercentComplete": {
     "name": "systemServicesActionPercentComplete",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.35",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.35",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1976,11 +1934,11 @@
   },
   "systemServicesCurrentArchivePathName": {
     "name": "systemServicesCurrentArchivePathName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.36",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.36",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1996,7 +1954,7 @@
   },
   "systemServicesArchiveTable": {
     "name": "systemServicesArchiveTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2004,7 +1962,7 @@
   },
   "systemServicesArchiveEntry": {
     "name": "systemServicesArchiveEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2019,7 +1977,7 @@
   },
   "systemServicesArchiveIndex": {
     "name": "systemServicesArchiveIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2031,11 +1989,11 @@
   },
   "systemServicesArchiveName": {
     "name": "systemServicesArchiveName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2051,7 +2009,7 @@
   },
   "systemServicesArchiveType": {
     "name": "systemServicesArchiveType",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2069,7 +2027,7 @@
   },
   "systemServicesArchiveSize": {
     "name": "systemServicesArchiveSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2081,7 +2039,7 @@
   },
   "systemServicesArchiveAttr": {
     "name": "systemServicesArchiveAttr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.37.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.37.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2107,19 +2065,32 @@
   },
   "systemServicesUsbEnable": {
     "name": "systemServicesUsbEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.38",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.38",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Enable",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableasync": 1,
+          "disable": 2,
+          "enablesync": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "systemServicesUsbAutoCopyEnable": {
     "name": "systemServicesUsbAutoCopyEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.39",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.39",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2129,21 +2100,21 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "systemServicesUsbDisasterRecoveryEnable": {
-    "name": "systemServicesUsbDisasterRecoveryEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.5.40",
+  "systemServicesUsbMounted": {
+    "name": "systemServicesUsbMounted",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.5.40",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Enable",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "systemFileSystemTable": {
     "name": "systemFileSystemTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2151,7 +2122,7 @@
   },
   "systemFileSystemEntry": {
     "name": "systemFileSystemEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2166,7 +2137,7 @@
   },
   "systemFileSystemIndex": {
     "name": "systemFileSystemIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2178,11 +2149,11 @@
   },
   "systemFileSystemName": {
     "name": "systemFileSystemName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2198,7 +2169,7 @@
   },
   "systemFileSystemFreeSpace": {
     "name": "systemFileSystemFreeSpace",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2210,11 +2181,11 @@
   },
   "systemFileSystemDirectoryName": {
     "name": "systemFileSystemDirectoryName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2230,11 +2201,11 @@
   },
   "systemFileSystemDirectoryDateTime": {
     "name": "systemFileSystemDirectoryDateTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2250,7 +2221,7 @@
   },
   "systemFileSystemFileTable": {
     "name": "systemFileSystemFileTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2258,7 +2229,7 @@
   },
   "systemFileSystemFileEntry": {
     "name": "systemFileSystemFileEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2273,7 +2244,7 @@
   },
   "systemFileSystemFileIndex": {
     "name": "systemFileSystemFileIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2285,11 +2256,11 @@
   },
   "systemFileSystemFileName": {
     "name": "systemFileSystemFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2305,7 +2276,7 @@
   },
   "systemFileSystemFileType": {
     "name": "systemFileSystemFileType",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2323,7 +2294,7 @@
   },
   "systemFileSystemFileSize": {
     "name": "systemFileSystemFileSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2335,7 +2306,7 @@
   },
   "systemFileSystemFileAttr": {
     "name": "systemFileSystemFileAttr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2361,11 +2332,11 @@
   },
   "systemFileSystemFileDateTime": {
     "name": "systemFileSystemFileDateTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.4.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.4.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2381,7 +2352,7 @@
   },
   "systemSwitchLoggingIndex": {
     "name": "systemSwitchLoggingIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2399,7 +2370,7 @@
   },
   "systemSwitchLoggingEnable": {
     "name": "systemSwitchLoggingEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2417,7 +2388,7 @@
   },
   "systemSwitchLoggingFlash": {
     "name": "systemSwitchLoggingFlash",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2435,7 +2406,7 @@
   },
   "systemSwitchLoggingSocket": {
     "name": "systemSwitchLoggingSocket",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2453,7 +2424,7 @@
   },
   "systemSwitchLoggingSocketIpAddr": {
     "name": "systemSwitchLoggingSocketIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2465,7 +2436,7 @@
   },
   "systemSwitchLoggingConsole": {
     "name": "systemSwitchLoggingConsole",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2481,17 +2452,164 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "systemSwitchLoggingLevelTable": {
-    "name": "systemSwitchLoggingLevelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.7",
+  "systemSwitchLoggingApplicationTable": {
+    "name": "systemSwitchLoggingApplicationTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
+  "systemSwitchLoggingLevelEntry": {
+    "name": "systemSwitchLoggingLevelEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationAppId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppVrfLevelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationAppId": {
+    "name": "systemSwitchLoggingApplicationAppId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppIdIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationSubAppId": {
+    "name": "systemSwitchLoggingApplicationSubAppId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppIdIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationSubAppVrfLevelIndex": {
+    "name": "systemSwitchLoggingApplicationSubAppVrfLevelIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationAppName": {
+    "name": "systemSwitchLoggingApplicationAppName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationSubAppName": {
+    "name": "systemSwitchLoggingApplicationSubAppName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationSubAppLevel": {
+    "name": "systemSwitchLoggingApplicationSubAppLevel",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SeverityLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "severityLevelOff",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingApplicationSubAppVrfLevelString": {
+    "name": "systemSwitchLoggingApplicationSubAppVrfLevelString",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "systemSwitchLoggingClear": {
     "name": "systemSwitchLoggingClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2503,7 +2621,7 @@
   },
   "systemSwitchLoggingFileSize": {
     "name": "systemSwitchLoggingFileSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2513,48 +2631,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "systemSwitchLoggingLevelEntry": {
-    "name": "systemSwitchLoggingLevelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.7.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemSwitchLoggingLevelAppId",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "systemSwitchLoggingLevelAppId": {
-    "name": "systemSwitchLoggingLevelAppId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.7.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AppIdIndex",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "systemSwitchLoggingLevel": {
-    "name": "systemSwitchLoggingLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.7.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SeverityLevel",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
   "systemSwitchLoggingHostTable": {
     "name": "systemSwitchLoggingHostTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2562,7 +2641,7 @@
   },
   "systemSwitchLoggingHostEntry": {
     "name": "systemSwitchLoggingHostEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2577,7 +2656,7 @@
   },
   "systemSwitchLoggingHostIpAddr": {
     "name": "systemSwitchLoggingHostIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2589,11 +2668,11 @@
   },
   "systemSwitchLoggingHostPort": {
     "name": "systemSwitchLoggingHostPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.10.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2613,9 +2692,21 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "systemSwitchLoggingHostStatus": {
+    "name": "systemSwitchLoggingHostStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "systemSwitchLoggingHostUserCommandHost": {
     "name": "systemSwitchLoggingHostUserCommandHost",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.10.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2631,21 +2722,29 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "systemSwitchLoggingHostStatus": {
-    "name": "systemSwitchLoggingHostStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.10.1.3",
+  "systemSwitchLoggingHostVrfName": {
+    "name": "systemSwitchLoggingHostVrfName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.10.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RowStatus",
-      "class": "type"
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemSwitchLoggingHostv6Table": {
     "name": "systemSwitchLoggingHostv6Table",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2653,7 +2752,7 @@
   },
   "systemSwitchLoggingHostv6Entry": {
     "name": "systemSwitchLoggingHostv6Entry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2668,7 +2767,7 @@
   },
   "systemSwitchLoggingHostv6IpAddr": {
     "name": "systemSwitchLoggingHostv6IpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2680,11 +2779,11 @@
   },
   "systemSwitchLoggingHostv6Port": {
     "name": "systemSwitchLoggingHostv6Port",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2704,9 +2803,21 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "systemSwitchLoggingHostv6Status": {
+    "name": "systemSwitchLoggingHostv6Status",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "systemSwitchLoggingHostv6UserCommandHost": {
     "name": "systemSwitchLoggingHostv6UserCommandHost",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.11.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2722,25 +2833,33 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "systemSwitchLoggingHostv6Status": {
-    "name": "systemSwitchLoggingHostv6Status",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.11.1.3",
+  "systemSwitchLoggingHostv6VrfName": {
+    "name": "systemSwitchLoggingHostv6VrfName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.11.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RowStatus",
-      "class": "type"
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemSwitchLoggingHostCount": {
     "name": "systemSwitchLoggingHostCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2756,7 +2875,7 @@
   },
   "systemSwitchLoggingConsoleLevel": {
     "name": "systemSwitchLoggingConsoleLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2774,7 +2893,7 @@
   },
   "systemSwitchLoggingUserCommandStatus": {
     "name": "systemSwitchLoggingUserCommandStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2792,7 +2911,7 @@
   },
   "systemSwitchLoggingSysLogFacilityId": {
     "name": "systemSwitchLoggingSysLogFacilityId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.6.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2808,9 +2927,272 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "systemSwitchLoggingLevel": {
+    "name": "systemSwitchLoggingLevel",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SeverityLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingAppName": {
+    "name": "systemSwitchLoggingAppName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingDuplicateDetect": {
+    "name": "systemSwitchLoggingDuplicateDetect",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingPreamble": {
+    "name": "systemSwitchLoggingPreamble",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingDebug": {
+    "name": "systemSwitchLoggingDebug",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingVrf": {
+    "name": "systemSwitchLoggingVrf",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingHashAgeLimit": {
+    "name": "systemSwitchLoggingHashAgeLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgeLimit",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingTty": {
+    "name": "systemSwitchLoggingTty",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingSubAppNbr": {
+    "name": "systemSwitchLoggingSubAppNbr",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AppIdIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingLibraryName": {
+    "name": "systemSwitchLoggingLibraryName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingLoopback0": {
+    "name": "systemSwitchLoggingLoopback0",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemSwitchLoggingDgHostTable": {
+    "name": "systemSwitchLoggingDgHostTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemSwitchLoggingDgHostEntry": {
+    "name": "systemSwitchLoggingDgHostEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingDgHostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "systemSwitchLoggingDgHostIndex": {
+    "name": "systemSwitchLoggingDgHostIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemSwitchLoggingDgHostIpType": {
+    "name": "systemSwitchLoggingDgHostIpType",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwitchLoggingDgHostIpAddr": {
+    "name": "systemSwitchLoggingDgHostIpAddr",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.6.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "systemDNSEnableDnsResolver": {
     "name": "systemDNSEnableDnsResolver",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2828,11 +3210,11 @@
   },
   "systemDNSDomainName": {
     "name": "systemDNSDomainName",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2848,79 +3230,578 @@
   },
   "systemDNSNsAddr1": {
     "name": "systemDNSNsAddr1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "IpAddress",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemDNSNsAddr2": {
     "name": "systemDNSNsAddr2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "IpAddress",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemDNSNsAddr3": {
     "name": "systemDNSNsAddr3",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "IpAddress",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemDNSNsIPv6Addr1": {
     "name": "systemDNSNsIPv6Addr1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Ipv6Address",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemDNSNsIPv6Addr2": {
     "name": "systemDNSNsIPv6Addr2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Ipv6Address",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "systemDNSNsIPv6Addr3": {
     "name": "systemDNSNsIPv6Addr3",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.1.7.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.7.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Ipv6Address",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
+    },
     "maxaccess": "read-create",
+    "status": "current"
+  },
+  "systemServicesBluetoothEnable": {
+    "name": "systemServicesBluetoothEnable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemServicesBluetoothTxPower": {
+    "name": "systemServicesBluetoothTxPower",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "low",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemServicesBluetoothTable": {
+    "name": "systemServicesBluetoothTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemServicesBluetoothEntry": {
+    "name": "systemServicesBluetoothEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemServicesBluetoothChassisId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "systemServicesBluetoothChassisId": {
+    "name": "systemServicesBluetoothChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualOperChassisId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemServicesBluetoothStatus": {
+    "name": "systemServicesBluetoothStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 1,
+          "connectionInactive": 2,
+          "connectionActive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFipsAdminState": {
+    "name": "systemFipsAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "systemFipsOperState": {
+    "name": "systemFipsOperState",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Enable",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareTable": {
+    "name": "systemVcHardwareTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemVcHardwareEntry": {
+    "name": "systemVcHardwareEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB",
+        "object": "virtualChassisOperChasId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "systemVcHardwareCpuVendor": {
+    "name": "systemVcHardwareCpuVendor",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareCpuModel": {
+    "name": "systemVcHardwareCpuModel",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareFlashMfg": {
+    "name": "systemVcHardwareFlashMfg",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "amd": 2,
+          "intel": 3,
+          "atmel": 4,
+          "micron": 5,
+          "kingston": 6,
+          "toshiba": 7,
+          "sandisk": 8,
+          "sst": 9,
+          "spansion": 10,
+          "wintec": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareFlashSize": {
+    "name": "systemVcHardwareFlashSize",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareMemoryMfg": {
+    "name": "systemVcHardwareMemoryMfg",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "amd": 2,
+          "intel": 3,
+          "atmel": 4,
+          "micron": 5,
+          "kingston": 6,
+          "toshiba": 7,
+          "agilent": 8,
+          "dataram": 10,
+          "interward": 11,
+          "notreadable": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareMemorySize": {
+    "name": "systemVcHardwareMemorySize",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareUbootVersion": {
+    "name": "systemVcHardwareUbootVersion",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareFpga1Version": {
+    "name": "systemVcHardwareFpga1Version",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareFpga2Version": {
+    "name": "systemVcHardwareFpga2Version",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwarePowerSuppliesPresent": {
+    "name": "systemVcHardwarePowerSuppliesPresent",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ps1": 0,
+        "ps2": 1,
+        "ps3": 2,
+        "ps4": 3,
+        "ps5": 4,
+        "ps6": 5,
+        "ps7": 6,
+        "ps8": 7,
+        "ps9": 8,
+        "ps10": 9,
+        "ps11": 10,
+        "ps12": 11,
+        "ps13": 12,
+        "ps14": 13,
+        "ps15": 14,
+        "ps16": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareNisPresent": {
+    "name": "systemVcHardwareNisPresent",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ni1": 0,
+        "ni2": 1,
+        "ni3": 2,
+        "ni4": 3,
+        "ni5": 4,
+        "ni6": 5,
+        "ni7": 6,
+        "ni8": 7,
+        "ni9": 8,
+        "ni10": 9,
+        "ni11": 10,
+        "ni12": 11,
+        "ni13": 12,
+        "ni14": 13,
+        "ni15": 14,
+        "ni16": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareCFMsPresent": {
+    "name": "systemVcHardwareCFMsPresent",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cfm1": 0,
+        "cfm2": 1,
+        "cfm3": 2,
+        "cfm4": 3,
+        "cfm5": 4,
+        "cfm6": 5,
+        "cfm7": 6,
+        "cfm8": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemVcHardwareFanTraysPresent": {
+    "name": "systemVcHardwareFanTraysPresent",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.1.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fanTray1": 0,
+        "fanTray2": 1,
+        "fanTray3": 2,
+        "fanTray4": 3,
+        "fanTray5": 4,
+        "fanTray6": 5,
+        "fanTray7": 6,
+        "fanTray8": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwlogName": {
+    "name": "systemSwlogName",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSwlogSizeTrap": {
+    "name": "systemSwlogSizeTrap",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwlogName"
+      }
+    ],
     "status": "current"
   },
   "alcatelIND1SystemMIBCompliance": {
     "name": "alcatelIND1SystemMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2950,23 +3831,31 @@
       {
         "object": "systemDNSGroup",
         "module": "ALCATEL-IND1-SYSTEM-MIB"
+      },
+      {
+        "object": "systemBlueToothServicesGroup",
+        "module": "ALCATEL-IND1-SYSTEM-MIB"
+      },
+      {
+        "object": "systemFipsGroup",
+        "module": "ALCATEL-IND1-SYSTEM-MIB"
+      },
+      {
+        "object": "systemVcHardwareGroup",
+        "module": "ALCATEL-IND1-SYSTEM-MIB"
+      },
+      {
+        "object": "systemNotificationGroup",
+        "module": "ALCATEL-IND1-SYSTEM-MIB"
       }
     ],
     "status": "current"
   },
   "systemMicrocodeGroup": {
     "name": "systemMicrocodeGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.1",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeIndex"
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodePackageIndex"
-      },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
         "object": "systemMicrocodePackageVersion"
@@ -2989,46 +3878,30 @@
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentIndex"
+        "object": "systemMicrocodeLoadedDirectory"
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentVersion"
+        "object": "systemMicrocodeLoadedVersion"
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentName"
+        "object": "systemMicrocodeLoadedName"
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentDescription"
+        "object": "systemMicrocodeLoadedDescription"
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeComponentSize"
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeDependencyIndex"
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeDependencyPackageName"
-      },
-      {
-        "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemMicrocodeDependencyVersion"
+        "object": "systemMicrocodeLoadedSize"
       }
     ],
     "status": "current"
   },
   "systemBootParamsGroup": {
     "name": "systemBootParamsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -3048,7 +3921,7 @@
   },
   "systemHardwareGroup": {
     "name": "systemHardwareGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -3110,13 +3983,41 @@
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
         "object": "systemHardwareBackupMiniBootVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareCpldVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareMinorFpgaVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareProdRegId"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareRevisionRegister"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareUbootMinibootVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareUbootVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemHardwareXfpId"
       }
     ],
     "status": "current"
   },
   "systemServicesGroup": {
     "name": "systemServicesGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -3297,14 +4198,22 @@
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemServicesUsbDisasterRecoveryEnable"
+        "object": "systemServicesUsbMounted"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemServicesArchiveIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemServicesCurrentArchivePathName"
       }
     ],
     "status": "current"
   },
   "systemFileSystemGroup": {
     "name": "systemFileSystemGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -3356,7 +4265,7 @@
   },
   "systemSwitchLoggingGroup": {
     "name": "systemSwitchLoggingGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -3397,14 +4306,142 @@
       },
       {
         "module": "ALCATEL-IND1-SYSTEM-MIB",
-        "object": "systemSwitchLoggingLevelAppId"
+        "object": "systemSwitchLoggingApplicationAppId"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationAppName"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppId"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppName"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppLevel"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppVrfLevelIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingApplicationSubAppVrfLevelString"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingAppName"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingDuplicateDetect"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingPreamble"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingDebug"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingVrf"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHashAgeLimit"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingTty"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingSubAppNbr"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingLibraryName"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingLoopback0"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingConsoleLevel"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostCount"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingUserCommandStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingSysLogFacilityId"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostIpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostPort"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostUserCommandHost"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostVrfName"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostv6IpAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostv6Port"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostv6Status"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostv6UserCommandHost"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingHostv6VrfName"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingDgHostIpType"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwitchLoggingDgHostIpAddr"
       }
     ],
     "status": "current"
   },
   "systemDNSGroup": {
     "name": "systemDNSGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.2.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -3442,11 +4479,131 @@
     ],
     "status": "current"
   },
+  "systemBlueToothServicesGroup": {
+    "name": "systemBlueToothServicesGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemServicesBluetoothEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemServicesBluetoothTxPower"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemServicesBluetoothStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "systemFipsGroup": {
+    "name": "systemFipsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemFipsAdminState"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemFipsOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "systemVcHardwareGroup": {
+    "name": "systemVcHardwareGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareCpuVendor"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareCpuModel"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareFlashMfg"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareFlashSize"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareMemoryMfg"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareMemorySize"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareUbootVersion"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareFpga1Version"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareFpga2Version"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwarePowerSuppliesPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareNisPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareCFMsPresent"
+      },
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemVcHardwareFanTraysPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "systemSwlogGroup": {
+    "name": "systemSwlogGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwlogName"
+      }
+    ],
+    "status": "current"
+  },
+  "systemNotificationGroup": {
+    "name": "systemNotificationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.2.1.2.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-SYSTEM-MIB",
+        "object": "systemSwlogSizeTrap"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-SYSTEM-MIB"

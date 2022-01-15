@@ -5,85 +5,91 @@
       "hardentIND1Physical"
     ],
     "ALCATEL-IND1-CHASSIS-MIB": [
-      "physicalIndex",
-      "chassisTrapsObj",
-      "chassisTrapsDesc"
+      "physicalIndex"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1MacServerMIB": {
     "name": "alcatelIND1MacServerMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2014-01-24 00:00",
+        "description": "Deprecated the chasRingStatus object"
+      },
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "The MIB module for Chassis Supervision Mac Server entity."
       }
     ]
   },
-  "alcatelIND1MacServerMIBObjects": {
-    "name": "alcatelIND1MacServerMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1",
+  "alcatelIND1MacServerMIBNotifications": {
+    "name": "alcatelIND1MacServerMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.0",
     "class": "objectidentity",
     "status": "current"
   },
-  "alcatelIND1MacServerMIBTraps": {
-    "name": "alcatelIND1MacServerMIBTraps",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.2",
+  "alcatelIND1MacServerMIBObjects": {
+    "name": "alcatelIND1MacServerMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1",
     "class": "objectidentity",
-    "status": "deprecated"
+    "status": "current"
   },
   "alcatelIND1MacServerMIBConformance": {
     "name": "alcatelIND1MacServerMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1MacServerMIBGroups": {
     "name": "alcatelIND1MacServerMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1MacServerMIBCompliances": {
     "name": "alcatelIND1MacServerMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "MacAddrGlobalLocalStatusType": {
     "name": "MacAddrGlobalLocalStatusType",
-    "class": "type",
+    "class": "textualconvention",
     "type": {
       "type": "INTEGER",
       "class": "type",
@@ -95,27 +101,29 @@
           "globallyAdministeredOverlap": 4
         }
       }
-    }
+    },
+    "status": "current"
   },
   "MacRangeIndex": {
     "name": "MacRangeIndex",
-    "class": "type",
+    "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 20
           }
         ]
       }
-    }
+    },
+    "status": "current"
   },
   "chasMacAddressRangeTable": {
     "name": "chasMacAddressRangeTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -123,7 +131,7 @@
   },
   "chasMacAddrRangeTableEntry": {
     "name": "chasMacAddrRangeTableEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -143,7 +151,7 @@
   },
   "chasMacRangeIndex": {
     "name": "chasMacRangeIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -155,23 +163,23 @@
   },
   "chasMacAddressStart": {
     "name": "chasMacAddressStart",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "MacAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "chasMacAddressCount": {
     "name": "chasMacAddressCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -182,36 +190,36 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "chasGlobalLocal": {
     "name": "chasGlobalLocal",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "MacAddrGlobalLocalStatusType",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "chasMacRowStatus": {
     "name": "chasMacRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "chasMacAddressAllocTable": {
     "name": "chasMacAddressAllocTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -219,7 +227,7 @@
   },
   "chasMacAddressAllocTableEntry": {
     "name": "chasMacAddressAllocTableEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -239,7 +247,7 @@
   },
   "chasAppId": {
     "name": "chasAppId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -259,7 +267,7 @@
   },
   "chasObjectId": {
     "name": "chasObjectId",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -279,7 +287,7 @@
   },
   "chasAllocMacRangeIndex": {
     "name": "chasAllocMacRangeIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -291,7 +299,7 @@
   },
   "chasAllocMacAddress": {
     "name": "chasAllocMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -303,24 +311,24 @@
   },
   "chasAllocRowStatus": {
     "name": "chasAllocRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "chasMacAddrDupAllocStatusTable": {
     "name": "chasMacAddrDupAllocStatusTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.3",
     "class": "objectidentity"
   },
   "chasMacAddrDuplicationStatus": {
     "name": "chasMacAddrDuplicationStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -338,7 +346,7 @@
   },
   "chasMacAddrAllocLocallyAdminStatus": {
     "name": "chasMacAddrAllocLocallyAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -356,12 +364,12 @@
   },
   "chasMacAddrRetentionObjects": {
     "name": "chasMacAddrRetentionObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4",
     "class": "objectidentity"
   },
   "chasMacAddrRetentionStatus": {
     "name": "chasMacAddrRetentionStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -385,7 +393,7 @@
   },
   "chasPossibleDuplicateMacTrapStatus": {
     "name": "chasPossibleDuplicateMacTrapStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -409,7 +417,7 @@
   },
   "chasRingStatus": {
     "name": "chasRingStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -429,11 +437,11 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "chasBaseMacAddrSource": {
     "name": "chasBaseMacAddrSource",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -457,7 +465,7 @@
   },
   "chasBaseMacAddr": {
     "name": "chasBaseMacAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -469,7 +477,7 @@
   },
   "chasBaseMacReleaseAction": {
     "name": "chasBaseMacReleaseAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.1.4.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -485,9 +493,40 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "chasBaseMacAddrRetentionTimer": {
+    "name": "chasBaseMacAddrRetentionTimer",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaMacServerTrapObjs": {
+    "name": "alaMacServerTrapObjs",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.5",
+    "class": "objectidentity"
+  },
   "chasTrapMacRangeIndex": {
     "name": "chasTrapMacRangeIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -499,7 +538,7 @@
   },
   "baseMacAddress": {
     "name": "baseMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.2.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -511,7 +550,7 @@
   },
   "chassisTrapsMacOverlap": {
     "name": "chassisTrapsMacOverlap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.1.0.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -527,7 +566,23 @@
   },
   "chassisTrapsPossibleDuplicateMac": {
     "name": "chassisTrapsPossibleDuplicateMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.4.1.0.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CHASSIS-MIB",
+        "object": "physicalIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-SERVER-MIB",
+        "object": "baseMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "chassisTrapsDuplicateMacCleared": {
+    "name": "chassisTrapsDuplicateMacCleared",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -543,7 +598,7 @@
   },
   "alcatelIND1MacServerMIBCompliance": {
     "name": "alcatelIND1MacServerMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -575,7 +630,7 @@
   },
   "chasMacAddrRangeGroup": {
     "name": "chasMacAddrRangeGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -599,7 +654,7 @@
   },
   "chasMacAddressAllocGroup": {
     "name": "chasMacAddressAllocGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -619,7 +674,7 @@
   },
   "chasMacAddrDupAllocStatusGroup": {
     "name": "chasMacAddrDupAllocStatusGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -635,7 +690,7 @@
   },
   "chasTrapsMacOverlapGroup": {
     "name": "chasTrapsMacOverlapGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.4",
     "class": "notificationgroup",
     "objects": [
       {
@@ -647,7 +702,7 @@
   },
   "chasMacAddrRetentionGroup": {
     "name": "chasMacAddrRetentionGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -669,18 +724,46 @@
       {
         "module": "ALCATEL-IND1-MAC-SERVER-MIB",
         "object": "chasBaseMacAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-SERVER-MIB",
+        "object": "chasBaseMacReleaseAction"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-SERVER-MIB",
+        "object": "chasBaseMacAddrRetentionTimer"
       }
     ],
     "status": "current"
   },
   "chasTrapsPossibleDuplicateMacGroup": {
     "name": "chasTrapsPossibleDuplicateMacGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.1.1.3.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.6",
     "class": "notificationgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-MAC-SERVER-MIB",
         "object": "chassisTrapsPossibleDuplicateMac"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-SERVER-MIB",
+        "object": "chassisTrapsDuplicateMacCleared"
+      }
+    ],
+    "status": "current"
+  },
+  "chasNotificationObjectGroup": {
+    "name": "chasNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.1.1.3.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MAC-SERVER-MIB",
+        "object": "baseMacAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-MAC-SERVER-MIB",
+        "object": "chasTrapMacRangeIndex"
       }
     ],
     "status": "current"
@@ -688,8 +771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-MAC-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-MAC-SERVER-MIB"

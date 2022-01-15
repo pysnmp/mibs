@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NET-SNMP-PASS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-PASS-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 13 23:59:35 2022
-# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:32:50 2022
+# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 netSnmpExamples, = mibBuilder.importSymbols("NET-SNMP-EXAMPLES-MIB", "netSnmpExamples")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter64, ModuleIdentity, NotificationType, MibIdentifier, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, Gauge32, Bits, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "ModuleIdentity", "NotificationType", "MibIdentifier", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "Gauge32", "Bits", "Counter32", "Unsigned32")
+ModuleIdentity, Counter32, TimeTicks, Gauge32, IpAddress, Bits, MibIdentifier, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "TimeTicks", "Gauge32", "IpAddress", "Bits", "MibIdentifier", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "Counter64", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 netSnmpPassExamples = ModuleIdentity((1, 3, 6, 1, 4, 1, 8072, 2, 255))
 if mibBuilder.loadTexts: netSnmpPassExamples.setLastUpdated('200905280000Z')
@@ -37,4 +37,4 @@ netSnmpPassInteger = MibTableColumn((1, 3, 6, 1, 4, 1, 8072, 2, 255, 2, 1, 2), I
 if mibBuilder.loadTexts: netSnmpPassInteger.setStatus('current')
 netSnmpPassOID = MibTableColumn((1, 3, 6, 1, 4, 1, 8072, 2, 255, 2, 1, 3), ObjectIdentifier().clone((1, 3, 6, 1, 4, 1, 8072, 2, 255, 99))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: netSnmpPassOID.setStatus('current')
-mibBuilder.exportSymbols("NET-SNMP-PASS-MIB", netSnmpPassOID=netSnmpPassOID, PYSNMP_MODULE_ID=netSnmpPassExamples, netSnmpPassGauge=netSnmpPassGauge, netSnmpPassTimeTicks=netSnmpPassTimeTicks, netSnmpPassIpAddress=netSnmpPassIpAddress, netSnmpPassExamples=netSnmpPassExamples, netSnmpPassIndex=netSnmpPassIndex, netSnmpPassTable=netSnmpPassTable, netSnmpPassString=netSnmpPassString, netSnmpPassOIDValue=netSnmpPassOIDValue, netSnmpPassInteger=netSnmpPassInteger, netSnmpPassEntry=netSnmpPassEntry, netSnmpPassCounter=netSnmpPassCounter)
+mibBuilder.exportSymbols("NET-SNMP-PASS-MIB", netSnmpPassOID=netSnmpPassOID, netSnmpPassExamples=netSnmpPassExamples, netSnmpPassIpAddress=netSnmpPassIpAddress, netSnmpPassTimeTicks=netSnmpPassTimeTicks, netSnmpPassString=netSnmpPassString, netSnmpPassCounter=netSnmpPassCounter, netSnmpPassTable=netSnmpPassTable, netSnmpPassOIDValue=netSnmpPassOIDValue, PYSNMP_MODULE_ID=netSnmpPassExamples, netSnmpPassInteger=netSnmpPassInteger, netSnmpPassEntry=netSnmpPassEntry, netSnmpPassIndex=netSnmpPassIndex, netSnmpPassGauge=netSnmpPassGauge)

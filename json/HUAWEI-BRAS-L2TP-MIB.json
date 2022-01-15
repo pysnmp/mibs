@@ -5,30 +5,30 @@
       "hwBRASMib"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Counter64",
       "iso",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwBRASL2tp": {
@@ -2001,8 +2001,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-L2TP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:53:41 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:27:34 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-BRAS-L2TP-MIB"

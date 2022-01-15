@@ -7,36 +7,38 @@
     "IF-MIB": [
       "InterfaceIndex"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1UDLDMIB": {
     "name": "alcatelIND1UDLDMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -47,31 +49,31 @@
   },
   "alcatelIND1UDLDMIBObjects": {
     "name": "alcatelIND1UDLDMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1UDLDMIBConformance": {
     "name": "alcatelIND1UDLDMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1UDLDMIBGroups": {
     "name": "alcatelIND1UDLDMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1UDLDMIBCompliances": {
     "name": "alcatelIND1UDLDMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaUdldGlobalStatus": {
     "name": "alaUdldGlobalStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -95,7 +97,7 @@
   },
   "alaUdldGlobalClearStats": {
     "name": "alaUdldGlobalClearStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -119,7 +121,7 @@
   },
   "alaUdldGlobalConfigUdldMode": {
     "name": "alaUdldGlobalConfigUdldMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -143,7 +145,7 @@
   },
   "alaUdldGlobalConfigUdldProbeIntervalTimer": {
     "name": "alaUdldGlobalConfigUdldProbeIntervalTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -170,7 +172,7 @@
   },
   "alaUdldGlobalConfigUdldDetectionPeriodTimer": {
     "name": "alaUdldGlobalConfigUdldDetectionPeriodTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -197,12 +199,12 @@
   },
   "udldPortConfig": {
     "name": "udldPortConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6",
     "class": "objectidentity"
   },
   "alaUdldPortConfigTable": {
     "name": "alaUdldPortConfigTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -210,7 +212,7 @@
   },
   "alaUdldPortConfigEntry": {
     "name": "alaUdldPortConfigEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -225,7 +227,7 @@
   },
   "alaUdldPortConfigIfIndex": {
     "name": "alaUdldPortConfigIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -237,7 +239,7 @@
   },
   "alaUdldPortConfigUdldStatus": {
     "name": "alaUdldPortConfigUdldStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -261,7 +263,7 @@
   },
   "alaUdldPortConfigUdldMode": {
     "name": "alaUdldPortConfigUdldMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -285,7 +287,7 @@
   },
   "alaUdldPortConfigUdldProbeIntervalTimer": {
     "name": "alaUdldPortConfigUdldProbeIntervalTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -312,7 +314,7 @@
   },
   "alaUdldPortConfigUdldDetectionPeriodTimer": {
     "name": "alaUdldPortConfigUdldDetectionPeriodTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -339,7 +341,7 @@
   },
   "alaUdldPortConfigUdldOperationalStatus": {
     "name": "alaUdldPortConfigUdldOperationalStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.6.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.6.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -359,12 +361,12 @@
   },
   "udldPortStats": {
     "name": "udldPortStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7",
     "class": "objectidentity"
   },
   "alaUdldPortStatsTable": {
     "name": "alaUdldPortStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -372,7 +374,7 @@
   },
   "alaUdldPortStatsEntry": {
     "name": "alaUdldPortStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -387,7 +389,7 @@
   },
   "alaUdldPortStatsIfIndex": {
     "name": "alaUdldPortStatsIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -399,7 +401,7 @@
   },
   "alaUdldNumUDLDNeighbors": {
     "name": "alaUdldNumUDLDNeighbors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -419,7 +421,7 @@
   },
   "alaUdldPortStatsClear": {
     "name": "alaUdldPortStatsClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -443,7 +445,7 @@
   },
   "alaUdldPortNumProbeSent": {
     "name": "alaUdldPortNumProbeSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -455,7 +457,7 @@
   },
   "alaUdldPortNumEchoSent": {
     "name": "alaUdldPortNumEchoSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -467,7 +469,7 @@
   },
   "alaUdldPortNumInvalidRcvd": {
     "name": "alaUdldPortNumInvalidRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -479,7 +481,7 @@
   },
   "alaUdldPortNumFlushRcvd": {
     "name": "alaUdldPortNumFlushRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.7.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.7.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -491,12 +493,12 @@
   },
   "udldPortNeighborStats": {
     "name": "udldPortNeighborStats",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8",
     "class": "objectidentity"
   },
   "alaUdldPortNeighborStatsTable": {
     "name": "alaUdldPortNeighborStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -504,7 +506,7 @@
   },
   "alaUdldPortNeighborStatsEntry": {
     "name": "alaUdldPortNeighborStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -524,7 +526,7 @@
   },
   "alaUdldPortNeighborStatsIfIndex": {
     "name": "alaUdldPortNeighborStatsIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -536,23 +538,31 @@
   },
   "alaUdldNeighborIfIndex": {
     "name": "alaUdldNeighborIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MacAddress",
-      "class": "type"
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
   "alaUdldNeighborName": {
     "name": "alaUdldNeighborName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -568,7 +578,7 @@
   },
   "alaUdldNumHelloRcvd": {
     "name": "alaUdldNumHelloRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -580,7 +590,7 @@
   },
   "alaUdldNumEchoRcvd": {
     "name": "alaUdldNumEchoRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.8.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.8.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -592,7 +602,7 @@
   },
   "alaUdldPrevState": {
     "name": "alaUdldPrevState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -612,7 +622,7 @@
   },
   "alaUdldCurrentState": {
     "name": "alaUdldCurrentState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -632,7 +642,7 @@
   },
   "alaUdldPortIfIndex": {
     "name": "alaUdldPortIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -644,12 +654,12 @@
   },
   "alaUdldEvents": {
     "name": "alaUdldEvents",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.3",
     "class": "objectidentity"
   },
   "udldStateChange": {
     "name": "udldStateChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.3.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.3.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -667,9 +677,37 @@
     ],
     "status": "current"
   },
+  "alcatelIND1UDLDMIBCompliance": {
+    "name": "alcatelIND1UDLDMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "udldPortBaseGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortConfigGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortStatsGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortNeighborStatsGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      },
+      {
+        "object": "udldPortTrapGroup",
+        "module": "ALCATEL-IND1-UDLD-MIB"
+      }
+    ],
+    "status": "current"
+  },
   "udldPortBaseGroup": {
     "name": "udldPortBaseGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -679,6 +717,18 @@
       {
         "module": "ALCATEL-IND1-UDLD-MIB",
         "object": "alaUdldGlobalClearStats"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldGlobalConfigUdldMode"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldGlobalConfigUdldProbeIntervalTimer"
+      },
+      {
+        "module": "ALCATEL-IND1-UDLD-MIB",
+        "object": "alaUdldGlobalConfigUdldDetectionPeriodTimer"
       },
       {
         "module": "ALCATEL-IND1-UDLD-MIB",
@@ -697,7 +747,7 @@
   },
   "udldPortConfigGroup": {
     "name": "udldPortConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -725,7 +775,7 @@
   },
   "udldPortStatsGroup": {
     "name": "udldPortStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -757,7 +807,7 @@
   },
   "udldPortNeighborStatsGroup": {
     "name": "udldPortNeighborStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -777,7 +827,7 @@
   },
   "udldPortTrapGroup": {
     "name": "udldPortTrapGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.44.1.2.1.5",
     "class": "notificationgroup",
     "objects": [
       {
@@ -787,39 +837,11 @@
     ],
     "status": "current"
   },
-  "alcatelIND1UDLDMIBCompliance": {
-    "name": "alcatelIND1UDLDMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.44.1.2.2.1",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "udldPortBaseGroup",
-        "module": "ALCATEL-IND1-UDLD-MIB"
-      },
-      {
-        "object": "udldPortConfigGroup",
-        "module": "ALCATEL-IND1-UDLD-MIB"
-      },
-      {
-        "object": "udldPortStatsGroup",
-        "module": "ALCATEL-IND1-UDLD-MIB"
-      },
-      {
-        "object": "udldPortNeighborStatsGroup",
-        "module": "ALCATEL-IND1-UDLD-MIB"
-      },
-      {
-        "object": "udldPortTrapGroup",
-        "module": "ALCATEL-IND1-UDLD-MIB"
-      }
-    ],
-    "status": "current"
-  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-UDLD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-UDLD-MIB"

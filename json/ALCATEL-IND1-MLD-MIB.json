@@ -5,45 +5,62 @@
       "softentIND1Mld"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1MldMIB": {
     "name": "alcatelIND1MldMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2016-02-18 00:00",
+        "description": "Deprecated all objects/tables in this MIB in favor of ALCATEL-IND1-IPMS-MIB"
+      },
+      {
+        "revision": "2015-09-17 00:00",
+        "description": "Add InitialPacketBuffer objects"
+      },
+      {
+        "revision": "2013-11-26 00:00",
+        "description": "Using InterfaceIndexOrZero for ingress interface in source, forward, and tunnel tables."
+      },
+      {
+        "revision": "2011-02-23 00:00",
+        "description": "Add zero-based query object and helper address object"
+      },
       {
         "revision": "2008-09-10 00:00",
         "description": "Add flood unknown object"
@@ -60,17 +77,17 @@
   },
   "alcatelIND1MldMIBObjects": {
     "name": "alcatelIND1MldMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1",
     "class": "objectidentity"
   },
   "alaMld": {
     "name": "alaMld",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1",
     "class": "objectidentity"
   },
   "alaMldStatus": {
     "name": "alaMldStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -91,11 +108,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerying": {
     "name": "alaMldQuerying",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -116,11 +133,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSpoofing": {
     "name": "alaMldSpoofing",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -141,11 +158,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldZapping": {
     "name": "alaMldZapping",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -166,11 +183,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVersion": {
     "name": "alaMldVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -184,11 +201,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldRobustness": {
     "name": "alaMldRobustness",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -202,11 +219,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQueryInterval": {
     "name": "alaMldQueryInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -221,11 +238,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQueryResponseInterval": {
     "name": "alaMldQueryResponseInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -240,11 +257,11 @@
     },
     "units": "milliseconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldLastMemberQueryInterval": {
     "name": "alaMldLastMemberQueryInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -259,11 +276,11 @@
     },
     "units": "milliseconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldRouterTimeout": {
     "name": "alaMldRouterTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -278,11 +295,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceTimeout": {
     "name": "alaMldSourceTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -297,11 +314,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldProxying": {
     "name": "alaMldProxying",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -322,11 +339,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldUnsolicitedReportInterval": {
     "name": "alaMldUnsolicitedReportInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -341,11 +358,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierForwarding": {
     "name": "alaMldQuerierForwarding",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -366,11 +383,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMaxGroupLimit": {
     "name": "alaMldMaxGroupLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -378,11 +395,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMaxGroupExceedAction": {
     "name": "alaMldMaxGroupExceedAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -403,11 +420,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldFloodUnknown": {
     "name": "alaMldFloodUnknown",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.17",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -428,24 +445,182 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
+  },
+  "alaMldHelperAddressType": {
+    "name": "alaMldHelperAddressType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldHelperAddress": {
+    "name": "alaMldHelperAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldZeroBasedQuery": {
+    "name": "alaMldZeroBasedQuery",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldInitialPacketBuffer": {
+    "name": "alaMldInitialPacketBuffer",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldInitialPacketBufferMaxPacket": {
+    "name": "alaMldInitialPacketBufferMaxPacket",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldInitialPacketBufferMaxFlow": {
+    "name": "alaMldInitialPacketBufferMaxFlow",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldInitialPacketBufferTimeout": {
+    "name": "alaMldInitialPacketBufferTimeout",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaMldInitialPacketBufferMinDelay": {
+    "name": "alaMldInitialPacketBufferMinDelay",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
   },
   "alaMldVlan": {
     "name": "alaMldVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2",
     "class": "objectidentity"
   },
   "alaMldVlanTable": {
     "name": "alaMldVlanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanEntry": {
     "name": "alaMldVlanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -456,11 +631,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanIndex": {
     "name": "alaMldVlanIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -468,11 +643,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanStatus": {
     "name": "alaMldVlanStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -487,11 +662,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanQuerying": {
     "name": "alaMldVlanQuerying",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -506,11 +681,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanSpoofing": {
     "name": "alaMldVlanSpoofing",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -525,11 +700,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanZapping": {
     "name": "alaMldVlanZapping",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -544,11 +719,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanVersion": {
     "name": "alaMldVlanVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -556,11 +731,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanRobustness": {
     "name": "alaMldVlanRobustness",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -568,11 +743,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanQueryInterval": {
     "name": "alaMldVlanQueryInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -581,11 +756,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanQueryResponseInterval": {
     "name": "alaMldVlanQueryResponseInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -594,11 +769,11 @@
     },
     "units": "milliseconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanLastMemberQueryInterval": {
     "name": "alaMldVlanLastMemberQueryInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -607,11 +782,11 @@
     },
     "units": "milliseconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanRouterTimeout": {
     "name": "alaMldVlanRouterTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -620,11 +795,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanSourceTimeout": {
     "name": "alaMldVlanSourceTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -633,11 +808,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanProxying": {
     "name": "alaMldVlanProxying",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -652,11 +827,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanUnsolicitedReportInterval": {
     "name": "alaMldVlanUnsolicitedReportInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -665,11 +840,11 @@
     },
     "units": "seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanQuerierForwarding": {
     "name": "alaMldVlanQuerierForwarding",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -684,11 +859,11 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanMaxGroupLimit": {
     "name": "alaMldVlanMaxGroupLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -696,11 +871,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanMaxGroupExceedAction": {
     "name": "alaMldVlanMaxGroupExceedAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -721,56 +896,49 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
-  "alaMldVlanSpoofAddressType": {
-    "name": "alaMldVlanSpoofAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.18",
+  "alaMldVlanZeroBasedQuery": {
+    "name": "alaMldVlanZeroBasedQuery",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.2.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InetAddressType",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2
-          }
-        ]
+        "enumeration": {
+          "none": 0,
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaMldVlanSpoofAddress": {
-    "name": "alaMldVlanSpoofAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.2.1.1.19",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InetAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
+    "status": "deprecated"
   },
   "alaMldMember": {
     "name": "alaMldMember",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3",
     "class": "objectidentity"
   },
   "alaMldMemberTable": {
     "name": "alaMldMemberTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberEntry": {
     "name": "alaMldMemberEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -796,11 +964,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberVlan": {
     "name": "alaMldMemberVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -808,11 +976,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberIfIndex": {
     "name": "alaMldMemberIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -820,11 +988,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberGroupAddress": {
     "name": "alaMldMemberGroupAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -832,11 +1000,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberSourceAddress": {
     "name": "alaMldMemberSourceAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -844,11 +1012,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberMode": {
     "name": "alaMldMemberMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -862,11 +1030,11 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberCount": {
     "name": "alaMldMemberCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -874,11 +1042,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldMemberTimeout": {
     "name": "alaMldMemberTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.3.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.3.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -886,24 +1054,24 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticMember": {
     "name": "alaMldStaticMember",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4",
     "class": "objectidentity"
   },
   "alaMldStaticMemberTable": {
     "name": "alaMldStaticMemberTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticMemberEntry": {
     "name": "alaMldStaticMemberEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -924,11 +1092,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticMemberVlan": {
     "name": "alaMldStaticMemberVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -936,11 +1104,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticMemberIfIndex": {
     "name": "alaMldStaticMemberIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -948,11 +1116,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticMemberGroupAddress": {
     "name": "alaMldStaticMemberGroupAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -960,11 +1128,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticMemberRowStatus": {
     "name": "alaMldStaticMemberRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.4.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.4.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -972,24 +1140,24 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighbor": {
     "name": "alaMldNeighbor",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5",
     "class": "objectidentity"
   },
   "alaMldNeighborTable": {
     "name": "alaMldNeighborTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighborEntry": {
     "name": "alaMldNeighborEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1010,11 +1178,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighborVlan": {
     "name": "alaMldNeighborVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1022,11 +1190,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighborIfIndex": {
     "name": "alaMldNeighborIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1034,11 +1202,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighborHostAddress": {
     "name": "alaMldNeighborHostAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1046,11 +1214,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighborCount": {
     "name": "alaMldNeighborCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1058,11 +1226,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldNeighborTimeout": {
     "name": "alaMldNeighborTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.5.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.5.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1070,24 +1238,24 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticNeighbor": {
     "name": "alaMldStaticNeighbor",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.6",
     "class": "objectidentity"
   },
   "alaMldStaticNeighborTable": {
     "name": "alaMldStaticNeighborTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.6.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticNeighborEntry": {
     "name": "alaMldStaticNeighborEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.6.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1103,11 +1271,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticNeighborVlan": {
     "name": "alaMldStaticNeighborVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.6.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.6.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1115,11 +1283,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticNeighborIfIndex": {
     "name": "alaMldStaticNeighborIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.6.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.6.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1127,11 +1295,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticNeighborRowStatus": {
     "name": "alaMldStaticNeighborRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.6.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.6.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1139,24 +1307,24 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerier": {
     "name": "alaMldQuerier",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7",
     "class": "objectidentity"
   },
   "alaMldQuerierTable": {
     "name": "alaMldQuerierTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierEntry": {
     "name": "alaMldQuerierEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1177,11 +1345,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierVlan": {
     "name": "alaMldQuerierVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1189,11 +1357,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierIfIndex": {
     "name": "alaMldQuerierIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1201,11 +1369,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierHostAddress": {
     "name": "alaMldQuerierHostAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1213,11 +1381,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierCount": {
     "name": "alaMldQuerierCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1225,11 +1393,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldQuerierTimeout": {
     "name": "alaMldQuerierTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.7.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.7.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1237,24 +1405,24 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticQuerier": {
     "name": "alaMldStaticQuerier",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.8",
     "class": "objectidentity"
   },
   "alaMldStaticQuerierTable": {
     "name": "alaMldStaticQuerierTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.8.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticQuerierEntry": {
     "name": "alaMldStaticQuerierEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.8.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1270,11 +1438,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticQuerierVlan": {
     "name": "alaMldStaticQuerierVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.8.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.8.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1282,11 +1450,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticQuerierIfIndex": {
     "name": "alaMldStaticQuerierIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.8.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.8.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1294,11 +1462,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldStaticQuerierRowStatus": {
     "name": "alaMldStaticQuerierRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.8.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.8.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1306,24 +1474,24 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSource": {
     "name": "alaMldSource",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9",
     "class": "objectidentity"
   },
   "alaMldSourceTable": {
     "name": "alaMldSourceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceEntry": {
     "name": "alaMldSourceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1354,11 +1522,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceVlan": {
     "name": "alaMldSourceVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1366,23 +1534,23 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceIfIndex": {
     "name": "alaMldSourceIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InterfaceIndex",
+      "type": "InterfaceIndexOrZero",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceGroupAddress": {
     "name": "alaMldSourceGroupAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1390,11 +1558,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceHostAddress": {
     "name": "alaMldSourceHostAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1402,11 +1570,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceDestAddress": {
     "name": "alaMldSourceDestAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1414,11 +1582,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceOrigAddress": {
     "name": "alaMldSourceOrigAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1426,11 +1594,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldSourceType": {
     "name": "alaMldSourceType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.9.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.9.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1444,24 +1612,24 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForward": {
     "name": "alaMldForward",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10",
     "class": "objectidentity"
   },
   "alaMldForwardTable": {
     "name": "alaMldForwardTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardEntry": {
     "name": "alaMldForwardEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1502,11 +1670,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardVlan": {
     "name": "alaMldForwardVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1514,23 +1682,23 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardIfIndex": {
     "name": "alaMldForwardIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InterfaceIndex",
+      "type": "InterfaceIndexOrZero",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardGroupAddress": {
     "name": "alaMldForwardGroupAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1538,11 +1706,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardHostAddress": {
     "name": "alaMldForwardHostAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1550,11 +1718,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardDestAddress": {
     "name": "alaMldForwardDestAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1562,11 +1730,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardOrigAddress": {
     "name": "alaMldForwardOrigAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1574,11 +1742,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardType": {
     "name": "alaMldForwardType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1592,11 +1760,11 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardNextVlan": {
     "name": "alaMldForwardNextVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1604,11 +1772,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardNextIfIndex": {
     "name": "alaMldForwardNextIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1616,11 +1784,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldForwardNextType": {
     "name": "alaMldForwardNextType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.10.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.10.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1634,24 +1802,24 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnel": {
     "name": "alaMldTunnel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11",
     "class": "objectidentity"
   },
   "alaMldTunnelTable": {
     "name": "alaMldTunnelTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelEntry": {
     "name": "alaMldTunnelEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1687,11 +1855,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelVlan": {
     "name": "alaMldTunnelVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1699,23 +1867,23 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelIfIndex": {
     "name": "alaMldTunnelIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InterfaceIndex",
+      "type": "InterfaceIndexOrZero",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelGroupAddress": {
     "name": "alaMldTunnelGroupAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1723,11 +1891,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelHostAddress": {
     "name": "alaMldTunnelHostAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1735,11 +1903,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelDestAddress": {
     "name": "alaMldTunnelDestAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1747,11 +1915,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelOrigAddress": {
     "name": "alaMldTunnelOrigAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1759,11 +1927,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelType": {
     "name": "alaMldTunnelType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1777,11 +1945,11 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelNextDestAddress": {
     "name": "alaMldTunnelNextDestAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1789,11 +1957,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldTunnelNextType": {
     "name": "alaMldTunnelNextType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.11.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.11.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1807,24 +1975,24 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPort": {
     "name": "alaMldPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.12",
     "class": "objectidentity"
   },
   "alaMldPortTable": {
     "name": "alaMldPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.12.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.12.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortEntry": {
     "name": "alaMldPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.12.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.12.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1835,11 +2003,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortIfIndex": {
     "name": "alaMldPortIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.12.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.12.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1847,11 +2015,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortMaxGroupLimit": {
     "name": "alaMldPortMaxGroupLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.12.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.12.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1859,11 +2027,11 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortMaxGroupExceedAction": {
     "name": "alaMldPortMaxGroupExceedAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.12.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.12.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1884,24 +2052,24 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortVlan": {
     "name": "alaMldPortVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13",
     "class": "objectidentity"
   },
   "alaMldPortVlanTable": {
     "name": "alaMldPortVlanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortVlanEntry": {
     "name": "alaMldPortVlanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1917,11 +2085,11 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldVlanId": {
     "name": "alaMldVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1929,11 +2097,11 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortVlanCurrentGroupCount": {
     "name": "alaMldPortVlanCurrentGroupCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1941,11 +2109,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortVlanMaxGroupLimit": {
     "name": "alaMldPortVlanMaxGroupLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1953,11 +2121,11 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alaMldPortVlanMaxGroupExceedAction": {
     "name": "alaMldPortVlanMaxGroupExceedAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.1.13.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.1.13.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1972,21 +2140,21 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "alcatelIND1MldMIBConformance": {
     "name": "alcatelIND1MldMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1MldMIBCompliances": {
     "name": "alcatelIND1MldMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.1",
     "class": "objectidentity"
   },
   "alaMldCompliance": {
     "name": "alaMldCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2046,12 +2214,12 @@
   },
   "alcatelIND1MldMIBGroups": {
     "name": "alcatelIND1MldMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2",
     "class": "objectidentity"
   },
   "alaMldGroup": {
     "name": "alaMldGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -2121,13 +2289,45 @@
       {
         "module": "ALCATEL-IND1-MLD-MIB",
         "object": "alaMldFloodUnknown"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldHelperAddressType"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldHelperAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldZeroBasedQuery"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldInitialPacketBuffer"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldInitialPacketBufferMaxPacket"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldInitialPacketBufferMaxFlow"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldInitialPacketBufferTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-MLD-MIB",
+        "object": "alaMldInitialPacketBufferMinDelay"
       }
     ],
     "status": "current"
   },
   "alaMldVlanGroup": {
     "name": "alaMldVlanGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -2196,18 +2396,14 @@
       },
       {
         "module": "ALCATEL-IND1-MLD-MIB",
-        "object": "alaMldVlanSpoofAddressType"
-      },
-      {
-        "module": "ALCATEL-IND1-MLD-MIB",
-        "object": "alaMldVlanSpoofAddress"
+        "object": "alaMldVlanZeroBasedQuery"
       }
     ],
     "status": "current"
   },
   "alaMldMemberGroup": {
     "name": "alaMldMemberGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -2227,7 +2423,7 @@
   },
   "alaMldStaticMemberGroup": {
     "name": "alaMldStaticMemberGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -2239,7 +2435,7 @@
   },
   "alaMldNeighborGroup": {
     "name": "alaMldNeighborGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -2255,7 +2451,7 @@
   },
   "alaMldStaticNeighborGroup": {
     "name": "alaMldStaticNeighborGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -2267,7 +2463,7 @@
   },
   "alaMldQuerierGroup": {
     "name": "alaMldQuerierGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -2283,7 +2479,7 @@
   },
   "alaMldStaticQuerierGroup": {
     "name": "alaMldStaticQuerierGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -2295,7 +2491,7 @@
   },
   "alaMldSourceGroup": {
     "name": "alaMldSourceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.9",
     "class": "objectgroup",
     "objects": [
       {
@@ -2311,7 +2507,7 @@
   },
   "alaMldForwardGroup": {
     "name": "alaMldForwardGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.10",
     "class": "objectgroup",
     "objects": [
       {
@@ -2331,7 +2527,7 @@
   },
   "alaMldTunnelGroup": {
     "name": "alaMldTunnelGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.11",
     "class": "objectgroup",
     "objects": [
       {
@@ -2351,7 +2547,7 @@
   },
   "alaMldPortGroup": {
     "name": "alaMldPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.12",
     "class": "objectgroup",
     "objects": [
       {
@@ -2367,7 +2563,7 @@
   },
   "alaMldPortVlanGroup": {
     "name": "alaMldPortVlanGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.35.1.2.2.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.35.1.2.2.13",
     "class": "objectgroup",
     "objects": [
       {
@@ -2388,8 +2584,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-MLD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-MLD-MIB"

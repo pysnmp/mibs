@@ -8,35 +8,35 @@
       "nmsMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "iso",
-      "Integer32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "nmsMemoryPoolMIB": {
     "name": "nmsMemoryPoolMIB",
-    "oid": "1.3.6.1.4.1.11606.10.9.48",
+    "oid": "1.3.6.1.4.1.3320.9.48",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -47,7 +47,7 @@
   },
   "nmsMemoryPoolUtilization": {
     "name": "nmsMemoryPoolUtilization",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.1",
+    "oid": "1.3.6.1.4.1.3320.9.48.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -59,7 +59,7 @@
   },
   "nmsMemoryPoolTotalMemorySize": {
     "name": "nmsMemoryPoolTotalMemorySize",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.2",
+    "oid": "1.3.6.1.4.1.3320.9.48.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -71,7 +71,7 @@
   },
   "nmsMemoryPoolImageRatio": {
     "name": "nmsMemoryPoolImageRatio",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.3",
+    "oid": "1.3.6.1.4.1.3320.9.48.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -83,7 +83,7 @@
   },
   "nmsMemoryPoolRegionRatio": {
     "name": "nmsMemoryPoolRegionRatio",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.4",
+    "oid": "1.3.6.1.4.1.3320.9.48.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -95,7 +95,7 @@
   },
   "nmsMemoryPoolHeapRatio": {
     "name": "nmsMemoryPoolHeapRatio",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.5",
+    "oid": "1.3.6.1.4.1.3320.9.48.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -107,7 +107,7 @@
   },
   "nmsMemoryPoolHeapUtilization": {
     "name": "nmsMemoryPoolHeapUtilization",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.6",
+    "oid": "1.3.6.1.4.1.3320.9.48.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -119,7 +119,7 @@
   },
   "nmsMemoryPoolMessageBufferRatio": {
     "name": "nmsMemoryPoolMessageBufferRatio",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.7",
+    "oid": "1.3.6.1.4.1.3320.9.48.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -131,7 +131,7 @@
   },
   "nmsMemoryPoolMessageBufferUtilization": {
     "name": "nmsMemoryPoolMessageBufferUtilization",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.8",
+    "oid": "1.3.6.1.4.1.3320.9.48.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -143,7 +143,7 @@
   },
   "nmsMemoryPoolTotalFlashSize": {
     "name": "nmsMemoryPoolTotalFlashSize",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.9",
+    "oid": "1.3.6.1.4.1.3320.9.48.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -155,27 +155,27 @@
   },
   "nmsMemoryPoolNotifications": {
     "name": "nmsMemoryPoolNotifications",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.20",
+    "oid": "1.3.6.1.4.1.3320.9.48.20",
     "class": "objectidentity"
   },
   "nmsMemoryPoolConformance": {
     "name": "nmsMemoryPoolConformance",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21",
+    "oid": "1.3.6.1.4.1.3320.9.48.21",
     "class": "objectidentity"
   },
   "nmsMemoryPoolCompliances": {
     "name": "nmsMemoryPoolCompliances",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21.1",
+    "oid": "1.3.6.1.4.1.3320.9.48.21.1",
     "class": "objectidentity"
   },
   "nmsMemoryPoolGroups": {
     "name": "nmsMemoryPoolGroups",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21.2",
+    "oid": "1.3.6.1.4.1.3320.9.48.21.2",
     "class": "objectidentity"
   },
   "nmsMemoryPoolCompliance": {
     "name": "nmsMemoryPoolCompliance",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21.1.1",
+    "oid": "1.3.6.1.4.1.3320.9.48.21.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -187,7 +187,7 @@
   },
   "nmsMemoryPoolComplianceRev1": {
     "name": "nmsMemoryPoolComplianceRev1",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21.1.2",
+    "oid": "1.3.6.1.4.1.3320.9.48.21.1.2",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -203,7 +203,7 @@
   },
   "nmsMemoryPoolGroup": {
     "name": "nmsMemoryPoolGroup",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21.2.1",
+    "oid": "1.3.6.1.4.1.3320.9.48.21.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -235,7 +235,7 @@
   },
   "nmsMemoryPoolUtilizationGroup": {
     "name": "nmsMemoryPoolUtilizationGroup",
-    "oid": "1.3.6.1.4.1.11606.10.9.48.21.2.2",
+    "oid": "1.3.6.1.4.1.3320.9.48.21.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -256,8 +256,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/NMS-MEMORY-POOL-MIB.MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:03:34 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:35:53 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NMS-MEMORY-POOL-MIB"

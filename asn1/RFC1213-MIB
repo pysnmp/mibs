@@ -1,8 +1,21 @@
--- file: RFC1213-MIB.my
--- Changes:
---      No changes needed.
--- dperkins@scruznet.com
-
+-- *****************************************************************
+-- RFC1213-MIB.my:  MIB-II MIB file
+--
+-- April 1994, Jeffrey T. Johnson
+--
+-- Copyright (c) 1994-1996 by cisco Systems, Inc.
+-- All rights reserved.
+-- 
+-- *****************************************************************
+--
+-- This mib was extracted from RFC 1213
+-- The following changes have been applied:
+--	The enumerations unknown(4) and dormant(5) have been added to
+--	ifOperStatus to reflect a change to the ifTable introduced in
+--	RFC 1573
+--
+--	The SYNTAX of ifType has been changed to IANAifType, to reflect the
+--	change to the ifTable introduced in RFC1573.
 
           RFC1213-MIB DEFINITIONS ::= BEGIN
 
@@ -11,7 +24,11 @@
                           TimeTicks
                       FROM RFC1155-SMI
                   OBJECT-TYPE
-                          FROM RFC-1212;
+                          FROM RFC-1212
+		  TEXTUAL-CONVENTION
+			  FROM SNMPv2-TC
+	          IANAifType   
+                          FROM IANAifType-MIB;
 
           --  This MIB module uses the extended OBJECT-TYPE macro as
           --  defined in [14];
@@ -31,8 +48,8 @@
           --
           --      SIZE (0..255)
 
-          PhysAddress ::=
-              OCTET STRING
+          PhysAddress ::= 
+		OCTET STRING
           -- This data type is used to model media addresses.  For many
           -- types of media, this will be in a binary representation.
           -- For example, an ethernet address would be represented as
@@ -172,7 +189,6 @@
                       6 may also be counted."
               ::= { system 7 }
 
-
           -- the Interfaces group
 
           -- Implementation of the Interfaces group is mandatory for
@@ -223,8 +239,8 @@
                       INTEGER,
                   ifDescr
                       DisplayString,
-                  ifType
-                      INTEGER,
+	          ifType 
+	              IANAifType,
                   ifMtu
                       INTEGER,
                   ifSpeed
@@ -289,48 +305,17 @@
                       of the hardware interface."
               ::= { ifEntry 2 }
 
-          ifType OBJECT-TYPE
-              SYNTAX  INTEGER {
-                          other(1),          -- none of the following
-                          regular1822(2),
-                          hdh1822(3),
-                          ddn-x25(4),
-                          rfc877-x25(5),
-                          ethernet-csmacd(6),
-                          iso88023-csmacd(7),
-                          iso88024-tokenBus(8),
-                          iso88025-tokenRing(9),
-                          iso88026-man(10),
-                          starLan(11),
-                          proteon-10Mbit(12),
-                          proteon-80Mbit(13),
-                          hyperchannel(14),
-                          fddi(15),
-                          lapb(16),
-                          sdlc(17),
-                          ds1(18),           -- T-1
-                          e1(19),            -- european equiv. of T-1
-                          basicISDN(20),
-                          primaryISDN(21),   -- proprietary serial
-                          propPointToPointSerial(22),
-                          ppp(23),
-                          softwareLoopback(24),
-                          eon(25),            -- CLNP over IP [11]
-                          ethernet-3Mbit(26),
-                          nsip(27),           -- XNS over IP
-                          slip(28),           -- generic SLIP
-                          ultra(29),          -- ULTRA technologies
-                          ds3(30),            -- T-3
-                          sip(31),            -- SMDS
-                          frame-relay(32)
-                      }
-              ACCESS  read-only
-              STATUS  mandatory
-              DESCRIPTION
-                      "The type of interface, distinguished according to
-                      the physical/link protocol(s) immediately `below'
-                      the network layer in the protocol stack."
-              ::= { ifEntry 3 }
+ 	  ifType OBJECT-TYPE
+ 	      SYNTAX      IANAifType
+ 	      ACCESS  read-only
+ 	      STATUS      mandatory
+ 	      DESCRIPTION
+         	      "The type of interface.  Additional values for ifType
+ 	               are assigned by the Internet Assigned Numbers
+         	       Authority (IANA), through updating the syntax of the
+ 	               IANAifType textual convention."
+ 	      ::= { ifEntry 3 }
+ 
 
           ifMtu OBJECT-TYPE
               SYNTAX  INTEGER
@@ -387,7 +372,9 @@
               SYNTAX  INTEGER {
                           up(1),       -- ready to pass packets
                           down(2),
-                          testing(3)   -- in some test mode
+                          testing(3),   -- in some test mode
+                          unknown(4),
+                          dormant(5)
                       }
               ACCESS  read-only
               STATUS  mandatory
@@ -460,6 +447,7 @@
                       errors preventing them from being deliverable to a
                       higher-layer protocol."
               ::= { ifEntry 14 }
+
           ifInUnknownProtos OBJECT-TYPE
               SYNTAX  Counter
               ACCESS  read-only
@@ -544,7 +532,7 @@
                       object refers to a document defining objects
                       specific to ethernet.  If this information is not
                       present, its value should be set to the OBJECT
-                      IDENTIFIER { 0 0 }, which is a syntatically valid
+                      IDENTIFIER { 0 0 }, which is a syntactically valid
                       object identifier, and any conformant
                       implementation of ASN.1 and BER must be able to
                       generate and recognize this value."
@@ -632,7 +620,7 @@
                       Setting this object to a null string (one of zero
                       length) has the effect of invaliding the
                       corresponding entry in the atTable object.  That
-                      is, it effectively dissasociates the interface
+                      is, it effectively disassociates the interface
                       identified with said entry from the mapping
                       identified with said entry.  It is an
                       implementation-specific matter as to whether the
@@ -814,7 +802,7 @@
                       destination.  Note that this counter includes any
                       packets counted in ipForwDatagrams which meet this
                       `no-route' criterion.  Note that this includes any
-                      datagarms which a host cannot route because all of
+                      datagrams which a host cannot route because all of
                       its default gateways are down."
               ::= { ip 12 }
 
@@ -890,6 +878,8 @@
                       this entity."
               ::= { ip 19 }
 
+
+
           -- the IP address table
 
           -- The IP address table contains this entity's IP addressing
@@ -936,6 +926,7 @@
                       "The IP address to which this entry's addressing
                       information pertains."
               ::= { ipAddrEntry 1 }
+
 
           ipAdEntIfIndex OBJECT-TYPE
               SYNTAX  INTEGER
@@ -1130,7 +1121,6 @@
 
                           invalid(2),      -- an invalidated route
                                            -- route to directly
-
                           direct(3),       -- connected (sub-)network
 
                                            -- route to a non-local
@@ -1147,7 +1137,7 @@
                       Setting this object to the value invalid(2) has
                       the effect of invalidating the corresponding entry
                       in the ipRouteTable object.  That is, it
-                      effectively dissasociates the destination
+                      effectively disassociates the destination
                       identified with said entry from the route
                       identified with said entry.  It is an
                       implementation-specific matter as to whether the
@@ -1256,7 +1246,7 @@
                       specified in the route's ipRouteProto value.  If
                       this information is not present, its value should
                       be set to the OBJECT IDENTIFIER { 0 0 }, which is
-                      a syntatically valid object identifier, and any
+                      a syntactically valid object identifier, and any
                       conformant implementation of ASN.1 and BER must be
                       able to generate and recognize this value."
               ::= { ipRouteEntry 13 }
@@ -1347,7 +1337,7 @@
                       Setting this object to the value invalid(2) has
                       the effect of invalidating the corresponding entry
                       in the ipNetToMediaTable.  That is, it effectively
-                      dissasociates the interface identified with said
+                      disassociates the interface identified with said
                       entry from the mapping identified with said entry.
                       It is an implementation-specific matter as to
                       whether the agent removes an invalidated entry
@@ -1417,6 +1407,7 @@
                       "The number of ICMP Time Exceeded messages
                       received."
               ::= { icmp 4 }
+
 
           icmpInParmProbs OBJECT-TYPE
               SYNTAX  Counter
@@ -1608,6 +1599,7 @@
                       "The number of ICMP Address Mask Request messages
                       sent."
               ::= { icmp 25 }
+
 
           icmpOutAddrMaskReps OBJECT-TYPE
               SYNTAX  Counter
@@ -2283,7 +2275,6 @@
                       "The autonomous system number of this EGP entity."
               ::= { egp 6 }
 
-
           -- the Transmission group
 
           -- Based on the transmission media underlying each interface
@@ -2624,4 +2615,4 @@
                       network management system."
               ::= { snmp 30 }
 
-          END
+END

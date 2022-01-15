@@ -2,41 +2,45 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "mib-2",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "MibIdentifier",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "iso",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "Bits"
+      "Opaque",
+      "zeroDotZero",
+      "mib-2",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
       "RowPointer",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "alarmMIB": {
@@ -74,15 +78,6 @@
     "name": "alarmClear",
     "oid": "1.3.6.1.2.1.118.1.3",
     "class": "objectidentity"
-  },
-  "ZeroBasedCounter32": {
-    "name": "ZeroBasedCounter32",
-    "class": "textualconvention",
-    "type": {
-      "type": "Gauge32",
-      "class": "type"
-    },
-    "status": "current"
   },
   "ResourceId": {
     "name": "ResourceId",
@@ -208,6 +203,12 @@
       "type": "OBJECT IDENTIFIER",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -256,6 +257,12 @@
       "type": "RowPointer",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -268,6 +275,12 @@
       "type": "OBJECT IDENTIFIER",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -279,6 +292,12 @@
     "syntax": {
       "type": "OBJECT IDENTIFIER",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
@@ -745,8 +764,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
+      "type": "Opaque",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1320,9 +1347,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:39:15 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:25 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALARM-MIB"

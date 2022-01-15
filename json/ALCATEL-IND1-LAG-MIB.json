@@ -2,13 +2,12 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "lnkaggTraps",
       "softentIND1LnkAgg"
     ],
     "IEEE8023-LAG-MIB": [
-      "LacpState",
       "ChurnState",
-      "LacpKey"
+      "LacpKey",
+      "LacpState"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -16,42 +15,57 @@
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1LAGMIB": {
     "name": "alcatelIND1LAGMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1",
-    "class": "moduleidentity"
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      }
+    ]
+  },
+  "alcatelIND1LAGMIBNotifications": {
+    "name": "alcatelIND1LAGMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.0",
+    "class": "objectidentity",
+    "status": "current"
   },
   "alcatelIND1LAGMIBObjects": {
     "name": "alcatelIND1LAGMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1",
     "class": "objectidentity"
   },
   "LacpType": {
@@ -69,19 +83,34 @@
     },
     "status": "current"
   },
+  "McLagType": {
+    "name": "McLagType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcLagOff": 0,
+          "mcLagOn": 1
+        }
+      }
+    },
+    "status": "current"
+  },
   "alclnkaggAgg": {
     "name": "alclnkaggAgg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1",
     "class": "objectidentity"
   },
   "alclnkaggAggPort": {
     "name": "alclnkaggAggPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2",
     "class": "objectidentity"
   },
   "alclnkaggTablesLastChanged": {
     "name": "alclnkaggTablesLastChanged",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -93,7 +122,7 @@
   },
   "alclnkaggAggTable": {
     "name": "alclnkaggAggTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -101,7 +130,7 @@
   },
   "alclnkaggAggEntry": {
     "name": "alclnkaggAggEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -116,7 +145,7 @@
   },
   "alclnkaggAggIndex": {
     "name": "alclnkaggAggIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -128,7 +157,7 @@
   },
   "alclnkaggAggMACAddress": {
     "name": "alclnkaggAggMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -140,11 +169,11 @@
   },
   "alclnkaggAggActorSystemPriority": {
     "name": "alclnkaggAggActorSystemPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -160,7 +189,7 @@
   },
   "alclnkaggAggActorSystemID": {
     "name": "alclnkaggAggActorSystemID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -172,7 +201,7 @@
   },
   "alclnkaggAggPartnerAdminKey": {
     "name": "alclnkaggAggPartnerAdminKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -184,7 +213,7 @@
   },
   "alclnkaggAggActorAdminKey": {
     "name": "alclnkaggAggActorAdminKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -196,7 +225,7 @@
   },
   "alclnkaggAggActorOperKey": {
     "name": "alclnkaggAggActorOperKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -208,7 +237,7 @@
   },
   "alclnkaggAggPartnerSystemID": {
     "name": "alclnkaggAggPartnerSystemID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -220,11 +249,11 @@
   },
   "alclnkaggAggPartnerSystemPriority": {
     "name": "alclnkaggAggPartnerSystemPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -240,7 +269,7 @@
   },
   "alclnkaggAggPartnerOperKey": {
     "name": "alclnkaggAggPartnerOperKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -252,11 +281,11 @@
   },
   "alclnkaggAggSize": {
     "name": "alclnkaggAggSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -272,11 +301,11 @@
   },
   "alclnkaggAggNumber": {
     "name": "alclnkaggAggNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -292,11 +321,11 @@
   },
   "alclnkaggAggDescr": {
     "name": "alclnkaggAggDescr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -312,11 +341,11 @@
   },
   "alclnkaggAggName": {
     "name": "alclnkaggAggName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -332,7 +361,7 @@
   },
   "alclnkaggAggLacpType": {
     "name": "alclnkaggAggLacpType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -344,7 +373,7 @@
   },
   "alclnkaggAggAdminState": {
     "name": "alclnkaggAggAdminState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -362,7 +391,7 @@
   },
   "alclnkaggAggOperState": {
     "name": "alclnkaggAggOperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -382,11 +411,11 @@
   },
   "alclnkaggAggNbrSelectedPorts": {
     "name": "alclnkaggAggNbrSelectedPorts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -402,11 +431,11 @@
   },
   "alclnkaggAggNbrAttachedPorts": {
     "name": "alclnkaggAggNbrAttachedPorts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -422,7 +451,7 @@
   },
   "alclnkaggAggPrimaryPortIndex": {
     "name": "alclnkaggAggPrimaryPortIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -434,11 +463,11 @@
   },
   "alclnkaggAggPrimaryPortPosition": {
     "name": "alclnkaggAggPrimaryPortPosition",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -454,7 +483,7 @@
   },
   "alclnkaggAggRowStatus": {
     "name": "alclnkaggAggRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -464,9 +493,21 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alclnkaggAggPreemptState": {
-    "name": "alclnkaggAggPreemptState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.23",
+  "alclnkaggAggMcLagType": {
+    "name": "alclnkaggAggMcLagType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "McLagType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alclnkaggAggPortSelectionHash": {
+    "name": "alclnkaggAggPortSelectionHash",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -474,17 +515,22 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "enable": 1,
-          "disable": 2
+          "sourceMac": 1,
+          "destinationMac": 2,
+          "sourceDestinationMac": 3,
+          "sourceIp": 4,
+          "destinationIp": 5,
+          "sourceDestinationIp": 6,
+          "tunnelProtocol": 7
         }
       }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alclnkaggAggPreemptValue": {
-    "name": "alclnkaggAggPreemptValue",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.1.1.24",
+  "alclnkaggAggWTRTimer": {
+    "name": "alclnkaggAggWTRTimer",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.1.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -493,18 +539,19 @@
       "constraints": {
         "range": [
           {
-            "min": 30,
-            "max": 300
+            "min": 0,
+            "max": 12
           }
         ]
       }
     },
+    "units": "minutes",
     "maxaccess": "read-create",
     "status": "current"
   },
   "alclnkaggAggPortListTable": {
     "name": "alclnkaggAggPortListTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -512,7 +559,7 @@
   },
   "alclnkaggAggPortListEntry": {
     "name": "alclnkaggAggPortListEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -527,7 +574,7 @@
   },
   "alclnkaggAggPortListPorts": {
     "name": "alclnkaggAggPortListPorts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -539,7 +586,7 @@
   },
   "alclnkaggAggPortTable": {
     "name": "alclnkaggAggPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -547,7 +594,7 @@
   },
   "alclnkaggAggPortEntry": {
     "name": "alclnkaggAggPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -562,7 +609,7 @@
   },
   "alclnkaggAggPortIndex": {
     "name": "alclnkaggAggPortIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -574,11 +621,11 @@
   },
   "alclnkaggAggPortActorSystemPriority": {
     "name": "alclnkaggAggPortActorSystemPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -594,7 +641,7 @@
   },
   "alclnkaggAggPortActorSystemID": {
     "name": "alclnkaggAggPortActorSystemID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -606,7 +653,7 @@
   },
   "alclnkaggAggPortActorAdminKey": {
     "name": "alclnkaggAggPortActorAdminKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -618,7 +665,7 @@
   },
   "alclnkaggAggPortActorOperKey": {
     "name": "alclnkaggAggPortActorOperKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -630,11 +677,11 @@
   },
   "alclnkaggAggPortPartnerAdminSystemPriority": {
     "name": "alclnkaggAggPortPartnerAdminSystemPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -650,11 +697,11 @@
   },
   "alclnkaggAggPortPartnerOperSystemPriority": {
     "name": "alclnkaggAggPortPartnerOperSystemPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -670,7 +717,7 @@
   },
   "alclnkaggAggPortPartnerAdminSystemID": {
     "name": "alclnkaggAggPortPartnerAdminSystemID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -682,7 +729,7 @@
   },
   "alclnkaggAggPortPartnerOperSystemID": {
     "name": "alclnkaggAggPortPartnerOperSystemID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -694,7 +741,7 @@
   },
   "alclnkaggAggPortPartnerAdminKey": {
     "name": "alclnkaggAggPortPartnerAdminKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -706,7 +753,7 @@
   },
   "alclnkaggAggPortPartnerOperKey": {
     "name": "alclnkaggAggPortPartnerOperKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -718,7 +765,7 @@
   },
   "alclnkaggAggPortSelectedAggID": {
     "name": "alclnkaggAggPortSelectedAggID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -730,7 +777,7 @@
   },
   "alclnkaggAggPortAttachedAggID": {
     "name": "alclnkaggAggPortAttachedAggID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -742,11 +789,11 @@
   },
   "alclnkaggAggPortActorPort": {
     "name": "alclnkaggAggPortActorPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -762,11 +809,11 @@
   },
   "alclnkaggAggPortActorPortPriority": {
     "name": "alclnkaggAggPortActorPortPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -782,11 +829,11 @@
   },
   "alclnkaggAggPortPartnerAdminPort": {
     "name": "alclnkaggAggPortPartnerAdminPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -802,11 +849,11 @@
   },
   "alclnkaggAggPortPartnerOperPort": {
     "name": "alclnkaggAggPortPartnerOperPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -822,11 +869,11 @@
   },
   "alclnkaggAggPortPartnerAdminPortPriority": {
     "name": "alclnkaggAggPortPartnerAdminPortPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -842,11 +889,11 @@
   },
   "alclnkaggAggPortPartnerOperPortPriority": {
     "name": "alclnkaggAggPortPartnerOperPortPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -862,7 +909,7 @@
   },
   "alclnkaggAggPortActorAdminState": {
     "name": "alclnkaggAggPortActorAdminState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -874,7 +921,7 @@
   },
   "alclnkaggAggPortActorOperState": {
     "name": "alclnkaggAggPortActorOperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -886,7 +933,7 @@
   },
   "alclnkaggAggPortPartnerAdminState": {
     "name": "alclnkaggAggPortPartnerAdminState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -898,7 +945,7 @@
   },
   "alclnkaggAggPortPartnerOperState": {
     "name": "alclnkaggAggPortPartnerOperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -910,11 +957,11 @@
   },
   "alclnkaggAggPortSelectedAggNumber": {
     "name": "alclnkaggAggPortSelectedAggNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -930,11 +977,11 @@
   },
   "alclnkaggAggPortGlobalPortNumber": {
     "name": "alclnkaggAggPortGlobalPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -950,7 +997,7 @@
   },
   "alclnkaggAggPortAdminState": {
     "name": "alclnkaggAggPortAdminState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -968,7 +1015,7 @@
   },
   "alclnkaggAggPortOperState": {
     "name": "alclnkaggAggPortOperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -988,7 +1035,7 @@
   },
   "alclnkaggAggPortState": {
     "name": "alclnkaggAggPortState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.28",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.28",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1010,7 +1057,7 @@
   },
   "alclnkaggAggPortLinkState": {
     "name": "alclnkaggAggPortLinkState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.29",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.29",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1028,7 +1075,7 @@
   },
   "alclnkaggAggPortPrimary": {
     "name": "alclnkaggAggPortPrimary",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.30",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.30",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1047,7 +1094,7 @@
   },
   "alclnkaggAggPortLacpType": {
     "name": "alclnkaggAggPortLacpType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.31",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.31",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1059,7 +1106,7 @@
   },
   "alclnkaggAggPortRowStatus": {
     "name": "alclnkaggAggPortRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.32",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.32",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1069,27 +1116,21 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alclnkaggAggPortStandbyState": {
-    "name": "alclnkaggAggPortStandbyState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.1.1.33",
+  "alclnkaggAggPortMcLagType": {
+    "name": "alclnkaggAggPortMcLagType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.1.1.33",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
+      "type": "McLagType",
+      "class": "type"
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "alclnkaggAggPortStatsTable": {
     "name": "alclnkaggAggPortStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1097,7 +1138,7 @@
   },
   "alclnkaggAggPortStatsEntry": {
     "name": "alclnkaggAggPortStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1112,7 +1153,7 @@
   },
   "alclnkaggAggPortStatsLACPDUsRx": {
     "name": "alclnkaggAggPortStatsLACPDUsRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1124,7 +1165,7 @@
   },
   "alclnkaggAggPortStatsMarkerPDUsRx": {
     "name": "alclnkaggAggPortStatsMarkerPDUsRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1136,7 +1177,7 @@
   },
   "alclnkaggAggPortStatsMarkerResponsePDUsRx": {
     "name": "alclnkaggAggPortStatsMarkerResponsePDUsRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1148,7 +1189,7 @@
   },
   "alclnkaggAggPortStatsUnknownRx": {
     "name": "alclnkaggAggPortStatsUnknownRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1160,7 +1201,7 @@
   },
   "alclnkaggAggPortStatsIllegalRx": {
     "name": "alclnkaggAggPortStatsIllegalRx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1172,7 +1213,7 @@
   },
   "alclnkaggAggPortStatsLACPDUsTx": {
     "name": "alclnkaggAggPortStatsLACPDUsTx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1184,7 +1225,7 @@
   },
   "alclnkaggAggPortStatsMarkerPDUsTx": {
     "name": "alclnkaggAggPortStatsMarkerPDUsTx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1196,7 +1237,7 @@
   },
   "alclnkaggAggPortStatsMarkerResponsePDUsTx": {
     "name": "alclnkaggAggPortStatsMarkerResponsePDUsTx",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1208,7 +1249,7 @@
   },
   "alclnkaggAggPortDebugTable": {
     "name": "alclnkaggAggPortDebugTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1216,7 +1257,7 @@
   },
   "alclnkaggAggPortDebugEntry": {
     "name": "alclnkaggAggPortDebugEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1231,7 +1272,7 @@
   },
   "alclnkaggAggPortDebugRxState": {
     "name": "alclnkaggAggPortDebugRxState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1253,7 +1294,7 @@
   },
   "alclnkaggAggPortDebugLastRxTime": {
     "name": "alclnkaggAggPortDebugLastRxTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1265,7 +1306,7 @@
   },
   "alclnkaggAggPortDebugMuxState": {
     "name": "alclnkaggAggPortDebugMuxState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1287,11 +1328,11 @@
   },
   "alclnkaggAggPortDebugMuxReason": {
     "name": "alclnkaggAggPortDebugMuxReason",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1299,7 +1340,7 @@
   },
   "alclnkaggAggPortDebugActorChurnState": {
     "name": "alclnkaggAggPortDebugActorChurnState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1311,7 +1352,7 @@
   },
   "alclnkaggAggPortDebugPartnerChurnState": {
     "name": "alclnkaggAggPortDebugPartnerChurnState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1323,7 +1364,7 @@
   },
   "alclnkaggAggPortDebugActorChurnCount": {
     "name": "alclnkaggAggPortDebugActorChurnCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1335,7 +1376,7 @@
   },
   "alclnkaggAggPortDebugPartnerChurnCount": {
     "name": "alclnkaggAggPortDebugPartnerChurnCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1347,7 +1388,7 @@
   },
   "alclnkaggAggPortDebugActorSyncTransitionCount": {
     "name": "alclnkaggAggPortDebugActorSyncTransitionCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1359,7 +1400,7 @@
   },
   "alclnkaggAggPortDebugPartnerSyncTransitionCount": {
     "name": "alclnkaggAggPortDebugPartnerSyncTransitionCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1371,7 +1412,7 @@
   },
   "alclnkaggAggPortDebugActorChangeCount": {
     "name": "alclnkaggAggPortDebugActorChangeCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1383,7 +1424,7 @@
   },
   "alclnkaggAggPortDebugPartnerChangeCount": {
     "name": "alclnkaggAggPortDebugPartnerChangeCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.2.3.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.2.3.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1393,106 +1434,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alclnkaggAggEniActivate": {
-    "name": "alclnkaggAggEniActivate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "obsolete"
-  },
-  "alclnkaggSlotTable": {
-    "name": "alclnkaggSlotTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.4",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "alclnkaggSlotEntry": {
-    "name": "alclnkaggSlotEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.4.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "alclnkaggSlotNum",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "alclnkaggSlotNum": {
-    "name": "alclnkaggSlotNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.4.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 16
-          }
-        ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "alclnkaggSlotStatus": {
-    "name": "alclnkaggSlotStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.4.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alclnkaggMultipleAggPerSlot": {
-    "name": "alclnkaggMultipleAggPerSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.4.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "alclnkaggAggIdIfIndexTable": {
     "name": "alclnkaggAggIdIfIndexTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1500,7 +1444,7 @@
   },
   "alclnkaggAggIdIfIndexEntry": {
     "name": "alclnkaggAggIdIfIndexEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1515,11 +1459,11 @@
   },
   "alclnkaggIfIndex": {
     "name": "alclnkaggIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1535,11 +1479,11 @@
   },
   "alclnkaggAggId": {
     "name": "alclnkaggAggId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1553,32 +1497,500 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "alclnkaggAggIdAccountTable": {
+    "name": "alclnkaggAggIdAccountTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alclnkaggAggIdAccountEntry": {
+    "name": "alclnkaggAggIdAccountEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcRxUndersize": {
+    "name": "alcRxUndersize",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcTxUndersize": {
+    "name": "alcTxUndersize",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxOversize": {
+    "name": "alcRxOversize",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcTxOversize": {
+    "name": "alcTxOversize",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets64": {
+    "name": "alcRxPackets64",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets127": {
+    "name": "alcRxPackets127",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets255": {
+    "name": "alcRxPackets255",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets511": {
+    "name": "alcRxPackets511",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets1023": {
+    "name": "alcRxPackets1023",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets1518": {
+    "name": "alcRxPackets1518",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets4095": {
+    "name": "alcRxPackets4095",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxPackets9216": {
+    "name": "alcRxPackets9216",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcRxJabberFrames": {
+    "name": "alcRxJabberFrames",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkaggAggIdCounterTable": {
+    "name": "alclnkaggAggIdCounterTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alclnkaggAggIdCounterEntry": {
+    "name": "alclnkaggAggIdCounterEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcInOctets": {
+    "name": "alcInOctets",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutOctets": {
+    "name": "alcOutOctets",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcInUcastPkts": {
+    "name": "alcInUcastPkts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutUcastPkts": {
+    "name": "alcOutUcastPkts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcInMcastPkts": {
+    "name": "alcInMcastPkts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutMcastPkts": {
+    "name": "alcOutMcastPkts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcInBcastPkts": {
+    "name": "alcInBcastPkts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutBcastPkts": {
+    "name": "alcOutBcastPkts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcInPauseFrames": {
+    "name": "alcInPauseFrames",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutPauseFrames": {
+    "name": "alcOutPauseFrames",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkaggAggIdCounterErrTable": {
+    "name": "alclnkaggAggIdCounterErrTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alclnkaggAggIdCounterErrEntry": {
+    "name": "alclnkaggAggIdCounterErrEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcAlignmentsErrors": {
+    "name": "alcAlignmentsErrors",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcFCSErrors": {
+    "name": "alcFCSErrors",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcIfInErrors": {
+    "name": "alcIfInErrors",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcIfOutErrors": {
+    "name": "alcIfOutErrors",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkaggAggIdTrafficTable": {
+    "name": "alclnkaggAggIdTrafficTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alclnkaggAggIdTrafficEntry": {
+    "name": "alclnkaggAggIdTrafficEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alcInputPackets": {
+    "name": "alcInputPackets",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcInputBytes": {
+    "name": "alcInputBytes",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutputPackets": {
+    "name": "alcOutputPackets",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alcOutputBytes": {
+    "name": "alcOutputBytes",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "alcatelIND1LAGMIBConformance": {
     "name": "alcatelIND1LAGMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1LAGMIBGroups": {
     "name": "alcatelIND1LAGMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1LAGMIBCompliances": {
     "name": "alcatelIND1LAGMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alclnkaggAggGroup": {
     "name": "alclnkaggAggGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-LAG-MIB",
         "object": "alclnkaggAggActorSystemID"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggPartnerAdminKey"
       },
       {
         "module": "ALCATEL-IND1-LAG-MIB",
@@ -1654,18 +2066,30 @@
       },
       {
         "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "alclnkaggAggPreemptState"
+        "object": "alclnkaggAggRowStatus"
       },
       {
         "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "alclnkaggAggPreemptValue"
+        "object": "alclnkaggAggMcLagType"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggId"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggPortSelectionHash"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggWTRTimer"
       }
     ],
     "status": "current"
   },
   "alclnkaggAggPortListGroup": {
     "name": "alclnkaggAggPortListGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1677,7 +2101,7 @@
   },
   "alclnkaggAggPortGroup": {
     "name": "alclnkaggAggPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1802,14 +2226,18 @@
       },
       {
         "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "alclnkaggAggPortStandbyState"
+        "object": "alclnkaggAggPortRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggPortMcLagType"
       }
     ],
     "status": "current"
   },
   "alclnkaggAggPortStatsGroup": {
     "name": "alclnkaggAggPortStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1849,7 +2277,7 @@
   },
   "alclnkaggAggPortDebugGroup": {
     "name": "alclnkaggAggPortDebugGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1859,6 +2287,14 @@
       {
         "module": "ALCATEL-IND1-LAG-MIB",
         "object": "alclnkaggAggPortDebugLastRxTime"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggPortDebugMuxState"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkaggAggPortDebugMuxReason"
       },
       {
         "module": "ALCATEL-IND1-LAG-MIB",
@@ -1897,7 +2333,7 @@
   },
   "alclnkaggTablesLastChangedGroup": {
     "name": "alclnkaggTablesLastChangedGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1909,7 +2345,7 @@
   },
   "alclnkaggAggCompliance": {
     "name": "alclnkaggAggCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1939,13 +2375,29 @@
       {
         "object": "alclnkaggAggPortDebugGroup",
         "module": "ALCATEL-IND1-LAG-MIB"
+      },
+      {
+        "object": "alclnkaggAggIdAccountGroup",
+        "module": "ALCATEL-IND1-LAG-MIB"
+      },
+      {
+        "object": "alclnkaggAggIdCounterGroup",
+        "module": "ALCATEL-IND1-LAG-MIB"
+      },
+      {
+        "object": "alclnkaggAggIdCounterErrGroup",
+        "module": "ALCATEL-IND1-LAG-MIB"
+      },
+      {
+        "object": "alclnkaggAggIdTrafficGroup",
+        "module": "ALCATEL-IND1-LAG-MIB"
       }
     ],
     "status": "current"
   },
   "lnkaggNotificationVarsGroup": {
     "name": "lnkaggNotificationVarsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -1961,7 +2413,7 @@
   },
   "lnkaggTrapsGroup": {
     "name": "lnkaggTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.8",
     "class": "notificationgroup",
     "objects": [
       {
@@ -1983,26 +2435,22 @@
       {
         "module": "ALCATEL-IND1-LAG-MIB",
         "object": "lnkaggPortRemove"
-      },
-      {
-        "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "lnkaggPortReserve"
       }
     ],
     "status": "current"
   },
   "lnkaggNotificationVars": {
     "name": "lnkaggNotificationVars",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.4",
     "class": "objectidentity"
   },
   "traplnkaggAggId": {
     "name": "traplnkaggAggId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.4.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2018,11 +2466,11 @@
   },
   "traplnkaggPortIfIndex": {
     "name": "traplnkaggPortIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.13.1.1.4.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2038,7 +2486,7 @@
   },
   "lnkaggAggUp": {
     "name": "lnkaggAggUp",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2054,7 +2502,7 @@
   },
   "lnkaggAggDown": {
     "name": "lnkaggAggDown",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -2070,7 +2518,7 @@
   },
   "lnkaggPortJoin": {
     "name": "lnkaggPortJoin",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14.0.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -2086,7 +2534,7 @@
   },
   "lnkaggPortLeave": {
     "name": "lnkaggPortLeave",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14.0.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -2102,7 +2550,7 @@
   },
   "lnkaggPortRemove": {
     "name": "lnkaggPortRemove",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14.0.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -2114,20 +2562,521 @@
         "object": "traplnkaggPortIfIndex"
       }
     ],
+    "status": "deprecated"
+  },
+  "alclnkaggAggConfig": {
+    "name": "alclnkaggAggConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5",
+    "class": "objectidentity"
+  },
+  "alclnkAggLocalRangeOperMin": {
+    "name": "alclnkAggLocalRangeOperMin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
-  "lnkaggPortReserve": {
-    "name": "lnkaggPortReserve",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.14.0.6",
-    "class": "notificationtype",
+  "alclnkAggLocalRangeOperMax": {
+    "name": "alclnkAggLocalRangeOperMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 127,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkAggLocalRangeConfiguredMin": {
+    "name": "alclnkAggLocalRangeConfiguredMin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alclnkAggLocalRangeConfiguredMax": {
+    "name": "alclnkAggLocalRangeConfiguredMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 127,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alclnkAggPeerRangeOperMin": {
+    "name": "alclnkAggPeerRangeOperMin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkAggPeerRangeOperMax": {
+    "name": "alclnkAggPeerRangeOperMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkAggPeerRangeConfiguredMin": {
+    "name": "alclnkAggPeerRangeConfiguredMin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alclnkAggPeerRangeConfiguredMax": {
+    "name": "alclnkAggPeerRangeConfiguredMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alclnkAggMcLagRangeOperMin": {
+    "name": "alclnkAggMcLagRangeOperMin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkAggMcLagRangeOperMax": {
+    "name": "alclnkAggMcLagRangeOperMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alclnkAggMcLagRangeConfiguredMin": {
+    "name": "alclnkAggMcLagRangeConfiguredMin",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alclnkAggMcLagRangeConfiguredMax": {
+    "name": "alclnkAggMcLagRangeConfiguredMax",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alclnkaggAggConfigGroup": {
+    "name": "alclnkaggAggConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.9",
+    "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "traplnkaggAggId"
+        "object": "alclnkAggLocalRangeOperMin"
       },
       {
         "module": "ALCATEL-IND1-LAG-MIB",
-        "object": "traplnkaggPortIfIndex"
+        "object": "alclnkAggLocalRangeOperMax"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggLocalRangeConfiguredMin"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggLocalRangeConfiguredMax"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggPeerRangeOperMin"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggPeerRangeOperMax"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggPeerRangeConfiguredMin"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggPeerRangeConfiguredMax"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggMcLagRangeOperMin"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggMcLagRangeOperMax"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggMcLagRangeConfiguredMin"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alclnkAggMcLagRangeConfiguredMax"
+      }
+    ],
+    "status": "current"
+  },
+  "alclnkaggAggIdAccountGroup": {
+    "name": "alclnkaggAggIdAccountGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxUndersize"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcTxUndersize"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxOversize"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcTxOversize"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets64"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets127"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets255"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets511"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets1023"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets1518"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets4095"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxPackets9216"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcRxJabberFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "alclnkaggAggIdCounterGroup": {
+    "name": "alclnkaggAggIdCounterGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInOctets"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutOctets"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInUcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutUcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInMcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutMcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInBcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutBcastPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInPauseFrames"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutPauseFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "alclnkaggAggIdCounterErrGroup": {
+    "name": "alclnkaggAggIdCounterErrGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcAlignmentsErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcFCSErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcIfInErrors"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcIfOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "alclnkaggAggIdTrafficGroup": {
+    "name": "alclnkaggAggIdTrafficGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.13.1.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInputPackets"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcInputBytes"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutputPackets"
+      },
+      {
+        "module": "ALCATEL-IND1-LAG-MIB",
+        "object": "alcOutputBytes"
       }
     ],
     "status": "current"
@@ -2135,8 +3084,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-LAG-MIB"

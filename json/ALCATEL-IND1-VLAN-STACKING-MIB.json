@@ -8,69 +8,69 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1VLANStackingMIB": {
     "name": "alcatelIND1VLANStackingMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1",
     "class": "moduleidentity"
   },
   "alcatelIND1VLANStackingMIBObjects": {
     "name": "alcatelIND1VLANStackingMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1VLANStackingMIBConformance": {
     "name": "alcatelIND1VLANStackingMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1VLANStackingMIBGroups": {
     "name": "alcatelIND1VLANStackingMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1VLANStackingMIBCompliances": {
     "name": "alcatelIND1VLANStackingMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaVlanStackingPort": {
     "name": "alaVlanStackingPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1",
     "class": "objectidentity"
   },
   "alaVstkPortTable": {
     "name": "alaVstkPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -78,7 +78,7 @@
   },
   "alaVstkPortEntry": {
     "name": "alaVstkPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -93,7 +93,7 @@
   },
   "alaVstkPortNumber": {
     "name": "alaVstkPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -105,7 +105,7 @@
   },
   "alaVstkPortType": {
     "name": "alaVstkPortType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -130,7 +130,7 @@
   },
   "alaVstkPortVendorTpid": {
     "name": "alaVstkPortVendorTpid",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -148,7 +148,7 @@
   },
   "alaVstkPortBpduTreatment": {
     "name": "alaVstkPortBpduTreatment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -172,7 +172,7 @@
   },
   "alaVstkPortAcceptFrameType": {
     "name": "alaVstkPortAcceptFrameType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -197,7 +197,7 @@
   },
   "alaVstkPortLookupMiss": {
     "name": "alaVstkPortLookupMiss",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -221,7 +221,7 @@
   },
   "alaVstkPortDefaultSvlan": {
     "name": "alaVstkPortDefaultSvlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -241,7 +241,7 @@
   },
   "alaVstkPortRowStatus": {
     "name": "alaVstkPortRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -253,7 +253,7 @@
   },
   "alaVstkPortLegacyStpBpdu": {
     "name": "alaVstkPortLegacyStpBpdu",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -277,12 +277,12 @@
   },
   "alaVlanStackingSvlanPort": {
     "name": "alaVlanStackingSvlanPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2",
     "class": "objectidentity"
   },
   "alaVstkSvlanPortTable": {
     "name": "alaVstkSvlanPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -290,7 +290,7 @@
   },
   "alaVstkSvlanPortEntry": {
     "name": "alaVstkSvlanPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -315,7 +315,7 @@
   },
   "alaVstkSvlanPortSvlanNumber": {
     "name": "alaVstkSvlanPortSvlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -335,7 +335,7 @@
   },
   "alaVstkSvlanPortPortNumber": {
     "name": "alaVstkSvlanPortPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -347,7 +347,7 @@
   },
   "alaVstkSvlanPortCvlanNumber": {
     "name": "alaVstkSvlanPortCvlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -367,7 +367,7 @@
   },
   "alaVstkSvlanPortMode": {
     "name": "alaVstkSvlanPortMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -385,7 +385,7 @@
   },
   "alaVstkSvlanPortRowStatus": {
     "name": "alaVstkSvlanPortRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -397,7 +397,7 @@
   },
   "alcatelIND1VLANStackingMIBCompliance": {
     "name": "alcatelIND1VLANStackingMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -413,7 +413,7 @@
   },
   "vlanStackingPortGroup": {
     "name": "vlanStackingPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -453,7 +453,7 @@
   },
   "vlanStackingSvlanPortGroup": {
     "name": "vlanStackingSvlanPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.37.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.37.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -482,8 +482,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VLAN-STACKING-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-VLAN-STACKING-MIB"

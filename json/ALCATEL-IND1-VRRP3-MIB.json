@@ -8,37 +8,37 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TruthValue",
-      "TimeStamp"
+      "RowStatus",
+      "TimeStamp",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -46,7 +46,7 @@
   },
   "alcatelIND1VRRP3MIB": {
     "name": "alcatelIND1VRRP3MIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -57,22 +57,22 @@
   },
   "alaVrrp3Operations": {
     "name": "alaVrrp3Operations",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1",
     "class": "objectidentity"
   },
   "alaVrrp3Statistics": {
     "name": "alaVrrp3Statistics",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2",
     "class": "objectidentity"
   },
   "alaVrrp3Conformance": {
     "name": "alaVrrp3Conformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3",
     "class": "objectidentity"
   },
   "alaVrrp3NotificationCntl": {
     "name": "alaVrrp3NotificationCntl",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -96,7 +96,7 @@
   },
   "alaVrrp3OperTable": {
     "name": "alaVrrp3OperTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -104,7 +104,7 @@
   },
   "alaVrrp3OperEntry": {
     "name": "alaVrrp3OperEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -129,7 +129,7 @@
   },
   "alaVrrp3OperIpVersion": {
     "name": "alaVrrp3OperIpVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -147,7 +147,7 @@
   },
   "alaVrrp3OperVrId": {
     "name": "alaVrrp3OperVrId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -159,7 +159,7 @@
   },
   "alaVrrp3OperVirtualMacAddr": {
     "name": "alaVrrp3OperVirtualMacAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -171,7 +171,7 @@
   },
   "alaVrrp3OperState": {
     "name": "alaVrrp3OperState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -190,7 +190,7 @@
   },
   "alaVrrp3OperAdminState": {
     "name": "alaVrrp3OperAdminState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -214,7 +214,7 @@
   },
   "alaVrrp3OperPriority": {
     "name": "alaVrrp3OperPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -240,7 +240,7 @@
   },
   "alaVrrp3OperVersion": {
     "name": "alaVrrp3OperVersion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -258,7 +258,7 @@
   },
   "alaVrrp3OperIpAddrCount": {
     "name": "alaVrrp3OperIpAddrCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -278,7 +278,7 @@
   },
   "alaVrrp3OperMasterIpAddrType": {
     "name": "alaVrrp3OperMasterIpAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -290,7 +290,7 @@
   },
   "alaVrrp3OperMasterIpAddr": {
     "name": "alaVrrp3OperMasterIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -302,7 +302,7 @@
   },
   "alaVrrp3OperPrimaryIpAddrType": {
     "name": "alaVrrp3OperPrimaryIpAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -314,7 +314,7 @@
   },
   "alaVrrp3OperPrimaryIpAddr": {
     "name": "alaVrrp3OperPrimaryIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -332,7 +332,7 @@
   },
   "alaVrrp3OperAdvInterval": {
     "name": "alaVrrp3OperAdvInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -359,7 +359,7 @@
   },
   "alaVrrp3OperPreemptMode": {
     "name": "alaVrrp3OperPreemptMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -377,7 +377,7 @@
   },
   "alaVrrp3OperAcceptMode": {
     "name": "alaVrrp3OperAcceptMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -395,7 +395,7 @@
   },
   "alaVrrp3OperUpTime": {
     "name": "alaVrrp3OperUpTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -407,7 +407,7 @@
   },
   "alaVrrp3OperRowStatus": {
     "name": "alaVrrp3OperRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.2.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.2.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -419,7 +419,7 @@
   },
   "alaVrrp3AssoIpAddrTable": {
     "name": "alaVrrp3AssoIpAddrTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -427,7 +427,7 @@
   },
   "alaVrrp3AssoIpAddrEntry": {
     "name": "alaVrrp3AssoIpAddrEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -462,7 +462,7 @@
   },
   "alaVrrp3AssoIpAddrType": {
     "name": "alaVrrp3AssoIpAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -474,7 +474,7 @@
   },
   "alaVrrp3AssoIpAddr": {
     "name": "alaVrrp3AssoIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -484,10 +484,6 @@
         "size": [
           {
             "min": 4,
-            "max": 4
-          },
-          {
-            "min": 16,
             "max": 16
           }
         ]
@@ -498,7 +494,7 @@
   },
   "alaVrrp3AssoIpAddrRowStatus": {
     "name": "alaVrrp3AssoIpAddrRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -510,7 +506,7 @@
   },
   "alaVrrp3RouterChecksumErrors": {
     "name": "alaVrrp3RouterChecksumErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -522,7 +518,7 @@
   },
   "alaVrrp3RouterVersionErrors": {
     "name": "alaVrrp3RouterVersionErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -534,7 +530,7 @@
   },
   "alaVrrp3RouterVrIdErrors": {
     "name": "alaVrrp3RouterVrIdErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -546,7 +542,7 @@
   },
   "alaVrrp3RouterStatsTable": {
     "name": "alaVrrp3RouterStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -554,7 +550,7 @@
   },
   "alaVrrp3RouterStatsEntry": {
     "name": "alaVrrp3RouterStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -579,7 +575,7 @@
   },
   "alaVrrp3StatsBecomeMaster": {
     "name": "alaVrrp3StatsBecomeMaster",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -591,7 +587,7 @@
   },
   "alaVrrp3StatsAdvertiseRcvd": {
     "name": "alaVrrp3StatsAdvertiseRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -603,7 +599,7 @@
   },
   "alaVrrp3StatsAdvIntervalErrors": {
     "name": "alaVrrp3StatsAdvIntervalErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -615,7 +611,7 @@
   },
   "alaVrrp3StatsIpTtlErrors": {
     "name": "alaVrrp3StatsIpTtlErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -627,7 +623,7 @@
   },
   "alaVrrp3StatsPriZeroPktsRcvd": {
     "name": "alaVrrp3StatsPriZeroPktsRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -639,7 +635,7 @@
   },
   "alaVrrp3StatsPriZeroPktsSent": {
     "name": "alaVrrp3StatsPriZeroPktsSent",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -651,7 +647,7 @@
   },
   "alaVrrp3StatsInvldTypePktsRcvd": {
     "name": "alaVrrp3StatsInvldTypePktsRcvd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -663,7 +659,7 @@
   },
   "alaVrrp3StatsAddressListErrors": {
     "name": "alaVrrp3StatsAddressListErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -675,7 +671,7 @@
   },
   "alaVrrp3StatsInvldAuthType": {
     "name": "alaVrrp3StatsInvldAuthType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -687,7 +683,7 @@
   },
   "alaVrrp3StatsPacketLengthErrors": {
     "name": "alaVrrp3StatsPacketLengthErrors",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.2.4.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.2.4.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -699,12 +695,12 @@
   },
   "alaVrrp3Notifications": {
     "name": "alaVrrp3Notifications",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.0",
     "class": "objectidentity"
   },
   "alaVrrp3TrapNewMasterReason": {
     "name": "alaVrrp3TrapNewMasterReason",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -723,7 +719,7 @@
   },
   "alaVrrp3TrapProtoErrReason": {
     "name": "alaVrrp3TrapProtoErrReason",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -743,7 +739,7 @@
   },
   "alaVrrp3TrapNewMaster": {
     "name": "alaVrrp3TrapNewMaster",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -763,7 +759,7 @@
   },
   "alaVrrp3TrapProtoError": {
     "name": "alaVrrp3TrapProtoError",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -775,17 +771,17 @@
   },
   "alaVrrp3MIBCompliances": {
     "name": "alaVrrp3MIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.1",
     "class": "objectidentity"
   },
   "alaVrrp3MIBGroups": {
     "name": "alaVrrp3MIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.2",
     "class": "objectidentity"
   },
   "alaVrrp3MIBCompliance": {
     "name": "alaVrrp3MIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -809,7 +805,7 @@
   },
   "alaVrrp3OperGroup": {
     "name": "alaVrrp3OperGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -885,7 +881,7 @@
   },
   "alaVrrp3StatsGroup": {
     "name": "alaVrrp3StatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -945,7 +941,7 @@
   },
   "alaVrrp3TrapInfoGroup": {
     "name": "alaVrrp3TrapInfoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -961,7 +957,7 @@
   },
   "alaVrrp3NotificationsGroup": {
     "name": "alaVrrp3NotificationsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.28.2.3.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.28.2.3.2.4",
     "class": "notificationgroup",
     "objects": [
       {
@@ -978,8 +974,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VRRP3-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-VRRP3-MIB"

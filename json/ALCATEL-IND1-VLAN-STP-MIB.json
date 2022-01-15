@@ -2,48 +2,56 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "spanningTreeTraps",
       "softentIND1VlanStp"
     ],
     "BRIDGE-MIB": [
-      "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "Timeout"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1VLANSTPMIB": {
     "name": "alcatelIND1VLANSTPMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1",
-    "class": "moduleidentity"
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      }
+    ]
   },
   "VlanBitmap": {
     "name": "VlanBitmap",
@@ -4152,23 +4160,6 @@
     },
     "status": "current"
   },
-  "MstList": {
-    "name": "MstList",
-    "class": "textualconvention",
-    "type": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 128
-          }
-        ]
-      }
-    },
-    "status": "current"
-  },
   "DigestId": {
     "name": "DigestId",
     "class": "type",
@@ -4185,380 +4176,44 @@
       }
     }
   },
+  "alcatelIND1VLANSTPMIBNotifications": {
+    "name": "alcatelIND1VLANSTPMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1VLANSTPMIBObjects": {
     "name": "alcatelIND1VLANSTPMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1VLANSTPMIBConformance": {
     "name": "alcatelIND1VLANSTPMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1VLANSTPMIBGroups": {
     "name": "alcatelIND1VLANSTPMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1VLANSTPMIBCompliances": {
     "name": "alcatelIND1VLANSTPMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "vStpInfo": {
     "name": "vStpInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1",
     "class": "objectidentity"
-  },
-  "vStpTable": {
-    "name": "vStpTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "vStpEntry": {
-    "name": "vStpEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpNumber",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "vStpNumber": {
-    "name": "vStpNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpMode": {
-    "name": "vStpMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "flat": 1,
-          "onePerVlan": 2,
-          "multiple": 3
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "onePerVlan",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpProtocolSpecification": {
-    "name": "vStpProtocolSpecification",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unknown": 1,
-          "decLb100": 2,
-          "ieee8021d": 3,
-          "ieee8021w": 4
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "ieee8021d",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPriority": {
-    "name": "vStpPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 32768,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpBridgeAddress": {
-    "name": "vStpBridgeAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "BridgeId",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpTimeSinceTopologyChange": {
-    "name": "vStpTimeSinceTopologyChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpTopChanges": {
-    "name": "vStpTopChanges",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpDesignatedRoot": {
-    "name": "vStpDesignatedRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "BridgeId",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpRootCost": {
-    "name": "vStpRootCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpRootPortNumber": {
-    "name": "vStpRootPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpNextBestRootCost": {
-    "name": "vStpNextBestRootCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpNextBestRootPortNumber": {
-    "name": "vStpNextBestRootPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpMaxAge": {
-    "name": "vStpMaxAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Timeout",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpHelloTime": {
-    "name": "vStpHelloTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Timeout",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpHoldTime": {
-    "name": "vStpHoldTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpForwardDelay": {
-    "name": "vStpForwardDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpBridgeMaxAge": {
-    "name": "vStpBridgeMaxAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.17",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Timeout",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 600,
-            "max": 4000
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 2000,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpBridgeHelloTime": {
-    "name": "vStpBridgeHelloTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.18",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Timeout",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 100,
-            "max": 1000
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 200,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpBridgeForwardDelay": {
-    "name": "vStpBridgeForwardDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.1.1.19",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Timeout",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 400,
-            "max": 3000
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1500,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
   },
   "vStpInsTable": {
     "name": "vStpInsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -4566,14 +4221,14 @@
   },
   "vStpInsEntry": {
     "name": "vStpInsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpBridgeMode",
+        "object": "vStpInsBridgeMode",
         "implied": 0
       },
       {
@@ -4584,13 +4239,31 @@
     ],
     "status": "current"
   },
-  "vStpInsNumber": {
-    "name": "vStpInsNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.1",
+  "vStpInsBridgeMode": {
+    "name": "vStpInsBridgeMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flat": 1,
+          "onePerVlan": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vStpInsNumber": {
+    "name": "vStpInsNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -4606,7 +4279,7 @@
   },
   "vStpInsProtocolSpecification": {
     "name": "vStpInsProtocolSpecification",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4633,11 +4306,11 @@
   },
   "vStpInsPriority": {
     "name": "vStpInsPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -4659,7 +4332,7 @@
   },
   "vStpInsBridgeAddress": {
     "name": "vStpInsBridgeAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4671,7 +4344,7 @@
   },
   "vStpInsTimeSinceTopologyChange": {
     "name": "vStpInsTimeSinceTopologyChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4683,7 +4356,7 @@
   },
   "vStpInsTopChanges": {
     "name": "vStpInsTopChanges",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4695,7 +4368,7 @@
   },
   "vStpInsDesignatedRoot": {
     "name": "vStpInsDesignatedRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4707,7 +4380,7 @@
   },
   "vStpInsRootCost": {
     "name": "vStpInsRootCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4719,7 +4392,7 @@
   },
   "vStpInsRootPortNumber": {
     "name": "vStpInsRootPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4731,7 +4404,7 @@
   },
   "vStpInsNextBestRootCost": {
     "name": "vStpInsNextBestRootCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4743,7 +4416,7 @@
   },
   "vStpInsNextBestRootPortNumber": {
     "name": "vStpInsNextBestRootPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4755,7 +4428,7 @@
   },
   "vStpInsMaxAge": {
     "name": "vStpInsMaxAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4767,7 +4440,7 @@
   },
   "vStpInsHelloTime": {
     "name": "vStpInsHelloTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4779,7 +4452,7 @@
   },
   "vStpInsHoldTime": {
     "name": "vStpInsHoldTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4791,7 +4464,7 @@
   },
   "vStpInsForwardDelay": {
     "name": "vStpInsForwardDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4803,7 +4476,7 @@
   },
   "vStpInsBridgeMaxAge": {
     "name": "vStpInsBridgeMaxAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4829,7 +4502,7 @@
   },
   "vStpInsBridgeHelloTime": {
     "name": "vStpInsBridgeHelloTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4855,7 +4528,7 @@
   },
   "vStpInsBridgeForwardDelay": {
     "name": "vStpInsBridgeForwardDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4881,7 +4554,7 @@
   },
   "vStpInsBpduSwitching": {
     "name": "vStpInsBpduSwitching",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4905,7 +4578,7 @@
   },
   "vStpInsCistRegionalRootId": {
     "name": "vStpInsCistRegionalRootId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4917,7 +4590,7 @@
   },
   "vStpInsCistPathCost": {
     "name": "vStpInsCistPathCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4929,7 +4602,7 @@
   },
   "vStpIns1x1VlanNumber": {
     "name": "vStpIns1x1VlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4941,7 +4614,7 @@
   },
   "vStpInsMstiNumber": {
     "name": "vStpInsMstiNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4953,7 +4626,7 @@
   },
   "vStpInsMode": {
     "name": "vStpInsMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4971,7 +4644,7 @@
   },
   "vStpInsAutoVlanContainment": {
     "name": "vStpInsAutoVlanContainment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4989,11 +4662,11 @@
   },
   "vStpInsBridgeTxHoldCount": {
     "name": "vStpInsBridgeTxHoldCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -5013,9 +4686,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "vStpInsStatus": {
-    "name": "vStpInsStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.3.1.27",
+  "vStpInsAdminState": {
+    "name": "vStpInsAdminState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.1.1.28",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5023,111 +4696,7 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "enabled": 1,
-          "disabled": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "vStpPortTable": {
-    "name": "vStpPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "vStpPortEntry": {
-    "name": "vStpPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpNumber",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpPortNumber",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "vStpPortNumber": {
-    "name": "vStpPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortPriority": {
-    "name": "vStpPortPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 15
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 8,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortState": {
-    "name": "vStpPortState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "disabled": 1,
-          "blocking": 2,
-          "listening": 3,
-          "learning": 4,
-          "forwarding": 5
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortEnable": {
-    "name": "vStpPortEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
+          "notapplicable": 0,
           "enabled": 1,
           "disabled": 2
         }
@@ -5139,208 +4708,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortPathCost": {
-    "name": "vStpPortPathCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortDesignatedRoot": {
-    "name": "vStpPortDesignatedRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "BridgeId",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortDesignatedCost": {
-    "name": "vStpPortDesignatedCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortDesignatedBridge": {
-    "name": "vStpPortDesignatedBridge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "BridgeId",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortDesignatedPtPrio": {
-    "name": "vStpPortDesignatedPtPrio",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortDesignatedPtNumber": {
-    "name": "vStpPortDesignatedPtNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortForwardTransitions": {
-    "name": "vStpPortForwardTransitions",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortManualMode": {
-    "name": "vStpPortManualMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "no": 1,
-          "blocking": 2,
-          "forwarding": 3
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "no",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortRole": {
-    "name": "vStpPortRole",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "root": 1,
-          "designated": 2,
-          "alternate": 3,
-          "backup": 4,
-          "disabled": 5
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortPrimaryPortNumber": {
-    "name": "vStpPortPrimaryPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortAdminConnectionType": {
-    "name": "vStpPortAdminConnectionType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "nopointtopoint": 1,
-          "pointtopoint": 2,
-          "autopointtopoint": 3,
-          "edgeport": 4
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "nopointtopoint",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "vStpPortOperConnectionType": {
-    "name": "vStpPortOperConnectionType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.2.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "nopointtopoint": 1,
-          "pointtopoint": 2,
-          "nonsignificant": 3,
-          "edgeport": 4
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
+    "maxaccess": "read-write",
+    "status": "current"
   },
   "vStpInsPortTable": {
     "name": "vStpInsPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -5348,14 +4721,14 @@
   },
   "vStpInsPortEntry": {
     "name": "vStpInsPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpBridgeMode",
+        "object": "vStpInsBridgeMode",
         "implied": 0
       },
       {
@@ -5373,23 +4746,31 @@
   },
   "vStpInsPortNumber": {
     "name": "vStpInsPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
   "vStpInsPortPriority": {
     "name": "vStpInsPortPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -5411,7 +4792,7 @@
   },
   "vStpInsPortState": {
     "name": "vStpInsPortState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5432,7 +4813,7 @@
   },
   "vStpInsPortEnable": {
     "name": "vStpInsPortEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5456,7 +4837,7 @@
   },
   "vStpInsPortPathCost": {
     "name": "vStpInsPortPathCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5468,7 +4849,7 @@
   },
   "vStpInsPortDesignatedRoot": {
     "name": "vStpInsPortDesignatedRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5480,7 +4861,7 @@
   },
   "vStpInsPortDesignatedCost": {
     "name": "vStpInsPortDesignatedCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5492,7 +4873,7 @@
   },
   "vStpInsPortDesignatedBridge": {
     "name": "vStpInsPortDesignatedBridge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5504,7 +4885,7 @@
   },
   "vStpInsPortDesignatedPtPrio": {
     "name": "vStpInsPortDesignatedPtPrio",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5516,7 +4897,7 @@
   },
   "vStpInsPortDesignatedPtNumber": {
     "name": "vStpInsPortDesignatedPtNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5528,7 +4909,7 @@
   },
   "vStpInsPortForwardTransitions": {
     "name": "vStpInsPortForwardTransitions",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5540,7 +4921,7 @@
   },
   "vStpInsPortManualMode": {
     "name": "vStpInsPortManualMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5565,7 +4946,7 @@
   },
   "vStpInsPortRole": {
     "name": "vStpInsPortRole",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5587,7 +4968,7 @@
   },
   "vStpInsPortPrimaryPortNumber": {
     "name": "vStpInsPortPrimaryPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5599,7 +4980,7 @@
   },
   "vStpInsPortAdminConnectionType": {
     "name": "vStpInsPortAdminConnectionType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5625,7 +5006,7 @@
   },
   "vStpInsPortOperConnectionType": {
     "name": "vStpInsPortOperConnectionType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5645,7 +5026,7 @@
   },
   "vStpInsPortCistRegionRootId": {
     "name": "vStpInsPortCistRegionRootId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5657,7 +5038,7 @@
   },
   "vStpInsPortCistPathCost": {
     "name": "vStpInsPortCistPathCost",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5669,7 +5050,7 @@
   },
   "vStpInsPortHelloTime": {
     "name": "vStpInsPortHelloTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5695,7 +5076,7 @@
   },
   "vStpInsPortBridgeHelloTime": {
     "name": "vStpInsPortBridgeHelloTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5721,7 +5102,7 @@
   },
   "vstpInsPortRcvdInternal": {
     "name": "vstpInsPortRcvdInternal",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5740,7 +5121,7 @@
   },
   "vStpInsPortAdminEdge": {
     "name": "vStpInsPortAdminEdge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5764,7 +5145,7 @@
   },
   "vStpInsPortAutoEdge": {
     "name": "vStpInsPortAutoEdge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5788,7 +5169,7 @@
   },
   "vStpInsPortRestrictedRole": {
     "name": "vStpInsPortRestrictedRole",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5812,7 +5193,7 @@
   },
   "vStpInsPortRestrictedTcn": {
     "name": "vStpInsPortRestrictedTcn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.4.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.2.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5836,12 +5217,12 @@
   },
   "vStpBridge": {
     "name": "vStpBridge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3",
     "class": "objectidentity"
   },
   "vStpBridgeMode": {
     "name": "vStpBridgeMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -5865,7 +5246,7 @@
   },
   "vStpBridgeAddressId": {
     "name": "vStpBridgeAddressId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -5877,7 +5258,7 @@
   },
   "vStpBridgeLastChanged": {
     "name": "vStpBridgeLastChanged",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -5889,7 +5270,7 @@
   },
   "vStpBridgePathCostMode": {
     "name": "vStpBridgePathCostMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -5913,7 +5294,7 @@
   },
   "vStpBridgeAutoVlanContainment": {
     "name": "vStpBridgeAutoVlanContainment",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -5922,8 +5303,7 @@
       "constraints": {
         "enumeration": {
           "enable": 1,
-          "disable": 2,
-          "notApplicable": 3
+          "disable": 2
         }
       }
     },
@@ -5932,7 +5312,7 @@
   },
   "vStpBridgeModePVST": {
     "name": "vStpBridgeModePVST",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.5.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.3.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -5956,7 +5336,7 @@
   },
   "vStpMstRegionTable": {
     "name": "vStpMstRegionTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -5964,7 +5344,7 @@
   },
   "vStpMstRegionEntry": {
     "name": "vStpMstRegionEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -5979,11 +5359,11 @@
   },
   "vStpMstRegionNumber": {
     "name": "vStpMstRegionNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -5999,11 +5379,11 @@
   },
   "vStpMstRegionConfigFormatSelector": {
     "name": "vStpMstRegionConfigFormatSelector",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6019,7 +5399,7 @@
   },
   "vStpMstRegionConfigDigest": {
     "name": "vStpMstRegionConfigDigest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6031,11 +5411,11 @@
   },
   "vStpMstRegionConfigName": {
     "name": "vStpMstRegionConfigName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -6051,11 +5431,11 @@
   },
   "vStpMstRegionConfigRevisionLevel": {
     "name": "vStpMstRegionConfigRevisionLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6071,23 +5451,31 @@
   },
   "vStpMstRegionMstiList": {
     "name": "vStpMstRegionMstiList",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MstList",
-      "class": "type"
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
   "vStpMstRegionCistInstanceNumber": {
     "name": "vStpMstRegionCistInstanceNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6103,11 +5491,11 @@
   },
   "vStpMstRegionMaxHops": {
     "name": "vStpMstRegionMaxHops",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.6.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6129,7 +5517,7 @@
   },
   "vStpMstInstanceTable": {
     "name": "vStpMstInstanceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6137,7 +5525,7 @@
   },
   "vStpMstInstanceEntry": {
     "name": "vStpMstInstanceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6152,11 +5540,11 @@
   },
   "vStpMstInstanceNumber": {
     "name": "vStpMstInstanceNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6167,16 +5555,16 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "vStpMstInstanceName": {
     "name": "vStpMstInstanceName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -6187,36 +5575,36 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "vStpMstInstanceVlanBitmapAddition": {
     "name": "vStpMstInstanceVlanBitmapAddition",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "VlanBitmap",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "vStpMstInstanceVlanBitmapDeletion": {
     "name": "vStpMstInstanceVlanBitmapDeletion",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "VlanBitmap",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "vStpMstInstanceVlanBitmapState": {
     "name": "vStpMstInstanceVlanBitmapState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6228,19 +5616,19 @@
   },
   "vStpMstInstanceRowStatus": {
     "name": "vStpMstInstanceRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.7.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.5.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "vStpMstVlanAssignmentTable": {
     "name": "vStpMstVlanAssignmentTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6248,7 +5636,7 @@
   },
   "vStpMstVlanAssignmentEntry": {
     "name": "vStpMstVlanAssignmentEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6263,11 +5651,11 @@
   },
   "vStpMstVlanAssignmentVlanNumber": {
     "name": "vStpMstVlanAssignmentVlanNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6278,16 +5666,16 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "vStpMstVlanAssignmentMstiNumber": {
     "name": "vStpMstVlanAssignmentMstiNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6303,7 +5691,7 @@
   },
   "vStpPortConfigTable": {
     "name": "vStpPortConfigTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6311,7 +5699,7 @@
   },
   "vStpPortConfigEntry": {
     "name": "vStpPortConfigEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6326,7 +5714,7 @@
   },
   "vStpPortConfigIfIndex": {
     "name": "vStpPortConfigIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6338,7 +5726,7 @@
   },
   "vStpPortConfigTenGigOs8800Opt": {
     "name": "vStpPortConfigTenGigOs8800Opt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.9.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6362,7 +5750,7 @@
   },
   "vStpPortConfigPVST": {
     "name": "vStpPortConfigPVST",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.9.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6387,7 +5775,7 @@
   },
   "vStpPortConfigStatePVST": {
     "name": "vStpPortConfigStatePVST",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.9.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6409,9 +5797,53 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "vStpPortConfigLoopGuard": {
+    "name": "vStpPortConfigLoopGuard",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vStpPortConfigLoopGuardNote": {
+    "name": "vStpPortConfigLoopGuardNote",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "vStpRrstpGlobalState": {
     "name": "vStpRrstpGlobalState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -6435,7 +5867,7 @@
   },
   "vStpRrstpRingConfigTable": {
     "name": "vStpRrstpRingConfigTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6443,7 +5875,7 @@
   },
   "vStpRrstpRingConfigEntry": {
     "name": "vStpRrstpRingConfigEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -6458,11 +5890,11 @@
   },
   "vStpRrstpRingId": {
     "name": "vStpRrstpRingId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6473,12 +5905,12 @@
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "vStpRrstpRingPort1": {
     "name": "vStpRrstpRingPort1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6490,7 +5922,7 @@
   },
   "vStpRrstpRingPort2": {
     "name": "vStpRrstpRingPort2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6502,11 +5934,11 @@
   },
   "vStpRrstpRingVlanTag": {
     "name": "vStpRrstpRingVlanTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -6522,7 +5954,7 @@
   },
   "vStpRrstpRingState": {
     "name": "vStpRrstpRingState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6546,7 +5978,7 @@
   },
   "vStpRrstpRingRowStatus": {
     "name": "vStpRrstpRingRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.1.1.11.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.1.1.9.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -6558,35 +5990,67 @@
   },
   "stpNewRoot": {
     "name": "stpNewRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.7.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpNumber"
+        "object": "vStpInsNumber"
       }
     ],
     "status": "current"
   },
   "stpRootPortChange": {
     "name": "stpRootPortChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.7.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpNumber"
+        "object": "vStpInsNumber"
       },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpRootPortNumber"
+        "object": "vStpInsRootPortNumber"
       }
     ],
     "status": "current"
   },
-  "vStpGroup": {
-    "name": "vStpGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.1",
+  "alaSTPLoopGuardError": {
+    "name": "alaSTPLoopGuardError",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpPortConfigIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "alaSTPLoopGuardRecovery": {
+    "name": "alaSTPLoopGuardRecovery",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpPortConfigIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "vStpInsGroup": {
+    "name": "vStpInsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -6688,13 +6152,21 @@
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vStpInsAutoVlanContainment"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsBridgeTxHoldCount"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsAdminState"
       }
     ],
     "status": "current"
   },
-  "vStpPortGroup": {
-    "name": "vStpPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.2",
+  "vStpInsPortGroup": {
+    "name": "vStpInsPortGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -6775,18 +6247,34 @@
       },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpInsBridgeHelloTime"
+        "object": "vStpInsPortBridgeHelloTime"
       },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vstpInsPortRcvdInternal"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsPortAdminEdge"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsPortAutoEdge"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsPortRestrictedRole"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpInsPortRestrictedTcn"
       }
     ],
     "status": "current"
   },
   "vStpMstRegionGroup": {
     "name": "vStpMstRegionGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -6826,13 +6314,9 @@
   },
   "vStpMstInstanceGroup": {
     "name": "vStpMstInstanceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.4",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpMstInstanceNumber"
-      },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vStpMstInstanceName"
@@ -6858,13 +6342,9 @@
   },
   "vStpMstVlanAssignmentGroup": {
     "name": "vStpMstVlanAssignmentGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.5",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpMstVlanAssignmentVlanNumber"
-      },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vStpMstVlanAssignmentMstiNumber"
@@ -6874,7 +6354,7 @@
   },
   "vStpPortConfigGroup": {
     "name": "vStpPortConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -6884,13 +6364,29 @@
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vStpPortConfigTenGigOs8800Opt"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpPortConfigPVST"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpPortConfigStatePVST"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpPortConfigLoopGuard"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpPortConfigLoopGuardNote"
       }
     ],
     "status": "current"
   },
   "vStpNotificationGroup": {
     "name": "vStpNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -6900,19 +6396,23 @@
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "stpRootPortChange"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "alaSTPLoopGuardError"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "alaSTPLoopGuardRecovery"
       }
     ],
     "status": "current"
   },
   "vStpRrstpRingConfigGroup": {
     "name": "vStpRrstpRingConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.8",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-VLAN-STP-MIB",
-        "object": "vStpRrstpRingId"
-      },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vStpRrstpRingPort1"
@@ -6920,6 +6420,10 @@
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
         "object": "vStpRrstpRingPort2"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpRrstpRingVlanTag"
       },
       {
         "module": "ALCATEL-IND1-VLAN-STP-MIB",
@@ -6934,7 +6438,7 @@
   },
   "vStpRrstpRingBaseGroup": {
     "name": "vStpRrstpRingBaseGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.9",
     "class": "objectgroup",
     "objects": [
       {
@@ -6944,17 +6448,49 @@
     ],
     "status": "current"
   },
+  "vStpBridgeGroup": {
+    "name": "vStpBridgeGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpBridgeMode"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpBridgeAddressId"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpBridgeLastChanged"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpBridgePathCostMode"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpBridgeAutoVlanContainment"
+      },
+      {
+        "module": "ALCATEL-IND1-VLAN-STP-MIB",
+        "object": "vStpBridgeModePVST"
+      }
+    ],
+    "status": "current"
+  },
   "alcatelIND1VLANSTPMIBCompliance": {
     "name": "alcatelIND1VLANSTPMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.12.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.12.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
-        "object": "vStpGroup",
+        "object": "vStpInsGroup",
         "module": "ALCATEL-IND1-VLAN-STP-MIB"
       },
       {
-        "object": "vStpPortGroup",
+        "object": "vStpInsPortGroup",
         "module": "ALCATEL-IND1-VLAN-STP-MIB"
       },
       {
@@ -6984,6 +6520,10 @@
       {
         "object": "vStpRrstpRingBaseGroup",
         "module": "ALCATEL-IND1-VLAN-STP-MIB"
+      },
+      {
+        "object": "vStpBridgeGroup",
+        "module": "ALCATEL-IND1-VLAN-STP-MIB"
       }
     ],
     "status": "current"
@@ -6991,8 +6531,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VLAN-STP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-VLAN-STP-MIB"

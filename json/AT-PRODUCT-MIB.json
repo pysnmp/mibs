@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Counter32",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -35,52 +35,188 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2006-06-14 00:00",
-        "description": "Initial version of this MIB module."
+        "revision": "2017-10-19 00:00",
+        "description": "Rename atx55018XSPQ to atx55018XSPQm."
       },
       {
-        "revision": "2007-02-07 00:00",
-        "description": "Added systemOID for AT-8824R."
+        "revision": "2017-03-31 00:00",
+        "description": "Remove '_' in the MIB object names to comply with ASN.1. Remove '-' to comply with SMIv2 standard. Some mib object names are slightly changed to make it more readable."
       },
       {
-        "revision": "2007-03-21 00:00",
-        "description": "Added systemOID for x900-48FS."
+        "revision": "2017-02-01 00:00",
+        "description": "Added GS970 products."
       },
       {
-        "revision": "2007-11-15 00:00",
-        "description": "Changed systemOID 67 from AT-8824R to 8724SL-V2."
+        "revision": "2017-01-18 00:00",
+        "description": "Added GS970PS products."
       },
       {
-        "revision": "2008-03-06 13:00",
-        "description": " Added systemOID 69,70,75,76,77. "
+        "revision": "2016-10-03 00:00",
+        "description": "Added x550 products."
       },
       {
-        "revision": "2009-05-15 00:00",
-        "description": " Added systemOID 91,92. "
+        "revision": "2016-07-25 00:00",
+        "description": "Added AT-SBX81XLEM as standalone product."
       },
       {
-        "revision": "2010-06-15 00:15",
-        "description": "MIB revision history dates in descriptions updated."
+        "revision": "2016-05-06 00:00",
+        "description": "Added AT-GS900M Next Generation."
       },
       {
-        "revision": "2010-07-22 00:00",
-        "description": "Renamed at_x600_24TsPoE_220W_PSU to at_x600_24TsPoEPlus to reflect usage."
+        "revision": "2016-01-08 00:00",
+        "description": "Added AT-FS980M products."
       },
       {
-        "revision": "2010-08-19 00:00",
-        "description": "Added bridgeRouter 81 at_AR560SRouter."
+        "revision": "2015-11-10 00:00",
+        "description": "Added new SwitchBlade x908G2/3 products"
       },
       {
-        "revision": "2010-09-07 00:00",
-        "description": "Generic syntax tidy up"
+        "revision": "2015-08-05 00:00",
+        "description": "Added AT-XS900MX products."
+      },
+      {
+        "revision": "2015-07-27 00:00",
+        "description": "Added SecureHUB products."
+      },
+      {
+        "revision": "2015-07-22 00:00",
+        "description": "Add Virtual Appliance (VAA)."
+      },
+      {
+        "revision": "2015-05-06 00:00",
+        "description": "Added AT-AR2050V."
+      },
+      {
+        "revision": "2015-04-03 00:00",
+        "description": "Change the product name from x230-10GPT to x350-10GPT."
+      },
+      {
+        "revision": "2014-11-19 00:00",
+        "description": "Add IE300 product family."
+      },
+      {
+        "revision": "2014-11-18 00:00",
+        "description": "Added AT-AR3050S and AT-AR4050S."
+      },
+      {
+        "revision": "2014-10-22 00:00",
+        "description": "Renaming Ix510 to IE510 and moving to Industrial Switch subtree."
+      },
+      {
+        "revision": "2014-09-23 00:00",
+        "description": "Added AT-GS924MX, AT-GS924MPX, AT-GS948MX and AT-GS948MPX."
+      },
+      {
+        "revision": "2014-08-28 00:00",
+        "description": "Added x510L products."
+      },
+      {
+        "revision": "2014-08-20 00:00",
+        "description": "Renaming IE500 Family to IE200."
+      },
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Added x510-28GTX-R and x510-52GTX-R product."
+      },
+      {
+        "revision": "2014-06-09 00:00",
+        "description": "Added x510DP-28GTX product."
+      },
+      {
+        "revision": "2014-06-03 00:00",
+        "description": "Added x510_28GSX/DC and Ix510_28GSX products. Added IE500 Family."
+      },
+      {
+        "revision": "2014-05-16 00:00",
+        "description": "Added dc2552xs product"
+      },
+      {
+        "revision": "2013-08-01 00:00",
+        "description": "Changed x950 to x930, added x230 and x310 products"
+      },
+      {
+        "revision": "2013-07-09 00:00",
+        "description": "Added x510DP and IX5 products."
+      },
+      {
+        "revision": "2013-04-02 00:00",
+        "description": "Added x950 products."
+      },
+      {
+        "revision": "2012-03-22 00:00",
+        "description": "Added x510 product."
+      },
+      {
+        "revision": "2011-12-18 05:00",
+        "description": "Added at-SBx81CFC400 and at-SBx81CFC960 products."
+      },
+      {
+        "revision": "2011-09-15 00:00",
+        "description": "Added AT-SBx8106 product."
+      },
+      {
+        "revision": "2011-09-14 00:00",
+        "description": "Added AT-SBx8112 product."
+      },
+      {
+        "revision": "2011-09-05 00:00",
+        "description": "Added systemOID 196, 197 and 198"
+      },
+      {
+        "revision": "2011-04-04 00:00",
+        "description": "Added Rapier 48x product"
+      },
+      {
+        "revision": "2010-10-12 00:00",
+        "description": "Add swhub tree and systemOID 181 and 182"
       },
       {
         "revision": "2010-09-20 00:00",
         "description": "Add Rapier24ib product"
       },
       {
-        "revision": "2010-09-28 00:00",
-        "description": "Added systemOID 102 for 8724SL_V2-DC"
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
+      },
+      {
+        "revision": "2010-08-19 00:00",
+        "description": "Added bridgeRouter 81 at_AR560SRouter."
+      },
+      {
+        "revision": "2010-07-22 00:00",
+        "description": "Renamed at_x600_24TsPoE_220W_PSU to at_x600_24TsPoEPlus to reflect usage."
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2009-05-19 00:00",
+        "description": "Added systemOID 93, 94, 95, 96, 97, 98, 99, 100 and 101"
+      },
+      {
+        "revision": "2009-05-15 00:00",
+        "description": " Added systemOID 91,92. "
+      },
+      {
+        "revision": "2008-03-06 13:00",
+        "description": " Added systemOID 69,70,75,76,77. "
+      },
+      {
+        "revision": "2007-11-15 00:00",
+        "description": "Changed systemOID 67 from AT-8824R to 8724SL-V2."
+      },
+      {
+        "revision": "2007-03-21 00:00",
+        "description": "Added systemOID for x900-48FS."
+      },
+      {
+        "revision": "2007-02-07 00:00",
+        "description": "Added systemOID for AT-8824R."
+      },
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Initial version of this MIB module."
       }
     ]
   },
@@ -90,239 +226,259 @@
     "class": "objectidentity",
     "status": "current"
   },
-  "centreCOM_AR300Router": {
-    "name": "centreCOM_AR300Router",
+  "centreComAR300Router": {
+    "name": "centreComAR300Router",
     "oid": "1.3.6.1.4.1.207.1.1.8",
     "class": "objectidentity"
   },
-  "centreCOM_AR720Router": {
-    "name": "centreCOM_AR720Router",
+  "centreComAR720Router": {
+    "name": "centreComAR720Router",
     "oid": "1.3.6.1.4.1.207.1.1.11",
     "class": "objectidentity"
   },
-  "centreCOM_AR300LRouter": {
-    "name": "centreCOM_AR300LRouter",
+  "centreComAR300LRouter": {
+    "name": "centreComAR300LRouter",
     "oid": "1.3.6.1.4.1.207.1.1.12",
     "class": "objectidentity"
   },
-  "centreCOM_AR310Router": {
-    "name": "centreCOM_AR310Router",
+  "centreComAR310Router": {
+    "name": "centreComAR310Router",
     "oid": "1.3.6.1.4.1.207.1.1.13",
     "class": "objectidentity"
   },
-  "centreCOM_AR300LURouter": {
-    "name": "centreCOM_AR300LURouter",
+  "centreComAR300LURouter": {
+    "name": "centreComAR300LURouter",
     "oid": "1.3.6.1.4.1.207.1.1.14",
     "class": "objectidentity"
   },
-  "centreCOM_AR300URouter": {
-    "name": "centreCOM_AR300URouter",
+  "centreComAR300URouter": {
+    "name": "centreComAR300URouter",
     "oid": "1.3.6.1.4.1.207.1.1.15",
     "class": "objectidentity"
   },
-  "centreCOM_AR310URouter": {
-    "name": "centreCOM_AR310URouter",
+  "centreComAR310URouter": {
+    "name": "centreComAR310URouter",
     "oid": "1.3.6.1.4.1.207.1.1.16",
     "class": "objectidentity"
   },
-  "centreCOM_AR350Router": {
-    "name": "centreCOM_AR350Router",
+  "centreComAR350Router": {
+    "name": "centreComAR350Router",
     "oid": "1.3.6.1.4.1.207.1.1.17",
     "class": "objectidentity"
   },
-  "centreCOM_AR370Router": {
-    "name": "centreCOM_AR370Router",
+  "centreComAR370Router": {
+    "name": "centreComAR370Router",
     "oid": "1.3.6.1.4.1.207.1.1.18",
     "class": "objectidentity"
   },
-  "centreCOM_AR330Router": {
-    "name": "centreCOM_AR330Router",
+  "centreComAR330Router": {
+    "name": "centreComAR330Router",
     "oid": "1.3.6.1.4.1.207.1.1.19",
     "class": "objectidentity"
   },
-  "centreCOM_AR395Router": {
-    "name": "centreCOM_AR395Router",
+  "centreComAR395Router": {
+    "name": "centreComAR395Router",
     "oid": "1.3.6.1.4.1.207.1.1.20",
     "class": "objectidentity"
   },
-  "centreCOM_AR390Router": {
-    "name": "centreCOM_AR390Router",
+  "centreComAR390Router": {
+    "name": "centreComAR390Router",
     "oid": "1.3.6.1.4.1.207.1.1.21",
     "class": "objectidentity"
   },
-  "centreCOM_AR370URouter": {
-    "name": "centreCOM_AR370URouter",
+  "centreComAR370URouter": {
+    "name": "centreComAR370URouter",
     "oid": "1.3.6.1.4.1.207.1.1.22",
     "class": "objectidentity"
   },
-  "centreCOM_AR740Router": {
-    "name": "centreCOM_AR740Router",
+  "centreComAR740Router": {
+    "name": "centreComAR740Router",
     "oid": "1.3.6.1.4.1.207.1.1.23",
     "class": "objectidentity"
   },
-  "centreCOM_AR140SRouter": {
-    "name": "centreCOM_AR140SRouter",
+  "centreComAR140SRouter": {
+    "name": "centreComAR140SRouter",
     "oid": "1.3.6.1.4.1.207.1.1.24",
     "class": "objectidentity"
   },
-  "centreCOM_AR140URouter": {
-    "name": "centreCOM_AR140URouter",
+  "centreComAR140URouter": {
+    "name": "centreComAR140URouter",
     "oid": "1.3.6.1.4.1.207.1.1.25",
     "class": "objectidentity"
   },
-  "centreCOM_AR320Router": {
-    "name": "centreCOM_AR320Router",
+  "centreComAR320Router": {
+    "name": "centreComAR320Router",
     "oid": "1.3.6.1.4.1.207.1.1.26",
     "class": "objectidentity"
   },
-  "centreCOM_AR130SRouter": {
-    "name": "centreCOM_AR130SRouter",
+  "centreComAR130SRouter": {
+    "name": "centreComAR130SRouter",
     "oid": "1.3.6.1.4.1.207.1.1.27",
     "class": "objectidentity"
   },
-  "centreCOM_AR130URouter": {
-    "name": "centreCOM_AR130URouter",
+  "centreComAR130URouter": {
+    "name": "centreComAR130URouter",
     "oid": "1.3.6.1.4.1.207.1.1.28",
     "class": "objectidentity"
   },
-  "centreCOM_AR160Router": {
-    "name": "centreCOM_AR160Router",
+  "centreComAR160Router": {
+    "name": "centreComAR160Router",
     "oid": "1.3.6.1.4.1.207.1.1.29",
     "class": "objectidentity"
   },
-  "at_AR740RouterDC": {
-    "name": "at_AR740RouterDC",
+  "atAR740RouterDC": {
+    "name": "atAR740RouterDC",
     "oid": "1.3.6.1.4.1.207.1.1.43",
     "class": "objectidentity"
   },
-  "centreCOM_AR120Router": {
-    "name": "centreCOM_AR120Router",
+  "centreComAR120Router": {
+    "name": "centreComAR120Router",
     "oid": "1.3.6.1.4.1.207.1.1.44",
     "class": "objectidentity"
   },
-  "at_AR410Router": {
-    "name": "at_AR410Router",
+  "atAR410Router": {
+    "name": "atAR410Router",
     "oid": "1.3.6.1.4.1.207.1.1.47",
     "class": "objectidentity"
   },
-  "at_AR725Router": {
-    "name": "at_AR725Router",
+  "atAR725Router": {
+    "name": "atAR725Router",
     "oid": "1.3.6.1.4.1.207.1.1.48",
     "class": "objectidentity"
   },
-  "at_AR745Router": {
-    "name": "at_AR745Router",
+  "atAR745Router": {
+    "name": "atAR745Router",
     "oid": "1.3.6.1.4.1.207.1.1.49",
     "class": "objectidentity"
   },
-  "at_AR410v2Router": {
-    "name": "at_AR410v2Router",
+  "atAR410v2Router": {
+    "name": "atAR410v2Router",
     "oid": "1.3.6.1.4.1.207.1.1.50",
     "class": "objectidentity"
   },
-  "at_AR410v3Router": {
-    "name": "at_AR410v3Router",
+  "atAR410v3Router": {
+    "name": "atAR410v3Router",
     "oid": "1.3.6.1.4.1.207.1.1.51",
     "class": "objectidentity"
   },
-  "at_AR725RouterDC": {
-    "name": "at_AR725RouterDC",
+  "atAR725RouterDC": {
+    "name": "atAR725RouterDC",
     "oid": "1.3.6.1.4.1.207.1.1.52",
     "class": "objectidentity"
   },
-  "at_AR745RouterDC": {
-    "name": "at_AR745RouterDC",
+  "atAR745RouterDC": {
+    "name": "atAR745RouterDC",
     "oid": "1.3.6.1.4.1.207.1.1.53",
     "class": "objectidentity"
   },
-  "at_AR450Router": {
-    "name": "at_AR450Router",
+  "atAR450Router": {
+    "name": "atAR450Router",
     "oid": "1.3.6.1.4.1.207.1.1.54",
     "class": "objectidentity"
   },
-  "at_AR450DualRouter": {
-    "name": "at_AR450DualRouter",
+  "atAR450DualRouter": {
+    "name": "atAR450DualRouter",
     "oid": "1.3.6.1.4.1.207.1.1.55",
     "class": "objectidentity"
   },
-  "at_AR440Router": {
-    "name": "at_AR440Router",
+  "atAR440Router": {
+    "name": "atAR440Router",
     "oid": "1.3.6.1.4.1.207.1.1.59",
     "class": "objectidentity"
   },
-  "at_AR441Router": {
-    "name": "at_AR441Router",
+  "atAR441Router": {
+    "name": "atAR441Router",
     "oid": "1.3.6.1.4.1.207.1.1.60",
     "class": "objectidentity"
   },
-  "at_AR442Router": {
-    "name": "at_AR442Router",
+  "atAR442Router": {
+    "name": "atAR442Router",
     "oid": "1.3.6.1.4.1.207.1.1.61",
     "class": "objectidentity"
   },
-  "at_AR443Router": {
-    "name": "at_AR443Router",
+  "atAR443Router": {
+    "name": "atAR443Router",
     "oid": "1.3.6.1.4.1.207.1.1.62",
     "class": "objectidentity"
   },
-  "at_AR444Router": {
-    "name": "at_AR444Router",
+  "atAR444Router": {
+    "name": "atAR444Router",
     "oid": "1.3.6.1.4.1.207.1.1.63",
     "class": "objectidentity"
   },
-  "at_AR420Router": {
-    "name": "at_AR420Router",
+  "atAR420Router": {
+    "name": "atAR420Router",
     "oid": "1.3.6.1.4.1.207.1.1.64",
     "class": "objectidentity"
   },
-  "at_AR415SRouter": {
-    "name": "at_AR415SRouter",
+  "atAR415SRouter": {
+    "name": "atAR415SRouter",
     "oid": "1.3.6.1.4.1.207.1.1.71",
     "class": "objectidentity"
   },
-  "at_AR415SRouterDC": {
-    "name": "at_AR415SRouterDC",
+  "atAR415SRouterDC": {
+    "name": "atAR415SRouterDC",
     "oid": "1.3.6.1.4.1.207.1.1.72",
     "class": "objectidentity"
   },
-  "at_AR550Router": {
-    "name": "at_AR550Router",
+  "atAR550Router": {
+    "name": "atAR550Router",
     "oid": "1.3.6.1.4.1.207.1.1.73",
     "class": "objectidentity"
   },
-  "at_AR551Router": {
-    "name": "at_AR551Router",
+  "atAR551Router": {
+    "name": "atAR551Router",
     "oid": "1.3.6.1.4.1.207.1.1.74",
     "class": "objectidentity"
   },
-  "at_AR552Router": {
-    "name": "at_AR552Router",
+  "atAR552Router": {
+    "name": "atAR552Router",
     "oid": "1.3.6.1.4.1.207.1.1.75",
     "class": "objectidentity"
   },
-  "at_AR550SRouterDP": {
-    "name": "at_AR550SRouterDP",
+  "atAR550SRouterDP": {
+    "name": "atAR550SRouterDP",
     "oid": "1.3.6.1.4.1.207.1.1.76",
     "class": "objectidentity"
   },
-  "at_AR570Router": {
-    "name": "at_AR570Router",
+  "atAR570Router": {
+    "name": "atAR570Router",
     "oid": "1.3.6.1.4.1.207.1.1.78",
     "class": "objectidentity"
   },
-  "at_AR770Router": {
-    "name": "at_AR770Router",
+  "atAR770Router": {
+    "name": "atAR770Router",
     "oid": "1.3.6.1.4.1.207.1.1.79",
     "class": "objectidentity"
   },
-  "at_AR750SRouterDP": {
-    "name": "at_AR750SRouterDP",
+  "atAR750SRouterDP": {
+    "name": "atAR750SRouterDP",
     "oid": "1.3.6.1.4.1.207.1.1.80",
     "class": "objectidentity"
   },
-  "at_AR560SRouter": {
-    "name": "at_AR560SRouter",
+  "atAR560SRouter": {
+    "name": "atAR560SRouter",
     "oid": "1.3.6.1.4.1.207.1.1.81",
+    "class": "objectidentity"
+  },
+  "atAR3050SRouter": {
+    "name": "atAR3050SRouter",
+    "oid": "1.3.6.1.4.1.207.1.1.82",
+    "class": "objectidentity"
+  },
+  "atAR4050SRouter": {
+    "name": "atAR4050SRouter",
+    "oid": "1.3.6.1.4.1.207.1.1.85",
+    "class": "objectidentity"
+  },
+  "atAR2050VRouter": {
+    "name": "atAR2050VRouter",
+    "oid": "1.3.6.1.4.1.207.1.1.88",
+    "class": "objectidentity"
+  },
+  "atAR2010VRouter": {
+    "name": "atAR2010VRouter",
+    "oid": "1.3.6.1.4.1.207.1.1.89",
     "class": "objectidentity"
   },
   "routerSwitch": {
@@ -331,461 +487,1029 @@
     "class": "objectidentity",
     "status": "current"
   },
-  "at_Rapier24": {
-    "name": "at_Rapier24",
+  "atRapier24": {
+    "name": "atRapier24",
     "oid": "1.3.6.1.4.1.207.1.14.1",
     "class": "objectidentity"
   },
-  "at_Rapier16fSC": {
-    "name": "at_Rapier16fSC",
+  "atRapier16fSC": {
+    "name": "atRapier16fSC",
     "oid": "1.3.6.1.4.1.207.1.14.2",
     "class": "objectidentity"
   },
-  "at_Rapier16fVF": {
-    "name": "at_Rapier16fVF",
+  "atRapier16fVF": {
+    "name": "atRapier16fVF",
     "oid": "1.3.6.1.4.1.207.1.14.3",
     "class": "objectidentity"
   },
-  "at_Rapier16fMT": {
-    "name": "at_Rapier16fMT",
+  "atRapier16fMT": {
+    "name": "atRapier16fMT",
     "oid": "1.3.6.1.4.1.207.1.14.4",
     "class": "objectidentity"
   },
-  "at_Rapier48": {
-    "name": "at_Rapier48",
+  "atRapier48": {
+    "name": "atRapier48",
     "oid": "1.3.6.1.4.1.207.1.14.5",
     "class": "objectidentity"
   },
-  "at_Rapier8t8fSC": {
-    "name": "at_Rapier8t8fSC",
+  "atRapier8t8fSC": {
+    "name": "atRapier8t8fSC",
     "oid": "1.3.6.1.4.1.207.1.14.6",
     "class": "objectidentity"
   },
-  "at_Rapier8t8fSCi": {
-    "name": "at_Rapier8t8fSCi",
+  "atRapier8t8fSCi": {
+    "name": "atRapier8t8fSCi",
     "oid": "1.3.6.1.4.1.207.1.14.7",
     "class": "objectidentity"
   },
-  "at_Rapier8t8fMT": {
-    "name": "at_Rapier8t8fMT",
+  "atRapier8t8fMT": {
+    "name": "atRapier8t8fMT",
     "oid": "1.3.6.1.4.1.207.1.14.8",
     "class": "objectidentity"
   },
-  "at_Rapier8t8fMTi": {
-    "name": "at_Rapier8t8fMTi",
+  "atRapier8t8fMTi": {
+    "name": "atRapier8t8fMTi",
     "oid": "1.3.6.1.4.1.207.1.14.9",
     "class": "objectidentity"
   },
-  "at_Rapier8fSC": {
-    "name": "at_Rapier8fSC",
+  "atRapier8fSC": {
+    "name": "atRapier8fSC",
     "oid": "1.3.6.1.4.1.207.1.14.10",
     "class": "objectidentity"
   },
-  "at_Rapier8fSCi": {
-    "name": "at_Rapier8fSCi",
+  "atRapier8fSCi": {
+    "name": "atRapier8fSCi",
     "oid": "1.3.6.1.4.1.207.1.14.11",
     "class": "objectidentity"
   },
-  "at_Rapier8fMT": {
-    "name": "at_Rapier8fMT",
+  "atRapier8fMT": {
+    "name": "atRapier8fMT",
     "oid": "1.3.6.1.4.1.207.1.14.12",
     "class": "objectidentity"
   },
-  "at_Rapier8fMTi": {
-    "name": "at_Rapier8fMTi",
+  "atRapier8fMTi": {
+    "name": "atRapier8fMTi",
     "oid": "1.3.6.1.4.1.207.1.14.13",
     "class": "objectidentity"
   },
-  "at_Rapier16fMTi": {
-    "name": "at_Rapier16fMTi",
+  "atRapier16fMTi": {
+    "name": "atRapier16fMTi",
     "oid": "1.3.6.1.4.1.207.1.14.14",
     "class": "objectidentity"
   },
-  "at_RapierG6": {
-    "name": "at_RapierG6",
+  "atRapierG6": {
+    "name": "atRapierG6",
     "oid": "1.3.6.1.4.1.207.1.14.15",
     "class": "objectidentity"
   },
-  "at_RapierG6SX": {
-    "name": "at_RapierG6SX",
+  "atRapierG6SX": {
+    "name": "atRapierG6SX",
     "oid": "1.3.6.1.4.1.207.1.14.16",
     "class": "objectidentity"
   },
-  "at_RapierG6LX": {
-    "name": "at_RapierG6LX",
+  "atRapierG6LX": {
+    "name": "atRapierG6LX",
     "oid": "1.3.6.1.4.1.207.1.14.17",
     "class": "objectidentity"
   },
-  "at_RapierG6MT": {
-    "name": "at_RapierG6MT",
+  "atRapierG6MT": {
+    "name": "atRapierG6MT",
     "oid": "1.3.6.1.4.1.207.1.14.18",
     "class": "objectidentity"
   },
-  "at_Rapier16fSCi": {
-    "name": "at_Rapier16fSCi",
+  "atRapier16fSCi": {
+    "name": "atRapier16fSCi",
     "oid": "1.3.6.1.4.1.207.1.14.19",
     "class": "objectidentity"
   },
-  "at_Rapier24i": {
-    "name": "at_Rapier24i",
+  "atRapier24i": {
+    "name": "atRapier24i",
     "oid": "1.3.6.1.4.1.207.1.14.20",
     "class": "objectidentity"
   },
-  "at_Rapier48i": {
-    "name": "at_Rapier48i",
+  "atRapier48i": {
+    "name": "atRapier48i",
     "oid": "1.3.6.1.4.1.207.1.14.21",
     "class": "objectidentity"
   },
-  "at_Switchblade4AC": {
-    "name": "at_Switchblade4AC",
+  "atSwitchblade4AC": {
+    "name": "atSwitchblade4AC",
     "oid": "1.3.6.1.4.1.207.1.14.22",
     "class": "objectidentity"
   },
-  "at_Switchblade4DC": {
-    "name": "at_Switchblade4DC",
+  "atSwitchblade4DC": {
+    "name": "atSwitchblade4DC",
     "oid": "1.3.6.1.4.1.207.1.14.23",
     "class": "objectidentity"
   },
-  "at_Switchblade8AC": {
-    "name": "at_Switchblade8AC",
+  "atSwitchblade8AC": {
+    "name": "atSwitchblade8AC",
     "oid": "1.3.6.1.4.1.207.1.14.24",
     "class": "objectidentity"
   },
-  "at_Switchblade8DC": {
-    "name": "at_Switchblade8DC",
+  "atSwitchblade8DC": {
+    "name": "atSwitchblade8DC",
     "oid": "1.3.6.1.4.1.207.1.14.25",
     "class": "objectidentity"
   },
-  "at_9816GF": {
-    "name": "at_9816GF",
+  "at9816GF": {
+    "name": "at9816GF",
     "oid": "1.3.6.1.4.1.207.1.14.26",
     "class": "objectidentity"
   },
-  "at_9812TF": {
-    "name": "at_9812TF",
+  "at9812TF": {
+    "name": "at9812TF",
     "oid": "1.3.6.1.4.1.207.1.14.27",
     "class": "objectidentity"
   },
-  "at_9816GB": {
-    "name": "at_9816GB",
+  "at9816GB": {
+    "name": "at9816GB",
     "oid": "1.3.6.1.4.1.207.1.14.28",
     "class": "objectidentity"
   },
-  "at_9812T": {
-    "name": "at_9812T",
+  "at9812T": {
+    "name": "at9812T",
     "oid": "1.3.6.1.4.1.207.1.14.29",
     "class": "objectidentity"
   },
-  "at_8724XL": {
-    "name": "at_8724XL",
+  "at8724XL": {
+    "name": "at8724XL",
     "oid": "1.3.6.1.4.1.207.1.14.30",
     "class": "objectidentity"
   },
-  "at_8748XL": {
-    "name": "at_8748XL",
+  "at8748XL": {
+    "name": "at8748XL",
     "oid": "1.3.6.1.4.1.207.1.14.31",
     "class": "objectidentity"
   },
-  "at_8724XLDC": {
-    "name": "at_8724XLDC",
+  "at8724XLDC": {
+    "name": "at8724XLDC",
     "oid": "1.3.6.1.4.1.207.1.14.32",
     "class": "objectidentity"
   },
-  "at_8748XLDC": {
-    "name": "at_8748XLDC",
+  "at8748XLDC": {
+    "name": "at8748XLDC",
     "oid": "1.3.6.1.4.1.207.1.14.33",
     "class": "objectidentity"
   },
-  "at_9816GB_DC": {
-    "name": "at_9816GB_DC",
+  "at9816GbDC": {
+    "name": "at9816GbDC",
     "oid": "1.3.6.1.4.1.207.1.14.34",
     "class": "objectidentity"
   },
-  "at_9812T_DC": {
-    "name": "at_9812T_DC",
+  "at9812tDC": {
+    "name": "at9812tDC",
     "oid": "1.3.6.1.4.1.207.1.14.35",
     "class": "objectidentity"
   },
-  "at_8824": {
-    "name": "at_8824",
+  "at8824": {
+    "name": "at8824",
     "oid": "1.3.6.1.4.1.207.1.14.36",
     "class": "objectidentity"
   },
-  "at_8848": {
-    "name": "at_8848",
+  "at8848": {
+    "name": "at8848",
     "oid": "1.3.6.1.4.1.207.1.14.37",
     "class": "objectidentity"
   },
-  "at_8824_DC": {
-    "name": "at_8824_DC",
+  "at8824DC": {
+    "name": "at8824DC",
     "oid": "1.3.6.1.4.1.207.1.14.38",
     "class": "objectidentity"
   },
-  "at_8848_DC": {
-    "name": "at_8848_DC",
+  "at8848DC": {
+    "name": "at8848DC",
     "oid": "1.3.6.1.4.1.207.1.14.39",
     "class": "objectidentity"
   },
-  "at_8624XL_80": {
-    "name": "at_8624XL_80",
+  "at8624XL80": {
+    "name": "at8624XL80",
     "oid": "1.3.6.1.4.1.207.1.14.41",
     "class": "objectidentity"
   },
-  "at_8724XL_80": {
-    "name": "at_8724XL_80",
+  "at8724XL80": {
+    "name": "at8724XL80",
     "oid": "1.3.6.1.4.1.207.1.14.42",
     "class": "objectidentity"
   },
-  "at_8748XL_80": {
-    "name": "at_8748XL_80",
+  "at8748XL80": {
+    "name": "at8748XL80",
     "oid": "1.3.6.1.4.1.207.1.14.43",
     "class": "objectidentity"
   },
-  "at_8948EX": {
-    "name": "at_8948EX",
+  "at8948EX": {
+    "name": "at8948EX",
     "oid": "1.3.6.1.4.1.207.1.14.44",
     "class": "objectidentity"
   },
-  "at_8948i": {
-    "name": "at_8948i",
+  "at8948i": {
+    "name": "at8948i",
     "oid": "1.3.6.1.4.1.207.1.14.45",
     "class": "objectidentity"
   },
-  "at_8624T2M": {
-    "name": "at_8624T2M",
+  "at8624T2M": {
+    "name": "at8624T2M",
     "oid": "1.3.6.1.4.1.207.1.14.46",
     "class": "objectidentity"
   },
-  "at_Rapier24i_DC_NEBS": {
-    "name": "at_Rapier24i_DC_NEBS",
+  "atRapier24iDcNEBS": {
+    "name": "atRapier24iDcNEBS",
     "oid": "1.3.6.1.4.1.207.1.14.47",
     "class": "objectidentity"
   },
-  "at_8724XL_DC_NEBS": {
-    "name": "at_8724XL_DC_NEBS",
+  "at8724XLDcNEBS": {
+    "name": "at8724XLDcNEBS",
     "oid": "1.3.6.1.4.1.207.1.14.48",
     "class": "objectidentity"
   },
-  "at_9924T": {
-    "name": "at_9924T",
+  "at9924T": {
+    "name": "at9924T",
     "oid": "1.3.6.1.4.1.207.1.14.49",
     "class": "objectidentity"
   },
-  "at_9924SP": {
-    "name": "at_9924SP",
+  "at9924SP": {
+    "name": "at9924SP",
     "oid": "1.3.6.1.4.1.207.1.14.50",
     "class": "objectidentity"
   },
-  "at_9924T_4SP": {
-    "name": "at_9924T_4SP",
+  "at9924T4SP": {
+    "name": "at9924T4SP",
     "oid": "1.3.6.1.4.1.207.1.14.51",
     "class": "objectidentity"
   },
-  "at_9924TEMC": {
-    "name": "at_9924TEMC",
+  "at9924TEMC": {
+    "name": "at9924TEMC",
     "oid": "1.3.6.1.4.1.207.1.14.53",
     "class": "objectidentity"
   },
-  "at_8724MLB": {
-    "name": "at_8724MLB",
+  "at8724MLB": {
+    "name": "at8724MLB",
     "oid": "1.3.6.1.4.1.207.1.14.55",
     "class": "objectidentity"
   },
-  "at_8624POE": {
-    "name": "at_8624POE",
+  "at8624POE": {
+    "name": "at8624POE",
     "oid": "1.3.6.1.4.1.207.1.14.56",
     "class": "objectidentity"
   },
-  "at_9924Ts": {
-    "name": "at_9924Ts",
+  "at9924Ts": {
+    "name": "at9924Ts",
     "oid": "1.3.6.1.4.1.207.1.14.57",
     "class": "objectidentity"
   },
-  "at_86482SP": {
-    "name": "at_86482SP",
+  "at86482SP": {
+    "name": "at86482SP",
     "oid": "1.3.6.1.4.1.207.1.14.58",
     "class": "objectidentity"
   },
-  "at_9924Ti": {
-    "name": "at_9924Ti",
+  "at9924Ti": {
+    "name": "at9924Ti",
     "oid": "1.3.6.1.4.1.207.1.14.59",
     "class": "objectidentity"
   },
-  "at_9924SPi": {
-    "name": "at_9924SPi",
+  "at9924SPi": {
+    "name": "at9924SPi",
     "oid": "1.3.6.1.4.1.207.1.14.60",
     "class": "objectidentity"
   },
-  "at_9924Tsi": {
-    "name": "at_9924Tsi",
+  "at9924Tsi": {
+    "name": "at9924Tsi",
     "oid": "1.3.6.1.4.1.207.1.14.61",
     "class": "objectidentity"
   },
-  "at_9924SPsi": {
-    "name": "at_9924SPsi",
+  "at9924SPsi": {
+    "name": "at9924SPsi",
     "oid": "1.3.6.1.4.1.207.1.14.62",
     "class": "objectidentity"
   },
-  "at_8948i_N": {
-    "name": "at_8948i_N",
+  "at8948iN": {
+    "name": "at8948iN",
     "oid": "1.3.6.1.4.1.207.1.14.63",
     "class": "objectidentity"
   },
-  "at_9924Tsi_N": {
-    "name": "at_9924Tsi_N",
+  "at9924TsiN": {
+    "name": "at9924TsiN",
     "oid": "1.3.6.1.4.1.207.1.14.64",
     "class": "objectidentity"
   },
-  "at_Rapier48w": {
-    "name": "at_Rapier48w",
+  "atRapier48w": {
+    "name": "atRapier48w",
     "oid": "1.3.6.1.4.1.207.1.14.65",
     "class": "objectidentity"
   },
-  "at_8724SL_V2": {
-    "name": "at_8724SL_V2",
+  "at8724SlV2": {
+    "name": "at8724SlV2",
     "oid": "1.3.6.1.4.1.207.1.14.67",
     "class": "objectidentity"
   },
-  "x900_48FS": {
-    "name": "x900_48FS",
+  "x90048FS": {
+    "name": "x90048FS",
     "oid": "1.3.6.1.4.1.207.1.14.68",
     "class": "objectidentity"
   },
-  "at_SwitchBladex908": {
-    "name": "at_SwitchBladex908",
+  "atSwitchBladex908": {
+    "name": "atSwitchBladex908",
     "oid": "1.3.6.1.4.1.207.1.14.69",
     "class": "objectidentity"
   },
-  "at_x900_12XTS": {
-    "name": "at_x900_12XTS",
+  "atx90012XTS": {
+    "name": "atx90012XTS",
     "oid": "1.3.6.1.4.1.207.1.14.70",
     "class": "objectidentity"
   },
-  "at_Rapier48wb": {
-    "name": "at_Rapier48wb",
+  "atRapier48wb": {
+    "name": "atRapier48wb",
     "oid": "1.3.6.1.4.1.207.1.14.71",
     "class": "objectidentity"
   },
-  "at_Rapier48w_AC": {
-    "name": "at_Rapier48w_AC",
+  "atRapier48wAC": {
+    "name": "atRapier48wAC",
     "oid": "1.3.6.1.4.1.207.1.14.72",
     "class": "objectidentity"
   },
-  "at_Rapier48wb_AC": {
-    "name": "at_Rapier48wb_AC",
+  "atRapier48wbAC": {
+    "name": "atRapier48wbAC",
     "oid": "1.3.6.1.4.1.207.1.14.73",
     "class": "objectidentity"
   },
-  "at_x900_24XT": {
-    "name": "at_x900_24XT",
+  "atx90024XT": {
+    "name": "atx90024XT",
     "oid": "1.3.6.1.4.1.207.1.14.75",
     "class": "objectidentity"
   },
-  "at_x900_24XS": {
-    "name": "at_x900_24XS",
+  "atx90024XS": {
+    "name": "atx90024XS",
     "oid": "1.3.6.1.4.1.207.1.14.76",
     "class": "objectidentity"
   },
-  "at_x900_24XT_N": {
-    "name": "at_x900_24XT_N",
+  "atx90024XtN": {
+    "name": "atx90024XtN",
     "oid": "1.3.6.1.4.1.207.1.14.77",
     "class": "objectidentity"
   },
-  "at_x600_24Ts": {
-    "name": "at_x600_24Ts",
+  "atx60024Ts": {
+    "name": "atx60024Ts",
     "oid": "1.3.6.1.4.1.207.1.14.80",
     "class": "objectidentity"
   },
-  "at_x600_24TsXP": {
-    "name": "at_x600_24TsXP",
+  "atx60024TsXP": {
+    "name": "atx60024TsXP",
     "oid": "1.3.6.1.4.1.207.1.14.81",
     "class": "objectidentity"
   },
-  "at_x600_48Ts": {
-    "name": "at_x600_48Ts",
+  "atx60048Ts": {
+    "name": "atx60048Ts",
     "oid": "1.3.6.1.4.1.207.1.14.82",
     "class": "objectidentity"
   },
-  "at_x600_48TsXP": {
-    "name": "at_x600_48TsXP",
+  "atx60048TsXP": {
+    "name": "atx60048TsXP",
     "oid": "1.3.6.1.4.1.207.1.14.83",
     "class": "objectidentity"
   },
-  "at_rapier24ib_NEBS": {
-    "name": "at_rapier24ib_NEBS",
+  "atRapier24ibNEBS": {
+    "name": "atRapier24ibNEBS",
     "oid": "1.3.6.1.4.1.207.1.14.84",
     "class": "objectidentity"
   },
-  "at_rapier24ib_DC_NEBS": {
-    "name": "at_rapier24ib_DC_NEBS",
+  "atRapier24ibDcNEBS": {
+    "name": "atRapier24ibDcNEBS",
     "oid": "1.3.6.1.4.1.207.1.14.85",
     "class": "objectidentity"
   },
-  "at_x600_24TsPoE": {
-    "name": "at_x600_24TsPoE",
+  "atSBx8112": {
+    "name": "atSBx8112",
+    "oid": "1.3.6.1.4.1.207.1.14.86",
+    "class": "objectidentity"
+  },
+  "atSBx81CFC400": {
+    "name": "atSBx81CFC400",
+    "oid": "1.3.6.1.4.1.207.1.14.87",
+    "class": "objectidentity"
+  },
+  "atSBx81CFC960": {
+    "name": "atSBx81CFC960",
+    "oid": "1.3.6.1.4.1.207.1.14.88",
+    "class": "objectidentity"
+  },
+  "atx60024TsPoE": {
+    "name": "atx60024TsPoE",
     "oid": "1.3.6.1.4.1.207.1.14.91",
     "class": "objectidentity"
   },
-  "at_x600_24TsPoEPlus": {
-    "name": "at_x600_24TsPoEPlus",
+  "atx60024TsPoEPlus": {
+    "name": "atx60024TsPoEPlus",
     "oid": "1.3.6.1.4.1.207.1.14.92",
     "class": "objectidentity"
   },
-  "x610_48Ts_X_POEPlus": {
-    "name": "x610_48Ts_X_POEPlus",
+  "x61048TsXPOEPlus": {
+    "name": "x61048TsXPOEPlus",
     "oid": "1.3.6.1.4.1.207.1.14.93",
     "class": "objectidentity"
   },
-  "x610_48Ts_POEPlus": {
-    "name": "x610_48Ts_POEPlus",
+  "x61048TsPOEPlus": {
+    "name": "x61048TsPOEPlus",
     "oid": "1.3.6.1.4.1.207.1.14.94",
     "class": "objectidentity"
   },
-  "x610_24Ts_X_POEPlus": {
-    "name": "x610_24Ts_X_POEPlus",
+  "x61024TsXPOEPlus": {
+    "name": "x61024TsXPOEPlus",
     "oid": "1.3.6.1.4.1.207.1.14.95",
     "class": "objectidentity"
   },
-  "x610_24Ts_POEPlus": {
-    "name": "x610_24Ts_POEPlus",
+  "x61024TsPOEPlus": {
+    "name": "x61024TsPOEPlus",
     "oid": "1.3.6.1.4.1.207.1.14.96",
     "class": "objectidentity"
   },
-  "x610_48Ts_X": {
-    "name": "x610_48Ts_X",
+  "x61048TsX": {
+    "name": "x61048TsX",
     "oid": "1.3.6.1.4.1.207.1.14.97",
     "class": "objectidentity"
   },
-  "x610_48Ts": {
-    "name": "x610_48Ts",
+  "x61048Ts": {
+    "name": "x61048Ts",
     "oid": "1.3.6.1.4.1.207.1.14.98",
     "class": "objectidentity"
   },
-  "x610_24Ts_X": {
-    "name": "x610_24Ts_X",
+  "x61024TsX": {
+    "name": "x61024TsX",
     "oid": "1.3.6.1.4.1.207.1.14.99",
     "class": "objectidentity"
   },
-  "x610_24Ts": {
-    "name": "x610_24Ts",
+  "x61024Ts": {
+    "name": "x61024Ts",
     "oid": "1.3.6.1.4.1.207.1.14.100",
     "class": "objectidentity"
   },
-  "x610_24SP_X": {
-    "name": "x610_24SP_X",
+  "x61024SPX": {
+    "name": "x61024SPX",
     "oid": "1.3.6.1.4.1.207.1.14.101",
     "class": "objectidentity"
   },
-  "at_8724SL_V2_DC": {
-    "name": "at_8724SL_V2_DC",
-    "oid": "1.3.6.1.4.1.207.1.14.102",
+  "atRP48xDC": {
+    "name": "atRP48xDC",
+    "oid": "1.3.6.1.4.1.207.1.14.105",
+    "class": "objectidentity"
+  },
+  "atx51028GTX": {
+    "name": "atx51028GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.109",
+    "class": "objectidentity"
+  },
+  "atx51028GPX": {
+    "name": "atx51028GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.110",
+    "class": "objectidentity"
+  },
+  "atx51028GSX": {
+    "name": "atx51028GSX",
+    "oid": "1.3.6.1.4.1.207.1.14.111",
+    "class": "objectidentity"
+  },
+  "atx51052GTX": {
+    "name": "atx51052GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.112",
+    "class": "objectidentity"
+  },
+  "atx51052GPX": {
+    "name": "atx51052GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.113",
+    "class": "objectidentity"
+  },
+  "atSBx8106": {
+    "name": "atSBx8106",
+    "oid": "1.3.6.1.4.1.207.1.14.114",
+    "class": "objectidentity"
+  },
+  "atx510DP52GTX": {
+    "name": "atx510DP52GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.116",
+    "class": "objectidentity"
+  },
+  "atIX528GPX": {
+    "name": "atIX528GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.117",
+    "class": "objectidentity"
+  },
+  "atx93028GTX": {
+    "name": "atx93028GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.118",
+    "class": "objectidentity"
+  },
+  "atx93028GPX": {
+    "name": "atx93028GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.119",
+    "class": "objectidentity"
+  },
+  "atx93028GSX": {
+    "name": "atx93028GSX",
+    "oid": "1.3.6.1.4.1.207.1.14.120",
+    "class": "objectidentity"
+  },
+  "atx93052GTX": {
+    "name": "atx93052GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.121",
+    "class": "objectidentity"
+  },
+  "atx93052GPX": {
+    "name": "atx93052GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.122",
+    "class": "objectidentity"
+  },
+  "atdc2552xs": {
+    "name": "atdc2552xs",
+    "oid": "1.3.6.1.4.1.207.1.14.123",
+    "class": "objectidentity"
+  },
+  "atx51028GSXDC": {
+    "name": "atx51028GSXDC",
+    "oid": "1.3.6.1.4.1.207.1.14.124",
+    "class": "objectidentity"
+  },
+  "atx510DP28GTX": {
+    "name": "atx510DP28GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.126",
+    "class": "objectidentity"
+  },
+  "atx510L28GT": {
+    "name": "atx510L28GT",
+    "oid": "1.3.6.1.4.1.207.1.14.127",
+    "class": "objectidentity"
+  },
+  "atx510L52GT": {
+    "name": "atx510L52GT",
+    "oid": "1.3.6.1.4.1.207.1.14.128",
+    "class": "objectidentity"
+  },
+  "atx510L28GP": {
+    "name": "atx510L28GP",
+    "oid": "1.3.6.1.4.1.207.1.14.129",
+    "class": "objectidentity"
+  },
+  "atx510L52GP": {
+    "name": "atx510L52GP",
+    "oid": "1.3.6.1.4.1.207.1.14.130",
+    "class": "objectidentity"
+  },
+  "atx51028GTXR": {
+    "name": "atx51028GTXR",
+    "oid": "1.3.6.1.4.1.207.1.14.131",
+    "class": "objectidentity"
+  },
+  "atx51052GTXR": {
+    "name": "atx51052GTXR",
+    "oid": "1.3.6.1.4.1.207.1.14.132",
+    "class": "objectidentity"
+  },
+  "atSH51028GTX": {
+    "name": "atSH51028GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.133",
+    "class": "objectidentity"
+  },
+  "atSH51052GTX": {
+    "name": "atSH51052GTX",
+    "oid": "1.3.6.1.4.1.207.1.14.134",
+    "class": "objectidentity"
+  },
+  "atSH51028GPX": {
+    "name": "atSH51028GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.135",
+    "class": "objectidentity"
+  },
+  "atSH51052GPX": {
+    "name": "atSH51052GPX",
+    "oid": "1.3.6.1.4.1.207.1.14.136",
+    "class": "objectidentity"
+  },
+  "atsbx908g2": {
+    "name": "atsbx908g2",
+    "oid": "1.3.6.1.4.1.207.1.14.137",
+    "class": "objectidentity"
+  },
+  "atsbx908g3": {
+    "name": "atsbx908g3",
+    "oid": "1.3.6.1.4.1.207.1.14.138",
+    "class": "objectidentity"
+  },
+  "atx55018XTQ": {
+    "name": "atx55018XTQ",
+    "oid": "1.3.6.1.4.1.207.1.14.139",
+    "class": "objectidentity"
+  },
+  "atx55018XSQ": {
+    "name": "atx55018XSQ",
+    "oid": "1.3.6.1.4.1.207.1.14.140",
+    "class": "objectidentity"
+  },
+  "atx55018XSPQm": {
+    "name": "atx55018XSPQm",
+    "oid": "1.3.6.1.4.1.207.1.14.141",
+    "class": "objectidentity"
+  },
+  "atSBx81XLEM": {
+    "name": "atSBx81XLEM",
+    "oid": "1.3.6.1.4.1.207.1.14.142",
+    "class": "objectidentity"
+  },
+  "swhub": {
+    "name": "swhub",
+    "oid": "1.3.6.1.4.1.207.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atx200GE52T": {
+    "name": "atx200GE52T",
+    "oid": "1.3.6.1.4.1.207.1.4.181",
+    "class": "objectidentity"
+  },
+  "atx200GE28T": {
+    "name": "atx200GE28T",
+    "oid": "1.3.6.1.4.1.207.1.4.182",
+    "class": "objectidentity"
+  },
+  "atx2109GT": {
+    "name": "atx2109GT",
+    "oid": "1.3.6.1.4.1.207.1.4.196",
+    "class": "objectidentity"
+  },
+  "atx21016GT": {
+    "name": "atx21016GT",
+    "oid": "1.3.6.1.4.1.207.1.4.197",
+    "class": "objectidentity"
+  },
+  "atx21024GT": {
+    "name": "atx21024GT",
+    "oid": "1.3.6.1.4.1.207.1.4.198",
+    "class": "objectidentity"
+  },
+  "atx31026FT": {
+    "name": "atx31026FT",
+    "oid": "1.3.6.1.4.1.207.1.4.216",
+    "class": "objectidentity"
+  },
+  "atx31050FT": {
+    "name": "atx31050FT",
+    "oid": "1.3.6.1.4.1.207.1.4.217",
+    "class": "objectidentity"
+  },
+  "atx31026FP": {
+    "name": "atx31026FP",
+    "oid": "1.3.6.1.4.1.207.1.4.218",
+    "class": "objectidentity"
+  },
+  "atx31050FP": {
+    "name": "atx31050FP",
+    "oid": "1.3.6.1.4.1.207.1.4.219",
+    "class": "objectidentity"
+  },
+  "atx31026GT": {
+    "name": "atx31026GT",
+    "oid": "1.3.6.1.4.1.207.1.4.220",
+    "class": "objectidentity"
+  },
+  "atx31050GT": {
+    "name": "atx31050GT",
+    "oid": "1.3.6.1.4.1.207.1.4.221",
+    "class": "objectidentity"
+  },
+  "atx31026GP": {
+    "name": "atx31026GP",
+    "oid": "1.3.6.1.4.1.207.1.4.222",
+    "class": "objectidentity"
+  },
+  "atx31050GP": {
+    "name": "atx31050GP",
+    "oid": "1.3.6.1.4.1.207.1.4.223",
+    "class": "objectidentity"
+  },
+  "atx23010GT": {
+    "name": "atx23010GT",
+    "oid": "1.3.6.1.4.1.207.1.4.224",
+    "class": "objectidentity"
+  },
+  "atx23018GT": {
+    "name": "atx23018GT",
+    "oid": "1.3.6.1.4.1.207.1.4.225",
+    "class": "objectidentity"
+  },
+  "atx23028GT": {
+    "name": "atx23028GT",
+    "oid": "1.3.6.1.4.1.207.1.4.226",
+    "class": "objectidentity"
+  },
+  "atx23052GT": {
+    "name": "atx23052GT",
+    "oid": "1.3.6.1.4.1.207.1.4.227",
+    "class": "objectidentity"
+  },
+  "atx23010GP": {
+    "name": "atx23010GP",
+    "oid": "1.3.6.1.4.1.207.1.4.228",
+    "class": "objectidentity"
+  },
+  "atx23018GP": {
+    "name": "atx23018GP",
+    "oid": "1.3.6.1.4.1.207.1.4.229",
+    "class": "objectidentity"
+  },
+  "atx23028GP": {
+    "name": "atx23028GP",
+    "oid": "1.3.6.1.4.1.207.1.4.230",
+    "class": "objectidentity"
+  },
+  "atx23052GP": {
+    "name": "atx23052GP",
+    "oid": "1.3.6.1.4.1.207.1.4.231",
+    "class": "objectidentity"
+  },
+  "atx35010GPT": {
+    "name": "atx35010GPT",
+    "oid": "1.3.6.1.4.1.207.1.4.232",
+    "class": "objectidentity"
+  },
+  "atGS924MX": {
+    "name": "atGS924MX",
+    "oid": "1.3.6.1.4.1.207.1.4.253",
+    "class": "objectidentity"
+  },
+  "atGS924MPX": {
+    "name": "atGS924MPX",
+    "oid": "1.3.6.1.4.1.207.1.4.254",
+    "class": "objectidentity"
+  },
+  "atGS948MX": {
+    "name": "atGS948MX",
+    "oid": "1.3.6.1.4.1.207.1.4.255",
+    "class": "objectidentity"
+  },
+  "atGS948MPX": {
+    "name": "atGS948MPX",
+    "oid": "1.3.6.1.4.1.207.1.4.256",
+    "class": "objectidentity"
+  },
+  "atXS916MXT": {
+    "name": "atXS916MXT",
+    "oid": "1.3.6.1.4.1.207.1.4.257",
+    "class": "objectidentity"
+  },
+  "atXS916MXS": {
+    "name": "atXS916MXS",
+    "oid": "1.3.6.1.4.1.207.1.4.258",
+    "class": "objectidentity"
+  },
+  "atXS916MXP": {
+    "name": "atXS916MXP",
+    "oid": "1.3.6.1.4.1.207.1.4.259",
+    "class": "objectidentity"
+  },
+  "atSH23010GP": {
+    "name": "atSH23010GP",
+    "oid": "1.3.6.1.4.1.207.1.4.260",
+    "class": "objectidentity"
+  },
+  "atSH23018GP": {
+    "name": "atSH23018GP",
+    "oid": "1.3.6.1.4.1.207.1.4.261",
+    "class": "objectidentity"
+  },
+  "atSH23028GP": {
+    "name": "atSH23028GP",
+    "oid": "1.3.6.1.4.1.207.1.4.262",
+    "class": "objectidentity"
+  },
+  "atSH2109GT": {
+    "name": "atSH2109GT",
+    "oid": "1.3.6.1.4.1.207.1.4.263",
+    "class": "objectidentity"
+  },
+  "atSH21016GT": {
+    "name": "atSH21016GT",
+    "oid": "1.3.6.1.4.1.207.1.4.264",
+    "class": "objectidentity"
+  },
+  "atSH21024GT": {
+    "name": "atSH21024GT",
+    "oid": "1.3.6.1.4.1.207.1.4.265",
+    "class": "objectidentity"
+  },
+  "atSH31026FT": {
+    "name": "atSH31026FT",
+    "oid": "1.3.6.1.4.1.207.1.4.266",
+    "class": "objectidentity"
+  },
+  "atSH31050FT": {
+    "name": "atSH31050FT",
+    "oid": "1.3.6.1.4.1.207.1.4.267",
+    "class": "objectidentity"
+  },
+  "atSH31026FP": {
+    "name": "atSH31026FP",
+    "oid": "1.3.6.1.4.1.207.1.4.268",
+    "class": "objectidentity"
+  },
+  "atSH31050FP": {
+    "name": "atSH31050FP",
+    "oid": "1.3.6.1.4.1.207.1.4.269",
+    "class": "objectidentity"
+  },
+  "atSH23010GT": {
+    "name": "atSH23010GT",
+    "oid": "1.3.6.1.4.1.207.1.4.270",
+    "class": "objectidentity"
+  },
+  "atSH23018GT": {
+    "name": "atSH23018GT",
+    "oid": "1.3.6.1.4.1.207.1.4.271",
+    "class": "objectidentity"
+  },
+  "atSH23028GT": {
+    "name": "atSH23028GT",
+    "oid": "1.3.6.1.4.1.207.1.4.272",
+    "class": "objectidentity"
+  },
+  "atFS980M9": {
+    "name": "atFS980M9",
+    "oid": "1.3.6.1.4.1.207.1.4.274",
+    "class": "objectidentity"
+  },
+  "atFS980M9PS": {
+    "name": "atFS980M9PS",
+    "oid": "1.3.6.1.4.1.207.1.4.275",
+    "class": "objectidentity"
+  },
+  "atFS980M18": {
+    "name": "atFS980M18",
+    "oid": "1.3.6.1.4.1.207.1.4.276",
+    "class": "objectidentity"
+  },
+  "atFS980M18PS": {
+    "name": "atFS980M18PS",
+    "oid": "1.3.6.1.4.1.207.1.4.277",
+    "class": "objectidentity"
+  },
+  "atFS980M28": {
+    "name": "atFS980M28",
+    "oid": "1.3.6.1.4.1.207.1.4.278",
+    "class": "objectidentity"
+  },
+  "atFS980M28PS": {
+    "name": "atFS980M28PS",
+    "oid": "1.3.6.1.4.1.207.1.4.279",
+    "class": "objectidentity"
+  },
+  "atFS980M52": {
+    "name": "atFS980M52",
+    "oid": "1.3.6.1.4.1.207.1.4.280",
+    "class": "objectidentity"
+  },
+  "atFS980M52PS": {
+    "name": "atFS980M52PS",
+    "oid": "1.3.6.1.4.1.207.1.4.281",
+    "class": "objectidentity"
+  },
+  "atGS910M": {
+    "name": "atGS910M",
+    "oid": "1.3.6.1.4.1.207.1.4.282",
+    "class": "objectidentity"
+  },
+  "atGS910MP": {
+    "name": "atGS910MP",
+    "oid": "1.3.6.1.4.1.207.1.4.283",
+    "class": "objectidentity"
+  },
+  "atGS918M": {
+    "name": "atGS918M",
+    "oid": "1.3.6.1.4.1.207.1.4.284",
+    "class": "objectidentity"
+  },
+  "atGS918MP": {
+    "name": "atGS918MP",
+    "oid": "1.3.6.1.4.1.207.1.4.285",
+    "class": "objectidentity"
+  },
+  "atGS928M": {
+    "name": "atGS928M",
+    "oid": "1.3.6.1.4.1.207.1.4.286",
+    "class": "objectidentity"
+  },
+  "atGS928MP": {
+    "name": "atGS928MP",
+    "oid": "1.3.6.1.4.1.207.1.4.287",
+    "class": "objectidentity"
+  },
+  "atGS952M": {
+    "name": "atGS952M",
+    "oid": "1.3.6.1.4.1.207.1.4.288",
+    "class": "objectidentity"
+  },
+  "atGS952MP": {
+    "name": "atGS952MP",
+    "oid": "1.3.6.1.4.1.207.1.4.289",
+    "class": "objectidentity"
+  },
+  "atGS970M28PS": {
+    "name": "atGS970M28PS",
+    "oid": "1.3.6.1.4.1.207.1.4.312",
+    "class": "objectidentity"
+  },
+  "atGS970M18PS": {
+    "name": "atGS970M18PS",
+    "oid": "1.3.6.1.4.1.207.1.4.313",
+    "class": "objectidentity"
+  },
+  "atGS970M10PS": {
+    "name": "atGS970M10PS",
+    "oid": "1.3.6.1.4.1.207.1.4.314",
+    "class": "objectidentity"
+  },
+  "atGS970M28": {
+    "name": "atGS970M28",
+    "oid": "1.3.6.1.4.1.207.1.4.315",
+    "class": "objectidentity"
+  },
+  "atGS970M18": {
+    "name": "atGS970M18",
+    "oid": "1.3.6.1.4.1.207.1.4.316",
+    "class": "objectidentity"
+  },
+  "atGS970M10": {
+    "name": "atGS970M10",
+    "oid": "1.3.6.1.4.1.207.1.4.317",
+    "class": "objectidentity"
+  },
+  "industrialSwitch": {
+    "name": "industrialSwitch",
+    "oid": "1.3.6.1.4.1.207.1.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atIE2006GT": {
+    "name": "atIE2006GT",
+    "oid": "1.3.6.1.4.1.207.1.24.1",
+    "class": "objectidentity"
+  },
+  "atIE2006GP": {
+    "name": "atIE2006GP",
+    "oid": "1.3.6.1.4.1.207.1.24.2",
+    "class": "objectidentity"
+  },
+  "atIE2006GPW": {
+    "name": "atIE2006GPW",
+    "oid": "1.3.6.1.4.1.207.1.24.3",
+    "class": "objectidentity"
+  },
+  "atIE2006FT": {
+    "name": "atIE2006FT",
+    "oid": "1.3.6.1.4.1.207.1.24.6",
+    "class": "objectidentity"
+  },
+  "atIE2006FP": {
+    "name": "atIE2006FP",
+    "oid": "1.3.6.1.4.1.207.1.24.7",
+    "class": "objectidentity"
+  },
+  "atIE30012GT": {
+    "name": "atIE30012GT",
+    "oid": "1.3.6.1.4.1.207.1.24.8",
+    "class": "objectidentity"
+  },
+  "atIE30012GP": {
+    "name": "atIE30012GP",
+    "oid": "1.3.6.1.4.1.207.1.24.9",
+    "class": "objectidentity"
+  },
+  "atIE30012GS": {
+    "name": "atIE30012GS",
+    "oid": "1.3.6.1.4.1.207.1.24.10",
+    "class": "objectidentity"
+  },
+  "atIE30020GST": {
+    "name": "atIE30020GST",
+    "oid": "1.3.6.1.4.1.207.1.24.11",
+    "class": "objectidentity"
+  },
+  "atIE51028GSX": {
+    "name": "atIE51028GSX",
+    "oid": "1.3.6.1.4.1.207.1.24.12",
+    "class": "objectidentity"
+  },
+  "virtualApp": {
+    "name": "virtualApp",
+    "oid": "1.3.6.1.4.1.207.1.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atVAA": {
+    "name": "atVAA",
+    "oid": "1.3.6.1.4.1.207.1.26.1",
     "class": "objectidentity"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-PRODUCT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:34:44 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:10:51 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-PRODUCT-MIB"

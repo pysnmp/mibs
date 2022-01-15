@@ -13,54 +13,57 @@
       "InetAddress",
       "InetPortNumber"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1BfdMIB": {
     "name": "alcatelIND1BfdMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2008-05-03 00:00",
+        "revision": "2010-05-05 00:00",
         "description": "The latest version of this MIB Module."
       }
     ]
   },
   "alaBfdObjects": {
     "name": "alaBfdObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1BfdMIBConformance": {
     "name": "alcatelIND1BfdMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2",
     "class": "objectidentity",
     "status": "current"
   },
@@ -73,8 +76,8 @@
       "constraints": {
         "range": [
           {
-            "min": 1,
-            "max": 65535
+            "min": 0,
+            "max": 4294967295
           }
         ]
       }
@@ -89,15 +92,15 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "noDiagnostic": 1,
-          "controlDetectionTimeExpired": 2,
-          "echoFunctionFailed": 3,
-          "neighborSignaledSessionDown": 4,
-          "forwardingPlaneReset": 5,
-          "pathDown": 6,
-          "concatenatedPathDown": 7,
-          "administrativelyDown": 8,
-          "reverseConcatenatedPathDown": 9
+          "noDiagnostic": 0,
+          "controlDetectionTimeExpired": 1,
+          "echoFunctionFailed": 2,
+          "neighborSignaledSessionDown": 3,
+          "forwardingPlaneReset": 4,
+          "pathDown": 5,
+          "concatenatedPathDown": 6,
+          "administrativelyDown": 7,
+          "reverseConcatenatedPathDown": 8
         }
       }
     },
@@ -120,12 +123,30 @@
   },
   "alaBfdGlobalObjects": {
     "name": "alaBfdGlobalObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1",
     "class": "objectidentity"
+  },
+  "alaBfdGlobalVersionNumber": {
+    "name": "alaBfdGlobalVersionNumber",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "alaBfdGlobalAdminStatus": {
     "name": "alaBfdGlobalAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -134,7 +155,7 @@
     },
     "default": {
       "default": {
-        "value": "enabled",
+        "value": "disabled",
         "format": "enum"
       }
     },
@@ -143,7 +164,7 @@
   },
   "alaBfdGlobalTxInterval": {
     "name": "alaBfdGlobalTxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -161,7 +182,7 @@
   },
   "alaBfdGlobalRxInterval": {
     "name": "alaBfdGlobalRxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -177,105 +198,35 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaBfdGlobalOperMode": {
-    "name": "alaBfdGlobalOperMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.4",
+  "alaBfdGlobalDetectMult": {
+    "name": "alaBfdGlobalDetectMult",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
-        "enumeration": {
-          "asyncMode": 1,
-          "demandMode": 2,
-          "echoOnly": 3
-        }
+        "range": [
+          {
+            "min": 3,
+            "max": 10
+          }
+        ]
       }
     },
     "default": {
       "default": {
-        "value": "asyncMode",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "alaBfdGlobalVersionNumber": {
-    "name": "alaBfdGlobalVersionNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 1,
+        "value": 3,
         "format": "decimal"
       }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "alaBfdGlobalL2HoldTimer": {
-    "name": "alaBfdGlobalL2HoldTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaBfdInterval",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 500,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "alaBfdGlobalProtocols": {
-    "name": "alaBfdGlobalProtocols",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.1.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "ospf": 0,
-        "bgp": 1,
-        "dvmrp": 2,
-        "vrrp": 3
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "alaBfdGlobalEchoObjects": {
-    "name": "alaBfdGlobalEchoObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.2",
-    "class": "objectidentity"
-  },
-  "alaBfdGlobalEcho": {
-    "name": "alaBfdGlobalEcho",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.2.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaBfdStatus",
-      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "alaBfdGlobalEchoRxInterval": {
     "name": "alaBfdGlobalEchoRxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -291,9 +242,31 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "alaBfdGlobalProtocolApps": {
+    "name": "alaBfdGlobalProtocolApps",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vrrp": 0,
+        "staticRtg": 1,
+        "ospf": 2,
+        "bgp": 3,
+        "isis": 4,
+        "pim": 5,
+        "dvmrp": 6,
+        "ospf3": 7
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "alaBfdIntfTable": {
     "name": "alaBfdIntfTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -301,63 +274,58 @@
   },
   "alaBfdIntfEntry": {
     "name": "alaBfdIntfEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfAddrType",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfAddr",
+        "object": "alaBfdIntfIndex",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "alaBfdIntfAddrType": {
-    "name": "alaBfdIntfAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InetAddressType",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "alaBfdIntfAddr": {
-    "name": "alaBfdIntfAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InetAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
   "alaBfdIntfIndex": {
     "name": "alaBfdIntfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "InterfaceIndex",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
-  "alabfdIntfAdminStatus": {
-    "name": "alabfdIntfAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.4",
+  "alaBfdIntfAddrType": {
+    "name": "alaBfdIntfAddrType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaBfdIntfAddr": {
+    "name": "alaBfdIntfAddr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaBfdIntfAdminStatus": {
+    "name": "alaBfdIntfAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -366,8 +334,8 @@
     },
     "default": {
       "default": {
-        "value": 2,
-        "format": "decimal"
+        "value": "disabled",
+        "format": "enum"
       }
     },
     "maxaccess": "read-create",
@@ -375,7 +343,7 @@
   },
   "alaBfdIntfDesiredMinTxInterval": {
     "name": "alaBfdIntfDesiredMinTxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -387,7 +355,7 @@
   },
   "alaBfdIntfReqMinRxInterval": {
     "name": "alaBfdIntfReqMinRxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -397,40 +365,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alaBfdIntfOperMode": {
-    "name": "alaBfdIntfOperMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "asyncMode": 1,
-          "demandMode": 2,
-          "echoOnly": 3
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaBfdIntfEchoMode": {
-    "name": "alaBfdIntfEchoMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AlaBfdStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "alaBfdIntfReqMinEchoRxInterval": {
     "name": "alaBfdIntfReqMinEchoRxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -442,41 +379,19 @@
   },
   "alaBfdIntfDetectMult": {
     "name": "alaBfdIntfDetectMult",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 3,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaBfdIntfsesstype": {
-    "name": "alaBfdIntfsesstype",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
-        "enumeration": {
-          "singleHop": 1,
-          "multiHop": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "singleHop",
-        "format": "enum"
+        "range": [
+          {
+            "min": 3,
+            "max": 10
+          }
+        ]
       }
     },
     "maxaccess": "read-create",
@@ -484,7 +399,7 @@
   },
   "alaBfdIntfAuthPresFlag": {
     "name": "alaBfdIntfAuthPresFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -502,7 +417,7 @@
   },
   "alaBfdIntfAuthenticationType": {
     "name": "alaBfdIntfAuthenticationType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -521,28 +436,46 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "none",
+        "format": "enum"
       }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alaBfdIntfL2HoldTimer": {
-    "name": "alaBfdIntfL2HoldTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.14",
+  "alaBfdIntfIfName": {
+    "name": "alaBfdIntfIfName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "AlaBfdInterval",
+      "type": "SnmpAdminString",
       "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaBfdIntfOperStatus": {
+    "name": "alaBfdIntfOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
   "alaBfdIntfRowStatus": {
     "name": "alaBfdIntfRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.3.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -554,7 +487,7 @@
   },
   "alaBfdSessTable": {
     "name": "alaBfdSessTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -562,7 +495,7 @@
   },
   "alaBfdSessEntry": {
     "name": "alaBfdSessEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -577,7 +510,7 @@
   },
   "alaBfdSessDiscriminator": {
     "name": "alaBfdSessDiscriminator",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -587,7 +520,7 @@
         "range": [
           {
             "min": 1,
-            "max": 4294967295
+            "max": 1024
           }
         ]
       }
@@ -597,7 +530,7 @@
   },
   "alaBfdSessNeighborAddrType": {
     "name": "alaBfdSessNeighborAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -609,7 +542,7 @@
   },
   "alaBfdSessNeighborAddr": {
     "name": "alaBfdSessNeighborAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -619,9 +552,26 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "alaBfdSessSessionType": {
+    "name": "alaBfdSessSessionType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "asynchronous": 0,
+        "echo": 1,
+        "demand": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "alaBfdSessRemoteDiscr": {
     "name": "alaBfdSessRemoteDiscr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -641,7 +591,7 @@
   },
   "alaBfdSessUdpPort": {
     "name": "alaBfdSessUdpPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -653,7 +603,7 @@
   },
   "alaBfdSessState": {
     "name": "alaBfdSessState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -664,29 +614,16 @@
           "adminDown": 1,
           "down": 2,
           "init": 3,
-          "up": 4,
-          "failing": 5
+          "up": 4
         }
       }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaBfdSessRemoteHeardFlag": {
-    "name": "alaBfdSessRemoteHeardFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "alaBfdSessDiag": {
     "name": "alaBfdSessDiag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -698,7 +635,7 @@
   },
   "alaBfdSessOperMode": {
     "name": "alaBfdSessOperMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -706,48 +643,32 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "asyncMode": 1,
-          "demandMode": 2,
-          "echoOnly": 3
+          "asyncModeWEchoFunction": 1,
+          "asynchModeWOEchoFunction": 2,
+          "demandModeWEchoFunction": 3,
+          "demandModeWOEchoFunction": 4,
+          "echoOnly": 5
         }
       }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaBfdSessEchoFuncModeDesiredFlag": {
-    "name": "alaBfdSessEchoFuncModeDesiredFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "alaBfdSessControlPlanIndepFlag": {
     "name": "alaBfdSessControlPlanIndepFlag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "TruthValue",
       "class": "type"
     },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaBfdSessInterface": {
-    "name": "alaBfdSessInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.12",
+  "alaBfdSessIfIndex": {
+    "name": "alaBfdSessIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -759,7 +680,7 @@
   },
   "alaBfdSessNegotiatedTxInterval": {
     "name": "alaBfdSessNegotiatedTxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -771,7 +692,7 @@
   },
   "alaBfdSessNegotiatedRxInterval": {
     "name": "alaBfdSessNegotiatedRxInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -781,20 +702,35 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "alaBfdSessProtocols": {
-    "name": "alaBfdSessProtocols",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.4.1.15",
+  "alaBfdSessEchoRxInterval": {
+    "name": "alaBfdSessEchoRxInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaBfdInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaBfdSessProtocolApps": {
+    "name": "alaBfdSessProtocolApps",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.3.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Bits",
       "class": "type",
       "bits": {
-        "ospf": 0,
-        "bgp": 1,
-        "dvmrp": 2,
-        "vrrp": 3,
-        "iprm": 4
+        "vrrp": 0,
+        "staticRtg": 1,
+        "ospf": 2,
+        "bgp": 3,
+        "isis": 4,
+        "pim": 5,
+        "dvmrp": 6,
+        "ospf3": 7
       }
     },
     "maxaccess": "read-only",
@@ -802,7 +738,7 @@
   },
   "alaBfdSessPerfTable": {
     "name": "alaBfdSessPerfTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -810,7 +746,7 @@
   },
   "alaBfdSessPerfEntry": {
     "name": "alaBfdSessPerfEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -823,7 +759,7 @@
   },
   "alaBfdSessPerfPktIn": {
     "name": "alaBfdSessPerfPktIn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -835,7 +771,7 @@
   },
   "alaBfdSessPerfPktOut": {
     "name": "alaBfdSessPerfPktOut",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -847,7 +783,19 @@
   },
   "alaBfdSessPerfEchoOut": {
     "name": "alaBfdSessPerfEchoOut",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaBfdSessPerfEchoIn": {
+    "name": "alaBfdSessPerfEchoIn",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -859,7 +807,7 @@
   },
   "alaBfdSessPerfUpTime": {
     "name": "alaBfdSessPerfUpTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -871,7 +819,7 @@
   },
   "alaBfdSessPerfLastSessDownTime": {
     "name": "alaBfdSessPerfLastSessDownTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -883,7 +831,7 @@
   },
   "alaBfdSessPerfLastCommLostDiag": {
     "name": "alaBfdSessPerfLastCommLostDiag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -895,7 +843,7 @@
   },
   "alaBfdSessPerfSessUpCount": {
     "name": "alaBfdSessPerfSessUpCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -907,7 +855,7 @@
   },
   "alaBfdSessPerfDiscTime": {
     "name": "alaBfdSessPerfDiscTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.1.5.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.1.4.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -919,21 +867,21 @@
   },
   "alcatelIND1BfdMIBGroups": {
     "name": "alcatelIND1BfdMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1BfdMIBCompliances": {
     "name": "alcatelIND1BfdMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1BfdMIBCompliance": {
     "name": "alcatelIND1BfdMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
-        "object": "alaBfdbasicGroup",
+        "object": "alaBfdBasicGroup",
         "module": "ALCATEL-IND1-BFD-MIB"
       },
       {
@@ -951,11 +899,15 @@
     ],
     "status": "current"
   },
-  "alaBfdbasicGroup": {
-    "name": "alaBfdbasicGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.1.1",
+  "alaBfdBasicGroup": {
+    "name": "alaBfdBasicGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.1.1",
     "class": "objectgroup",
     "objects": [
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdGlobalVersionNumber"
+      },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdGlobalAdminStatus"
@@ -970,43 +922,35 @@
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdGlobalOperMode"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdGlobalVersionNumber"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdGlobalL2HoldTimer"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdGlobalProtocols"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdGlobalEcho"
+        "object": "alaBfdGlobalDetectMult"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdGlobalEchoRxInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdGlobalProtocolApps"
       }
     ],
     "status": "current"
   },
   "alaBfdIntfCfgGroup": {
     "name": "alaBfdIntfCfgGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfIndex"
+        "object": "alaBfdIntfAddr"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alabfdIntfAdminStatus"
+        "object": "alaBfdIntfAddrType"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdIntfAdminStatus"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
@@ -1018,23 +962,11 @@
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfEchoMode"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdIntfReqMinEchoRxInterval"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdIntfDetectMult"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfOperMode"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfsesstype"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
@@ -1046,14 +978,22 @@
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdIntfL2HoldTimer"
+        "object": "alaBfdIntfIfName"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdIntfOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdIntfRowStatus"
       }
     ],
     "status": "current"
   },
   "alaBfdSessGroup": {
     "name": "alaBfdSessGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1063,6 +1003,10 @@
       {
         "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdSessNeighborAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdSessSessionType"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
@@ -1078,10 +1022,6 @@
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdSessRemoteHeardFlag"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdSessDiag"
       },
       {
@@ -1090,15 +1030,11 @@
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdSessEchoFuncModeDesiredFlag"
-      },
-      {
-        "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdSessControlPlanIndepFlag"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdSessInterface"
+        "object": "alaBfdSessIfIndex"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
@@ -1110,14 +1046,18 @@
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
-        "object": "alaBfdSessProtocols"
+        "object": "alaBfdSessEchoRxInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdSessProtocolApps"
       }
     ],
     "status": "current"
   },
   "alaBfdSessPerfGroup": {
     "name": "alaBfdSessPerfGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.45.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.45.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1131,6 +1071,10 @@
       {
         "module": "ALCATEL-IND1-BFD-MIB",
         "object": "alaBfdSessPerfEchoOut"
+      },
+      {
+        "module": "ALCATEL-IND1-BFD-MIB",
+        "object": "alaBfdSessPerfEchoIn"
       },
       {
         "module": "ALCATEL-IND1-BFD-MIB",
@@ -1158,8 +1102,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:06 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-BFD-MIB"

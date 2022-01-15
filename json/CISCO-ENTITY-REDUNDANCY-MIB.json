@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
-      "CeRedunArch",
-      "CeRedunScope",
-      "CeRedunReasonCategories",
-      "CeRedunMbrStatus",
       "CeRedunStateCategories",
+      "CeRedunArch",
+      "CeRedunMbrStatus",
+      "CeRedunReasonCategories",
       "CeRedunMode",
-      "CeRedunSwitchCommand",
-      "CeRedunType"
+      "CeRedunType",
+      "CeRedunScope",
+      "CeRedunSwitchCommand"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -25,33 +25,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "TimeTicks",
-      "Integer32"
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "AutonomousType",
+      "StorageType",
       "RowStatus",
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
+      "AutonomousType",
       "TimeStamp"
     ]
   },
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:42:51 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:17:03 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-ENTITY-REDUNDANCY-MIB"

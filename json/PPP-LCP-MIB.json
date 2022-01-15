@@ -6,44 +6,28 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "TimeTicks",
-      "transmission",
       "Gauge32",
-      "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier"
+      "transmission"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
-    ]
-  },
-  "pppLcp": {
-    "name": "pppLcp",
-    "oid": "1.3.6.1.2.1.10.23.1",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2003-09-17 20:59",
-        "description": "Created SMIv2 version."
-      },
-      {
-        "revision": "1993-06-01 12:00",
-        "description": "Initial SMIv1 version of this MIB module found in RFC 1471."
-      }
     ]
   },
   "ppp": {
@@ -51,9 +35,24 @@
     "oid": "1.3.6.1.2.1.10.23",
     "class": "objectidentity"
   },
+  "pppLcp": {
+    "name": "pppLcp",
+    "oid": "1.3.6.1.2.1.10.23.1",
+    "class": "objectidentity"
+  },
   "pppLink": {
     "name": "pppLink",
     "oid": "1.3.6.1.2.1.10.23.1.1",
+    "class": "objectidentity"
+  },
+  "pppLqr": {
+    "name": "pppLqr",
+    "oid": "1.3.6.1.2.1.10.23.1.2",
+    "class": "objectidentity"
+  },
+  "pppTests": {
+    "name": "pppTests",
+    "oid": "1.3.6.1.2.1.10.23.1.3",
     "class": "objectidentity"
   },
   "pppLinkStatusTable": {
@@ -62,7 +61,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusEntry": {
     "name": "pppLinkStatusEntry",
@@ -77,7 +76,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusPhysicalIndex": {
     "name": "pppLinkStatusPhysicalIndex",
@@ -85,7 +84,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -97,7 +96,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusBadAddresses": {
     "name": "pppLinkStatusBadAddresses",
@@ -105,11 +104,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter32",
+      "type": "Counter",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusBadControls": {
     "name": "pppLinkStatusBadControls",
@@ -117,11 +116,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter32",
+      "type": "Counter",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusPacketTooLongs": {
     "name": "pppLinkStatusPacketTooLongs",
@@ -129,11 +128,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter32",
+      "type": "Counter",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusBadFCSs": {
     "name": "pppLinkStatusBadFCSs",
@@ -141,11 +140,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter32",
+      "type": "Counter",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusLocalMRU": {
     "name": "pppLinkStatusLocalMRU",
@@ -153,7 +152,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -165,7 +164,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusRemoteMRU": {
     "name": "pppLinkStatusRemoteMRU",
@@ -173,7 +172,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -185,7 +184,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusLocalToPeerACCMap": {
     "name": "pppLinkStatusLocalToPeerACCMap",
@@ -205,7 +204,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusPeerToLocalACCMap": {
     "name": "pppLinkStatusPeerToLocalACCMap",
@@ -225,7 +224,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusLocalToRemoteProtocolCompression": {
     "name": "pppLinkStatusLocalToRemoteProtocolCompression",
@@ -243,7 +242,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusRemoteToLocalProtocolCompression": {
     "name": "pppLinkStatusRemoteToLocalProtocolCompression",
@@ -261,7 +260,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusLocalToRemoteACCompression": {
     "name": "pppLinkStatusLocalToRemoteACCompression",
@@ -279,7 +278,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusRemoteToLocalACCompression": {
     "name": "pppLinkStatusRemoteToLocalACCompression",
@@ -297,7 +296,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusTransmitFcsSize": {
     "name": "pppLinkStatusTransmitFcsSize",
@@ -305,7 +304,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -317,7 +316,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkStatusReceiveFcsSize": {
     "name": "pppLinkStatusReceiveFcsSize",
@@ -325,7 +324,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -337,7 +336,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkConfigTable": {
     "name": "pppLinkConfigTable",
@@ -345,7 +344,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkConfigEntry": {
     "name": "pppLinkConfigEntry",
@@ -360,7 +359,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "mandatory"
   },
   "pppLinkConfigInitialMRU": {
     "name": "pppLinkConfigInitialMRU",
@@ -368,7 +367,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -385,8 +384,8 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-only",
-    "status": "current"
+    "maxaccess": "read-write",
+    "status": "mandatory"
   },
   "pppLinkConfigReceiveACCMap": {
     "name": "pppLinkConfigReceiveACCMap",
@@ -411,8 +410,8 @@
         "format": "hex"
       }
     },
-    "maxaccess": "read-only",
-    "status": "current"
+    "maxaccess": "read-write",
+    "status": "mandatory"
   },
   "pppLinkConfigTransmitACCMap": {
     "name": "pppLinkConfigTransmitACCMap",
@@ -437,8 +436,8 @@
         "format": "hex"
       }
     },
-    "maxaccess": "read-only",
-    "status": "current"
+    "maxaccess": "read-write",
+    "status": "mandatory"
   },
   "pppLinkConfigMagicNumber": {
     "name": "pppLinkConfigMagicNumber",
@@ -461,8 +460,8 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-only",
-    "status": "current"
+    "maxaccess": "read-write",
+    "status": "mandatory"
   },
   "pppLinkConfigFcsSize": {
     "name": "pppLinkConfigFcsSize",
@@ -470,7 +469,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -487,14 +486,252 @@
         "format": "decimal"
       }
     },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppLqrTable": {
+    "name": "pppLqrTable",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppLqrEntry": {
+    "name": "pppLqrEntry",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppLqrQuality": {
+    "name": "pppLqrQuality",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 1,
+          "bad": 2,
+          "not-determined": 3
+        }
+      }
+    },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "mandatory"
+  },
+  "pppLqrInGoodOctets": {
+    "name": "pppLqrInGoodOctets",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLqrLocalPeriod": {
+    "name": "pppLqrLocalPeriod",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLqrRemotePeriod": {
+    "name": "pppLqrRemotePeriod",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLqrOutLQRs": {
+    "name": "pppLqrOutLQRs",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLqrInLQRs": {
+    "name": "pppLqrInLQRs",
+    "oid": "1.3.6.1.2.1.10.23.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppLqrConfigTable": {
+    "name": "pppLqrConfigTable",
+    "oid": "1.3.6.1.2.1.10.23.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppLqrConfigEntry": {
+    "name": "pppLqrConfigEntry",
+    "oid": "1.3.6.1.2.1.10.23.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppLqrConfigPeriod": {
+    "name": "pppLqrConfigPeriod",
+    "oid": "1.3.6.1.2.1.10.23.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppLqrConfigStatus": {
+    "name": "pppLqrConfigStatus",
+    "oid": "1.3.6.1.2.1.10.23.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppLqrExtnsTable": {
+    "name": "pppLqrExtnsTable",
+    "oid": "1.3.6.1.2.1.10.23.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppLqrExtnsEntry": {
+    "name": "pppLqrExtnsEntry",
+    "oid": "1.3.6.1.2.1.10.23.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppLqrExtnsLastReceivedLqrPacket": {
+    "name": "pppLqrExtnsLastReceivedLqrPacket",
+    "oid": "1.3.6.1.2.1.10.23.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 68,
+            "max": 68
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppEchoTest": {
+    "name": "pppEchoTest",
+    "oid": "1.3.6.1.2.1.10.23.1.3.1",
+    "class": "objectidentity"
+  },
+  "pppDiscardTest": {
+    "name": "pppDiscardTest",
+    "oid": "1.3.6.1.2.1.10.23.1.3.2",
+    "class": "objectidentity"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/PPP-LCP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:56:38 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/PPP-LCP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:25 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PPP-LCP-MIB"

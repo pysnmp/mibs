@@ -15,37 +15,37 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
       "TruthValue",
       "TimeStamp",
+      "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1Dot1XMIB": {
     "name": "alcatelIND1Dot1XMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -60,19 +60,19 @@
   },
   "alaIND1Dot1XMIBObjects": {
     "name": "alaIND1Dot1XMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIND1Dot1XMIBConformance": {
     "name": "alaIND1Dot1XMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIND1Dot1XMIBGroups": {
     "name": "alaIND1Dot1XMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
@@ -197,7 +197,7 @@
   },
   "alaDot1xPortTable": {
     "name": "alaDot1xPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -205,7 +205,7 @@
   },
   "alaDot1xPortEntry": {
     "name": "alaDot1xPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -220,7 +220,7 @@
   },
   "alaDot1xPortSlotNumber": {
     "name": "alaDot1xPortSlotNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -240,7 +240,7 @@
   },
   "alaDot1xPortPortNumber": {
     "name": "alaDot1xPortPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -260,7 +260,7 @@
   },
   "alaDot1xPortMACAddress": {
     "name": "alaDot1xPortMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -272,7 +272,7 @@
   },
   "alaDot1xPortVlan": {
     "name": "alaDot1xPortVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -292,7 +292,7 @@
   },
   "alaDot1xPortProtocol": {
     "name": "alaDot1xPortProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -312,7 +312,7 @@
   },
   "alaDot1xPortUserName": {
     "name": "alaDot1xPortUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -324,7 +324,7 @@
   },
   "alaDot1xPortState": {
     "name": "alaDot1xPortState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -350,7 +350,7 @@
   },
   "alaDot1xSupplicantPolicyUsed": {
     "name": "alaDot1xSupplicantPolicyUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -362,7 +362,7 @@
   },
   "alaDot1xMacTable": {
     "name": "alaDot1xMacTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -370,7 +370,7 @@
   },
   "alaDot1xMacEntry": {
     "name": "alaDot1xMacEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -385,7 +385,7 @@
   },
   "alaDot1xMACAddress": {
     "name": "alaDot1xMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -397,7 +397,7 @@
   },
   "alaDot1xMacIfIndex": {
     "name": "alaDot1xMacIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -409,7 +409,7 @@
   },
   "alaDot1xMacSlotNumber": {
     "name": "alaDot1xMacSlotNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -429,7 +429,7 @@
   },
   "alaDot1xMacPortNumber": {
     "name": "alaDot1xMacPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -449,7 +449,7 @@
   },
   "alaDot1xMacVlan": {
     "name": "alaDot1xMacVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -469,7 +469,7 @@
   },
   "alaDot1xMacProtocol": {
     "name": "alaDot1xMacProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -489,7 +489,7 @@
   },
   "alaDot1xMacUserName": {
     "name": "alaDot1xMacUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -509,7 +509,7 @@
   },
   "alaDot1xMacState": {
     "name": "alaDot1xMacState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -535,7 +535,7 @@
   },
   "alaDot1xMacSupplicantPolicyUsed": {
     "name": "alaDot1xMacSupplicantPolicyUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.4.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.4.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -547,7 +547,7 @@
   },
   "alaDot1xPortLookupTable": {
     "name": "alaDot1xPortLookupTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -555,7 +555,7 @@
   },
   "alaDot1xPortLookupEntry": {
     "name": "alaDot1xPortLookupEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -580,7 +580,7 @@
   },
   "alaDot1xPortLookupSlotNumber": {
     "name": "alaDot1xPortLookupSlotNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -600,7 +600,7 @@
   },
   "alaDot1xPortLookupPortNumber": {
     "name": "alaDot1xPortLookupPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -620,7 +620,7 @@
   },
   "alaDot1xPortLookupMACAddress": {
     "name": "alaDot1xPortLookupMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -632,7 +632,7 @@
   },
   "alaDot1xPortLookupInterfaceNumber": {
     "name": "alaDot1xPortLookupInterfaceNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -644,7 +644,7 @@
   },
   "alaDot1xNonSupplicantTable": {
     "name": "alaDot1xNonSupplicantTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -652,7 +652,7 @@
   },
   "alaDot1xNonSupplicantEntry": {
     "name": "alaDot1xNonSupplicantEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -672,7 +672,7 @@
   },
   "alaDot1xNonSupplicantIntfNum": {
     "name": "alaDot1xNonSupplicantIntfNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -684,7 +684,7 @@
   },
   "alaDot1xNonSupplicantMACAddress": {
     "name": "alaDot1xNonSupplicantMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -696,7 +696,7 @@
   },
   "alaDot1xNonSupplicantVlanID": {
     "name": "alaDot1xNonSupplicantVlanID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -716,7 +716,7 @@
   },
   "alaDot1xNonSupplicantPolicyUsed": {
     "name": "alaDot1xNonSupplicantPolicyUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -728,7 +728,7 @@
   },
   "alaDot1xAuthenticationStatus": {
     "name": "alaDot1xAuthenticationStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.5.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -751,7 +751,7 @@
   },
   "alaDot1xAuthPolicyTable": {
     "name": "alaDot1xAuthPolicyTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -759,7 +759,7 @@
   },
   "alaDot1xAuthPolicyEntry": {
     "name": "alaDot1xAuthPolicyEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -774,7 +774,7 @@
   },
   "alaDot1xAuthPolicyIntfNumber": {
     "name": "alaDot1xAuthPolicyIntfNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -786,7 +786,7 @@
   },
   "alaDot1xNonSuppPolicy": {
     "name": "alaDot1xNonSuppPolicy",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -806,7 +806,7 @@
   },
   "alaDot1xSuppPolicy": {
     "name": "alaDot1xSuppPolicy",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -826,7 +826,7 @@
   },
   "alaDot1xPollingCnt": {
     "name": "alaDot1xPollingCnt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -846,7 +846,7 @@
   },
   "alaDot1xCaptivePortalPolicy": {
     "name": "alaDot1xCaptivePortalPolicy",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -866,7 +866,7 @@
   },
   "alaDot1xCPortalSessionLimit": {
     "name": "alaDot1xCPortalSessionLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -886,7 +886,7 @@
   },
   "alaDot1xCPortalRetryCnt": {
     "name": "alaDot1xCPortalRetryCnt",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.6.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -906,12 +906,12 @@
   },
   "alaDot1xCportalConfig": {
     "name": "alaDot1xCportalConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7",
     "class": "objectidentity"
   },
   "alaDot1xCPortalIpAddress": {
     "name": "alaDot1xCPortalIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -923,7 +923,7 @@
   },
   "alaDot1xCPortalProxyURL": {
     "name": "alaDot1xCPortalProxyURL",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -943,7 +943,7 @@
   },
   "alaDot1xCPortalPostAuthSuccessRedirectURL": {
     "name": "alaDot1xCPortalPostAuthSuccessRedirectURL",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -963,7 +963,7 @@
   },
   "alaDot1xCPortalPostAuthFailRedirectURL": {
     "name": "alaDot1xCPortalPostAuthFailRedirectURL",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -983,7 +983,7 @@
   },
   "alaDot1xCPortalDNSKeyword1": {
     "name": "alaDot1xCPortalDNSKeyword1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1003,7 +1003,7 @@
   },
   "alaDot1xCPortalDNSKeyword2": {
     "name": "alaDot1xCPortalDNSKeyword2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1023,7 +1023,7 @@
   },
   "alaDot1xCPortalDNSKeyword3": {
     "name": "alaDot1xCPortalDNSKeyword3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1043,7 +1043,7 @@
   },
   "alaDot1xCPortalDNSKeyword4": {
     "name": "alaDot1xCPortalDNSKeyword4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.7.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.7.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1063,7 +1063,7 @@
   },
   "alaDot1xDeviceStatusTable": {
     "name": "alaDot1xDeviceStatusTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1071,7 +1071,7 @@
   },
   "alaDot1xDeviceStatusEntry": {
     "name": "alaDot1xDeviceStatusEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1106,7 +1106,7 @@
   },
   "alaDot1xDeviceStatusMacQueryType": {
     "name": "alaDot1xDeviceStatusMacQueryType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1118,7 +1118,7 @@
   },
   "alaDot1xDeviceStatusSlotNumber": {
     "name": "alaDot1xDeviceStatusSlotNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1138,7 +1138,7 @@
   },
   "alaDot1xDeviceStatusPortNumber": {
     "name": "alaDot1xDeviceStatusPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1158,7 +1158,7 @@
   },
   "alaDot1xDeviceStatusMACAddress": {
     "name": "alaDot1xDeviceStatusMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1170,7 +1170,7 @@
   },
   "alaDot1xDeviceStatusDeviceType": {
     "name": "alaDot1xDeviceStatusDeviceType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1182,7 +1182,7 @@
   },
   "alaDot1xDeviceStatusVlan": {
     "name": "alaDot1xDeviceStatusVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1202,7 +1202,7 @@
   },
   "alaDot1xDeviceStatusIPAddress": {
     "name": "alaDot1xDeviceStatusIPAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1214,7 +1214,7 @@
   },
   "alaDot1xDeviceStatusUserName": {
     "name": "alaDot1xDeviceStatusUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1226,7 +1226,7 @@
   },
   "alaDot1xDeviceStatusProfileUsed": {
     "name": "alaDot1xDeviceStatusProfileUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1238,7 +1238,7 @@
   },
   "alaDot1xDeviceStatusAuthType": {
     "name": "alaDot1xDeviceStatusAuthType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1250,7 +1250,7 @@
   },
   "alaDot1xDeviceStatusPolicyUsed": {
     "name": "alaDot1xDeviceStatusPolicyUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1262,7 +1262,7 @@
   },
   "alaDot1xDeviceStatusAuthResult": {
     "name": "alaDot1xDeviceStatusAuthResult",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1274,7 +1274,7 @@
   },
   "alaDot1xDeviceStatusMacLearntState": {
     "name": "alaDot1xDeviceStatusMacLearntState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1286,7 +1286,7 @@
   },
   "alaDot1xDeviceStatusTimeLearned": {
     "name": "alaDot1xDeviceStatusTimeLearned",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1298,7 +1298,7 @@
   },
   "alaDot1xDeviceStatusCaptivePortalUsed": {
     "name": "alaDot1xDeviceStatusCaptivePortalUsed",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.8.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.8.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1310,12 +1310,12 @@
   },
   "alaDot1xAdminLogoutParams": {
     "name": "alaDot1xAdminLogoutParams",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.9",
     "class": "objectidentity"
   },
   "alaDot1xAdminLogoutType": {
     "name": "alaDot1xAdminLogoutType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.9.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1336,7 +1336,7 @@
   },
   "alaDot1xAdminLogoutMacAddress": {
     "name": "alaDot1xAdminLogoutMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.9.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.9.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1348,7 +1348,7 @@
   },
   "alaDot1xAdminLogoutUserName": {
     "name": "alaDot1xAdminLogoutUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.9.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.9.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1368,7 +1368,7 @@
   },
   "alaDot1xAdminLogoutNetworkProfileName": {
     "name": "alaDot1xAdminLogoutNetworkProfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.9.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.9.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1388,7 +1388,7 @@
   },
   "alaDot1xAdminLogoutInterfaceId": {
     "name": "alaDot1xAdminLogoutInterfaceId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.9.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.9.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1400,12 +1400,12 @@
   },
   "alaDot1xAuthServerTimeout": {
     "name": "alaDot1xAuthServerTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.10",
     "class": "objectidentity"
   },
   "alaDot1xAuthSvrTimeoutPolicy": {
     "name": "alaDot1xAuthSvrTimeoutPolicy",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.10.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.10.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1425,7 +1425,7 @@
   },
   "alaDot1xAuthSvrTimeoutReAuthPeriod": {
     "name": "alaDot1xAuthSvrTimeoutReAuthPeriod",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.10.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.10.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1445,7 +1445,7 @@
   },
   "alaDot1xAuthSvrTimeoutStatus": {
     "name": "alaDot1xAuthSvrTimeoutStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.10.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.10.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1484,12 +1484,12 @@
   },
   "alaPassthroughConfig": {
     "name": "alaPassthroughConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.11",
     "class": "objectidentity"
   },
   "alaDot1xPassthroughStatus": {
     "name": "alaDot1xPassthroughStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.11.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1501,7 +1501,7 @@
   },
   "alaAvlanPassthroughStatus": {
     "name": "alaAvlanPassthroughStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.1.11.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.1.11.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1513,7 +1513,7 @@
   },
   "alaIND1Dot1XMIBCompliances": {
     "name": "alaIND1Dot1XMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.2",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1541,7 +1541,7 @@
   },
   "alaINDDot1XPortGroup": {
     "name": "alaINDDot1XPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1577,7 +1577,7 @@
   },
   "alaDot1xPortLookupGroup": {
     "name": "alaDot1xPortLookupGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1601,7 +1601,7 @@
   },
   "alaINDDot1XPolicyGroup": {
     "name": "alaINDDot1XPolicyGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1633,7 +1633,7 @@
   },
   "alaINDDot1XDeviceStatusGroup": {
     "name": "alaINDDot1XDeviceStatusGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1681,7 +1681,7 @@
   },
   "alaDot1xAuthSvrTimeoutGroup": {
     "name": "alaDot1xAuthSvrTimeoutGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1701,7 +1701,7 @@
   },
   "alaPassthroughConfigGroup": {
     "name": "alaPassthroughConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.30.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.30.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1718,8 +1718,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DOT1X-MIB"

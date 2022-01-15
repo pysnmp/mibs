@@ -9,36 +9,36 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DateAndTime",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DhcpSrvMIB": {
     "name": "alcatelIND1DhcpSrvMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -49,37 +49,37 @@
   },
   "alcatelIND1DhcpSrvMIBNotifications": {
     "name": "alcatelIND1DhcpSrvMIBNotifications",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.0",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1DhcpSrvMIBObjects": {
     "name": "alcatelIND1DhcpSrvMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1DhcpSrvMIBConformance": {
     "name": "alcatelIND1DhcpSrvMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1DhcpSrvMIBGroups": {
     "name": "alcatelIND1DhcpSrvMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1DhcpSrvMIBCompliances": {
     "name": "alcatelIND1DhcpSrvMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaDhcpSrvGlobalConfigStatus": {
     "name": "alaDhcpSrvGlobalConfigStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -103,7 +103,7 @@
   },
   "alaDhcpSrvGlobalRestart": {
     "name": "alaDhcpSrvGlobalRestart",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -127,7 +127,7 @@
   },
   "alaDhcpSrvGlobalClearStat": {
     "name": "alaDhcpSrvGlobalClearStat",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -151,12 +151,12 @@
   },
   "alaDhcpSrvLease": {
     "name": "alaDhcpSrvLease",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4",
     "class": "objectidentity"
   },
   "alaDhcpSrvLeaseTable": {
     "name": "alaDhcpSrvLeaseTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -164,7 +164,7 @@
   },
   "alaDhcpSrvLeaseEntry": {
     "name": "alaDhcpSrvLeaseEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -184,7 +184,7 @@
   },
   "alaDhcpSrvLeaseInetAddressType": {
     "name": "alaDhcpSrvLeaseInetAddressType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -196,7 +196,7 @@
   },
   "alaDhcpSrvLeaseInetAddress": {
     "name": "alaDhcpSrvLeaseInetAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -216,7 +216,7 @@
   },
   "alaDhcpSrvLeaseMACAddress": {
     "name": "alaDhcpSrvLeaseMACAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -228,7 +228,7 @@
   },
   "alaDhcpSrvLeaseLeaseGrant": {
     "name": "alaDhcpSrvLeaseLeaseGrant",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -240,7 +240,7 @@
   },
   "alaDhcpSrvLeaseLeaseExpiry": {
     "name": "alaDhcpSrvLeaseLeaseExpiry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -252,7 +252,7 @@
   },
   "alaDhcpSrvLeaseType": {
     "name": "alaDhcpSrvLeaseType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.4.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.4.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -271,12 +271,12 @@
   },
   "alaDhcpSrvTrapsObj": {
     "name": "alaDhcpSrvTrapsObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.5",
     "class": "objectidentity"
   },
   "alaDhcpSrvLeaseUtilizationThresholdTrap": {
     "name": "alaDhcpSrvLeaseUtilizationThresholdTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -292,7 +292,7 @@
   },
   "alaDhcpSrvLeaseThresholdStatus": {
     "name": "alaDhcpSrvLeaseThresholdStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -311,7 +311,7 @@
   },
   "alaDhcpSrvSubnetDescriptor": {
     "name": "alaDhcpSrvSubnetDescriptor",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.1.5.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -323,7 +323,7 @@
   },
   "alcatelIND1DhcpSrvMIBCompliance": {
     "name": "alcatelIND1DhcpSrvMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -343,7 +343,7 @@
   },
   "alaDhcpSrvGlobalConfigGroup": {
     "name": "alaDhcpSrvGlobalConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -363,7 +363,7 @@
   },
   "alaDhcpSrvLeaseGroup": {
     "name": "alaDhcpSrvLeaseGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -387,7 +387,7 @@
   },
   "alaDhcpSrvNotificationGroup": {
     "name": "alaDhcpSrvNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.59.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.59.1.2.1.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -400,8 +400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DHCP-SRV-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DHCP-SRV-MIB"

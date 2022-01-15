@@ -5,43 +5,43 @@
       "softentIND1LldpMed"
     ],
     "LLDP-EXT-MED-MIB": [
-      "Dscp",
-      "PolicyAppType"
+      "PolicyAppType",
+      "Dscp"
     ],
     "LLDP-MIB": [
       "LldpPortNumber"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1LLDPMEDMIB": {
     "name": "alcatelIND1LLDPMEDMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -52,23 +52,23 @@
   },
   "alcatelIND1LLDPMEDMIBObjects": {
     "name": "alcatelIND1LLDPMEDMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1LLDPMEDMIBConformance": {
     "name": "alcatelIND1LLDPMEDMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.2",
     "class": "objectidentity"
   },
   "alaLldpMedLocMediaPolicyAttributes": {
     "name": "alaLldpMedLocMediaPolicyAttributes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1",
     "class": "objectidentity"
   },
   "alaLldpXMedLocMediaPolicyTable": {
     "name": "alaLldpXMedLocMediaPolicyTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -76,7 +76,7 @@
   },
   "alaLldpXMedLocMediaPolicyEntry": {
     "name": "alaLldpXMedLocMediaPolicyEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -91,7 +91,7 @@
   },
   "alaLldpXMedLocMediaPolicyId": {
     "name": "alaLldpXMedLocMediaPolicyId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -103,7 +103,7 @@
   },
   "alaLldpXMedLocMediaPolicyAppType": {
     "name": "alaLldpXMedLocMediaPolicyAppType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -115,7 +115,7 @@
   },
   "alaLldpXMedLocMediaPolicyVlanType": {
     "name": "alaLldpXMedLocMediaPolicyVlanType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -140,7 +140,7 @@
   },
   "alaLldpXMedLocMediaPolicyVlanID": {
     "name": "alaLldpXMedLocMediaPolicyVlanID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -168,7 +168,7 @@
   },
   "alaLldpXMedLocMediaPolicyPriority": {
     "name": "alaLldpXMedLocMediaPolicyPriority",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -188,7 +188,7 @@
   },
   "alaLldpXMedLocMediaPolicyDscp": {
     "name": "alaLldpXMedLocMediaPolicyDscp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -200,7 +200,7 @@
   },
   "alaLldpXMedLocMediaPolicyUnknown": {
     "name": "alaLldpXMedLocMediaPolicyUnknown",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -212,7 +212,7 @@
   },
   "alaLldpXMedLocMediaPolicyTagged": {
     "name": "alaLldpXMedLocMediaPolicyTagged",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -224,7 +224,7 @@
   },
   "alaLldpXMedLocMediaPolicyRowStatus": {
     "name": "alaLldpXMedLocMediaPolicyRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -236,7 +236,7 @@
   },
   "alaLldpXMedLocMediaPolicyPortTable": {
     "name": "alaLldpXMedLocMediaPolicyPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -244,7 +244,7 @@
   },
   "alaLldpXMedLocMediaPolicyPortEntry": {
     "name": "alaLldpXMedLocMediaPolicyPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -264,7 +264,7 @@
   },
   "alaLldpXMedLocMediaPolicyPortNumber": {
     "name": "alaLldpXMedLocMediaPolicyPortNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -276,7 +276,7 @@
   },
   "alaLldpXMedLocMediaPolicyPortRowStatus": {
     "name": "alaLldpXMedLocMediaPolicyPortRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -288,17 +288,17 @@
   },
   "alcatelIND1LLDPMEDMIBCompliances": {
     "name": "alcatelIND1LLDPMEDMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1LLDPMEDMIBGroups": {
     "name": "alcatelIND1LLDPMEDMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1LLDPMEDMIBCompliance": {
     "name": "alcatelIND1LLDPMEDMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -310,7 +310,7 @@
   },
   "alaLldpXMedLocMediaPolicyGroup": {
     "name": "alaLldpXMedLocMediaPolicyGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.58.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.58.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -355,8 +355,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LLDP-MED-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-LLDP-MED-MIB"

@@ -8,36 +8,36 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Gauge32",
+      "Integer32",
       "TimeTicks",
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
       "DateAndTime",
-      "DisplayString"
+      "RowStatus"
     ],
     "SYSLOG-TC-MIB": [
       "SyslogFacility",
@@ -1016,8 +1016,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:46:12 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:20:03 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-SYSLOG-MIB"

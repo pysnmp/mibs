@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "TimeTicks",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -70,7 +70,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -82,7 +90,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -94,7 +110,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -134,9 +158,17 @@
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
     },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "swiPortVlanVlanId": {
@@ -146,7 +178,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -219,7 +259,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -837,8 +885,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:34:44 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:10:51 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-SWITCH-MIB"

@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Counter32",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -35,52 +35,264 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2006-06-14 00:00",
-        "description": "Initial version of this MIB module."
+        "revision": "2017-10-19 00:00",
+        "description": "Rename pprx55018XSPQ to pprx55018XSPQm."
       },
       {
-        "revision": "2007-02-07 00:00",
-        "description": "Added boardID for AT-8824R."
+        "revision": "2017-05-11 00:00",
+        "description": "Added support for pprAtXem2CQ1."
       },
       {
-        "revision": "2007-03-21 00:00",
-        "description": "Added boardID for x900-48FS."
+        "revision": "2017-04-26 00:00",
+        "description": "Rename AT-FAN05 to AT-FAN08."
       },
       {
-        "revision": "2008-03-03 15:00",
-        "description": "Change Added boards 271,272,282,284-286,288. Added boards 290-297, Added boards 300,304-311."
+        "revision": "2017-03-31 00:00",
+        "description": "Remove '_' in the MIB object names to comply with ASN.1. The object names are slightly changed to make it more readable."
       },
       {
-        "revision": "2008-11-24 00:00",
-        "description": "Added boardID for x60024TS,x60024TSXP,x60048TS and x60048TSXP."
+        "revision": "2017-02-01 00:00",
+        "description": "Added board ID for GS970 products."
       },
       {
-        "revision": "2008-12-11 00:00",
-        "description": "Added boardID for pprXum100M, pprAtPWR05AC, pprAtPWR05DC and pprXem2XT."
+        "revision": "2017-01-18 00:00",
+        "description": "Added board ID for GS970PS products."
       },
       {
-        "revision": "2009-05-15 00:00",
-        "description": "Added boardID for pprx60024TSPOE and pprx60024TSPOE220WPSU."
+        "revision": "2016-10-03 00:00",
+        "description": "Added board ID for x550 products."
       },
       {
-        "revision": "2010-06-14 04:45",
-        "description": "MIB revision history dates in descriptions updated."
+        "revision": "2016-05-06 00:00",
+        "description": "Added board ID for AT-GS900M Next Generatin products."
       },
       {
-        "revision": "2010-07-22 00:00",
-        "description": "Renamed boardID pprx60024TSPOE220WPSU to pprx60024TSPOEPLUS"
+        "revision": "2016-01-08 00:00",
+        "description": "Added board ID for AT-FS980M products."
       },
       {
-        "revision": "2010-08-19 00:00",
-        "description": "Added board 330 pprAR560"
+        "revision": "2016-01-06 00:00",
+        "description": "Added board IDs for additional SBx8100 power supplies"
+      },
+      {
+        "revision": "2015-12-17 00:00",
+        "description": "Added board ID for SBx81XLEM and expansion modules."
+      },
+      {
+        "revision": "2015-11-10 00:00",
+        "description": "Added new SwitchBlade x908G2/3 products"
+      },
+      {
+        "revision": "2015-08-09 00:00",
+        "description": "Added board ID for AT-x9EM/XT4."
+      },
+      {
+        "revision": "2015-08-05 00:00",
+        "description": "Added board ID for AT-XS900MX products."
+      },
+      {
+        "revision": "2015-07-27 00:00",
+        "description": "Added board ID for SecureHUB products."
+      },
+      {
+        "revision": "2015-07-22 00:00",
+        "description": "Add the Virtual Appliance (VAA, 442) board ID."
+      },
+      {
+        "revision": "2015-06-30 00:00",
+        "description": "Place AT-AR2050V and AT-AR2010V in the right order."
+      },
+      {
+        "revision": "2015-06-19 00:00",
+        "description": "Added board ID for AT-AR2010V."
+      },
+      {
+        "revision": "2015-05-06 00:00",
+        "description": "Added board ID for AT-AR2050V."
+      },
+      {
+        "revision": "2015-04-03 00:00",
+        "description": "Change the product name from x230-10GPT to x350-10GPT."
+      },
+      {
+        "revision": "2015-03-16 00:00",
+        "description": "Correct the board ID for PWR150 and Stack-QS"
+      },
+      {
+        "revision": "2015-03-12 00:00",
+        "description": "Corrected the board IDs for AtGS924MX(443), AtGS924MPX(444), AtGS948MX(445) and AtGS948MPX(446)."
+      },
+      {
+        "revision": "2015-02-19 00:00",
+        "description": "Corrected the board IDs for x51028GTXR(436) and x51052GTXR(437)."
+      },
+      {
+        "revision": "2015-01-14 00:00",
+        "description": "Add board ID for PWR150 power supply for x930."
+      },
+      {
+        "revision": "2014-11-19 00:00",
+        "description": "Add board IDs and chip IDs for IE300 product family."
+      },
+      {
+        "revision": "2014-11-18 00:00",
+        "description": "Added board IDs for AT-AR3050S and AT-AR4050S."
+      },
+      {
+        "revision": "2014-10-22 00:00",
+        "description": "Renaming Ix510 to IE510."
+      },
+      {
+        "revision": "2014-09-23 00:00",
+        "description": "Added board IDs for AT-GS924MX, AT-GS924MPX, AT-GS948MX and AT-GS948MPX."
+      },
+      {
+        "revision": "2014-08-28 00:00",
+        "description": "Added board IDs for x510L Products."
+      },
+      {
+        "revision": "2014-08-20 00:00",
+        "description": "Renaming AT-IE500-Product Family to IE200"
+      },
+      {
+        "revision": "2014-07-30 00:00",
+        "description": "Added board ID for pprx51028GTXR and pprx51052GTXR"
+      },
+      {
+        "revision": "2014-06-09 00:00",
+        "description": "Added board ID for pprx510DP28GTX"
+      },
+      {
+        "revision": "2014-06-03 00:00",
+        "description": "Add board and chip IDs for AT-IE500-Product Family. Added Board IDs for x51028GSXDC and Ix51028GSX."
+      },
+      {
+        "revision": "2014-05-16 00:00",
+        "description": "Added dc2500xs (ID 414)"
+      },
+      {
+        "revision": "2014-03-25 00:00",
+        "description": "Added AT-STACKQS (ID 418) and corrected AT-x930-28GSTX (ID 390) name"
+      },
+      {
+        "revision": "2013-08-01 00:00",
+        "description": "Added x930s (IDs 388-392), x310s (IDs 393-400) and x230s (IDs 401-409)"
+      },
+      {
+        "revision": "2013-07-09 00:00",
+        "description": "Added board ID for pprx510DP52GTX, pprIX528GPX, pprPWR100R and pprPWR250DCR"
+      },
+      {
+        "revision": "2012-06-07 00:00",
+        "description": "Correct a typo for the name from pprXumStk to pprXemStk"
+      },
+      {
+        "revision": "2012-05-21 00:00",
+        "description": "Added pprAtSBx81XZ4 for the SBx8112"
+      },
+      {
+        "revision": "2012-05-15 00:00",
+        "description": "Changed the board name from pprAtSBx81XZ6 to pprAtSBx81XS6 and pprAtSBx81GS24 to pprAtSBx81GS24a"
+      },
+      {
+        "revision": "2012-03-16 00:00",
+        "description": "Added board ID for x510 series."
+      },
+      {
+        "revision": "2011-12-18 05:00",
+        "description": "Added pprSBx81CFC960, pprSBx81GT24a, pprSBx81GP24a, pprSBx81GT40 and pprSBx81XS16boards for the SBx8112"
+      },
+      {
+        "revision": "2011-10-25 00:00",
+        "description": "Added AT-SBx81FAN06"
+      },
+      {
+        "revision": "2011-09-20 00:00",
+        "description": "Added SBx8100 card products."
+      },
+      {
+        "revision": "2011-09-15 00:00",
+        "description": "Added AT-SBx8106 product."
+      },
+      {
+        "revision": "2011-09-14 00:00",
+        "description": "Added AT-SBx8112 product."
+      },
+      {
+        "revision": "2011-09-05 00:00",
+        "description": "Added board ID for x210-9GT, x210-16GT, x210-24GT."
+      },
+      {
+        "revision": "2011-05-10 00:00",
+        "description": "Added board ID for pprXem2XS, pprXem24T, pprXem12Tv2, pprXem12Sv2."
+      },
+      {
+        "revision": "2011-04-28 00:00",
+        "description": "Added pics AR030 AR031"
+      },
+      {
+        "revision": "2011-04-04 00:00",
+        "description": "Added Rapier 48x product"
+      },
+      {
+        "revision": "2011-03-08 00:00",
+        "description": "Corrected syntax problems."
+      },
+      {
+        "revision": "2010-12-01 00:00",
+        "description": "Added board ID for pprPWR250DC."
+      },
+      {
+        "revision": "2010-10-12 00:00",
+        "description": "Added pprx200GE52T and pprx200GE28T"
       },
       {
         "revision": "2010-09-07 00:00",
         "description": "Generic syntax tidy up"
       },
       {
-        "revision": "2010-09-28 00:00",
-        "description": "Added boardID 344 for AT=8824R-DC."
+        "revision": "2010-08-19 00:00",
+        "description": "Added board 330 pprAR560"
+      },
+      {
+        "revision": "2010-07-22 00:00",
+        "description": "Renamed boardID pprx60024TSPOE220WPSU to pprx60024TSPOEPLUS"
+      },
+      {
+        "revision": "2010-06-14 04:45",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-05-19 00:00",
+        "description": "x610 product range, added pprx61048TsPOEPlus, pprx61024TsXPOEPlus, pprx61024TsPOEPlus, pprPWR800, pprPWR1200, pprPWR250, pprx61048TsX, pprx61048Ts, pprx61024TsX, pprx61024Ts, and pprx61024SPX"
+      },
+      {
+        "revision": "2009-05-15 00:00",
+        "description": "Added boardID for pprx60024TSPOE and pprx60024TSPOE220WPSU."
+      },
+      {
+        "revision": "2008-12-11 00:00",
+        "description": "Added boardID for pprXum100M, pprAtPWR05AC, pprAtPWR05DC and pprXem2XT."
+      },
+      {
+        "revision": "2008-11-24 00:00",
+        "description": "Added boardID for x60024TS,x60024TSXP,x60048TS and x60048TSXP."
+      },
+      {
+        "revision": "2008-03-03 15:00",
+        "description": "Change Added boards 271,272,282,284-286,288. Added boards 290-297, Added boards 300,304-311."
+      },
+      {
+        "revision": "2007-03-21 00:00",
+        "description": "Added boardID for x900-48FS."
+      },
+      {
+        "revision": "2007-02-07 00:00",
+        "description": "Added boardID for AT-8824R."
+      },
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Initial version of this MIB module."
       }
     ]
   },
@@ -489,13 +701,13 @@
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.142",
     "class": "objectidentity"
   },
-  "pprRapier24iDC_NEBS": {
-    "name": "pprRapier24iDC_NEBS",
+  "pprRapier24iDcNEBS": {
+    "name": "pprRapier24iDcNEBS",
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.144",
     "class": "objectidentity"
   },
-  "pprAt8724XLDC_NEBS": {
-    "name": "pprAt8724XLDC_NEBS",
+  "pprAt8724XLDcNEBS": {
+    "name": "pprAt8724XLDcNEBS",
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.146",
     "class": "objectidentity"
   },
@@ -1019,8 +1231,8 @@
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.285",
     "class": "objectidentity"
   },
-  "pprXumStk": {
-    "name": "pprXumStk",
+  "pprXemStk": {
+    "name": "pprXemStk",
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.286",
     "class": "objectidentity"
   },
@@ -1149,6 +1361,41 @@
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.311",
     "class": "objectidentity"
   },
+  "pprAtSBx8112": {
+    "name": "pprAtSBx8112",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.316",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81CFC400": {
+    "name": "pprAtSBx81CFC400",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.317",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81GP24": {
+    "name": "pprAtSBx81GP24",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.318",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XZ4": {
+    "name": "pprAtSBx81XZ4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.319",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8161SYSAC": {
+    "name": "pprAtSBx8161SYSAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.320",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8165POEAC": {
+    "name": "pprAtSBx8165POEAC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.321",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81FAN": {
+    "name": "pprAtSBx81FAN",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.322",
+    "class": "objectidentity"
+  },
   "pprAtPWR05DC": {
     "name": "pprAtPWR05DC",
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.323",
@@ -1234,9 +1481,729 @@
     "oid": "1.3.6.1.4.1.207.8.4.4.1.1.343",
     "class": "objectidentity"
   },
-  "pprAt8824RDC": {
-    "name": "pprAt8824RDC",
-    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.344",
+  "pprRapier48xDC": {
+    "name": "pprRapier48xDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.345",
+    "class": "objectidentity"
+  },
+  "pprAR030": {
+    "name": "pprAR030",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.347",
+    "class": "objectidentity"
+  },
+  "pprx200GE52T": {
+    "name": "pprx200GE52T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.348",
+    "class": "objectidentity"
+  },
+  "pprx200GE28T": {
+    "name": "pprx200GE28T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.349",
+    "class": "objectidentity"
+  },
+  "pprXem2XS": {
+    "name": "pprXem2XS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.350",
+    "class": "objectidentity"
+  },
+  "pprPWR250DC": {
+    "name": "pprPWR250DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.351",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81GT24": {
+    "name": "pprAtSBx81GT24",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.352",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81GS24a": {
+    "name": "pprAtSBx81GS24a",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.353",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XS6": {
+    "name": "pprAtSBx81XS6",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.354",
+    "class": "objectidentity"
+  },
+  "pprXem24T": {
+    "name": "pprXem24T",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.356",
+    "class": "objectidentity"
+  },
+  "pprAR031": {
+    "name": "pprAR031",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.357",
+    "class": "objectidentity"
+  },
+  "pprXem12Tv2": {
+    "name": "pprXem12Tv2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.358",
+    "class": "objectidentity"
+  },
+  "pprXem12Sv2": {
+    "name": "pprXem12Sv2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.359",
+    "class": "objectidentity"
+  },
+  "pprx2109GT": {
+    "name": "pprx2109GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.367",
+    "class": "objectidentity"
+  },
+  "pprx21016GT": {
+    "name": "pprx21016GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.368",
+    "class": "objectidentity"
+  },
+  "pprx21024GT": {
+    "name": "pprx21024GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.369",
+    "class": "objectidentity"
+  },
+  "pprx51028GTX": {
+    "name": "pprx51028GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.370",
+    "class": "objectidentity"
+  },
+  "pprx51028GPX": {
+    "name": "pprx51028GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.371",
+    "class": "objectidentity"
+  },
+  "pprx51028GSX": {
+    "name": "pprx51028GSX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.372",
+    "class": "objectidentity"
+  },
+  "pprx51052GTX": {
+    "name": "pprx51052GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.373",
+    "class": "objectidentity"
+  },
+  "pprx51052GPX": {
+    "name": "pprx51052GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.374",
+    "class": "objectidentity"
+  },
+  "pprAtSBx8106": {
+    "name": "pprAtSBx8106",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.375",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81FAN06": {
+    "name": "pprAtSBx81FAN06",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.376",
+    "class": "objectidentity"
+  },
+  "pprSBx81CFC960": {
+    "name": "pprSBx81CFC960",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.377",
+    "class": "objectidentity"
+  },
+  "pprSBx81GT24a": {
+    "name": "pprSBx81GT24a",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.378",
+    "class": "objectidentity"
+  },
+  "pprSBx81GP24a": {
+    "name": "pprSBx81GP24a",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.379",
+    "class": "objectidentity"
+  },
+  "pprSBx81GT40": {
+    "name": "pprSBx81GT40",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.381",
+    "class": "objectidentity"
+  },
+  "pprSBx81XS16": {
+    "name": "pprSBx81XS16",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.382",
+    "class": "objectidentity"
+  },
+  "pprAtSBxPWRSYS1DC": {
+    "name": "pprAtSBxPWRSYS1DC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.383",
+    "class": "objectidentity"
+  },
+  "pprPWR100R": {
+    "name": "pprPWR100R",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.384",
+    "class": "objectidentity"
+  },
+  "pprPWR250DCR": {
+    "name": "pprPWR250DCR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.385",
+    "class": "objectidentity"
+  },
+  "pprx510DP52GTX": {
+    "name": "pprx510DP52GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.386",
+    "class": "objectidentity"
+  },
+  "pprIX528GPX": {
+    "name": "pprIX528GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.387",
+    "class": "objectidentity"
+  },
+  "pprx93028GTX": {
+    "name": "pprx93028GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.388",
+    "class": "objectidentity"
+  },
+  "pprx93028GPX": {
+    "name": "pprx93028GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.389",
+    "class": "objectidentity"
+  },
+  "pprx93028GSTX": {
+    "name": "pprx93028GSTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.390",
+    "class": "objectidentity"
+  },
+  "pprx93052GTX": {
+    "name": "pprx93052GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.391",
+    "class": "objectidentity"
+  },
+  "pprx93052GPX": {
+    "name": "pprx93052GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.392",
+    "class": "objectidentity"
+  },
+  "pprx31026FT": {
+    "name": "pprx31026FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.393",
+    "class": "objectidentity"
+  },
+  "pprx31050FT": {
+    "name": "pprx31050FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.394",
+    "class": "objectidentity"
+  },
+  "pprx31026FP": {
+    "name": "pprx31026FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.395",
+    "class": "objectidentity"
+  },
+  "pprx31050FP": {
+    "name": "pprx31050FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.396",
+    "class": "objectidentity"
+  },
+  "pprx31026GT": {
+    "name": "pprx31026GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.397",
+    "class": "objectidentity"
+  },
+  "pprx31050GT": {
+    "name": "pprx31050GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.398",
+    "class": "objectidentity"
+  },
+  "pprx31026GP": {
+    "name": "pprx31026GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.399",
+    "class": "objectidentity"
+  },
+  "pprx31050GP": {
+    "name": "pprx31050GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.400",
+    "class": "objectidentity"
+  },
+  "pprx23010GT": {
+    "name": "pprx23010GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.401",
+    "class": "objectidentity"
+  },
+  "pprx23018GT": {
+    "name": "pprx23018GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.402",
+    "class": "objectidentity"
+  },
+  "pprx23028GT": {
+    "name": "pprx23028GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.403",
+    "class": "objectidentity"
+  },
+  "pprx23052GT": {
+    "name": "pprx23052GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.404",
+    "class": "objectidentity"
+  },
+  "pprx23010GP": {
+    "name": "pprx23010GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.405",
+    "class": "objectidentity"
+  },
+  "pprx23018GP": {
+    "name": "pprx23018GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.406",
+    "class": "objectidentity"
+  },
+  "pprx23028GP": {
+    "name": "pprx23028GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.407",
+    "class": "objectidentity"
+  },
+  "pprx23052GP": {
+    "name": "pprx23052GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.408",
+    "class": "objectidentity"
+  },
+  "pprx35010GPT": {
+    "name": "pprx35010GPT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.409",
+    "class": "objectidentity"
+  },
+  "pprIE2006GT": {
+    "name": "pprIE2006GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.410",
+    "class": "objectidentity"
+  },
+  "pprIE2006GP": {
+    "name": "pprIE2006GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.411",
+    "class": "objectidentity"
+  },
+  "pprIE2006GPW": {
+    "name": "pprIE2006GPW",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.412",
+    "class": "objectidentity"
+  },
+  "pprdc2552xs": {
+    "name": "pprdc2552xs",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.414",
+    "class": "objectidentity"
+  },
+  "pprATStackQS": {
+    "name": "pprATStackQS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.419",
+    "class": "objectidentity"
+  },
+  "pprATx9emXT4": {
+    "name": "pprATx9emXT4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.420",
+    "class": "objectidentity"
+  },
+  "pprx51028GSXDC": {
+    "name": "pprx51028GSXDC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.421",
+    "class": "objectidentity"
+  },
+  "pprIE51028GSX": {
+    "name": "pprIE51028GSX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.422",
+    "class": "objectidentity"
+  },
+  "pprAR3050S": {
+    "name": "pprAR3050S",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.423",
+    "class": "objectidentity"
+  },
+  "pprAR4050S": {
+    "name": "pprAR4050S",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.426",
+    "class": "objectidentity"
+  },
+  "pprIE2006FT": {
+    "name": "pprIE2006FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.429",
+    "class": "objectidentity"
+  },
+  "pprIE2006FP": {
+    "name": "pprIE2006FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.430",
+    "class": "objectidentity"
+  },
+  "pprx510DP28GTX": {
+    "name": "pprx510DP28GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.431",
+    "class": "objectidentity"
+  },
+  "pprx510L28GT": {
+    "name": "pprx510L28GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.432",
+    "class": "objectidentity"
+  },
+  "pprx510L52GT": {
+    "name": "pprx510L52GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.433",
+    "class": "objectidentity"
+  },
+  "pprx510L28GP": {
+    "name": "pprx510L28GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.434",
+    "class": "objectidentity"
+  },
+  "pprx510L52GP": {
+    "name": "pprx510L52GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.435",
+    "class": "objectidentity"
+  },
+  "pprx51028GTXR": {
+    "name": "pprx51028GTXR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.436",
+    "class": "objectidentity"
+  },
+  "pprx51052GTXR": {
+    "name": "pprx51052GTXR",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.437",
+    "class": "objectidentity"
+  },
+  "pprIE30012GT": {
+    "name": "pprIE30012GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.438",
+    "class": "objectidentity"
+  },
+  "pprIE30012GP": {
+    "name": "pprIE30012GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.439",
+    "class": "objectidentity"
+  },
+  "pprIE30012GS": {
+    "name": "pprIE30012GS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.440",
+    "class": "objectidentity"
+  },
+  "pprIE30020GST": {
+    "name": "pprIE30020GST",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.441",
+    "class": "objectidentity"
+  },
+  "pprVAA": {
+    "name": "pprVAA",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.442",
+    "class": "objectidentity"
+  },
+  "pprAtGS924MX": {
+    "name": "pprAtGS924MX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.443",
+    "class": "objectidentity"
+  },
+  "pprAtGS924MPX": {
+    "name": "pprAtGS924MPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.444",
+    "class": "objectidentity"
+  },
+  "pprAtGS948MX": {
+    "name": "pprAtGS948MX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.445",
+    "class": "objectidentity"
+  },
+  "pprAtGS948MPX": {
+    "name": "pprAtGS948MPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.446",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEM": {
+    "name": "pprAtSBx81XLEM",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.447",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemXS8": {
+    "name": "pprAtSBx81XLEMemXS8",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.448",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemQ2": {
+    "name": "pprAtSBx81XLEMemQ2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.449",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemXT4": {
+    "name": "pprAtSBx81XLEMemXT4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.450",
+    "class": "objectidentity"
+  },
+  "pprAtSBx81XLEMemGT8": {
+    "name": "pprAtSBx81XLEMemGT8",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.451",
+    "class": "objectidentity"
+  },
+  "pprAtSBxPWRSYS2AC": {
+    "name": "pprAtSBxPWRSYS2AC",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.452",
+    "class": "objectidentity"
+  },
+  "pprPWR150": {
+    "name": "pprPWR150",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.453",
+    "class": "objectidentity"
+  },
+  "pprAR2050V": {
+    "name": "pprAR2050V",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.454",
+    "class": "objectidentity"
+  },
+  "pprAR2010V": {
+    "name": "pprAR2010V",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.455",
+    "class": "objectidentity"
+  },
+  "pprAtXS916MXT": {
+    "name": "pprAtXS916MXT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.456",
+    "class": "objectidentity"
+  },
+  "pprAtXS916MXS": {
+    "name": "pprAtXS916MXS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.457",
+    "class": "objectidentity"
+  },
+  "pprAtXS916MXP": {
+    "name": "pprAtXS916MXP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.458",
+    "class": "objectidentity"
+  },
+  "pprSH51028GTX": {
+    "name": "pprSH51028GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.459",
+    "class": "objectidentity"
+  },
+  "pprSH51052GTX": {
+    "name": "pprSH51052GTX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.460",
+    "class": "objectidentity"
+  },
+  "pprSH51028GPX": {
+    "name": "pprSH51028GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.461",
+    "class": "objectidentity"
+  },
+  "pprSH51052GPX": {
+    "name": "pprSH51052GPX",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.462",
+    "class": "objectidentity"
+  },
+  "pprSH23010GP": {
+    "name": "pprSH23010GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.463",
+    "class": "objectidentity"
+  },
+  "pprSH23018GP": {
+    "name": "pprSH23018GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.464",
+    "class": "objectidentity"
+  },
+  "pprSH23028GP": {
+    "name": "pprSH23028GP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.465",
+    "class": "objectidentity"
+  },
+  "pprSH2109GT": {
+    "name": "pprSH2109GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.466",
+    "class": "objectidentity"
+  },
+  "pprSH21016GT": {
+    "name": "pprSH21016GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.467",
+    "class": "objectidentity"
+  },
+  "pprSH21024GT": {
+    "name": "pprSH21024GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.468",
+    "class": "objectidentity"
+  },
+  "pprSH31026FT": {
+    "name": "pprSH31026FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.469",
+    "class": "objectidentity"
+  },
+  "pprSH31050FT": {
+    "name": "pprSH31050FT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.470",
+    "class": "objectidentity"
+  },
+  "pprSH31026FP": {
+    "name": "pprSH31026FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.471",
+    "class": "objectidentity"
+  },
+  "pprSH31050FP": {
+    "name": "pprSH31050FP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.472",
+    "class": "objectidentity"
+  },
+  "pprSH23010GT": {
+    "name": "pprSH23010GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.473",
+    "class": "objectidentity"
+  },
+  "pprSH23018GT": {
+    "name": "pprSH23018GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.474",
+    "class": "objectidentity"
+  },
+  "pprSH23028GT": {
+    "name": "pprSH23028GT",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.475",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M9": {
+    "name": "pprAtFS980M9",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.476",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M9PS": {
+    "name": "pprAtFS980M9PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.477",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M18": {
+    "name": "pprAtFS980M18",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.478",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M18PS": {
+    "name": "pprAtFS980M18PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.479",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M28": {
+    "name": "pprAtFS980M28",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.480",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M28PS": {
+    "name": "pprAtFS980M28PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.481",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M52": {
+    "name": "pprAtFS980M52",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.482",
+    "class": "objectidentity"
+  },
+  "pprAtFS980M52PS": {
+    "name": "pprAtFS980M52PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.483",
+    "class": "objectidentity"
+  },
+  "pprSBx908G2": {
+    "name": "pprSBx908G2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.484",
+    "class": "objectidentity"
+  },
+  "pprSBx908G3": {
+    "name": "pprSBx908G3",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.485",
+    "class": "objectidentity"
+  },
+  "pprAtFan08": {
+    "name": "pprAtFan08",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.486",
+    "class": "objectidentity"
+  },
+  "pprAtXem2QS4": {
+    "name": "pprAtXem2QS4",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.487",
+    "class": "objectidentity"
+  },
+  "pprAtXem2XS12": {
+    "name": "pprAtXem2XS12",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.488",
+    "class": "objectidentity"
+  },
+  "pprAtXem2XT12": {
+    "name": "pprAtXem2XT12",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.489",
+    "class": "objectidentity"
+  },
+  "pprAtXem3QS8": {
+    "name": "pprAtXem3QS8",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.490",
+    "class": "objectidentity"
+  },
+  "pprx55018XTQ": {
+    "name": "pprx55018XTQ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.491",
+    "class": "objectidentity"
+  },
+  "pprx55018XSQ": {
+    "name": "pprx55018XSQ",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.492",
+    "class": "objectidentity"
+  },
+  "pprx55018XSPQm": {
+    "name": "pprx55018XSPQm",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.493",
+    "class": "objectidentity"
+  },
+  "pprAtXem2CQ1": {
+    "name": "pprAtXem2CQ1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.494",
+    "class": "objectidentity"
+  },
+  "pprAtGS910M": {
+    "name": "pprAtGS910M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.496",
+    "class": "objectidentity"
+  },
+  "pprAtGS910MP": {
+    "name": "pprAtGS910MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.497",
+    "class": "objectidentity"
+  },
+  "pprAtGS918M": {
+    "name": "pprAtGS918M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.498",
+    "class": "objectidentity"
+  },
+  "pprAtGS918MP": {
+    "name": "pprAtGS918MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.499",
+    "class": "objectidentity"
+  },
+  "pprAtGS928M": {
+    "name": "pprAtGS928M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.500",
+    "class": "objectidentity"
+  },
+  "pprAtGS928MP": {
+    "name": "pprAtGS928MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.501",
+    "class": "objectidentity"
+  },
+  "pprAtGS952M": {
+    "name": "pprAtGS952M",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.502",
+    "class": "objectidentity"
+  },
+  "pprAtGS952MP": {
+    "name": "pprAtGS952MP",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.503",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M28PS": {
+    "name": "pprAtGS970M28PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.534",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M18PS": {
+    "name": "pprAtGS970M18PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.535",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M10PS": {
+    "name": "pprAtGS970M10PS",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.536",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M28": {
+    "name": "pprAtGS970M28",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.537",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M18": {
+    "name": "pprAtGS970M18",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.538",
+    "class": "objectidentity"
+  },
+  "pprAtGS970M10": {
+    "name": "pprAtGS970M10",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.1.539",
     "class": "objectidentity"
   },
   "release": {
@@ -1312,6 +2279,11 @@
   "chip860TCpu": {
     "name": "chip860TCpu",
     "oid": "1.3.6.1.4.1.207.8.4.4.1.4.5",
+    "class": "objectidentity"
+  },
+  "chipMips4kcCpu": {
+    "name": "chipMips4kcCpu",
+    "oid": "1.3.6.1.4.1.207.8.4.4.1.4.6",
     "class": "objectidentity"
   },
   "chipRtc1": {
@@ -1422,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-BOARDS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:34:44 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:10:51 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-BOARDS-MIB"

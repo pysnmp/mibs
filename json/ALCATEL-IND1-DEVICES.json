@@ -9,19 +9,19 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -31,1508 +31,1150 @@
   },
   "alcatelIND1DevicesMIB": {
     "name": "alcatelIND1DevicesMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2007-04-03 00:00",
+        "revision": "2015-04-24 00:00",
+        "description": "Added OS10K, OS6900 and OS6860 SFP definitions."
+      },
+      {
+        "revision": "2011-08-04 00:00",
+        "description": "Added OS10K Power Supply, Fan Tray and Fabric Object Indentifier definitions"
+      },
+      {
+        "revision": "2010-03-01 00:00",
         "description": "Initial version of this MIB Module."
       }
     ]
   },
-  "familyOmniSwitch7000": {
-    "name": "familyOmniSwitch7000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1",
+  "familyOmniSwitch10000": {
+    "name": "familyOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniSwitch7000": {
-    "name": "chassisOmniSwitch7000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.1",
+  "chassisOmniSwitch10000": {
+    "name": "chassisOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch7700": {
-    "name": "deviceOmniSwitch7700",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.1.1",
+  "deviceOmniSwitch10000": {
+    "name": "deviceOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch7800": {
-    "name": "deviceOmniSwitch7800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.1.2",
+  "fansOmniSwitch10000": {
+    "name": "fansOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch7000": {
-    "name": "fansOmniSwitch7000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.2",
+  "fansOmniSwitch10000FT": {
+    "name": "fansOmniSwitch10000FT",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch7000FT": {
-    "name": "fansOmniSwitch7000FT",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.2.1",
+  "powersOmniSwitch10000": {
+    "name": "powersOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch7000": {
-    "name": "powersOmniSwitch7000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.3",
+  "powersOmniSwitch10000AC": {
+    "name": "powersOmniSwitch10000AC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch7000PS600AC": {
-    "name": "powersOmniSwitch7000PS600AC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.3.1",
+  "powersOmniSwitch10000DC": {
+    "name": "powersOmniSwitch10000DC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch7000PS600DC": {
-    "name": "powersOmniSwitch7000PS600DC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.3.2",
+  "modulesOmniSwitch10000": {
+    "name": "modulesOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch7000PDShelf": {
-    "name": "powersOmniSwitch7000PDShelf",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.3.3",
+  "modulesOmniSwitch10000CM": {
+    "name": "modulesOmniSwitch10000CM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch7000PDPS600AC": {
-    "name": "powersOmniSwitch7000PDPS600AC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.3.4",
+  "cmmOmniSwitch10000": {
+    "name": "cmmOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch7000PDPS900DC": {
-    "name": "powersOmniSwitch7000PDPS900DC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.3.5",
+  "cmmOmniSwitch10000PROC": {
+    "name": "cmmOmniSwitch10000PROC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.1.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch7000": {
-    "name": "modulesOmniSwitch7000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4",
+  "modulesOmniSwitch10000NI": {
+    "name": "modulesOmniSwitch10000NI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch7000CM": {
-    "name": "modulesOmniSwitch7000CM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1",
+  "niOmniSwitch10000GNI": {
+    "name": "niOmniSwitch10000GNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch7700": {
-    "name": "cmmOmniSwitch7700",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1.1",
+  "gniOmniSwitch10000C48": {
+    "name": "gniOmniSwitch10000C48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch7700PROC": {
-    "name": "cmmOmniSwitch7700PROC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1.1.1",
+  "gniOmniSwitch10000U48": {
+    "name": "gniOmniSwitch10000U48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch7700BBUS": {
-    "name": "cmmOmniSwitch7700BBUS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1.1.2",
+  "niOmniSwitch10000XNI": {
+    "name": "niOmniSwitch10000XNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch7800": {
-    "name": "cmmOmniSwitch7800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1.2",
+  "gniOmniSwitch10000X16M": {
+    "name": "gniOmniSwitch10000X16M",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch7800PROC": {
-    "name": "cmmOmniSwitch7800PROC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1.2.1",
+  "gniOmniSwitch10000X32M": {
+    "name": "gniOmniSwitch10000X32M",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch7800BBUS": {
-    "name": "cmmOmniSwitch7800BBUS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.1.2.2",
+  "gniOmniSwitch10000X16E": {
+    "name": "gniOmniSwitch10000X16E",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch7000NI": {
-    "name": "modulesOmniSwitch7000NI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2",
+  "gniOmniSwitch10000X16L": {
+    "name": "gniOmniSwitch10000X16L",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch7000ENI": {
-    "name": "niOmniSwitch7000ENI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.1",
+  "gniOmniSwitch10000X32E": {
+    "name": "gniOmniSwitch10000X32E",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.2.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "eniOmniSwitch7000C24": {
-    "name": "eniOmniSwitch7000C24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.1.1",
+  "niOmniSwitch10000QNI": {
+    "name": "niOmniSwitch10000QNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "eniOmniSwitch7000FM12": {
-    "name": "eniOmniSwitch7000FM12",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.1.2",
+  "gniOmniSwitch10000Q8": {
+    "name": "gniOmniSwitch10000Q8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "eniOmniSwitch7000PDPS24ENI": {
-    "name": "eniOmniSwitch7000PDPS24ENI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.1.3",
+  "gniOmniSwitch10000Q4": {
+    "name": "gniOmniSwitch10000Q4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch7000GNI": {
-    "name": "niOmniSwitch7000GNI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.2",
+  "niOmniSwitch10000IC": {
+    "name": "niOmniSwitch10000IC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "gniOmniSwitch7000U2": {
-    "name": "gniOmniSwitch7000U2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.2.1",
+  "icOmniSwitch10000GIC": {
+    "name": "icOmniSwitch10000GIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "gni2OmniSwitch7000C12": {
-    "name": "gni2OmniSwitch7000C12",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.2.2",
+  "gicOmniSwitch10000LH": {
+    "name": "gicOmniSwitch10000LH",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "gni2OmniSwitch7000U12": {
-    "name": "gni2OmniSwitch7000U12",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.2.3",
+  "gicOmniSwitch10000LX": {
+    "name": "gicOmniSwitch10000LX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch7000IC": {
-    "name": "niOmniSwitch7000IC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.3",
+  "gicOmniSwitch10000SX": {
+    "name": "gicOmniSwitch10000SX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "icOmniSwitch7000GIC": {
-    "name": "icOmniSwitch7000GIC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.3.1",
+  "gicOmniSwitch10000FX": {
+    "name": "gicOmniSwitch10000FX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "gicOmniSwitch7000LH70": {
-    "name": "gicOmniSwitch7000LH70",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.3.1.1",
+  "gicOmniSwitch10000GBX": {
+    "name": "gicOmniSwitch10000GBX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "gicOmniSwitch7000LX": {
-    "name": "gicOmniSwitch7000LX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.3.1.2",
+  "gicOmniSwitch10000BX": {
+    "name": "gicOmniSwitch10000BX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "gicOmniSwitch7000SX": {
-    "name": "gicOmniSwitch7000SX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.3.1.3",
+  "gicOmniSwitch10000CT": {
+    "name": "gicOmniSwitch10000CT",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.1.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "gicOmniSwitch7000C": {
-    "name": "gicOmniSwitch7000C",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.3.1.4",
+  "icOmniSwitch10000TenGIC": {
+    "name": "icOmniSwitch10000TenGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch7000DM": {
-    "name": "niOmniSwitch7000DM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.4",
+  "mgicOmniSwitch10000SR": {
+    "name": "mgicOmniSwitch10000SR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "dmOmniSwitch7000Power": {
-    "name": "dmOmniSwitch7000Power",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.4.1",
+  "mgicOmniSwitch10000LR": {
+    "name": "mgicOmniSwitch10000LR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "dmOmniSwitch7000PowerDsine": {
-    "name": "dmOmniSwitch7000PowerDsine",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.4.1.1",
+  "mgicOmniSwitch10000ER": {
+    "name": "mgicOmniSwitch10000ER",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch7000ANI": {
-    "name": "niOmniSwitch7000ANI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.5",
+  "mgicOmniSwitch10000LRM": {
+    "name": "mgicOmniSwitch10000LRM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "aniOmniSwitch7000U4": {
-    "name": "aniOmniSwitch7000U4",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.5.1",
+  "mgicOmniSwitch10000ZR": {
+    "name": "mgicOmniSwitch10000ZR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "aniOmniSwitch7000U1": {
-    "name": "aniOmniSwitch7000U1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.1.4.2.5.2",
+  "mgicOmniSwitch10000C": {
+    "name": "mgicOmniSwitch10000C",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniSwitch8000": {
-    "name": "familyOmniSwitch8000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2",
+  "mgicOmniSwitch10000DualSR": {
+    "name": "mgicOmniSwitch10000DualSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.2.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniSwitch8000": {
-    "name": "chassisOmniSwitch8000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.1",
+  "icOmniSwitch10000FortyGIC": {
+    "name": "icOmniSwitch10000FortyGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch8800": {
-    "name": "deviceOmniSwitch8800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.1.1",
+  "qgicOmniSwitch10000QLR": {
+    "name": "qgicOmniSwitch10000QLR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch8000": {
-    "name": "fansOmniSwitch8000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.2",
+  "qgicOmniSwitch10000QSR": {
+    "name": "qgicOmniSwitch10000QSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch8800CFT": {
-    "name": "fansOmniSwitch8800CFT",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.2.1",
+  "qgicOmniSwitch10000QCR": {
+    "name": "qgicOmniSwitch10000QCR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.3.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch8800FFT": {
-    "name": "fansOmniSwitch8800FFT",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.2.2",
+  "qgicOmniSwitch10000QC": {
+    "name": "qgicOmniSwitch10000QC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.2.4.3.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch8000": {
-    "name": "powersOmniSwitch8000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.3",
+  "cfmOmniSwitch10000": {
+    "name": "cfmOmniSwitch10000",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch8000PS1375AC": {
-    "name": "powersOmniSwitch8000PS1375AC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.3.1",
+  "cfmOmniSwitch10000CFM": {
+    "name": "cfmOmniSwitch10000CFM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch8000PS1375DC": {
-    "name": "powersOmniSwitch8000PS1375DC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.3.2",
+  "cfmOmniSwitch10000CFMOnly": {
+    "name": "cfmOmniSwitch10000CFMOnly",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.9.4.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch8000": {
-    "name": "modulesOmniSwitch8000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4",
+  "familyOmniSwitch6900": {
+    "name": "familyOmniSwitch6900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch8000CM": {
-    "name": "modulesOmniSwitch8000CM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.1",
+  "chassisOmniSwitch6900": {
+    "name": "chassisOmniSwitch6900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch8800": {
-    "name": "cmmOmniSwitch8800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.1.1",
+  "deviceOmniSwitch6900X20": {
+    "name": "deviceOmniSwitch6900X20",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch8800PROC": {
-    "name": "cmmOmniSwitch8800PROC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.1.1.1",
+  "deviceOmniSwitch6900X40": {
+    "name": "deviceOmniSwitch6900X40",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch8800BBUS": {
-    "name": "cmmOmniSwitch8800BBUS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.1.1.2",
+  "deviceOmniSwitch6900T20": {
+    "name": "deviceOmniSwitch6900T20",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch8000NI": {
-    "name": "modulesOmniSwitch8000NI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2",
+  "deviceOmniSwitch6900T40": {
+    "name": "deviceOmniSwitch6900T40",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch8000ENI": {
-    "name": "niOmniSwitch8000ENI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.1",
+  "deviceOmniSwitch6900Q32": {
+    "name": "deviceOmniSwitch6900Q32",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "eniOmniSwitch8000C24": {
-    "name": "eniOmniSwitch8000C24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.1.1",
+  "deviceOmniSwitch6900X72": {
+    "name": "deviceOmniSwitch6900X72",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.1.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch8000GNI": {
-    "name": "niOmniSwitch8000GNI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.2",
+  "fansOmniSwitch6900": {
+    "name": "fansOmniSwitch6900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "gniOmniSwitch8000U8": {
-    "name": "gniOmniSwitch8000U8",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.2.1",
+  "powersOmniSwitch6900": {
+    "name": "powersOmniSwitch6900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "gniOmniSwitch8000C8": {
-    "name": "gniOmniSwitch8000C8",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.2.2",
+  "powersOmniSwitch6900AC": {
+    "name": "powersOmniSwitch6900AC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "gni2OmniSwitch8000U8": {
-    "name": "gni2OmniSwitch8000U8",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.2.3",
+  "powersOmniSwitch6900DC": {
+    "name": "powersOmniSwitch6900DC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "gni2OmniSwitch8000C24": {
-    "name": "gni2OmniSwitch8000C24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.2.4",
+  "powersOmniSwitch6900ACRF": {
+    "name": "powersOmniSwitch6900ACRF",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.3.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "gni2OmniSwitch8000U24": {
-    "name": "gni2OmniSwitch8000U24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.2.5",
+  "powersOmniSwitch6900DCRF": {
+    "name": "powersOmniSwitch6900DCRF",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.3.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch8000G10NI": {
-    "name": "niOmniSwitch8000G10NI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.3",
+  "modulesOmniSwitch6900": {
+    "name": "modulesOmniSwitch6900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "g10niOmniSwitch8000U1": {
-    "name": "g10niOmniSwitch8000U1",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.3.1",
+  "daughterBoardOmniSwitch6900": {
+    "name": "daughterBoardOmniSwitch6900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "niOmniSwitch8000IC": {
-    "name": "niOmniSwitch8000IC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.4",
+  "daughterBoardOmniSwitch6900XNI_U12": {
+    "name": "daughterBoardOmniSwitch6900XNI_U12",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.5.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "icOmniSwitch8000GIC": {
-    "name": "icOmniSwitch8000GIC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.4.1",
+  "daughterBoardOmniSwitch6900XNI_U4": {
+    "name": "daughterBoardOmniSwitch6900XNI_U4",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.5.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch8000SX": {
-    "name": "mgicOmniSwitch8000SX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.4.1.1",
+  "daughterBoardOmniSwitch6900QNI_U3": {
+    "name": "daughterBoardOmniSwitch6900QNI_U3",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.5.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch8000LX": {
-    "name": "mgicOmniSwitch8000LX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.4.1.2",
+  "daughterBoardOmniSwitch6900HNI_U6": {
+    "name": "daughterBoardOmniSwitch6900HNI_U6",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.5.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch8000LH70": {
-    "name": "mgicOmniSwitch8000LH70",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.2.4.1.3",
+  "daughterBoardOmniSwitch6900XNI_T8": {
+    "name": "daughterBoardOmniSwitch6900XNI_T8",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.5.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch8000SF": {
-    "name": "modulesOmniSwitch8000SF",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.3",
+  "icOmniSwitch6900GIC": {
+    "name": "icOmniSwitch6900GIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "sfOmniSwitch8800SFM": {
-    "name": "sfOmniSwitch8800SFM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.2.4.3.1",
+  "gicOmniSwitch6900LH": {
+    "name": "gicOmniSwitch6900LH",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniSwitch6600": {
-    "name": "familyOmniSwitch6600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3",
+  "gicOmniSwitch16900LX": {
+    "name": "gicOmniSwitch16900LX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniSwitch6600": {
-    "name": "chassisOmniSwitch6600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1",
+  "gicOmniSwitch6900SX": {
+    "name": "gicOmniSwitch6900SX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6624": {
-    "name": "deviceOmniSwitch6624",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.1",
+  "gicOmniSwitch6900FX": {
+    "name": "gicOmniSwitch6900FX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6648": {
-    "name": "deviceOmniSwitch6648",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.2",
+  "gicOmniSwitch6900GBX": {
+    "name": "gicOmniSwitch6900GBX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6624Fiber": {
-    "name": "deviceOmniSwitch6624Fiber",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.3",
+  "gicOmniSwitch6900BX": {
+    "name": "gicOmniSwitch6900BX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch660224": {
-    "name": "deviceOmniSwitch660224",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.4",
+  "gicOmniSwitch6900CT": {
+    "name": "gicOmniSwitch6900CT",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch660248": {
-    "name": "deviceOmniSwitch660248",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.5",
+  "gicOmniSwitch6900FC": {
+    "name": "gicOmniSwitch6900FC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.1.8",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6624PoE": {
-    "name": "deviceOmniSwitch6624PoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.6",
+  "icOmniSwitch6900TenGIC": {
+    "name": "icOmniSwitch6900TenGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6648PoE": {
-    "name": "deviceOmniSwitch6648PoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.1.7",
+  "mgicOmniSwitch6900SR": {
+    "name": "mgicOmniSwitch6900SR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch6600": {
-    "name": "fansOmniSwitch6600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.2",
+  "mgicOmniSwitch6900LR": {
+    "name": "mgicOmniSwitch6900LR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6600": {
-    "name": "powersOmniSwitch6600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.3",
+  "mgicOmniSwitch6900ER": {
+    "name": "mgicOmniSwitch6900ER",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6600BSP": {
-    "name": "powersOmniSwitch6600BSP",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.3.1",
+  "mgicOmniSwitch6900LRM": {
+    "name": "mgicOmniSwitch6900LRM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch6600": {
-    "name": "modulesOmniSwitch6600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4",
+  "mgicOmniSwitch6000ZR": {
+    "name": "mgicOmniSwitch6000ZR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "expOmniSwitch6600": {
-    "name": "expOmniSwitch6600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.1",
+  "mgicOmniSwitch6900C": {
+    "name": "mgicOmniSwitch6900C",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch66002": {
-    "name": "mgicOmniSwitch66002",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.1.1",
+  "mgicOmniSwitch6900DualSR": {
+    "name": "mgicOmniSwitch6900DualSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.2.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "gsmOmniSwitch6600T2": {
-    "name": "gsmOmniSwitch6600T2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.1.2",
+  "icOmniSwitch6900FortyGIC": {
+    "name": "icOmniSwitch6900FortyGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "stkOmniSwitch6600Kit": {
-    "name": "stkOmniSwitch6600Kit",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.1.3",
+  "qgicOmniSwitch6900QLR": {
+    "name": "qgicOmniSwitch6900QLR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "icOmniSwitch6600GIC": {
-    "name": "icOmniSwitch6600GIC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.2",
+  "qgicOmniSwitch6900QSR": {
+    "name": "qgicOmniSwitch6900QSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6600SX": {
-    "name": "mgicOmniSwitch6600SX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.2.1",
+  "qgicOmniSwitch6900QCR": {
+    "name": "qgicOmniSwitch6900QCR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6600LX": {
-    "name": "mgicOmniSwitch6600LX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.2.2",
+  "qgicOmniSwitch6900QC": {
+    "name": "qgicOmniSwitch6900QC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6600LH70": {
-    "name": "mgicOmniSwitch6600LH70",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.3.4.2.3",
+  "qgicOmniSwitch6900Q4X10GC": {
+    "name": "qgicOmniSwitch6900Q4X10GC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniAccess200": {
-    "name": "familyOmniAccess200",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4",
+  "qgicOmniSwitch6900Q4X10GSR": {
+    "name": "qgicOmniSwitch6900Q4X10GSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniAccess200": {
-    "name": "chassisOmniAccess200",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4.1",
+  "qgicOmniSwitch6900Q4X10GLR": {
+    "name": "qgicOmniSwitch6900Q4X10GLR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.10.4.3.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniAccess210": {
-    "name": "deviceOmniAccess210",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4.1.1",
+  "familyOmniSwitch6860": {
+    "name": "familyOmniSwitch6860",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniAccess250": {
-    "name": "deviceOmniAccess250",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4.1.2",
+  "chassisOmniSwitch6860": {
+    "name": "chassisOmniSwitch6860",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch200": {
-    "name": "fansOmniSwitch200",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4.2",
+  "deviceOmniSwitch6860_24": {
+    "name": "deviceOmniSwitch6860_24",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniAccess200": {
-    "name": "powersOmniAccess200",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4.3",
+  "deviceOmniSwitch6860_P24": {
+    "name": "deviceOmniSwitch6860_P24",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniAccess200": {
-    "name": "modulesOmniAccess200",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.4.4",
+  "deviceOmniSwitch6860_48": {
+    "name": "deviceOmniSwitch6860_48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniStack6300": {
-    "name": "familyOmniStack6300",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.5",
+  "deviceOmniSwitch6860_P48": {
+    "name": "deviceOmniSwitch6860_P48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniStack6300": {
-    "name": "chassisOmniStack6300",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.5.1",
+  "deviceOmniSwitch6860E_24": {
+    "name": "deviceOmniSwitch6860E_24",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniStack6324": {
-    "name": "deviceOmniStack6324",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.5.1.1",
+  "deviceOmniSwitch6860E_P24": {
+    "name": "deviceOmniSwitch6860E_P24",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniStack6300": {
-    "name": "fansOmniStack6300",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.5.2",
+  "deviceOmniSwitch6860E_48": {
+    "name": "deviceOmniSwitch6860E_48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniStack6300": {
-    "name": "powersOmniStack6300",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.5.3",
+  "deviceOmniSwitch6860E_P48": {
+    "name": "deviceOmniSwitch6860E_P48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.8",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniStack6300": {
-    "name": "modulesOmniStack6300",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.5.4",
+  "deviceOmniSwitch6860E_U28": {
+    "name": "deviceOmniSwitch6860E_U28",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.1.9",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniSwitch6800": {
-    "name": "familyOmniSwitch6800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6",
+  "fansOmniSwitch6860": {
+    "name": "fansOmniSwitch6860",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniSwitch6800": {
-    "name": "chassisOmniSwitch6800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1",
+  "powersOmniSwitch6860": {
+    "name": "powersOmniSwitch6860",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824": {
-    "name": "deviceOmniSwitch6824",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.1",
+  "powersOmniSwitch6860AC": {
+    "name": "powersOmniSwitch6860AC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6848": {
-    "name": "deviceOmniSwitch6848",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.2",
+  "powersOmniSwitch6860DC": {
+    "name": "powersOmniSwitch6860DC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824Fiber": {
-    "name": "deviceOmniSwitch6824Fiber",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.3",
+  "powersOmniSwitch6860POE600_AC": {
+    "name": "powersOmniSwitch6860POE600_AC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.3.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824PoE": {
-    "name": "deviceOmniSwitch6824PoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.4",
+  "powersOmniSwitch6860POE920_AC": {
+    "name": "powersOmniSwitch6860POE920_AC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.3.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6848PoE": {
-    "name": "deviceOmniSwitch6848PoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.5",
+  "modulesOmniSwitch6860": {
+    "name": "modulesOmniSwitch6860",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824L": {
-    "name": "deviceOmniSwitch6824L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.6",
+  "icOmniSwitch6860GIC": {
+    "name": "icOmniSwitch6860GIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6848L": {
-    "name": "deviceOmniSwitch6848L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.7",
+  "gicOmniSwitch6860LH": {
+    "name": "gicOmniSwitch6860LH",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824LU": {
-    "name": "deviceOmniSwitch6824LU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.8",
+  "gicOmniSwitch16860LX": {
+    "name": "gicOmniSwitch16860LX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6848LU": {
-    "name": "deviceOmniSwitch6848LU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.9",
+  "gicOmniSwitch6860SX": {
+    "name": "gicOmniSwitch6860SX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824LPoE": {
-    "name": "deviceOmniSwitch6824LPoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.10",
+  "gicOmniSwitch6860FX": {
+    "name": "gicOmniSwitch6860FX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6848LPoE": {
-    "name": "deviceOmniSwitch6848LPoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.11",
+  "gicOmniSwitch6860GBX": {
+    "name": "gicOmniSwitch6860GBX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6824LUPoE": {
-    "name": "deviceOmniSwitch6824LUPoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.12",
+  "gicOmniSwitch6860BX": {
+    "name": "gicOmniSwitch6860BX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6848LUPoE": {
-    "name": "deviceOmniSwitch6848LUPoE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.1.13",
+  "gicOmniSwitch6860CT": {
+    "name": "gicOmniSwitch6860CT",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.1.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch6800": {
-    "name": "fansOmniSwitch6800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.2",
+  "icOmniSwitch6860TenGIC": {
+    "name": "icOmniSwitch6860TenGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6800": {
-    "name": "powersOmniSwitch6800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.3",
+  "mgicOmniSwitch6860SR": {
+    "name": "mgicOmniSwitch6860SR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6800BPS": {
-    "name": "powersOmniSwitch6800BPS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.3.1",
+  "mgicOmniSwitch6860LR": {
+    "name": "mgicOmniSwitch6860LR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6800MOD": {
-    "name": "powersOmniSwitch6800MOD",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.3.2",
+  "mgicOmniSwitch6860ER": {
+    "name": "mgicOmniSwitch6860ER",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6800SHLF": {
-    "name": "powersOmniSwitch6800SHLF",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.3.3",
+  "mgicOmniSwitch6860LRM": {
+    "name": "mgicOmniSwitch6860LRM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch6800": {
-    "name": "modulesOmniSwitch6800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4",
+  "mgicOmniSwitch6860C": {
+    "name": "mgicOmniSwitch6860C",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "icOmniSwitch8000TenGIC": {
-    "name": "icOmniSwitch8000TenGIC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.1",
+  "mgicOmniSwitch6860DualSR": {
+    "name": "mgicOmniSwitch6860DualSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.2.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6800SR": {
-    "name": "mgicOmniSwitch6800SR",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.1.1",
+  "icOmniSwitch6860FortyGIC": {
+    "name": "icOmniSwitch6860FortyGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6800LR": {
-    "name": "mgicOmniSwitch6800LR",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.1.2",
+  "qgicOmniSwitch6860QSR": {
+    "name": "qgicOmniSwitch6860QSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "icOmniSwitch6800GIC": {
-    "name": "icOmniSwitch6800GIC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.2",
+  "qgicOmniSwitch6860QCBL": {
+    "name": "qgicOmniSwitch6860QCBL",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6800SX": {
-    "name": "mgicOmniSwitch6800SX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.2.1",
+  "qgicOmniSwitch6860QAOC": {
+    "name": "qgicOmniSwitch6860QAOC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.4.3.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6800LX": {
-    "name": "mgicOmniSwitch6800LX",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.2.2",
+  "externBoardOmniSwitch6860": {
+    "name": "externBoardOmniSwitch6860",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "mgicOmniSwitch6800LH70": {
-    "name": "mgicOmniSwitch6800LH70",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.2.3",
+  "externBoardOmniSwitch6860CPU": {
+    "name": "externBoardOmniSwitch6860CPU",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.11.5.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "expOmniSwitch6800": {
-    "name": "expOmniSwitch6800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.3",
+  "familyOmniSwitch9900": {
+    "name": "familyOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12",
     "class": "objectidentity",
     "status": "current"
   },
-  "expOmniSwitch6800U2": {
-    "name": "expOmniSwitch6800U2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.6.4.3.1",
+  "chassisOmniSwitch9900": {
+    "name": "chassisOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniSwitch6850": {
-    "name": "familyOmniSwitch6850",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7",
+  "deviceOmniSwitch9907": {
+    "name": "deviceOmniSwitch9907",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniSwitch6850": {
-    "name": "chassisOmniSwitch6850",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1",
+  "fansOmniSwitch9900": {
+    "name": "fansOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685024": {
-    "name": "deviceOmniSwitch685024",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.1",
+  "fansOmniSwitch9900FT": {
+    "name": "fansOmniSwitch9900FT",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685048": {
-    "name": "deviceOmniSwitch685048",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.2",
+  "powersOmniSwitch9900": {
+    "name": "powersOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685024X": {
-    "name": "deviceOmniSwitch685024X",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.3",
+  "powersOmniSwitch9900AC": {
+    "name": "powersOmniSwitch9900AC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685048X": {
-    "name": "deviceOmniSwitch685048X",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.4",
+  "powersOmniSwitch9900DC": {
+    "name": "powersOmniSwitch9900DC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P24": {
-    "name": "deviceOmniSwitch6850P24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.5",
+  "modulesOmniSwitch9900": {
+    "name": "modulesOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P48": {
-    "name": "deviceOmniSwitch6850P48",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.6",
+  "modulesOmniSwitch9900CM": {
+    "name": "modulesOmniSwitch9900CM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P24X": {
-    "name": "deviceOmniSwitch6850P24X",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.7",
+  "cmmOmniSwitch9900": {
+    "name": "cmmOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P48X": {
-    "name": "deviceOmniSwitch6850P48X",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.8",
+  "cmmOmniSwitch9900PROC": {
+    "name": "cmmOmniSwitch9900PROC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.1.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850U24": {
-    "name": "deviceOmniSwitch6850U24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.9",
+  "modulesOmniSwitch9900NI": {
+    "name": "modulesOmniSwitch9900NI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850U24X": {
-    "name": "deviceOmniSwitch6850U24X",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.10",
+  "niOmniSwitch9900GNI": {
+    "name": "niOmniSwitch9900GNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685024L": {
-    "name": "deviceOmniSwitch685024L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.11",
+  "gniOmniSwitch9900C48": {
+    "name": "gniOmniSwitch9900C48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685048L": {
-    "name": "deviceOmniSwitch685048L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.12",
+  "gniOmniSwitch9900P48": {
+    "name": "gniOmniSwitch9900P48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685024XL": {
-    "name": "deviceOmniSwitch685024XL",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.13",
+  "gniOmniSwitch9900U48": {
+    "name": "gniOmniSwitch9900U48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685048XL": {
-    "name": "deviceOmniSwitch685048XL",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.14",
+  "niOmniSwitch9900XNI": {
+    "name": "niOmniSwitch9900XNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P24L": {
-    "name": "deviceOmniSwitch6850P24L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.15",
+  "gniOmniSwitch9900XU48": {
+    "name": "gniOmniSwitch9900XU48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P48L": {
-    "name": "deviceOmniSwitch6850P48L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.16",
+  "gniOmniSwitch9900XT48": {
+    "name": "gniOmniSwitch9900XT48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P24XL": {
-    "name": "deviceOmniSwitch6850P24XL",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.17",
+  "gniOmniSwitch9900XP48": {
+    "name": "gniOmniSwitch9900XP48",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P48XL": {
-    "name": "deviceOmniSwitch6850P48XL",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.18",
+  "niOmniSwitch9900QNI": {
+    "name": "niOmniSwitch9900QNI",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685024LU": {
-    "name": "deviceOmniSwitch685024LU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.19",
+  "niOmniSwitch9900IC": {
+    "name": "niOmniSwitch9900IC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685048LU": {
-    "name": "deviceOmniSwitch685048LU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.20",
+  "icOmniSwitch9900GIC": {
+    "name": "icOmniSwitch9900GIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685024XLU": {
-    "name": "deviceOmniSwitch685024XLU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.21",
+  "gicOmniSwitch9900LH": {
+    "name": "gicOmniSwitch9900LH",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch685048XLU": {
-    "name": "deviceOmniSwitch685048XLU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.22",
+  "gicOmniSwitch9900LX": {
+    "name": "gicOmniSwitch9900LX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P24LU": {
-    "name": "deviceOmniSwitch6850P24LU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.23",
+  "gicOmniSwitch9900SX": {
+    "name": "gicOmniSwitch9900SX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P48LU": {
-    "name": "deviceOmniSwitch6850P48LU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.24",
+  "gicOmniSwitch9900FX": {
+    "name": "gicOmniSwitch9900FX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P24XLU": {
-    "name": "deviceOmniSwitch6850P24XLU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.25",
+  "gicOmniSwitch9900GBX": {
+    "name": "gicOmniSwitch9900GBX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch6850P48XLU": {
-    "name": "deviceOmniSwitch6850P48XLU",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.1.26",
+  "gicOmniSwitch9900BX": {
+    "name": "gicOmniSwitch9900BX",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch6850": {
-    "name": "fansOmniSwitch6850",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.2",
+  "gicOmniSwitch9900CT": {
+    "name": "gicOmniSwitch9900CT",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6850": {
-    "name": "powersOmniSwitch6850",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.3",
+  "gicOmniSwitch9900FC": {
+    "name": "gicOmniSwitch9900FC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.1.8",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch6850BPS": {
-    "name": "powersOmniSwitch6850BPS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.3.1",
+  "icOmniSwitch9900TenGIC": {
+    "name": "icOmniSwitch9900TenGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch6850": {
-    "name": "modulesOmniSwitch6850",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.7.4",
+  "mgicOmniSwitch9900SR": {
+    "name": "mgicOmniSwitch9900SR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "familyOmniSwitch9000": {
-    "name": "familyOmniSwitch9000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8",
+  "mgicOmniSwitch9900LR": {
+    "name": "mgicOmniSwitch9900LR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "chassisOmniSwitch9000": {
-    "name": "chassisOmniSwitch9000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1",
+  "mgicOmniSwitch9900ER": {
+    "name": "mgicOmniSwitch9900ER",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch9700": {
-    "name": "deviceOmniSwitch9700",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1.1",
+  "mgicOmniSwitch9900LRM": {
+    "name": "mgicOmniSwitch9900LRM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch9800": {
-    "name": "deviceOmniSwitch9800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1.2",
+  "mgicOmniSwitch9900ZR": {
+    "name": "mgicOmniSwitch9900ZR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.5",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch9600": {
-    "name": "deviceOmniSwitch9600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1.3",
+  "mgicOmniSwitch9900C": {
+    "name": "mgicOmniSwitch9900C",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.6",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch9700E": {
-    "name": "deviceOmniSwitch9700E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1.4",
+  "mgicOmniSwitch9900DualSR": {
+    "name": "mgicOmniSwitch9900DualSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.2.7",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch9800E": {
-    "name": "deviceOmniSwitch9800E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1.5",
+  "icOmniSwitch9900FortyGIC": {
+    "name": "icOmniSwitch9900FortyGIC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "deviceOmniSwitch9600E": {
-    "name": "deviceOmniSwitch9600E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.1.6",
+  "qgicOmniSwitch9900QLR": {
+    "name": "qgicOmniSwitch9900QLR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "fansOmniSwitch9000": {
-    "name": "fansOmniSwitch9000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.2",
+  "qgicOmniSwitch9900QSR": {
+    "name": "qgicOmniSwitch9900QSR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.3.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "powersOmniSwitch9000": {
-    "name": "powersOmniSwitch9000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.3",
+  "qgicOmniSwitch9900QCR": {
+    "name": "qgicOmniSwitch9900QCR",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.3.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch9000": {
-    "name": "modulesOmniSwitch9000",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4",
+  "qgicOmniSwitch9900QC": {
+    "name": "qgicOmniSwitch9900QC",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.2.4.3.4",
     "class": "objectidentity",
     "status": "current"
   },
-  "modulesOmniSwitch9000CM": {
-    "name": "modulesOmniSwitch9000CM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1",
+  "cfmOmniSwitch9900": {
+    "name": "cfmOmniSwitch9900",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.3",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch9700": {
-    "name": "cmmOmniSwitch9700",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1.1",
+  "cfmOmniSwitch9900CFM": {
+    "name": "cfmOmniSwitch9900CFM",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.12.4.3.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch9700PROC": {
-    "name": "cmmOmniSwitch9700PROC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1.1.1",
+  "familyOmniSwitch6865": {
+    "name": "familyOmniSwitch6865",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.13",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch9800": {
-    "name": "cmmOmniSwitch9800",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1.2",
+  "chassisOmniSwitch6865": {
+    "name": "chassisOmniSwitch6865",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.13.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch9800PROC": {
-    "name": "cmmOmniSwitch9800PROC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1.2.1",
+  "deviceOmniSwitch6865P16X": {
+    "name": "deviceOmniSwitch6865P16X",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.13.1.1",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch9600": {
-    "name": "cmmOmniSwitch9600",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1.3",
+  "deviceOmniSwitch6865U12X": {
+    "name": "deviceOmniSwitch6865U12X",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.13.1.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "cmmOmniSwitch9600PROC": {
-    "name": "cmmOmniSwitch9600PROC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.1.3.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "modulesOmniSwitch9000NI": {
-    "name": "modulesOmniSwitch9000NI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "niOmniSwitch9000ENI": {
-    "name": "niOmniSwitch9000ENI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "niOmniSwitch9000GNI": {
-    "name": "niOmniSwitch9000GNI",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000C24": {
-    "name": "gniOmniSwitch9000C24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U24": {
-    "name": "gniOmniSwitch9000U24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U2": {
-    "name": "gniOmniSwitch9000U2",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U6": {
-    "name": "gniOmniSwitch9000U6",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000P24": {
-    "name": "gniOmniSwitch9000P24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.5",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch900048T": {
-    "name": "gniOmniSwitch900048T",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.6",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000GC20L": {
-    "name": "gniOmniSwitch9000GC20L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.7",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000EC20L": {
-    "name": "gniOmniSwitch9000EC20L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.8",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitchLockedC20L": {
-    "name": "gniOmniSwitchLockedC20L",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.9",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch900048TE": {
-    "name": "gniOmniSwitch900048TE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.10",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000EC20LE": {
-    "name": "gniOmniSwitch9000EC20LE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.11",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitchLockedC20LE": {
-    "name": "gniOmniSwitchLockedC20LE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.12",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000C24E": {
-    "name": "gniOmniSwitch9000C24E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.13",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000P24E": {
-    "name": "gniOmniSwitch9000P24E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.14",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U24E": {
-    "name": "gniOmniSwitch9000U24E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.15",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000GC20LE": {
-    "name": "gniOmniSwitch9000GC20LE",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.16",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U2E": {
-    "name": "gniOmniSwitch9000U2E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.17",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U6E": {
-    "name": "gniOmniSwitch9000U6E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.18",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000C24FJ2E": {
-    "name": "gniOmniSwitch9000C24FJ2E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.19",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U24FJ2E": {
-    "name": "gniOmniSwitch9000U24FJ2E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.20",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U2FJ2E": {
-    "name": "gniOmniSwitch9000U2FJ2E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.21",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "gniOmniSwitch9000U12PlusFJ2E": {
-    "name": "gniOmniSwitch9000U12PlusFJ2E",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.2.22",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "niOmniSwitch9000IC": {
-    "name": "niOmniSwitch9000IC",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "niOmniSwitch9000DM": {
-    "name": "niOmniSwitch9000DM",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.8.4.2.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "familyOmniSwitch6855": {
-    "name": "familyOmniSwitch6855",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "chassisOmniSwitch6855": {
-    "name": "chassisOmniSwitch6855",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch685514": {
-    "name": "deviceOmniSwitch685514",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.1.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6855U10": {
-    "name": "deviceOmniSwitch6855U10",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.1.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch685524": {
-    "name": "deviceOmniSwitch685524",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.1.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6855U24": {
-    "name": "deviceOmniSwitch6855U24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.1.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6855U24X": {
-    "name": "deviceOmniSwitch6855U24X",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.1.5",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "fansOmniSwitch6855": {
-    "name": "fansOmniSwitch6855",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "powersOmniSwitch6855": {
-    "name": "powersOmniSwitch6855",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "modulesOmniSwitch6855": {
-    "name": "modulesOmniSwitch6855",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.9.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "familyOmniSwitch6400": {
-    "name": "familyOmniSwitch6400",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "chassisOmniSwitch6400": {
-    "name": "chassisOmniSwitch6400",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch640024": {
-    "name": "deviceOmniSwitch640024",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6400P24": {
-    "name": "deviceOmniSwitch6400P24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6400U24": {
-    "name": "deviceOmniSwitch6400U24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6400DU24": {
-    "name": "deviceOmniSwitch6400DU24",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch640048": {
-    "name": "deviceOmniSwitch640048",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1.5",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6400P48": {
-    "name": "deviceOmniSwitch6400P48",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.1.6",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "fansOmniSwitch6400": {
-    "name": "fansOmniSwitch6400",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "powersOmniSwitch6400": {
-    "name": "powersOmniSwitch6400",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "powersOmniSwitch6400BPS": {
-    "name": "powersOmniSwitch6400BPS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.3.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "modulesOmniSwitch6400": {
-    "name": "modulesOmniSwitch6400",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.10.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "familyOmniSwitch6250": {
-    "name": "familyOmniSwitch6250",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "chassisOmniSwitch6250M": {
-    "name": "chassisOmniSwitch6250M",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "chassisOmniSwitch6250ENT": {
-    "name": "chassisOmniSwitch6250ENT",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch62508M": {
-    "name": "deviceOmniSwitch62508M",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.1.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch625024M": {
-    "name": "deviceOmniSwitch625024M",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.1.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch625024MD": {
-    "name": "deviceOmniSwitch625024MD",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.1.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch625024ENT": {
-    "name": "deviceOmniSwitch625024ENT",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.2.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "deviceOmniSwitch6250P24ENT": {
-    "name": "deviceOmniSwitch6250P24ENT",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.2.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "fansOmniSwitch6250": {
-    "name": "fansOmniSwitch6250",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "powersOmniSwitch6250": {
-    "name": "powersOmniSwitch6250",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "powersOmniSwitch6250BPS": {
-    "name": "powersOmniSwitch6250BPS",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.4.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "modulesOmniSwitch6250": {
-    "name": "modulesOmniSwitch6250",
-    "oid": "1.3.6.1.4.1.6486.800.1.1.2.1.11.5",
+  "deviceOmniSwitch6865U28X": {
+    "name": "deviceOmniSwitch6865U28X",
+    "oid": "1.3.6.1.4.1.6486.801.1.1.2.1.13.1.3",
     "class": "objectidentity",
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DEVICES",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DEVICES"

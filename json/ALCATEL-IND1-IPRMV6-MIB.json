@@ -4,65 +4,95 @@
     "ALCATEL-IND1-BASE": [
       "routingIND1Iprm"
     ],
+    "ALCATEL-IND1-IPRM-MIB": [
+      "AlaIprmAdminStatus",
+      "AlaIprmStaticRouteTypes"
+    ],
     "IANA-RTPROTO-MIB": [
       "IANAipRouteProtocol"
     ],
     "IPV6-TC": [
       "Ipv6Address",
-      "Ipv6IfIndex"
+      "Ipv6IfIndex",
+      "Ipv6IfIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1IPRMV6MIB": {
     "name": "alcatelIND1IPRMV6MIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2007-04-03 00:00",
+        "revision": "2010-02-22 00:00",
         "description": "The latest version of this MIB Module."
       }
     ]
   },
   "alcatelIND1IPRMV6MIBObjects": {
     "name": "alcatelIND1IPRMV6MIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1",
     "class": "objectidentity"
   },
   "alaIprmV6Config": {
     "name": "alaIprmV6Config",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1",
     "class": "objectidentity"
+  },
+  "AlaIprmV6RtPrefType": {
+    "name": "AlaIprmV6RtPrefType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "static": 2,
+          "ospf": 3,
+          "rip": 4,
+          "bgpExternal": 5,
+          "bgpInternal": 6,
+          "isisl1": 7,
+          "isisl2": 8,
+          "import": 9
+        }
+      }
+    },
+    "status": "current"
   },
   "alaIprmV6RouteTable": {
     "name": "alaIprmV6RouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -70,7 +100,7 @@
   },
   "alaIprmV6RouteEntry": {
     "name": "alaIprmV6RouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -105,7 +135,7 @@
   },
   "alaIprmV6RouteDest": {
     "name": "alaIprmV6RouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -117,11 +147,11 @@
   },
   "alaIprmV6RoutePfxLength": {
     "name": "alaIprmV6RoutePfxLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -138,7 +168,7 @@
   },
   "alaIprmV6RouteNextHop": {
     "name": "alaIprmV6RouteNextHop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -150,7 +180,7 @@
   },
   "alaIprmV6RouteProtocol": {
     "name": "alaIprmV6RouteProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -162,7 +192,7 @@
   },
   "alaIprmV6RouteIfIndex": {
     "name": "alaIprmV6RouteIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -174,7 +204,7 @@
   },
   "alaIprmV6RouteMetric": {
     "name": "alaIprmV6RouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -186,7 +216,7 @@
   },
   "alaIprmV6RouteValid": {
     "name": "alaIprmV6RouteValid",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -198,7 +228,7 @@
   },
   "alaIprmV6StaticRouteTable": {
     "name": "alaIprmV6StaticRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -206,7 +236,7 @@
   },
   "alaIprmV6StaticRouteEntry": {
     "name": "alaIprmV6StaticRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -236,7 +266,7 @@
   },
   "alaIprmV6StaticRouteDest": {
     "name": "alaIprmV6StaticRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -248,11 +278,11 @@
   },
   "alaIprmV6StaticRoutePfxLength": {
     "name": "alaIprmV6StaticRoutePfxLength",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -268,7 +298,7 @@
   },
   "alaIprmV6StaticRouteNextHop": {
     "name": "alaIprmV6StaticRouteNextHop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -280,11 +310,11 @@
   },
   "alaIprmV6StaticRouteIfIndex": {
     "name": "alaIprmV6StaticRouteIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Ipv6IfIndex",
+      "type": "Ipv6IfIndexOrZero",
       "class": "type"
     },
     "maxaccess": "not-accessible",
@@ -292,7 +322,7 @@
   },
   "alaIprmV6StaticRouteMetric": {
     "name": "alaIprmV6StaticRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -310,7 +340,7 @@
   },
   "alaIprmV6StaticRouteStatus": {
     "name": "alaIprmV6StaticRouteStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -320,36 +350,101 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "alaIprmV6RtPrefLocal": {
-    "name": "alaIprmV6RtPrefLocal",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.3",
-    "nodetype": "scalar",
+  "alaIprmV6StaticRouteTag": {
+    "name": "alaIprmV6StaticRouteTag",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.7",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "type": "Unsigned32",
+      "class": "type"
     },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
-  "alaIprmV6RtPrefStatic": {
-    "name": "alaIprmV6RtPrefStatic",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.4",
-    "nodetype": "scalar",
+  "alaIprmV6StaticRouteName": {
+    "name": "alaIprmV6StaticRouteName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIprmV6StaticRouteBfdStatus": {
+    "name": "alaIprmV6StaticRouteBfdStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIprmAdminStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIprmV6StaticRouteType": {
+    "name": "alaIprmV6StaticRouteType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIprmStaticRouteTypes",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIprmV6RtPrefTable": {
+    "name": "alaIprmV6RtPrefTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIprmV6RtPrefTableEntry": {
+    "name": "alaIprmV6RtPrefTableEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPRMV6-MIB",
+        "object": "alaIprmV6RtPrefEntryType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIprmV6RtPrefEntryType": {
+    "name": "alaIprmV6RtPrefEntryType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIprmV6RtPrefType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIprmV6RtPrefEntryValue": {
+    "name": "alaIprmV6RtPrefEntryValue",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.3.1.2",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
@@ -361,116 +456,115 @@
             "max": 255
           }
         ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 2,
-        "format": "decimal"
       }
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaIprmV6RtPrefOspf": {
-    "name": "alaIprmV6RtPrefOspf",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.5",
+  "alaIprmV6ExportRouteMap": {
+    "name": "alaIprmV6ExportRouteMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 110,
-        "format": "decimal"
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaIprmV6RtPrefRip": {
-    "name": "alaIprmV6RtPrefRip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.6",
+  "alaIprmV6ExportToAllVrfsRouteMap": {
+    "name": "alaIprmV6ExportToAllVrfsRouteMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 120,
-        "format": "decimal"
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaIprmV6RtPrefEbgp": {
-    "name": "alaIprmV6RtPrefEbgp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.7",
-    "nodetype": "scalar",
+  "alaIprmV6ImportVrfTable": {
+    "name": "alaIprmV6ImportVrfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.6",
+    "nodetype": "table",
     "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 190,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
-  "alaIprmV6RtPrefIbgp": {
-    "name": "alaIprmV6RtPrefIbgp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.1.1.8",
-    "nodetype": "scalar",
+  "alaIprmV6ImportVrfEntry": {
+    "name": "alaIprmV6ImportVrfEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-IPRMV6-MIB",
+        "object": "alaIprmV6ImportVrfName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaIprmV6ImportVrfName": {
+    "name": "alaIprmV6ImportVrfName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.6.1.1",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
-        "range": [
+        "size": [
           {
-            "min": 1,
-            "max": 255
+            "min": 0,
+            "max": 20
           }
         ]
       }
     },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaIprmV6ImportVrfRouteMap": {
+    "name": "alaIprmV6ImportVrfRouteMap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIprmV6ImportVrfRowStatus": {
+    "name": "alaIprmV6ImportVrfRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaIprmV6StaticAllBfd": {
+    "name": "alaIprmV6StaticAllBfd",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlaIprmAdminStatus",
+      "class": "type"
+    },
     "default": {
       "default": {
-        "value": 200,
-        "format": "decimal"
+        "value": "disabled",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -478,22 +572,22 @@
   },
   "alcatelIND1IPRMV6MIBConformance": {
     "name": "alcatelIND1IPRMV6MIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1IPRMV6MIBCompliances": {
     "name": "alcatelIND1IPRMV6MIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1IPRMV6MIBGroups": {
     "name": "alcatelIND1IPRMV6MIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.2.2",
     "class": "objectidentity"
   },
   "alaIprmV6Compliance": {
     "name": "alaIprmV6Compliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -505,7 +599,7 @@
   },
   "alaIprmV6ConfigMIBGroup": {
     "name": "alaIprmV6ConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.2.2.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.2.2.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -526,27 +620,43 @@
       },
       {
         "module": "ALCATEL-IND1-IPRMV6-MIB",
-        "object": "alaIprmV6RtPrefLocal"
+        "object": "alaIprmV6StaticRouteTag"
       },
       {
         "module": "ALCATEL-IND1-IPRMV6-MIB",
-        "object": "alaIprmV6RtPrefStatic"
+        "object": "alaIprmV6StaticRouteName"
       },
       {
         "module": "ALCATEL-IND1-IPRMV6-MIB",
-        "object": "alaIprmV6RtPrefOspf"
+        "object": "alaIprmV6StaticRouteBfdStatus"
       },
       {
         "module": "ALCATEL-IND1-IPRMV6-MIB",
-        "object": "alaIprmV6RtPrefRip"
+        "object": "alaIprmV6StaticRouteType"
       },
       {
         "module": "ALCATEL-IND1-IPRMV6-MIB",
-        "object": "alaIprmV6RtPrefEbgp"
+        "object": "alaIprmV6RtPrefEntryValue"
       },
       {
         "module": "ALCATEL-IND1-IPRMV6-MIB",
-        "object": "alaIprmV6RtPrefIbgp"
+        "object": "alaIprmV6ExportRouteMap"
+      },
+      {
+        "module": "ALCATEL-IND1-IPRMV6-MIB",
+        "object": "alaIprmV6ExportToAllVrfsRouteMap"
+      },
+      {
+        "module": "ALCATEL-IND1-IPRMV6-MIB",
+        "object": "alaIprmV6ImportVrfRouteMap"
+      },
+      {
+        "module": "ALCATEL-IND1-IPRMV6-MIB",
+        "object": "alaIprmV6ImportVrfRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-IPRMV6-MIB",
+        "object": "alaIprmV6StaticAllBfd"
       }
     ],
     "status": "current"
@@ -554,8 +664,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPRMV6-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-IPRMV6-MIB"

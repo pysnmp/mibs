@@ -2,49 +2,53 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "softentIND1AAA",
-      "alaAaaTraps"
+      "softentIND1AAA"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1AAAMIB": {
     "name": "alcatelIND1AAAMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "The latest version of this MIB Module."
@@ -53,36 +57,36 @@
   },
   "alcatelIND1AAAMIBObjects": {
     "name": "alcatelIND1AAAMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1AAAMIBConformance": {
     "name": "alcatelIND1AAAMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1AAAMIBGroups": {
     "name": "alcatelIND1AAAMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1AAAMIBCompliances": {
     "name": "alcatelIND1AAAMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "aaaServerMIB": {
     "name": "aaaServerMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1",
     "class": "objectidentity"
   },
   "aaaServerTable": {
     "name": "aaaServerTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -90,7 +94,7 @@
   },
   "aaaServerEntry": {
     "name": "aaaServerEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -105,11 +109,11 @@
   },
   "aaasName": {
     "name": "aaasName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -120,12 +124,12 @@
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "aaasProtocol": {
     "name": "aaasProtocol",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -145,11 +149,11 @@
   },
   "aaasHostName": {
     "name": "aaasHostName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -165,7 +169,7 @@
   },
   "aaasIpAddress": {
     "name": "aaasIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -177,11 +181,11 @@
   },
   "aaasHostName2": {
     "name": "aaasHostName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -197,7 +201,7 @@
   },
   "aaasIpAddress2": {
     "name": "aaasIpAddress2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -209,11 +213,11 @@
   },
   "aaasRetries": {
     "name": "aaasRetries",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -235,17 +239,17 @@
   },
   "aaasTimout": {
     "name": "aaasTimout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 512
+            "max": 30
           }
         ]
       }
@@ -261,11 +265,11 @@
   },
   "aaasRadKey": {
     "name": "aaasRadKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -281,11 +285,11 @@
   },
   "aaasRadAuthPort": {
     "name": "aaasRadAuthPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -307,11 +311,11 @@
   },
   "aaasRadAcctPort": {
     "name": "aaasRadAcctPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -333,11 +337,11 @@
   },
   "aaasLdapPort": {
     "name": "aaasLdapPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -353,11 +357,11 @@
   },
   "aaasLdapDn": {
     "name": "aaasLdapDn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -373,11 +377,11 @@
   },
   "aaasLdapPasswd": {
     "name": "aaasLdapPasswd",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -393,11 +397,11 @@
   },
   "aaasLdapSearchBase": {
     "name": "aaasLdapSearchBase",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -413,7 +417,7 @@
   },
   "aaasLdapServType": {
     "name": "aaasLdapServType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -441,32 +445,7 @@
   },
   "aaasLdapEnableSsl": {
     "name": "aaasLdapEnableSsl",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.17",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "ns": 0,
-          "true": 1,
-          "false": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "false",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaasAceClear": {
-    "name": "aaasAceClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -491,7 +470,7 @@
   },
   "aaasRowStatus": {
     "name": "aaasRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -509,11 +488,11 @@
   },
   "aaasTacacsKey": {
     "name": "aaasTacacsKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -529,11 +508,11 @@
   },
   "aaasTacacsPort": {
     "name": "aaasTacacsPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -553,111 +532,79 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "aaasHttpPort": {
-    "name": "aaasHttpPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.22",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaasHttpDirectory": {
-    "name": "aaasHttpDirectory",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.23",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaasHttpProxyHostName": {
-    "name": "aaasHttpProxyHostName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.24",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaasHttpProxyIpAddress": {
-    "name": "aaasHttpProxyIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.25",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaasHttpProxyPort": {
-    "name": "aaasHttpProxyPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.26",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "aaasVrfName": {
     "name": "aaasVrfName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.1.1.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
             "min": 0,
             "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaasRadKeyHash": {
+    "name": "aaasRadKeyHash",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaasLdapPasswdHash": {
+    "name": "aaasLdapPasswdHash",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaasTacacsKeyHash": {
+    "name": "aaasTacacsKeyHash",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
           }
         ]
       }
@@ -667,178 +614,12 @@
   },
   "aaaAuthAcctMIB": {
     "name": "aaaAuthAcctMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2",
     "class": "objectidentity"
-  },
-  "aaaAuthVlanTable": {
-    "name": "aaaAuthVlanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaAuthVlanEntry": {
-    "name": "aaaAuthVlanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvVlan",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaatvVlan": {
-    "name": "aaatvVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatvName1": {
-    "name": "aaatvName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatvName2": {
-    "name": "aaatvName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatvName3": {
-    "name": "aaatvName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatvName4": {
-    "name": "aaatvName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatvRowStatus": {
-    "name": "aaatvRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatvCertificate": {
-    "name": "aaatvCertificate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "noCertificate": 0,
-          "certificateOnly": 1,
-          "certificateWithPassword": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "noCertificate",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
   },
   "aaaAuthSATable": {
     "name": "aaaAuthSATable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -846,7 +627,7 @@
   },
   "aaaAuthSAEntry": {
     "name": "aaaAuthSAEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -861,7 +642,7 @@
   },
   "aaatsInterface": {
     "name": "aaatsInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -879,16 +660,16 @@
         }
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "aaatsName1": {
     "name": "aaatsName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -904,11 +685,11 @@
   },
   "aaatsName2": {
     "name": "aaatsName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -924,11 +705,11 @@
   },
   "aaatsName3": {
     "name": "aaatsName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -944,11 +725,11 @@
   },
   "aaatsName4": {
     "name": "aaatsName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -964,7 +745,7 @@
   },
   "aaatsRowStatus": {
     "name": "aaatsRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -982,7 +763,7 @@
   },
   "aaatsCertificate": {
     "name": "aaatsCertificate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.2.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1005,150 +786,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "aaaAcctVlanTable": {
-    "name": "aaaAcctVlanTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaAcctVlanEntry": {
-    "name": "aaaAcctVlanEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvVlan",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaacvVlan": {
-    "name": "aaacvVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacvName1": {
-    "name": "aaacvName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacvName2": {
-    "name": "aaacvName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacvName3": {
-    "name": "aaacvName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacvName4": {
-    "name": "aaacvName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacvRowStatus": {
-    "name": "aaacvRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.3.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "aaaAcctSATable": {
     "name": "aaaAcctSATable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1156,7 +796,7 @@
   },
   "aaaAcctSAEntry": {
     "name": "aaaAcctSAEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1171,11 +811,11 @@
   },
   "aaacsInterface": {
     "name": "aaacsInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1186,22 +826,16 @@
         ]
       }
     },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "aaacsName1": {
     "name": "aaacsName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1217,11 +851,11 @@
   },
   "aaacsName2": {
     "name": "aaacsName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1237,11 +871,11 @@
   },
   "aaacsName3": {
     "name": "aaacsName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1257,11 +891,11 @@
   },
   "aaacsName4": {
     "name": "aaacsName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1277,644 +911,7 @@
   },
   "aaacsRowStatus": {
     "name": "aaacsRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.4.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAuth8021xTable": {
-    "name": "aaaAuth8021xTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaAuth8021xEntry": {
-    "name": "aaaAuth8021xEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxInterface",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaatxInterface": {
-    "name": "aaatxInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 1
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatxName1": {
-    "name": "aaatxName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatxName2": {
-    "name": "aaatxName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatxName3": {
-    "name": "aaatxName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatxName4": {
-    "name": "aaatxName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatxOpen": {
-    "name": "aaatxOpen",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "global": 1,
-          "unique": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "unique",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatxRowStatus": {
-    "name": "aaatxRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.5.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAcct8021xTable": {
-    "name": "aaaAcct8021xTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaAcct8021xEntry": {
-    "name": "aaaAcct8021xEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxInterface",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaacxInterface": {
-    "name": "aaacxInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 1
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacxName1": {
-    "name": "aaacxName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacxName2": {
-    "name": "aaacxName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacxName3": {
-    "name": "aaacxName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacxName4": {
-    "name": "aaacxName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaacxRowStatus": {
-    "name": "aaacxRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.6.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaPkiTable": {
-    "name": "aaaPkiTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaPkiEntry": {
-    "name": "aaaPkiEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpInterface",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaatpInterface": {
-    "name": "aaatpInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 1
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatpName1": {
-    "name": "aaatpName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatpName2": {
-    "name": "aaatpName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatpName3": {
-    "name": "aaatpName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatpName4": {
-    "name": "aaatpName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatpLevel": {
-    "name": "aaatpLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "certificate": 1,
-          "notRevoked": 2,
-          "repository": 3
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "certificate",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaatpRowStatus": {
-    "name": "aaatpRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.7.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAuthMACTable": {
-    "name": "aaaAuthMACTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaAuthMACEntry": {
-    "name": "aaaAuthMACEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxInterface",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaaMacInterface": {
-    "name": "aaaMacInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 1
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaMacSrvrName1": {
-    "name": "aaaMacSrvrName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaMacSrvrName2": {
-    "name": "aaaMacSrvrName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaMacSrvrName3": {
-    "name": "aaaMacSrvrName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaMacSrvrName4": {
-    "name": "aaaMacSrvrName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaMacSrvrRowStatus": {
-    "name": "aaaMacSrvrRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.8.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1932,7 +929,7 @@
   },
   "aaaAcctCmdTable": {
     "name": "aaaAcctCmdTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1940,7 +937,7 @@
   },
   "aaaAcctCmdEntry": {
     "name": "aaaAcctCmdEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1955,11 +952,11 @@
   },
   "aaacmdInterface": {
     "name": "aaacmdInterface",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1970,22 +967,16 @@
         ]
       }
     },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "aaacmdSrvName1": {
     "name": "aaacmdSrvName1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2001,11 +992,11 @@
   },
   "aaacmdSrvName2": {
     "name": "aaacmdSrvName2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2021,11 +1012,11 @@
   },
   "aaacmdSrvName3": {
     "name": "aaacmdSrvName3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2041,11 +1032,11 @@
   },
   "aaacmdSrvName4": {
     "name": "aaacmdSrvName4",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2061,7 +1052,7 @@
   },
   "aaacmdRowStatus": {
     "name": "aaacmdRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.2.9.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2077,14 +1068,787 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "aaaAuthDATable": {
+    "name": "aaaAuthDATable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaaAuthDAEntry": {
+    "name": "aaaAuthDAEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aaadaInterface": {
+    "name": "aaadaInterface",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aaadaName1": {
+    "name": "aaadaName1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaadaName2": {
+    "name": "aaadaName2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaadaName3": {
+    "name": "aaadaName3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaadaName4": {
+    "name": "aaadaName4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaadaRowStatus": {
+    "name": "aaadaRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaaAcctDATable": {
+    "name": "aaaAcctDATable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaaAcctDAEntry": {
+    "name": "aaaAcctDAEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aaacdInterface": {
+    "name": "aaacdInterface",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaacdName1": {
+    "name": "aaacdName1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdName2": {
+    "name": "aaacdName2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdName3": {
+    "name": "aaacdName3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdName4": {
+    "name": "aaacdName4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdRowStatus": {
+    "name": "aaacdRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdSyslogIPAddrType": {
+    "name": "aaacdSyslogIPAddrType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdSyslogIPAddr": {
+    "name": "aaacdSyslogIPAddr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdSyslogUdpPort": {
+    "name": "aaacdSyslogUdpPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 514,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaacdCallngStationId": {
+    "name": "aaacdCallngStationId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ip": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaAuthConfig": {
+    "name": "alaAaaAuthConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "alaAaaOnexReAuthStatus": {
+    "name": "alaAaaOnexReAuthStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaOnexReAuthIntrvl": {
+    "name": "alaAaaOnexReAuthIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaOnexReAuthTrustRadStatus": {
+    "name": "alaAaaOnexReAuthTrustRadStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaOnexIntrmIntrvl": {
+    "name": "alaAaaOnexIntrmIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaOnexIntmIntvlTrstRadSts": {
+    "name": "alaAaaOnexIntmIntvlTrstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacIntrmIntrvl": {
+    "name": "alaAaaMacIntrmIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacIntmIntvlTrstRadStatus": {
+    "name": "alaAaaMacIntmIntvlTrstRadStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacSessTimeoutStatus": {
+    "name": "alaAaaMacSessTimeoutStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacSessTimeoutIntrvl": {
+    "name": "alaAaaMacSessTimeoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacSesTimeoutTrstRadStatus": {
+    "name": "alaAaaMacSesTimeoutTrstRadStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacInActLogoutStatus": {
+    "name": "alaAaaMacInActLogoutStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaMacInActLogoutIntrvl": {
+    "name": "alaAaaMacInActLogoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpIntrmIntrvl": {
+    "name": "alaAaaCpIntrmIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpIntmIntvlTrstRadStatus": {
+    "name": "alaAaaCpIntmIntvlTrstRadStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpSessTimeoutStatus": {
+    "name": "alaAaaCpSessTimeoutStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpSessTimeoutIntrvl": {
+    "name": "alaAaaCpSessTimeoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpSessTmotTrstRadStatus": {
+    "name": "alaAaaCpSessTmotTrstRadStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpInActLogoutStatus": {
+    "name": "alaAaaCpInActLogoutStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCpInActLogoutIntrvl": {
+    "name": "alaAaaCpInActLogoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTacacsServerCmdAuthorization": {
+    "name": "alaAaaTacacsServerCmdAuthorization",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.2.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "aaaUserMIB": {
     "name": "aaaUserMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3",
     "class": "objectidentity"
   },
   "aaaUserTable": {
     "name": "aaaUserTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2092,7 +1856,7 @@
   },
   "aaaUserEntry": {
     "name": "aaaUserEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -2107,11 +1871,11 @@
   },
   "aaauUserName": {
     "name": "aaauUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2122,16 +1886,16 @@
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "aaauPassword": {
     "name": "aaauPassword",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2147,7 +1911,7 @@
   },
   "aaauReadRight1": {
     "name": "aaauReadRight1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2167,7 +1931,7 @@
   },
   "aaauReadRight2": {
     "name": "aaauReadRight2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2187,7 +1951,7 @@
   },
   "aaauWriteRight1": {
     "name": "aaauWriteRight1",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2207,7 +1971,7 @@
   },
   "aaauWriteRight2": {
     "name": "aaauWriteRight2",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2225,29 +1989,9 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "aaauProfile": {
-    "name": "aaauProfile",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "obsolete"
-  },
   "aaauSnmpLevel": {
     "name": "aaauSnmpLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2260,7 +2004,10 @@
           "sha": 3,
           "md5": 4,
           "shaDes": 5,
-          "md5Des": 6
+          "md5Des": 6,
+          "shaAes": 7,
+          "sha224": 8,
+          "sha256": 9
         }
       }
     },
@@ -2269,7 +2016,7 @@
   },
   "aaauSnmpAuthKey": {
     "name": "aaauSnmpAuthKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2289,7 +2036,7 @@
   },
   "aaauRowStatus": {
     "name": "aaauRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2307,11 +2054,11 @@
   },
   "aaauOldPassword": {
     "name": "aaauOldPassword",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2325,33 +2072,13 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "aaauEndUserProfile": {
-    "name": "aaauEndUserProfile",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "aaauPasswordExpirationDate": {
     "name": "aaauPasswordExpirationDate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2367,11 +2094,11 @@
   },
   "aaauPasswordExpirationInMinute": {
     "name": "aaauPasswordExpirationInMinute",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2387,11 +2114,11 @@
   },
   "aaauPasswordAllowModifyDate": {
     "name": "aaauPasswordAllowModifyDate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2407,7 +2134,7 @@
   },
   "aaauPasswordLockoutEnable": {
     "name": "aaauPasswordLockoutEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2432,11 +2159,11 @@
   },
   "aaauBadAtempts": {
     "name": "aaauBadAtempts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.3.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2450,257 +2177,124 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "aaaAuthenticatedUserTable": {
-    "name": "aaaAuthenticatedUserTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4",
-    "nodetype": "table",
+  "aaauReadRight3": {
+    "name": "aaauReadRight3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.16",
+    "nodetype": "column",
     "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaAuthenticatedUserEntry": {
-    "name": "aaaAuthenticatedUserEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaaMacAddress",
-        "implied": 0
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
       }
-    ],
-    "status": "current"
-  },
-  "aaaaMacAddress": {
-    "name": "aaaaMacAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
-  "aaaaUserName": {
-    "name": "aaaaUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1.2",
+  "aaauReadRight4": {
+    "name": "aaauReadRight4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaauWriteRight3": {
+    "name": "aaauWriteRight3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaauWriteRight4": {
+    "name": "aaauWriteRight4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaauSnmpPrivPassword": {
+    "name": "aaauSnmpPrivPassword",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
       "class": "type",
       "constraints": {
         "size": [
           {
-            "min": 0,
-            "max": 32
+            "min": 8,
+            "max": 30
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaaSlot": {
-    "name": "aaaaSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaaPort": {
-    "name": "aaaaPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaaVlan": {
-    "name": "aaaaVlan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaaDrop": {
-    "name": "aaaaDrop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.4.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "true": 1,
-          "false": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "false",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "aaaAvlanConfig": {
-    "name": "aaaAvlanConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.5",
-    "class": "objectidentity"
-  },
-  "aaaAvlanDnsName": {
-    "name": "aaaAvlanDnsName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.5.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAvlanDhcpDefGateway": {
-    "name": "aaaAvlanDhcpDefGateway",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.5.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAvlanDefaultTraffic": {
-    "name": "aaaAvlanDefaultTraffic",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.5.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "ns": 0,
-          "true": 1,
-          "false": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAvlanPortBound": {
-    "name": "aaaAvlanPortBound",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.5.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "ns": 0,
-          "true": 1,
-          "false": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaAvlanLanguage": {
-    "name": "aaaAvlanLanguage",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.5.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "ns": 0,
-          "true": 1,
-          "false": 2
-        }
-      }
-    },
-    "maxaccess": "read-create",
     "status": "current"
   },
   "aaaAsaConfig": {
     "name": "aaaAsaConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4",
     "class": "objectidentity"
   },
   "aaaAsaPasswordSizeMin": {
     "name": "aaaAsaPasswordSizeMin",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 14
+            "max": 31
           }
         ]
       }
@@ -2710,11 +2304,11 @@
   },
   "aaaAsaDefaultPasswordExpirationInDays": {
     "name": "aaaAsaDefaultPasswordExpirationInDays",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2730,7 +2324,7 @@
   },
   "aaaAsaPasswordContainUserName": {
     "name": "aaaAsaPasswordContainUserName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2754,11 +2348,11 @@
   },
   "aaaAsaPasswordMinUpperCase": {
     "name": "aaaAsaPasswordMinUpperCase",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2774,11 +2368,11 @@
   },
   "aaaAsaPasswordMinLowerCase": {
     "name": "aaaAsaPasswordMinLowerCase",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2794,11 +2388,11 @@
   },
   "aaaAsaPasswordMinDigit": {
     "name": "aaaAsaPasswordMinDigit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2814,11 +2408,11 @@
   },
   "aaaAsaPasswordMinNonAlphan": {
     "name": "aaaAsaPasswordMinNonAlphan",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2834,11 +2428,11 @@
   },
   "aaaAsaPasswordHistory": {
     "name": "aaaAsaPasswordHistory",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2860,11 +2454,11 @@
   },
   "aaaAsaPasswordMinAge": {
     "name": "aaaAsaPasswordMinAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2880,11 +2474,11 @@
   },
   "aaaAsaLockoutWindow": {
     "name": "aaaAsaLockoutWindow",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2900,11 +2494,11 @@
   },
   "aaaAsaLockoutDuration": {
     "name": "aaaAsaLockoutDuration",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -2920,7 +2514,75 @@
   },
   "aaaAsaLockoutThreshold": {
     "name": "aaaAsaLockoutThreshold",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaAsaAccessPolicyAdminConsoleOnly": {
+    "name": "aaaAsaAccessPolicyAdminConsoleOnly",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaAsaAccessMode": {
+    "name": "aaaAsaAccessMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "enhanced": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaAsaAccessIpLockoutThreshold": {
+    "name": "aaaAsaAccessIpLockoutThreshold",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2935,36 +2597,18 @@
         ]
       }
     },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
     "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaAsaROUserPingTrtEnable": {
-    "name": "aaaAsaROUserPingTrtEnable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "disable": 0,
-          "enable": 1
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "aaaAsaAccessPolicyAdminConsoleOnly": {
-    "name": "aaaAsaAccessPolicyAdminConsoleOnly",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.6.14",
+  "aaaAsaAccessManagementIpStatus": {
+    "name": "aaaAsaAccessManagementIpStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.4.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2986,91 +2630,272 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaAvlanAddressTable": {
-    "name": "aaaAvlanAddressTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.7",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
+  "alaAaaClientAttr": {
+    "name": "alaAaaClientAttr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5",
+    "class": "objectidentity"
   },
-  "aaaAvlanAddressEntry": {
-    "name": "aaaAvlanAddressEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.7.1",
-    "nodetype": "row",
+  "alaAaaRadClientGlobalAttr": {
+    "name": "alaAaaRadClientGlobalAttr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "alaAaaRadNasPortId": {
+    "name": "alaAaaRadNasPortId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.1",
+    "nodetype": "scalar",
     "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaAvlanId",
-        "implied": 0
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
       }
-    ],
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaAvlanId": {
-    "name": "aaaAvlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.7.1.1",
-    "nodetype": "column",
+  "alaAaaRadNasIdentifier": {
+    "name": "alaAaaRadNasIdentifier",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaRadUserNameDelim": {
+    "name": "alaAaaRadUserNameDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaRadPasswordDelim": {
+    "name": "alaAaaRadPasswordDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaRadCallnStnIdDelim": {
+    "name": "alaAaaRadCallnStnIdDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaRadCalldStnIdDelim": {
+    "name": "alaAaaRadCalldStnIdDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaRadUserNameCase": {
+    "name": "alaAaaRadUserNameCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.7",
+    "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
       "class": "type",
       "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 4094
-          }
-        ]
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
       }
     },
-    "maxaccess": "read-only",
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaAvlanIpAddress": {
-    "name": "aaaAvlanIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.7.1.2",
-    "nodetype": "column",
+  "alaAaaRadPasswordCase": {
+    "name": "alaAaaRadPasswordCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.8",
+    "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "IpAddress",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
     },
-    "maxaccess": "read-create",
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaUserNetProfileTable": {
-    "name": "aaaUserNetProfileTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8",
+  "alaAaaRadCallingStationIdCase": {
+    "name": "alaAaaRadCallingStationIdCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaRadCalledStationIdCase": {
+    "name": "alaAaaRadCalledStationIdCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaProfileObjects": {
+    "name": "alaAaaProfileObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6",
+    "class": "objectidentity"
+  },
+  "alaAaaProfileConfig": {
+    "name": "alaAaaProfileConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1",
+    "class": "objectidentity"
+  },
+  "alaAaaProfTable": {
+    "name": "alaAaaProfTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUserNetProfileEntry": {
-    "name": "aaaUserNetProfileEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8.1",
+  "alaAaaProfEntry": {
+    "name": "alaAaaProfEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaUserNetProfileName",
+        "object": "alaAaaProfName",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "aaaUserNetProfileName": {
-    "name": "aaaUserNetProfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8.1.1",
+  "alaAaaProfName": {
+    "name": "alaAaaProfName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -3084,484 +2909,10 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUserNetProfileVlanID": {
-    "name": "aaaUserNetProfileVlanID",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8.1.2",
+  "alaAaaProfOnexReAuthSts": {
+    "name": "alaAaaProfOnexReAuthSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.2",
     "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 4094
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaUserNetProfileRowStatus": {
-    "name": "aaaUserNetProfileRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaUserNetProfileHICflag": {
-    "name": "aaaUserNetProfileHICflag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaUserNetProfileQosPolicyListName": {
-    "name": "aaaUserNetProfileQosPolicyListName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.8.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaRadAgentConfig": {
-    "name": "aaaRadAgentConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 3
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "aaaRadAgentIP": {
-    "name": "aaaRadAgentIP",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "aaaHicConfig": {
-    "name": "aaaHicConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11",
-    "class": "objectidentity"
-  },
-  "aaaHicSvrTable": {
-    "name": "aaaHicSvrTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicSvrEntry": {
-    "name": "aaaHicSvrEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicSvrName",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaaHicSvrName": {
-    "name": "aaaHicSvrName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicSvrIpAddr": {
-    "name": "aaaHicSvrIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicSvrPort": {
-    "name": "aaaHicSvrPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1025,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 11707,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicSvrKey": {
-    "name": "aaaHicSvrKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicSvrRowStatus": {
-    "name": "aaaHicSvrRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicSvrStatus": {
-    "name": "aaaHicSvrStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "down": 1,
-          "up": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "down",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaHicAllowedTable": {
-    "name": "aaaHicAllowedTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.2",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicAllowedEntry": {
-    "name": "aaaHicAllowedEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.2.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowedName",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaaHicAllowedName": {
-    "name": "aaaHicAllowedName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.2.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicAllowedIpAddr": {
-    "name": "aaaHicAllowedIpAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.2.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicAllowedIpMask": {
-    "name": "aaaHicAllowedIpMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.2.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "ffffffff",
-        "format": "hex"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicAllowedRowStatus": {
-    "name": "aaaHicAllowedRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.2.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicOverrideTable": {
-    "name": "aaaHicOverrideTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.3",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicOverrideEntry": {
-    "name": "aaaHicOverrideEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.3.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicOverrideMac",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaaHicOverrideMac": {
-    "name": "aaaHicOverrideMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.3.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicOverrideStatus": {
-    "name": "aaaHicOverrideStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.3.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enforce": 1,
-          "bypass": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "enforce",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicOverrideRowStatus": {
-    "name": "aaaHicOverrideRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.3.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaHicHostTable": {
-    "name": "aaaHicHostTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.4",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicHostEntry": {
-    "name": "aaaHicHostEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.4.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicHostMac",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaaHicHostMac": {
-    "name": "aaaHicHostMac",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.4.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaHicHostStatus": {
-    "name": "aaaHicHostStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.4.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "inprogress": 1,
-          "success": 2,
-          "fail": 3,
-          "timeout": 4
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "fail",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaHicConfigInfo": {
-    "name": "aaaHicConfigInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5",
-    "class": "objectidentity"
-  },
-  "aaaHicStatus": {
-    "name": "aaaHicStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.1",
-    "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
@@ -3582,118 +2933,932 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "aaaHicAllowed1Name": {
-    "name": "aaaHicAllowed1Name",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.2",
-    "nodetype": "scalar",
+  "alaAaaProfOnexReAuthIntrvl": {
+    "name": "alaAaaProfOnexReAuthIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.3",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 31
-          }
-        ]
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
-  "aaaHicAllowed2Name": {
-    "name": "aaaHicAllowed2Name",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaHicAllowed3Name": {
-    "name": "aaaHicAllowed3Name",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaHicAllowed4Name": {
-    "name": "aaaHicAllowed4Name",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 31
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "aaaHicWebAgentDownloadUrl": {
-    "name": "aaaHicWebAgentDownloadUrl",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 127
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "aaaHicCustomHttpProxyPort": {
-    "name": "aaaHicCustomHttpProxyPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.11.5.7",
-    "nodetype": "scalar",
+  "alaAaaProfOnexReAuthTrstRadSts": {
+    "name": "alaAaaProfOnexReAuthTrstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.4",
+    "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
       "class": "type",
       "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfOnexIntrmIntrvl": {
+    "name": "alaAaaProfOnexIntrmIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfOnexIntmItvlTstRadSts": {
+    "name": "alaAaaProfOnexIntmItvlTstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacIntrmIntrvl": {
+    "name": "alaAaaProfMacIntrmIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacIntmItvlTrstRadSts": {
+    "name": "alaAaaProfMacIntmItvlTrstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacSessTimeoutSts": {
+    "name": "alaAaaProfMacSessTimeoutSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacSessTimeoutIntrvl": {
+    "name": "alaAaaProfMacSessTimeoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacSessTmoutTrstRadSts": {
+    "name": "alaAaaProfMacSessTmoutTrstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacInActLogoutSts": {
+    "name": "alaAaaProfMacInActLogoutSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfMacInActLogoutIntrvl": {
+    "name": "alaAaaProfMacInActLogoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpSessTimeoutSts": {
+    "name": "alaAaaProfCpSessTimeoutSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpSessTimeoutIntrvl": {
+    "name": "alaAaaProfCpSessTimeoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 432000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpSessTmotTrstRadSts": {
+    "name": "alaAaaProfCpSessTmotTrstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpInActLogoutSts": {
+    "name": "alaAaaProfCpInActLogoutSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpInActLogoutIntrvl": {
+    "name": "alaAaaProfCpInActLogoutIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpIntrmIntrvl": {
+    "name": "alaAaaProfCpIntrmIntrvl",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 43200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfCpItrmIntlTrstRadSts": {
+    "name": "alaAaaProfCpItrmIntlTrstRadSts",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadNasPortId": {
+    "name": "alaAaaProfRadNasPortId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadNasIdentifier": {
+    "name": "alaAaaProfRadNasIdentifier",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadUserNameDelim": {
+    "name": "alaAaaProfRadUserNameDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadPasswrdDelim": {
+    "name": "alaAaaProfRadPasswrdDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadCallnStnIdDelim": {
+    "name": "alaAaaProfRadCallnStnIdDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadCalldStnIdDelim": {
+    "name": "alaAaaProfRadCalldStnIdDelim",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadUserNameCase": {
+    "name": "alaAaaProfRadUserNameCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadPasswordCase": {
+    "name": "alaAaaProfRadPasswordCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadCallnStnIdCase": {
+    "name": "alaAaaProfRadCallnStnIdCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRadCalldStnIdCase": {
+    "name": "alaAaaProfRadCalldStnIdCase",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowerCase": 1,
+          "upperCase": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "upperCase",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfRowStatus": {
+    "name": "alaAaaProfRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAuthTable": {
+    "name": "alaAaaProfAuthTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaAaaProfAuthEntry": {
+    "name": "alaAaaProfAuthEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAuthInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaProfAuthInterface": {
+    "name": "alaAaaProfAuthInterface",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "dot1x": 2,
+          "captivePortal": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaAaaProfAuthSrvName1": {
+    "name": "alaAaaProfAuthSrvName1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAuthSrvName2": {
+    "name": "alaAaaProfAuthSrvName2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAuthSrvName3": {
+    "name": "alaAaaProfAuthSrvName3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAuthSrvName4": {
+    "name": "alaAaaProfAuthSrvName4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAuthRowStatus": {
+    "name": "alaAaaProfAuthRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctTable": {
+    "name": "alaAaaProfAcctTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaAaaProfAcctEntry": {
+    "name": "alaAaaProfAcctEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfName",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaProfAcctInterface": {
+    "name": "alaAaaProfAcctInterface",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "dot1x": 2,
+          "captivePortal": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaAaaProfAcctSrvName1": {
+    "name": "alaAaaProfAcctSrvName1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctSrvName2": {
+    "name": "alaAaaProfAcctSrvName2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctSrvName3": {
+    "name": "alaAaaProfAcctSrvName3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctSrvName4": {
+    "name": "alaAaaProfAcctSrvName4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctSyslogIPAddrType": {
+    "name": "alaAaaProfAcctSyslogIPAddrType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctSyslogIPAddr": {
+    "name": "alaAaaProfAcctSyslogIPAddr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctSyslogUdpPort": {
+    "name": "alaAaaProfAcctSyslogUdpPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
         "range": [
           {
-            "min": 1025,
+            "min": 0,
             "max": 65535
           }
         ]
@@ -3701,49 +3866,184 @@
     },
     "default": {
       "default": {
-        "value": 8080,
+        "value": 514,
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
-  "aaaUNPIpNetRuleTable": {
-    "name": "aaaUNPIpNetRuleTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12",
+  "alaAaaProfAcctCalingStationId": {
+    "name": "alaAaaProfAcctCalingStationId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ip": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaAaaProfAcctRowStatus": {
+    "name": "alaAaaProfAcctRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notInService",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaaSwitchAccessConfig": {
+    "name": "aaaSwitchAccessConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7",
+    "class": "objectidentity"
+  },
+  "aaaSwitchAccessMgmtStationTable": {
+    "name": "aaaSwitchAccessMgmtStationTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUNPIpNetRuleEntry": {
-    "name": "aaaUNPIpNetRuleEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12.1",
+  "aaaSwitchAccessMgmtStationEntry": {
+    "name": "aaaSwitchAccessMgmtStationEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaUNPIpNetRuleAddrType",
+        "object": "aaaSwitchAccessMgmtStationIpType",
         "implied": 0
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaUNPIpNetRuleAddr",
+        "object": "aaaSwitchAccessMgmtStationIpAddress",
         "implied": 0
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaUNPIpNetRuleMask",
+        "object": "aaaSwitchAccessMgmtStationIpPrefixLength",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "aaaUNPIpNetRuleAddrType": {
-    "name": "aaaUNPIpNetRuleAddrType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12.1.1",
+  "aaaSwitchAccessMgmtStationIpType": {
+    "name": "aaaSwitchAccessMgmtStationIpType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ipv4": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaaSwitchAccessMgmtStationIpAddress": {
+    "name": "aaaSwitchAccessMgmtStationIpAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaaSwitchAccessMgmtStationIpPrefixLength": {
+    "name": "aaaSwitchAccessMgmtStationIpPrefixLength",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaaSwitchAccessMgmtStationRowStatus": {
+    "name": "aaaSwitchAccessMgmtStationRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aaaSwitchAccessBannedIpTable": {
+    "name": "aaaSwitchAccessBannedIpTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aaaSwitchAccessBannedIpEntry": {
+    "name": "aaaSwitchAccessBannedIpEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessBannedIpType",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessBannedIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aaaSwitchAccessBannedIpType": {
+    "name": "aaaSwitchAccessBannedIpType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3753,53 +4053,33 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUNPIpNetRuleAddr": {
-    "name": "aaaUNPIpNetRuleAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12.1.2",
+  "aaaSwitchAccessBannedIpAddress": {
+    "name": "aaaSwitchAccessBannedIpAddress",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "InetAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaUNPIpNetRuleMask": {
-    "name": "aaaUNPIpNetRuleMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InetAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaUNPIpNetRuleProfileName": {
-    "name": "aaaUNPIpNetRuleProfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
-            "min": 1,
-            "max": 32
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
           }
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUNPIpNetRuleRowStatus": {
-    "name": "aaaUNPIpNetRuleRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.12.1.5",
+  "aaaSwitchAccessBannedIpRowStatus": {
+    "name": "aaaSwitchAccessBannedIpRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3809,194 +4089,743 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "aaaUNPMacRuleTable": {
-    "name": "aaaUNPMacRuleTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.13",
+  "aaaSwitchAccessPrivMaskTable": {
+    "name": "aaaSwitchAccessPrivMaskTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUNPMacRuleEntry": {
-    "name": "aaaUNPMacRuleEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.13.1",
+  "aaaSwitchAccessPrivMaskEntry": {
+    "name": "aaaSwitchAccessPrivMaskEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaUNPMacRuleAddr",
+        "object": "aaaSwitchAccessType",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "aaaUNPMacRuleAddr": {
-    "name": "aaaUNPMacRuleAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.13.1.1",
+  "aaaSwitchAccessType": {
+    "name": "aaaSwitchAccessType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "MacAddress",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "console": 1,
+          "telnet": 2,
+          "ssh": 3,
+          "http": 4,
+          "https": 5
+        }
+      }
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "aaaUNPMacRuleProfileName": {
-    "name": "aaaUNPMacRuleProfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.13.1.2",
+  "aaaSwitchAccessReadRight1": {
+    "name": "aaaSwitchAccessReadRight1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "SnmpAdminString",
+      "type": "Unsigned32",
       "class": "type",
       "constraints": {
-        "size": [
+        "range": [
           {
-            "min": 1,
-            "max": 32
+            "min": 0,
+            "max": 4294967295
           }
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaUNPMacRuleRowStatus": {
-    "name": "aaaUNPMacRuleRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.13.1.3",
+  "aaaSwitchAccessReadRight2": {
+    "name": "aaaSwitchAccessReadRight2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaUNPMacRangeRuleTable": {
-    "name": "aaaUNPMacRangeRuleTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.14",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaUNPMacRangeRuleEntry": {
-    "name": "aaaUNPMacRangeRuleEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.14.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaUNPMacRangeRuleLoAddr",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "aaaUNPMacRangeRuleLoAddr": {
-    "name": "aaaUNPMacRangeRuleLoAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.14.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "aaaUNPMacRangeRuleHiAddr": {
-    "name": "aaaUNPMacRangeRuleHiAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.14.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "MacAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "aaaUNPMacRangeRuleProfileName": {
-    "name": "aaaUNPMacRangeRuleProfileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.14.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SnmpAdminString",
+      "type": "Unsigned32",
       "class": "type",
       "constraints": {
-        "size": [
+        "range": [
           {
-            "min": 1,
-            "max": 32
+            "min": 0,
+            "max": 4294967295
           }
         ]
       }
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaUNPMacRangeRuleRowStatus": {
-    "name": "aaaUNPMacRangeRuleRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.1.14.1.4",
+  "aaaSwitchAccessReadRight3": {
+    "name": "aaaSwitchAccessReadRight3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "alaAaaTrapsDesc": {
-    "name": "alaAaaTrapsDesc",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.21.1",
-    "class": "objectidentity"
-  },
-  "alaAaaTrapsDescRoot": {
-    "name": "alaAaaTrapsDescRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.21.1.0",
-    "class": "objectidentity"
-  },
-  "alaAaaTrapsObj": {
-    "name": "alaAaaTrapsObj",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.21.2",
-    "class": "objectidentity"
-  },
-  "aaaHicServerTrap": {
-    "name": "aaaHicServerTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.21.1.0.1",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHSvrIpAddress"
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
       }
-    ],
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
-  "aaaHSvrIpAddress": {
-    "name": "aaaHSvrIpAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.21.2.1",
+  "aaaSwitchAccessReadRight4": {
+    "name": "aaaSwitchAccessReadRight4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaSwitchAccessWriteRight1": {
+    "name": "aaaSwitchAccessWriteRight1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaSwitchAccessWriteRight2": {
+    "name": "aaaSwitchAccessWriteRight2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaSwitchAccessWriteRight3": {
+    "name": "aaaSwitchAccessWriteRight3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aaaSwitchAccessWriteRight4": {
+    "name": "aaaSwitchAccessWriteRight4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaUserProfileSave": {
+    "name": "alaAaaUserProfileSave",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.6.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "IpAddress",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userProfile": 1,
+          "globalProfile": 2
+        }
+      }
     },
-    "maxaccess": "accessible-for-notify",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaCommonCriteriaConfig": {
+    "name": "alaAaaCommonCriteriaConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.8",
+    "class": "objectidentity"
+  },
+  "alaAaaCommonCriteriaMode": {
+    "name": "alaAaaCommonCriteriaMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsConfig": {
+    "name": "alaAaaTlsConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9",
+    "class": "objectidentity"
+  },
+  "alaAaaTlsBaseConfig": {
+    "name": "alaAaaTlsBaseConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.1",
+    "class": "objectidentity"
+  },
+  "alaAaaTlsCaFileName": {
+    "name": "alaAaaTlsCaFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCrlFileName": {
+    "name": "alaAaaTlsCrlFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsKeyFileName": {
+    "name": "alaAaaTlsKeyFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCert": {
+    "name": "alaAaaTlsSelfSignedCert",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2",
+    "class": "objectidentity"
+  },
+  "alaAaaTlsSelfSignedCertFileName": {
+    "name": "alaAaaTlsSelfSignedCertFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertKeyFileName": {
+    "name": "alaAaaTlsSelfSignedCertKeyFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertValidPeriod": {
+    "name": "alaAaaTlsSelfSignedCertValidPeriod",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3650
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertCommonName": {
+    "name": "alaAaaTlsSelfSignedCertCommonName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertOrgName": {
+    "name": "alaAaaTlsSelfSignedCertOrgName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertOrgUnit": {
+    "name": "alaAaaTlsSelfSignedCertOrgUnit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertLocality": {
+    "name": "alaAaaTlsSelfSignedCertLocality",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertState": {
+    "name": "alaAaaTlsSelfSignedCertState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertCountry": {
+    "name": "alaAaaTlsSelfSignedCertCountry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertAction": {
+    "name": "alaAaaTlsSelfSignedCertAction",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsr": {
+    "name": "alaAaaTlsCsr",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3",
+    "class": "objectidentity"
+  },
+  "alaAaaTlsCsrFileName": {
+    "name": "alaAaaTlsCsrFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrKeyFileName": {
+    "name": "alaAaaTlsCsrKeyFileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrCommonName": {
+    "name": "alaAaaTlsCsrCommonName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrOrgName": {
+    "name": "alaAaaTlsCsrOrgName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrOrgUnit": {
+    "name": "alaAaaTlsCsrOrgUnit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrLocality": {
+    "name": "alaAaaTlsCsrLocality",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrState": {
+    "name": "alaAaaTlsCsrState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsCsrCountry": {
+    "name": "alaAaaTlsCsrCountry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsValidate": {
+    "name": "alaAaaTlsValidate",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.4",
+    "class": "objectidentity"
+  },
+  "alaAaaTlsValidateCa": {
+    "name": "alaAaaTlsValidateCa",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaAaaTlsValidateCert": {
+    "name": "alaAaaTlsValidateCert",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.1.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "alcatelIND1AAAMIBCompliance": {
     "name": "alcatelIND1AAAMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -4010,19 +4839,43 @@
       {
         "object": "aaaUserMIBGroup",
         "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "alaAaaClientAttrGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "alaAaaProfileObjectsGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "aaaSwitchAccessMIBGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "alaAaaCommonCriteriaGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "alaAaaTlsBaseConfigGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "alaAaaTlsSelfSignedCertGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
+      },
+      {
+        "object": "alaAaaTlsCsrGroup",
+        "module": "ALCATEL-IND1-AAA-MIB"
       }
     ],
     "status": "current"
   },
   "aaaServerMIBGroup": {
     "name": "aaaServerMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.1",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasName"
-      },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaasProtocol"
@@ -4089,10 +4942,6 @@
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasAceClear"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaasRowStatus"
       },
       {
@@ -4105,68 +4954,40 @@
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasHttpPort"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasHttpDirectory"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasHttpProxyHostName"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasHttpProxyIpAddress"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaasHttpProxyPort"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaasVrfName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaasRadKeyHash"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaasLdapPasswdHash"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaasTacacsKeyHash"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaAsaAccessMode"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaAsaAccessIpLockoutThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaAsaAccessManagementIpStatus"
       }
     ],
     "status": "current"
   },
   "aaaAuthAcctGroup": {
     "name": "aaaAuthAcctGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.2",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvVlan"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvName1"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvName2"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvName3"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvName4"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatvCertificate"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatsInterface"
-      },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaatsName1"
@@ -4193,34 +5014,6 @@
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvVlan"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvName1"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvName2"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvName3"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvName4"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacvRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacsInterface"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaacsName1"
       },
       {
@@ -4241,90 +5034,6 @@
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxInterface"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxName1"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxName2"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxName3"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxName4"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxOpen"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatxRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxInterface"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxName1"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxName2"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxName3"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxName4"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacxRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpInterface"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpName1"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpName2"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpName3"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpName4"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpLevel"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaatpRowStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaacmdInterface"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaacmdSrvName1"
       },
       {
@@ -4342,19 +5051,155 @@
       {
         "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaacmdRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaInterface"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaName1"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaName2"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaName3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaName4"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaadaRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdName1"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdName2"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdName3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdName4"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdSyslogIPAddrType"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdSyslogIPAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdSyslogUdpPort"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaacdCallngStationId"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaOnexReAuthStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaOnexReAuthIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaOnexReAuthTrustRadStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaOnexIntrmIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaOnexIntmIntvlTrstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacIntrmIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacIntmIntvlTrstRadStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacSessTimeoutStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacSessTimeoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacSesTimeoutTrstRadStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacInActLogoutStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaMacInActLogoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpSessTimeoutStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpSessTimeoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpSessTmotTrstRadStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpIntrmIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpIntmIntvlTrstRadStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpInActLogoutStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCpInActLogoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTacacsServerCmdAuthorization"
       }
     ],
     "status": "current"
   },
   "aaaUserMIBGroup": {
     "name": "aaaUserMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.3",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaauUserName"
-      },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaauPassword"
@@ -4377,10 +5222,6 @@
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaauProfile"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaauSnmpLevel"
       },
       {
@@ -4394,10 +5235,6 @@
       {
         "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaauOldPassword"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaauEndUserProfile"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
@@ -4418,6 +5255,22 @@
       {
         "module": "ALCATEL-IND1-AAA-MIB",
         "object": "aaauBadAtempts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaauReadRight3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaauReadRight4"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaauWriteRight3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaauWriteRight4"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
@@ -4469,99 +5322,431 @@
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaAsaROUserPingTrtEnable"
+        "object": "aaaAsaAccessPolicyAdminConsoleOnly"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaAsaAccessPolicyAdminConsoleOnly"
+        "object": "aaauSnmpPrivPassword"
       }
     ],
     "status": "current"
   },
-  "aaaHicGroup": {
-    "name": "aaaHicGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.1.4",
+  "alaAaaClientAttrGroup": {
+    "name": "alaAaaClientAttrGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicSvrIpAddr"
+        "object": "alaAaaRadNasPortId"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicSvrPort"
+        "object": "alaAaaRadNasIdentifier"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicSvrKey"
+        "object": "alaAaaRadUserNameDelim"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicSvrRowStatus"
+        "object": "alaAaaRadPasswordDelim"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicSvrStatus"
+        "object": "alaAaaRadCallnStnIdDelim"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowedIpAddr"
+        "object": "alaAaaRadCalldStnIdDelim"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowedRowStatus"
+        "object": "alaAaaRadUserNameCase"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicOverrideStatus"
+        "object": "alaAaaRadPasswordCase"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicOverrideRowStatus"
+        "object": "alaAaaRadCallingStationIdCase"
       },
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicHostStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowed1Name"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowed2Name"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowed3Name"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicAllowed4Name"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicWebAgentDownloadUrl"
-      },
-      {
-        "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicCustomHttpProxyPort"
+        "object": "alaAaaRadCalledStationIdCase"
       }
     ],
     "status": "current"
   },
-  "aaaTrapsGroup": {
-    "name": "aaaTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.15.1.2.1.5",
-    "class": "notificationgroup",
+  "alaAaaProfileObjectsGroup": {
+    "name": "alaAaaProfileObjectsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.5",
+    "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-AAA-MIB",
-        "object": "aaaHicServerTrap"
+        "object": "alaAaaProfOnexReAuthSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfOnexReAuthIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfOnexReAuthTrstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfOnexIntrmIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfOnexIntmItvlTstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacIntrmIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacIntmItvlTrstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacSessTimeoutSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacSessTimeoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacSessTmoutTrstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacInActLogoutSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfMacInActLogoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpSessTimeoutSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpSessTimeoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpSessTmotTrstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpInActLogoutSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpInActLogoutIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpIntrmIntrvl"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfCpItrmIntlTrstRadSts"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadNasPortId"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadNasIdentifier"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadUserNameDelim"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadPasswrdDelim"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadCallnStnIdDelim"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadCalldStnIdDelim"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadUserNameCase"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadPasswordCase"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadCallnStnIdCase"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRadCalldStnIdCase"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAuthSrvName1"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAuthSrvName2"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAuthSrvName3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAuthSrvName4"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAuthRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSrvName1"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSrvName2"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSrvName3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSrvName4"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSyslogIPAddrType"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSyslogIPAddr"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctSyslogUdpPort"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctCalingStationId"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaProfAcctRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaUserProfileSave"
+      }
+    ],
+    "status": "current"
+  },
+  "aaaSwitchAccessMIBGroup": {
+    "name": "aaaSwitchAccessMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessMgmtStationRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessBannedIpRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessReadRight1"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessReadRight2"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessReadRight3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessReadRight4"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessWriteRight1"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessWriteRight2"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessWriteRight3"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "aaaSwitchAccessWriteRight4"
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaCommonCriteriaGroup": {
+    "name": "alaAaaCommonCriteriaGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaCommonCriteriaMode"
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaTlsBaseConfigGroup": {
+    "name": "alaAaaTlsBaseConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCaFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCrlFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsKeyFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaTlsSelfSignedCertGroup": {
+    "name": "alaAaaTlsSelfSignedCertGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertKeyFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertValidPeriod"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertCommonName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertOrgName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertOrgUnit"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertLocality"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertState"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertCountry"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsSelfSignedCertAction"
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaTlsCsrGroup": {
+    "name": "alaAaaTlsCsrGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrKeyFileName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrCommonName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrOrgName"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrOrgUnit"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrLocality"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrState"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsCsrCountry"
+      }
+    ],
+    "status": "current"
+  },
+  "alaAaaTlsValidateGroup": {
+    "name": "alaAaaTlsValidateGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.15.1.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsValidateCa"
+      },
+      {
+        "module": "ALCATEL-IND1-AAA-MIB",
+        "object": "alaAaaTlsValidateCert"
       }
     ],
     "status": "current"
@@ -4569,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-AAA-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:06 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-AAA-MIB"

@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "TimeTicks",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -39,32 +39,72 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2006-06-14 00:00",
-        "description": "Initial version of this MIB module."
+        "revision": "2016-12-14 00:00",
+        "description": "Added QSFP28-SR to atPortInfoTransceiverEntry"
       },
       {
-        "revision": "2008-02-26 00:00",
-        "description": "Changed top DESCRIPTION section."
+        "revision": "2016-12-12 00:00",
+        "description": "Added 10GBASE-ZR SFP+ to atPortInfoTransceiverEntry"
       },
       {
-        "revision": "2010-06-04 00:00",
-        "description": "Added new object atPortRenumberEvents."
+        "revision": "2016-05-05 00:00",
+        "description": "Added 40GBASE-ER4 and 10GBBASE-T SFP+ to atPortInfoTransceiverEntry"
       },
       {
-        "revision": "2010-06-15 00:15",
-        "description": "MIB revision history dates in descriptions updated."
+        "revision": "2015-03-16 00:00",
+        "description": "Added 40GBASE-SR4 and 40GBASE-LR4 to atPortInfoTransceiverEntry"
       },
       {
-        "revision": "2010-08-16 00:16",
-        "description": "Added SFP Plus descriptions to atPortInfoTransceiverEntry."
+        "revision": "2014-06-09 00:00",
+        "description": "Added 4 x Cu Passive QSFP description to atPortInfoTransceiverEntry."
+      },
+      {
+        "revision": "2014-04-30 00:00",
+        "description": "Updated decriptions to refer to chassisMappingTable"
+      },
+      {
+        "revision": "2014-04-16 00:00",
+        "description": "Added more descriptions to cpuUtilisationStackId for VCStack Plus"
+      },
+      {
+        "revision": "2012-09-21 00:00",
+        "description": "Added chassis switch (e.g. SBx8100) descriptions to stack-related MIB objects"
+      },
+      {
+        "revision": "2011-03-14 00:00",
+        "description": "Added CX4 description to atPortInfoTransceiverEntry."
+      },
+      {
+        "revision": "2010-09-18 00:00",
+        "description": "Updated CPU Utilization to be per stack member."
+      },
+      {
+        "revision": "2010-09-07 00:00",
+        "description": "Generic syntax tidy up"
       },
       {
         "revision": "2010-08-31 00:31",
         "description": "Added Infinband descriptions to atPortInfoTransceiverEntry."
       },
       {
-        "revision": "2010-09-07 00:00",
-        "description": "Generic syntax tidy up"
+        "revision": "2010-08-16 00:16",
+        "description": "Added SFP Plus descriptions to atPortInfoTransceiverEntry."
+      },
+      {
+        "revision": "2010-06-15 00:15",
+        "description": "MIB revision history dates in descriptions updated."
+      },
+      {
+        "revision": "2010-06-04 00:00",
+        "description": "Added new object atPortRenumberEvents."
+      },
+      {
+        "revision": "2008-02-26 00:00",
+        "description": "Changed top DESCRIPTION section."
+      },
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Initial version of this MIB module."
       }
     ]
   },
@@ -777,6 +817,181 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cpuUtilisationStackTable": {
+    "name": "cpuUtilisationStackTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuUtilisationStackEntry": {
+    "name": "cpuUtilisationStackEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-SYSINFO-MIB",
+        "object": "cpuUtilisationStackId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuUtilisationStackId": {
+    "name": "cpuUtilisationStackId",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackMax": {
+    "name": "cpuUtilisationStackMax",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackAvg": {
+    "name": "cpuUtilisationStackAvg",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackAvgLastMinute": {
+    "name": "cpuUtilisationStackAvgLastMinute",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackAvgLast10Seconds": {
+    "name": "cpuUtilisationStackAvgLast10Seconds",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackAvgLastSecond": {
+    "name": "cpuUtilisationStackAvgLastSecond",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackMaxLast5Minutes": {
+    "name": "cpuUtilisationStackMaxLast5Minutes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilisationStackAvgLast5Minutes": {
+    "name": "cpuUtilisationStackAvgLast5Minutes",
+    "oid": "1.3.6.1.4.1.207.8.4.4.3.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "sysTemperature": {
     "name": "sysTemperature",
     "oid": "1.3.6.1.4.1.207.8.4.4.3.4",
@@ -1327,7 +1542,15 @@
           "inf-1-x-copper-pasv": 30,
           "inf-1-x-copper-actv": 31,
           "inf-1-x-lx": 32,
-          "inf-1-x-sx": 33
+          "inf-1-x-sx": 33,
+          "cx4": 34,
+          "inf-4-x-copper-pasv": 35,
+          "qsfp-sr": 36,
+          "qsfp-lr": 37,
+          "qsfp-er": 38,
+          "sfpp-t": 39,
+          "sfpp-zr": 40,
+          "qsfp28-sr": 41
         }
       }
     },
@@ -1349,8 +1572,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SYSINFO-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:34:44 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:10:51 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-SYSINFO-MIB"

@@ -4,36 +4,40 @@
     "ALCATEL-IND1-BASE": [
       "routingIND1Vrf"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1VirtualRouterMIB": {
     "name": "alcatelIND1VirtualRouterMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -44,17 +48,17 @@
   },
   "alcatelIND1VirtualRouterMIBObjects": {
     "name": "alcatelIND1VirtualRouterMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1",
     "class": "objectidentity"
   },
   "alaVirtualRouterConfig": {
     "name": "alaVirtualRouterConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1",
     "class": "objectidentity"
   },
   "alaVirtualRouterNameTable": {
     "name": "alaVirtualRouterNameTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -62,7 +66,7 @@
   },
   "alaVirtualRouterNameEntry": {
     "name": "alaVirtualRouterNameEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -77,11 +81,11 @@
   },
   "alaVirtualRouterName": {
     "name": "alaVirtualRouterName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -97,11 +101,11 @@
   },
   "alaVirtualRouterNameIndex": {
     "name": "alaVirtualRouterNameIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Unsigned32",
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -109,7 +113,7 @@
   },
   "alaVirtualRouterNameRowStatus": {
     "name": "alaVirtualRouterNameRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -119,24 +123,534 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "alaVirtualRouterProfile": {
+    "name": "alaVirtualRouterProfile",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVirtualRouterMaxRouteMaps": {
+    "name": "alaVirtualRouterMaxRouteMaps",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterMaxSequences": {
+    "name": "alaVirtualRouterMaxSequences",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterMaxTlvs": {
+    "name": "alaVirtualRouterMaxTlvs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterMaxAccessLists": {
+    "name": "alaVirtualRouterMaxAccessLists",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterMaxAddressBlocks": {
+    "name": "alaVirtualRouterMaxAddressBlocks",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterMaxMatchInterfaces": {
+    "name": "alaVirtualRouterMaxMatchInterfaces",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVirtualRouterNoAutoLoadVrrp": {
+    "name": "alaVirtualRouterNoAutoLoadVrrp",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaVrConfigTable": {
+    "name": "alaVrConfigTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVrConfigEntry": {
+    "name": "alaVrConfigEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVrConfigIndex": {
+    "name": "alaVrConfigIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVrConfigRipStatus": {
+    "name": "alaVrConfigRipStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigOspfStatus": {
+    "name": "alaVrConfigOspfStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigIsisStatus": {
+    "name": "alaVrConfigIsisStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigBgpStatus": {
+    "name": "alaVrConfigBgpStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigPimStatus": {
+    "name": "alaVrConfigPimStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigDvmrpStatus": {
+    "name": "alaVrConfigDvmrpStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigRipngStatus": {
+    "name": "alaVrConfigRipngStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigOspf3Status": {
+    "name": "alaVrConfigOspf3Status",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVrConfigMplsLdpStatus": {
+    "name": "alaVrConfigMplsLdpStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaVrConfigVrrpStatus": {
+    "name": "alaVrConfigVrrpStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaded": 1,
+          "notloaded": 2,
+          "loading": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notloaded",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileTable": {
+    "name": "alaVirtualRouterProfileTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileEntry": {
+    "name": "alaVirtualRouterProfileEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaVirtualRouterProfileName": {
+    "name": "alaVirtualRouterProfileName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileMaxRouteMaps": {
+    "name": "alaVirtualRouterProfileMaxRouteMaps",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileMaxSequences": {
+    "name": "alaVirtualRouterProfileMaxSequences",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileMaxTlvs": {
+    "name": "alaVirtualRouterProfileMaxTlvs",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileMaxAccessLists": {
+    "name": "alaVirtualRouterProfileMaxAccessLists",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileMaxAddressBlocks": {
+    "name": "alaVirtualRouterProfileMaxAddressBlocks",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaVirtualRouterProfileMaxMatchInterfaces": {
+    "name": "alaVirtualRouterProfileMaxMatchInterfaces",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "alcatelIND1VirtualRouterMIBConformance": {
     "name": "alcatelIND1VirtualRouterMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1VirtualRouterMIBCompliances": {
     "name": "alcatelIND1VirtualRouterMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1VirtualRouterMIBGroups": {
     "name": "alcatelIND1VirtualRouterMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.2.2",
     "class": "objectidentity"
   },
   "alaVirtualRouterCompliance": {
     "name": "alaVirtualRouterCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -148,7 +662,7 @@
   },
   "alaVirtualRouterConfigMIBGroup": {
     "name": "alaVirtualRouterConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.15.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.15.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -158,6 +672,102 @@
       {
         "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
         "object": "alaVirtualRouterNameRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfile"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterMaxRouteMaps"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterMaxSequences"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterMaxTlvs"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterMaxAccessLists"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterMaxAddressBlocks"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterMaxMatchInterfaces"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterNoAutoLoadVrrp"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigRipStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigOspfStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigIsisStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigBgpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigPimStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigDvmrpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigRipngStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigOspf3Status"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigMplsLdpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVrConfigVrrpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileMaxRouteMaps"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileMaxSequences"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileMaxTlvs"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileMaxAccessLists"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileMaxAddressBlocks"
+      },
+      {
+        "module": "ALCATEL-IND1-VIRTUALROUTER-MIB",
+        "object": "alaVirtualRouterProfileMaxMatchInterfaces"
       }
     ],
     "status": "current"
@@ -165,8 +775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VIRTUALROUTER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:10 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-VIRTUALROUTER-MIB"

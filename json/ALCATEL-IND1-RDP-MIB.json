@@ -4,36 +4,39 @@
     "ALCATEL-IND1-BASE": [
       "routingIND1RDP"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1RouterDiscoveryProtocolMIB": {
     "name": "alcatelIND1RouterDiscoveryProtocolMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -44,17 +47,17 @@
   },
   "alcatelIND1RDPMIBObjects": {
     "name": "alcatelIND1RDPMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1",
     "class": "objectidentity"
   },
   "alaRDPConfig": {
     "name": "alaRDPConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1",
     "class": "objectidentity"
   },
   "alaRDPStatus": {
     "name": "alaRDPStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -78,7 +81,7 @@
   },
   "alaRDPIfTable": {
     "name": "alaRDPIfTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -86,7 +89,7 @@
   },
   "alaRDPIfEntry": {
     "name": "alaRDPIfEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -101,7 +104,7 @@
   },
   "alaRDPIfAddr": {
     "name": "alaRDPIfAddr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -113,7 +116,7 @@
   },
   "alaRDPIfStatus": {
     "name": "alaRDPIfStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -137,19 +140,19 @@
   },
   "alaRDPIfAdvtAddress": {
     "name": "alaRDPIfAdvtAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "IpAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRDPIfMaxAdvtInterval": {
     "name": "alaRDPIfMaxAdvtInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -162,48 +165,48 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRDPIfMinAdvtInterval": {
     "name": "alaRDPIfMinAdvtInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRDPIfAdvLifeTime": {
     "name": "alaRDPIfAdvLifeTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRDPIfPrefLevel": {
     "name": "alaRDPIfPrefLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRDPIfRowStatus": {
     "name": "alaRDPIfRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -216,16 +219,16 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "alaRDPIfName": {
     "name": "alaRDPIfName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -233,7 +236,7 @@
   },
   "alaRDPIPIfStatus": {
     "name": "alaRDPIPIfStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -257,7 +260,7 @@
   },
   "alaRDPVrrpStatus": {
     "name": "alaRDPVrrpStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.1.1.20.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.1.1.20.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -281,22 +284,22 @@
   },
   "alcatelIND1RDPMIBConformance": {
     "name": "alcatelIND1RDPMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1RDPMIBCompliances": {
     "name": "alcatelIND1RDPMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1RDPMIBGroups": {
     "name": "alcatelIND1RDPMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1RDPMIBCompliance": {
     "name": "alcatelIND1RDPMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -308,7 +311,7 @@
   },
   "alaRDPConfigMIBGroup": {
     "name": "alaRDPConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.11.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.11.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -365,8 +368,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-RDP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-RDP-MIB"

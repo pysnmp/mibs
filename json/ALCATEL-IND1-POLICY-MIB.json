@@ -2,62 +2,76 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "softentIND1Policy",
-      "policyManagerTraps"
+      "softentIND1Policy"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1PolicyMIB": {
     "name": "alcatelIND1PolicyMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1",
-    "class": "moduleidentity"
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      }
+    ]
+  },
+  "alcatelIND1PolicyMIBNotifications": {
+    "name": "alcatelIND1PolicyMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.0",
+    "class": "objectidentity",
+    "status": "current"
   },
   "alcatelIND1PolicyMIBObjects": {
     "name": "alcatelIND1PolicyMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1PolicyMIBConformance": {
     "name": "alcatelIND1PolicyMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1PolicyMIBGroups": {
     "name": "alcatelIND1PolicyMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1PolicyMIBCompliances": {
     "name": "alcatelIND1PolicyMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
@@ -134,7 +148,7 @@
   },
   "serverPolicyDecision": {
     "name": "serverPolicyDecision",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -153,7 +167,7 @@
   },
   "rsvpDefaultPolicy": {
     "name": "rsvpDefaultPolicy",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -171,7 +185,7 @@
   },
   "policyManagerEventTableSize": {
     "name": "policyManagerEventTableSize",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -197,7 +211,7 @@
   },
   "directoryServerTable": {
     "name": "directoryServerTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -205,7 +219,7 @@
   },
   "directoryServerEntry": {
     "name": "directoryServerEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -225,7 +239,7 @@
   },
   "directoryServerAddress": {
     "name": "directoryServerAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -237,7 +251,7 @@
   },
   "directoryServerPort": {
     "name": "directoryServerPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -263,7 +277,7 @@
   },
   "directoryServerPreference": {
     "name": "directoryServerPreference",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -278,12 +292,12 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerAuthenticationType": {
     "name": "directoryServerAuthenticationType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -302,16 +316,16 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerUserId": {
     "name": "directoryServerUserId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -322,16 +336,16 @@
         ]
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerPassword": {
     "name": "directoryServerPassword",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -342,28 +356,16 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "directoryServerPublicKey": {
-    "name": "directoryServerPublicKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerSearchbase": {
     "name": "directoryServerSearchbase",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -380,12 +382,12 @@
         "format": "string"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerCacheChange": {
     "name": "directoryServerCacheChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -404,12 +406,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerLastChange": {
     "name": "directoryServerLastChange",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -421,7 +423,7 @@
   },
   "directoryServerAdminStatus": {
     "name": "directoryServerAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -440,12 +442,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerOperStatus": {
     "name": "directoryServerOperStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -470,7 +472,7 @@
   },
   "directoryServerRowStatus": {
     "name": "directoryServerRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -483,12 +485,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "directoryServerEnableSSL": {
     "name": "directoryServerEnableSSL",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.4.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.4.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -496,17 +498,23 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "enableSSL": 1,
-          "disableSSL": 0
+          "disableSSL": 0,
+          "enableSSL": 1
         }
       }
     },
-    "maxaccess": "read-write",
+    "default": {
+      "default": {
+        "value": "disableSSL",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
     "status": "current"
   },
   "policyEventTable": {
     "name": "policyEventTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -514,7 +522,7 @@
   },
   "policyEventEntry": {
     "name": "policyEventEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -529,7 +537,7 @@
   },
   "policyEventIndex": {
     "name": "policyEventIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -549,7 +557,7 @@
   },
   "policyEventCode": {
     "name": "policyEventCode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -561,11 +569,11 @@
   },
   "policyEventDetailString": {
     "name": "policyEventDetailString",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -581,7 +589,7 @@
   },
   "policyEventTime": {
     "name": "policyEventTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -593,7 +601,7 @@
   },
   "policyRuleNamesTable": {
     "name": "policyRuleNamesTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -601,7 +609,7 @@
   },
   "policyRuleNamesEntry": {
     "name": "policyRuleNamesEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -616,7 +624,7 @@
   },
   "policyRuleNamesIndex": {
     "name": "policyRuleNamesIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -636,11 +644,11 @@
   },
   "policyRuleNamesName": {
     "name": "policyRuleNamesName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -656,7 +664,7 @@
   },
   "policyRuleNamesRowStatus": {
     "name": "policyRuleNamesRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -674,7 +682,7 @@
   },
   "policyRuleOperStatus": {
     "name": "policyRuleOperStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -699,7 +707,7 @@
   },
   "policyStatsTable": {
     "name": "policyStatsTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -707,7 +715,7 @@
   },
   "policyStatsEntry": {
     "name": "policyStatsEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -727,7 +735,7 @@
   },
   "policyStatsAddress": {
     "name": "policyStatsAddress",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -739,7 +747,7 @@
   },
   "policyStatsServerPort": {
     "name": "policyStatsServerPort",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -759,7 +767,7 @@
   },
   "policyStatsQueryCount": {
     "name": "policyStatsQueryCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -771,7 +779,7 @@
   },
   "policyStatsAccessCount": {
     "name": "policyStatsAccessCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -783,7 +791,7 @@
   },
   "policyStatsSuccessAccessCount": {
     "name": "policyStatsSuccessAccessCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -795,7 +803,7 @@
   },
   "policyStatsNotFoundCount": {
     "name": "policyStatsNotFoundCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.7.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.7.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -807,7 +815,7 @@
   },
   "policyNotificationTable": {
     "name": "policyNotificationTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -815,7 +823,7 @@
   },
   "policyNotificationEntry": {
     "name": "policyNotificationEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -830,7 +838,7 @@
   },
   "policyNotificationIndex": {
     "name": "policyNotificationIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -842,7 +850,7 @@
   },
   "policyNotificationCode": {
     "name": "policyNotificationCode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -862,7 +870,7 @@
   },
   "policyEventCount": {
     "name": "policyEventCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -874,11 +882,11 @@
   },
   "policyManagerSwitchIdentifier": {
     "name": "policyManagerSwitchIdentifier",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -892,19 +900,14 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "policyManagerTrapDesc": {
-    "name": "policyManagerTrapDesc",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.3.1",
-    "class": "objectidentity"
-  },
   "policyManagerTrapObjs": {
     "name": "policyManagerTrapObjs",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.3.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.10",
     "class": "objectidentity"
   },
   "policyEventNotification": {
     "name": "policyEventNotification",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.3.1.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -920,11 +923,11 @@
   },
   "policyTrapEventDetailString": {
     "name": "policyTrapEventDetailString",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.3.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.10.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -940,7 +943,7 @@
   },
   "policyTrapEventCode": {
     "name": "policyTrapEventCode",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.3.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.1.10.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -952,7 +955,7 @@
   },
   "alcatelIND1PolicyMIBCompliance": {
     "name": "alcatelIND1PolicyMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -984,7 +987,7 @@
   },
   "policyMIBGlobalGroup": {
     "name": "policyMIBGlobalGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -994,13 +997,17 @@
       {
         "module": "ALCATEL-IND1-POLICY-MIB",
         "object": "policyManagerEventTableSize"
+      },
+      {
+        "module": "ALCATEL-IND1-POLICY-MIB",
+        "object": "policyManagerSwitchIdentifier"
       }
     ],
     "status": "current"
   },
   "policyMIBDirectoryServerGroup": {
     "name": "policyMIBDirectoryServerGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1060,7 +1067,7 @@
   },
   "policyMIBEventTableGroup": {
     "name": "policyMIBEventTableGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1084,7 +1091,7 @@
   },
   "policyMIBRuleNamesGroup": {
     "name": "policyMIBRuleNamesGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1108,7 +1115,7 @@
   },
   "policyMIBStatsGroup": {
     "name": "policyMIBStatsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1130,13 +1137,17 @@
       {
         "module": "ALCATEL-IND1-POLICY-MIB",
         "object": "policyStatsNotFoundCount"
+      },
+      {
+        "module": "ALCATEL-IND1-POLICY-MIB",
+        "object": "policyStatsQueryCount"
       }
     ],
     "status": "current"
   },
   "policyMIBNotificationGroup": {
     "name": "policyMIBNotificationGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1150,13 +1161,37 @@
       {
         "module": "ALCATEL-IND1-POLICY-MIB",
         "object": "policyEventCount"
+      },
+      {
+        "module": "ALCATEL-IND1-POLICY-MIB",
+        "object": "policyTrapEventDetailString"
+      },
+      {
+        "module": "ALCATEL-IND1-POLICY-MIB",
+        "object": "policyTrapEventCode"
+      }
+    ],
+    "status": "current"
+  },
+  "policyMIBTrapEventGroup": {
+    "name": "policyMIBTrapEventGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-POLICY-MIB",
+        "object": "policyTrapEventDetailString"
+      },
+      {
+        "module": "ALCATEL-IND1-POLICY-MIB",
+        "object": "policyTrapEventCode"
       }
     ],
     "status": "current"
   },
   "policyMIBTrapsGroup": {
     "name": "policyMIBTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.14.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.14.1.2.1.8",
     "class": "notificationgroup",
     "objects": [
       {
@@ -1169,8 +1204,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-POLICY-MIB"

@@ -4,25 +4,31 @@
     "ALCATEL-IND1-BASE": [
       "softentIND1Confmgr"
     ],
+    "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB": [
+      "VirtualOperChassisId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -32,7 +38,7 @@
   },
   "alcatelIND1ConfigMgrMIB": {
     "name": "alcatelIND1ConfigMgrMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -43,46 +49,46 @@
   },
   "alcatelIND1ConfigMgrMIBObjects": {
     "name": "alcatelIND1ConfigMgrMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ConfigMgrMIBConformance": {
     "name": "alcatelIND1ConfigMgrMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ConfigMgrMIBGroups": {
     "name": "alcatelIND1ConfigMgrMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1ConfigMgrMIBCompliances": {
     "name": "alcatelIND1ConfigMgrMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
   "configManager": {
     "name": "configManager",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1",
     "class": "objectidentity"
   },
   "configFileName": {
     "name": "configFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
             "min": 0,
-            "max": 30
+            "max": 45
           }
         ]
       }
@@ -92,7 +98,7 @@
   },
   "configFileAction": {
     "name": "configFileAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -117,11 +123,11 @@
   },
   "configErrorFileName": {
     "name": "configErrorFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -137,7 +143,7 @@
   },
   "configFileStatus": {
     "name": "configFileStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -163,7 +169,7 @@
   },
   "configFileMode": {
     "name": "configFileMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -187,17 +193,17 @@
   },
   "configTimerFileName": {
     "name": "configTimerFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
             "min": 0,
-            "max": 30
+            "max": 45
           }
         ]
       }
@@ -207,11 +213,11 @@
   },
   "configTimerFileTime": {
     "name": "configTimerFileTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -227,7 +233,7 @@
   },
   "configTimerFileStatus": {
     "name": "configTimerFileStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -252,25 +258,19 @@
   },
   "configTimerClear": {
     "name": "configTimerClear",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 1
           }
         ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
       }
     },
     "maxaccess": "read-write",
@@ -278,17 +278,17 @@
   },
   "configSnapshotFileName": {
     "name": "configSnapshotFileName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
           {
             "min": 0,
-            "max": 30
+            "max": 45
           }
         ]
       }
@@ -298,25 +298,19 @@
   },
   "configSnapshotAction": {
     "name": "configSnapshotAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 1
           }
         ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
       }
     },
     "maxaccess": "read-write",
@@ -324,11 +318,11 @@
   },
   "configSnapshotAllSelect": {
     "name": "configSnapshotAllSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -344,11 +338,11 @@
   },
   "configSnapshotVlanSelect": {
     "name": "configSnapshotVlanSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -364,11 +358,11 @@
   },
   "configSnapshotSpanningTreeSelect": {
     "name": "configSnapshotSpanningTreeSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -384,11 +378,11 @@
   },
   "configSnapshotQOSSelect": {
     "name": "configSnapshotQOSSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -404,11 +398,11 @@
   },
   "configSnapshotIPSelect": {
     "name": "configSnapshotIPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -424,11 +418,11 @@
   },
   "configSnapshotIPXSelect": {
     "name": "configSnapshotIPXSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.17",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.17",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -444,11 +438,11 @@
   },
   "configSnapshotIPMSSelect": {
     "name": "configSnapshotIPMSSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.18",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -464,11 +458,11 @@
   },
   "configSnapshotAAASelect": {
     "name": "configSnapshotAAASelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.19",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.19",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -484,11 +478,11 @@
   },
   "configSnapshotSNMPSelect": {
     "name": "configSnapshotSNMPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.20",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.20",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -504,11 +498,11 @@
   },
   "configSnapshot8021QSelect": {
     "name": "configSnapshot8021QSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.21",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.21",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -524,11 +518,11 @@
   },
   "configSnapshotLinkAggregateSelect": {
     "name": "configSnapshotLinkAggregateSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.22",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.22",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -544,11 +538,11 @@
   },
   "configSnapshotPortMirrorSelect": {
     "name": "configSnapshotPortMirrorSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.23",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.23",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -564,11 +558,11 @@
   },
   "configSnapshotXIPSelect": {
     "name": "configSnapshotXIPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.24",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.24",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -584,11 +578,11 @@
   },
   "configSnapshotHealthMonitorSelect": {
     "name": "configSnapshotHealthMonitorSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.25",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.25",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -604,11 +598,11 @@
   },
   "configSnapshotBootPSelect": {
     "name": "configSnapshotBootPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.26",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.26",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -624,11 +618,11 @@
   },
   "configSnapshotBridgeSelect": {
     "name": "configSnapshotBridgeSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.27",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.27",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -644,11 +638,11 @@
   },
   "configSnapshotChassisSelect": {
     "name": "configSnapshotChassisSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.28",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.28",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -664,11 +658,11 @@
   },
   "configSnapshotInterfaceSelect": {
     "name": "configSnapshotInterfaceSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.29",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.29",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -684,11 +678,11 @@
   },
   "configSnapshotPolicySelect": {
     "name": "configSnapshotPolicySelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.30",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.30",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -704,11 +698,11 @@
   },
   "configSnapshotSessionSelect": {
     "name": "configSnapshotSessionSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.31",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.31",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -724,11 +718,11 @@
   },
   "configSnapshotServerLoadBalanceSelect": {
     "name": "configSnapshotServerLoadBalanceSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.32",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.32",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -744,11 +738,11 @@
   },
   "configSnapshotSystemServiceSelect": {
     "name": "configSnapshotSystemServiceSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.33",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.33",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -764,11 +758,11 @@
   },
   "configSnapshotVRRPSelect": {
     "name": "configSnapshotVRRPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.34",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.34",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -784,11 +778,11 @@
   },
   "configSnapshotWebSelect": {
     "name": "configSnapshotWebSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.35",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.35",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -804,11 +798,11 @@
   },
   "configSnapshotRIPSelect": {
     "name": "configSnapshotRIPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.36",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.36",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -824,11 +818,11 @@
   },
   "configSnapshotOSPFSelect": {
     "name": "configSnapshotOSPFSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.37",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.37",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -844,11 +838,11 @@
   },
   "configSnapshotBGPSelect": {
     "name": "configSnapshotBGPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.38",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.38",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -864,11 +858,11 @@
   },
   "configSnapshotIPRMSelect": {
     "name": "configSnapshotIPRMSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.39",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.39",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -884,11 +878,11 @@
   },
   "configSnapshotIPMRSelect": {
     "name": "configSnapshotIPMRSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.40",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.40",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -904,11 +898,11 @@
   },
   "configSnapshotModuleSelect": {
     "name": "configSnapshotModuleSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.41",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.41",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -924,7 +918,7 @@
   },
   "configTechSupportLogAction": {
     "name": "configTechSupportLogAction",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.42",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.42",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -932,7 +926,7 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "notSiginificant": 0,
+          "notSignificant": 0,
           "techSupportBasic": 1,
           "techSupportL2": 2,
           "techSupportL3": 3,
@@ -955,8 +949,8 @@
     },
     "default": {
       "default": {
-        "value": 1,
-        "format": "decimal"
+        "value": "techSupportBasic",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -964,11 +958,11 @@
   },
   "configWriteMemory": {
     "name": "configWriteMemory",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.43",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.43",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -984,11 +978,11 @@
   },
   "configErrorFileMaximum": {
     "name": "configErrorFileMaximum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.44",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.44",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1010,7 +1004,7 @@
   },
   "configChangeStatus": {
     "name": "configChangeStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.45",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.45",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1034,11 +1028,11 @@
   },
   "configSnapshotRDPSelect": {
     "name": "configSnapshotRDPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.46",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.46",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1054,11 +1048,11 @@
   },
   "configSnapshotIPv6Select": {
     "name": "configSnapshotIPv6Select",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.47",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.47",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1074,11 +1068,11 @@
   },
   "configSnapshotRIPngSelect": {
     "name": "configSnapshotRIPngSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.48",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.48",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1094,11 +1088,11 @@
   },
   "configSnapshotAtmSelect": {
     "name": "configSnapshotAtmSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.49",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.49",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1114,11 +1108,11 @@
   },
   "configSnapshotSonetSelect": {
     "name": "configSnapshotSonetSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.50",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.50",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1134,11 +1128,11 @@
   },
   "configSnapshotNTPSelect": {
     "name": "configSnapshotNTPSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.51",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.51",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1154,11 +1148,11 @@
   },
   "configSnapshotPortMappingSelect": {
     "name": "configSnapshotPortMappingSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.52",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.52",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1174,11 +1168,11 @@
   },
   "configSnapshotOSPF3Select": {
     "name": "configSnapshotOSPF3Select",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.53",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.53",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1194,7 +1188,7 @@
   },
   "configWriteMemoryStatus": {
     "name": "configWriteMemoryStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.54",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.54",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1220,11 +1214,11 @@
   },
   "configSnapshotStackSelect": {
     "name": "configSnapshotStackSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.55",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.55",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1240,11 +1234,11 @@
   },
   "configSnapshotISISSelect": {
     "name": "configSnapshotISISSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.56",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.56",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1260,11 +1254,11 @@
   },
   "configSnapshotEOAMSelect": {
     "name": "configSnapshotEOAMSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.57",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.57",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1280,11 +1274,11 @@
   },
   "configSnapshotUDLDSelect": {
     "name": "configSnapshotUDLDSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.58",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.58",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1300,11 +1294,11 @@
   },
   "configSnapshotNETSECSelect": {
     "name": "configSnapshotNETSECSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.59",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.59",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1320,11 +1314,11 @@
   },
   "configSnapshotIPsecSelect": {
     "name": "configSnapshotIPsecSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.60",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.60",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1340,11 +1334,31 @@
   },
   "configSnapshotBFDSelect": {
     "name": "configSnapshotBFDSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.61",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.61",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotMultiChassisSelect": {
+    "name": "configSnapshotMultiChassisSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1360,11 +1374,11 @@
   },
   "configSnapshotErpSelect": {
     "name": "configSnapshotErpSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.62",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.63",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1380,11 +1394,11 @@
   },
   "configSnapshotMPLSSelect": {
     "name": "configSnapshotMPLSSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.63",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.64",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1400,11 +1414,11 @@
   },
   "configSnapshotEFMOAMSelect": {
     "name": "configSnapshotEFMOAMSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.64",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.65",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1418,13 +1432,113 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "configSnapshotLBDSelect": {
-    "name": "configSnapshotLBDSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.65",
+  "configSnapshotCapabilitySelect": {
+    "name": "configSnapshotCapabilitySelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.66",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotVfcSelect": {
+    "name": "configSnapshotVfcSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotHaVlanSelect": {
+    "name": "configSnapshotHaVlanSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotDaUnpSelect": {
+    "name": "configSnapshotDaUnpSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotDHLSelect": {
+    "name": "configSnapshotDHLSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotMVRPSelect": {
+    "name": "configSnapshotMVRPSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1440,11 +1554,413 @@
   },
   "configSnapshotSAASelect": {
     "name": "configSnapshotSAASelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.66",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotSPBSelect": {
+    "name": "configSnapshotSPBSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotSPBIsisSelect": {
+    "name": "configSnapshotSPBIsisSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotVirtualChassisSelect": {
+    "name": "configSnapshotVirtualChassisSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotMplsLdpSelect": {
+    "name": "configSnapshotMplsLdpSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotVCMSpecific": {
+    "name": "configSnapshotVCMSpecific",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotChassisId": {
+    "name": "configSnapshotChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VirtualOperChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotEvbSelect": {
+    "name": "configSnapshotEvbSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configConvertConfiguration": {
+    "name": "configConvertConfiguration",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.80",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSignificant": 0,
+          "virtualChassis": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notSignificant",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configConvertConfigurationStatus": {
+    "name": "configConvertConfigurationStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noneAvail": 1,
+          "inProgress": 2,
+          "completeNoErrors": 3,
+          "completeErrors": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noneAvail",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configConvertDestinationDirectory": {
+    "name": "configConvertDestinationDirectory",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configConvertReload": {
+    "name": "configConvertReload",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotAppfpSelect": {
+    "name": "configSnapshotAppfpSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotFipsSelect": {
+    "name": "configSnapshotFipsSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotLFPSelect": {
+    "name": "configSnapshotLFPSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotPmInterfaceSelect": {
+    "name": "configSnapshotPmInterfaceSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.87",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotAutofabricSelect": {
+    "name": "configSnapshotAutofabricSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.88",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotDhcpv6RelaySelect": {
+    "name": "configSnapshotDhcpv6RelaySelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.89",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotSIPSelect": {
+    "name": "configSnapshotSIPSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.90",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotOpenflowSelect": {
+    "name": "configSnapshotOpenflowSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.91",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotWlanSelect": {
+    "name": "configSnapshotWlanSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.92",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1460,11 +1976,311 @@
   },
   "configSnapshotDhcpSrvSelect": {
     "name": "configSnapshotDhcpSrvSelect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.1.1.67",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.93",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotDPISelect": {
+    "name": "configSnapshotDPISelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.94",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotMsgSrvSelect": {
+    "name": "configSnapshotMsgSrvSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.95",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotAlSrvSelect": {
+    "name": "configSnapshotAlSrvSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.96",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotDhcpv6SrvSelect": {
+    "name": "configSnapshotDhcpv6SrvSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.97",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotAGSelect": {
+    "name": "configSnapshotAGSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.98",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotQMRSelect": {
+    "name": "configSnapshotQMRSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotVCSPSelect": {
+    "name": "configSnapshotVCSPSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotDhcpSnoopingSelect": {
+    "name": "configSnapshotDhcpSnoopingSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotAppMonSelect": {
+    "name": "configSnapshotAppMonSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotLbdSelect": {
+    "name": "configSnapshotLbdSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotVMSnoopSelect": {
+    "name": "configSnapshotVMSnoopSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotPppoeIaSelect": {
+    "name": "configSnapshotPppoeIaSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotPmPortViolationSelect": {
+    "name": "configSnapshotPmPortViolationSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotLanPowerSelect": {
+    "name": "configSnapshotLanPowerSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configSnapshotPVLANSelect": {
+    "name": "configSnapshotPVLANSelect",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.1.1.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1480,7 +2296,7 @@
   },
   "alcatelIND1ConfigMgrMIBCompliance": {
     "name": "alcatelIND1ConfigMgrMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1502,13 +2318,17 @@
       {
         "object": "configWriteMemoryGroup",
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB"
+      },
+      {
+        "object": "configConvertConfigurationGroup",
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB"
       }
     ],
     "status": "current"
   },
   "configFileGroup": {
     "name": "configFileGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1544,7 +2364,7 @@
   },
   "configTimerFileGroup": {
     "name": "configTimerFileGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1562,18 +2382,34 @@
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
         "object": "configTimerClear"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotFileName"
       }
     ],
     "status": "current"
   },
   "configSnapshotGroup": {
     "name": "configSnapshotGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAction"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
         "object": "configSnapshotAllSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotVCMSpecific"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotChassisId"
       },
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
@@ -1701,6 +2537,26 @@
       },
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotRIPngSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAtmSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotSonetSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotNTPSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotPortMappingSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
         "object": "configSnapshotOSPF3Select"
       },
       {
@@ -1737,7 +2593,7 @@
       },
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
-        "object": "configSnapshotErpSelect"
+        "object": "configSnapshotMultiChassisSelect"
       },
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
@@ -1745,18 +2601,166 @@
       },
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
-        "object": "configSnapshotLBDSelect"
+        "object": "configSnapshotMPLSSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotErpSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotCapabilitySelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotVfcSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotHaVlanSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDaUnpSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDHLSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotMVRPSelect"
       },
       {
         "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
         "object": "configSnapshotSAASelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotSPBSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotSPBIsisSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotVirtualChassisSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotMplsLdpSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotEvbSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAppfpSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotFipsSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotLFPSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotPmInterfaceSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAutofabricSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDhcpv6RelaySelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotSIPSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotOpenflowSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotWlanSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDhcpSrvSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDPISelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotMsgSrvSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAlSrvSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDhcpv6SrvSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAGSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotQMRSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotVCSPSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotDhcpSnoopingSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotAppMonSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotVMSnoopSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotLbdSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotPppoeIaSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotPmPortViolationSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotLanPowerSelect"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configSnapshotPVLANSelect"
       }
     ],
     "status": "current"
   },
   "configTechSupportLogGroup": {
     "name": "configTechSupportLogGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1768,7 +2772,7 @@
   },
   "configWriteMemoryGroup": {
     "name": "configWriteMemoryGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.11.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1778,11 +2782,35 @@
     ],
     "status": "current"
   },
+  "configConvertConfigurationGroup": {
+    "name": "configConvertConfigurationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.11.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configConvertConfiguration"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configConvertConfigurationStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configConvertDestinationDirectory"
+      },
+      {
+        "module": "ALCATEL-IND1-CONFIG-MGR-MIB",
+        "object": "configConvertReload"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-CONFIG-MGR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-CONFIG-MGR-MIB"

@@ -5,35 +5,35 @@
       "routingIND1Ipx"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1IPXMIB": {
     "name": "alcatelIND1IPXMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -44,7 +44,7 @@
   },
   "alcatelIND1IPXMIBObjects": {
     "name": "alcatelIND1IPXMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1",
     "class": "objectidentity"
   },
   "NetNumber": {
@@ -83,25 +83,25 @@
   },
   "alaIpxRoutingGroup": {
     "name": "alaIpxRoutingGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIpxFilterGroup": {
     "name": "alaIpxFilterGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIpxTimerGroup": {
     "name": "alaIpxTimerGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3",
     "class": "objectidentity",
     "status": "current"
   },
   "alaIpxStaticRouteTable": {
     "name": "alaIpxStaticRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -109,7 +109,7 @@
   },
   "alaIpxStaticRouteEntry": {
     "name": "alaIpxStaticRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -124,7 +124,7 @@
   },
   "alaIpxStaticRouteNetNum": {
     "name": "alaIpxStaticRouteNetNum",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -142,7 +142,7 @@
   },
   "alaIpxStaticRouteNextHopNet": {
     "name": "alaIpxStaticRouteNextHopNet",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -160,7 +160,7 @@
   },
   "alaIpxStaticRouteNextHopNode": {
     "name": "alaIpxStaticRouteNextHopNode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -178,7 +178,7 @@
   },
   "alaIpxStaticRouteTicks": {
     "name": "alaIpxStaticRouteTicks",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -198,7 +198,7 @@
   },
   "alaIpxStaticRouteHopCount": {
     "name": "alaIpxStaticRouteHopCount",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -218,7 +218,7 @@
   },
   "alaIpxStaticRouteRowStatus": {
     "name": "alaIpxStaticRouteRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -230,7 +230,7 @@
   },
   "alaIpxDefRouteTable": {
     "name": "alaIpxDefRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -238,7 +238,7 @@
   },
   "alaIpxDefRouteEntry": {
     "name": "alaIpxDefRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -253,7 +253,7 @@
   },
   "alaIpxDefRouteVlanId": {
     "name": "alaIpxDefRouteVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -273,7 +273,7 @@
   },
   "alaIpxDefRouteNet": {
     "name": "alaIpxDefRouteNet",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -291,7 +291,7 @@
   },
   "alaIpxDefRouteNode": {
     "name": "alaIpxDefRouteNode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -309,7 +309,7 @@
   },
   "alaIpxDefRouteRowStatus": {
     "name": "alaIpxDefRouteRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -321,7 +321,7 @@
   },
   "alaIpxExtMsgTable": {
     "name": "alaIpxExtMsgTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -329,7 +329,7 @@
   },
   "alaIpxExtMsgEntry": {
     "name": "alaIpxExtMsgEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -344,7 +344,7 @@
   },
   "alaIpxExtMsgVlanId": {
     "name": "alaIpxExtMsgVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -364,7 +364,7 @@
   },
   "alaIpxExtMsgMode": {
     "name": "alaIpxExtMsgMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -388,7 +388,7 @@
   },
   "alaIpxExtMsgRowStatus": {
     "name": "alaIpxExtMsgRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -400,7 +400,7 @@
   },
   "alaIpxFlush": {
     "name": "alaIpxFlush",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -419,7 +419,7 @@
   },
   "alaIpxRipSapFilterTable": {
     "name": "alaIpxRipSapFilterTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -427,7 +427,7 @@
   },
   "alaIpxRipSapFilterEntry": {
     "name": "alaIpxRipSapFilterEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -472,7 +472,7 @@
   },
   "alaIpxRipSapFilterVlanId": {
     "name": "alaIpxRipSapFilterVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -492,7 +492,7 @@
   },
   "alaIpxRipSapFilterType": {
     "name": "alaIpxRipSapFilterType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -519,7 +519,7 @@
   },
   "alaIpxRipSapFilterNet": {
     "name": "alaIpxRipSapFilterNet",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -537,7 +537,7 @@
   },
   "alaIpxRipSapFilterNetMask": {
     "name": "alaIpxRipSapFilterNetMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -555,7 +555,7 @@
   },
   "alaIpxRipSapFilterNode": {
     "name": "alaIpxRipSapFilterNode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -573,7 +573,7 @@
   },
   "alaIpxRipSapFilterNodeMask": {
     "name": "alaIpxRipSapFilterNodeMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -591,7 +591,7 @@
   },
   "alaIpxRipSapFilterSvcType": {
     "name": "alaIpxRipSapFilterSvcType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -617,7 +617,7 @@
   },
   "alaIpxRipSapFilterMode": {
     "name": "alaIpxRipSapFilterMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -641,7 +641,7 @@
   },
   "alaIpxRipSapFilterRowStatus": {
     "name": "alaIpxRipSapFilterRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -653,7 +653,7 @@
   },
   "alaIpxWatchdogSpoofTable": {
     "name": "alaIpxWatchdogSpoofTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -661,7 +661,7 @@
   },
   "alaIpxWatchdogSpoofEntry": {
     "name": "alaIpxWatchdogSpoofEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -676,7 +676,7 @@
   },
   "alaIpxWatchdogSpoofVlanId": {
     "name": "alaIpxWatchdogSpoofVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -696,7 +696,7 @@
   },
   "alaIpxWatchdogSpoofMode": {
     "name": "alaIpxWatchdogSpoofMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -720,7 +720,7 @@
   },
   "alaIpxWatchdogSpoofRowStatus": {
     "name": "alaIpxWatchdogSpoofRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -732,7 +732,7 @@
   },
   "alaIpxSerialFilterTable": {
     "name": "alaIpxSerialFilterTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -740,7 +740,7 @@
   },
   "alaIpxSerialFilterEntry": {
     "name": "alaIpxSerialFilterEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -755,7 +755,7 @@
   },
   "alaIpxSerialFilterVlanId": {
     "name": "alaIpxSerialFilterVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -775,7 +775,7 @@
   },
   "alaIpxSerialFilterMode": {
     "name": "alaIpxSerialFilterMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -799,7 +799,7 @@
   },
   "alaIpxSerialFilterRowStatus": {
     "name": "alaIpxSerialFilterRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -811,7 +811,7 @@
   },
   "alaSpxKeepaliveSpoofTable": {
     "name": "alaSpxKeepaliveSpoofTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -819,7 +819,7 @@
   },
   "alaSpxKeepaliveSpoofEntry": {
     "name": "alaSpxKeepaliveSpoofEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -834,7 +834,7 @@
   },
   "alaSpxKeepaliveSpoofVlanId": {
     "name": "alaSpxKeepaliveSpoofVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -854,7 +854,7 @@
   },
   "alaSpxKeepaliveSpoofMode": {
     "name": "alaSpxKeepaliveSpoofMode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.4.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -878,7 +878,7 @@
   },
   "alaSpxKeepaliveSpoofRowStatus": {
     "name": "alaSpxKeepaliveSpoofRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.4.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -890,7 +890,7 @@
   },
   "alaIpxType20Table": {
     "name": "alaIpxType20Table",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -898,7 +898,7 @@
   },
   "alaIpxType20Entry": {
     "name": "alaIpxType20Entry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.5.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -913,7 +913,7 @@
   },
   "alaIpxType20VlanId": {
     "name": "alaIpxType20VlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.5.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -933,7 +933,7 @@
   },
   "alaIpxType20Mode": {
     "name": "alaIpxType20Mode",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.5.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -957,7 +957,7 @@
   },
   "alaIpxType20RowStatus": {
     "name": "alaIpxType20RowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.2.5.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.2.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -969,7 +969,7 @@
   },
   "alaIpxTimerTable": {
     "name": "alaIpxTimerTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -977,7 +977,7 @@
   },
   "alaIpxTimerEntry": {
     "name": "alaIpxTimerEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -992,7 +992,7 @@
   },
   "alaIpxTimerVlanId": {
     "name": "alaIpxTimerVlanId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1012,7 +1012,7 @@
   },
   "alaIpxTimerSap": {
     "name": "alaIpxTimerSap",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1038,7 +1038,7 @@
   },
   "alaIpxTimerRip": {
     "name": "alaIpxTimerRip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1064,7 +1064,7 @@
   },
   "alaIpxTimerRowStatus": {
     "name": "alaIpxTimerRowStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.1.3.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.1.3.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1076,22 +1076,22 @@
   },
   "alcatelIND1IPXMIBConformance": {
     "name": "alcatelIND1IPXMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1IPXMIBCompliances": {
     "name": "alcatelIND1IPXMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1IPXMIBGroups": {
     "name": "alcatelIND1IPXMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1IPXMIBCompliance": {
     "name": "alcatelIND1IPXMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1139,7 +1139,7 @@
   },
   "alcatelIND1IPXMIBStaticRouteGroup": {
     "name": "alcatelIND1IPXMIBStaticRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1167,7 +1167,7 @@
   },
   "alcatelIND1IPXMIBDefRouteGroup": {
     "name": "alcatelIND1IPXMIBDefRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1187,7 +1187,7 @@
   },
   "alcatelIND1IPXMIBExtMsgGroup": {
     "name": "alcatelIND1IPXMIBExtMsgGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1203,7 +1203,7 @@
   },
   "alcatelIND1IPXMIBFlushGroup": {
     "name": "alcatelIND1IPXMIBFlushGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1215,7 +1215,7 @@
   },
   "alcatelIND1IPXMIBRipSapFilterGroup": {
     "name": "alcatelIND1IPXMIBRipSapFilterGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1231,7 +1231,7 @@
   },
   "alcatelIND1IPXMIBWatchdogSpoofGroup": {
     "name": "alcatelIND1IPXMIBWatchdogSpoofGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1247,7 +1247,7 @@
   },
   "alcatelIND1IPXMIBSerialFilterGroup": {
     "name": "alcatelIND1IPXMIBSerialFilterGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -1263,7 +1263,7 @@
   },
   "alcatelIND1IPXMIBKeepaliveSpoofGroup": {
     "name": "alcatelIND1IPXMIBKeepaliveSpoofGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.8",
     "class": "objectgroup",
     "objects": [
       {
@@ -1279,7 +1279,7 @@
   },
   "alcatelIND1IPXMIBType20Group": {
     "name": "alcatelIND1IPXMIBType20Group",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.9",
     "class": "objectgroup",
     "objects": [
       {
@@ -1295,7 +1295,7 @@
   },
   "alcatelIND1IPXMIBTimerGroup": {
     "name": "alcatelIND1IPXMIBTimerGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.8.1.2.2.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.8.1.2.2.10",
     "class": "objectgroup",
     "objects": [
       {
@@ -1316,8 +1316,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPX-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-IPX-MIB"

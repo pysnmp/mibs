@@ -7,36 +7,39 @@
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1RIPMIB": {
     "name": "alcatelIND1RIPMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -47,25 +50,25 @@
   },
   "alcatelIND1RIPMIBObjects": {
     "name": "alcatelIND1RIPMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1RIPMIBConformance": {
     "name": "alcatelIND1RIPMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1RIPMIBGroups": {
     "name": "alcatelIND1RIPMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1RIPMIBCompliances": {
     "name": "alcatelIND1RIPMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
@@ -88,12 +91,12 @@
   },
   "alaProtocolRip": {
     "name": "alaProtocolRip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1",
     "class": "objectidentity"
   },
   "alaRipProtoStatus": {
     "name": "alaRipProtoStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -117,7 +120,7 @@
   },
   "alaRipHostRouteSupport": {
     "name": "alaRipHostRouteSupport",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -139,37 +142,13 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaRipRedistAdminStatus": {
-    "name": "alaRipRedistAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": 2,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
   "alaRipRedistRouteTag": {
     "name": "alaRipRedistRouteTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -185,11 +164,11 @@
   },
   "alaRipForceHolddownTimer": {
     "name": "alaRipForceHolddownTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -205,11 +184,11 @@
   },
   "alaRipRouteNumber": {
     "name": "alaRipRouteNumber",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -225,7 +204,7 @@
   },
   "alaRipUpdateInterval": {
     "name": "alaRipUpdateInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -252,7 +231,7 @@
   },
   "alaRipInvalidTimer": {
     "name": "alaRipInvalidTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.14",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -279,7 +258,7 @@
   },
   "alaRipHolddownTimer": {
     "name": "alaRipHolddownTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -300,7 +279,7 @@
   },
   "alaRipGarbageTimer": {
     "name": "alaRipGarbageTimer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -325,741 +304,9 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "alaRipRedistProtoTable": {
-    "name": "alaRipRedistProtoTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.7",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "obsolete"
-  },
-  "alaRipRedistProtoEntry": {
-    "name": "alaRipRedistProtoEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.7.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistProtoId",
-        "implied": 0
-      }
-    ],
-    "status": "obsolete"
-  },
-  "alaRipRedistProtoId": {
-    "name": "alaRipRedistProtoId",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.7.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "local": 2,
-          "directHost": 3,
-          "netmgmt": 4,
-          "rip": 5,
-          "ospf": 6,
-          "isis": 7,
-          "bgp": 8
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "alaRipRedistProtoMetric": {
-    "name": "alaRipRedistProtoMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.7.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 15
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaRipRedistProtoStatus": {
-    "name": "alaRipRedistProtoStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.7.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "notInService",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaRipDebug": {
-    "name": "alaRipDebug",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2",
-    "class": "objectidentity"
-  },
-  "alaRipDebugLevel": {
-    "name": "alaRipDebugLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugError": {
-    "name": "alaRipDebugError",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugWarn": {
-    "name": "alaRipDebugWarn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugRecv": {
-    "name": "alaRipDebugRecv",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugSend": {
-    "name": "alaRipDebugSend",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugRdb": {
-    "name": "alaRipDebugRdb",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugAge": {
-    "name": "alaRipDebugAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugConfig": {
-    "name": "alaRipDebugConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugRedist": {
-    "name": "alaRipDebugRedist",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugInfo": {
-    "name": "alaRipDebugInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugSetup": {
-    "name": "alaRipDebugSetup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.11",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugTime": {
-    "name": "alaRipDebugTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.12",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipDebugAll": {
-    "name": "alaRipDebugAll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.2.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaRipRouteTable": {
-    "name": "alaRipRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "deprecated"
-  },
-  "alaRipRouteEntry": {
-    "name": "alaRipRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteDest",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteMask",
-        "implied": 0
-      }
-    ],
-    "status": "deprecated"
-  },
-  "alaRipRouteDest": {
-    "name": "alaRipRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteMask": {
-    "name": "alaRipRouteMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteNextHop": {
-    "name": "alaRipRouteNextHop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteType": {
-    "name": "alaRipRouteType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "local": 1,
-          "remote": 2,
-          "redistribute": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteAge": {
-    "name": "alaRipRouteAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteTag": {
-    "name": "alaRipRouteTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteMetric": {
-    "name": "alaRipRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 15
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRouteStatus": {
-    "name": "alaRipRouteStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.9.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "deprecated"
-  },
-  "alaRipRedistRouteTable": {
-    "name": "alaRipRedistRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteEntry": {
-    "name": "alaRipRedistRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteProto",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteDest",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteMask",
-        "implied": 0
-      }
-    ],
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteProto": {
-    "name": "alaRipRedistRouteProto",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "local": 2,
-          "directHost": 3,
-          "netmgmt": 4,
-          "ospf": 6,
-          "isis": 7,
-          "bgp": 8
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteDest": {
-    "name": "alaRipRedistRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteMask": {
-    "name": "alaRipRedistRouteMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteMetric": {
-    "name": "alaRipRedistRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 15
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteControl": {
-    "name": "alaRipRedistRouteControl",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "redistributeAllSubnets": 1,
-          "redistributeAsAggregate": 2,
-          "redistributeExactMatch": 3
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "redistributeAllSubnets",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteTagMatch": {
-    "name": "alaRipRedistRouteTagMatch",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2147483648,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": -1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteEffect": {
-    "name": "alaRipRedistRouteEffect",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "redistribute": 1,
-          "doNotRedistribute": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "redistribute",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
-  "alaRipRedistRouteStatus": {
-    "name": "alaRipRedistRouteStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.10.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "RowStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "obsolete"
-  },
   "alaRip2IfConfAugTable": {
     "name": "alaRip2IfConfAugTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1067,7 +314,7 @@
   },
   "alaRip2IfConfAugEntry": {
     "name": "alaRip2IfConfAugEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1080,7 +327,7 @@
   },
   "alaRip2IfConfEncryptKey": {
     "name": "alaRip2IfConfEncryptKey",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1092,7 +339,7 @@
   },
   "alaRip2IfIpConfStatus": {
     "name": "alaRip2IfIpConfStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1111,7 +358,7 @@
   },
   "alaRip2IfRecvPkts": {
     "name": "alaRip2IfRecvPkts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1123,11 +370,11 @@
   },
   "alaRip2IfConfName": {
     "name": "alaRip2IfConfName",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1135,7 +382,7 @@
   },
   "alaRip2IfConfType": {
     "name": "alaRip2IfConfType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1153,7 +400,7 @@
   },
   "alaRip2IfConfPtoPPeer": {
     "name": "alaRip2IfConfPtoPPeer",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.11.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1163,9 +410,61 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "alaRip2IfConfIngressFilterRouteMapName": {
+    "name": "alaRip2IfConfIngressFilterRouteMapName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaRip2IfConfEgressFilterRouteMapName": {
+    "name": "alaRip2IfConfEgressFilterRouteMapName",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "alaRipEcmpRouteTable": {
     "name": "alaRipEcmpRouteTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1173,7 +472,7 @@
   },
   "alaRipEcmpRouteEntry": {
     "name": "alaRipEcmpRouteEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1198,7 +497,7 @@
   },
   "alaRipEcmpRouteDest": {
     "name": "alaRipEcmpRouteDest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1210,7 +509,7 @@
   },
   "alaRipEcmpRouteMask": {
     "name": "alaRipEcmpRouteMask",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1222,7 +521,7 @@
   },
   "alaRipEcmpRouteNextHop": {
     "name": "alaRipEcmpRouteNextHop",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1234,7 +533,7 @@
   },
   "alaRipEcmpRouteType": {
     "name": "alaRipEcmpRouteType",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1253,7 +552,7 @@
   },
   "alaRipEcmpRouteAge": {
     "name": "alaRipEcmpRouteAge",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1265,11 +564,11 @@
   },
   "alaRipEcmpRouteTag": {
     "name": "alaRipEcmpRouteTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1285,11 +584,11 @@
   },
   "alaRipEcmpRouteMetric": {
     "name": "alaRipEcmpRouteMetric",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1305,7 +604,7 @@
   },
   "alaRipEcmpRouteStatus": {
     "name": "alaRipEcmpRouteStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1317,7 +616,7 @@
   },
   "alaRipEcmpRouteState": {
     "name": "alaRipEcmpRouteState",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.1.1.12.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.1.1.12.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1337,7 +636,7 @@
   },
   "alcatelIND1RIPMIBCompliance": {
     "name": "alcatelIND1RIPMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1345,19 +644,7 @@
         "module": "ALCATEL-IND1-RIP-MIB"
       },
       {
-        "object": "alaRipRedistProtoGroup",
-        "module": "ALCATEL-IND1-RIP-MIB"
-      },
-      {
-        "object": "alaRipDebugGroup",
-        "module": "ALCATEL-IND1-RIP-MIB"
-      },
-      {
         "object": "alaRipEcmpRouteGroup",
-        "module": "ALCATEL-IND1-RIP-MIB"
-      },
-      {
-        "object": "alaRipRedistRouteGroup",
         "module": "ALCATEL-IND1-RIP-MIB"
       }
     ],
@@ -1365,13 +652,9 @@
   },
   "alaRipMiscellaneousGroup": {
     "name": "alaRipMiscellaneousGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.1.1",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistAdminStatus"
-      },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
         "object": "alaRipRedistRouteTag"
@@ -1387,177 +670,93 @@
     ],
     "status": "current"
   },
-  "alaRipRedistProtoGroup": {
-    "name": "alaRipRedistProtoGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1.2",
+  "alaRip2IfConfAugGroup": {
+    "name": "alaRip2IfConfAugGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.1.2",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistProtoId"
+        "object": "alaRip2IfConfEncryptKey"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistProtoMetric"
+        "object": "alaRip2IfIpConfStatus"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistProtoStatus"
+        "object": "alaRip2IfRecvPkts"
+      },
+      {
+        "module": "ALCATEL-IND1-RIP-MIB",
+        "object": "alaRip2IfConfName"
+      },
+      {
+        "module": "ALCATEL-IND1-RIP-MIB",
+        "object": "alaRip2IfConfType"
+      },
+      {
+        "module": "ALCATEL-IND1-RIP-MIB",
+        "object": "alaRip2IfConfPtoPPeer"
+      },
+      {
+        "module": "ALCATEL-IND1-RIP-MIB",
+        "object": "alaRip2IfConfIngressFilterRouteMapName"
+      },
+      {
+        "module": "ALCATEL-IND1-RIP-MIB",
+        "object": "alaRip2IfConfEgressFilterRouteMapName"
       }
     ],
-    "status": "obsolete"
+    "status": "current"
   },
-  "alaRipDebugGroup": {
-    "name": "alaRipDebugGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1.3",
+  "alaProtocolRipGroup": {
+    "name": "alaProtocolRipGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugLevel"
+        "object": "alaRipProtoStatus"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugError"
+        "object": "alaRipHostRouteSupport"
       },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugWarn"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugRecv"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugSend"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugRdb"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugAge"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugConfig"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugRedist"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugInfo"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugSetup"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugTime"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipDebugAll"
-      }
-    ],
-    "status": "deprecated"
-  },
-  "alaRipRouteGroup": {
-    "name": "alaRipRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1.4",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteNumber"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteDest"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteMask"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteNextHop"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteType"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteAge"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteTag"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteMetric"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRouteStatus"
-      }
-    ],
-    "status": "deprecated"
-  },
-  "alaRipRedistRouteGroup": {
-    "name": "alaRipRedistRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1.5",
-    "class": "objectgroup",
-    "objects": [
       {
         "module": "ALCATEL-IND1-RIP-MIB",
         "object": "alaRipRedistRouteTag"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteProto"
+        "object": "alaRipForceHolddownTimer"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteDest"
+        "object": "alaRipRouteNumber"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteMask"
+        "object": "alaRipUpdateInterval"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteMetric"
+        "object": "alaRipInvalidTimer"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteControl"
+        "object": "alaRipHolddownTimer"
       },
       {
         "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteTagMatch"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteEffect"
-      },
-      {
-        "module": "ALCATEL-IND1-RIP-MIB",
-        "object": "alaRipRedistRouteStatus"
+        "object": "alaRipGarbageTimer"
       }
     ],
-    "status": "obsolete"
+    "status": "current"
   },
   "alaRipEcmpRouteGroup": {
     "name": "alaRipEcmpRouteGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.1.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -1593,25 +792,37 @@
   },
   "alcatelIND1RIPTraps": {
     "name": "alcatelIND1RIPTraps",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.3",
     "class": "objectidentity"
   },
   "alcatelIND1RIPTrapsRoot": {
     "name": "alcatelIND1RIPTrapsRoot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.3.0",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.3.0",
     "class": "objectidentity"
   },
   "ripRouteMaxLimitReached": {
     "name": "ripRouteMaxLimitReached",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.3.1.3.0.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.3.0.1",
     "class": "notificationtype",
+    "status": "current"
+  },
+  "alcatelIND1RIPTrapsGroup": {
+    "name": "alcatelIND1RIPTrapsGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.3.1.2.1.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-RIP-MIB",
+        "object": "ripRouteMaxLimitReached"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-RIP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:59 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:08 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-RIP-MIB"

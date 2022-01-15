@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremenetworks",
       "extremeV2Traps",
+      "extremenetworks",
       "extremeAgent"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -726,8 +726,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:48:49 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:22:26 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EXTREME-CABLE-MIB"

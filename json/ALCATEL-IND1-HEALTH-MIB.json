@@ -2,31 +2,27 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "softentIND1Health",
-      "healthMonTraps"
-    ],
-    "IF-MIB": [
-      "ifIndex"
+      "softentIND1Health"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -36,532 +32,57 @@
   },
   "alcatelIND1HealthMonitorMIB": {
     "name": "alcatelIND1HealthMonitorMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2010-05-13 00:00",
+        "description": "Fixed the Notifications to use MIB Module OID.0 as Notifications root."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "Addressing discrepancies with Alcatel Standard."
       }
     ]
   },
+  "alcatelIND1HealthMonitorMIBNotifications": {
+    "name": "alcatelIND1HealthMonitorMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "alcatelIND1HealthMonitorMIBObjects": {
     "name": "alcatelIND1HealthMonitorMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1HealthMonitorMIBConformance": {
     "name": "alcatelIND1HealthMonitorMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1HealthMonitorMIBGroups": {
     "name": "alcatelIND1HealthMonitorMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1",
     "class": "objectidentity",
     "status": "current"
   },
   "alcatelIND1HealthMonitorMIBCompliances": {
     "name": "alcatelIND1HealthMonitorMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.2",
     "class": "objectidentity",
     "status": "current"
   },
-  "healthDeviceInfo": {
-    "name": "healthDeviceInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1",
-    "class": "objectidentity"
-  },
-  "healthDeviceRxLatest": {
-    "name": "healthDeviceRxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRx1MinAvg": {
-    "name": "healthDeviceRx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRx1HrAvg": {
-    "name": "healthDeviceRx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRx1HrMax": {
-    "name": "healthDeviceRx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRxTxLatest": {
-    "name": "healthDeviceRxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRxTx1MinAvg": {
-    "name": "healthDeviceRxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRxTx1HrAvg": {
-    "name": "healthDeviceRxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceRxTx1HrMax": {
-    "name": "healthDeviceRxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceMemoryLatest": {
-    "name": "healthDeviceMemoryLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceMemory1MinAvg": {
-    "name": "healthDeviceMemory1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceMemory1HrAvg": {
-    "name": "healthDeviceMemory1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.11",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceMemory1HrMax": {
-    "name": "healthDeviceMemory1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.12",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceCpuLatest": {
-    "name": "healthDeviceCpuLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceCpu1MinAvg": {
-    "name": "healthDeviceCpu1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceCpu1HrAvg": {
-    "name": "healthDeviceCpu1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.15",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceCpu1HrMax": {
-    "name": "healthDeviceCpu1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.16",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceTemperatureChasLatest": {
-    "name": "healthDeviceTemperatureChasLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.17",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceTemperatureChas1MinAvg": {
-    "name": "healthDeviceTemperatureChas1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.18",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceTemperatureChas1HrAvg": {
-    "name": "healthDeviceTemperatureChas1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.19",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceTemperatureChas1HrMax": {
-    "name": "healthDeviceTemperatureChas1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.20",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthDeviceTemperatureCmmCpuLatest": {
-    "name": "healthDeviceTemperatureCmmCpuLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.21",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "healthDeviceTemperatureCmmCpu1MinAvg": {
-    "name": "healthDeviceTemperatureCmmCpu1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.22",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "healthDeviceTemperatureCmmCpu1HrAvg": {
-    "name": "healthDeviceTemperatureCmmCpu1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.23",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "healthDeviceTemperatureCmmCpu1HrMax": {
-    "name": "healthDeviceTemperatureCmmCpu1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.24",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
   "healthModuleInfo": {
     "name": "healthModuleInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1",
     "class": "objectidentity"
   },
   "healthModuleTable": {
     "name": "healthModuleTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -569,7 +90,7 @@
   },
   "healthModuleEntry": {
     "name": "healthModuleEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -584,51 +105,31 @@
   },
   "healthModuleSlot": {
     "name": "healthModuleSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthModuleRxLatest": {
-    "name": "healthModuleRxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 100
+            "max": 7016
           }
         ]
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "healthModuleRx1MinAvg": {
     "name": "healthModuleRx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -644,11 +145,11 @@
   },
   "healthModuleRx1HrAvg": {
     "name": "healthModuleRx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -662,33 +163,13 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthModuleRx1HrMax": {
-    "name": "healthModuleRx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.5",
+  "healthModuleRx1DayAvg": {
+    "name": "healthModuleRx1DayAvg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthModuleRxTxLatest": {
-    "name": "healthModuleRxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -704,11 +185,11 @@
   },
   "healthModuleRxTx1MinAvg": {
     "name": "healthModuleRxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -724,11 +205,11 @@
   },
   "healthModuleRxTx1HrAvg": {
     "name": "healthModuleRxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -742,33 +223,13 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthModuleRxTx1HrMax": {
-    "name": "healthModuleRxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.9",
+  "healthModuleRxTx1DayAvg": {
+    "name": "healthModuleRxTx1DayAvg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthModuleMemoryLatest": {
-    "name": "healthModuleMemoryLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -784,11 +245,11 @@
   },
   "healthModuleMemory1MinAvg": {
     "name": "healthModuleMemory1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -804,11 +265,11 @@
   },
   "healthModuleMemory1HrAvg": {
     "name": "healthModuleMemory1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -822,33 +283,13 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthModuleMemory1HrMax": {
-    "name": "healthModuleMemory1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.13",
+  "healthModuleMemory1DayAvg": {
+    "name": "healthModuleMemory1DayAvg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthModuleCpuLatest": {
-    "name": "healthModuleCpuLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -864,11 +305,11 @@
   },
   "healthModuleCpu1MinAvg": {
     "name": "healthModuleCpu1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.15",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -884,11 +325,11 @@
   },
   "healthModuleCpu1HrAvg": {
     "name": "healthModuleCpu1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.16",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -902,13 +343,113 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthModuleCpu1HrMax": {
-    "name": "healthModuleCpu1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.2.1.1.17",
+  "healthModuleCpu1DayAvg": {
+    "name": "healthModuleCpu1DayAvg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthModuleChassisId": {
+    "name": "healthModuleChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthModuleCpuLatest": {
+    "name": "healthModuleCpuLatest",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthModuleMemoryLatest": {
+    "name": "healthModuleMemoryLatest",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthModuleRxLatest": {
+    "name": "healthModuleRxLatest",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "healthModuleRxTxLatest": {
+    "name": "healthModuleRxTxLatest",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -924,26 +465,12 @@
   },
   "healthPortInfo": {
     "name": "healthPortInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2",
     "class": "objectidentity"
-  },
-  "HealthPortUpDownStatus": {
-    "name": "HealthPortUpDownStatus",
-    "class": "type",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "healthPortDn": 1,
-          "healthPortUp": 2
-        }
-      }
-    }
   },
   "healthPortTable": {
     "name": "healthPortTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -951,103 +478,46 @@
   },
   "healthPortEntry": {
     "name": "healthPortEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortSlot",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortIF",
+        "object": "healthPortIfIndex",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "healthPortSlot": {
-    "name": "healthPortSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.1",
+  "healthPortIfIndex": {
+    "name": "healthPortIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 64
+            "max": 2147483647
           }
         ]
       }
     },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthPortIF": {
-    "name": "healthPortIF",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthPortUpDn": {
-    "name": "healthPortUpDn",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "HealthPortUpDownStatus",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthPortRxLatest": {
-    "name": "healthPortRxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "healthPortRx1MinAvg": {
     "name": "healthPortRx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1063,11 +533,11 @@
   },
   "healthPortRx1HrAvg": {
     "name": "healthPortRx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1081,33 +551,13 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthPortRx1HrMax": {
-    "name": "healthPortRx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.7",
+  "healthPortRx1DayAvg": {
+    "name": "healthPortRx1DayAvg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthPortRxTxLatest": {
-    "name": "healthPortRxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1123,11 +573,11 @@
   },
   "healthPortRxTx1MinAvg": {
     "name": "healthPortRxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1143,11 +593,11 @@
   },
   "healthPortRxTx1HrAvg": {
     "name": "healthPortRxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1161,13 +611,13 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthPortRxTx1HrMax": {
-    "name": "healthPortRxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.3.1.1.11",
+  "healthPortRxTx1DayAvg": {
+    "name": "healthPortRxTx1DayAvg",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1183,16 +633,16 @@
   },
   "healthControlInfo": {
     "name": "healthControlInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.3",
     "class": "objectidentity"
   },
   "healthSamplingInterval": {
     "name": "healthSamplingInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1205,33 +655,7 @@
     },
     "default": {
       "default": {
-        "value": 5,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthSamplingReset": {
-    "name": "healthSamplingReset",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.4.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
+        "value": 10,
         "format": "decimal"
       }
     },
@@ -1240,16 +664,16 @@
   },
   "healthThreshInfo": {
     "name": "healthThreshInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.4",
     "class": "objectidentity"
   },
-  "healthThreshDeviceRxLimit": {
-    "name": "healthThreshDeviceRxLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.1",
+  "healthThreshRxLimit": {
+    "name": "healthThreshRxLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.4.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1269,13 +693,13 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "healthThreshDeviceRxTxLimit": {
-    "name": "healthThreshDeviceRxTxLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.2",
+  "healthThreshRxTxLimit": {
+    "name": "healthThreshRxTxLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1295,13 +719,13 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "healthThreshDeviceMemoryLimit": {
-    "name": "healthThreshDeviceMemoryLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.3",
+  "healthThreshMemoryLimit": {
+    "name": "healthThreshMemoryLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.4.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1321,13 +745,13 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "healthThreshDeviceCpuLimit": {
-    "name": "healthThreshDeviceCpuLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.4",
+  "healthThreshCpuLimit": {
+    "name": "healthThreshCpuLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.4.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1347,13 +771,13 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "healthThreshDeviceRxSecondaryLimit": {
-    "name": "healthThreshDeviceRxSecondaryLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.5",
+  "healthThreshFlashLimit": {
+    "name": "healthThreshFlashLimit",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.4.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -1366,952 +790,21 @@
     },
     "default": {
       "default": {
-        "value": 60,
+        "value": 75,
         "format": "decimal"
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthThreshDeviceRxTxSecondaryLimit": {
-    "name": "healthThreshDeviceRxTxSecondaryLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 60,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthThreshDeviceMemorySecondaryLimit": {
-    "name": "healthThreshDeviceMemorySecondaryLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 60,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthThreshDeviceCpuSecondaryLimit": {
-    "name": "healthThreshDeviceCpuSecondaryLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 60,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthThreshDeviceTempLimit": {
-    "name": "healthThreshDeviceTempLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 50,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthThreshDeviceTempSecondaryLimit": {
-    "name": "healthThreshDeviceTempSecondaryLimit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.5.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 40,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "healthSliceInfo": {
-    "name": "healthSliceInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7",
-    "class": "objectidentity"
-  },
-  "healthSliceTable": {
-    "name": "healthSliceTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "healthSliceEntry": {
-    "name": "healthSliceEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSliceSlot",
-        "implied": 0
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSliceSlice",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "healthSliceSlot": {
-    "name": "healthSliceSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthSliceSlice": {
-    "name": "healthSliceSlice",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthSliceMemoryLatest": {
-    "name": "healthSliceMemoryLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthSliceCpuLatest": {
-    "name": "healthSliceCpuLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.7.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricInfo": {
-    "name": "healthFabricInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8",
-    "class": "objectidentity"
-  },
-  "healthFabricTable": {
-    "name": "healthFabricTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "healthFabricEntry": {
-    "name": "healthFabricEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSlot",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "healthFabricSlot": {
-    "name": "healthFabricSlot",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 64
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRxLatest": {
-    "name": "healthFabricPrimaryRxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRx1MinAvg": {
-    "name": "healthFabricPrimaryRx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRx1HrAvg": {
-    "name": "healthFabricPrimaryRx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRx1HrMax": {
-    "name": "healthFabricPrimaryRx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRxTxLatest": {
-    "name": "healthFabricPrimaryRxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRxTx1MinAvg": {
-    "name": "healthFabricPrimaryRxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRxTx1HrAvg": {
-    "name": "healthFabricPrimaryRxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryRxTx1HrMax": {
-    "name": "healthFabricPrimaryRxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRxLatest": {
-    "name": "healthFabricSecondaryRxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRx1MinAvg": {
-    "name": "healthFabricSecondaryRx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRx1HrAvg": {
-    "name": "healthFabricSecondaryRx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRx1HrMax": {
-    "name": "healthFabricSecondaryRx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRxTxLatest": {
-    "name": "healthFabricSecondaryRxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRxTx1MinAvg": {
-    "name": "healthFabricSecondaryRxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRxTx1HrAvg": {
-    "name": "healthFabricSecondaryRxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryRxTx1HrMax": {
-    "name": "healthFabricSecondaryRxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.17",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1RxLatest": {
-    "name": "healthFabricPrimaryLink1RxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.18",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1Rx1MinAvg": {
-    "name": "healthFabricPrimaryLink1Rx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.19",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1Rx1HrAvg": {
-    "name": "healthFabricPrimaryLink1Rx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.20",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1Rx1HrMax": {
-    "name": "healthFabricPrimaryLink1Rx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.21",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1RxTxLatest": {
-    "name": "healthFabricPrimaryLink1RxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.22",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1RxTx1MinAvg": {
-    "name": "healthFabricPrimaryLink1RxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.23",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1RxTx1HrAvg": {
-    "name": "healthFabricPrimaryLink1RxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.24",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricPrimaryLink1RxTx1HrMax": {
-    "name": "healthFabricPrimaryLink1RxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.25",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1RxLatest": {
-    "name": "healthFabricSecondaryLink1RxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.26",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1Rx1MinAvg": {
-    "name": "healthFabricSecondaryLink1Rx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.27",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1Rx1HrAvg": {
-    "name": "healthFabricSecondaryLink1Rx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.28",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1Rx1HrMax": {
-    "name": "healthFabricSecondaryLink1Rx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.29",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1RxTxLatest": {
-    "name": "healthFabricSecondaryLink1RxTxLatest",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.30",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1RxTx1MinAvg": {
-    "name": "healthFabricSecondaryLink1RxTx1MinAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.31",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1RxTx1HrAvg": {
-    "name": "healthFabricSecondaryLink1RxTx1HrAvg",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.32",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthFabricSecondaryLink1RxTx1HrMax": {
-    "name": "healthFabricSecondaryLink1RxTx1HrMax",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.8.1.1.33",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 100
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
     "status": "current"
   },
   "healthTrapInfo": {
     "name": "healthTrapInfo",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.5",
     "class": "objectidentity"
   },
   "healthMonRxStatus": {
     "name": "healthMonRxStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.5.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2330,7 +823,7 @@
   },
   "healthMonRxTxStatus": {
     "name": "healthMonRxTxStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.5.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2349,7 +842,7 @@
   },
   "healthMonMemoryStatus": {
     "name": "healthMonMemoryStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.5.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2368,7 +861,7 @@
   },
   "healthMonCpuStatus": {
     "name": "healthMonCpuStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.5.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2385,9 +878,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "healthMonCmmTempStatus": {
-    "name": "healthMonCmmTempStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.5",
+  "healthMonFlashStatus": {
+    "name": "healthMonFlashStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.1.5.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2402,158 +895,11 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonCmmCpuTempStatus": {
-    "name": "healthMonCmmCpuTempStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "crossedBelowThreshold": 1,
-          "noChange": 2,
-          "crossedAboveThreshold": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonPrimaryFabricRxStatus": {
-    "name": "healthMonPrimaryFabricRxStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "crossedBelowThreshold": 1,
-          "noChange": 2,
-          "crossedAboveThreshold": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonPrimaryFabricRxTxStatus": {
-    "name": "healthMonPrimaryFabricRxTxStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "crossedBelowThreshold": 1,
-          "noChange": 2,
-          "crossedAboveThreshold": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonSecondaryFabricRxStatus": {
-    "name": "healthMonSecondaryFabricRxStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "crossedBelowThreshold": 1,
-          "noChange": 2,
-          "crossedAboveThreshold": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonSecondaryFabricRxTxStatus": {
-    "name": "healthMonSecondaryFabricRxTxStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "crossedBelowThreshold": 1,
-          "noChange": 2,
-          "crossedAboveThreshold": 3
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonIpcPoolStatus": {
-    "name": "healthMonIpcPoolStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.1.6.11",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "DisplayString",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "healthMonDeviceTrap": {
-    "name": "healthMonDeviceTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.5.0.1",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonRxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonRxTxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonMemoryStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonCpuStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonCmmTempStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonCmmCpuTempStatus"
-      }
-    ],
     "status": "current"
   },
   "healthMonModuleTrap": {
     "name": "healthMonModuleTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.5.0.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2578,71 +924,7 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonPrimaryFabricRxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonPrimaryFabricRxTxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonSecondaryFabricRxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonSecondaryFabricRxTxStatus"
-      }
-    ],
-    "status": "current"
-  },
-  "healthMonPortTrap": {
-    "name": "healthMonPortTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.5.0.3",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortIF"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonRxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonRxTxStatus"
-      }
-    ],
-    "status": "current"
-  },
-  "healthMonIpcTrap": {
-    "name": "healthMonIpcTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.5.0.4",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonIpcPoolStatus"
-      }
-    ],
-    "status": "current"
-  },
-  "healthMonCpuShutPortTrap": {
-    "name": "healthMonCpuShutPortTrap",
-    "oid": "1.3.6.1.4.1.6486.800.1.3.2.5.0.5",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleSlot"
-      },
-      {
-        "module": "IF-MIB",
-        "object": "ifIndex"
+        "object": "healthModuleChassisId"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
@@ -2651,15 +933,59 @@
     ],
     "status": "current"
   },
+  "healthMonPortTrap": {
+    "name": "healthMonPortTrap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthPortIfIndex"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthMonRxStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthMonRxTxStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "healthMonCmmTrap": {
+    "name": "healthMonCmmTrap",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthMonMemoryStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthMonCpuStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthMonFlashStatus"
+      }
+    ],
+    "status": "current"
+  },
   "alcatelIND1HealthMonitorMIBCompliance": {
     "name": "alcatelIND1HealthMonitorMIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
-      {
-        "object": "healthDeviceGroup",
-        "module": "ALCATEL-IND1-HEALTH-MIB"
-      },
       {
         "object": "healthModuleGroup",
         "module": "ALCATEL-IND1-HEALTH-MIB"
@@ -2677,137 +1003,17 @@
         "module": "ALCATEL-IND1-HEALTH-MIB"
       },
       {
-        "object": "healthSliceGroup",
+        "object": "healthTrapsGroup",
         "module": "ALCATEL-IND1-HEALTH-MIB"
-      }
-    ],
-    "status": "current"
-  },
-  "healthDeviceGroup": {
-    "name": "healthDeviceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.1",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRxTx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRxTx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRxTx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceRxTx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceMemoryLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceMemory1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceMemory1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceMemory1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceCpuLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceCpu1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceCpu1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceCpu1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureChas1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureChasLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureChas1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureChas1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureChas1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureCmmCpuLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureCmmCpu1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureCmmCpu1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthDeviceTemperatureCmmCpu1HrMax"
       }
     ],
     "status": "current"
   },
   "healthModuleGroup": {
     "name": "healthModuleGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1.1",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleRxLatest"
-      },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
         "object": "healthModuleRx1MinAvg"
@@ -2818,15 +1024,7 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleRx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleRxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleRxTx1MinAvg"
+        "object": "healthModuleRx1DayAvg"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
@@ -2838,11 +1036,7 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleRxTx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleMemoryLatest"
+        "object": "healthModuleRxTx1DayAvg"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
@@ -2854,11 +1048,7 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleMemory1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleCpuLatest"
+        "object": "healthModuleMemory1DayAvg"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
@@ -2870,28 +1060,36 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthModuleCpu1HrMax"
+        "object": "healthModuleCpu1DayAvg"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleCpuLatest"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleMemoryLatest"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleRxLatest"
+      },
+      {
+        "module": "ALCATEL-IND1-HEALTH-MIB",
+        "object": "healthModuleRxTxLatest"
       }
     ],
     "status": "current"
   },
   "healthPortGroup": {
     "name": "healthPortGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1.2",
     "class": "objectgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortIF"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortRxLatest"
-      },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
         "object": "healthPortRx1MinAvg"
@@ -2902,15 +1100,7 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortRx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortRxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortRxTx1MinAvg"
+        "object": "healthPortRx1DayAvg"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
@@ -2922,78 +1112,54 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthPortRxTx1HrMax"
+        "object": "healthPortRxTx1DayAvg"
       }
     ],
     "status": "current"
   },
   "healthControlGroup": {
     "name": "healthControlGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
         "object": "healthSamplingInterval"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSamplingReset"
       }
     ],
     "status": "current"
   },
   "healthThreshGroup": {
     "name": "healthThreshGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1.4",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceRxLimit"
+        "object": "healthThreshRxLimit"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceRxTxLimit"
+        "object": "healthThreshRxTxLimit"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceMemoryLimit"
+        "object": "healthThreshMemoryLimit"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceCpuLimit"
+        "object": "healthThreshCpuLimit"
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceRxSecondaryLimit"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceRxTxSecondaryLimit"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceMemorySecondaryLimit"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceCpuSecondaryLimit"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceTempLimit"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthThreshDeviceTempSecondaryLimit"
+        "object": "healthThreshFlashLimit"
       }
     ],
     "status": "current"
   },
   "healthTrapObjectsGroup": {
     "name": "healthTrapObjectsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -3014,40 +1180,16 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonCmmTempStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonCmmCpuTempStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonPrimaryFabricRxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonPrimaryFabricRxTxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonSecondaryFabricRxStatus"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonSecondaryFabricRxTxStatus"
+        "object": "healthMonFlashStatus"
       }
     ],
     "status": "current"
   },
   "healthTrapsGroup": {
     "name": "healthTrapsGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.16.1.2.1.6",
     "class": "notificationgroup",
     "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonDeviceTrap"
-      },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
         "object": "healthMonModuleTrap"
@@ -3058,167 +1200,7 @@
       },
       {
         "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthMonIpcTrap"
-      }
-    ],
-    "status": "current"
-  },
-  "healthSliceGroup": {
-    "name": "healthSliceGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.8",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSliceSlot"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSliceSlice"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSliceMemoryLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthSliceCpuLatest"
-      }
-    ],
-    "status": "current"
-  },
-  "healthFabricGroup": {
-    "name": "healthFabricGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.16.1.2.1.9",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRxTx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRxTx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryRxTx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRxTx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRxTx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryRxTx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1RxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1Rx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1Rx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1Rx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1RxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1RxTx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1RxTx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricPrimaryLink1RxTx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1RxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1Rx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1Rx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1Rx1HrMax"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1RxTxLatest"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1RxTx1MinAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1RxTx1HrAvg"
-      },
-      {
-        "module": "ALCATEL-IND1-HEALTH-MIB",
-        "object": "healthFabricSecondaryLink1RxTx1HrMax"
+        "object": "healthMonCmmTrap"
       }
     ],
     "status": "current"
@@ -3226,8 +1208,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-HEALTH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-HEALTH-MIB"

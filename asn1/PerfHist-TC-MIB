@@ -1,3 +1,14 @@
+-- *****************************************************************
+-- PerfHist-TC-MIB.my:  Performance History MIB file
+--
+-- May 1999, Igor Chernin
+--
+-- Copyright (c) 1999 by Cisco Systems, Inc.
+-- All rights reserved.
+-- 
+-- *****************************************************************
+--
+-- This mib was extracted from RFC 2493
 
      PerfHist-TC-MIB DEFINITIONS ::= BEGIN
 
@@ -7,7 +18,6 @@
             FROM SNMPv2-SMI
         TEXTUAL-CONVENTION
             FROM SNMPv2-TC;
-
 
      perfHistTCMIB MODULE-IDENTITY
           LAST-UPDATED "9811071100Z"
@@ -26,8 +36,6 @@
              to be used by systems supporting 15 minute
              based performance history counts."
           ::= { mib-2 58 }
-
-
 
 
      -- The Textual Conventions defined below are organized
@@ -50,7 +58,6 @@
      --    of a measured entity, then
      --    these objects are applied to each instance of
      --    the measured entity (e.g., interfaces).
-     --
 
 
      -- xyzTimeElapsed OBJECT-TYPE
@@ -98,6 +105,7 @@
      --        intervals are not available (e.g., in proxy
      --        situations)."
      --       ::= { xxx }
+
 
      PerfCurrentCount ::= TEXTUAL-CONVENTION
            STATUS  current
@@ -161,6 +169,5 @@
                intervals. (Intervals for which no valid
                data was available are not counted)"
             SYNTAX  Gauge32
-
 
      END

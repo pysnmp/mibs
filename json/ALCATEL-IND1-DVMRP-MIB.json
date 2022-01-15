@@ -8,35 +8,35 @@
       "dvmrpInterfaceEntry"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DVMRPMIB": {
     "name": "alcatelIND1DVMRPMIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -47,22 +47,17 @@
   },
   "alcatelIND1DVMRPMIBObjects": {
     "name": "alcatelIND1DVMRPMIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1",
     "class": "objectidentity"
   },
   "alaDvmrpGlobalConfig": {
     "name": "alaDvmrpGlobalConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1",
-    "class": "objectidentity"
-  },
-  "alaDvmrpDebugConfig": {
-    "name": "alaDvmrpDebugConfig",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1",
     "class": "objectidentity"
   },
   "alaDvmrpTunnelXIfTable": {
     "name": "alaDvmrpTunnelXIfTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -70,7 +65,7 @@
   },
   "alaDvmrpAdminStatus": {
     "name": "alaDvmrpAdminStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -95,7 +90,7 @@
   },
   "alaDvmrpRouteReportInterval": {
     "name": "alaDvmrpRouteReportInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -122,7 +117,7 @@
   },
   "alaDvmrpFlashUpdateInterval": {
     "name": "alaDvmrpFlashUpdateInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -149,7 +144,7 @@
   },
   "alaDvmrpNeighborTimeout": {
     "name": "alaDvmrpNeighborTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -176,7 +171,7 @@
   },
   "alaDvmrpRouteExpirationTimeout": {
     "name": "alaDvmrpRouteExpirationTimeout",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -203,7 +198,7 @@
   },
   "alaDvmrpRouteHoldDown": {
     "name": "alaDvmrpRouteHoldDown",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -230,7 +225,7 @@
   },
   "alaDvmrpNeighborProbeInterval": {
     "name": "alaDvmrpNeighborProbeInterval",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -257,7 +252,7 @@
   },
   "alaDvmrpPruneLifetime": {
     "name": "alaDvmrpPruneLifetime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.8",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -284,7 +279,7 @@
   },
   "alaDvmrpPruneRetransmission": {
     "name": "alaDvmrpPruneRetransmission",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.9",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -311,7 +306,7 @@
   },
   "alaDvmrpGraftRetransmission": {
     "name": "alaDvmrpGraftRetransmission",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.10",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -338,7 +333,7 @@
   },
   "alaDvmrpInitNbrAsSubord": {
     "name": "alaDvmrpInitNbrAsSubord",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.11",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -356,7 +351,7 @@
   },
   "alaDvmrpBfdStatus": {
     "name": "alaDvmrpBfdStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.12",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -375,12 +370,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "alaDvmrpBfdAllInterfaceStatus": {
     "name": "alaDvmrpBfdAllInterfaceStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.1.13",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -399,32 +394,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
-  "alaDvmrpDebugLevel": {
-    "name": "alaDvmrpDebugLevel",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugError": {
-    "name": "alaDvmrpDebugError",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.2",
+  "alaDvmrpMbrOperStatus": {
+    "name": "alaDvmrpMbrOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -437,354 +412,12 @@
         }
       }
     },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugNbr": {
-    "name": "alaDvmrpDebugNbr",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugRoutes": {
-    "name": "alaDvmrpDebugRoutes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugProbes": {
-    "name": "alaDvmrpDebugProbes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugPrunes": {
-    "name": "alaDvmrpDebugPrunes",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugGrafts": {
-    "name": "alaDvmrpDebugGrafts",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugTime": {
-    "name": "alaDvmrpDebugTime",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugIgmp": {
-    "name": "alaDvmrpDebugIgmp",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugFlash": {
-    "name": "alaDvmrpDebugFlash",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugMip": {
-    "name": "alaDvmrpDebugMip",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.11",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugInit": {
-    "name": "alaDvmrpDebugInit",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.12",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugTm": {
-    "name": "alaDvmrpDebugTm",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugIpmrm": {
-    "name": "alaDvmrpDebugIpmrm",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugMisc": {
-    "name": "alaDvmrpDebugMisc",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.15",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
-  },
-  "alaDvmrpDebugAll": {
-    "name": "alaDvmrpDebugAll",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.2.16",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "disable",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated"
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "alaDvmrpTunnelXIfEntry": {
     "name": "alaDvmrpTunnelXIfEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.3.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -799,7 +432,7 @@
   },
   "alaDvmrpTunnelIndex": {
     "name": "alaDvmrpTunnelIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -811,7 +444,7 @@
   },
   "alaDvmrpLocalIfIndex": {
     "name": "alaDvmrpLocalIfIndex",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -823,7 +456,7 @@
   },
   "alaDvmrpIfAugTable": {
     "name": "alaDvmrpIfAugTable",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -831,7 +464,7 @@
   },
   "alaDvmrpIfAugEntry": {
     "name": "alaDvmrpIfAugEntry",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.4.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -844,7 +477,7 @@
   },
   "alaDvmrpIfBfdStatus": {
     "name": "alaDvmrpIfBfdStatus",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -857,35 +490,55 @@
         }
       }
     },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaDvmrpIfMbrDefaultInfoStatus": {
+    "name": "alaDvmrpIfMbrDefaultInfoStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-create",
     "status": "current"
   },
   "alcatelIND1DVMRPMIBConformance": {
     "name": "alcatelIND1DVMRPMIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1DVMRPMIBCompliances": {
     "name": "alcatelIND1DVMRPMIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1DVMRPMIBGroups": {
     "name": "alcatelIND1DVMRPMIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2.2",
     "class": "objectidentity"
   },
   "alaDvmrpCompliance": {
     "name": "alaDvmrpCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
         "object": "alaDvmrpConfigMIBGroup",
-        "module": "ALCATEL-IND1-DVMRP-MIB"
-      },
-      {
-        "object": "alaDvmrpDebugMIBGroup",
         "module": "ALCATEL-IND1-DVMRP-MIB"
       },
       {
@@ -901,7 +554,7 @@
   },
   "alaDvmrpConfigMIBGroup": {
     "name": "alaDvmrpConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -955,85 +608,17 @@
       {
         "module": "ALCATEL-IND1-DVMRP-MIB",
         "object": "alaDvmrpBfdAllInterfaceStatus"
-      }
-    ],
-    "status": "current"
-  },
-  "alaDvmrpDebugMIBGroup": {
-    "name": "alaDvmrpDebugMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.2.2",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugLevel"
       },
       {
         "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugError"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugNbr"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugRoutes"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugProbes"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugPrunes"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugGrafts"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugTime"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugIgmp"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugFlash"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugMip"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugInit"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugTm"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugIpmrm"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugMisc"
-      },
-      {
-        "module": "ALCATEL-IND1-DVMRP-MIB",
-        "object": "alaDvmrpDebugAll"
+        "object": "alaDvmrpMbrOperStatus"
       }
     ],
     "status": "current"
   },
   "alaDvmrpTunnelXIfMIBGroup": {
     "name": "alaDvmrpTunnelXIfMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.2.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1045,12 +630,16 @@
   },
   "alaDvmrpIfConfigGroup": {
     "name": "alaDvmrpIfConfigGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.7.1.2.2.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.7.1.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "ALCATEL-IND1-DVMRP-MIB",
         "object": "alaDvmrpIfBfdStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-DVMRP-MIB",
+        "object": "alaDvmrpIfMbrDefaultInfoStatus"
       }
     ],
     "status": "current"
@@ -1058,8 +647,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DVMRP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:01:01 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:09 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DVMRP-MIB"

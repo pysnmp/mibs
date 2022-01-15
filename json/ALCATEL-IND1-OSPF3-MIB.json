@@ -4,25 +4,33 @@
     "ALCATEL-IND1-BASE": [
       "routingIND1Ospf3"
     ],
+    "IPV6-TC": [
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero"
+    ],
+    "OSPFV3-MIB": [
+      "ospfv3AreaEntry",
+      "ospfv3IfEntry"
+    ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
       "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -32,9 +40,13 @@
   },
   "alcatelIND1OSPF3MIB": {
     "name": "alcatelIND1OSPF3MIB",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2014-10-06 00:00",
+        "description": "Added alaOspf3RouteTable."
+      },
       {
         "revision": "2007-04-03 00:00",
         "description": "The latest version of this MIB Module."
@@ -43,17 +55,17 @@
   },
   "alcatelIND1OSPF3MIBObjects": {
     "name": "alcatelIND1OSPF3MIBObjects",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1",
     "class": "objectidentity"
   },
   "alaProtocolOspf3": {
     "name": "alaProtocolOspf3",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1",
     "class": "objectidentity"
   },
   "alaOspf3OrigRouteTag": {
     "name": "alaOspf3OrigRouteTag",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -65,11 +77,11 @@
   },
   "alaOspf3TimerSpfDelay": {
     "name": "alaOspf3TimerSpfDelay",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -91,11 +103,11 @@
   },
   "alaOspf3TimerSpfHold": {
     "name": "alaOspf3TimerSpfHold",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.3",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
@@ -117,7 +129,7 @@
   },
   "alaOspf3RestartHelperSupport": {
     "name": "alaOspf3RestartHelperSupport",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.4",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -141,7 +153,7 @@
   },
   "alaOspf3RestartStrictLsaChecking": {
     "name": "alaOspf3RestartStrictLsaChecking",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.5",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -165,7 +177,7 @@
   },
   "alaOspf3RestartInitiate": {
     "name": "alaOspf3RestartInitiate",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.6",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -183,7 +195,7 @@
   },
   "alaOspf3MTUCheck": {
     "name": "alaOspf3MTUCheck",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.1.1.7",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -199,24 +211,403 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "alaOspf3RouteTable": {
+    "name": "alaOspf3RouteTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3RouteEntry": {
+    "name": "alaOspf3RouteEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RouteDest",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RoutePfxLength",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RouteNextHop",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RouteIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alaOspf3RouteDest": {
+    "name": "alaOspf3RouteDest",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3RoutePfxLength": {
+    "name": "alaOspf3RoutePfxLength",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3RouteNextHop": {
+    "name": "alaOspf3RouteNextHop",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6Address",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3RouteIfIndex": {
+    "name": "alaOspf3RouteIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv6IfIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3RouteType": {
+    "name": "alaOspf3RouteType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "other": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3RoutePathType": {
+    "name": "alaOspf3RoutePathType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "intraArea": 1,
+          "interArea": 2,
+          "externalType1": 3,
+          "externalType2": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3RouteMetric1": {
+    "name": "alaOspf3RouteMetric1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3RouteMetric2": {
+    "name": "alaOspf3RouteMetric2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3BfdStatus": {
+    "name": "alaOspf3BfdStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3BfdAllInterfaceStatus": {
+    "name": "alaOspf3BfdAllInterfaceStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaOspf3IfAugTable": {
+    "name": "alaOspf3IfAugTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3IfAugEntry": {
+    "name": "alaOspf3IfAugEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alaOspf3IfAugEntry",
+      "module": "ALCATEL-IND1-OSPF3-MIB",
+      "object": "ospfv3IfEntry"
+    },
+    "status": "current"
+  },
+  "alaOspf3IfBfdStatus": {
+    "name": "alaOspf3IfBfdStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOspf3IfBfdDrsOnly": {
+    "name": "alaOspf3IfBfdDrsOnly",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alaOspf3AreaAugTable": {
+    "name": "alaOspf3AreaAugTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alaOspf3AreaAugEntry": {
+    "name": "alaOspf3AreaAugEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "alaOspf3AreaAugEntry",
+      "module": "ALCATEL-IND1-OSPF3-MIB",
+      "object": "ospfv3AreaEntry"
+    },
+    "status": "current"
+  },
+  "alaOspf3AreaRouterLsaCount": {
+    "name": "alaOspf3AreaRouterLsaCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaNetworkLsaCount": {
+    "name": "alaOspf3AreaNetworkLsaCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaIntraAreaPrefixLsaCount": {
+    "name": "alaOspf3AreaIntraAreaPrefixLsaCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaInterAreaPrefixLsaCount": {
+    "name": "alaOspf3AreaInterAreaPrefixLsaCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaInterAreaRouterLsaCount": {
+    "name": "alaOspf3AreaInterAreaRouterLsaCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaHostCount": {
+    "name": "alaOspf3AreaHostCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaInterfaceCount": {
+    "name": "alaOspf3AreaInterfaceCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alaOspf3AreaSummarizationRangeCount": {
+    "name": "alaOspf3AreaSummarizationRangeCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "alcatelIND1OSPF3MIBConformance": {
     "name": "alcatelIND1OSPF3MIBConformance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2",
     "class": "objectidentity"
   },
   "alcatelIND1OSPF3MIBCompliances": {
     "name": "alcatelIND1OSPF3MIBCompliances",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2.1",
     "class": "objectidentity"
   },
   "alcatelIND1OSPF3MIBGroups": {
     "name": "alcatelIND1OSPF3MIBGroups",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.2",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2.2",
     "class": "objectidentity"
   },
   "alcatelIND1OSPF3MIBCompliance": {
     "name": "alcatelIND1OSPF3MIBCompliance",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.1.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -228,7 +619,7 @@
   },
   "alaOSPF3ConfigMIBGroup": {
     "name": "alaOSPF3ConfigMIBGroup",
-    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.13.1.2.2.1",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -262,11 +653,91 @@
     ],
     "status": "current"
   },
+  "alaOspf3RouteGroup": {
+    "name": "alaOspf3RouteGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RouteType"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RoutePathType"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RouteMetric1"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3RouteMetric2"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3BfdStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3BfdAllInterfaceStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3IfBfdDrsOnly"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3IfBfdStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "alaOspf3AreaGroup": {
+    "name": "alaOspf3AreaGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.10.13.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaRouterLsaCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaNetworkLsaCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaIntraAreaPrefixLsaCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaInterAreaPrefixLsaCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaInterAreaRouterLsaCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaHostCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaInterfaceCount"
+      },
+      {
+        "module": "ALCATEL-IND1-OSPF3-MIB",
+        "object": "alaOspf3AreaSummarizationRangeCount"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-OSPF3-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:34:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-OSPF3-MIB"
