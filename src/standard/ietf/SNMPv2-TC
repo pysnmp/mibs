@@ -3,10 +3,10 @@ SNMPv2-TC DEFINITIONS ::= BEGIN
 IMPORTS
     TimeTicks         FROM SNMPv2-SMI;
 
+
 -- definition of textual conventions
 
 TEXTUAL-CONVENTION MACRO ::=
-
 BEGIN
     TYPE NOTATION ::=
                   DisplayPart
@@ -47,12 +47,14 @@ BEGIN
 
 END
 
+
+
+
 DisplayString ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "255a"
     STATUS       current
     DESCRIPTION
             "Represents textual information taken from the NVT ASCII
-
             character set, as defined in pages 4, 10-11 of RFC 854.
 
             To summarize RFC 854, the NVT ASCII repertoire specifies:
@@ -88,6 +90,7 @@ PhysAddress ::= TEXTUAL-CONVENTION
     DESCRIPTION
             "Represents media- or physical-level addresses."
     SYNTAX       OCTET STRING
+
 
 MacAddress ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "1x:"
@@ -145,6 +148,7 @@ AutonomousType ::= TEXTUAL-CONVENTION
             protocol or hardware."
     SYNTAX       OBJECT IDENTIFIER
 
+
 InstancePointer ::= TEXTUAL-CONVENTION
     STATUS       obsolete
     DESCRIPTION
@@ -158,12 +162,14 @@ InstancePointer ::= TEXTUAL-CONVENTION
             VariablePointer and RowPointer, respectively."
     SYNTAX       OBJECT IDENTIFIER
 
+
 VariablePointer ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
             "A pointer to a specific object instance.  For example,
             sysContact.0 or ifInOctets.3."
     SYNTAX       OBJECT IDENTIFIER
+
 
 RowPointer ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -184,7 +190,6 @@ RowStatus ::= TEXTUAL-CONVENTION
             creation and deletion of conceptual rows, and is used as the
             value of the SYNTAX clause for the status column of a
             conceptual row (as described in Section 7.7.1 of [2].)
-
             The status column has six defined values:
 
                  - `active', which indicates that the conceptual row is
@@ -213,6 +218,7 @@ RowStatus ::= TEXTUAL-CONVENTION
                  station wishing to create a new instance of a
                  conceptual row (but not make it available for use by
                  the managed device); and,
+
                  - `destroy', which is supplied by a management station
                  wishing to delete all of the instances associated with
                  an existing conceptual row.
@@ -252,12 +258,14 @@ RowStatus ::= TEXTUAL-CONVENTION
                  received, or if the varbind sets the status to a value
                  other than 'active'.
 
+
             Also note that whenever any elements of a row exist, the
             RowStatus column must also exist.
 
             To summarize the effect of having a conceptual row with a
             status column having a SYNTAX clause value of RowStatus,
             consider the following state diagram:
+
 
                                          STATE
               +--------------+-----------+-------------+-------------
@@ -358,6 +366,7 @@ value         |              |      see 1|          ->C|          ->D
             set request may result in a response other than noError
             being returned, e.g., wrongValue, noCreation, etc.
 
+
                               Conceptual Row Creation
 
             There are four potential interactions when creating a
@@ -397,7 +406,6 @@ value         |              |      see 1|          ->C|          ->D
 
             Finally, the management station could select a pseudo-random
             number to use as the index.  In the event that this index
-
             was already in use and an inconsistentValue was returned in
             response to the management protocol set operation, the
             management station should simply select a new pseudo-random
@@ -631,6 +639,7 @@ value         |              |      see 1|          ->C|          ->D
             service (e.g., in order for the value of some other column
             of the same conceptual row to be modified).
 
+
                               Conceptual Row Deletion
 
             For deletion of conceptual rows, a management protocol set
@@ -646,9 +655,11 @@ value         |              |      see 1|          ->C|          ->D
                      -- these values may be read or written
                      active(1),
                      notInService(2),
+
                      -- the following value is a state:
                      -- this value may be read, but not written
                      notReady(3),
+
                      -- the following three values are
                      -- actions: these values may be written,
                      --   but are never read
@@ -662,7 +673,6 @@ TimeStamp ::= TEXTUAL-CONVENTION
     DESCRIPTION
             "The value of the sysUpTime object at which a specific
             occurrence happened.  The specific occurrence must be
-
             defined in the description of any object defined using this
             type.
 
@@ -675,6 +685,7 @@ TimeStamp ::= TEXTUAL-CONVENTION
             of TimeStamp objects do not change.  This can lead to
             ambiguities in the value of TimeStamp objects."
     SYNTAX       TimeTicks
+
 
 TimeInterval ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -715,6 +726,7 @@ DateAndTime ::= TEXTUAL-CONVENTION
             information (fields 8-10) is not present."
     SYNTAX       OCTET STRING (SIZE (8 | 11))
 
+
 StorageType ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
@@ -754,6 +766,7 @@ TDomain ::= TEXTUAL-CONVENTION
     REFERENCE    "The SNMPv2-TM MIB module is defined in RFC 1906."
     SYNTAX       OBJECT IDENTIFIER
 
+
 TAddress ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
@@ -768,5 +781,6 @@ TAddress ::= TEXTUAL-CONVENTION
           other MIB modules."
     REFERENCE    "The SNMPv2-TM MIB module is defined in RFC 1906."
     SYNTAX       OCTET STRING (SIZE (1..255))
+
 
 END

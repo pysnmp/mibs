@@ -35,6 +35,7 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                   Tel: +1 916 785 4018
                   Fax: +1 916 785 1199
                E-mail: johnf@rose.hp.com"
+
         DESCRIPTION "The MIB module to describe generic objects for
                     ethernet-like network interfaces.
 
@@ -43,6 +44,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
                     [IEEE 802.3 Std] refers to:
                        IEEE Std 802.3, 2002 Edition: 'IEEE Standard
+
+
 
                        for Information technology -
                        Telecommunications and information exchange
@@ -91,6 +94,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                        it with dot3Compliance2, which includes
                        the compliance information for the new
                        object groups
+
+
+
 
                      In addition, the dot3Tests and dot3Errors
                      object identities have been deprecated,
@@ -141,6 +147,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
     Dot3StatsEntry ::=
         SEQUENCE {
 
+
+
             dot3StatsIndex                      InterfaceIndex,
             dot3StatsAlignmentErrors            Counter32,
             dot3StatsFCSErrors                  Counter32,
@@ -189,6 +197,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     which multiple error conditions pertain are,
                     according to the conventions of IEEE 802.3
                     Layer Management, counted exclusively according
+
+
 
                     to the error status presented to the LLC.
 
@@ -239,6 +249,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     For interfaces operating at 10 Gb/s, this
                     counter can roll over in less than 5 minutes if
 
+
+
                     it is incrementing at its maximum rate.  Since
                     that amount of time could be less than a
                     management station's poll cycle time, in order
@@ -288,6 +300,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         STATUS      current
         DESCRIPTION "A count of frames that are involved in more
 
+
+
                     than one collision and are subsequently
                     transmitted successfully.
 
@@ -336,6 +350,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
     dot3StatsDeferredTransmissions OBJECT-TYPE
         SYNTAX      Counter32
+
+
+
         MAX-ACCESS  read-only
         STATUS      current
         DESCRIPTION "A count of frames for which the first
@@ -384,6 +401,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
     dot3StatsExcessiveCollisions OBJECT-TYPE
         SYNTAX      Counter32
+
+
+
         MAX-ACCESS  read-only
         STATUS      current
         DESCRIPTION "A count of frames for which transmission on a
@@ -433,6 +453,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
                     Discontinuities in the value of this counter can
 
+
+
                     occur at re-initialization of the management
                     system, and at other times as indicated by the
                     value of ifCounterDiscontinuityTime."
@@ -481,6 +503,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     status is returned by the MAC service to the
                     LLC (or other MAC user). Received frames for
                     which multiple error conditions pertain are,
+
+
+
                     according to the conventions of IEEE 802.3
                     Layer Management, counted exclusively according
                     to the error status presented to the LLC.
@@ -530,6 +555,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     For interfaces operating at 10 Gb/s, this
                     counter can roll over in less than 5 minutes if
 
+
+
                     it is incrementing at its maximum rate.  Since
                     that amount of time could be less than a
                     management station's poll cycle time, in order
@@ -578,6 +605,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     the administrative overhead involved in
                     maintaining a registry of chipset OIDs is not
                     justified."
+
+
+
         ::= { dot3StatsEntry 17 }
 
     dot3StatsSymbolErrors OBJECT-TYPE
@@ -626,6 +656,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     counter can roll over in less than 5 minutes if
                     it is incrementing at its maximum rate.  Since
                     that amount of time could be less than a
+
+
 
                     management station's poll cycle time, in order
                     to avoid a loss of information, a management
@@ -676,6 +708,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     aDuplexStatus."
         ::= { dot3StatsEntry 19 }
 
+
+
     dot3StatsRateControlAbility OBJECT-TYPE
         SYNTAX      TruthValue
         MAX-ACCESS  read-only
@@ -724,6 +758,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         STATUS      current
         DESCRIPTION "A cell in the histogram of per-frame
                     collisions for a particular interface.  An
+
+
 
                     instance of this object represents the
                     frequency of individual MAC frames for which
@@ -774,6 +810,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
                     Discontinuities in the value of this counter can
 
+
+
                     occur at re-initialization of the management
                     system, and at other times as indicated by the
                     value of ifCounterDiscontinuityTime."
@@ -822,6 +860,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     implemented for this interface."
         REFERENCE   "[IEEE 802.3 Std.], 30.3.3.2,
                     aMACControlFunctionsSupported."
+
+
+
         ::= { dot3ControlEntry 1 }
 
     dot3ControlInUnknownOpcodes OBJECT-TYPE
@@ -869,6 +910,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         REFERENCE   "[IEEE 802.3 Std.], 30.3.3.5,
                     aUnsupportedOpcodesReceived"
         ::= { dot3ControlEntry 3 }
+
+
+
 
     dot3PauseTable OBJECT-TYPE
         SYNTAX      SEQUENCE OF Dot3PauseEntry
@@ -918,6 +962,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                         enabledRcv(3),
                         enabledXmitAndRcv(4)
                     }
+
+
+
         MAX-ACCESS  read-write
         STATUS      current
         DESCRIPTION "This object is used to configure the default
@@ -967,6 +1014,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         STATUS      current
         DESCRIPTION "This object reflects the PAUSE mode currently
 
+
+
                     in use on this interface, as determined by
                     either (1) the result of the auto-negotiation
                     function or (2) if auto-negotiation is not
@@ -1015,6 +1064,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         SYNTAX      Counter32
         MAX-ACCESS  read-only
         STATUS      current
+
+
+
         DESCRIPTION "A count of MAC Control frames transmitted on
                     this interface with an opcode indicating the
                     PAUSE operation.
@@ -1062,6 +1114,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         REFERENCE   "[IEEE 802.3 Std.], 30.3.4.3,
                     aPAUSEMACCtrlFramesReceived."
         ::= { dot3PauseEntry 5 }
+
+
+
 
     dot3HCOutPauseFrames OBJECT-TYPE
         SYNTAX      Counter64
@@ -1112,6 +1167,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     containing interfaces with a mix of speeds may
                     choose to implement entries in this table for
 
+
+
                     all ethernet-like interfaces."
         ::= { dot3 11 }
 
@@ -1160,6 +1217,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
                     Discontinuities in the value of this counter can
                     occur at re-initialization of the management
+
+
 
                     system, and at other times as indicated by the
                     value of ifCounterDiscontinuityTime."
@@ -1210,6 +1269,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     particular interface fails due to an internal
                     MAC sublayer transmit error. A frame is only
 
+
+
                     counted by an instance of this object if it is
                     not counted by the corresponding instance of
                     either the dot3StatsLateCollisions object, the
@@ -1259,6 +1320,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
 
                     Discontinuities in the value of this counter can
 
+
+
                     occur at re-initialization of the management
                     system, and at other times as indicated by the
                     value of ifCounterDiscontinuityTime."
@@ -1307,6 +1370,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     number of times there was an invalid data symbol
                     when a valid carrier was present.
 
+
+
+
                     For an interface operating in half-duplex mode
                     at 1000 Mb/s, the number of times the receiving
                     media is non-idle (a carrier event) for a period
@@ -1350,9 +1416,13 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     aSymbolErrorDuringCarrier."
         ::= { dot3HCStatsEntry 6 }
 
+
     --  802.3 Tests
 
     dot3Tests   OBJECT IDENTIFIER ::= { dot3 6 }
+
+
+
 
     dot3Errors  OBJECT IDENTIFIER ::= { dot3 7 }
 
@@ -1403,6 +1473,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                     only be executed if the interface is offline.
                     Once the test has completed, the MAC chip should
 
+
+
                     be reinitialized for network operation, but it
                     should remain offline.
 
@@ -1451,6 +1523,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
     -- { dot3 8 }, the dot3ChipSets tree, is defined in [RFC2666]
 
     -- conformance information
+
+
 
     etherConformance OBJECT IDENTIFIER ::= { etherMIB 2 }
 
@@ -1501,6 +1575,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                         highly recommended."
         ::= { etherCompliances 2 }
 
+
+
     dot3Compliance MODULE-COMPLIANCE
         STATUS      deprecated
         DESCRIPTION "******** THIS COMPLIANCE IS DEPRECATED ********
@@ -1549,6 +1625,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                         which are capable of operating in
                         half-duplex mode and have the necessary
                         metering. Implementation in systems with
+
+
 
                         such interfaces is highly recommended."
         ::= { etherCompliances 3 }
@@ -1599,6 +1677,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
             DESCRIPTION "This group is mandatory for all
                         ethernet-like network interfaces which are
 
+
+
                         capable of operating in half-duplex mode."
 
             GROUP       etherHCStatsGroup
@@ -1647,6 +1727,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         OBJECTS     { dot3StatsIndex,
                       dot3StatsAlignmentErrors,
                       dot3StatsFCSErrors,
+
+
+
                       dot3StatsSingleCollisionFrames,
                       dot3StatsMultipleCollisionFrames,
                       dot3StatsSQETestErrors,
@@ -1695,6 +1778,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                       dot3StatsInternalMacReceiveErrors,
                       dot3StatsEtherChipSet,
                       dot3StatsSymbolErrors
+
+
 
                     }
         STATUS      deprecated
@@ -1745,6 +1830,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
         STATUS      current
         DESCRIPTION "A collection of objects providing information
 
+
+
                     applicable to ethernet-like network interfaces
                     capable of operating at 10 Mb/s or slower in
                     half-duplex mode."
@@ -1793,6 +1880,9 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
                       dot3StatsAlignmentErrors,
                       dot3StatsFCSErrors,
                       dot3StatsInternalMacTransmitErrors,
+
+
+
                       dot3StatsFrameTooLongs,
                       dot3StatsInternalMacReceiveErrors
                     }
@@ -1841,6 +1931,8 @@ EtherLike-MIB DEFINITIONS ::= BEGIN
     etherHCControlPauseGroup OBJECT-GROUP
         OBJECTS     { dot3HCInPauseFrames,
                       dot3HCOutPauseFrames
+
+
 
                     }
         STATUS      current

@@ -7,7 +7,7 @@ IMPORTS
    Ipv6Address, Ipv6IfIndexOrZero       FROM IPV6-TC;
 
 ipv6UdpMIB MODULE-IDENTITY
-   LAST-UPDATED "201702220000Z"
+   LAST-UPDATED "9801290000Z"
    ORGANIZATION "IETF IPv6 MIB Working Group"
    CONTACT-INFO
         "               Mike Daniele
@@ -20,25 +20,7 @@ ipv6UdpMIB MODULE-IDENTITY
                 Phone:  +1 603 884 1423
                 Email:  daniele@zk3.dec.com"
    DESCRIPTION
-        "The obsolete MIB module for entities implementing UDP
-        over IPv6.  Use the UDP-MIB instead.
-
-        Copyright (c) 2017 IETF Trust and the persons
-        identified as authors of the code.  All rights reserved.
-
-        Redistribution and use in source and binary forms,
-        with or without modification, is permitted pursuant to,
-        and subject to the license terms contained in, the
-        Simplified BSD License set forth in Section 4.c of the IETF
-        Trust's Legal Provisions Relating to IETF Documents
-        (http://trustee.ietf.org/license-info)."
-   REVISION "201702220000Z"
-   DESCRIPTION
-        "Obsoleting this MIB module; it has been replaced by
-        the revised UDP-MIB (RFC 4113)."
-   REVISION "9801290000Z"
-   DESCRIPTION
-        "First revision, published as RFC 2454"
+        "The MIB module for entities implementing UDP over IPv6."
    ::= { experimental 87 }
 
 -- objects specific to UDP for IPv6
@@ -55,34 +37,29 @@ udp      OBJECT IDENTIFIER ::= { mib-2 7 }
 ipv6UdpTable OBJECT-TYPE
    SYNTAX      SEQUENCE OF Ipv6UdpEntry
    MAX-ACCESS  not-accessible
-   STATUS      obsolete
+   STATUS      current
    DESCRIPTION
         "A table containing UDP listener information for
-         UDP/IPv6 endpoints.
-
-         This table is obsoleted by UDP-MIB::udpEndpointTable."
+         UDP/IPv6 endpoints."
    ::= { udp 6 }
 
 ipv6UdpEntry OBJECT-TYPE
    SYNTAX      Ipv6UdpEntry
    MAX-ACCESS  not-accessible
-   STATUS      obsolete
+   STATUS      current
    DESCRIPTION
         "Information about a particular current UDP listener.
 
          Note that conceptual rows in this table require an
          additional index object compared to udpTable, since
          IPv6 addresses are not guaranteed to be unique on the
-         managed node.
-
-         This entry is obsoleted by UDP-MIB::udpEndpointTable."
+         managed node."
    INDEX   { ipv6UdpLocalAddress,
              ipv6UdpLocalPort,
              ipv6UdpIfIndex }
    ::= { ipv6UdpTable 1 }
 
 Ipv6UdpEntry ::= SEQUENCE {
-
    ipv6UdpLocalAddress    Ipv6Address,
    ipv6UdpLocalPort       INTEGER,
    ipv6UdpIfIndex         Ipv6IfIndexOrZero }
@@ -90,31 +67,27 @@ Ipv6UdpEntry ::= SEQUENCE {
 ipv6UdpLocalAddress OBJECT-TYPE
    SYNTAX       Ipv6Address
    MAX-ACCESS   not-accessible
-   STATUS       obsolete
+   STATUS       current
    DESCRIPTION
         "The local IPv6 address for this UDP listener.
          In the case of a UDP listener which is willing
          to accept datagrams for any IPv6 address
          associated with the managed node, the value ::0
-         is used.
-
-         This object is obsoleted by UDP-MIB::udpEndpointLocalAddress."
+         is used."
    ::= { ipv6UdpEntry 1 }
 
 ipv6UdpLocalPort OBJECT-TYPE
     SYNTAX     INTEGER (0..65535)
     MAX-ACCESS not-accessible
-    STATUS     obsolete
+    STATUS     current
     DESCRIPTION
-        "The local port number for this UDP listener.
-
-        This object is obsoleted by UDP-MIB::udpEndpointLocalPort."
+        "The local port number for this UDP listener."
     ::= { ipv6UdpEntry 2 }
 
 ipv6UdpIfIndex OBJECT-TYPE
    SYNTAX     Ipv6IfIndexOrZero
    MAX-ACCESS   read-only
-   STATUS     obsolete
+   STATUS     current
    DESCRIPTION
         "An index object used to disambiguate conceptual rows in
          the table, since the ipv6UdpLocalAddress/ipv6UdpLocalPort
@@ -131,12 +104,7 @@ ipv6UdpIfIndex OBJECT-TYPE
          value of ipv6IfIndex.
 
          The value of this object must remain constant during
-
-         the life of this UDP endpoint.
-
-         This object is obsoleted by the zone identifier in
-         an InetAddressIPv6z address in
-         UDP-MIB::udpEndpointLocalAddress."
+         the life of this UDP endpoint."
    ::= { ipv6UdpEntry 3 }
 
 --
@@ -151,12 +119,10 @@ ipv6UdpGroups      OBJECT IDENTIFIER ::= { ipv6UdpConformance 2 }
 -- compliance statements
 
 ipv6UdpCompliance MODULE-COMPLIANCE
-   STATUS  obsolete
+   STATUS  current
    DESCRIPTION
         "The compliance statement for SNMPv2 entities which
-         implement UDP over IPv6.
-
-         This object is obsoleted by UDP-MIB::udpMIBCompliance2."
+         implement UDP over IPv6."
    MODULE  -- this module
    MANDATORY-GROUPS { ipv6UdpGroup }
    ::= { ipv6UdpCompliances 1 }
@@ -166,12 +132,10 @@ ipv6UdpGroup OBJECT-GROUP
                -- ipv6UdpLocalAddress (not-accessible)
                -- ipv6UdpLocalPort (not-accessible)
                ipv6UdpIfIndex }
-   STATUS    obsolete
+   STATUS    current
    DESCRIPTION
         "The group of objects providing management of
-         UDP over IPv6.
-
-         This group is obsoleted by several groups in UDP-MIB."
+         UDP over IPv6."
    ::= { ipv6UdpGroups 1 }
 
 END

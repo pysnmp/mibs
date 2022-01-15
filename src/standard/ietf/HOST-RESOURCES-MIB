@@ -23,12 +23,12 @@ hostResourcesMibModule MODULE-IDENTITY
        Phone:  650-318-1251
        Fax:    650-318-1633
        Email:  waldbusser@lucent.com
-
        In addition, the Host Resources MIB mailing list is
        dedicated to discussion of this MIB. To join the
        mailing list, send a request message to
        hostmib-request@andrew.cmu.edu. The mailing list
        address is hostmib@andrew.cmu.edu."
+
    DESCRIPTION
        "This MIB is for use in managing host systems. The term
        `host' is construed to mean any computer that communicates
@@ -70,7 +70,6 @@ hostResourcesMibModule MODULE-IDENTITY
        Added missing error bits to hrPrinterDetectedErrorState and
        clarified confusion resulting from suggested mappings to
        hrPrinterStatus.
-
        Clarified that size of objects of type
        InternationalDisplayString is number of octets, not number
        of encoded symbols.
@@ -119,7 +118,6 @@ ProductID ::= TEXTUAL-CONVENTION
     STATUS current
     DESCRIPTION
         "This textual convention is intended to identify the
-
         manufacturer, model, and version of a specific
         hardware or software product.  It is suggested that
         these OBJECT IDENTIFIERs are allocated such that all
@@ -505,7 +503,6 @@ hrDeviceStatus OBJECT-TYPE
                    warning(3),
                    testing(4),
                    down(5)
-
                }
     MAX-ACCESS read-only
     STATUS     current
@@ -602,7 +599,6 @@ hrNetworkTable OBJECT-TYPE
     DESCRIPTION
         "The (conceptual) table of network devices contained
         by the host.
-
         Note that this table is potentially sparse: a
         (conceptual) entry exists only if the correspondent
         value of the hrDeviceType object is
@@ -700,7 +696,6 @@ hrPrinterDetectedErrorState OBJECT-TYPE
              Condition         Bit #
 
              lowPaper              0
-
              noPaper               1
              lowToner              2
              noToner               3
@@ -1038,7 +1033,6 @@ hrFSLastFullBackupDate OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "The last date at which this complete file system was
-
         copied to another storage device for backup.  This
         information is useful for ensuring that backups are
         being performed regularly.
@@ -1423,7 +1417,6 @@ hrMIBCompliance MODULE-COMPLIANCE
           MIN-ACCESS read-only
           DESCRIPTION
               "Write access is not required."
-
       OBJECT hrFSLastFullBackupDate
           MIN-ACCESS read-only
           DESCRIPTION
@@ -1456,6 +1449,7 @@ hrMIBCompliance MODULE-COMPLIANCE
               "The Installed Software Group.
               Implementation of this group is at the discretion
               of the implementor."
+
     ::= { hrMIBCompliances 1 }
 
     hrSystemGroup OBJECT-GROUP

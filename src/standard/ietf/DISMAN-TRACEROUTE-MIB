@@ -45,6 +45,8 @@ IMPORTS
 
      --  Revision history
 
+
+
      REVISION     "200606130000Z"         -- 13 June 2006
      DESCRIPTION
          "Updated version, published as RFC 4560.
@@ -80,6 +82,7 @@ IMPORTS
      REVISION     "200009210000Z"         -- 21 September 2000
      DESCRIPTION
          "Initial version, published as RFC 2925."
+
     ::= { mib-2 81 }
 
  -- Top level structure of the MIB
@@ -93,12 +96,15 @@ IMPORTS
  traceRouteImplementationTypeDomains OBJECT IDENTIFIER
  ::= { traceRouteMIB 3 }
 
+
+
  traceRouteUsingUdpProbes OBJECT-IDENTITY
     STATUS      current
     DESCRIPTION
         "Indicates that an implementation is using UDP probes to
         perform the traceroute operation."
     ::= { traceRouteImplementationTypeDomains 1 }
+
 
  -- Simple Object Definitions
 
@@ -120,6 +126,7 @@ IMPORTS
     DEFVAL { 10 }
     ::= { traceRouteObjects 1 }
 
+
   -- Traceroute Control Table
 
  traceRouteCtlTable OBJECT-TYPE
@@ -139,6 +146,9 @@ IMPORTS
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
+
+
+
         "Defines an entry in the traceRouteCtlTable.  The first
         index element, traceRouteCtlOwnerIndex, is of type
         SnmpAdminString, a textual convention that allows for
@@ -187,6 +197,9 @@ IMPORTS
 
  traceRouteCtlOwnerIndex OBJECT-TYPE
     SYNTAX      SnmpAdminString (SIZE(0..32))
+
+
+
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -234,6 +247,9 @@ IMPORTS
         traceroute request at the remote host."
     DEFVAL { unknown }
     ::= { traceRouteCtlEntry 3 }
+
+
+
 
  traceRouteCtlTargetAddress OBJECT-TYPE
     SYNTAX      InetAddress
@@ -283,6 +299,9 @@ IMPORTS
         whatever size (appropriate to the method) is closest to
         the specified size.
 
+
+
+
         The maximum value for this object was computed by
         subtracting the smallest possible IP header size of
         20 octets (IPv4 header with no options) and the UDP
@@ -331,6 +350,9 @@ IMPORTS
  traceRouteCtlMaxTtl OBJECT-TYPE
     SYNTAX      Unsigned32 (1..255)
     UNITS       "time-to-live value"
+
+
+
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
@@ -342,6 +364,7 @@ IMPORTS
     SYNTAX      Unsigned32 (0..255)
     MAX-ACCESS  read-create
     STATUS      current
+
     DESCRIPTION
         "Specifies the value to store in the Type of Service
         (TOS) octet in the IPv4 header or in the Traffic
@@ -378,6 +401,8 @@ IMPORTS
         when a traceroute operation is performed."
     DEFVAL { unknown }
     ::= { traceRouteCtlEntry 12 }
+
+
 
  traceRouteCtlSourceAddress OBJECT-TYPE
     SYNTAX      InetAddress
@@ -427,6 +452,9 @@ IMPORTS
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
+
+
+
         "The value of this object indicates the maximum number
         of consecutive timeouts allowed before a remote traceroute
         request is terminated.  A value of either 255 (maximum
@@ -475,6 +503,8 @@ IMPORTS
 
         A value of 0 for this object implies that the test
         as defined by the corresponding entry will not be
+
+
 
         repeated."
     DEFVAL { 0 }
@@ -525,6 +555,8 @@ IMPORTS
     DEFVAL { ''H }
     ::= { traceRouteCtlEntry 22 }
 
+
+
  traceRouteCtlMaxRows OBJECT-TYPE
     SYNTAX      Unsigned32
     UNITS       "rows"
@@ -573,6 +605,9 @@ IMPORTS
         The value of this object defaults to an empty set,
         indicating that none of the above options has been
         selected."
+
+
+
     DEFVAL { { } }
     ::= { traceRouteCtlEntry 24 }
 
@@ -621,6 +656,9 @@ IMPORTS
         A value MUST be specified for traceRouteCtlTargetAddress
         prior to acceptance of a transition to active(1) state.
 
+
+
+
         When a value for pingCtlTargetAddress is set,
         the value of object pingCtlRowStatus changes
         from notReady(3) to notInService(2).
@@ -643,6 +681,7 @@ IMPORTS
         "See definition of RowStatus in RFC 2579, 'Textual
         Conventions for SMIv2.'"
     ::= { traceRouteCtlEntry 27 }
+
 
  -- Traceroute Results Table
 
@@ -668,6 +707,8 @@ IMPORTS
         the values of objects in a new entry would be.
 
         An entry is removed from the traceRouteResultsTable when
+
+
 
         its corresponding traceRouteCtlEntry is deleted."
    ::= { traceRouteObjects 3 }
@@ -717,6 +758,9 @@ IMPORTS
     ::= { traceRouteResultsEntry 1 }
 
  traceRouteResultsCurHopCount OBJECT-TYPE
+
+
+
     SYNTAX      Gauge32
     UNITS       "hops"
     MAX-ACCESS  read-only
@@ -742,6 +786,7 @@ IMPORTS
 
  traceRouteResultsIpTgtAddrType OBJECT-TYPE
     SYNTAX      InetAddressType
+
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
@@ -764,6 +809,9 @@ IMPORTS
     ::= { traceRouteResultsEntry 5 }
 
  traceRouteResultsTestAttempts OBJECT-TYPE
+
+
+
     SYNTAX      Gauge32
     UNITS       "tests"
     MAX-ACCESS  read-only
@@ -813,6 +861,8 @@ IMPORTS
 
         An implementation of this MIB will remove the oldest
 
+
+
         entry in the traceRouteProbeHistoryTable of the
         corresponding entry in the traceRouteCtlTable to allow
         the addition of a new entry once the number of rows in
@@ -861,6 +911,9 @@ IMPORTS
     }
 
  traceRouteProbeHistoryIndex OBJECT-TYPE
+
+
+
     SYNTAX      Unsigned32 (1..'ffffffff'h)
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -909,6 +962,9 @@ IMPORTS
         object."
     ::= { traceRouteProbeHistoryEntry 4 }
 
+
+
+
  traceRouteProbeHistoryHAddr OBJECT-TYPE
     SYNTAX      InetAddress
     MAX-ACCESS  read-only
@@ -944,6 +1000,7 @@ IMPORTS
  traceRouteProbeHistoryLastRC OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
+
     STATUS      current
     DESCRIPTION
         "The last implementation-method-specific reply code received.
@@ -956,6 +1013,8 @@ IMPORTS
         either the maximum TTL is exceeded or the target host is
         received."
     ::= { traceRouteProbeHistoryEntry 8 }
+
+
 
  traceRouteProbeHistoryTime OBJECT-TYPE
     SYNTAX      DateAndTime
@@ -993,6 +1052,7 @@ IMPORTS
             traceRouteCtlTestName,
             traceRouteHopsHopIndex
           }
+
     ::= { traceRouteHopsTable 1 }
 
  TraceRouteHopsEntry ::=
@@ -1004,6 +1064,9 @@ IMPORTS
         traceRouteHopsMaxRtt           Unsigned32,
         traceRouteHopsAverageRtt       Unsigned32,
         traceRouteHopsRttSumOfSquares  Unsigned32,
+
+
+
         traceRouteHopsSentProbes       Unsigned32,
         traceRouteHopsProbeResponses   Unsigned32,
         traceRouteHopsLastGoodProbe    DateAndTime
@@ -1053,6 +1116,8 @@ IMPORTS
     DESCRIPTION
         "This object reports the IP address associated with
 
+
+
         the hop.  A value for this object should be reported
         as a numeric IP address, not as a DNS name.
 
@@ -1101,6 +1166,9 @@ IMPORTS
     ::= { traceRouteHopsEntry 7 }
 
  traceRouteHopsSentProbes OBJECT-TYPE
+
+
+
     SYNTAX      Unsigned32
     MAX-ACCESS  read-only
     STATUS      current
@@ -1150,6 +1218,8 @@ IMPORTS
         traceRouteResultsIpTgtAddrType,
         traceRouteResultsIpTgtAddr
 
+
+
       }
       STATUS  current
       DESCRIPTION
@@ -1198,6 +1268,9 @@ IMPORTS
 
         GROUP traceRouteNotificationsGroup
         DESCRIPTION
+
+
+
             "This group defines a collection of optional
             notifications."
 
@@ -1247,6 +1320,8 @@ IMPORTS
         DESCRIPTION
             "Write access is not required.  If write access is
 
+
+
             not supported, return a 0 as the value of this object.
             A value of 0 implies that the function represented by
             this option is not supported."
@@ -1295,6 +1370,9 @@ IMPORTS
 
         OBJECT traceRouteProbeHistoryHAddrType
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
+
+
+
         DESCRIPTION
             "An implementation should only support IPv4 and
             globally unique IPv6 address values for this object."
@@ -1332,6 +1410,7 @@ IMPORTS
             the values for DateAndTime objects.  It is RECOMMENDED
             that when this object is not supported its values
             be reported as '0000000000000000'H."
+
     ::= { traceRouteCompliances 2 }
 
  traceRouteMinimumCompliance MODULE-COMPLIANCE
@@ -1342,6 +1421,8 @@ IMPORTS
             DISMAN-TRACEROUTE-MIB.  Implementors might choose this
             subset for small devices with limited resources."
     MODULE  -- this module
+
+
 
         MANDATORY-GROUPS { traceRouteMinimumGroup }
 
@@ -1391,6 +1472,9 @@ IMPORTS
         OBJECT traceRouteCtlSourceAddressType
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
         MIN-ACCESS  read-only
+
+
+
         DESCRIPTION
             "Write access to this object is not required by
             implementations that are not capable of binding the
@@ -1400,6 +1484,7 @@ IMPORTS
         OBJECT traceRouteCtlSourceAddress
         SYNTAX  InetAddress (SIZE(0|4|16))
         MIN-ACCESS  read-only
+
         DESCRIPTION
             "Write access to this object is not required by
             implementations that are not capable of binding the
@@ -1438,6 +1523,9 @@ IMPORTS
         OBJECT traceRouteCtlFrequency
         MIN-ACCESS  read-only
         DESCRIPTION
+
+
+
             "Write access is not required.  If write access is
             not supported, return a 0 as the value of this object.
             A value of 0 implies that the function represented by
@@ -1486,6 +1574,8 @@ IMPORTS
         MIN-ACCESS  read-only
         DESCRIPTION
             "Write access is not required.  In addition, the only
+
+
 
             value that is RECOMMENDED to be supported by an
             implementation is traceRouteUsingUdpProbes."
@@ -1536,6 +1626,8 @@ IMPORTS
         DESCRIPTION
             "An implementation should only support IPv4 and
 
+
+
             globally unique IPv6 address values for this object."
 
         OBJECT traceRouteHopsIpTgtAddress
@@ -1552,6 +1644,7 @@ IMPORTS
             the values for DateAndTime objects.  It is RECOMMENDED
             that when this object is not supported its values
             be reported as '0000000000000000'H."
+
     ::= { traceRouteCompliances 3 }
 
  traceRouteCompliance MODULE-COMPLIANCE
@@ -1584,6 +1677,8 @@ IMPORTS
             traceRouteHopsEntry.  Support of the traceRouteHopsTable
             is optional."
 
+
+
         OBJECT traceRouteMaxConcurrentRequests
         MIN-ACCESS  read-only
         DESCRIPTION
@@ -1602,6 +1697,7 @@ IMPORTS
         OBJECT traceRouteCtlSourceAddressType
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
         MIN-ACCESS  read-only
+
         DESCRIPTION
             "This object is not required by implementations that
             are not capable of binding the send socket with a
@@ -1631,6 +1727,8 @@ IMPORTS
             "Support of this object is optional.  When not
             supporting, do not allow write access, and return a
             zero-length octet string as the value of the object."
+
+
 
         OBJECT traceRouteCtlStorageType
         MIN-ACCESS  read-only
@@ -1680,6 +1778,9 @@ IMPORTS
 
         OBJECT traceRouteHopsIpTgtAddressType
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
+
+
+
         DESCRIPTION
             "An implementation should only support IPv4 and
             globally unique IPv6 address values for this object."
@@ -1729,6 +1830,8 @@ IMPORTS
              traceRouteResultsTestSuccesses,
              traceRouteResultsLastGoodPath
 
+
+
           }
    STATUS  current
    DESCRIPTION
@@ -1754,6 +1857,7 @@ IMPORTS
              traceRouteProbeHistoryLastRC,
              traceRouteProbeHistoryTime
            }
+
    STATUS  current
    DESCRIPTION
        "The group of objects that constitute the history
@@ -1776,6 +1880,9 @@ IMPORTS
    OBJECTS {
              traceRouteHopsIpTgtAddressType,
              traceRouteHopsIpTgtAddress,
+
+
+
              traceRouteHopsMinRtt,
              traceRouteHopsMaxRtt,
              traceRouteHopsAverageRtt,
@@ -1824,6 +1931,9 @@ IMPORTS
              traceRouteResultsIpTgtAddrType,
              traceRouteResultsIpTgtAddr,
              traceRouteResultsTestAttempts,
+
+
+
              traceRouteResultsTestSuccesses,
              traceRouteProbeHistoryHAddrType,
              traceRouteProbeHistoryHAddr,

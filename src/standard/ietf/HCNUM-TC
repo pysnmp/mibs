@@ -9,6 +9,7 @@ IMPORTS
 hcnumTC MODULE-IDENTITY
   LAST-UPDATED "200006080000Z"
 
+
   ORGANIZATION "IETF OPS Area"
   CONTACT-INFO
         "        E-mail: mibs@ops.ietf.org
@@ -58,6 +59,7 @@ CounterBasedGauge64 ::= TEXTUAL-CONVENTION
         maximum value can not be greater than 2^64-1
         (18446744073709551615 decimal), and the minimum value can
 
+
         not be smaller than 0.  The value of a CounterBasedGauge64
         has its maximum value whenever the information being modeled
         is greater than or equal to its maximum value, and has its
@@ -79,6 +81,7 @@ CounterBasedGauge64 ::= TEXTUAL-CONVENTION
         solution, and may be deprecated as a long term solution is
         defined and deployed to replace it."
   SYNTAX Counter64
+
 
 ZeroBasedCounter64 ::= TEXTUAL-CONVENTION
   STATUS current
@@ -105,6 +108,7 @@ ZeroBasedCounter64 ::= TEXTUAL-CONVENTION
         semantics of the Counter64 base type. Specifically, a
         Counter64 has an arbitrary initial value, but objects
         defined with this TC are required to start at the value
+
 
         zero.  This behavior is not likely to have any adverse
         effects on management applications which are expecting

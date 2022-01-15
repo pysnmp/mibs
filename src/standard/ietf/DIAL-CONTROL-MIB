@@ -1,22 +1,10 @@
--- *****************************************************************
--- One line description here.
---
--- Bibek Das, January 1997
---
--- Copyright (c) 1997-1998 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
---
--- This mib was extracted from RFC 2128
-
-
 DIAL-CONTROL-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
         MODULE-IDENTITY,
         NOTIFICATION-TYPE,
         OBJECT-TYPE,
-	Gauge32
+        Unsigned32
                 FROM SNMPv2-SMI
         TEXTUAL-CONVENTION,
         DisplayString,
@@ -24,7 +12,8 @@ IMPORTS
         RowStatus
                  FROM SNMPv2-TC
         MODULE-COMPLIANCE,
-        OBJECT-GROUP
+        OBJECT-GROUP,
+        NOTIFICATION-GROUP
                 FROM SNMPv2-CONF
         IANAifType
                 FROM IANAifType-MIB
@@ -65,7 +54,7 @@ AbsoluteCounter32 ::= TEXTUAL-CONVENTION
              where a counter value is to be recorded as history
              and is thus no longer subject to reading for changing
              values."
-        SYNTAX      Gauge32
+        SYNTAX      Unsigned32
 
 -- Dial Control Mib objects definitions
 
@@ -212,10 +201,6 @@ dialCtlPeerCfgLowerIf OBJECT-TYPE
              B channel, whatever is appropriate for a given peer.
              As an example, for Basic Rate leased lines it will be
              necessary to specify a B channel ifIndex, while for
-
-
-
-
              semi-permanent connections the D channel ifIndex has
              to be specified.
              If the interface can be dynamically assigned, this object
@@ -585,7 +570,6 @@ dialCtlPeerStatsLastDisconnectText OBJECT-TYPE
         DESCRIPTION
             "ASCII text describing the reason for the last call
              termination.
-
              This object exists because it would be impossible for
              a management station to store all possible cause values
              for all types of interfaces. It should be used only if
@@ -879,11 +863,6 @@ callHistoryRetainTimer OBJECT-TYPE
         ::= { callHistory 2 }
 
 -- callHistoryTable
--- PLEASE NOTE
--- PLEASE NOTE
--- THE FOLLOWING TABLE HAS BEEN REPLACED BY THE CALL HISTORY TABLE
--- DEFINED IN CISCO-DIAL-CONTROL-MIB.my
--- PLEASE NOTE
 -- Table to store the past call information. The Destination number
 -- and the call connect and disconnect time, the disconnection cause
 -- are stored. These calls could be circuit switched or they could
@@ -948,6 +927,7 @@ callHistoryPeerSubAddress OBJECT-TYPE
              is undefined or not available, this will be a zero length
              string."
         ::= { callHistoryEntry 2 }
+
 callHistoryPeerId OBJECT-TYPE
         SYNTAX      INTEGER (0..2147483647)
         MAX-ACCESS  read-only
@@ -1165,7 +1145,6 @@ dialCtlPeerCallSetup NOTIFICATION-TYPE
      ::= { dialControlMibTraps 2 }
 
 -- conformance information
-
 dialControlMibConformance OBJECT IDENTIFIER ::=
                                 { dialControlMib 3 }
 dialControlMibCompliances OBJECT IDENTIFIER ::=
@@ -1182,9 +1161,8 @@ dialControlMibCompliance MODULE-COMPLIANCE
              implement the DIAL CONTROL MIB"
         MODULE      -- this module
         MANDATORY-GROUPS
-            { dialControlGroup, callActiveGroup, callHistoryGroup
---              ,callNotificationsGroup
-	    }
+            { dialControlGroup, callActiveGroup, callHistoryGroup,
+              callNotificationsGroup }
         ::= { dialControlMibCompliances 1 }
 
 -- units of conformance
@@ -1277,13 +1255,13 @@ callHistoryGroup OBJECT-GROUP
              capability."
         ::= { dialControlMibGroups 3 }
 
---callNotificationsGroup NOTIFICATION-GROUP
---    NOTIFICATIONS { dialCtlPeerCallInformation, dialCtlPeerCallSetup }
---    STATUS        current
---    DESCRIPTION
---            "The notifications which a Dial Control MIB entity is
---             required to implement."
---    ::= { dialControlMibGroups 4 }
+callNotificationsGroup NOTIFICATION-GROUP
+    NOTIFICATIONS { dialCtlPeerCallInformation, dialCtlPeerCallSetup }
+    STATUS        current
+    DESCRIPTION
+            "The notifications which a Dial Control MIB entity is
+             required to implement."
+    ::= { dialControlMibGroups 4 }
 
 
 END

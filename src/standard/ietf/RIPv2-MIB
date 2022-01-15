@@ -196,7 +196,7 @@ rip2Globals OBJECT IDENTIFIER ::= { rip2 1 }
             rip2IfConfAuthType
                 INTEGER,
             rip2IfConfAuthKey
-                OCTET STRING (SIZE(0..16)),
+                OCTET STRING,
             rip2IfConfSend
                 INTEGER,
             rip2IfConfReceive

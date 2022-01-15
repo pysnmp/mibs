@@ -2828,20 +2828,20 @@ diffServMIBFullCompliance MODULE-COMPLIANCE
        functions."
 
     OBJECT diffServDataPathStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServClfrStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServClfrElementStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
 
 
 
@@ -2849,7 +2849,7 @@ diffServMIBFullCompliance MODULE-COMPLIANCE
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServMultiFieldClfrAddrType
-    SYNTAX  INTEGER { unknown(0), ipv4(1), ipv6(2) }
+    SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
     DESCRIPTION
        "An implementation is only required to support IPv4 and IPv6
        addresses."
@@ -2861,38 +2861,38 @@ diffServMIBFullCompliance MODULE-COMPLIANCE
        unique IPv6 addresses."
 
     OBJECT diffServAlgDropStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServRandomDropStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServQStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServSchedulerStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServMinRateStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
     DESCRIPTION
        "Support for createAndWait and notInService is not required."
 
     OBJECT diffServMaxRateStatus
-    SYNTAX INTEGER { active(1) }
-    WRITE-SYNTAX INTEGER { createAndGo(4), destroy(6) }
+    SYNTAX RowStatus { active(1) }
+    WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
 
 
 
@@ -2962,7 +2962,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServDataPathStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -2980,7 +2980,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServClfrStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3016,7 +3016,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServClfrElementStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3029,7 +3029,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        implemented in read-only mode."
 
     OBJECT       diffServMultiFieldClfrAddrType
-    SYNTAX       INTEGER { unknown(0), ipv4(1), ipv6(2) }
+    SYNTAX       InetAddressType { unknown(0), ipv4(1), ipv6(2) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required. An implementation is only required
@@ -3136,7 +3136,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServMeterStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3177,7 +3177,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServTBParamStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3213,7 +3213,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServActionStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3231,7 +3231,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServCountActStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3277,7 +3277,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServAlgDropStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3333,7 +3333,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServRandomDropStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3369,7 +3369,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServQStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3410,7 +3410,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServSchedulerStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3443,7 +3443,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServMinRateStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that
@@ -3478,7 +3478,7 @@ diffServMIBReadOnlyCompliance MODULE-COMPLIANCE
        "Write access is not required."
 
     OBJECT       diffServMaxRateStatus
-    SYNTAX       INTEGER { active(1) }
+    SYNTAX       RowStatus { active(1) }
     MIN-ACCESS   read-only
     DESCRIPTION
        "Write access is not required, and active is the only status that

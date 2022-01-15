@@ -1,6 +1,4 @@
-RTP-MIB 
-
-DEFINITIONS ::= BEGIN
+RTP-MIB DEFINITIONS ::= BEGIN
 IMPORTS
        Counter32, Counter64, Gauge32, mib-2, Integer32,
        MODULE-IDENTITY,
@@ -8,7 +6,9 @@ IMPORTS
        RowStatus, TAddress,
        TDomain, TestAndIncr,
        TimeStamp, TruthValue                       FROM SNMPv2-TC
-       OBJECT-GROUP, MODULE-COMPLIANCE             FROM SNMPv2-CONF;
+       OBJECT-GROUP, MODULE-COMPLIANCE             FROM SNMPv2-CONF
+       Utf8String                                  FROM SYSAPPL-MIB
+       InterfaceIndex                              FROM IF-MIB;
 
 rtpMIB MODULE-IDENTITY
     LAST-UPDATED "200010020000Z"  -- 2 October 2000
@@ -20,6 +20,7 @@ rtpMIB MODULE-IDENTITY
     Postal: Intel Corporation
             2111 NE 25th Avenue
             Hillsboro, OR   97124
+
 
             United States
     Tel:    +1 503 466 8406
@@ -62,36 +63,6 @@ rtpMIB MODULE-IDENTITY
 
 ::= { mib-2 87 }
 
-
-InterfaceIndex ::= TEXTUAL-CONVENTION
-       DISPLAY-HINT "d"
-       STATUS       current
-       DESCRIPTION
-               "A unique value, greater than zero, for each interface
-               or interface sub-layer in the managed system.  It is
-               recommended that values are assigned contiguously
-               starting from 1.  The value for each interface sub-
-               layer must remain constant at least from one re-
-               initialization of the entity's network management
-               system to the next re-initialization."
-       SYNTAX       Integer32
-
-
-Utf8String ::= TEXTUAL-CONVENTION
-         DISPLAY-HINT "1024a"
-         STATUS  current
-         DESCRIPTION
-                 "To facilitate internationalization, this TC
-                  represents information taken from the ISO/IEC IS
-                  10646-1 character set, encoded as an octet string
-                  using the UTF-8 character encoding scheme described
-                  in RFC 2044 [10].  For strings in 7-bit US-ASCII,
-                  there is no impact since the UTF-8 representation
-                  is identical to the US-ASCII encoding."
-         SYNTAX  OCTET STRING (SIZE (0..1024))
-
-
-
 --
 -- OBJECTS
 --
@@ -99,6 +70,7 @@ rtpMIBObjects OBJECT IDENTIFIER ::= { rtpMIB 1 }
 rtpConformance OBJECT IDENTIFIER ::= { rtpMIB 2 }
 
 --
+
 
 -- SESSION NEW INDEX
 --
@@ -149,6 +121,7 @@ rtpSessionInverseEntry OBJECT-TYPE
             rtpSessionIndex }
     ::= { rtpSessionInverseTable 1 }
 
+
 RtpSessionInverseEntry ::= SEQUENCE {
         rtpSessionInverseStartTime     TimeStamp
         }
@@ -197,6 +170,7 @@ rtpSessionEntry OBJECT-TYPE
        rtpSenderTable).  Thus, rtpSessionTable rows SHOULD be created
        for RTP session monitoring purposes.  Rows created by a
        management application SHOULD be deleted via SNMP operations by
+
 
        management applications.  Rows created by management operations
        are deleted by management operations by setting
@@ -247,6 +221,7 @@ rtpSessionRemAddr OBJECT-TYPE
       "The address to which RTP packets are sent by the RTP system.
       In an IP multicast RTP session, this is the single address used
 
+
       by all senders and receivers of RTP session data.  In a unicast
       RTP session this is the unicast address of the remote RTP system.
       'The destination address pair may be common for all participants,
@@ -295,6 +270,7 @@ rtpSessionSenderJoins OBJECT-TYPE
     DESCRIPTION
       "The number of senders that have been observed to have
        joined the session since this conceptual row was created
+
 
        (rtpSessionStartTime).  A sender 'joins' an RTP
        session by sending to it.  Senders that leave and then
@@ -345,6 +321,7 @@ rtpSessionMonitor OBJECT-TYPE
     STATUS          current
     DESCRIPTION
 
+
       "Boolean, Set to 'true(1)' if remote senders or receivers in
        addition to the local RTP System are to be monitored using RTCP.
        RTP Monitors MUST initialize to 'true(1)' and RTP Hosts SHOULD
@@ -393,6 +370,7 @@ rtpSenderInverseEntry OBJECT-TYPE
        rtpSenderTable - the entry containing the index pair,
        rtpSessionIndex, rtpSenderSSRC."
     INDEX { rtpSessionDomain, rtpSenderAddr, rtpSessionIndex,
+
 
             rtpSenderSSRC }
     ::= { rtpSenderInverseTable 1 }
@@ -443,6 +421,7 @@ rtpSenderEntry OBJECT-TYPE
     INDEX { rtpSessionIndex, rtpSenderSSRC }
     ::= { rtpSenderTable 1 }
 
+
 RtpSenderEntry ::= SEQUENCE {
         rtpSenderSSRC           Unsigned32,
         rtpSenderCNAME          Utf8String,
@@ -491,6 +470,7 @@ rtpSenderPackets OBJECT-TYPE
     STATUS          current
     DESCRIPTION
       "Count of RTP packets sent by this sender, or observed by
+
 
        an RTP monitor, since rtpSenderStartTime."
     ::= { rtpSenderEntry 4 }
@@ -541,6 +521,7 @@ rtpSenderPT OBJECT-TYPE
       "Payload type from the RTP header of the most recently received
        RTP Packet (see RFC 1889, 'RTP: A Transport Protocol for
 
+
        Real-Time Applications' sec. 5)."
     ::= { rtpSenderEntry 9 }
 
@@ -589,6 +570,7 @@ RtpRcvrInverseEntry ::= SEQUENCE {
 
 rtpRcvrInverseStartTime OBJECT-TYPE
     SYNTAX          TimeStamp
+
 
     MAX-ACCESS      read-only
     STATUS          current
@@ -639,6 +621,7 @@ RtpRcvrEntry ::= SEQUENCE {
         rtpRcvrCNAME          Utf8String,
         rtpRcvrAddr           TAddress,
 
+
         rtpRcvrRTT            Gauge32,
         rtpRcvrLostPackets    Counter64,
         rtpRcvrJitter         Gauge32,
@@ -687,6 +670,7 @@ rtpRcvrAddr OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
+
 
       "The unicast transport address on which the receiver is
        receiving RTP packets and/or RTCP Receiver Reports."
@@ -737,6 +721,7 @@ rtpRcvrTool OBJECT-TYPE
 rtpRcvrRRs OBJECT-TYPE
     SYNTAX          Counter32
 
+
     MAX-ACCESS      read-only
     STATUS          current
     DESCRIPTION
@@ -784,6 +769,8 @@ rtpRcvrOctets OBJECT-TYPE
       "Count of non-header RTP octets received by this receiving RTP
        host since rtpRcvrStartTime."
     ::= { rtpRcvrEntry 13 }
+
+
 
 rtpRcvrStartTime OBJECT-TYPE
     SYNTAX          TimeStamp
@@ -834,6 +821,7 @@ rtpSystemGroup      OBJECT-GROUP
                     }
     STATUS          current
 
+
     DESCRIPTION
         "Objects available to all RTP Systems."
     ::= { rtpGroups 1 }
@@ -882,6 +870,7 @@ rtpCompliances OBJECT IDENTIFIER ::= { rtpConformance 2 }
 
 rtpHostCompliance MODULE-COMPLIANCE
     STATUS          current
+
 
     DESCRIPTION
             "Host implementations MUST comply."
@@ -932,6 +921,7 @@ rtpHostCompliance MODULE-COMPLIANCE
                "Multicast RTP Systems SHOULD implement the optional
                 tables."
 
+
         OBJECT  rtpSenderInverseStartTime
             MIN-ACCESS not-accessible
               DESCRIPTION
@@ -980,6 +970,7 @@ rtpMonitorCompliance MODULE-COMPLIANCE
               DESCRIPTION
                "RTP monitor systems may not support
                 retrieval of the RTP Payload Type from the RTP
+
 
                 header (and may receive RTCP messages only).  When
                 queried for the payload type information."

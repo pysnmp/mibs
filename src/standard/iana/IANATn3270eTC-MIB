@@ -1,11 +1,3 @@
--- *****************************************************************
--- TN3270E Textual Conventions
---
--- September 1998, Vince Deters
---
--- Copyright (c) 1998,2006 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
   IANATn3270eTC-MIB DEFINITIONS ::= BEGIN
 
  IMPORTS

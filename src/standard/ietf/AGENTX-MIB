@@ -33,6 +33,8 @@ agentxMIB MODULE-IDENTITY
                Co-author:  Smitha Gudur
                            Independent Consultant
                Email:      sgudur@hotmail.com
+
+
               "
  DESCRIPTION    "This is the MIB module for the SNMP Agent Extensibility
      Protocol (AgentX).  This MIB module will be implemented by
@@ -42,6 +44,7 @@ agentxMIB MODULE-IDENTITY
   REVISION     "200001100000Z" -- Midnight 10 January 2000
  DESCRIPTION
     "Initial version published as RFC 2742."
+
   ::= { mib-2  74 }
 
  -- Textual Conventions
@@ -80,6 +83,7 @@ agentxMIB MODULE-IDENTITY
       impractical in accordance with implementation-specific
       procedure of the master agent, the value represented by
       this object will be the effective timeout value for the
+
 
       master agent to await a response to a dispatch from a
       given subagent.
@@ -125,9 +129,11 @@ agentxMIB MODULE-IDENTITY
    SYNTAX      AgentxConnectionEntry
    MAX-ACCESS  not-accessible
    STATUS      current
+
    DESCRIPTION
      "An agentxConnectionEntry contains information describing a
       single AgentX transport connection.  A connection may be
+
 
       used to support zero or more AgentX sessions.  An entry is
       created when a new transport connection is established,
@@ -177,6 +183,8 @@ agentxMIB MODULE-IDENTITY
 
  agentxConnTransportAddress OBJECT-TYPE
    SYNTAX       AgentxTAddress
+
+
    MAX-ACCESS   read-only
    STATUS       current
    DESCRIPTION
@@ -225,6 +233,8 @@ agentxMIB MODULE-IDENTITY
 
  AgentxSessionEntry ::= SEQUENCE {
   agentxSessionIndex         Unsigned32,
+
+
   agentxSessionObjectID      OBJECT IDENTIFIER,
   agentxSessionDescr         SnmpAdminString,
   agentxSessionAdminStatus   INTEGER,
@@ -273,6 +283,8 @@ agentxMIB MODULE-IDENTITY
   ::= { agentxSessionEntry 3 }
 
  agentxSessionAdminStatus OBJECT-TYPE
+
+
   SYNTAX      INTEGER {
                  up(1),
                  down(2)
@@ -321,6 +333,7 @@ agentxMIB MODULE-IDENTITY
       values associated with the specific registered MIB regions
       (see agentxRegTimeout). A value of zero(0) indicates that
       the master agent's default timeout value should be used
+
 
       (see agentxDefaultTimeout).
      "
@@ -371,6 +384,7 @@ agentxMIB MODULE-IDENTITY
   agentxRegTimeout         INTEGER,
   agentxRegInstance        TruthValue }
 
+
  agentxRegIndex OBJECT-TYPE
   SYNTAX      Unsigned32 (1..4294967295)
   MAX-ACCESS  not-accessible
@@ -419,6 +433,8 @@ agentxMIB MODULE-IDENTITY
   ::= { agentxRegistrationEntry 4 }
 
  agentxRegUpperBound OBJECT-TYPE
+
+
   SYNTAX      Unsigned32
   MAX-ACCESS  read-only
   STATUS      current
@@ -467,6 +483,8 @@ agentxMIB MODULE-IDENTITY
       registrations for which the INSTANCE_REGISTRATION
       was set, and is `false' for all other registrations.
      "
+
+
   ::= { agentxRegistrationEntry 8 }
 
  -- Conformance Statements for AgentX
@@ -515,6 +533,8 @@ agentxMIB MODULE-IDENTITY
      agentxRegRangeSubId,
      agentxRegUpperBound,
      agentxRegPriority,
+
+
      agentxRegTimeout,
      agentxRegInstance
     }

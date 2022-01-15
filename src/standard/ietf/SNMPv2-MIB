@@ -6,6 +6,8 @@ IMPORTS
         FROM SNMPv2-SMI
     DisplayString, TestAndIncr, TimeStamp
 
+
+
         FROM SNMPv2-TC
     MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
         FROM SNMPv2-CONF;
@@ -54,6 +56,9 @@ snmpMIB MODULE-IDENTITY
              RFC 3418."
     REVISION      "199511090000Z"
     DESCRIPTION
+
+
+
             "This revision of this MIB module was published as
              RFC 1907."
     REVISION      "199304010000Z"
@@ -102,6 +107,9 @@ sysObjectID OBJECT-TYPE
     ::= { system 2 }
 
 sysUpTime OBJECT-TYPE
+
+
+
     SYNTAX      TimeTicks
     MAX-ACCESS  read-only
     STATUS      current
@@ -150,6 +158,8 @@ sysServices OBJECT-TYPE
     DESCRIPTION
             "A value which indicates the set of services that this
             entity may potentially offer.  The value is a sum.
+
+
 
             This sum initially takes the value zero. Then, for
             each layer, L, in the range 1 through 7, that this node
@@ -200,6 +210,8 @@ sysORTable OBJECT-TYPE
             of conceptual rows."
     ::= { system 9 }
 
+
+
 sysOREntry OBJECT-TYPE
     SYNTAX     SysOREntry
     MAX-ACCESS not-accessible
@@ -248,11 +260,15 @@ sysORDescr OBJECT-TYPE
 sysORUpTime OBJECT-TYPE
     SYNTAX     TimeStamp
     MAX-ACCESS read-only
+
+
+
     STATUS     current
     DESCRIPTION
             "The value of sysUpTime at the time this conceptual
             row was last instantiated."
     ::= { sysOREntry 4 }
+
 
 -- the SNMP group
 --
@@ -295,6 +311,8 @@ snmpInBadCommunityNames OBJECT-TYPE
            allowed to use a specified community name) MAY include
            in this value the number of messages which failed the
            additional check(s).  It is strongly RECOMMENDED that
+
+
 
            the documentation for any security model which is used
            to authenticate community-based SNMP messages specify
@@ -344,6 +362,9 @@ snmpEnableAuthenTraps OBJECT-TYPE
             be stored in non-volatile memory so that it remains
             constant across re-initializations of the network
             management system."
+
+
+
     ::= { snmp 30 }
 
 snmpSilentDrops OBJECT-TYPE
@@ -392,6 +413,9 @@ snmpTrapOID OBJECT-TYPE
     MAX-ACCESS accessible-for-notify
     STATUS     current
     DESCRIPTION
+
+
+
             "The authoritative identification of the notification
             currently being sent.  This variable occurs as
             the second varbind in every SNMPv2-Trap-PDU and
@@ -413,6 +437,7 @@ snmpTrapEnterprise OBJECT-TYPE
     ::= { snmpTrap 3 }
 
 --  ::= { snmpTrap 4 }   this OID is obsolete
+
 
 -- well-known traps
 
@@ -439,6 +464,8 @@ warmStart NOTIFICATION-TYPE
 -- Note the linkDown NOTIFICATION-TYPE ::= { snmpTraps 3 }
 -- and the linkUp NOTIFICATION-TYPE ::= { snmpTraps 4 }
 -- are defined in RFC 2863 [RFC2863]
+
+
 
 authenticationFailure NOTIFICATION-TYPE
     STATUS  current
@@ -488,6 +515,9 @@ snmpMIBGroups  OBJECT IDENTIFIER ::= { snmpMIBConformance 2 }
 
 -- compliance statements
 
+
+
+
 --    ::= { snmpMIBCompliances 1 }      this OID is obsolete
 snmpBasicCompliance MODULE-COMPLIANCE
     STATUS  deprecated
@@ -505,6 +535,7 @@ snmpBasicCompliance MODULE-COMPLIANCE
         DESCRIPTION
             "This group is mandatory for SNMPv2 entities which
             support community-based authentication."
+
     ::= { snmpMIBCompliances 2 }
 
 snmpBasicComplianceRev2 MODULE-COMPLIANCE
@@ -527,6 +558,7 @@ snmpBasicComplianceRev2 MODULE-COMPLIANCE
             supports command responder applications, and is
             able to reinitialize itself such that its
             configuration is unaltered."
+
     ::= { snmpMIBCompliances 3 }
 
 -- units of conformance
@@ -534,6 +566,8 @@ snmpBasicComplianceRev2 MODULE-COMPLIANCE
 --  ::= { snmpMIBGroups 1 }           this OID is obsolete
 --  ::= { snmpMIBGroups 2 }           this OID is obsolete
 --  ::= { snmpMIBGroups 3 }           this OID is obsolete
+
+
 
 --  ::= { snmpMIBGroups 4 }           this OID is obsolete
 
@@ -583,6 +617,9 @@ systemGroup OBJECT-GROUP
 
 snmpBasicNotificationsGroup NOTIFICATION-GROUP
     NOTIFICATIONS { coldStart, authenticationFailure }
+
+
+
     STATUS        current
     DESCRIPTION
        "The basic notifications implemented by an SNMP entity
@@ -632,6 +669,8 @@ snmpInTooBigs OBJECT-TYPE
             `tooBig'."
     ::= { snmp 8 }
 
+
+
 snmpInNoSuchNames OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
@@ -680,6 +719,9 @@ snmpInGenErrs OBJECT-TYPE
     ::= { snmp 12 }
 
 snmpInTotalReqVars OBJECT-TYPE
+
+
+
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      obsolete
@@ -728,6 +770,8 @@ snmpInSetRequests OBJECT-TYPE
             have been accepted and processed by the SNMP protocol
             entity."
     ::= { snmp 17 }
+
+
 
 snmpInGetResponses OBJECT-TYPE
     SYNTAX      Counter32
@@ -778,6 +822,8 @@ snmpOutBadValues OBJECT-TYPE
             of the error-status field was `badValue'."
     ::= { snmp 22 }
 
+
+
 -- { snmp 23 } is not used
 
 snmpOutGenErrs OBJECT-TYPE
@@ -825,6 +871,9 @@ snmpOutGetResponses OBJECT-TYPE
             "The total number of SNMP Get-Response PDUs which
             have been generated by the SNMP protocol entity."
     ::= { snmp 28 }
+
+
+
 
 snmpOutTraps OBJECT-TYPE
     SYNTAX      Counter32
