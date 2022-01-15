@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module INT-SERV-GUARANTEED-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/INT-SERV-GUARANTEED-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 16:24:54 2022
-# On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 17:04:00 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 intSrv, = mibBuilder.importSymbols("INT-SERV-MIB", "intSrv")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ObjectIdentity, iso, TimeTicks, Counter32, Counter64, Gauge32, ModuleIdentity, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "TimeTicks", "Counter32", "Counter64", "Gauge32", "ModuleIdentity", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "Bits", "Integer32")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Unsigned32, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, IpAddress, MibIdentifier, Counter64, NotificationType, Bits, TimeTicks, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "IpAddress", "MibIdentifier", "Counter64", "NotificationType", "Bits", "TimeTicks", "ObjectIdentity", "Integer32")
+TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 intSrvGuaranteed = ModuleIdentity((1, 3, 6, 1, 2, 1, 52, 4))
 if mibBuilder.loadTexts: intSrvGuaranteed.setLastUpdated('9511030500Z')
 if mibBuilder.loadTexts: intSrvGuaranteed.setOrganization('IETF Integrated Services Working Group')
@@ -50,4 +50,4 @@ intSrvGuaranteedIfAttribGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 52, 4, 3, 1, 2)).
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     intSrvGuaranteedIfAttribGroup = intSrvGuaranteedIfAttribGroup.setStatus('current')
 if mibBuilder.loadTexts: intSrvGuaranteedIfAttribGroup.setDescription('These objects are required  for  Systems  sup-\n           porting the Guaranteed Service of the Integrat-\n           ed Services Architecture.')
-mibBuilder.exportSymbols("INT-SERV-GUARANTEED-MIB", intSrvGuaranteedIfAttribGroup=intSrvGuaranteedIfAttribGroup, intSrvGuaranteedCompliance=intSrvGuaranteedCompliance, intSrvGuaranteedGroups=intSrvGuaranteedGroups, intSrvGuaranteedIfTable=intSrvGuaranteedIfTable, intSrvGuaranteedObjects=intSrvGuaranteedObjects, intSrvGuaranteedIfC=intSrvGuaranteedIfC, intSrvGuaranteedIfSlack=intSrvGuaranteedIfSlack, intSrvGuaranteedNotifications=intSrvGuaranteedNotifications, PYSNMP_MODULE_ID=intSrvGuaranteed, intSrvGuaranteed=intSrvGuaranteed, intSrvGuaranteedIfEntry=intSrvGuaranteedIfEntry, intSrvGuaranteedIfD=intSrvGuaranteedIfD, intSrvGuaranteedCompliances=intSrvGuaranteedCompliances, intSrvGuaranteedConformance=intSrvGuaranteedConformance, intSrvGuaranteedIfStatus=intSrvGuaranteedIfStatus)
+mibBuilder.exportSymbols("INT-SERV-GUARANTEED-MIB", intSrvGuaranteedCompliance=intSrvGuaranteedCompliance, intSrvGuaranteedIfStatus=intSrvGuaranteedIfStatus, intSrvGuaranteed=intSrvGuaranteed, intSrvGuaranteedIfC=intSrvGuaranteedIfC, intSrvGuaranteedIfTable=intSrvGuaranteedIfTable, intSrvGuaranteedGroups=intSrvGuaranteedGroups, intSrvGuaranteedIfAttribGroup=intSrvGuaranteedIfAttribGroup, intSrvGuaranteedConformance=intSrvGuaranteedConformance, intSrvGuaranteedObjects=intSrvGuaranteedObjects, intSrvGuaranteedIfD=intSrvGuaranteedIfD, intSrvGuaranteedIfSlack=intSrvGuaranteedIfSlack, intSrvGuaranteedCompliances=intSrvGuaranteedCompliances, intSrvGuaranteedIfEntry=intSrvGuaranteedIfEntry, PYSNMP_MODULE_ID=intSrvGuaranteed, intSrvGuaranteedNotifications=intSrvGuaranteedNotifications)

@@ -14,31 +14,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "iso",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "iso",
+      "Integer32",
+      "IpAddress",
       "Counter64",
-      "TimeTicks"
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1640,8 +1640,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IMAGE-UPGRADE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:32:26 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:10:41 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-IMAGE-UPGRADE-MIB"

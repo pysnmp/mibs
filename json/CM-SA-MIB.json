@@ -6,25 +6,25 @@
     ],
     "CM-COMMON-MIB": [
       "SecondaryState",
-      "IpPriorityMapMode",
-      "VlanPriority",
-      "ScheduleType",
       "OperationalState",
-      "PerfCounter64",
-      "SchedActivityStatus",
-      "AdminState",
-      "TrafficDirection",
-      "VlanId",
       "IpVersion",
-      "CmPmBinAction",
+      "TrafficDirection",
+      "VlanPriority",
       "ClassOfServiceType",
+      "ScheduleType",
+      "MepDestinationType",
+      "CmPmBinAction",
       "PerfCounter32",
-      "MepDestinationType"
+      "VlanId",
+      "AdminState",
+      "SchedActivityStatus",
+      "PerfCounter64",
+      "IpPriorityMapMode"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "slotIndex",
-      "shelfIndex"
+      "shelfIndex",
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "BitErrRate",
@@ -37,35 +37,35 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "StorageType",
       "RowStatus",
-      "VariablePointer",
-      "DisplayString",
-      "MacAddress"
+      "DateAndTime",
+      "MacAddress",
+      "VariablePointer"
     ]
   },
   "cmServiceAssuranceMIB": {
@@ -11615,8 +11615,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:52 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:04:56 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CM-SA-MIB"

@@ -5,39 +5,39 @@
       "wlsxEnterpriseMibModules"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "snmpModules",
-      "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
       "MibIdentifier",
       "Bits",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "snmpModules",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "iso"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
-      "TruthValue",
       "MacAddress",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TAddress",
-      "TestAndIncr",
       "TDomain",
-      "PhysAddress",
-      "StorageType"
+      "TruthValue",
+      "TestAndIncr",
+      "TAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "StorageType",
+      "PhysAddress"
     ]
   },
   "wlsxSwitchMIB": {
@@ -3108,8 +3108,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:27:02 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:06:02 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "WLSX-SWITCH-MIB"

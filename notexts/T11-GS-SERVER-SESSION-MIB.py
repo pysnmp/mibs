@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module T11-GS-SERVER-SESSION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/T11-GS-SERVER-SESSION-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 16:24:44 2022
-# On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 17:03:51 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 fcmSwitchIndex, fcmInstanceIndex = mibBuilder.importSymbols("FC-MGMT-MIB", "fcmSwitchIndex", "fcmInstanceIndex")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-TimeTicks, MibIdentifier, ModuleIdentity, Gauge32, Counter32, Integer32, IpAddress, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, mib_2, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Gauge32", "Counter32", "Integer32", "IpAddress", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "mib-2", "Counter64", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Bits, mib_2, Counter32, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, iso, ModuleIdentity, TimeTicks, Gauge32, Counter64, Unsigned32, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "mib-2", "Counter32", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "iso", "ModuleIdentity", "TimeTicks", "Gauge32", "Counter64", "Unsigned32", "Integer32", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 T11FabricIndex, = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
 t11GsServerSessionMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 1))
 t11GsServerSessionMIB.setRevisions(('2005-10-13 00:00',))
@@ -44,4 +44,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 t11GssActiveGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 1, 2, 2, 1)).setObjects(("T11-GS-SERVER-SESSION-MIB", "t11GssSessionOwnerType"), ("T11-GS-SERVER-SESSION-MIB", "t11GssSessionOwner"), ("T11-GS-SERVER-SESSION-MIB", "t11GssSessionControl"), ("T11-GS-SERVER-SESSION-MIB", "t11GssSessionCommitResult"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     t11GssActiveGroup = t11GssActiveGroup.setStatus('current')
-mibBuilder.exportSymbols("T11-GS-SERVER-SESSION-MIB", t11GssMIBObjects=t11GssMIBObjects, t11GssConfiguration=t11GssConfiguration, t11GssMIBGroups=t11GssMIBGroups, t11GssSessionOwner=t11GssSessionOwner, t11GssSessionEntry=t11GssSessionEntry, t11GssMIBCompliances=t11GssMIBCompliances, t11GssMIBConformance=t11GssMIBConformance, t11GssSessionTable=t11GssSessionTable, t11GssSessionCommitResult=t11GssSessionCommitResult, t11GssActiveGroup=t11GssActiveGroup, t11GssSessionControl=t11GssSessionControl, t11GsServerSessionMIB=t11GsServerSessionMIB, t11GssMIBCompliance=t11GssMIBCompliance, t11GssSessionOwnerType=t11GssSessionOwnerType, PYSNMP_MODULE_ID=t11GsServerSessionMIB, t11GssSessionFabricIndex=t11GssSessionFabricIndex, t11GssMIBNotifications=t11GssMIBNotifications)
+mibBuilder.exportSymbols("T11-GS-SERVER-SESSION-MIB", t11GssMIBConformance=t11GssMIBConformance, t11GssSessionOwner=t11GssSessionOwner, t11GssSessionControl=t11GssSessionControl, t11GssActiveGroup=t11GssActiveGroup, t11GssSessionTable=t11GssSessionTable, t11GssSessionOwnerType=t11GssSessionOwnerType, t11GssConfiguration=t11GssConfiguration, t11GssSessionEntry=t11GssSessionEntry, t11GssSessionCommitResult=t11GssSessionCommitResult, t11GssMIBCompliances=t11GssMIBCompliances, t11GssSessionFabricIndex=t11GssSessionFabricIndex, t11GssMIBGroups=t11GssMIBGroups, PYSNMP_MODULE_ID=t11GsServerSessionMIB, t11GssMIBCompliance=t11GssMIBCompliance, t11GsServerSessionMIB=t11GsServerSessionMIB, t11GssMIBObjects=t11GssMIBObjects, t11GssMIBNotifications=t11GssMIBNotifications)

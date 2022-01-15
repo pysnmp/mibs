@@ -14,40 +14,40 @@
       "Dscp"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
+      "Gauge32",
       "Bits",
-      "iso",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "iso",
+      "Integer32",
+      "IpAddress",
       "Counter64",
-      "TimeTicks"
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
+      "TruthValue",
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "VariablePointer"
+      "RowStatus",
+      "DateAndTime"
     ]
   },
   "ciscoTelepresenceCallMIB": {
@@ -3128,8 +3128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TELEPRESENCE-CALL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:32:20 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:10:35 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-TELEPRESENCE-CALL-MIB"

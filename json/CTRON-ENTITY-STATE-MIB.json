@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "CTRON-ENTITY-STATE-TC-MIB": [
-      "EntityAdminState",
+      "EntityStandbyStatus",
       "EntityUsageState",
+      "EntityAdminState",
       "EntityOperState",
-      "EntityAlarmStatus",
-      "EntityStandbyStatus"
+      "EntityAlarmStatus"
     ],
     "CTRON-MIB-NAMES": [
       "ctEntityStateMib"
@@ -15,31 +15,31 @@
       "entPhysicalIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
       "TimeTicks",
       "Counter64",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Gauge32",
+      "Unsigned32",
+      "mib-2",
       "IpAddress",
-      "Bits"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "ctEntityStateMIB": {
@@ -272,8 +272,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ENTITY-STATE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:36:34 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:14:28 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CTRON-ENTITY-STATE-MIB"

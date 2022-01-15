@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-SLB-EXT-MIB": [
-      "cslbxServerProbes",
+      "SlbUrlString",
       "SlbFunctionNameString",
-      "SlbUrlString"
+      "cslbxServerProbes"
     ],
     "CISCO-SLB-MIB": [
-      "SlbServerString",
       "slbServerFarmName",
-      "slbEntity"
+      "slbEntity",
+      "SlbServerString"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,41 +18,41 @@
       "CiscoPort"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetPortNumber",
       "InetAddress",
-      "InetPortNumber"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
       "Unsigned32",
       "Bits",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
       "TimeTicks",
-      "Gauge32",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "DateAndTime",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "ciscoSlbHealthMonMIB": {
@@ -2619,8 +2619,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-HEALTH-MON-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:32:21 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:10:37 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-SLB-HEALTH-MON-MIB"

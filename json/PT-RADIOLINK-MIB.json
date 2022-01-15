@@ -11,29 +11,29 @@
       "pt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
       "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ptRadioLink": {
@@ -2409,8 +2409,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-RADIOLINK-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:36:45 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:14:38 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PT-RADIOLINK-MIB"

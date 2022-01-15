@@ -9,19 +9,19 @@
       "InterfaceIndex"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2PortIdSubtype",
-      "LldpV2SystemCapabilitiesMap",
       "LldpV2ChassisId",
-      "ieee802dot1mibs",
-      "LldpV2ManAddress",
+      "LldpV2PortIdSubtype",
+      "LldpV2DestAddressTableIndex",
       "LldpV2PortId",
       "LldpV2ChassisIdSubtype",
-      "LldpV2DestAddressTableIndex",
+      "ieee802dot1mibs",
+      "LldpV2ManAddress",
+      "LldpV2SystemCapabilitiesMap",
       "LldpV2ManAddrIfSubtype"
     ],
     "RMON2-MIB": [
-      "TimeFilter",
-      "ZeroBasedCounter32"
+      "ZeroBasedCounter32",
+      "TimeFilter"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,28 +32,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Counter32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "iso",
-      "Integer32"
+      "TimeTicks",
+      "Integer32",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "MacAddress",
       "TruthValue",
-      "TimeStamp"
+      "TimeStamp",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:04 2022",
-      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:04:10 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LLDP-V2-MIB"

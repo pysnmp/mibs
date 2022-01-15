@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NET-SNMP-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-TC
-# Produced by pysmi-1.1.8 at Sat Jan 15 16:47:44 2022
-# On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 17:23:28 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 netSnmpModuleIDs, netSnmpDomains, netSnmpAgentOIDs = mibBuilder.importSymbols("NET-SNMP-MIB", "netSnmpModuleIDs", "netSnmpDomains", "netSnmpAgentOIDs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Counter32, ObjectIdentity, IpAddress, TimeTicks, Gauge32, ModuleIdentity, Unsigned32, Opaque, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "ObjectIdentity", "IpAddress", "TimeTicks", "Gauge32", "ModuleIdentity", "Unsigned32", "Opaque", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Integer32")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Bits, Gauge32, ObjectIdentity, TimeTicks, Opaque, Integer32, Unsigned32, MibIdentifier, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "Gauge32", "ObjectIdentity", "TimeTicks", "Opaque", "Integer32", "Unsigned32", "MibIdentifier", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "NotificationType", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 netSnmpTCs = ModuleIdentity((1, 3, 6, 1, 4, 1, 8072, 3, 1, 1))
 netSnmpTCs.setRevisions(('2002-02-12 00:00',))
@@ -55,4 +55,4 @@ netSnmpAliasDomain = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 3, 3, 7))
 netSnmpDTLSUDPDomain = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 3, 3, 8))
 netSnmpDTLSSCTPDomain = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 3, 3, 9))
 netSnmpTLSTCPDomain = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 3, 3, 10))
-mibBuilder.exportSymbols("NET-SNMP-TC", netbsd=netbsd, macosx=macosx, netSnmpUDPIPv6Domain=netSnmpUDPIPv6Domain, netSnmpTCPIPv6Domain=netSnmpTCPIPv6Domain, win32=win32, unknown=unknown, openbsd=openbsd, ultrix=ultrix, PYSNMP_MODULE_ID=netSnmpTCs, netSnmpAAL5PVCDomain=netSnmpAAL5PVCDomain, sunos4=sunos4, irix=irix, hpux11=hpux11, solaris=solaris, netSnmpDTLSUDPDomain=netSnmpDTLSUDPDomain, aix=aix, Float=Float, linux=linux, netSnmpUnixDomain=netSnmpUnixDomain, netSnmpCallbackDomain=netSnmpCallbackDomain, hpux9=hpux9, netSnmpDTLSSCTPDomain=netSnmpDTLSSCTPDomain, netSnmpTLSTCPDomain=netSnmpTLSTCPDomain, netSnmpTCs=netSnmpTCs, osf=osf, netSnmpAliasDomain=netSnmpAliasDomain, netSnmpTCPDomain=netSnmpTCPDomain, dragonfly=dragonfly, hpux10=hpux10, freebsd=freebsd, bsdi=bsdi)
+mibBuilder.exportSymbols("NET-SNMP-TC", win32=win32, netSnmpTLSTCPDomain=netSnmpTLSTCPDomain, netSnmpTCPIPv6Domain=netSnmpTCPIPv6Domain, osf=osf, bsdi=bsdi, freebsd=freebsd, netSnmpTCPDomain=netSnmpTCPDomain, PYSNMP_MODULE_ID=netSnmpTCs, ultrix=ultrix, macosx=macosx, dragonfly=dragonfly, irix=irix, sunos4=sunos4, netSnmpUDPIPv6Domain=netSnmpUDPIPv6Domain, netbsd=netbsd, netSnmpDTLSUDPDomain=netSnmpDTLSUDPDomain, Float=Float, unknown=unknown, openbsd=openbsd, netSnmpUnixDomain=netSnmpUnixDomain, netSnmpCallbackDomain=netSnmpCallbackDomain, hpux11=hpux11, netSnmpAliasDomain=netSnmpAliasDomain, netSnmpTCs=netSnmpTCs, solaris=solaris, hpux10=hpux10, netSnmpAAL5PVCDomain=netSnmpAAL5PVCDomain, hpux9=hpux9, netSnmpDTLSSCTPDomain=netSnmpDTLSSCTPDomain, aix=aix, linux=linux)
