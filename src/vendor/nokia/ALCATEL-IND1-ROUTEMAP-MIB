@@ -1,11 +1,13 @@
 ALCATEL-IND1-ROUTEMAP-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
-   	MODULE-IDENTITY, OBJECT-TYPE, 
-    Unsigned32
+        MODULE-IDENTITY, OBJECT-TYPE,
+    Unsigned32, Integer32
         FROM SNMPv2-SMI
-    RowStatus, TEXTUAL-CONVENTION, DisplayString
+    RowStatus, TEXTUAL-CONVENTION
         FROM SNMPv2-TC
+    SnmpAdminString
+        FROM SNMP-FRAMEWORK-MIB
     MODULE-COMPLIANCE, OBJECT-GROUP
         FROM SNMPv2-CONF
     InetAddress, InetAddressType
@@ -63,7 +65,7 @@ alcatelIND1RouteMapMIB MODULE-IDENTITY
     DESCRIPTION
         "The latest version of this MIB Module."
 
-    ::= { routingIND1Iprm 3 }                
+    ::= { routingIND1Iprm 3 }
 
 alcatelIND1RouteMapMIBObjects  OBJECT IDENTIFIER ::= { alcatelIND1RouteMapMIB 1 }
 
@@ -89,15 +91,17 @@ AlaRouteMapType ::= TEXTUAL-CONVENTION
         matchIpv6Interface(11),
         matchMetric(12),
         matchRouteType(13),
+        matchProtocol(14),
+        matchName(15),
         setMetric(129),
         setMetricType(130),
         setTag(131),
-        setCommunity(132), 
+        setCommunity(132),
         setLocalPreference(133),
         setLevel(134),
         setIpNexthop(135),
         setIpv6Nexthop(136)
-    } 
+    }
 
 AlaRouteMapAction ::= TEXTUAL-CONVENTION
     STATUS current
@@ -137,14 +141,14 @@ alaRouteMapRedistProtoEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Identifies the source protocol and Route Map to be matched
-         for route redistribution. If the route matches one of the source 
-         protocols Route Maps, and the Route Map is of type permit, then 
+         for route redistribution. If the route matches one of the source
+         protocols Route Maps, and the Route Map is of type permit, then
          the route will be redistributed to the destination protocol."
     INDEX {
         alaRouteMapRedistSrcProtoId,
         alaRouteMapRedistDestProtoId,
-        alaRouteMapRedistRouteMapIndex 
-        }                 
+        alaRouteMapRedistRouteMapIndex
+        }
     ::= { alaRouteMapRedistProtoTable 1 }
 
 AlaRouteMapRedistProtoEntry ::= SEQUENCE {
@@ -168,7 +172,8 @@ alaRouteMapRedistSrcProtoId OBJECT-TYPE
                  ospfv3(8),  -- Open Shortest Path First Version 3
                  bgp6(9),    -- Border Gateway Protocol IPv6
                  isis(10),   -- ISIS IPv4
-                 isis6(11)   -- ISIS IPv6
+                 isis6(11),  -- ISIS IPv6
+                 import(12)  -- Route imported from another VRF
                 }
     MAX-ACCESS  not-accessible
     STATUS  current
@@ -252,18 +257,18 @@ alaRouteMapAccessListNameEntry OBJECT-TYPE
         "Each entry binds an Access List Name to an Access List index."
     INDEX {
         alaRouteMapAccessListName
-       }                 
+       }
     ::= { alaRouteMapAccessListNameTable 1 }
 
 AlaRouteMapAccessListNameEntry ::= SEQUENCE {
-    alaRouteMapAccessListName            DisplayString,
+    alaRouteMapAccessListName            SnmpAdminString,
     alaRouteMapAccessListNameIndex       Unsigned32,
     alaRouteMapAccessListNameAddressType InetAddressType,
     alaRouteMapAccessListNameRowStatus   RowStatus
    }
 
 alaRouteMapAccessListName OBJECT-TYPE
-    SYNTAX      DisplayString (SIZE(1..20))
+    SYNTAX      SnmpAdminString (SIZE(1..20))
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -317,14 +322,14 @@ alaRouteMapAccessListEntry OBJECT-TYPE
         alaRouteMapAccessListAddressType,
         alaRouteMapAccessListAddress,
         alaRouteMapAccessListPrefixLength
-       }                 
+       }
     ::= { alaRouteMapAccessListTable 1 }
 
 AlaRouteMapAccessListEntry ::= SEQUENCE {
     alaRouteMapAccessListIndex          Unsigned32,
     alaRouteMapAccessListAddressType    InetAddressType,
     alaRouteMapAccessListAddress        InetAddress,
-    alaRouteMapAccessListPrefixLength   Unsigned32,
+    alaRouteMapAccessListPrefixLength   Integer32,
     alaRouteMapAccessListRedistControl  AlaRouteMapRedistControl,
     alaRouteMapAccessListAction         AlaRouteMapAction,
     alaRouteMapAccessListRowStatus      RowStatus
@@ -343,7 +348,7 @@ alaRouteMapAccessListAddressType  OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
-        "The type of address in this Access List Table Entry. 
+        "The type of address in this Access List Table Entry.
          The set is constrained to ipv4 and ipv6."
     ::= { alaRouteMapAccessListEntry 2 }
 
@@ -353,16 +358,16 @@ alaRouteMapAccessListAddress  OBJECT-TYPE
     STATUS  current
     DESCRIPTION
         "The IPv4 or IPv6 address associated with this access list entry.
-         The type is identified by alaRouteMapAccessListAddressType." 
+         The type is identified by alaRouteMapAccessListAddressType."
     ::= { alaRouteMapAccessListEntry 3 }
 
 alaRouteMapAccessListPrefixLength  OBJECT-TYPE
-    SYNTAX      Unsigned32 (0..128)
+    SYNTAX      Integer32 (0..128)
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
-        "The prefix length in bits of the IPv4 or IPv6 address 
-         associated with this Access List entry. The maximum 
+        "The prefix length in bits of the IPv4 or IPv6 address
+         associated with this Access List entry. The maximum
          for IPv4 is 32."
     ::= { alaRouteMapAccessListEntry 4 }
 
@@ -371,7 +376,7 @@ alaRouteMapAccessListRedistControl  OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS  current
     DESCRIPTION
-        "Controls how a route is matched and redistributed. 
+        "Controls how a route is matched and redistributed.
          allSubnets matches all subnets of the prefix. noSubnets
          only matches the exact prefix. aggregate matches all subnets
          of the prefix, but only redistributes the prefix."
@@ -382,7 +387,7 @@ alaRouteMapAccessListAction  OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS  current
     DESCRIPTION
-        "Controls whether an address should be redistributed or 
+        "Controls whether an address should be redistributed or
          denied, if an Access list entry is matched."
     ::= { alaRouteMapAccessListEntry 6 }
 
@@ -412,17 +417,17 @@ alaRouteMapNameEntry OBJECT-TYPE
         "Each entry binds a Route Map Name to a Route Map index."
     INDEX {
         alaRouteMapName
-       }                 
+       }
     ::= { alaRouteMapNameTable 1 }
 
 AlaRouteMapNameEntry ::= SEQUENCE {
-    alaRouteMapName            DisplayString,
+    alaRouteMapName            SnmpAdminString,
     alaRouteMapNameIndex       Unsigned32,
     alaRouteMapNameRowStatus   RowStatus
    }
 
 alaRouteMapName OBJECT-TYPE
-    SYNTAX      DisplayString (SIZE(1..20))
+    SYNTAX      SnmpAdminString (SIZE(1..20))
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -464,7 +469,7 @@ alaRouteMapSequenceEntry OBJECT-TYPE
     INDEX {
         alaRouteMapSequenceIndex,
         alaRouteMapSequenceNumber
-       }                 
+       }
     ::= { alaRouteMapSequenceTable 1 }
 
 AlaRouteMapSequenceEntry ::= SEQUENCE {
@@ -487,7 +492,7 @@ alaRouteMapSequenceNumber OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
-        "The Sequence Number indicating the position of sequences 
+        "The Sequence Number indicating the position of sequences
          with the same Route Map index."
     DEFVAL { 50 }
     ::= { alaRouteMapSequenceEntry 2 }
@@ -497,7 +502,7 @@ alaRouteMapSequenceAction OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS  current
     DESCRIPTION
-        "Controls whether a sequence, if matched, should be redistributed or 
+        "Controls whether a sequence, if matched, should be redistributed or
          denied."
     ::= { alaRouteMapSequenceEntry 3 }
 
@@ -530,14 +535,14 @@ alaRouteMapEntry OBJECT-TYPE
         alaRouteMapSequence,
         alaRouteMapType,
         alaRouteMapValue
-       }                 
+       }
     ::= { alaRouteMapTable 1 }
 
 AlaRouteMapEntry ::= SEQUENCE {
     alaRouteMapIndex           Unsigned32,
     alaRouteMapSequence        Unsigned32,
     alaRouteMapType            AlaRouteMapType,
-    alaRouteMapValue           DisplayString,
+    alaRouteMapValue           SnmpAdminString,
     alaRouteMapRowStatus       RowStatus
    }
 
@@ -567,16 +572,16 @@ alaRouteMapType OBJECT-TYPE
     STATUS  current
     DESCRIPTION
         "The type of match or set command in this entry. Route Map
-         rows with the same Route Map Name, Sequence Number and 
-         Match/Set Type form a group. An entry within the group is 
-         uniquely identified by this Route Map Table object. Any 
+         rows with the same Route Map Name, Sequence Number and
+         Match/Set Type form a group. An entry within the group is
+         uniquely identified by this Route Map Table object. Any
          match within the group is considered a successful match
          for the entire group, and matching will continue with the
          next group."
     ::= { alaRouteMapEntry 3 }
 
 alaRouteMapValue OBJECT-TYPE
-    SYNTAX      DisplayString (SIZE(1..128))
+    SYNTAX      SnmpAdminString (SIZE(1..128))
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -615,13 +620,14 @@ alaRouteMapCompliance MODULE-COMPLIANCE
 -- units of conformance
 
 alaRouteMapConfigMIBGroup OBJECT-GROUP
-    OBJECTS { alaRouteMapAccessListNameIndex, alaRouteMapAccessListNameAddressType, 
-		alaRouteMapAccessListNameRowStatus, alaRouteMapAccessListRedistControl,
-		alaRouteMapAccessListAction, alaRouteMapAccessListRowStatus,
-		alaRouteMapNameIndex, alaRouteMapNameRowStatus,
-		alaRouteMapSequenceAction, alaRouteMapSequenceRowStatus,
-		alaRouteMapRowStatus
-	}
+    OBJECTS { alaRouteMapAccessListNameIndex, alaRouteMapAccessListNameAddressType,
+                alaRouteMapAccessListNameRowStatus, alaRouteMapAccessListRedistControl,
+                alaRouteMapRedistAddressType, alaRouteMapRedistRowStatus, alaRouteMapRedistStatus,
+                alaRouteMapAccessListAction, alaRouteMapAccessListRowStatus,
+                alaRouteMapNameIndex, alaRouteMapNameRowStatus,
+                alaRouteMapSequenceAction, alaRouteMapSequenceRowStatus,
+                alaRouteMapRowStatus
+        }
     STATUS  current
     DESCRIPTION
             "A collection of objects to support management of global
