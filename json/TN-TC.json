@@ -6,19 +6,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
       "Counter64",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "iso",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -514,8 +514,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-TC",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:59:02 2022",
-      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:38:53 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TN-TC"

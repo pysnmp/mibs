@@ -7,22 +7,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "enterprises",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
+      "Counter32",
       "MibIdentifier",
       "OBJECT-TYPE",
+      "enterprises",
+      "Counter64",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "Bits",
       "Unsigned32",
-      "snmpModules",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -307,8 +307,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-WLAN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:38:33 2022",
-      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:20:33 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DELL-WLAN-MIB"

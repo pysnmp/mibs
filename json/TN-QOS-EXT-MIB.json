@@ -5,9 +5,9 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -18,33 +18,33 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Integer32",
-      "Gauge32",
+      "Bits",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
       "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "TruthValue",
+      "TimeInterval",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TimeInterval",
-      "TruthValue"
+      "MacAddress"
     ],
     "TRANSITION-SMI": [
       "tnProducts"
@@ -3072,8 +3072,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-QOS-EXT",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:59:02 2022",
-      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:38:52 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TN-QOS-EXT-MIB"

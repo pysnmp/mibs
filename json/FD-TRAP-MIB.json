@@ -10,58 +10,58 @@
       "onuIdExhaust"
     ],
     "FD-ONU-MIB": [
-      "uniPortLink",
       "uniPortRstpState",
-      "onuOnLineStatus"
+      "onuOnLineStatus",
+      "uniPortLink"
     ],
     "FD-PERFORMANCE-MIB": [
-      "oltTrafficChangeVal",
       "swSniPortTrafficChangeVal",
+      "oltTrafficChangeVal",
       "onuTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
-      "sfpPlugStauts",
-      "swPortLinkState"
+      "swPortLinkState",
+      "sfpPlugStauts"
     ],
     "FD-SYSTEM-MIB": [
-      "userId",
-      "ponCardRunningStatus",
       "powerStatusBit",
-      "fanStatusBit",
       "userName",
-      "userPermission",
       "userAccessDeviceMap",
       "loginTimeout",
-      "nonAuthOnuMac",
+      "ponCardRunningStatus",
       "userPassword",
-      "userEntryRowStatus"
+      "userEntryRowStatus",
+      "userId",
+      "nonAuthOnuMac",
+      "userPermission",
+      "fanStatusBit"
     ],
     "RMON-MIB": [
       "alarmValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "Bits",
       "TimeTicks",
-      "Unsigned32",
+      "Counter32",
+      "Counter64",
       "MODULE-IDENTITY",
       "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "IpAddress",
-      "Bits",
-      "Counter64"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eponTraps": {
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:32:14 2022",
-      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:14:49 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FD-TRAP-MIB"

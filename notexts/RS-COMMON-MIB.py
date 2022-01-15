@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module RS-COMMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-COMMON-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:56:17 2022
-# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 05:37:32 2022
+# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, TimeTicks, enterprises, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, iso, Bits, Gauge32, ModuleIdentity, Counter32, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "TimeTicks", "enterprises", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "iso", "Bits", "Gauge32", "ModuleIdentity", "Counter32", "MibIdentifier", "NotificationType")
+Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks, Integer32, Counter32, enterprises, NotificationType, Counter64, iso, ObjectIdentity, MibIdentifier, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks", "Integer32", "Counter32", "enterprises", "NotificationType", "Counter64", "iso", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rsRoot = ModuleIdentity((1, 3, 6, 1, 4, 1, 2566))
 rsRoot.setRevisions(('2006-05-17 08:40',))
@@ -41,4 +41,4 @@ rsRegBroadcastMeasurement = ObjectIdentity((1, 3, 6, 1, 4, 1, 2566, 149, 2, 1))
 if mibBuilder.loadTexts: rsRegBroadcastMeasurement.setStatus('current')
 rsRegBroadcastTransmitter = ObjectIdentity((1, 3, 6, 1, 4, 1, 2566, 149, 2, 2))
 if mibBuilder.loadTexts: rsRegBroadcastTransmitter.setStatus('current')
-mibBuilder.exportSymbols("RS-COMMON-MIB", rsRequirements=rsRequirements, rsCapabilities=rsCapabilities, PYSNMP_MODULE_ID=rsRoot, rsRegBroadcast=rsRegBroadcast, rsProdBroadcast=rsProdBroadcast, rsCommon=rsCommon, rsProducts=rsProducts, rsRoot=rsRoot, rsRegBroadcastMeasurement=rsRegBroadcastMeasurement, rsExperimental=rsExperimental, rsProdBroadcastTransmitter=rsProdBroadcastTransmitter, rsRegBroadcastTransmitter=rsRegBroadcastTransmitter, rsProdBroadcastMeasurement=rsProdBroadcastMeasurement, rsRegistration=rsRegistration, rsRegModules=rsRegModules)
+mibBuilder.exportSymbols("RS-COMMON-MIB", PYSNMP_MODULE_ID=rsRoot, rsProducts=rsProducts, rsRegBroadcast=rsRegBroadcast, rsCapabilities=rsCapabilities, rsExperimental=rsExperimental, rsRegModules=rsRegModules, rsProdBroadcastMeasurement=rsProdBroadcastMeasurement, rsProdBroadcast=rsProdBroadcast, rsRegBroadcastTransmitter=rsRegBroadcastTransmitter, rsRegBroadcastMeasurement=rsRegBroadcastMeasurement, rsRoot=rsRoot, rsCommon=rsCommon, rsRequirements=rsRequirements, rsProdBroadcastTransmitter=rsProdBroadcastTransmitter, rsRegistration=rsRegistration)
