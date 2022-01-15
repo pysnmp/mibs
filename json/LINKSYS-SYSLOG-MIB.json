@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "rlSyslog": {
@@ -789,8 +789,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:35:36 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:19:11 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-SYSLOG-MIB"

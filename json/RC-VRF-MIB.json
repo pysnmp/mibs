@@ -1,0 +1,664 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "RAPID-CITY": [
+      "rcVrf",
+      "EnableValue",
+      "IdList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "mib-2",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "rcVrfMib": {
+    "name": "rcVrfMib",
+    "oid": "1.3.6.1.4.1.2272.1.203.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-09 00:00",
+        "description": "Version 11: added values isis(3) and pim(4) to VrfRpTriggerBitCode."
+      },
+      {
+        "revision": "2008-05-18 00:00",
+        "description": "Version 10: corrected the enum values for rcVrfIpVpnSvcLblAllocOpt."
+      },
+      {
+        "revision": "2008-05-16 00:00",
+        "description": "Version 9: Updated default value for rcVrfRpTrigger and removed vrrp bit from VrfRpTriggerBitCode."
+      },
+      {
+        "revision": "2008-05-13 00:00",
+        "description": "Version 8: Updated default value for rcVrfRpTrigger."
+      },
+      {
+        "revision": "2008-05-09 00:00",
+        "description": "Version 7: Fixed smilint errors."
+      },
+      {
+        "revision": "2008-05-08 00:00",
+        "description": "Version 6: Removed embedded control characters (was causing compile errors)."
+      },
+      {
+        "revision": "2008-04-28 00:00",
+        "description": "Version 5: Fixed smilint issues."
+      },
+      {
+        "revision": "2008-03-13 00:00",
+        "description": "Version 4: Changed module name to 'RC-VRF-MIB' from 'RC-VIRTUAL-ROUTING-MIB'."
+      },
+      {
+        "revision": "2007-12-18 00:00",
+        "description": "Version 3: Changed syntax of rcVrfIpVpnStatus from TruthValue to EnableValue"
+      },
+      {
+        "revision": "2007-05-03 00:00",
+        "description": "Version 2: Add rcVrfIpVpnTableSize, rcVrfIpVpnTable."
+      },
+      {
+        "revision": "2007-01-24 00:00",
+        "description": "Version 1: Initial version"
+      }
+    ]
+  },
+  "VrfIdentifier": {
+    "name": "VrfIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VPNId": {
+    "name": "VPNId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "VrfRpTriggerBitCode": {
+    "name": "VrfRpTriggerBitCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rip": 0,
+        "ospf": 1,
+        "bgp": 2,
+        "isis": 3,
+        "pim": 4
+      }
+    },
+    "status": "current"
+  },
+  "rcVrfNotifications": {
+    "name": "rcVrfNotifications",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.0",
+    "class": "objectidentity"
+  },
+  "rcVrfObjects": {
+    "name": "rcVrfObjects",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1",
+    "class": "objectidentity"
+  },
+  "rcVrfNotificationObjects": {
+    "name": "rcVrfNotificationObjects",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.2",
+    "class": "objectidentity"
+  },
+  "rcVrfConfig": {
+    "name": "rcVrfConfig",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1",
+    "class": "objectidentity"
+  },
+  "rcVrfConfigScalars": {
+    "name": "rcVrfConfigScalars",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "rcVrfConfigNextAvailableVrfId": {
+    "name": "rcVrfConfigNextAvailableVrfId",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfConfigTable": {
+    "name": "rcVrfConfigTable",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVrfConfigEntry": {
+    "name": "rcVrfConfigEntry",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VRF-MIB",
+        "object": "rcVrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVrfId": {
+    "name": "rcVrfId",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVrfRowStatus": {
+    "name": "rcVrfRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfName": {
+    "name": "rcVrfName",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rcVrfContextName": {
+    "name": "rcVrfContextName",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfTrapEnable": {
+    "name": "rcVrfTrapEnable",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfMaxRoutes": {
+    "name": "rcVrfMaxRoutes",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfAdminStatus": {
+    "name": "rcVrfAdminStatus",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfVpnId": {
+    "name": "rcVrfVpnId",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VPNId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfRpTrigger": {
+    "name": "rcVrfRpTrigger",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfRpTriggerBitCode",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "rip": 0,
+          "ospf": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfMaxRoutesTrapEnable": {
+    "name": "rcVrfMaxRoutesTrapEnable",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfStat": {
+    "name": "rcVrfStat",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2",
+    "class": "objectidentity"
+  },
+  "rcVrfStatScalars": {
+    "name": "rcVrfStatScalars",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "rcVrfConfiguredVRFs": {
+    "name": "rcVrfConfiguredVRFs",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfActiveVRFs": {
+    "name": "rcVrfActiveVRFs",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfStatTable": {
+    "name": "rcVrfStatTable",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVrfStatEntry": {
+    "name": "rcVrfStatEntry",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VRF-MIB",
+        "object": "rcVrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVrfStatRouteEntries": {
+    "name": "rcVrfStatRouteEntries",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfStatFIBEntries": {
+    "name": "rcVrfStatFIBEntries",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfStatUpTime": {
+    "name": "rcVrfStatUpTime",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfOperStatus": {
+    "name": "rcVrfOperStatus",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfRpStatus": {
+    "name": "rcVrfRpStatus",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfRpTriggerBitCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfRouterAddressType": {
+    "name": "rcVrfRouterAddressType",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfRouterAddress": {
+    "name": "rcVrfRouterAddress",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfIpVpnTableSize": {
+    "name": "rcVrfIpVpnTableSize",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rcVrfIpVpnTable": {
+    "name": "rcVrfIpVpnTable",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVrfIpVpnTableEntry": {
+    "name": "rcVrfIpVpnTableEntry",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RC-VRF-MIB",
+        "object": "rcVrfIpVpnVrfId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rcVrfIpVpnVrfId": {
+    "name": "rcVrfIpVpnVrfId",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VrfIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rcVrfIpVpnStatus": {
+    "name": "rcVrfIpVpnStatus",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfIpVpnImportRTList": {
+    "name": "rcVrfIpVpnImportRTList",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IdList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfIpVpnExportRTList": {
+    "name": "rcVrfIpVpnExportRTList",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IdList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfIpVpnSvcLblAllocOpt": {
+    "name": "rcVrfIpVpnSvcLblAllocOpt",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "perVrfperNexthop": 1,
+          "perVrf": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rcVrfIpVpnRowStatus": {
+    "name": "rcVrfIpVpnRowStatus",
+    "oid": "1.3.6.1.4.1.2272.1.203.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-VRF-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:21:48 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "RC-VRF-MIB"
+  }
+}

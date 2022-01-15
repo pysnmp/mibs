@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSP-MIB": [
-      "cgspCLLICode",
       "cgspEventSequenceNumber",
-      "cgspInstNetwork"
+      "cgspInstNetwork",
+      "cgspCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcGtaLongDisplay",
-      "CItpTcNumberingPlan",
-      "CItpTcNetworkName",
-      "CItpTcURL",
-      "CItpTcGtaLongDisplayLen",
       "CItpTcTranslationType",
-      "CItpTcDisplayPC",
+      "CItpTcGtaLongAddr",
+      "CItpTcNumberingPlan",
+      "CItpTcGtaLongDisplay",
       "CItpTcSubSystemNumber",
+      "CItpTcURL",
       "CItpTcXuaName",
       "CItpTcTableLoadStatus",
-      "CItpTcNAI",
+      "CItpTcGtaLongDisplayLen",
+      "CItpTcDisplayPC",
       "CItpTcPointCode",
-      "CItpTcGtaLongAddr"
+      "CItpTcNetworkName",
+      "CItpTcNAI"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -28,32 +28,32 @@
       "EntPhysicalIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Unsigned32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
       "Counter32",
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ciscoGsccpMIB": {
@@ -5510,8 +5510,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSCCP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:19:39 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:06:33 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-ITP-GSCCP-MIB"

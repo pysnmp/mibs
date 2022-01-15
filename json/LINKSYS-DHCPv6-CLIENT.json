@@ -6,10 +6,10 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddressIPv6",
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddress"
     ],
     "LINKSYS-DHCPv6": [
       "rlDhcpv6Client"
@@ -19,27 +19,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Integer32",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TruthValue",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "rlDhcpv6ClientMibVersion": {
@@ -750,8 +750,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCPv6-CLIENT",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:35:35 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:19:10 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-DHCPv6-CLIENT"

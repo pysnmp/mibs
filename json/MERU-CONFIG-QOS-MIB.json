@@ -8,46 +8,46 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlDscpType",
+      "MwlQosRulesMatchClassBits",
+      "MwlQosRulesMatchClass",
+      "MwlQosAction",
       "MwlQosProtocol",
       "MwlDropPolicy",
-      "MwlQosCodecProtocol",
-      "MwlQosCodec",
-      "MwlQosRulesMatchClassBits",
+      "MwlDscpType",
       "MwlAdmissionControl",
-      "MwlQosAction",
-      "MwlQosRulesMatchClass",
-      "MwlOnOffSwitch"
+      "MwlOnOffSwitch",
+      "MwlQosCodecProtocol",
+      "MwlQosCodec"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "IpAddress",
       "Integer32",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Unsigned32",
+      "Counter32",
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "enterprises",
-      "OBJECT-TYPE",
-      "Counter64",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TimeStamp",
+      "DisplayString",
       "TruthValue",
       "TimeInterval",
-      "MacAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ]
   },
@@ -991,8 +991,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:26:06 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:11:25 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MERU-CONFIG-QOS-MIB"

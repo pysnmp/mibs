@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "LUM-REG": [
-      "lumModules",
-      "lumInventoryMIB"
+      "lumInventoryMIB",
+      "lumModules"
     ],
     "LUM-TC": [
       "MgmtNameString"
@@ -12,34 +12,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowPointer",
+      "AutonomousType",
       "DateAndTime",
       "TruthValue",
-      "AutonomousType",
-      "DisplayString",
-      "TestAndIncr",
-      "RowPointer"
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
     ]
   },
   "lumInventoryMIBModule": {
@@ -2062,8 +2062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infinera/LUM-INVENTORY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:32:53 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:16:59 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LUM-INVENTORY-MIB"

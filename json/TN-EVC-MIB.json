@@ -5,18 +5,18 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
+      "PortList",
       "VlanIdOrAnyOrNone",
-      "VlanIdOrAny",
       "VlanId",
-      "VlanIdOrNone",
-      "PortList"
+      "VlanIdOrAny",
+      "VlanIdOrNone"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -27,27 +27,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "iso",
       "MibIdentifier",
-      "IpAddress",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Counter64",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits"
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
+      "StorageType",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType",
+      "MacAddress",
       "TruthValue"
     ],
     "TRANSITION-SMI": [
@@ -2930,8 +2930,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-EVC-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:44:58 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:26:41 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TN-EVC-MIB"

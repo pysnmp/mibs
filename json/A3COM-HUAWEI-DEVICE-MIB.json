@@ -5,28 +5,28 @@
       "lswCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "iso",
       "Counter64",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2216,8 +2216,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3COM-HUAWEI-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:20 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:00:10 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "A3COM-HUAWEI-DEVICE-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module COMPAT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/COMPAT-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 05:10:45 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 14:59:43 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Counter32, IpAddress, Integer32, NotificationType, ModuleIdentity, ObjectIdentity, Gauge32, TimeTicks, Counter64, Bits, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Counter32", "IpAddress", "Integer32", "NotificationType", "ModuleIdentity", "ObjectIdentity", "Gauge32", "TimeTicks", "Counter64", "Bits", "Unsigned32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, Bits, Integer32, Counter32, iso, Counter64, Unsigned32, IpAddress, MibIdentifier, enterprises, ObjectIdentity, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "Integer32", "Counter32", "iso", "Counter64", "Unsigned32", "IpAddress", "MibIdentifier", "enterprises", "ObjectIdentity", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class DisplayString(OctetString):
     pass
 
@@ -61,4 +61,4 @@ vpnTunnelTableBandwidthOut = MibTableColumn((1, 3, 6, 1, 4, 1, 255, 2, 2, 1, 1, 
 if mibBuilder.loadTexts: vpnTunnelTableBandwidthOut.setStatus('mandatory')
 vpnTunnelTableBandwidthReturn = MibTableColumn((1, 3, 6, 1, 4, 1, 255, 2, 2, 1, 1, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: vpnTunnelTableBandwidthReturn.setStatus('mandatory')
-mibBuilder.exportSymbols("COMPAT-MIB", vpnTunnelTableIpBytesSent=vpnTunnelTableIpBytesSent, vpnTunnelTableGroupName=vpnTunnelTableGroupName, vpnTunnelTableBandwidthReturn=vpnTunnelTableBandwidthReturn, vpnTunnelTableIpxBytesRcvd=vpnTunnelTableIpxBytesRcvd, vpnTunnelTableIpAddress=vpnTunnelTableIpAddress, vpnTunnelTableIndex=vpnTunnelTableIndex, vpnTunnelTableIpxBytesSent=vpnTunnelTableIpxBytesSent, failedLogins=failedLogins, vpnTunnelTableAppletalkBytesSent=vpnTunnelTableAppletalkBytesSent, vpnTunnelTableUserName=vpnTunnelTableUserName, vPNTunnelTable=vPNTunnelTable, compatVPN=compatVPN, failedSecurID=failedSecurID, vpnTunnelTable=vpnTunnelTable, vpnTunnelTableAppletalkBytesRcvd=vpnTunnelTableAppletalkBytesRcvd, vpnTunnelTableLatency=vpnTunnelTableLatency, processorUtilizationPercentage=processorUtilizationPercentage, vpnTunnelTableIpBytesRcvd=vpnTunnelTableIpBytesRcvd, vpnTunnelTableBandwidthOut=vpnTunnelTableBandwidthOut, vpnTunnelTableUptime=vpnTunnelTableUptime, compatible=compatible, vpnTunnelTableEntry=vpnTunnelTableEntry, compatVars=compatVars, DisplayString=DisplayString, vpnTunnelTableAssignedIpAddress=vpnTunnelTableAssignedIpAddress, failedRadiusAuth=failedRadiusAuth, vpnLoginTable=vpnLoginTable)
+mibBuilder.exportSymbols("COMPAT-MIB", vpnTunnelTableLatency=vpnTunnelTableLatency, vpnTunnelTable=vpnTunnelTable, compatVPN=compatVPN, vpnTunnelTableUptime=vpnTunnelTableUptime, vpnTunnelTableGroupName=vpnTunnelTableGroupName, vpnTunnelTableAppletalkBytesSent=vpnTunnelTableAppletalkBytesSent, vpnTunnelTableBandwidthReturn=vpnTunnelTableBandwidthReturn, failedLogins=failedLogins, vpnTunnelTableAppletalkBytesRcvd=vpnTunnelTableAppletalkBytesRcvd, vpnTunnelTableUserName=vpnTunnelTableUserName, failedSecurID=failedSecurID, vpnTunnelTableIpAddress=vpnTunnelTableIpAddress, DisplayString=DisplayString, vpnTunnelTableIpxBytesRcvd=vpnTunnelTableIpxBytesRcvd, vPNTunnelTable=vPNTunnelTable, vpnTunnelTableAssignedIpAddress=vpnTunnelTableAssignedIpAddress, vpnTunnelTableIndex=vpnTunnelTableIndex, vpnTunnelTableEntry=vpnTunnelTableEntry, compatible=compatible, vpnTunnelTableIpBytesSent=vpnTunnelTableIpBytesSent, vpnLoginTable=vpnLoginTable, processorUtilizationPercentage=processorUtilizationPercentage, vpnTunnelTableIpxBytesSent=vpnTunnelTableIpxBytesSent, vpnTunnelTableBandwidthOut=vpnTunnelTableBandwidthOut, compatVars=compatVars, vpnTunnelTableIpBytesRcvd=vpnTunnelTableIpBytesRcvd, failedRadiusAuth=failedRadiusAuth)

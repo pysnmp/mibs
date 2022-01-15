@@ -1,38 +1,42 @@
 {
   "imports": {
     "class": "imports",
-    "DMTF-DMI-MIB": [
-      "DmiDate"
-    ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "TimeTicks",
-      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
       "OBJECT-TYPE",
       "iso",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "Counter32",
+      "MibIdentifier",
       "enterprises",
+      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "DmiInteger": {
     "name": "DmiInteger",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "DmiDate": {
+    "name": "DmiDate",
     "class": "type",
     "type": {
       "type": "INTEGER",
@@ -97,13 +101,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a1Manufacturer": {
@@ -204,23 +201,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a2Tempparentindex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a2Tempindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a2Tempparentindex": {
@@ -378,23 +358,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a3Fansparentindex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a3Fansindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a3Fansparentindex": {
@@ -549,23 +512,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a4Voltparentindex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a4Voltindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a4Voltparentindex": {
@@ -726,23 +672,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a5Ampparentindex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a5Ampindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a5Ampparentindex": {
@@ -901,23 +830,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a6Pwrsupplyparentindex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a6Pwrsupplyindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a6Pwrsupplyparentindex": {
@@ -1028,18 +940,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a7Pwrunitindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a7Pwrunitstatus": {
@@ -1199,18 +1099,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a8Chassindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a8Chassindex": {
@@ -1515,18 +1403,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a9ContainerIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a9ContainerOrChassisType": {
@@ -1760,13 +1636,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a10AutomaticCapabilities": {
@@ -1843,18 +1712,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a11Esmlogindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a11Esmlogindex": {
@@ -1895,18 +1752,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a12Postlogindex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a12Postlogindex": {
@@ -1947,18 +1792,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a13UserIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a13UserIndex": {
@@ -2011,13 +1844,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a14DialupCapability": {
@@ -2064,23 +1890,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a15FirmwareChassisIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a15FirmwareIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a15FirmwareChassisIndex": {
@@ -2177,13 +1986,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a99DellBaseboardMib": {
@@ -2236,18 +2038,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a102AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a102EventType": {
@@ -2441,18 +2231,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a103AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a103EventType": {
@@ -2646,18 +2424,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a104AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a104EventType": {
@@ -2851,18 +2617,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a105AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a105EventType": {
@@ -3056,18 +2810,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a107AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a107EventType": {
@@ -3262,18 +3004,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a108AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a108EventType": {
@@ -3467,18 +3197,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a109AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a109EventType": {
@@ -3678,18 +3396,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "a110AssociatedGroup",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a110EventType": {
@@ -3883,13 +3589,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLBASEBOARDMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a9999AlertSystem": {
@@ -4738,8 +4437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLBASEBOARDMIF-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:22:35 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:08:44 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DELLBASEBOARDMIF-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MPLS-ID-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-ID-STD-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 05:10:58 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 14:59:53 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-MplsGlobalId, MplsIccId, MplsCcId, MplsNodeId = mibBuilder.importSymbols("MPLS-TC-EXT-STD-MIB", "MplsGlobalId", "MplsIccId", "MplsCcId", "MplsNodeId")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+MplsIccId, MplsGlobalId, MplsNodeId, MplsCcId = mibBuilder.importSymbols("MPLS-TC-EXT-STD-MIB", "MplsIccId", "MplsGlobalId", "MplsNodeId", "MplsCcId")
 mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, Integer32, Gauge32, MibIdentifier, Unsigned32, ModuleIdentity, NotificationType, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "Integer32", "Gauge32", "MibIdentifier", "Unsigned32", "ModuleIdentity", "NotificationType", "iso", "Bits")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Unsigned32, MibIdentifier, Bits, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, ObjectIdentity, Counter32, TimeTicks, IpAddress, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "Bits", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "ObjectIdentity", "Counter32", "TimeTicks", "IpAddress", "Counter64", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mplsIdStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 18))
 mplsIdStdMIB.setRevisions(('2015-02-02 00:00',))
@@ -59,4 +59,4 @@ mplsIdIccOperatorGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 18, 2, 2, 2)).s
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mplsIdIccOperatorGroup = mplsIdIccOperatorGroup.setStatus('current')
 if mibBuilder.loadTexts: mplsIdIccOperatorGroup.setDescription('The objects in this group are optional for an\n                IP-based node.')
-mibBuilder.exportSymbols("MPLS-ID-STD-MIB", mplsIdIccOperatorGroup=mplsIdIccOperatorGroup, mplsIdCompliances=mplsIdCompliances, mplsIdModuleReadOnlyCompliance=mplsIdModuleReadOnlyCompliance, mplsIdIcc=mplsIdIcc, mplsIdGlobalId=mplsIdGlobalId, mplsIdStdMIB=mplsIdStdMIB, mplsIdIpOperatorGroup=mplsIdIpOperatorGroup, mplsIdConformance=mplsIdConformance, mplsIdObjects=mplsIdObjects, mplsIdModuleFullCompliance=mplsIdModuleFullCompliance, PYSNMP_MODULE_ID=mplsIdStdMIB, mplsIdNodeId=mplsIdNodeId, mplsIdNotifications=mplsIdNotifications, mplsIdCc=mplsIdCc, mplsIdGroups=mplsIdGroups)
+mibBuilder.exportSymbols("MPLS-ID-STD-MIB", mplsIdModuleReadOnlyCompliance=mplsIdModuleReadOnlyCompliance, mplsIdIpOperatorGroup=mplsIdIpOperatorGroup, mplsIdIcc=mplsIdIcc, mplsIdModuleFullCompliance=mplsIdModuleFullCompliance, mplsIdConformance=mplsIdConformance, mplsIdIccOperatorGroup=mplsIdIccOperatorGroup, mplsIdGlobalId=mplsIdGlobalId, mplsIdGroups=mplsIdGroups, mplsIdObjects=mplsIdObjects, mplsIdNotifications=mplsIdNotifications, mplsIdNodeId=mplsIdNodeId, mplsIdStdMIB=mplsIdStdMIB, PYSNMP_MODULE_ID=mplsIdStdMIB, mplsIdCompliances=mplsIdCompliances, mplsIdCc=mplsIdCc)

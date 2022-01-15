@@ -9,32 +9,32 @@
       "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "mib-2",
-      "TimeTicks",
+      "Counter64",
       "Counter32",
+      "TimeTicks",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "mldMIB": {
@@ -561,8 +561,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-MLD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:13 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:00:04 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IPV6-MLD-MIB"

@@ -5,36 +5,36 @@
       "hwDatacomm"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Integer32",
       "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
       "iso",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "RowStatus",
       "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "TimeStamp"
     ]
   },
   "hwPerfMgmt": {
@@ -2632,8 +2632,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PERFMGMT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:31:10 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:15:36 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-PERFMGMT-MIB"

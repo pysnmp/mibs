@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlStorageGroupAdminAccountIndex",
-      "UTFString",
-      "eqlLdapLoginAccessName",
-      "eqlGroupId",
       "eqlGroupTaskIndex",
-      "eqlLdapLoginAccessType"
+      "eqlGroupId",
+      "UTFString",
+      "eqlLdapLoginAccessType",
+      "eqlLdapLoginAccessName",
+      "eqlStorageGroupAdminAccountIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
@@ -20,33 +20,33 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "IpAddress",
       "enterprises",
       "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "RowPointer",
       "DateAndTime",
       "TruthValue",
-      "RowPointer",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eqliscsiModule": {
@@ -12436,8 +12436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLUME-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:24:53 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:10:31 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EQLVOLUME-MIB"

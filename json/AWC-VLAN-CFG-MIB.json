@@ -1,0 +1,556 @@
+{
+  "imports": {
+    "class": "imports",
+    "AWCVX-MIB": [
+      "AwcVlanId",
+      "AwcDot11MicAlgorithm",
+      "awcVx",
+      "AwcDot11WEPKeyPermuteAlgorithm",
+      "AwcPolId",
+      "WEPKeytype128",
+      "AwcPfPriority"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "awcVlanCfgMIB": {
+    "name": "awcVlanCfgMIB",
+    "oid": "1.3.6.1.4.1.522.3.21",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-07-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "awcVlanCfgObjects": {
+    "name": "awcVlanCfgObjects",
+    "oid": "1.3.6.1.4.1.522.3.21.1",
+    "class": "objectidentity"
+  },
+  "AwcVlanIndex": {
+    "name": "AwcVlanIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AwcVlanEncapType": {
+    "name": "AwcVlanEncapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1qDisabled": 1,
+          "dot1qPriority": 2,
+          "dot1qHybrid": 3,
+          "dot1qTrunk": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "awcMaxVlanIds": {
+    "name": "awcMaxVlanIds",
+    "oid": "1.3.6.1.4.1.522.3.21.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "awcVlanEncapMode": {
+    "name": "awcVlanEncapMode",
+    "oid": "1.3.6.1.4.1.522.3.21.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcVlanEncapType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "dot1qDisabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "awcNativeVlanId": {
+    "name": "awcNativeVlanId",
+    "oid": "1.3.6.1.4.1.522.3.21.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "awcVlanAllowEncrypted": {
+    "name": "awcVlanAllowEncrypted",
+    "oid": "1.3.6.1.4.1.522.3.21.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "awcVlanAnyEnabled": {
+    "name": "awcVlanAnyEnabled",
+    "oid": "1.3.6.1.4.1.522.3.21.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "awcVlanCfgTable": {
+    "name": "awcVlanCfgTable",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "awcVlanCfgEntry": {
+    "name": "awcVlanCfgEntry",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "awcVlanIndex": {
+    "name": "awcVlanIndex",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcVlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "awcVlanPolId": {
+    "name": "awcVlanPolId",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcPolId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanEnabled": {
+    "name": "awcVlanEnabled",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanNUcastKeyRotationInterval": {
+    "name": "awcVlanNUcastKeyRotationInterval",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanRowStatus": {
+    "name": "awcVlanRowStatus",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanMicAlgorithm": {
+    "name": "awcVlanMicAlgorithm",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcDot11MicAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "micNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanWEPKeyPermuteAlgorithm": {
+    "name": "awcVlanWEPKeyPermuteAlgorithm",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcDot11WEPKeyPermuteAlgorithm",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "wepPermuteNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanName": {
+    "name": "awcVlanName",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanDefaultUserPriority": {
+    "name": "awcVlanDefaultUserPriority",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcPfPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanAlert": {
+    "name": "awcVlanAlert",
+    "oid": "1.3.6.1.4.1.522.3.21.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "awcVlanNUcastKeyTable": {
+    "name": "awcVlanNUcastKeyTable",
+    "oid": "1.3.6.1.4.1.522.3.21.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "awcVlanNUcastKeyEntry": {
+    "name": "awcVlanNUcastKeyEntry",
+    "oid": "1.3.6.1.4.1.522.3.21.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanNUcastKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "awcVlanNUcastKeyIndex": {
+    "name": "awcVlanNUcastKeyIndex",
+    "oid": "1.3.6.1.4.1.522.3.21.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "awcVlanNUcastKeyLen": {
+    "name": "awcVlanNUcastKeyLen",
+    "oid": "1.3.6.1.4.1.522.3.21.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "awcVlanNUcastKeyValue": {
+    "name": "awcVlanNUcastKeyValue",
+    "oid": "1.3.6.1.4.1.522.3.21.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WEPKeytype128",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "awcVlanAllowUnencryptedVlanId": {
+    "name": "awcVlanAllowUnencryptedVlanId",
+    "oid": "1.3.6.1.4.1.522.3.21.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AwcVlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "awcVlanCfgNotifications": {
+    "name": "awcVlanCfgNotifications",
+    "oid": "1.3.6.1.4.1.522.3.21.2",
+    "class": "objectidentity"
+  },
+  "awcVlanCfgConformance": {
+    "name": "awcVlanCfgConformance",
+    "oid": "1.3.6.1.4.1.522.3.21.3",
+    "class": "objectidentity"
+  },
+  "awcVlanCfgCompliances": {
+    "name": "awcVlanCfgCompliances",
+    "oid": "1.3.6.1.4.1.522.3.21.3.1",
+    "class": "objectidentity"
+  },
+  "awcVlanCfgGroups": {
+    "name": "awcVlanCfgGroups",
+    "oid": "1.3.6.1.4.1.522.3.21.3.2",
+    "class": "objectidentity"
+  },
+  "awcVlanCfgCompliance": {
+    "name": "awcVlanCfgCompliance",
+    "oid": "1.3.6.1.4.1.522.3.21.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "awcVlanCfgObjectsGroup",
+        "module": "AWC-VLAN-CFG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "awcVlanCfgObjectsGroup": {
+    "name": "awcVlanCfgObjectsGroup",
+    "oid": "1.3.6.1.4.1.522.3.21.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcMaxVlanIds"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanEncapMode"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcNativeVlanId"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanAllowEncrypted"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanPolId"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanEnabled"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanNUcastKeyRotationInterval"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanRowStatus"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanMicAlgorithm"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanWEPKeyPermuteAlgorithm"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanName"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanDefaultUserPriority"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanAlert"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanNUcastKeyLen"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanNUcastKeyValue"
+      },
+      {
+        "module": "AWC-VLAN-CFG-MIB",
+        "object": "awcVlanAllowUnencryptedVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/AWC-VLAN-CFG-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:06:34 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "AWC-VLAN-CFG-MIB"
+  }
+}

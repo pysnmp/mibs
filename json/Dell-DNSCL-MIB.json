@@ -5,53 +5,53 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsName",
-      "DnsType",
-      "DnsNameAsIndex",
-      "DnsOpCode",
-      "DnsClass",
-      "dns",
-      "DnsQClass",
       "DnsRespCode",
+      "DnsNameAsIndex",
+      "DnsName",
+      "dns",
+      "DnsClass",
+      "DnsType",
       "DnsQType",
-      "DnsTime"
+      "DnsOpCode",
+      "DnsTime",
+      "DnsQClass"
     ],
     "Dell-MIB": [
       "rnd"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
       "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
+      "Bits",
       "OBJECT-TYPE",
       "iso",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "rlDnsCl": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DNSCL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:22:35 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:08:44 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Dell-DNSCL-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-WEBVIEW-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-WEBVIEW-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 05:24:40 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 15:10:21 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 ctApplication, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctApplication")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, iso, MibIdentifier, Integer32, ModuleIdentity, TimeTicks, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, Unsigned32, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "MibIdentifier", "Integer32", "ModuleIdentity", "TimeTicks", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "Unsigned32", "IpAddress", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, Counter64, MibIdentifier, Unsigned32, Gauge32, ModuleIdentity, ObjectIdentity, IpAddress, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "Counter64", "MibIdentifier", "Unsigned32", "Gauge32", "ModuleIdentity", "ObjectIdentity", "IpAddress", "iso", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctWebView = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4))
 ctEwvConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4, 1))
 ctEwvStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4, 2))
@@ -38,4 +38,4 @@ if mibBuilder.loadTexts: ctEwvAuthScheme.setDescription('Selects the type of HTT
 ctEwvAuthNonceValidCount = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 4, 4, 1, 2, 2), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctEwvAuthNonceValidCount.setStatus('mandatory')
 if mibBuilder.loadTexts: ctEwvAuthNonceValidCount.setDescription('The number of times a server calculated nonce value will be\n                 reused before recalculating a new nonce value')
-mibBuilder.exportSymbols("CTRON-WEBVIEW-MIB", ctWebView=ctWebView, ctEwvDocSupport=ctEwvDocSupport, ctEwvSystemParameters=ctEwvSystemParameters, ctEwvAuthScheme=ctEwvAuthScheme, ctEwvDocSupportAdmin=ctEwvDocSupportAdmin, ctEwvDocSupportLocation=ctEwvDocSupportLocation, ctEwvConfiguration=ctEwvConfiguration, ctEwvDocSupportPassword=ctEwvDocSupportPassword, ctEwvAuthNonceValidCount=ctEwvAuthNonceValidCount, ctEwvStatus=ctEwvStatus, ctEwvDocSupportAdminUID=ctEwvDocSupportAdminUID, ctEwvDocSupportUsername=ctEwvDocSupportUsername)
+mibBuilder.exportSymbols("CTRON-WEBVIEW-MIB", ctEwvAuthNonceValidCount=ctEwvAuthNonceValidCount, ctEwvDocSupport=ctEwvDocSupport, ctEwvDocSupportAdmin=ctEwvDocSupportAdmin, ctEwvDocSupportUsername=ctEwvDocSupportUsername, ctEwvStatus=ctEwvStatus, ctEwvConfiguration=ctEwvConfiguration, ctEwvAuthScheme=ctEwvAuthScheme, ctEwvDocSupportAdminUID=ctEwvDocSupportAdminUID, ctEwvDocSupportPassword=ctEwvDocSupportPassword, ctEwvSystemParameters=ctEwvSystemParameters, ctEwvDocSupportLocation=ctEwvDocSupportLocation, ctWebView=ctWebView)

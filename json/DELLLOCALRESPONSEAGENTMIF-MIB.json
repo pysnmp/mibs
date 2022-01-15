@@ -2,30 +2,38 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "TimeTicks",
-      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
       "OBJECT-TYPE",
       "iso",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "Counter32",
+      "MibIdentifier",
       "enterprises",
+      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
+  },
+  "DmiDate": {
+    "name": "DmiDate",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
   },
   "DmiInteger": {
     "name": "DmiInteger",
@@ -41,22 +49,6 @@
     "type": {
       "type": "DisplayString",
       "class": "type"
-    }
-  },
-  "DmiDate": {
-    "name": "DmiDate",
-    "class": "type",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 28,
-            "max": 28
-          }
-        ]
-      }
     }
   },
   "DmiComponentIndex": {
@@ -101,13 +93,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLLOCALRESPONSEAGENTMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a1Manufacturer": {
@@ -208,18 +193,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLLOCALRESPONSEAGENTMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      },
-      {
-        "module": "DELLLOCALRESPONSEAGENTMIF-MIB",
-        "object": "a2Actionname",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a2Actionname": {
@@ -306,13 +279,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLLOCALRESPONSEAGENTMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a3LraCapabilities": {
@@ -341,13 +307,6 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DELLLOCALRESPONSEAGENTMIF-MIB",
-        "object": "DmiComponentIndex",
-        "implied": 0
-      }
-    ],
     "status": "mandatory"
   },
   "a99DellLocalResponseAgentMib": {
@@ -389,8 +348,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLLOCALRESPONSEAGENTMIF-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:22:34 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:08:43 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DELLLOCALRESPONSEAGENTMIF-MIB"

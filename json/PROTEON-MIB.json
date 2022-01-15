@@ -1,0 +1,1356 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "proteon": {
+    "name": "proteon",
+    "oid": "1.3.6.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "proAdmin": {
+    "name": "proAdmin",
+    "oid": "1.3.6.1.4.1.1.1",
+    "class": "objectidentity"
+  },
+  "proSystem": {
+    "name": "proSystem",
+    "oid": "1.3.6.1.4.1.1.6",
+    "class": "objectidentity"
+  },
+  "proSysObjId": {
+    "name": "proSysObjId",
+    "oid": "1.3.6.1.4.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "proStatus": {
+    "name": "proStatus",
+    "oid": "1.3.6.1.4.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "proPriv": {
+    "name": "proPriv",
+    "oid": "1.3.6.1.4.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "proResource": {
+    "name": "proResource",
+    "oid": "1.3.6.1.4.1.1.6.1",
+    "class": "objectidentity"
+  },
+  "proEls": {
+    "name": "proEls",
+    "oid": "1.3.6.1.4.1.1.6.2",
+    "class": "objectidentity"
+  },
+  "proTemp": {
+    "name": "proTemp",
+    "oid": "1.3.6.1.4.1.1.6.3",
+    "class": "objectidentity"
+  },
+  "proConfig": {
+    "name": "proConfig",
+    "oid": "1.3.6.1.4.1.1.6.4",
+    "class": "objectidentity"
+  },
+  "proResMemory": {
+    "name": "proResMemory",
+    "oid": "1.3.6.1.4.1.1.6.1.1",
+    "class": "objectidentity"
+  },
+  "proResBuffers": {
+    "name": "proResBuffers",
+    "oid": "1.3.6.1.4.1.1.6.1.2",
+    "class": "objectidentity"
+  },
+  "proResMemHeap": {
+    "name": "proResMemHeap",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1",
+    "class": "objectidentity"
+  },
+  "proResMemBuf": {
+    "name": "proResMemBuf",
+    "oid": "1.3.6.1.4.1.1.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "proResBufGlobal": {
+    "name": "proResBufGlobal",
+    "oid": "1.3.6.1.4.1.1.6.1.2.1",
+    "class": "objectidentity"
+  },
+  "proElsTrapSeqs": {
+    "name": "proElsTrapSeqs",
+    "oid": "1.3.6.1.4.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "proElsTrapSubSystem": {
+    "name": "proElsTrapSubSystem",
+    "oid": "1.3.6.1.4.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "proElsTrapEvent": {
+    "name": "proElsTrapEvent",
+    "oid": "1.3.6.1.4.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "proElsTrapVar1": {
+    "name": "proElsTrapVar1",
+    "oid": "1.3.6.1.4.1.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar2": {
+    "name": "proElsTrapVar2",
+    "oid": "1.3.6.1.4.1.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar3": {
+    "name": "proElsTrapVar3",
+    "oid": "1.3.6.1.4.1.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar4": {
+    "name": "proElsTrapVar4",
+    "oid": "1.3.6.1.4.1.1.1.1.8",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar5": {
+    "name": "proElsTrapVar5",
+    "oid": "1.3.6.1.4.1.1.1.1.9",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar6": {
+    "name": "proElsTrapVar6",
+    "oid": "1.3.6.1.4.1.1.1.1.10",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar7": {
+    "name": "proElsTrapVar7",
+    "oid": "1.3.6.1.4.1.1.1.1.11",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar8": {
+    "name": "proElsTrapVar8",
+    "oid": "1.3.6.1.4.1.1.1.1.12",
+    "class": "objectidentity"
+  },
+  "proElsTrapVar9": {
+    "name": "proElsTrapVar9",
+    "oid": "1.3.6.1.4.1.1.1.1.13",
+    "class": "objectidentity"
+  },
+  "proElsGeneric": {
+    "name": "proElsGeneric",
+    "oid": "1.3.6.1.4.1.1.6.2.1",
+    "class": "objectidentity"
+  },
+  "ProElsMsgLogLevel": {
+    "name": "ProElsMsgLogLevel",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "proMsgLevelUIError": 2,
+          "proMsgLevelCIError": 3,
+          "proMsgLevelUEError": 4,
+          "proMsgLevelCEError": 5,
+          "proMsgLevelError": 6,
+          "proMsgLevelUInfo": 7,
+          "proMsgLevelCInfo": 8,
+          "proMsgLevelInfo": 9,
+          "proMsgLevelPTrace": 10,
+          "proMsgLevelUTrace": 11,
+          "proMsgLevelCTrace": 12,
+          "proMsgLevelTrace": 13,
+          "proMsgLevelAlways": 14,
+          "proMsgLevelStandard": 15,
+          "proMsgLevelAll": 16
+        }
+      }
+    }
+  },
+  "ProElsLogStatus": {
+    "name": "ProElsLogStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "proElsLogDisabled": 1,
+          "proElsLogEnabled": 2
+        }
+      }
+    }
+  },
+  "proSysObjIdP4100": {
+    "name": "proSysObjIdP4100",
+    "oid": "1.3.6.1.4.1.1.1.1.41",
+    "class": "objectidentity"
+  },
+  "proSysObjIdP4200": {
+    "name": "proSysObjIdP4200",
+    "oid": "1.3.6.1.4.1.1.1.1.42",
+    "class": "objectidentity"
+  },
+  "proSysObjIdDNX300": {
+    "name": "proSysObjIdDNX300",
+    "oid": "1.3.6.1.4.1.1.1.1.43",
+    "class": "objectidentity"
+  },
+  "proSysObjIdCNX400": {
+    "name": "proSysObjIdCNX400",
+    "oid": "1.3.6.1.4.1.1.1.1.44",
+    "class": "objectidentity"
+  },
+  "proSysObjIdCNX600": {
+    "name": "proSysObjIdCNX600",
+    "oid": "1.3.6.1.4.1.1.1.1.46",
+    "class": "objectidentity"
+  },
+  "proSysObjIdRBX200": {
+    "name": "proSysObjIdRBX200",
+    "oid": "1.3.6.1.4.1.1.1.1.47",
+    "class": "objectidentity"
+  },
+  "proSysObjIdCNX500": {
+    "name": "proSysObjIdCNX500",
+    "oid": "1.3.6.1.4.1.1.1.1.49",
+    "class": "objectidentity"
+  },
+  "proSysObjIdRBX250": {
+    "name": "proSysObjIdRBX250",
+    "oid": "1.3.6.1.4.1.1.1.1.50",
+    "class": "objectidentity"
+  },
+  "proSysObjIdBOSS3Slot": {
+    "name": "proSysObjIdBOSS3Slot",
+    "oid": "1.3.6.1.4.1.1.1.1.53",
+    "class": "objectidentity"
+  },
+  "proSysObjIdBOSSs90": {
+    "name": "proSysObjIdBOSSs90",
+    "oid": "1.3.6.1.4.1.1.1.1.54",
+    "class": "objectidentity"
+  },
+  "proActionReset": {
+    "name": "proActionReset",
+    "oid": "1.3.6.1.4.1.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proActionReload": {
+    "name": "proActionReload",
+    "oid": "1.3.6.1.4.1.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proStatusReloadTime": {
+    "name": "proStatusReloadTime",
+    "oid": "1.3.6.1.4.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proStatusStarts": {
+    "name": "proStatusStarts",
+    "oid": "1.3.6.1.4.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proStatusCrashes": {
+    "name": "proStatusCrashes",
+    "oid": "1.3.6.1.4.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proStatusCrashMsg": {
+    "name": "proStatusCrashMsg",
+    "oid": "1.3.6.1.4.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemHeapTotal": {
+    "name": "proResMemHeapTotal",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemHeapReserve": {
+    "name": "proResMemHeapReserve",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemHeapNeverAlloc": {
+    "name": "proResMemHeapNeverAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemHeapPermAlloc": {
+    "name": "proResMemHeapPermAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemHeapTempAlloc": {
+    "name": "proResMemHeapTempAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemHeapPrevAlloc": {
+    "name": "proResMemHeapPrevAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemBufTotal": {
+    "name": "proResMemBufTotal",
+    "oid": "1.3.6.1.4.1.1.6.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemBufReserve": {
+    "name": "proResMemBufReserve",
+    "oid": "1.3.6.1.4.1.1.6.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemBufNeverAlloc": {
+    "name": "proResMemBufNeverAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResMemBufPermAlloc": {
+    "name": "proResMemBufPermAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResBufGlobalTotal": {
+    "name": "proResBufGlobalTotal",
+    "oid": "1.3.6.1.4.1.1.6.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResBufGlobalFree": {
+    "name": "proResBufGlobalFree",
+    "oid": "1.3.6.1.4.1.1.6.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResBufGlobalFair": {
+    "name": "proResBufGlobalFair",
+    "oid": "1.3.6.1.4.1.1.6.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResBufGlobalLow": {
+    "name": "proResBufGlobalLow",
+    "oid": "1.3.6.1.4.1.1.6.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResBufTable": {
+    "name": "proResBufTable",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "proResBufTableEntry": {
+    "name": "proResBufTableEntry",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "proResInputBufsReq": {
+    "name": "proResInputBufsReq",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResInputBufsAlloc": {
+    "name": "proResInputBufsAlloc",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResInputBufsLow": {
+    "name": "proResInputBufsLow",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResInputBufsCurrent": {
+    "name": "proResInputBufsCurrent",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResInputBufsSize": {
+    "name": "proResInputBufsSize",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proResInputBufsTotalBytes": {
+    "name": "proResInputBufsTotalBytes",
+    "oid": "1.3.6.1.4.1.1.6.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsPin": {
+    "name": "proElsPin",
+    "oid": "1.3.6.1.4.1.1.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsDropped": {
+    "name": "proElsDropped",
+    "oid": "1.3.6.1.4.1.1.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsTimestamp": {
+    "name": "proElsTimestamp",
+    "oid": "1.3.6.1.4.1.1.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "proTSOff": 1,
+          "proTSSysUpTime": 2,
+          "proTSTimeOfDay": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsAction": {
+    "name": "proElsAction",
+    "oid": "1.3.6.1.4.1.1.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "proElsActionClear": 2,
+          "proElsActionDefault": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsTrapVersion": {
+    "name": "proElsTrapVersion",
+    "oid": "1.3.6.1.4.1.1.6.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "proElsTrapVersionV1": 1,
+          "proElsTrapVersionV2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsSubSysTable": {
+    "name": "proElsSubSysTable",
+    "oid": "1.3.6.1.4.1.1.6.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "proElsSubSysTableEntry": {
+    "name": "proElsSubSysTableEntry",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsSubSysIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "proElsSubSysIndex": {
+    "name": "proElsSubSysIndex",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "proElsSubSysIndexGw": 1,
+          "proElsSubSysIndexFlt": 2,
+          "proElsSubSysIndexBrs": 3,
+          "proElsSubSysIndexArp": 5,
+          "proElsSubSysIndexIp": 10,
+          "proElsSubSysIndexIcmp": 11,
+          "proElsSubSysIndexTcp": 12,
+          "proElsSubSysIndexUdp": 13,
+          "proElsSubSysIndexBtp": 14,
+          "proElsSubSysIndexRip": 15,
+          "proElsSubSysIndexSpf": 17,
+          "proElsSubSysIndexMspf": 18,
+          "proElsSubSysIndexTftp": 19,
+          "proElsSubSysIndexSnmp": 21,
+          "proElsSubSysIndexDvm": 22,
+          "proElsSubSysIndexDn": 25,
+          "proElsSubSysIndexXn": 30,
+          "proElsSubSysIndexIpx": 35,
+          "proElsSubSysIndexIso": 40,
+          "proElsSubSysIndexEsis": 41,
+          "proElsSubSysIndexIsis": 42,
+          "proElsSubSysIndexDnav": 43,
+          "proElsSubSysIndexAp2": 53,
+          "proElsSubSysIndexZip2": 54,
+          "proElsSubSysIndexR2mp": 56,
+          "proElsSubSysIndexVin": 60,
+          "proElsSubSysIndexSrt": 72,
+          "proElsSubSysIndexStp": 73,
+          "proElsSubSysIndexBr": 74,
+          "proElsSubSysIndexSrly": 75,
+          "proElsSubSysIndexEth": 81,
+          "proElsSubSysIndexSl": 83,
+          "proElsSubSysIndexTkr": 84,
+          "proElsSubSysIndexX25": 85,
+          "proElsSubSysIndexFddi": 88,
+          "proElsSubSysIndexSdlc": 90,
+          "proElsSubSysIndexFr": 92,
+          "proElsSubSysIndexPpp": 95,
+          "proElsSubSysIndexX251": 96,
+          "proElsSubSysIndexX252": 97,
+          "proElsSubSysIndexX253": 98,
+          "proElsSubSysIndexIsdn": 99,
+          "proElsSubSysIndexIppn": 100,
+          "proElsSubSysIndexWrs": 101,
+          "proElsSubSysIndexLnm": 102,
+          "proElsSubSysIndexLlc": 103,
+          "proElsSubSysIndexBgp": 104,
+          "proElsSubSysIndexMcf": 105,
+          "proElsSubSysIndexDls": 107,
+          "proElsSubSysIndexV25b": 108,
+          "proElsSubSysIndexEzstrt": 109,
+          "proElsSubSysIndexAi": 110,
+          "proElsSubSysIndexBan": 111,
+          "proElsSubSysIndexEnv": 112,
+          "proElsSubSysIndexCmp": 113,
+          "proElsSubSysIndexNbs": 114,
+          "proElsSubSysIndexAtm": 115,
+          "proElsSubSysIndexLec": 116,
+          "proElsSubSysIndexAppn": 117,
+          "proElsSubSysIndexIlmi": 119,
+          "proElsSubSysIndexSaal": 120,
+          "proElsSubSysIndexSvc": 121,
+          "proElsSubSysIndexLes": 123,
+          "proElsSubSysIndexLecs": 124,
+          "proElsSubSysIndexEvlog": 126,
+          "proElsSubSysIndexNot": 127,
+          "proElsSubSysIndexMars": 128,
+          "proElsSubSysIndexMcs": 129,
+          "proElsSubSysIndexIlec": 130,
+          "proElsSubSysIndexNhrp": 131,
+          "proElsSubSysIndexXtp": 132,
+          "proElsSubSysIndexEsc": 133,
+          "proElsSubSysIndexBbcm": 134,
+          "proElsSubSysIndexLcs": 135,
+          "proElsSubSysIndexLsa": 136,
+          "proElsSubSysIndexMpc": 137,
+          "proElsSubSysIndexRsvp": 138,
+          "proElsSubSysIndexVcrm": 139,
+          "proElsSubSysIndexScsp": 140,
+          "proElsSubSysIndexAllc": 141,
+          "proElsSubSysIndexNdr": 142,
+          "proElsSubSysIndexV34": 143,
+          "proElsSubSysIndexDout": 144,
+          "proElsSubSysIndexMlp": 145,
+          "proElsSubSysIndexDhcp": 146,
+          "proElsSubSysIndexSec": 147,
+          "proElsSubSysIndexEncr": 148,
+          "proElsSubSysIndexPm": 149,
+          "proElsSubSysIndexVlan": 150,
+          "proElsSubSysIndexDgw": 151,
+          "proElsSubSysIndexQllc": 152,
+          "proElsSubSysIndexAris": 153,
+          "proElsSubSysIndexGsmp": 154
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysDescr": {
+    "name": "proElsSubSysDescr",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysNumEvents": {
+    "name": "proElsSubSysNumEvents",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysDisplayEnable": {
+    "name": "proElsSubSysDisplayEnable",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsMsgLogLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsSubSysDisplayDisable": {
+    "name": "proElsSubSysDisplayDisable",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsMsgLogLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsSubSysTrapEnable": {
+    "name": "proElsSubSysTrapEnable",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsMsgLogLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsSubSysTrapDisable": {
+    "name": "proElsSubSysTrapDisable",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsMsgLogLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsSubSysCurrDisplayLevel": {
+    "name": "proElsSubSysCurrDisplayLevel",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysCurrTrapLevel": {
+    "name": "proElsSubSysCurrTrapLevel",
+    "oid": "1.3.6.1.4.1.1.6.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventTable": {
+    "name": "proElsSubSysEventTable",
+    "oid": "1.3.6.1.4.1.1.6.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventTableEntry": {
+    "name": "proElsSubSysEventTableEntry",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsSubSysIndex",
+        "implied": 0
+      },
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsSubSysEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "proElsSubSysEventIndex": {
+    "name": "proElsSubSysEventIndex",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventMsg": {
+    "name": "proElsSubSysEventMsg",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventCount": {
+    "name": "proElsSubSysEventCount",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventLogLevel": {
+    "name": "proElsSubSysEventLogLevel",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsMsgLogLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventLogToConsole": {
+    "name": "proElsSubSysEventLogToConsole",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsLogStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsSubSysEventLogToTrap": {
+    "name": "proElsSubSysEventLogToTrap",
+    "oid": "1.3.6.1.4.1.1.6.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProElsLogStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "proElsTrapV1": {
+    "name": "proElsTrapV1",
+    "oid": "1.3.6.1.4.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsTrapSeqs"
+      },
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsTrapSubSystem"
+      },
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsTrapEvent"
+      }
+    ]
+  },
+  "proElsTrapV2": {
+    "name": "proElsTrapV2",
+    "oid": "1.3.6.1.4.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PROTEON-MIB",
+        "object": "proElsSubSysEventMsg"
+      }
+    ]
+  },
+  "proTempScale": {
+    "name": "proTempScale",
+    "oid": "1.3.6.1.4.1.1.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 1,
+          "fahrenheit": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proMaxHwTemp": {
+    "name": "proMaxHwTemp",
+    "oid": "1.3.6.1.4.1.1.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proMinHwTemp": {
+    "name": "proMinHwTemp",
+    "oid": "1.3.6.1.4.1.1.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proTempPollPeriod": {
+    "name": "proTempPollPeriod",
+    "oid": "1.3.6.1.4.1.1.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proCurrentTemp": {
+    "name": "proCurrentTemp",
+    "oid": "1.3.6.1.4.1.1.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proLowTempThreshold": {
+    "name": "proLowTempThreshold",
+    "oid": "1.3.6.1.4.1.1.6.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proHighTempThreshold": {
+    "name": "proHighTempThreshold",
+    "oid": "1.3.6.1.4.1.1.6.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proTempHysteresis": {
+    "name": "proTempHysteresis",
+    "oid": "1.3.6.1.4.1.1.6.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proHighTempCondition": {
+    "name": "proHighTempCondition",
+    "oid": "1.3.6.1.4.1.1.6.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proLowTempCondition": {
+    "name": "proLowTempCondition",
+    "oid": "1.3.6.1.4.1.1.6.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proHighestTemp": {
+    "name": "proHighestTemp",
+    "oid": "1.3.6.1.4.1.1.6.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proHighTempTime": {
+    "name": "proHighTempTime",
+    "oid": "1.3.6.1.4.1.1.6.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proLowestTemp": {
+    "name": "proLowestTemp",
+    "oid": "1.3.6.1.4.1.1.6.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proLowTempTime": {
+    "name": "proLowTempTime",
+    "oid": "1.3.6.1.4.1.1.6.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proCfgLoad": {
+    "name": "proCfgLoad",
+    "oid": "1.3.6.1.4.1.1.6.4.1",
+    "class": "objectidentity"
+  },
+  "proCfgProtocols": {
+    "name": "proCfgProtocols",
+    "oid": "1.3.6.1.4.1.1.6.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proCfgDatalinks": {
+    "name": "proCfgDatalinks",
+    "oid": "1.3.6.1.4.1.1.6.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "proCfgFeatures": {
+    "name": "proCfgFeatures",
+    "oid": "1.3.6.1.4.1.1.6.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/PROTEON-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:16:23 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "PROTEON-MIB"
+  }
+}

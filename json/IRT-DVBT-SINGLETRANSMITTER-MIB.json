@@ -8,17 +8,17 @@
       "eventTimeStamp"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "dvbT",
-      "LocalRemote",
-      "SelectOnOff",
-      "Input1Input2",
-      "FaultOK",
       "OkNotOk",
-      "SelectManualAuto",
+      "WarningOK",
+      "SelectOnOff",
+      "FaultOK",
       "SFNMFN",
       "PresentNotPresent",
-      "WarningOK",
-      "MuteOk"
+      "Input1Input2",
+      "MuteOk",
+      "dvbT",
+      "LocalRemote",
+      "SelectManualAuto"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -27,29 +27,29 @@
     ],
     "SNMPv2-MIB": [
       "sysName",
-      "sysDescr",
-      "sysLocation"
+      "sysLocation",
+      "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
       "Bits",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TimeTicks"
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dvbSingleTransmitter": {
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:43:06 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:25:09 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

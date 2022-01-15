@@ -5,51 +5,51 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "SecondaryState",
+      "VlanId",
+      "OperationalState",
       "VlanPriority",
       "AdminState",
-      "OperationalState",
-      "VlanId"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "shelfIndex",
-      "slotIndex"
+      "slotIndex",
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetTrafficPortEntry",
       "cmEthernetTrafficPortIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "iso",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
+      "Counter64",
+      "Integer32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "RowStatus",
       "TruthValue",
       "MacAddress",
-      "VariablePointer",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "VariablePointer"
     ]
   },
   "f3JdsuMIB": {
@@ -1374,8 +1374,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-JDSU-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:12:13 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:00:50 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-JDSU-MIB"

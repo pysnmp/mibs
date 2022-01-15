@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "enterprises",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
       "OBJECT-TYPE",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "iso",
-      "IpAddress",
+      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1026,8 +1026,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/CAREL-RITTAL-LCP-3311-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:15:34 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:03:28 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CAREL-RITTAL-LCP-3311-MIB"

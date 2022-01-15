@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "AVIAT-TEXTCONVENTION-MIB": [
-      "AviatPowerLevel",
-      "AviatRfuSideBandType",
+      "AviatModulationType",
       "AviatDecibel",
-      "AviatModulationType"
+      "AviatPowerLevel",
+      "AviatRfuSideBandType"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex"
@@ -16,25 +16,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
       "Integer32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ],
     "STXN-GLOBALREGISTER-MIB": [
       "aviatModules"
@@ -854,8 +854,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-RF-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:14:17 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:02:24 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AVIAT-RF-MIB"

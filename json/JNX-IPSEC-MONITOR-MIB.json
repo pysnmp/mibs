@@ -6,18 +6,18 @@
       "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxRemotePeerType",
-      "JnxIkeAuthMethod",
+      "JnxIkeNegoMode",
       "JnxEncapMode",
-      "JnxSAType",
+      "JnxIkeAuthMethod",
+      "JnxIkePeerType",
       "JnxAuthAlgo",
       "JnxIkeHashAlgo",
-      "JnxDiffHellmanGrp",
       "JnxKeyType",
-      "JnxIkePeerType",
+      "JnxRemotePeerType",
+      "JnxEncryptAlgo",
+      "JnxDiffHellmanGrp",
       "JnxIkePeerRole",
-      "JnxIkeNegoMode",
-      "JnxEncryptAlgo"
+      "JnxSAType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -26,28 +26,28 @@
       "jnxSpSvcSetName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
       "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "Counter64",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeInterval",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:34:22 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:18:09 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

@@ -13,36 +13,36 @@
       "InetAddressIPv6"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
-      "VlanId"
+      "VlanId",
+      "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "Unsigned32",
-      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
       "Bits",
       "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter32"
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "RowStatus",
+      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "dlinkSwAclMIB": {
@@ -4870,8 +4870,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-ACL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:22:55 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 15:08:58 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-ACL-MIB"
