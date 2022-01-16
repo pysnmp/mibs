@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BENU-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-VLAN-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:55:19 2022
-# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 15:26:44 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, ModuleIdentity, Bits, IpAddress, MibIdentifier, NotificationType, Counter64, iso, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "ModuleIdentity", "Bits", "IpAddress", "MibIdentifier", "NotificationType", "Counter64", "iso", "TimeTicks", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+iso, Integer32, Gauge32, NotificationType, Unsigned32, TimeTicks, ObjectIdentity, Counter64, IpAddress, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "Gauge32", "NotificationType", "Unsigned32", "TimeTicks", "ObjectIdentity", "Counter64", "IpAddress", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 bVLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8))
 bVLANMIB.setRevisions(('2015-05-07 00:00', '2015-04-14 00:00', '2015-01-06 00:00', '2014-11-17 00:00', '2014-08-04 00:00', '2014-06-24 00:00', '2014-05-31 00:00',))
 if mibBuilder.loadTexts: bVLANMIB.setLastUpdated('201505070000Z')
@@ -93,4 +93,4 @@ bVlanCreate = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 3)).setObje
 if mibBuilder.loadTexts: bVlanCreate.setStatus('current')
 bVlanDelete = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 4)).setObjects(("BENU-VLAN-MIB", "bVlanPortId"), ("BENU-VLAN-MIB", "bVlanId"))
 if mibBuilder.loadTexts: bVlanDelete.setStatus('current')
-mibBuilder.exportSymbols("BENU-VLAN-MIB", bWagVlanSubscriberCount=bWagVlanSubscriberCount, bVlanPortEntry=bVlanPortEntry, bVlanEntry=bVlanEntry, bVlanAssocSub=bVlanAssocSub, bVlanEncapEnable=bVlanEncapEnable, bVlanAdminStatus=bVlanAdminStatus, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanName=bVlanName, bVlanTotal=bVlanTotal, bVLANNotifObjects=bVLANNotifObjects, bVlanPortId=bVlanPortId, bWagVlanPortIndex=bWagVlanPortIndex, bWagVlanStatsIndex=bWagVlanStatsIndex, bVlanCurrentNumber=bVlanCurrentNumber, bVlanEncapDisable=bVlanEncapDisable, bVlanDelete=bVlanDelete, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bWagVlanIndex=bWagVlanIndex, bVlanId=bVlanId, bVlanMTU=bVlanMTU, bWagVlanTable=bWagVlanTable, bVlanActive=bVlanActive, bVLANMIBObjects=bVLANMIBObjects, bWagVlanEntry=bWagVlanEntry, bWagVlanStatsTable=bWagVlanStatsTable, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bVlanPortTable=bVlanPortTable, bVlanIndex=bVlanIndex, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanOperStatus=bVlanOperStatus, bWagVlanStatsEntry=bWagVlanStatsEntry, bVlanPortIndex=bVlanPortIndex, bVLANMIB=bVLANMIB, bVLANNotifVariables=bVLANNotifVariables, PYSNMP_MODULE_ID=bVLANMIB, bVlanPerPortIndex=bVlanPerPortIndex, bVlanTable=bVlanTable, bVlanEncapName=bVlanEncapName, bVlanCreate=bVlanCreate)
+mibBuilder.exportSymbols("BENU-VLAN-MIB", bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bVlanId=bVlanId, bWagVlanSubscriberCount=bWagVlanSubscriberCount, bVlanPortIndex=bVlanPortIndex, bVlanIndex=bVlanIndex, bVlanPortEntry=bVlanPortEntry, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanAssocSub=bVlanAssocSub, PYSNMP_MODULE_ID=bVLANMIB, bVLANMIBObjects=bVLANMIBObjects, bVLANNotifObjects=bVLANNotifObjects, bVlanCreate=bVlanCreate, bVlanPerPortIndex=bVlanPerPortIndex, bVlanPortId=bVlanPortId, bVlanOperStatus=bVlanOperStatus, bWagVlanStatsTable=bWagVlanStatsTable, bVlanEntry=bVlanEntry, bVlanEncapDisable=bVlanEncapDisable, bWagVlanPortIndex=bWagVlanPortIndex, bVlanMTU=bVlanMTU, bWagVlanStatsIndex=bWagVlanStatsIndex, bWagVlanStatsEntry=bWagVlanStatsEntry, bVlanActive=bVlanActive, bVlanEncapEnable=bVlanEncapEnable, bWagVlanTable=bWagVlanTable, bVlanAdminStatus=bVlanAdminStatus, bVlanEncapName=bVlanEncapName, bVlanName=bVlanName, bWagVlanEntry=bWagVlanEntry, bVlanPortTable=bVlanPortTable, bVlanTable=bVlanTable, bVLANMIB=bVLANMIB, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bVLANNotifVariables=bVLANNotifVariables, bWagVlanIndex=bWagVlanIndex, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bVlanTotal=bVlanTotal, bVlanCurrentNumber=bVlanCurrentNumber, bVlanDelete=bVlanDelete)

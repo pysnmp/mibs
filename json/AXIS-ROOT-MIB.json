@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "iso",
+      "enterprises",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
       "Counter64",
       "Bits",
-      "IpAddress",
       "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
       "MODULE-IDENTITY",
+      "Gauge32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -47,8 +47,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/axis/AXIS-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:55:15 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:26:41 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AXIS-ROOT-MIB"

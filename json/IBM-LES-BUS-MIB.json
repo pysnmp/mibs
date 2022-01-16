@@ -10,8 +10,8 @@
     ],
     "NWAYSMSS-MIB": [
       "AtmSelector",
-      "AtmPrivateAddrEsi",
       "Bandwidth",
+      "AtmPrivateAddrEsi",
       "AtmVccTrafficType",
       "mssServerLanE"
     ],
@@ -20,20 +20,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
       "Counter32",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Bits",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
       "iso",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-SMI-v1": [
       "Counter32"
@@ -44,8 +44,8 @@
     ],
     "SNMPv2-TC-v1": [
       "TruthValue",
-      "TimeStamp",
-      "MacAddress"
+      "MacAddress",
+      "TimeStamp"
     ]
   },
   "ibmLesBusMIB": {
@@ -731,8 +731,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-LES-BUS-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:03:37 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:33:04 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IBM-LES-BUS-MIB"

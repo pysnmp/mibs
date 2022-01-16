@@ -7,24 +7,24 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "iso",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -7697,8 +7697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-LTNG-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:06:11 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:34:25 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MBG-SNMP-LTNG-MIB"

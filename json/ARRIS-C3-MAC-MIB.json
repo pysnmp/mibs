@@ -5,8 +5,8 @@
       "cmtsC3"
     ],
     "DOCS-IF-MIB": [
-      "TenthdBmV",
-      "TenthdB"
+      "TenthdB",
+      "TenthdBmV"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -16,27 +16,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
       "iso",
       "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "TimeInterval",
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "cmtsC3MACMIB": {
@@ -1531,8 +1531,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-MAC-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:54:55 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:26:23 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ARRIS-C3-MAC-MIB"

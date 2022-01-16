@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifDescr",
-      "InterfaceIndexOrZero"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
@@ -24,31 +24,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "Counter32",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Counter32"
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "AutonomousType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoIpRanBackHaulMIB": {
@@ -4137,8 +4137,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-RAN-BACKHAUL-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:06 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:29:46 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-IP-RAN-BACKHAUL-MIB"

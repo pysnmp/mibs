@@ -8,31 +8,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter64",
       "Gauge32",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "hpnicfDHCPServerMib": {
@@ -2590,8 +2590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DHCPS-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:04:17 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:32:57 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-DHCPS-MIB"

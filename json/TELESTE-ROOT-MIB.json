@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "TDisplayString": {
@@ -305,8 +305,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teleste/TELESTE-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:10:32 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:37:46 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TELESTE-ROOT-MIB"

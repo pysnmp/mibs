@@ -6,13 +6,13 @@
     ],
     "CM-COMMON-MIB": [
       "VlanId",
-      "PerfCounter64",
-      "TrafficDirection"
+      "TrafficDirection",
+      "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
+      "slotIndex",
       "shelfIndex",
-      "neIndex",
-      "slotIndex"
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetAccPortEntry"
@@ -23,27 +23,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "iso",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "VariablePointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "StorageType"
     ]
   },
@@ -1209,8 +1209,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PORTMIRROR-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:54:35 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:26:04 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-PORTMIRROR-MIB"

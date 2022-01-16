@@ -5,29 +5,29 @@
       "rapidstream"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "enterprises",
-      "Integer32",
-      "Bits",
-      "Counter32",
       "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY"
+      "enterprises",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ]
   },
@@ -378,8 +378,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:06:56 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:35:05 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RAPID-POLICY-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BLUECOAT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:55:32 2022
-# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 15:26:53 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Bits, IpAddress, Gauge32, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, MibIdentifier, ModuleIdentity, Counter64, iso, Integer32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "IpAddress", "Gauge32", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Counter64", "iso", "Integer32", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleIdentity, Unsigned32, ObjectIdentity, enterprises, MibIdentifier, Integer32, Bits, iso, Gauge32, Counter32, IpAddress, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "ObjectIdentity", "enterprises", "MibIdentifier", "Integer32", "Bits", "iso", "Gauge32", "Counter32", "IpAddress", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 blueCoat = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417))
 blueCoat.setRevisions(('2015-12-15 03:00', '2015-04-24 03:00', '2014-03-04 03:00', '2013-12-12 03:00', '2013-11-12 03:00', '2013-09-24 03:00', '2013-06-27 03:00', '2011-04-15 03:00', '2011-04-01 03:00', '2007-11-05 03:00', '2002-08-28 03:00',))
 if mibBuilder.loadTexts: blueCoat.setLastUpdated('201512150300Z')
@@ -77,4 +77,4 @@ sslv3800 = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 1, 5, 4))
 asgs500 = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 1, 6, 1))
 asgs400 = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 1, 6, 2))
 asgs200 = MibIdentifier((1, 3, 6, 1, 4, 1, 3417, 1, 6, 3))
-mibBuilder.exportSymbols("BLUECOAT-MIB", cas=cas, sg6x5=sg6x5, director=director, sgxen=sgxen, sg510=sg510, av1200=av1200, sslv3800=sslv3800, asg=asg, av1400=av1400, av510=av510, sghyperv=sghyperv, sg2000=sg2000, sg5000s=sg5000s, sg6000=sg6000, sg7x5=sg7x5, sg710=sg710, sg5000=sg5000, products=products, sgme710=sgme710, av2000=av2000, sslv2800=sslv2800, sg200=sg200, sg1000=sg1000, sgs400=sgs400, sg600=sg600, sg400=sg400, sslv1800=sslv1800, PYSNMP_MODULE_ID=blueCoat, sgs500=sgs500, sg8100=sg8100, sgs200=sgs200, sg900=sg900, av=av, device=device, sg8000=sg8000, sgme800=sgme800, cass400=cass400, asgs500=asgs500, sg210=sg210, av2400=av2400, sg810=sg810, av810=av810, sg7000=sg7000, sg610=sg610, av400=av400, sg500=sg500, sg9000=sg9000, sg500A=sg500A, sslv800=sslv800, sslv=sslv, sgkvm=sgkvm, asgs400=asgs400, asgs200=asgs200, sg5x5=sg5x5, blueCoatMgmt=blueCoatMgmt, sg300=sg300, blueCoat=blueCoat, sg800=sg800, sg3000s=sg3000s, sgvmwareesx=sgvmwareesx, sg110=sg110, sg611=sg611, sg3000=sg3000, sg100=sg100)
+mibBuilder.exportSymbols("BLUECOAT-MIB", sg110=sg110, sg400=sg400, sg900=sg900, device=device, sg810=sg810, sgxen=sgxen, sg210=sg210, cas=cas, sghyperv=sghyperv, sslv800=sslv800, sgs500=sgs500, sslv3800=sslv3800, sg710=sg710, sg600=sg600, sg100=sg100, cass400=cass400, sg5000s=sg5000s, sg2000=sg2000, av1400=av1400, sgkvm=sgkvm, products=products, av810=av810, asgs400=asgs400, sslv=sslv, sg611=sg611, sgvmwareesx=sgvmwareesx, asg=asg, sg7000=sg7000, asgs200=asgs200, director=director, sg6x5=sg6x5, av400=av400, av=av, sg9000=sg9000, sslv1800=sslv1800, sgs400=sgs400, sg500=sg500, sgs200=sgs200, blueCoat=blueCoat, av510=av510, sg200=sg200, sgme800=sgme800, sg6000=sg6000, sg8100=sg8100, av2000=av2000, sg3000s=sg3000s, av2400=av2400, sg1000=sg1000, av1200=av1200, sg7x5=sg7x5, sg5x5=sg5x5, sg300=sg300, sg610=sg610, sg8000=sg8000, blueCoatMgmt=blueCoatMgmt, asgs500=asgs500, sg500A=sg500A, sslv2800=sslv2800, sg800=sg800, sg510=sg510, sgme710=sgme710, sg5000=sg5000, PYSNMP_MODULE_ID=blueCoat, sg3000=sg3000)

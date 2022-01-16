@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsBurstSize",
-      "MplsPathIndexOrZero",
       "MplsLSPID",
       "MplsLsrIdentifier",
-      "MplsTunnelInstanceIndex",
-      "MplsPathIndex",
-      "MplsTunnelIndex",
-      "MplsTunnelAffinity",
       "MplsBitRate",
-      "mplsMIB"
+      "mplsMIB",
+      "MplsTunnelInstanceIndex",
+      "MplsBurstSize",
+      "MplsPathIndex",
+      "MplsTunnelAffinity",
+      "MplsPathIndexOrZero",
+      "MplsTunnelIndex"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -24,34 +24,34 @@
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "iso",
-      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
       "Bits",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
-      "RowPointer",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString"
+      "RowPointer",
+      "DisplayString",
+      "TruthValue",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:04:16 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:32:56 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"
