@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module QOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/QOS
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:36:45 2022
-# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 00:59:25 2022
+# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 radioConfig, = mibBuilder.importSymbols("ExaltComProducts", "radioConfig")
-EnableStatusT, VlanIdT, QosTagT = mibBuilder.importSymbols("ExaltComm", "EnableStatusT", "VlanIdT", "QosTagT")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, NotificationType, ModuleIdentity, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, ObjectIdentity, IpAddress, Counter64, MibIdentifier, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "ModuleIdentity", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "ObjectIdentity", "IpAddress", "Counter64", "MibIdentifier", "Unsigned32", "iso")
+QosTagT, EnableStatusT, VlanIdT = mibBuilder.importSymbols("ExaltComm", "QosTagT", "EnableStatusT", "VlanIdT")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, Counter64, Bits, MibIdentifier, iso, Counter32, IpAddress, Unsigned32, ModuleIdentity, TimeTicks, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "Counter64", "Bits", "MibIdentifier", "iso", "Counter32", "IpAddress", "Unsigned32", "ModuleIdentity", "TimeTicks", "Gauge32", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class QosPriorityT(TextualConvention, Integer32):
     status = 'current'
@@ -116,4 +116,4 @@ qosCos0Weight = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 8, 7, 5), QosCos
 if mibBuilder.loadTexts: qosCos0Weight.setStatus('current')
 commitQosSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 8, 1000), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitQosSettings.setStatus('current')
-mibBuilder.exportSymbols("QOS", qosScheduleMode=qosScheduleMode, QosModeT=QosModeT, qosDefaultQueue=qosDefaultQueue, portEth1Status=portEth1Status, portEth2Priority=portEth2Priority, tagEth2Status=tagEth2Status, diffServValue=diffServValue, diffServEnable=diffServEnable, tagEth2Priority=tagEth2Priority, qosCos2Weight=qosCos2Weight, portEth1Priority=portEth1Priority, QosCos3WeightT=QosCos3WeightT, tagEth1Priority=tagEth1Priority, extAirG2QoS=extAirG2QoS, qosEth2PortList=qosEth2PortList, qosCos3Weight=qosCos3Weight, qosScheduler=qosScheduler, qosEth2m802dot1pList=qosEth2m802dot1pList, qosEth1PortList=qosEth1PortList, advSystemConfig=advSystemConfig, qosEth2Mode=qosEth2Mode, qosDiffServEntry=qosDiffServEntry, qosEth1Mode=qosEth1Mode, qosEth1m802dot1pEntry=qosEth1m802dot1pEntry, qosPortETH2Conf=qosPortETH2Conf, tagEth1Status=tagEth1Status, QosCos0WeightT=QosCos0WeightT, qosEth2PortEntry=qosEth2PortEntry, portEth2Status=portEth2Status, qosCos0Weight=qosCos0Weight, QosPriorityT=QosPriorityT, qosEth2m802dot1pEntry=qosEth2m802dot1pEntry, commitQosSettings=commitQosSettings, qosDiffServList=qosDiffServList, qosEth1PortEntry=qosEth1PortEntry, diffServPriority=diffServPriority, QosCos1WeightT=QosCos1WeightT, qosPortETH1Conf=qosPortETH1Conf, QosScheduleModeT=QosScheduleModeT, qosEth1m802dot1pList=qosEth1m802dot1pList, qosCos1Weight=qosCos1Weight, QosCos2WeightT=QosCos2WeightT)
+mibBuilder.exportSymbols("QOS", qosEth1m802dot1pList=qosEth1m802dot1pList, qosEth2m802dot1pList=qosEth2m802dot1pList, diffServPriority=diffServPriority, portEth2Priority=portEth2Priority, tagEth2Status=tagEth2Status, qosPortETH2Conf=qosPortETH2Conf, qosScheduler=qosScheduler, tagEth1Priority=tagEth1Priority, diffServEnable=diffServEnable, qosCos1Weight=qosCos1Weight, diffServValue=diffServValue, portEth1Status=portEth1Status, qosDiffServEntry=qosDiffServEntry, qosScheduleMode=qosScheduleMode, qosDiffServList=qosDiffServList, tagEth1Status=tagEth1Status, qosEth2m802dot1pEntry=qosEth2m802dot1pEntry, portEth2Status=portEth2Status, QosModeT=QosModeT, qosEth2PortList=qosEth2PortList, qosCos2Weight=qosCos2Weight, qosCos0Weight=qosCos0Weight, QosCos3WeightT=QosCos3WeightT, QosScheduleModeT=QosScheduleModeT, qosEth1PortEntry=qosEth1PortEntry, tagEth2Priority=tagEth2Priority, QosCos2WeightT=QosCos2WeightT, extAirG2QoS=extAirG2QoS, commitQosSettings=commitQosSettings, QosCos0WeightT=QosCos0WeightT, advSystemConfig=advSystemConfig, qosPortETH1Conf=qosPortETH1Conf, qosEth1Mode=qosEth1Mode, qosEth2PortEntry=qosEth2PortEntry, qosDefaultQueue=qosDefaultQueue, qosCos3Weight=qosCos3Weight, qosEth1m802dot1pEntry=qosEth1m802dot1pEntry, qosEth2Mode=qosEth2Mode, QosPriorityT=QosPriorityT, portEth1Priority=portEth1Priority, qosEth1PortList=qosEth1PortList, QosCos1WeightT=QosCos1WeightT)

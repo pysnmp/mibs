@@ -5,36 +5,36 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanPriority",
+      "F3DisplayString",
+      "FlowSecState",
+      "IpVersion",
       "AdminState",
       "OperationalState",
-      "PerfCounter64",
-      "CmPmBinAction",
-      "IpVersion",
-      "SecondaryState",
-      "FlowSecState",
-      "VlanId",
       "CmPmIntervalType",
       "TrafficDirection",
-      "F3DisplayString"
+      "PerfCounter64",
+      "VlanId",
+      "SecondaryState",
+      "CmPmBinAction",
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
+      "slotIndex",
       "neIndex",
-      "shelfIndex",
-      "slotIndex"
+      "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
-      "PolicerColorMode",
+      "AclNoMatchDispositionType",
       "ShapingType",
       "PolicerAlgorithmType",
-      "AclNoMatchDispositionType"
+      "PolicerColorMode"
     ],
     "CM-IP-MIB": [
-      "DHCPHostNameType",
-      "IpEntryType",
       "DHCPCIDType",
+      "CmDhcpRole",
+      "DHCPHostNameType",
       "IpMode",
-      "CmDhcpRole"
+      "IpEntryType"
     ],
     "ENTITY-MIB": [
       "PhysicalIndex"
@@ -47,35 +47,35 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Bits",
+      "MibIdentifier",
+      "TimeTicks",
       "Integer32",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
-      "DateAndTime",
-      "DisplayString",
-      "VariablePointer",
+      "StorageType",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus",
+      "VariablePointer",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3L3MIB": {
@@ -24337,8 +24337,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-L3-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:31:41 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:54:26 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-L3-MIB"

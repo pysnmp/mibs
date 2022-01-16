@@ -11,31 +11,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
-      "Counter64",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "iso",
       "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Counter32",
-      "Unsigned32"
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "nmslldpMIB": {
@@ -1887,8 +1887,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/NMS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:32:22 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:55:11 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NMS-LLDP-MIB"

@@ -2,66 +2,66 @@
   "imports": {
     "class": "imports",
     "ADVA-FSPR7-MIB": [
-      "entityDcnSlotNo",
+      "entityDcnShelfNo",
+      "entityTerminPointIndexNo2",
+      "entityOpticalMuxShelfNo",
       "entityTerminPointIndexNo3",
-      "entityOpticalMuxExtNo",
-      "entityDcnClassName",
       "entityEqptExtNo",
       "entityTerminPointClassName",
-      "entityFacilityPortNo",
-      "entityEqptSlotNo",
-      "entityDcnPortNo",
       "entityFacilityShelfNo",
-      "entityEqptShelfNo",
-      "entityShelfConnPortNo",
-      "entityShelfConnShelfNo",
-      "entityFacilityClassName",
-      "entityTerminPointIndexNo4",
-      "entityOpticalMuxClassName",
+      "entityEqptClassName",
       "entityShelfConnExtNo",
-      "entityOpticalMuxSlotNo",
-      "entityFacilitySlotNo",
-      "entityDcnShelfNo",
-      "entityTerminPointIndexNo1",
-      "entityOpticalMuxShelfNo",
-      "entityShelfConnClassName",
-      "entityShelfConnSlotNo",
-      "entityOpticalMuxPortNo",
-      "entityTerminPointIndexNo2",
       "entityEqptPortNo",
-      "entityFacilityExtNo",
+      "entityEqptShelfNo",
+      "entityEqptSlotNo",
+      "entityFacilitySlotNo",
       "entityDcnExtNo",
-      "entityEqptClassName"
+      "entityFacilityPortNo",
+      "entityDcnSlotNo",
+      "entityOpticalMuxExtNo",
+      "entityOpticalMuxClassName",
+      "entityOpticalMuxPortNo",
+      "entityShelfConnPortNo",
+      "entityTerminPointIndexNo4",
+      "entityShelfConnClassName",
+      "entityDcnPortNo",
+      "entityFacilityExtNo",
+      "entityShelfConnSlotNo",
+      "entityDcnClassName",
+      "entityTerminPointIndexNo1",
+      "entityOpticalMuxSlotNo",
+      "entityShelfConnShelfNo",
+      "entityFacilityClassName"
     ],
     "ADVA-MIB": [
-      "Counter64String",
-      "fspR7"
+      "fspR7",
+      "Counter64String"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso",
       "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "advaFspR7Pm": {
@@ -48436,8 +48436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-PM-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:31:42 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:54:27 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADVA-FSPR7-PM-MIB"

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARConfs",
       "aluSARMIBModules",
       "aluSARObjs",
+      "aluSARConfs",
       "aluSARNotifyPrefix"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -12,32 +12,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
       "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
       "IpAddress",
-      "MibIdentifier"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DateAndTime",
-      "RowStatus",
+      "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxChassisIndex"
@@ -47,9 +47,9 @@
     ],
     "TIMETRA-TC-MIB": [
       "TmnxPortID",
-      "TNamedItemOrEmpty",
       "TmnxDisplayStringURL",
-      "TmnxActionType"
+      "TmnxActionType",
+      "TNamedItemOrEmpty"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:42:14 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 01:05:08 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

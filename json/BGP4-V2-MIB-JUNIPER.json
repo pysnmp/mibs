@@ -3,9 +3,9 @@
     "class": "imports",
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
-      "InetAddressType",
       "InetAddress",
       "InetAutonomousSystemNumber",
+      "InetAddressType",
       "InetPortNumber"
     ],
     "JUNIPER-EXPERIMENT-MIB": [
@@ -15,33 +15,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
       "TimeTicks",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
+      "Bits",
       "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TruthValue",
       "StorageType",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "RowPointer"
     ]
   },
   "jnxBgpM2": {
@@ -4507,8 +4507,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/BGP4-V2-MIB-JUNIPER",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:40:39 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 01:03:31 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BGP4-V2-MIB-JUNIPER"

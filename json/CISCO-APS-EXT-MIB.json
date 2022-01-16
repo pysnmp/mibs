@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "CISCO-APS-MIB": [
+      "cApsChanStatusEntry",
       "cApsChanConfigEntry",
       "CApsK1K2",
       "cApsConfigEntry",
-      "cApsStatusEntry",
-      "cApsChanStatusEntry"
+      "cApsStatusEntry"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -19,25 +19,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
       "MibIdentifier",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -902,8 +902,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-APS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:59 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:29 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-APS-EXT-MIB"

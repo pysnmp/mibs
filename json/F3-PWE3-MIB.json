@@ -5,56 +5,56 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanPriority",
-      "AdminState",
-      "OperationalState",
-      "PerfCounter64",
-      "CmPmBinAction",
       "IpVersion",
-      "SecondaryState",
-      "VlanId",
+      "AdminState",
       "CmPmIntervalType",
-      "IpPriorityMapMode"
+      "OperationalState",
+      "IpPriorityMapMode",
+      "PerfCounter64",
+      "VlanId",
+      "SecondaryState",
+      "CmPmBinAction",
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
+      "slotIndex",
       "neIndex",
-      "shelfIndex",
-      "slotIndex"
+      "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetAccPortIndex",
-      "cmEthernetNetPortIndex"
+      "cmEthernetNetPortIndex",
+      "cmEthernetAccPortIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Bits",
+      "MibIdentifier",
+      "TimeTicks",
       "Integer32",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
-      "DateAndTime",
+      "StorageType",
       "DisplayString",
-      "VariablePointer",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "DateAndTime",
+      "RowStatus",
+      "VariablePointer",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3Pwe3MIB": {
@@ -2081,8 +2081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PWE3-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:31:41 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:54:26 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-PWE3-MIB"

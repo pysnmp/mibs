@@ -6,20 +6,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "IpAddress",
       "MibIdentifier",
-      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "iso",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "enterprises"
     ],
     "SNMPv2-TC": [
@@ -45,8 +45,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-SMI-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:44:34 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 01:07:16 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "STORMSHIELD-SMI-MIB"

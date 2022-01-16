@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "enterprises",
+      "iso",
       "NOTIFICATION-TYPE",
       "Counter64",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "enterprises",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2041,8 +2041,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/XXX-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:32:51 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:55:41 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "XXX-MIB"
