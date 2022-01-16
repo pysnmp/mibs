@@ -27,6 +27,7 @@ vendor:
 index: standard vendor ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
+	find src/standard -type f | xargs basename | sort | grep -v '^\.' >output/standard.txt
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
