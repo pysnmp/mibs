@@ -18,16 +18,15 @@ dirs:
 standard: dirs $(RFC)
 	@# Compile mibs
 
-	./scripts/vendor.sh standard
-
+	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | sort | uniq >output/standard.txt
+	./scripts/vendor.sh standard	
 
 vendor:
 	./scripts/vendor.sh vendor
 
 index: standard vendor ##generate index
 	touch output/.nojekyll
-	poetry run python index.py
-	find src/standard -type f | xargs basename | sort | grep -v '^\.' >output/standard.txt
+	poetry run python index.py	
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
