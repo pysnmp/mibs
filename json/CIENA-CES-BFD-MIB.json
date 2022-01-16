@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalSeverity",
-      "cienaGlobalMacAddress"
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
       "cienaCesStatistics",
@@ -20,20 +20,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Counter32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "IpAddress",
       "TimeTicks",
-      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "iso",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -414,8 +414,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:55:57 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:56:20 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CIENA-CES-BFD-MIB"

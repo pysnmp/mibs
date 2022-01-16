@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-TIMED-RESET-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-TIMED-RESET-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:59:15 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 01:00:04 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 ctDevice, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctDevice")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, MibIdentifier, TimeTicks, IpAddress, Counter64, NotificationType, Integer32, Gauge32, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "TimeTicks", "IpAddress", "Counter64", "NotificationType", "Integer32", "Gauge32", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, iso, Counter32, Counter64, TimeTicks, Unsigned32, MibIdentifier, NotificationType, ObjectIdentity, IpAddress, Bits, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "Counter32", "Counter64", "TimeTicks", "Unsigned32", "MibIdentifier", "NotificationType", "ObjectIdentity", "IpAddress", "Bits", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctTimedResetMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 2))
 ctTimedResetStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("softEnabled", 1), ("hardEnabled", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctTimedResetStatus.setStatus('deprecated')
@@ -28,4 +28,4 @@ if mibBuilder.loadTexts: ctTimedResetOperationalMode.setDescription('The operati
 ctTimedResetNVRamReset = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dontResetNVRam", 0), ("resetNVRam", 1)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctTimedResetNVRamReset.setStatus('deprecated')
 if mibBuilder.loadTexts: ctTimedResetNVRamReset.setDescription('dontResetNVRam(0) - NVRAM will not be cleared on timed reset.\n          resetNVRam(1)     - NVRAM will be cleared on timed reset.')
-mibBuilder.exportSymbols("CTRON-TIMED-RESET-MIB", ctTimedResetOperationalMode=ctTimedResetOperationalMode, ctTimedResetMIB=ctTimedResetMIB, ctTimedResetStatus=ctTimedResetStatus, ctTimedResetTimeRemaining=ctTimedResetTimeRemaining, ctTimedResetTimeEntered=ctTimedResetTimeEntered, ctTimedResetNVRamReset=ctTimedResetNVRamReset)
+mibBuilder.exportSymbols("CTRON-TIMED-RESET-MIB", ctTimedResetNVRamReset=ctTimedResetNVRamReset, ctTimedResetMIB=ctTimedResetMIB, ctTimedResetTimeEntered=ctTimedResetTimeEntered, ctTimedResetOperationalMode=ctTimedResetOperationalMode, ctTimedResetTimeRemaining=ctTimedResetTimeRemaining, ctTimedResetStatus=ctTimedResetStatus)

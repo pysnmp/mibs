@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RSTP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/RSTP-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:53:28 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 00:53:38 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
-dot1dBridge, dot1dStpPortEntry, dot1dStp = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBridge", "dot1dStpPortEntry", "dot1dStp")
+ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+dot1dStp, dot1dBridge, dot1dStpPortEntry = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dStp", "dot1dBridge", "dot1dStpPortEntry")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, Counter32, TimeTicks, Gauge32, IpAddress, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity, ObjectIdentity, Unsigned32, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "TimeTicks", "Gauge32", "IpAddress", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "NotificationType", "iso")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, Integer32, TimeTicks, NotificationType, ObjectIdentity, Bits, Gauge32, iso, Unsigned32, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "Integer32", "TimeTicks", "NotificationType", "ObjectIdentity", "Bits", "Gauge32", "iso", "Unsigned32", "Counter64", "MibIdentifier")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 rstpMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 17, 11))
 rstpMIB.setRevisions(('2002-06-17 00:00',))
 
@@ -85,4 +85,4 @@ rstpCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 17, 11, 1, 2, 1)).setObject
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rstpCompliance = rstpCompliance.setStatus('current')
 if mibBuilder.loadTexts: rstpCompliance.setDescription('The compliance statement for device support of bridging\n         services.')
-mibBuilder.exportSymbols("RSTP-MIB", dot1dStpExtPortTable=dot1dStpExtPortTable, dot1dStpPortOperEdgePort=dot1dStpPortOperEdgePort, dot1dStpPortProtocolMigration=dot1dStpPortProtocolMigration, dot1dStpPortAdminEdgePort=dot1dStpPortAdminEdgePort, rstpGroups=rstpGroups, dot1dStpVersion=dot1dStpVersion, dot1dStpPortAdminPathCost=dot1dStpPortAdminPathCost, rstpPortGroup=rstpPortGroup, rstpConformance=rstpConformance, dot1dStpPortOperPointToPoint=dot1dStpPortOperPointToPoint, dot1dStpPathCostDefault=dot1dStpPathCostDefault, rstpCompliances=rstpCompliances, dot1dStpPortAdminPointToPoint=dot1dStpPortAdminPointToPoint, dot1dStpTxHoldCount=dot1dStpTxHoldCount, dot1dStpExtPortEntry=dot1dStpExtPortEntry, rstpCompliance=rstpCompliance, rstpBridgeGroup=rstpBridgeGroup, PYSNMP_MODULE_ID=rstpMIB, rstpMIB=rstpMIB, rstpDefaultPathCostGroup=rstpDefaultPathCostGroup)
+mibBuilder.exportSymbols("RSTP-MIB", dot1dStpPortProtocolMigration=dot1dStpPortProtocolMigration, dot1dStpPathCostDefault=dot1dStpPathCostDefault, rstpCompliance=rstpCompliance, dot1dStpExtPortTable=dot1dStpExtPortTable, dot1dStpPortAdminPathCost=dot1dStpPortAdminPathCost, rstpConformance=rstpConformance, dot1dStpPortOperEdgePort=dot1dStpPortOperEdgePort, PYSNMP_MODULE_ID=rstpMIB, rstpMIB=rstpMIB, dot1dStpPortAdminEdgePort=dot1dStpPortAdminEdgePort, rstpCompliances=rstpCompliances, dot1dStpVersion=dot1dStpVersion, dot1dStpTxHoldCount=dot1dStpTxHoldCount, rstpBridgeGroup=rstpBridgeGroup, rstpPortGroup=rstpPortGroup, rstpDefaultPathCostGroup=rstpDefaultPathCostGroup, rstpGroups=rstpGroups, dot1dStpPortOperPointToPoint=dot1dStpPortOperPointToPoint, dot1dStpPortAdminPointToPoint=dot1dStpPortAdminPointToPoint, dot1dStpExtPortEntry=dot1dStpExtPortEntry)

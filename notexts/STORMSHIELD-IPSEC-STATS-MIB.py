@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-IPSEC-STATS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-IPSEC-STATS-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 01:07:14 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 01:10:18 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Gauge32, MibIdentifier, IpAddress, Bits, ModuleIdentity, iso, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Integer32, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "MibIdentifier", "IpAddress", "Bits", "ModuleIdentity", "iso", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Integer32", "TimeTicks", "NotificationType")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationType, Unsigned32, iso, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, ObjectIdentity, MibIdentifier, Counter32, TimeTicks, Gauge32, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "iso", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "ObjectIdentity", "MibIdentifier", "Counter32", "TimeTicks", "Gauge32", "IpAddress", "ModuleIdentity")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsIPSECStats = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 13))
 snsIPSECStats.setRevisions(('2017-02-20 00:00',))
@@ -30,4 +30,4 @@ snsIPSECStatsSADDying = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 3), Counte
 if mibBuilder.loadTexts: snsIPSECStatsSADDying.setStatus('current')
 snsIPSECStatsSADDead = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 4), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsIPSECStatsSADDead.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-IPSEC-STATS-MIB", snsIPSECStatsSPDIn=snsIPSECStatsSPDIn, snsIPSECStatsSADMature=snsIPSECStatsSADMature, snsIPSECStatsSPD=snsIPSECStatsSPD, PYSNMP_MODULE_ID=snsIPSECStats, snsIPSECStatsSPDOut=snsIPSECStatsSPDOut, snsIPSECStatsSADDead=snsIPSECStatsSADDead, snsIPSECStats=snsIPSECStats, snsIPSECStatsSADLarval=snsIPSECStatsSADLarval, snsIPSECStatsSAD=snsIPSECStatsSAD, snsIPSECStatsSADDying=snsIPSECStatsSADDying)
+mibBuilder.exportSymbols("STORMSHIELD-IPSEC-STATS-MIB", snsIPSECStats=snsIPSECStats, snsIPSECStatsSPDOut=snsIPSECStatsSPDOut, snsIPSECStatsSPDIn=snsIPSECStatsSPDIn, snsIPSECStatsSADMature=snsIPSECStatsSADMature, snsIPSECStatsSAD=snsIPSECStatsSAD, snsIPSECStatsSADLarval=snsIPSECStatsSADLarval, PYSNMP_MODULE_ID=snsIPSECStats, snsIPSECStatsSADDying=snsIPSECStatsSADDying, snsIPSECStatsSPD=snsIPSECStatsSPD, snsIPSECStatsSADDead=snsIPSECStatsSADDead)

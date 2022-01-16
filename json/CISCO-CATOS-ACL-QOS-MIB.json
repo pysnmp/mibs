@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCO-QOS-PIB-MIB": [
+      "QosLayer2Cos",
       "Dscp",
-      "QosInterfaceQueueType",
       "Percent",
-      "QosLayer2Cos"
+      "QosInterfaceQueueType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -14,8 +14,8 @@
       "cseFlowDataEntry"
     ],
     "CISCO-TC": [
-      "CiscoIpProtocol",
-      "CiscoPortList"
+      "CiscoPortList",
+      "CiscoIpProtocol"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -24,45 +24,45 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DateAndTime",
       "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DateAndTime"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "ciscoCatOSAclQosMIB": {
@@ -7537,8 +7537,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CATOS-ACL-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:32 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:09 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-CATOS-ACL-QOS-MIB"

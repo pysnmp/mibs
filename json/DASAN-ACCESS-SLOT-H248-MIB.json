@@ -16,30 +16,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "BITS",
-      "Gauge32",
-      "iso",
       "mib-2",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "Bits",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "iso",
+      "BITS"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "AutonomousType",
+      "TestAndIncr",
       "RowStatus",
-      "DisplayString"
+      "TimeStamp",
+      "AutonomousType"
     ]
   },
   "dasanAccessMib": {
@@ -1001,8 +1001,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ACCESS-SLOT-H248-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:57:27 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:00 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DASAN-ACCESS-SLOT-H248-MIB"

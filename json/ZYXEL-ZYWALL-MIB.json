@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
       "Integer32",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "enterprises"
     ],
     "SNMPv2-TC": [
@@ -1207,8 +1207,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-ZYWALL-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:08:31 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 01:11:59 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ZYXEL-ZYWALL-MIB"

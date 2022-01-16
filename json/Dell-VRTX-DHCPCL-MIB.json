@@ -9,8 +9,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -20,24 +20,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
       "Gauge32",
       "Counter64",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "MibIdentifier",
       "Bits",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
       "TruthValue"
     ]
@@ -1121,8 +1121,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-VRTX-DHCPCL-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:08 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:49 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Dell-VRTX-DHCPCL-MIB"

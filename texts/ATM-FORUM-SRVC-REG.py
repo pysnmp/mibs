@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ATM-FORUM-SRVC-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-SRVC-REG
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:53:16 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 00:53:24 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 atmForumAdmin, atmForumUni = mibBuilder.importSymbols("ATM-FORUM-TC-MIB", "atmForumAdmin", "atmForumUni")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Counter32, Unsigned32, Bits, iso, MibIdentifier, Gauge32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Integer32, Counter64, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Unsigned32", "Bits", "iso", "MibIdentifier", "Gauge32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Integer32", "Counter64", "NotificationType", "ModuleIdentity")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, Counter32, NotificationType, Unsigned32, Bits, iso, Integer32, IpAddress, TimeTicks, MibIdentifier, Gauge32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "Counter32", "NotificationType", "Unsigned32", "Bits", "iso", "Integer32", "IpAddress", "TimeTicks", "MibIdentifier", "Gauge32", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class AtmAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(8, 8), ValueSizeConstraint(20, 20), )
@@ -35,4 +35,4 @@ if mibBuilder.loadTexts: atmfSrvcRegATMAddress.setDescription('This is the full 
 atmfSrvcRegAddressIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 2, 8, 1, 1, 4), Integer32())
 if mibBuilder.loadTexts: atmfSrvcRegAddressIndex.setStatus('mandatory')
 if mibBuilder.loadTexts: atmfSrvcRegAddressIndex.setDescription('An arbitrary integer to differentiate multiple rows\n            containing different ATM addresses for the same service\n            on the same port.')
-mibBuilder.exportSymbols("ATM-FORUM-SRVC-REG", atmfSrvcRegTypes=atmfSrvcRegTypes, atmfSrvcRegPort=atmfSrvcRegPort, atmfSrvcRegAddressIndex=atmfSrvcRegAddressIndex, atmfSrvcRegistryGroup=atmfSrvcRegistryGroup, atmfSrvcRegTable=atmfSrvcRegTable, atmfSrvcRegServiceID=atmfSrvcRegServiceID, atmfSrvcRegLecs=atmfSrvcRegLecs, atmfSrvcRegATMAddress=atmfSrvcRegATMAddress, AtmAddress=AtmAddress, atmfSrvcRegEntry=atmfSrvcRegEntry)
+mibBuilder.exportSymbols("ATM-FORUM-SRVC-REG", atmfSrvcRegTable=atmfSrvcRegTable, atmfSrvcRegAddressIndex=atmfSrvcRegAddressIndex, atmfSrvcRegLecs=atmfSrvcRegLecs, atmfSrvcRegEntry=atmfSrvcRegEntry, atmfSrvcRegServiceID=atmfSrvcRegServiceID, atmfSrvcRegATMAddress=atmfSrvcRegATMAddress, atmfSrvcRegPort=atmfSrvcRegPort, atmfSrvcRegistryGroup=atmfSrvcRegistryGroup, atmfSrvcRegTypes=atmfSrvcRegTypes, AtmAddress=AtmAddress)

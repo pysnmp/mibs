@@ -9,30 +9,30 @@
       "dot3adAggPortIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "PhysAddress"
     ]
   },
@@ -612,8 +612,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:32 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:09 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-TRUNK-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module EQUALLOGIC-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQUALLOGIC-SMI
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:59:12 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 01:00:02 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, Counter32, enterprises, TimeTicks, NotificationType, MibIdentifier, Bits, iso, ObjectIdentity, Integer32, IpAddress, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "Counter32", "enterprises", "TimeTicks", "NotificationType", "MibIdentifier", "Bits", "iso", "ObjectIdentity", "Integer32", "IpAddress", "Unsigned32", "ModuleIdentity")
-RowStatus, RowPointer, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "RowPointer", "TextualConvention", "TruthValue", "DisplayString")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, enterprises, iso, TimeTicks, IpAddress, Counter32, Counter64, MibIdentifier, Integer32, Unsigned32, ModuleIdentity, ObjectIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "enterprises", "iso", "TimeTicks", "IpAddress", "Counter32", "Counter64", "MibIdentifier", "Integer32", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Gauge32")
+DisplayString, TextualConvention, TruthValue, RowStatus, RowPointer = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue", "RowStatus", "RowPointer")
 equalLogic = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740))
 equalLogic.setRevisions(('2008-05-20 21:09',))
 
@@ -22,4 +22,4 @@ if mibBuilder.loadTexts: equalLogic.setContactInfo('Contact: Customer Support\n 
 if mibBuilder.loadTexts: equalLogic.setDescription('Equallogic Inc. group information\n\n        Copyright (c) 2002-2009 by Dell, Inc. \n        \n        All rights reserved.  This software may not be copied, disclosed, \n        transferred, or used except in accordance with a license granted \n        by Dell, Inc.  This software embodies proprietary information \n        and trade secrets of Dell, Inc. \n        ')
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 12740, 12740))
 eqlPSSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 12740, 12740, 1))
-mibBuilder.exportSymbols("EQUALLOGIC-SMI", PYSNMP_MODULE_ID=equalLogic, equalLogic=equalLogic, products=products, eqlPSSeries=eqlPSSeries)
+mibBuilder.exportSymbols("EQUALLOGIC-SMI", PYSNMP_MODULE_ID=equalLogic, eqlPSSeries=eqlPSSeries, equalLogic=equalLogic, products=products)

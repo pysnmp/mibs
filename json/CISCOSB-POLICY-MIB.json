@@ -3,53 +3,53 @@
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
       "VlanList1",
-      "VlanList4",
       "VlanList2",
-      "VlanList3"
+      "VlanList3",
+      "VlanList4"
     ],
     "CISCOSB-MIB": [
-      "Percents",
+      "switch001",
       "VlanPriority",
-      "switch001"
+      "Percents"
     ],
     "DIFF-SERV-MIB": [
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "zeroDotZero",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "zeroDotZero",
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "RowStatus"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:30 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:08 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

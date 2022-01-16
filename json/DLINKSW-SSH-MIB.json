@@ -8,39 +8,39 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
       "Counter64",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "TimeTicks",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dlinkSwSshMIB": {
@@ -742,8 +742,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SSH-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:22 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:05 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-SSH-MIB"

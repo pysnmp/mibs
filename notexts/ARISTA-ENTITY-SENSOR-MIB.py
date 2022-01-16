@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module ARISTA-ENTITY-SENSOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-ENTITY-SENSOR-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:54:35 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 00:54:45 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 entPhysicalDescr, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalDescr", "entPhysicalIndex")
 EntitySensorValue, entPhySensorValue = mibBuilder.importSymbols("ENTITY-SENSOR-MIB", "EntitySensorValue", "entPhySensorValue")
 entStateAlarm, = mibBuilder.importSymbols("ENTITY-STATE-MIB", "entStateAlarm")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-iso, Bits, Counter32, NotificationType, Counter64, TimeTicks, ObjectIdentity, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier, Gauge32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "Counter32", "NotificationType", "Counter64", "TimeTicks", "ObjectIdentity", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier", "Gauge32", "Integer32")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, MibIdentifier, Counter64, IpAddress, Gauge32, TimeTicks, ModuleIdentity, NotificationType, Unsigned32, ObjectIdentity, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "MibIdentifier", "Counter64", "IpAddress", "Gauge32", "TimeTicks", "ModuleIdentity", "NotificationType", "Unsigned32", "ObjectIdentity", "iso", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aristaEntSensorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 12))
 aristaEntSensorMIB.setRevisions(('2014-08-15 00:00', '2013-05-09 09:50',))
@@ -51,4 +51,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aristaEntSensorNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 30065, 3, 12, 2, 2, 2)).setObjects(("ARISTA-ENTITY-SENSOR-MIB", "aristaEntSensorAlarm"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaEntSensorNotificationsGroup = aristaEntSensorNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-ENTITY-SENSOR-MIB", aristaEntSensorMibConformance=aristaEntSensorMibConformance, aristaEntSensorMIB=aristaEntSensorMIB, aristaEntSensorMibNotifications=aristaEntSensorMibNotifications, aristaEntSensorMibCompliance=aristaEntSensorMibCompliance, aristaEntSensorMibCompliances=aristaEntSensorMibCompliances, aristaEntSensorMibGroups=aristaEntSensorMibGroups, aristaEntSensorThresholdLowWarning=aristaEntSensorThresholdLowWarning, aristaEntSensorAlarm=aristaEntSensorAlarm, aristaEntSensorThresholdGroup=aristaEntSensorThresholdGroup, aristaEntSensorNotificationsGroup=aristaEntSensorNotificationsGroup, aristaEntSensorThresholdTable=aristaEntSensorThresholdTable, aristaEntSensorThresholdLowCritical=aristaEntSensorThresholdLowCritical, aristaEntSensorThresholdHighCritical=aristaEntSensorThresholdHighCritical, aristaEntSensorThresholdHighWarning=aristaEntSensorThresholdHighWarning, aristaEntSensorThresholdEntry=aristaEntSensorThresholdEntry, aristaEntSensorMibObjects=aristaEntSensorMibObjects, PYSNMP_MODULE_ID=aristaEntSensorMIB, aristaEntSensorStatusDescr=aristaEntSensorStatusDescr)
+mibBuilder.exportSymbols("ARISTA-ENTITY-SENSOR-MIB", aristaEntSensorMibCompliances=aristaEntSensorMibCompliances, aristaEntSensorThresholdLowWarning=aristaEntSensorThresholdLowWarning, aristaEntSensorThresholdEntry=aristaEntSensorThresholdEntry, aristaEntSensorMIB=aristaEntSensorMIB, aristaEntSensorMibCompliance=aristaEntSensorMibCompliance, aristaEntSensorMibObjects=aristaEntSensorMibObjects, aristaEntSensorAlarm=aristaEntSensorAlarm, aristaEntSensorMibGroups=aristaEntSensorMibGroups, aristaEntSensorThresholdGroup=aristaEntSensorThresholdGroup, aristaEntSensorMibConformance=aristaEntSensorMibConformance, aristaEntSensorThresholdHighWarning=aristaEntSensorThresholdHighWarning, aristaEntSensorThresholdHighCritical=aristaEntSensorThresholdHighCritical, aristaEntSensorNotificationsGroup=aristaEntSensorNotificationsGroup, aristaEntSensorThresholdTable=aristaEntSensorThresholdTable, PYSNMP_MODULE_ID=aristaEntSensorMIB, aristaEntSensorMibNotifications=aristaEntSensorMibNotifications, aristaEntSensorThresholdLowCritical=aristaEntSensorThresholdLowCritical, aristaEntSensorStatusDescr=aristaEntSensorStatusDescr)

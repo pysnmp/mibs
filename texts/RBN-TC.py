@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RBN-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/RBN-TC
-# Produced by pysmi-1.1.8 at Sun Jan 16 00:59:18 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 01:00:08 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 rbnModules, = mibBuilder.importSymbols("RBN-SMI", "rbnModules")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, Counter64, Gauge32, IpAddress, ModuleIdentity, ObjectIdentity, iso, MibIdentifier, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "Counter64", "Gauge32", "IpAddress", "ModuleIdentity", "ObjectIdentity", "iso", "MibIdentifier", "TimeTicks", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, NotificationType, Integer32, Counter32, IpAddress, Unsigned32, Counter64, Gauge32, ModuleIdentity, MibIdentifier, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "NotificationType", "Integer32", "Counter32", "IpAddress", "Unsigned32", "Counter64", "Gauge32", "ModuleIdentity", "MibIdentifier", "TimeTicks", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rbnTC = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 5, 2))
 rbnTC.setRevisions(('2011-01-19 18:00', '2009-10-20 17:00', '2004-06-19 17:00', '2003-03-17 17:00', '2002-11-11 00:00', '2002-06-26 00:00', '2000-07-14 00:00',))
 
@@ -71,4 +71,4 @@ class RbnUnsigned64(TextualConvention, OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
     fixedLength = 8
 
-mibBuilder.exportSymbols("RBN-TC", RbnPercentage=RbnPercentage, RbnUnsigned64=RbnUnsigned64, RbnCircuitHandle=RbnCircuitHandle, RbnPort=RbnPort, rbnTC=rbnTC, RbnPortMediumType=RbnPortMediumType, RbnKBytes=RbnKBytes, RbnSlot=RbnSlot, PYSNMP_MODULE_ID=rbnTC, RbnVidOrUntagged=RbnVidOrUntagged)
+mibBuilder.exportSymbols("RBN-TC", RbnCircuitHandle=RbnCircuitHandle, RbnUnsigned64=RbnUnsigned64, rbnTC=rbnTC, RbnVidOrUntagged=RbnVidOrUntagged, RbnKBytes=RbnKBytes, RbnPortMediumType=RbnPortMediumType, RbnPercentage=RbnPercentage, RbnSlot=RbnSlot, PYSNMP_MODULE_ID=rbnTC, RbnPort=RbnPort)

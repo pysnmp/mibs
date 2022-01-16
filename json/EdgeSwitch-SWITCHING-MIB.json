@@ -5,16 +5,16 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "AgentPortMask",
-      "fastPath"
+      "fastPath",
+      "AgentPortMask"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -22,35 +22,35 @@
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex",
-      "dot1qVlanIndex",
       "VlanId",
+      "dot1qVlanIndex",
       "dot1qFdbId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Gauge32",
       "Integer32",
+      "Counter64",
+      "Bits",
       "MibIdentifier",
-      "Unsigned32"
+      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "DisplayString",
-      "RowStatus",
       "MacAddress",
+      "PhysAddress",
+      "RowStatus",
+      "DisplayString",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
       "TruthValue"
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:44 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:29 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

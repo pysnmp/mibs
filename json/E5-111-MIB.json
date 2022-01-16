@@ -13,37 +13,37 @@
       "dot1dTrafficClass"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
       "dot1qVlanIndex",
-      "VlanIndex"
+      "VlanIndex",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "iso",
-      "enterprises",
-      "Bits",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "iso",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "IpAddress",
+      "enterprises",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
       "RowStatus",
-      "DisplayString",
-      "MacAddress"
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "calixNetworks": {
@@ -13782,8 +13782,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:55:33 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:55:53 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "E5-111-MIB"

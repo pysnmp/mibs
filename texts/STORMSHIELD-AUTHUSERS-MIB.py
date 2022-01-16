@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module STORMSHIELD-AUTHUSERS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-AUTHUSERS-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 01:07:15 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 01:10:19 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, ModuleIdentity, Counter32, Gauge32, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, Integer32, ObjectIdentity, NotificationType, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "Counter32", "Gauge32", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "Integer32", "ObjectIdentity", "NotificationType", "Bits", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, Integer32, Bits, Gauge32, Counter64, ObjectIdentity, Unsigned32, Counter32, NotificationType, TimeTicks, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "Integer32", "Bits", "Gauge32", "Counter64", "ObjectIdentity", "Unsigned32", "Counter32", "NotificationType", "TimeTicks", "ModuleIdentity", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsUsers = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 2))
 snsUsers.setRevisions(('2017-02-20 00:00',))
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: snsAuthUsersName.setDescription('Username')
 snsAuthUsersDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 2, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsAuthUsersDomain.setStatus('current')
 if mibBuilder.loadTexts: snsAuthUsersDomain.setDescription('Domain name')
-mibBuilder.exportSymbols("STORMSHIELD-AUTHUSERS-MIB", snsAuthUsersName=snsAuthUsersName, snsAuthUsersTable=snsAuthUsersTable, snsUsers=snsUsers, snsAuthUsersDomain=snsAuthUsersDomain, snsAuthUsersIPAddr=snsAuthUsersIPAddr, PYSNMP_MODULE_ID=snsUsers, snsAuthUsersEntry=snsAuthUsersEntry, snsAuthUsersTimeOut=snsAuthUsersTimeOut)
+mibBuilder.exportSymbols("STORMSHIELD-AUTHUSERS-MIB", snsAuthUsersIPAddr=snsAuthUsersIPAddr, snsUsers=snsUsers, PYSNMP_MODULE_ID=snsUsers, snsAuthUsersEntry=snsAuthUsersEntry, snsAuthUsersName=snsAuthUsersName, snsAuthUsersTimeOut=snsAuthUsersTimeOut, snsAuthUsersDomain=snsAuthUsersDomain, snsAuthUsersTable=snsAuthUsersTable)

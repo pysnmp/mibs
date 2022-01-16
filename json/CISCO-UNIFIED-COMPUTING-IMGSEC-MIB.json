@@ -6,10 +6,10 @@
     ],
     "CISCO-TC": [
       "CiscoInetAddressMask",
-      "Unsigned64",
       "CiscoNetworkAddress",
+      "CiscoAlarmSeverity",
       "TimeIntervalSec",
-      "CiscoAlarmSeverity"
+      "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIBObjects",
@@ -21,41 +21,41 @@
       "CucsPolicyPolicyOwner"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "TimeTicks",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowPointer",
+      "DateAndTime",
       "DisplayString",
-      "TimeInterval",
       "TruthValue",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DateAndTime"
+      "RowPointer",
+      "TimeInterval",
+      "MacAddress"
     ]
   },
   "cucsImgsecObjects": {
@@ -268,8 +268,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IMGSEC-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 00:58:33 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:59:10 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-IMGSEC-MIB"

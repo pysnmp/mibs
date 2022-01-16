@@ -5,8 +5,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IP-FORWARD-MIB": [
       "ipForwardEntry"
@@ -15,34 +15,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "enterprises",
       "MODULE-IDENTITY",
-      "BITS",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "Counter32",
-      "Integer32",
+      "enterprises",
+      "BITS",
       "iso",
-      "Bits"
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ],
     "TCP-MIB": [
       "tcpConnEntry"
@@ -13553,8 +13553,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMTCPIPMVS-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:02:14 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 01:03:39 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IBMTCPIPMVS-MIB"

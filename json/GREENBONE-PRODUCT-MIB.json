@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Counter32",
-      "iso",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "IpAddress",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -254,8 +254,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/greenbone/GREENBONE-PRODUCT-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 01:00:14 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 01:01:10 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "GREENBONE-PRODUCT-MIB"

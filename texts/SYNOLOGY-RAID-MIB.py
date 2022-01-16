@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-RAID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-RAID-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 01:07:18 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 01:10:22 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-IpAddress, Bits, Counter64, MibIdentifier, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, iso, ObjectIdentity, Gauge32, TimeTicks, ModuleIdentity, enterprises, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Counter64", "MibIdentifier", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "iso", "ObjectIdentity", "Gauge32", "TimeTicks", "ModuleIdentity", "enterprises", "NotificationType")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+enterprises, Gauge32, TimeTicks, Unsigned32, Integer32, Bits, ModuleIdentity, ObjectIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType, iso, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "Gauge32", "TimeTicks", "Unsigned32", "Integer32", "Bits", "ModuleIdentity", "ObjectIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType", "iso", "Counter32", "Counter64")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 synoRaid = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 3))
 synoRaid.setRevisions(('2013-09-11 00:00',))
@@ -54,4 +54,4 @@ raidGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 3, 2, 2, 1)).setObjects(("SYNOL
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     raidGroup = raidGroup.setStatus('current')
 if mibBuilder.loadTexts: raidGroup.setDescription('A collection of objects providing basic instrumentation and\n            control of an synology raid entity.')
-mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidFreeSize=raidFreeSize, raidTotalSize=raidTotalSize, synoRaid=synoRaid, synology=synology, raidEntry=raidEntry, PYSNMP_MODULE_ID=synoRaid, raidIndex=raidIndex, raidCompliances=raidCompliances, raidCompliance=raidCompliance, raidName=raidName, raidTable=raidTable, raidStatus=raidStatus, raidGroups=raidGroups, raidGroup=raidGroup, raidConformance=raidConformance)
+mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidEntry=raidEntry, raidCompliances=raidCompliances, raidConformance=raidConformance, synoRaid=synoRaid, raidName=raidName, raidCompliance=raidCompliance, raidGroup=raidGroup, raidTable=raidTable, PYSNMP_MODULE_ID=synoRaid, synology=synology, raidGroups=raidGroups, raidFreeSize=raidFreeSize, raidTotalSize=raidTotalSize, raidStatus=raidStatus, raidIndex=raidIndex)
