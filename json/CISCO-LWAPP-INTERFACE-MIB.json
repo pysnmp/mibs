@@ -4,35 +4,39 @@
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ciscoLwappInterfaceMIB": {
@@ -41,8 +45,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2012-05-30 00:00",
-        "description": "Added clInterfaceDhcpOpt82Enabled object. Added ciscoLwappInterfaceMIBComplianceRev02 module compliance. Added ciscoLwappInterfaceConfigGroupSup1 conformance group. Deprecated ciscoLwappInterfaceMIBComplianceRev01 module compliance."
+        "revision": "2017-04-27 00:00",
+        "description": "Added ciscoLwappInterfaceInfoGroup conformance group. Added ciscoLwappInterfaceNotificationGroup conformance group. Deprecated ciscoLwappInterfaceConfigGroup and replaced by ciscoLwappInterfaceConfigGroupRev01. Deprecated ciscoLwappInterfaceGroupConfigSup1 and replaced by ciscoLwappInterfaceGroupConfigSup1Rev01. Deprecated ciscoLwappInterfaceMIBComplianceRev01 replaced by ciscoLwappInterfaceMIBComplianceRev02."
       },
       {
         "revision": "2010-08-22 00:00",
@@ -72,6 +76,11 @@
   "ciscoLwappInterfaceConfig": {
     "name": "ciscoLwappInterfaceConfig",
     "oid": "1.3.6.1.4.1.9.9.686.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappInterfaceInfo": {
+    "name": "ciscoLwappInterfaceInfo",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2",
     "class": "objectidentity"
   },
   "clInterfaceConfigTable": {
@@ -165,6 +174,347 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "clInterfaceDhcpProxyMode": {
+    "name": "clInterfaceDhcpProxyMode",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "global",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceMdnsProfileName": {
+    "name": "clInterfaceMdnsProfileName",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceNasId": {
+    "name": "clInterfaceNasId",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceMappingRedPort": {
+    "name": "clInterfaceMappingRedPort",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfacePrimaryIPv6AddrType": {
+    "name": "clInterfacePrimaryIPv6AddrType",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfacePrimaryIPv6Addr": {
+    "name": "clInterfacePrimaryIPv6Addr",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfacePrimaryPrefixLen": {
+    "name": "clInterfacePrimaryPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfacePrimaryIPv6GatewayType": {
+    "name": "clInterfacePrimaryIPv6GatewayType",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfacePrimaryIPv6Gateway": {
+    "name": "clInterfacePrimaryIPv6Gateway",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceIPv6AclName": {
+    "name": "clInterfaceIPv6AclName",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceLinkLocalIDType": {
+    "name": "clInterfaceLinkLocalIDType",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clInterfaceLinkLocalID": {
+    "name": "clInterfaceLinkLocalID",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clInterfaceIPv6SLAAC": {
+    "name": "clInterfaceIPv6SLAAC",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceLinkSelectEnabled": {
+    "name": "clInterfaceLinkSelectEnabled",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceLinkSelectRelaySrcIntf": {
+    "name": "clInterfaceLinkSelectRelaySrcIntf",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceVpnSelectEnabled": {
+    "name": "clInterfaceVpnSelectEnabled",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceVpnSelectVpnId": {
+    "name": "clInterfaceVpnSelectVpnId",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfaceVpnselectVrfName": {
+    "name": "clInterfaceVpnselectVrfName",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clInterfacePrimaryIpv6AddrStatus": {
+    "name": "clInterfacePrimaryIpv6AddrStatus",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "creating": 2,
+          "tentative": 3,
+          "incomplete": 4,
+          "verify": 5,
+          "reachable": 6,
+          "stale": 7,
+          "down": 8,
+          "unknown": 9,
+          "dad": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clInterfaceLinkLocalIpv6AddrStatus": {
+    "name": "clInterfaceLinkLocalIpv6AddrStatus",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "creating": 2,
+          "tentative": 3,
+          "incomplete": 4,
+          "verify": 5,
+          "reachable": 6,
+          "stale": 7,
+          "down": 8,
+          "unknown": 9,
+          "dad": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "clInterfaceGroupsConfigTable": {
     "name": "clInterfaceGroupsConfigTable",
     "oid": "1.3.6.1.4.1.9.9.686.1.1.2",
@@ -236,6 +586,42 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "clInterfaceGroupMdnsProfileName": {
+    "name": "clInterfaceGroupMdnsProfileName",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clInterfaceGroupFailDetectMode": {
+    "name": "clInterfaceGroupFailDetectMode",
+    "oid": "1.3.6.1.4.1.9.9.686.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aggressive": 0,
+          "nonaggressive": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "aggressive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "clInterfaceGroupsMappingTable": {
     "name": "clInterfaceGroupsMappingTable",
     "oid": "1.3.6.1.4.1.9.9.686.1.1.3",
@@ -274,6 +660,129 @@
       "class": "type"
     },
     "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLInterfaceTable": {
+    "name": "cLInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLInterfaceEntry": {
+    "name": "cLInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLInterfacePreviousAddressType": {
+    "name": "cLInterfacePreviousAddressType",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLInterfacePreviousAddress": {
+    "name": "cLInterfacePreviousAddress",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLInterfaceCurrentAddressType": {
+    "name": "cLInterfaceCurrentAddressType",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLInterfaceCurrentAddress": {
+    "name": "cLInterfaceCurrentAddress",
+    "oid": "1.3.6.1.4.1.9.9.686.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappInterfaceAddressChanged": {
+    "name": "ciscoLwappInterfaceAddressChanged",
+    "oid": "1.3.6.1.4.1.9.9.686.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfacePreviousAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfacePreviousAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfaceCurrentAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfaceCurrentAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceIpv6AddressStatus": {
+    "name": "ciscoLwappInterfaceIpv6AddressStatus",
+    "oid": "1.3.6.1.4.1.9.9.686.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryIpv6AddrStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfaceCurrentAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfaceCurrentAddress"
+      }
+    ],
     "status": "current"
   },
   "ciscoLwappInterfaceMIBCompliances": {
@@ -320,15 +829,19 @@
     "class": "modulecompliance",
     "modulecompliance": [
       {
-        "object": "ciscoLwappInterfaceConfigGroup",
+        "object": "ciscoLwappInterfaceConfigGroupRev01",
         "module": "CISCO-LWAPP-INTERFACE-MIB"
       },
       {
-        "object": "ciscoLwappInterfaceGroupConfigSup1",
+        "object": "ciscoLwappInterfaceGroupConfigSup1Rev01",
         "module": "CISCO-LWAPP-INTERFACE-MIB"
       },
       {
-        "object": "ciscoLwappInterfaceConfigGroupSup1",
+        "object": "ciscoLwappInterfaceInfoGroup",
+        "module": "CISCO-LWAPP-INTERFACE-MIB"
+      },
+      {
+        "object": "ciscoLwappInterfaceNotificationGroup",
         "module": "CISCO-LWAPP-INTERFACE-MIB"
       }
     ],
@@ -348,7 +861,7 @@
         "object": "clInterfaceQuarantineVlanId"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "ciscoLwappInterfaceGroupConfigSup1": {
     "name": "ciscoLwappInterfaceGroupConfigSup1",
@@ -372,16 +885,176 @@
         "object": "clInterfaceGroupMappingRowStatus"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
-  "ciscoLwappInterfaceConfigGroupSup1": {
-    "name": "ciscoLwappInterfaceConfigGroupSup1",
+  "ciscoLwappInterfaceConfigGroupRev01": {
+    "name": "ciscoLwappInterfaceConfigGroupRev01",
     "oid": "1.3.6.1.4.1.9.9.686.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceWired"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceQuarantineVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
         "object": "clInterfaceDhcpOpt82Enabled"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceDhcpProxyMode"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceMdnsProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceNasId"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceMappingRedPort"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryIPv6AddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryIPv6Addr"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryPrefixLen"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryIPv6GatewayType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryIPv6Gateway"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceIPv6AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceLinkLocalIDType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceLinkLocalID"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceIPv6SLAAC"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceLinkSelectEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceLinkSelectRelaySrcIntf"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceVpnSelectEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceVpnSelectVpnId"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceVpnselectVrfName"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfacePrimaryIpv6AddrStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceLinkLocalIpv6AddrStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceGroupConfigSup1Rev01": {
+    "name": "ciscoLwappInterfaceGroupConfigSup1Rev01",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupDescr"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupIsQuarantine"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupMappingRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupMdnsProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "clInterfaceGroupFailDetectMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceInfoGroup": {
+    "name": "ciscoLwappInterfaceInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfacePreviousAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfacePreviousAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfaceCurrentAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "cLInterfaceCurrentAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappInterfaceNotificationGroup": {
+    "name": "ciscoLwappInterfaceNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.686.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "ciscoLwappInterfaceAddressChanged"
+      },
+      {
+        "module": "CISCO-LWAPP-INTERFACE-MIB",
+        "object": "ciscoLwappInterfaceIpv6AddressStatus"
       }
     ],
     "status": "current"
@@ -389,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-INTERFACE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-INTERFACE-MIB"

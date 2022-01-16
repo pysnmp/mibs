@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventPriority",
+      "mibRelease",
       "eventCounter",
-      "eventTimeStamp",
-      "mibRelease"
+      "eventPriority",
+      "eventTimeStamp"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
+      "SelectOnOff",
       "SelectManualAuto",
+      "WarningOK",
+      "LocalRemote",
       "SFNMFN",
       "OkNotOk",
+      "dvbT",
       "FaultOK",
       "Input1Input2",
-      "SelectOnOff",
-      "dvbT",
-      "LocalRemote",
-      "WarningOK",
-      "MuteOk",
-      "PresentNotPresent"
+      "PresentNotPresent",
+      "MuteOk"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysLocation",
       "sysDescr",
-      "sysName",
-      "sysLocation"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
+      "Integer32",
       "Bits",
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
       "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter32"
+      "Unsigned32",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:56:35 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:43:54 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

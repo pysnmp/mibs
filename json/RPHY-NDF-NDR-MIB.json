@@ -1,0 +1,653 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ]
+  },
+  "rphyNdfNdrMIB": {
+    "name": "rphyNdfNdrMIB",
+    "oid": "1.3.6.1.4.1.9.9.857",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-09-18 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "rphyNdfNdrMIBNotifs": {
+    "name": "rphyNdfNdrMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.857.0",
+    "class": "objectidentity"
+  },
+  "rphyNdfNdrMIBObjects": {
+    "name": "rphyNdfNdrMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.857.1",
+    "class": "objectidentity"
+  },
+  "rphyNdfNdrMIBConform": {
+    "name": "rphyNdfNdrMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.857.2",
+    "class": "objectidentity"
+  },
+  "docsRphyRpdDevNdfCfgTable": {
+    "name": "docsRphyRpdDevNdfCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfCfgEntry": {
+    "name": "docsRphyRpdDevNdfCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfUniqueId",
+        "implied": 0
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfRfPort",
+        "implied": 0
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfRfChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfUniqueId": {
+    "name": "docsRphyRpdDevNdfUniqueId",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfRfPort": {
+    "name": "docsRphyRpdDevNdfRfPort",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfRfChannel": {
+    "name": "docsRphyRpdDevNdfRfChannel",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfEnable": {
+    "name": "docsRphyRpdDevNdfEnable",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfDstIPAddr": {
+    "name": "docsRphyRpdDevNdfDstIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfSrcIPAddr": {
+    "name": "docsRphyRpdDevNdfSrcIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfSessionId": {
+    "name": "docsRphyRpdDevNdfSessionId",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfFrequency": {
+    "name": "docsRphyRpdDevNdfFrequency",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfBandwidth": {
+    "name": "docsRphyRpdDevNdfBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfPowerAdjust": {
+    "name": "docsRphyRpdDevNdfPowerAdjust",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TenthdB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfRfMute": {
+    "name": "docsRphyRpdDevNdfRfMute",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfIsUnicast": {
+    "name": "docsRphyRpdDevNdfIsUnicast",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfRpdStatus": {
+    "name": "docsRphyRpdDevNdfRpdStatus",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfRpdInPktCount": {
+    "name": "docsRphyRpdDevNdfRpdInPktCount",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdfRpdOutPktCount": {
+    "name": "docsRphyRpdDevNdfRpdOutPktCount",
+    "oid": "1.3.6.1.4.1.9.9.857.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrCfgTable": {
+    "name": "docsRphyRpdDevNdrCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrCfgEntry": {
+    "name": "docsRphyRpdDevNdrCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrUniqueId",
+        "implied": 0
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrRfPort",
+        "implied": 0
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrRfChannel",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrUniqueId": {
+    "name": "docsRphyRpdDevNdrUniqueId",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrRfPort": {
+    "name": "docsRphyRpdDevNdrRfPort",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrRfChannel": {
+    "name": "docsRphyRpdDevNdrRfChannel",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrEnable": {
+    "name": "docsRphyRpdDevNdrEnable",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrDstIPAddr": {
+    "name": "docsRphyRpdDevNdrDstIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrSrcIPAddr": {
+    "name": "docsRphyRpdDevNdrSrcIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrSessionId": {
+    "name": "docsRphyRpdDevNdrSessionId",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrFrequency": {
+    "name": "docsRphyRpdDevNdrFrequency",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrBandwidth": {
+    "name": "docsRphyRpdDevNdrBandwidth",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrMtuSize": {
+    "name": "docsRphyRpdDevNdrMtuSize",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrPhb": {
+    "name": "docsRphyRpdDevNdrPhb",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrPowerAdjust": {
+    "name": "docsRphyRpdDevNdrPowerAdjust",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "TenthdBmV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrRpdStatus": {
+    "name": "docsRphyRpdDevNdrRpdStatus",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrRpdInPktCount": {
+    "name": "docsRphyRpdDevNdrRpdInPktCount",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsRphyRpdDevNdrRpdOutPktCount": {
+    "name": "docsRphyRpdDevNdrRpdOutPktCount",
+    "oid": "1.3.6.1.4.1.9.9.857.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rphyNdfNdrMIBEventName": {
+    "name": "rphyNdfNdrMIBEventName",
+    "oid": "1.3.6.1.4.1.9.9.857.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "rphyNdfNdrMIBCompliances": {
+    "name": "rphyNdfNdrMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.857.2.1",
+    "class": "objectidentity"
+  },
+  "rphyNdfNdrMIBGroups": {
+    "name": "rphyNdfNdrMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.857.2.2",
+    "class": "objectidentity"
+  },
+  "rphyNdfNdrMIBCompliance": {
+    "name": "rphyNdfNdrMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.857.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rphyNdfNdrMIBMainObjectGroup",
+        "module": "RPHY-NDF-NDR-MIB"
+      },
+      {
+        "object": "rphyNdfNdrMIBNotificationGroup",
+        "module": "RPHY-NDF-NDR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rphyNdfNdrMIBMainObjectGroup": {
+    "name": "rphyNdfNdrMIBMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.857.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfEnable"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfDstIPAddr"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfSrcIPAddr"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfSessionId"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfFrequency"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfBandwidth"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfPowerAdjust"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfRfMute"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfIsUnicast"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfRpdStatus"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfRpdInPktCount"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdfRpdOutPktCount"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrEnable"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrDstIPAddr"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrSrcIPAddr"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrSessionId"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrFrequency"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrBandwidth"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrMtuSize"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrPhb"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrPowerAdjust"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrRpdStatus"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrRpdInPktCount"
+      },
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "docsRphyRpdDevNdrRpdOutPktCount"
+      }
+    ],
+    "status": "current"
+  },
+  "rphyNdfNdrMIBNotificationGroup": {
+    "name": "rphyNdfNdrMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.857.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RPHY-NDF-NDR-MIB",
+        "object": "rphyNdfNdrMIBEventName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RPHY-NDF-NDR-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:31:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "RPHY-NDF-NDR-MIB"
+  }
+}

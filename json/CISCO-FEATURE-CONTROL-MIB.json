@@ -8,30 +8,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoFeatureCtrlMIB": {
@@ -39,6 +39,14 @@
     "oid": "1.3.6.1.4.1.9.9.377",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2021-09-21 00:00",
+        "description": "Updated 'CiscoOptionalFeature' TC for the 'fpm' feature(226)."
+      },
+      {
+        "revision": "2020-03-17 00:00",
+        "description": " Updated 'CiscoOptionalFeature' TC for following features: containerTracker(175),mka(176), nxsdkMgr(177),bench(211),pnp(212) ,telemetry(262),netconf(215),restconf(216),grpc(217), slaTwamp(218),mldx(219),lispms(220),srv6(221), tem(225),hwTelemetry(265). Note:Feature-id 178-199 and 201-210 is reserved for nxsdk apps they would be custom apps developed by customer, they are not needed to be added to MIB."
+      },
       {
         "revision": "2016-11-16 00:00",
         "description": "Replacing the following values in CiscoOptionalFeature TC as below: xos_feature_test(146) to xosFeatureTest(146), xos_MI_feature_test(147) to xosMIFeatureTest(147), mpls_Static(149) to mplsStatic(149)."
@@ -329,8 +337,24 @@
           "icam": 172,
           "catena": 173,
           "licensePlr": 174,
+          "containerTracker": 175,
+          "mka": 176,
+          "nxsdkMgr": 177,
           "poap": 200,
+          "bench": 211,
+          "pnp": 212,
+          "netconf": 215,
+          "restconf": 216,
+          "grpc": 217,
+          "slaTwamp": 218,
+          "mldx": 219,
+          "lispMs": 220,
+          "srv6": 221,
+          "tem": 225,
+          "fpm": 226,
+          "telemetry": 262,
           "sflow": 264,
+          "hwTelemetry": 265,
           "elo": 9875
         }
       }
@@ -1109,8 +1133,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FEATURE-CONTROL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:38 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:00 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-FEATURE-CONTROL-MIB"

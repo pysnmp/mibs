@@ -1,0 +1,1014 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoSdwanBfdMIB": {
+    "name": "ciscoSdwanBfdMIB",
+    "oid": "1.3.6.1.4.1.9.9.1002",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-26 00:00",
+        "description": "Cisco SDWAN BFD reversion 0"
+      }
+    ]
+  },
+  "InetAddressIP": {
+    "name": "InetAddressIP",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "UnsignedShort": {
+    "name": "UnsignedShort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "String": {
+    "name": "String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "BfdmgrStateEnum": {
+    "name": "BfdmgrStateEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminDown": 0,
+          "down": 1,
+          "init": 2,
+          "up": 3,
+          "invalid": 4,
+          "inactive": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSdwanBfdMIBNotifs": {
+    "name": "ciscoSdwanBfdMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.1002.0",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanBfdMIBObjects": {
+    "name": "ciscoSdwanBfdMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.1002.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanBfdMIBNotifObjects": {
+    "name": "ciscoSdwanBfdMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.1002.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanBfdMIBConform": {
+    "name": "ciscoSdwanBfdMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.1002.3",
+    "class": "objectidentity"
+  },
+  "bfd": {
+    "name": "bfd",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1",
+    "class": "objectidentity"
+  },
+  "bfdSummary": {
+    "name": "bfdSummary",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.5",
+    "class": "objectidentity"
+  },
+  "bfdSummaryBfdSessionsTotal": {
+    "name": "bfdSummaryBfdSessionsTotal",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSummaryBfdSessionsUp": {
+    "name": "bfdSummaryBfdSessionsUp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSummaryBfdSessionsMax": {
+    "name": "bfdSummaryBfdSessionsMax",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSummaryBfdSessionsFlap": {
+    "name": "bfdSummaryBfdSessionsFlap",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSummaryPollInterval": {
+    "name": "bfdSummaryPollInterval",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListTable": {
+    "name": "bfdSessionsListTable",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessionsListEntry": {
+    "name": "bfdSessionsListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListSrcIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListDstIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListProto",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListDstPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bfdSessionsListSrcIp": {
+    "name": "bfdSessionsListSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessionsListDstIp": {
+    "name": "bfdSessionsListDstIp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessionsListProto": {
+    "name": "bfdSessionsListProto",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessionsListSrcPort": {
+    "name": "bfdSessionsListSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessionsListDstPort": {
+    "name": "bfdSessionsListDstPort",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdSessionsListSystemIp": {
+    "name": "bfdSessionsListSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListSiteId": {
+    "name": "bfdSessionsListSiteId",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListLocalColor": {
+    "name": "bfdSessionsListLocalColor",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metroEthernet": 3,
+          "bizInternet": 4,
+          "publicInternet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListColor": {
+    "name": "bfdSessionsListColor",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metroEthernet": 3,
+          "bizInternet": 4,
+          "publicInternet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListState": {
+    "name": "bfdSessionsListState",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdmgrStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListDetectMultiplier": {
+    "name": "bfdSessionsListDetectMultiplier",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListTxInterval": {
+    "name": "bfdSessionsListTxInterval",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListUptime": {
+    "name": "bfdSessionsListUptime",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdSessionsListTransitions": {
+    "name": "bfdSessionsListTransitions",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListTable": {
+    "name": "bfdHistoryListTable",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListEntry": {
+    "name": "bfdHistoryListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListSrcIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListDstIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListProto",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListDstPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bfdHistoryListSrcIp": {
+    "name": "bfdHistoryListSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListDstIp": {
+    "name": "bfdHistoryListDstIp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListProto": {
+    "name": "bfdHistoryListProto",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListSrcPort": {
+    "name": "bfdHistoryListSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListDstPort": {
+    "name": "bfdHistoryListDstPort",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListIndex": {
+    "name": "bfdHistoryListIndex",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdHistoryListSystemIp": {
+    "name": "bfdHistoryListSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListSiteId": {
+    "name": "bfdHistoryListSiteId",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListColor": {
+    "name": "bfdHistoryListColor",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metroEthernet": 3,
+          "bizInternet": 4,
+          "publicInternet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListState": {
+    "name": "bfdHistoryListState",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BfdmgrStateEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListTime": {
+    "name": "bfdHistoryListTime",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListRxPkts": {
+    "name": "bfdHistoryListRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListTxPkts": {
+    "name": "bfdHistoryListTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdHistoryListDel": {
+    "name": "bfdHistoryListDel",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdTlocSummaryListTable": {
+    "name": "bfdTlocSummaryListTable",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdTlocSummaryListEntry": {
+    "name": "bfdTlocSummaryListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdTlocSummaryListIfName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdTlocSummaryListEncap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bfdTlocSummaryListIfName": {
+    "name": "bfdTlocSummaryListIfName",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdTlocSummaryListEncap": {
+    "name": "bfdTlocSummaryListEncap",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bfdTlocSummaryListSessionsTotal": {
+    "name": "bfdTlocSummaryListSessionsTotal",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdTlocSummaryListSessionsUp": {
+    "name": "bfdTlocSummaryListSessionsUp",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bfdTlocSummaryListSessionsFlap": {
+    "name": "bfdTlocSummaryListSessionsFlap",
+    "oid": "1.3.6.1.4.1.9.9.1002.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanBfdMIBCompliances": {
+    "name": "ciscoSdwanBfdMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanBfdMIBGroups": {
+    "name": "ciscoSdwanBfdMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanBfdMIBCompliance": {
+    "name": "ciscoSdwanBfdMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdwanBfdSummaryGroup",
+        "module": "CISCO-SDWAN-BFD-MIB"
+      },
+      {
+        "object": "cSdwanBfdSessionsListGroup",
+        "module": "CISCO-SDWAN-BFD-MIB"
+      },
+      {
+        "object": "cSdwanBfdHistoryListGroup",
+        "module": "CISCO-SDWAN-BFD-MIB"
+      },
+      {
+        "object": "cSdwanBfdTlocSummaryListGroup",
+        "module": "CISCO-SDWAN-BFD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanBfdSummaryGroup": {
+    "name": "cSdwanBfdSummaryGroup",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSummaryBfdSessionsTotal"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSummaryBfdSessionsUp"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSummaryBfdSessionsMax"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSummaryBfdSessionsFlap"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSummaryPollInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanBfdSessionsListGroup": {
+    "name": "cSdwanBfdSessionsListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListSiteId"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListLocalColor"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListColor"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListState"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListDetectMultiplier"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListTxInterval"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListUptime"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdSessionsListTransitions"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanBfdHistoryListGroup": {
+    "name": "cSdwanBfdHistoryListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListSiteId"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListColor"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListState"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListTime"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListRxPkts"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListTxPkts"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdHistoryListDel"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanBfdTlocSummaryListGroup": {
+    "name": "cSdwanBfdTlocSummaryListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1002.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdTlocSummaryListSessionsTotal"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdTlocSummaryListSessionsUp"
+      },
+      {
+        "module": "CISCO-SDWAN-BFD-MIB",
+        "object": "bfdTlocSummaryListSessionsFlap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDWAN-BFD-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SDWAN-BFD-MIB"
+  }
+}

@@ -3,6 +3,7 @@
     "class": "imports",
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "ciscoLwappDot11ClientCcxMIBObjects",
+      "ciscoLwappDot11CCXClientMIBConform",
       "cldcClientMacAddress"
     ],
     "CISCO-SMI": [
@@ -12,33 +13,33 @@
       "CiscoMilliSeconds"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoLwappDot11CcxClientMIB": {
@@ -47,7 +48,7 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2006-04-10 00:00",
+        "revision": "2017-04-18 00:00",
         "description": "Initial version of this MIB module. "
       }
     ]
@@ -144,7 +145,7 @@
         "syslog": 2
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "cldccEventLogsRequestRowStatus": {
@@ -201,7 +202,7 @@
   },
   "cldccSysLogsTimeStamp": {
     "name": "cldccSysLogsTimeStamp",
-    "oid": "1.3.6.1.4.1.9.9.599.3.3.0.2.1.1.3",
+    "oid": "1.3.6.1.4.1.9.9.599.3.3.0.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -213,7 +214,7 @@
   },
   "cldccSysLogsBuffer": {
     "name": "cldccSysLogsBuffer",
-    "oid": "1.3.6.1.4.1.9.9.599.3.3.0.2.1.1.4",
+    "oid": "1.3.6.1.4.1.9.9.599.3.3.0.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -343,7 +344,7 @@
           "many-replay-counters": 12,
           "many-data-mic-failures": 13,
           "many-mgt-mic-failures": 14,
-          "max-retransmissions-excedded": 15,
+          "max-retransmissions-exceeded": 15,
           "excessive-interference": 16,
           "many-broadcast-disassociations": 17,
           "many-broadcast-deauth": 18
@@ -609,7 +610,7 @@
         }
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "cldccStatsReqGroupId": {
@@ -627,7 +628,7 @@
         }
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "cldccStatsReqDuration": {
@@ -639,7 +640,7 @@
       "type": "CiscoMilliSeconds",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "cldccStatsReqRowStatus": {
@@ -862,7 +863,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Unsigned32",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1107,12 +1108,314 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "ciscoLwappDot11CCXClientMIBCompliances": {
+    "name": "ciscoLwappDot11CCXClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11CCXClientMIBGroups": {
+    "name": "ciscoLwappDot11CCXClientMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11CCXClientMIBCompliance": {
+    "name": "ciscoLwappDot11CCXClientMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11CCXClientMIBEventGroup",
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11CCXClientMIBRsnaGroup",
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11CCXClientMIBStatsGroup",
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11CCXClientMIBRoamingGroup",
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11CCXClientMIBEventGroup": {
+    "name": "ciscoLwappDot11CCXClientMIBEventGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccEventLogsRequestLogType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccEventLogsRequestRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccSysLogsIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccSysLogsTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccSysLogsBuffer"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsResponseStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaLogsResponseStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccSysLogsResponseStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11CCXClientMIBRsnaGroup": {
+    "name": "ciscoLwappDot11CCXClientMIBRsnaGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataTargetSSID"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataAuthType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataResult"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataElemMultiCastOuis"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataElemUnicastCastOuis"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataElemAuthOuis"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRsnaDataElemCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11CCXClientMIBRoamingGroup": {
+    "name": "ciscoLwappDot11CCXClientMIBRoamingGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsTargetSSID"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsSourceSSID"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsTransitionTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsTransitionReason"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccRoamingLogsTransitionResult"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11CCXClientMIBStatsGroup": {
+    "name": "ciscoLwappDot11CCXClientMIBStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsReqStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsReqGroupId"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsReqDuration"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsReqRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespTransmittedFragmentCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMulticastTransmittedFrameCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespFailedCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespRetryCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMultipleRetryCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespFrameDuplicateCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespRtsSuccessCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespRtsFailureCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespAckFailureCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespReceivedFragmentCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMulticastReceivedFrameCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespFcsErrorCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespTransmittedFrameCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespSelectedPairwiseCipher"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespTkipIcvErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespTkipLocalMicFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespCcmpReplays"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespCcmpDecrypErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespTkipReplays"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsTkipIcvErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsTkipLocalMicFailures"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsCcmpReplays"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsCcmpDecryptErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsTkipReplays"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsTkipMhdrErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsCcmpMhdrErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsBroadcastDisassociateCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsBroadcastDeauthenticateCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
+        "object": "cldccStatsRespMgmtStatsBroadcastActionFrameCount"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:12 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB"
   }

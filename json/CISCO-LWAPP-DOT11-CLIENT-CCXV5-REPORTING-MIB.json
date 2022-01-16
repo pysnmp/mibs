@@ -2,19 +2,20 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-DOT11-CLIENT-CCX-TC-MIB": [
-      "CiscoLwappDot11ClientEAPMethod",
-      "CiscoLwappDot11ClientSSId",
-      "CiscoLwappDot11ClientEncryptionMethod",
-      "CiscoLwappDot11ClientCredentialType",
-      "CiscoLwappDot11ClientTxPowerMode",
-      "CiscoLwappDot11ClientKeyMgmtMethod",
-      "CiscoLwappDot11ClientPowerSaveMode",
       "CiscoLwappDot11ClientReqStatus",
+      "CiscoLwappDot11ClientSSId",
+      "CiscoLwappDot11ClientCredentialType",
+      "CiscoLwappDot11ClientEAPMethod",
+      "CiscoLwappDot11ClientPowerSaveMode",
       "CiscoLwappDot11ClientRadioType",
-      "CiscoLwappDot11ClientAuthMethod"
+      "CiscoLwappDot11ClientEncryptionMethod",
+      "CiscoLwappDot11ClientAuthMethod",
+      "CiscoLwappDot11ClientTxPowerMode",
+      "CiscoLwappDot11ClientKeyMgmtMethod"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "ciscoLwappDot11ClientCcxMIBObjects",
+      "ciscoLwappDot11ClientCCXV5ReportingMIBConform",
       "cldcClientMacAddress"
     ],
     "CISCO-SMI": [
@@ -23,31 +24,34 @@
     "CISCO-TC": [
       "CvE164Address"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "ciscoLwappDot11ClientCCXv5ReportingMIB": {
@@ -56,7 +60,7 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2006-12-04 00:00",
+        "revision": "2017-04-18 00:00",
         "description": "Initial version of this mib module."
       }
     ]
@@ -64,11 +68,6 @@
   "ciscoLwappDot11ClientCCXv5ReportingMIBObjects": {
     "name": "ciscoLwappDot11ClientCCXv5ReportingMIBObjects",
     "oid": "1.3.6.1.4.1.9.9.599.3.4.1",
-    "class": "objectidentity"
-  },
-  "ciscoLwappDot11ClientCCXv5ReportingMIBConform": {
-    "name": "ciscoLwappDot11ClientCCXv5ReportingMIBConform",
-    "oid": "1.3.6.1.4.1.9.9.599.3.4.2",
     "class": "objectidentity"
   },
   "ciscoClientCcxManuReporting": {
@@ -152,7 +151,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -172,7 +171,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -192,7 +191,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -212,7 +211,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -429,7 +428,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -449,7 +448,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -521,7 +520,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -683,7 +682,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -738,7 +737,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -770,7 +769,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -826,7 +825,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -846,7 +845,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -984,7 +983,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1004,7 +1003,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1072,7 +1071,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1092,7 +1091,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1112,7 +1111,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1288,7 +1287,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1450,7 +1449,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1513,7 +1512,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1585,7 +1584,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1653,7 +1652,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1685,7 +1684,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1705,7 +1704,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1725,7 +1724,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -1954,7 +1953,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2031,7 +2030,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -2189,12 +2188,470 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBCompliances": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBGroups": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBCompliance": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappDot11ClientCCXV5ReportingMIBManufacturerGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11ClientCCXV5ReportingMIBCapabilityGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11ClientCCXV5ReportingMIBOperParamsGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"
+      },
+      {
+        "object": "ciscoLwappDot11ClientCCXV5ReportingMIBProfileGroup",
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBManufacturerGroup": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBManufacturerGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoOUI"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoID"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoModel"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoSerialNum"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoAntennaType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManufacturerInfoAntennaGain"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManuRxSensRadioIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManuRxSensRadioDataRateIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManuRxSensRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManuRxSensRadioDataRate"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManuRxSensMinRssi"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccManuRxSensMaxRssi"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBCapabilityGroup": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBCapabilityGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccServiceCapability"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityRadioIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityChRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityRadioChannels"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityTxPowerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityTxPowerRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityTxPowerMode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityTxPower"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityDataRateIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityDataRateRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccCapabilityDataRates"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBOperParamsGroup": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBOperParamsGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsSSId"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDeviceName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDeviceType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsOSId"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsOSVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsIpAddressMode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsIpv4Address"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsIpv4SubnetMask"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsIpv6Address"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsIpv6SubnetMask"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDefaultGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsEntPhone"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsCellPhone"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsFirmwareVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDriverVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsPowerSaveMode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsAuthMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsKeyMgmtMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsEncrMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDot1xSecurity"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsSysName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsLocalization"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDNSServerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsDNSServerAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsWINSServerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperParamsWINSServerAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperRadioIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperRadioChannels"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperTxPowerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperTxPowerRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperTxPowerMode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperTxPower"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperDataRateIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperDataRateRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccOperDataRates"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCCXV5ReportingMIBProfileGroup": {
+    "name": "ciscoLwappDot11ClientCCXV5ReportingMIBProfileGroup",
+    "oid": "1.3.6.1.4.1.9.9.599.2.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileReqNumProfiles"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileReqCurrentProfile"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileReqReportingStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileSSId"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileAuthMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileKeyMgmtMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileEncrMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileDot1xSecurity"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfilePowerSaveMode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileProprietaryOptionName"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileProprietaryOptionValue"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfilePreferredAPIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfilePreferredAP"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileTxPowerIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileTxPowerRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileTxPowerMode"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileTxPower"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileChannelIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileChRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileChannels"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileDataRateIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileDataRateRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileDataRates"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileRadioOptionIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileRadioOptionsRadioType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfilePreambleType"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileCCAMethod"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileDataRetries"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
+        "object": "cldccProfileFragmentThreshold"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:11 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:59 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"
   }

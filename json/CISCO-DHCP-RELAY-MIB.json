@@ -1,0 +1,832 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoDhcpRelayMIB": {
+    "name": "ciscoDhcpRelayMIB",
+    "oid": "1.3.6.1.4.1.9.9.833",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-16 00:00",
+        "description": "Added the following IPv6 DHCP RELAY statistics support: (1) cdrIPv6StatsGroup (2) cdrIPv6DropStatsGroup"
+      },
+      {
+        "revision": "2016-06-09 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDhcpRelayMIBNotifs": {
+    "name": "ciscoDhcpRelayMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.833.0",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpRelayMIBObjects": {
+    "name": "ciscoDhcpRelayMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.833.1",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpRelayMIBConform": {
+    "name": "ciscoDhcpRelayMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.833.2",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpRelayStats": {
+    "name": "ciscoDhcpRelayStats",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1",
+    "class": "objectidentity"
+  },
+  "cdrStatsTable": {
+    "name": "cdrStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrStatsEntry": {
+    "name": "cdrStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrStatsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrStatsPktType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdrStatsIfIndex": {
+    "name": "cdrStatsIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrStatsPktType": {
+    "name": "cdrStatsPktType",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discover": 1,
+          "offer": 2,
+          "request": 3,
+          "ack": 4,
+          "release": 5,
+          "decline": 6,
+          "inform": 7,
+          "nack": 8,
+          "dhcpL3Fwd": 9,
+          "nonDhcp": 10
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrStatsPktsReceived": {
+    "name": "cdrStatsPktsReceived",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrStatsPktsForwarded": {
+    "name": "cdrStatsPktsForwarded",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrStatsPktsDropped": {
+    "name": "cdrStatsPktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsTable": {
+    "name": "cdrDropStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrDropStatsEntry": {
+    "name": "cdrDropStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdrDropStatsIfIndex": {
+    "name": "cdrDropStatsIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrDropStatsRelayNotEnabled": {
+    "name": "cdrDropStatsRelayNotEnabled",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsInvalidMsgType": {
+    "name": "cdrDropStatsInvalidMsgType",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsInterfaceError": {
+    "name": "cdrDropStatsInterfaceError",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsTxFailureServer": {
+    "name": "cdrDropStatsTxFailureServer",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsTxFailureClient": {
+    "name": "cdrDropStatsTxFailureClient",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsUnknownOpInterface": {
+    "name": "cdrDropStatsUnknownOpInterface",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsUnknownVrfOrInterface": {
+    "name": "cdrDropStatsUnknownVrfOrInterface",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsMaxHopsExceeded": {
+    "name": "cdrDropStatsMaxHopsExceeded",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsOpt82ValidationFailure": {
+    "name": "cdrDropStatsOpt82ValidationFailure",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsMalformedPkts": {
+    "name": "cdrDropStatsMalformedPkts",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsUntrustablePort": {
+    "name": "cdrDropStatsUntrustablePort",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrDropStatsReqDroppedOnMCT": {
+    "name": "cdrDropStatsReqDroppedOnMCT",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6StatsTable": {
+    "name": "cdrIPv6StatsTable",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrIPv6StatsEntry": {
+    "name": "cdrIPv6StatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6StatsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6StatsPktType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdrIPv6StatsIfIndex": {
+    "name": "cdrIPv6StatsIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrIPv6StatsPktType": {
+    "name": "cdrIPv6StatsPktType",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "solicit": 1,
+          "advertise": 2,
+          "request": 3,
+          "confirm": 4,
+          "renew": 5,
+          "rebind": 6,
+          "reply": 7,
+          "release": 8,
+          "decline": 9,
+          "reconfigure": 10,
+          "infoRequest": 11,
+          "relayForward": 12,
+          "relayReply": 13,
+          "unknown": 14
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrIPv6StatsPktsReceived": {
+    "name": "cdrIPv6StatsPktsReceived",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6StatsPktsForwarded": {
+    "name": "cdrIPv6StatsPktsForwarded",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6StatsPktsDropped": {
+    "name": "cdrIPv6StatsPktsDropped",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsTable": {
+    "name": "cdrIPv6DropStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsEntry": {
+    "name": "cdrIPv6DropStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdrIPv6DropStatsIfIndex": {
+    "name": "cdrIPv6DropStatsIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsRelayDisabled": {
+    "name": "cdrIPv6DropStatsRelayDisabled",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsMaxHopsExceeded": {
+    "name": "cdrIPv6DropStatsMaxHopsExceeded",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsInvalidPkts": {
+    "name": "cdrIPv6DropStatsInvalidPkts",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsUnknownOpInterface": {
+    "name": "cdrIPv6DropStatsUnknownOpInterface",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsInvalidVRF": {
+    "name": "cdrIPv6DropStatsInvalidVRF",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsOptionInsertionFailed": {
+    "name": "cdrIPv6DropStatsOptionInsertionFailed",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsDirectReplyFromServer": {
+    "name": "cdrIPv6DropStatsDirectReplyFromServer",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsIPv6AddrNotConfigured": {
+    "name": "cdrIPv6DropStatsIPv6AddrNotConfigured",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsInterfaceError": {
+    "name": "cdrIPv6DropStatsInterfaceError",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsVpnOptionDisabled": {
+    "name": "cdrIPv6DropStatsVpnOptionDisabled",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsIpv6ExtnHeaderPresent": {
+    "name": "cdrIPv6DropStatsIpv6ExtnHeaderPresent",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdrIPv6DropStatsReqDroppedOnMCT": {
+    "name": "cdrIPv6DropStatsReqDroppedOnMCT",
+    "oid": "1.3.6.1.4.1.9.9.833.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoDhcpRelayMIBCompliances": {
+    "name": "ciscoDhcpRelayMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.833.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpRelayMIBGroups": {
+    "name": "ciscoDhcpRelayMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.833.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDhcpRelayMIBCompliance": {
+    "name": "ciscoDhcpRelayMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.833.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdrStatsGroup",
+        "module": "CISCO-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "cdrDropStatsGroup",
+        "module": "CISCO-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "cdrIPv6StatsGroup",
+        "module": "CISCO-DHCP-RELAY-MIB"
+      },
+      {
+        "object": "cdrIPv6DropStatsGroup",
+        "module": "CISCO-DHCP-RELAY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdrStatsGroup": {
+    "name": "cdrStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.833.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrStatsPktsReceived"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrStatsPktsForwarded"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrStatsPktsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "cdrDropStatsGroup": {
+    "name": "cdrDropStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.833.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsRelayNotEnabled"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsInvalidMsgType"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsInterfaceError"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsTxFailureServer"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsTxFailureClient"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsUnknownOpInterface"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsUnknownVrfOrInterface"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsMaxHopsExceeded"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsOpt82ValidationFailure"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsMalformedPkts"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsUntrustablePort"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrDropStatsReqDroppedOnMCT"
+      }
+    ],
+    "status": "current"
+  },
+  "cdrIPv6StatsGroup": {
+    "name": "cdrIPv6StatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.833.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6StatsPktsReceived"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6StatsPktsForwarded"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6StatsPktsDropped"
+      }
+    ],
+    "status": "current"
+  },
+  "cdrIPv6DropStatsGroup": {
+    "name": "cdrIPv6DropStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.833.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsRelayDisabled"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsMaxHopsExceeded"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsInvalidPkts"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsUnknownOpInterface"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsInvalidVRF"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsOptionInsertionFailed"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsDirectReplyFromServer"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsInterfaceError"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsIPv6AddrNotConfigured"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsVpnOptionDisabled"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsIpv6ExtnHeaderPresent"
+      },
+      {
+        "module": "CISCO-DHCP-RELAY-MIB",
+        "object": "cdrIPv6DropStatsReqDroppedOnMCT"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DHCP-RELAY-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DHCP-RELAY-MIB"
+  }
+}

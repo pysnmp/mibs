@@ -8,38 +8,38 @@
       "ciscoMgmt"
     ],
     "CISCO-VTP-MIB": [
-      "VlanIndex",
+      "vtpVlanEditEntry",
       "vlanTrunkPortEntry",
-      "vtpVlanEntry",
-      "vtpVlanEditEntry"
+      "VlanIndex",
+      "vtpVlanEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoStpExtensionsMIB": {
@@ -47,6 +47,14 @@
     "oid": "1.3.6.1.4.1.9.9.82",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2017-08-24 00:00",
+        "description": "Added stpxMstInconsistencyTable & stpxMstInconsistencyUpdate."
+      },
+      {
+        "revision": "2014-07-10 00:00",
+        "description": "Added stpxL2GatewayDomainIdGroup. Added a new value network(3) to stpxFastStartGlobalDefaultMode. Added a new value network(3) to stpxFastStartOperMode."
+      },
       {
         "revision": "2013-03-07 00:00",
         "description": "Added one new value network(5) to stpxFastStartPortMode."
@@ -81,7 +89,7 @@
       },
       {
         "revision": "2001-12-06 00:00",
-        "description": "Added per port Bpdu Guard and Bpdu Filter mode configuration support. Modified the description of stpxUplinkFastEnabled and stpxUplinkStationLearningGenRate for MST support. "
+        "description": "Added per port Bpdu Guard and Bpdu Filter mode configuration support. Modified the description of stpxUplinkFastEnabled and stpxUplinkStationLearningGenRate for MST support."
       },
       {
         "revision": "2001-09-14 00:00",
@@ -186,6 +194,11 @@
   "stpxSMSTObjects": {
     "name": "stpxSMSTObjects",
     "oid": "1.3.6.1.4.1.9.9.82.1.14",
+    "class": "objectidentity"
+  },
+  "stpxL2GatewayObjects": {
+    "name": "stpxL2GatewayObjects",
+    "oid": "1.3.6.1.4.1.9.9.82.1.16",
     "class": "objectidentity"
   },
   "stpxNotifications": {
@@ -506,6 +519,90 @@
   "stpxInconsistentState": {
     "name": "stpxInconsistentState",
     "oid": "1.3.6.1.4.1.9.9.82.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "typeInconsistent": 0,
+        "pvidInconsistent": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stpxMstInconsistencyTable": {
+    "name": "stpxMstInconsistencyTable",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxMstInconsistencyEntry": {
+    "name": "stpxMstInconsistencyEntry",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMstInconsistencyIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMstInconsistencyPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMstInconsistencyIndex": {
+    "name": "stpxMstInconsistencyIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxMstInconsistencyPortIndex": {
+    "name": "stpxMstInconsistencyPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stpxMstInconsistencyState": {
+    "name": "stpxMstInconsistencyState",
+    "oid": "1.3.6.1.4.1.9.9.82.1.3.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1530,7 +1627,8 @@
       "constraints": {
         "enumeration": {
           "enable": 1,
-          "disable": 2
+          "disable": 2,
+          "network": 3
         }
       }
     },
@@ -1622,7 +1720,8 @@
       "constraints": {
         "enumeration": {
           "enabled": 1,
-          "disabled": 2
+          "disabled": 2,
+          "network": 3
         }
       }
     },
@@ -3160,6 +3259,18 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "stpxL2GatewayDomainId": {
+    "name": "stpxL2GatewayDomainId",
+    "oid": "1.3.6.1.4.1.9.9.82.1.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "stpxNotificationsPrefix": {
     "name": "stpxNotificationsPrefix",
     "oid": "1.3.6.1.4.1.9.9.82.2.0",
@@ -3205,6 +3316,18 @@
       {
         "module": "CISCO-STP-EXTENSIONS-MIB",
         "object": "stpxSpanningTreeType"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMstInconsistencyUpdate": {
+    "name": "stpxMstInconsistencyUpdate",
+    "oid": "1.3.6.1.4.1.9.9.82.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMstInconsistencyState"
       }
     ],
     "status": "current"
@@ -4294,6 +4417,166 @@
         "module": "CISCO-STP-EXTENSIONS-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "stpxMIBCompliance13": {
+    "name": "stpxMIBCompliance13",
+    "oid": "1.3.6.1.4.1.9.9.82.3.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "stpxUplinkGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSstpGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPreferredVlansGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootGuardGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRootInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpx4kVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSpanningTreeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLongPathCostModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPVSTVlanGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMISTPGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopInconsistencyNotificationsGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBpduSkewingGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxLoopGuardGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartGroup3",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxUplinkGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxBackboneGroup2",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRSTPTransmitHoldCountGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxRPVSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxExtendedSysIDGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxNotificationEnableGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxFastStartOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxMSTGroup4",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTMaxHopCountGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceEditGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortStatusGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortHelloTimeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTInstanceCISTGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxPathCostOperModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTPortMSTModeGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxSMSTConfigDigestGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      },
+      {
+        "object": "stpxL2GatewayDomainIdGroup",
+        "module": "CISCO-STP-EXTENSIONS-MIB"
+      }
+    ],
     "status": "current"
   },
   "stpxUplinkGroup": {
@@ -5180,11 +5463,47 @@
     ],
     "status": "current"
   },
+  "stpxL2GatewayDomainIdGroup": {
+    "name": "stpxL2GatewayDomainIdGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.44",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxL2GatewayDomainId"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMSTInconsistencyGroup": {
+    "name": "stpxMSTInconsistencyGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.45",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMstInconsistencyState"
+      }
+    ],
+    "status": "current"
+  },
+  "stpxMSTNotificationGroup": {
+    "name": "stpxMSTNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.82.3.2.46",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-STP-EXTENSIONS-MIB",
+        "object": "stpxMstInconsistencyUpdate"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-STP-EXTENSIONS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:39 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-STP-EXTENSIONS-MIB"

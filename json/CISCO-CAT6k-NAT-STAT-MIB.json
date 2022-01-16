@@ -1,0 +1,273 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoCat6kNatStatMIB": {
+    "name": "ciscoCat6kNatStatMIB",
+    "oid": "1.3.6.1.4.1.9.9.861",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-06-11 00:00",
+        "description": "Inital version of ciscoNatMib"
+      }
+    ]
+  },
+  "ciscoCat6kNatStatMIBObjects": {
+    "name": "ciscoCat6kNatStatMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.861.1",
+    "class": "objectidentity"
+  },
+  "ciscoCat6kNatStatus": {
+    "name": "ciscoCat6kNatStatus",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoCat6kNatStatMIBConformance": {
+    "name": "ciscoCat6kNatStatMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.861.2",
+    "class": "objectidentity"
+  },
+  "ciscoCat6kNatStatMIBCompliances": {
+    "name": "ciscoCat6kNatStatMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.861.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCat6kNatStatMIBGroups": {
+    "name": "ciscoCat6kNatStatMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.861.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoCat6kNatStatGroup": {
+    "name": "ciscoCat6kNatStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.861.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatType"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatNetFlowType"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatFlowRecord"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatDynamicEntryUtilization"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatStaticEntryUtilization"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatOtherEntryUtilization"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatTotalEntryCount"
+      },
+      {
+        "module": "CISCO-CAT6k-NAT-STAT-MIB",
+        "object": "ciscoCat6kNatResourceUtilization"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCat6kNatStatMIBComplianceVer1": {
+    "name": "ciscoCat6kNatStatMIBComplianceVer1",
+    "oid": "1.3.6.1.4.1.9.9.861.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoCat6kNatStatGroup",
+        "module": "CISCO-CAT6k-NAT-STAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "NatType": {
+    "name": "NatType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "mixed": 3,
+          "other": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NetFlowType": {
+    "name": "NetFlowType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer3": 1,
+          "mixed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NatBool": {
+    "name": "NatBool",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoCat6kNatType": {
+    "name": "ciscoCat6kNatType",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatNetFlowType": {
+    "name": "ciscoCat6kNatNetFlowType",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetFlowType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatFlowRecord": {
+    "name": "ciscoCat6kNatFlowRecord",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NatBool",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatDynamicEntryUtilization": {
+    "name": "ciscoCat6kNatDynamicEntryUtilization",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatStaticEntryUtilization": {
+    "name": "ciscoCat6kNatStaticEntryUtilization",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatOtherEntryUtilization": {
+    "name": "ciscoCat6kNatOtherEntryUtilization",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatTotalEntryCount": {
+    "name": "ciscoCat6kNatTotalEntryCount",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCat6kNatResourceUtilization": {
+    "name": "ciscoCat6kNatResourceUtilization",
+    "oid": "1.3.6.1.4.1.9.9.861.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CAT6k-NAT-STAT-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CAT6k-NAT-STAT-MIB"
+  }
+}

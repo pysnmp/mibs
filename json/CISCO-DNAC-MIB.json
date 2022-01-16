@@ -1,0 +1,510 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "ciscoDnacMIB": {
+    "name": "ciscoDnacMIB",
+    "oid": "1.3.6.1.4.1.9.9.867",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-08-15 00:00",
+        "description": "Included EventID and Tags attributes."
+      },
+      {
+        "revision": "2019-08-13 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoDnacMIBNotifs": {
+    "name": "ciscoDnacMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.867.0",
+    "class": "objectidentity"
+  },
+  "ciscoDnacMIBObjects": {
+    "name": "ciscoDnacMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.867.1",
+    "class": "objectidentity"
+  },
+  "ciscoDnacMIBConform": {
+    "name": "ciscoDnacMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.867.2",
+    "class": "objectidentity"
+  },
+  "cDnacAlarms": {
+    "name": "cDnacAlarms",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1",
+    "class": "objectidentity"
+  },
+  "cDnacAlarmsMax": {
+    "name": "cDnacAlarmsMax",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cDnacAlarmsTable": {
+    "name": "cDnacAlarmsTable",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDnacAlarmEntry": {
+    "name": "cDnacAlarmEntry",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cDnacIndex": {
+    "name": "cDnacIndex",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cDnacInstanceID": {
+    "name": "cDnacInstanceID",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacEventID": {
+    "name": "cDnacEventID",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacName": {
+    "name": "cDnacName",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacDescription": {
+    "name": "cDnacDescription",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacTags": {
+    "name": "cDnacTags",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacVersion": {
+    "name": "cDnacVersion",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacTimestamp": {
+    "name": "cDnacTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacDomain": {
+    "name": "cDnacDomain",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacSubDomain": {
+    "name": "cDnacSubDomain",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacCategory": {
+    "name": "cDnacCategory",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacType": {
+    "name": "cDnacType",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "SYSTEM",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacSeverity": {
+    "name": "cDnacSeverity",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacSource": {
+    "name": "cDnacSource",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacUserMessage": {
+    "name": "cDnacUserMessage",
+    "oid": "1.3.6.1.4.1.9.9.867.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDnacAlarm": {
+    "name": "cDnacAlarm",
+    "oid": "1.3.6.1.4.1.9.9.867.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacInstanceID"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacEventID"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacName"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacDescription"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacTags"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacVersion"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacTimestamp"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacDomain"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacSubDomain"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacCategory"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacType"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacSeverity"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacSource"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacUserMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDnacMIBCompliances": {
+    "name": "ciscoDnacMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.867.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDnacMIBGroups": {
+    "name": "ciscoDnacMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.867.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDnacMIBCompliance": {
+    "name": "ciscoDnacMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.867.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDnacObjectGroup",
+        "module": "CISCO-DNAC-MIB"
+      },
+      {
+        "object": "ciscoDnacAlarmGroup",
+        "module": "CISCO-DNAC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDnacObjectGroup": {
+    "name": "ciscoDnacObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.867.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacInstanceID"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacEventID"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacName"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacDescription"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacTags"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacVersion"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacTimestamp"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacDomain"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacSubDomain"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacCategory"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacType"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacSeverity"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacSource"
+      },
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacUserMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDnacAlarmGroup": {
+    "name": "ciscoDnacAlarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.867.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DNAC-MIB",
+        "object": "cDnacAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DNAC-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DNAC-MIB"
+  }
+}

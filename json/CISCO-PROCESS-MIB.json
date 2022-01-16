@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "EntPhysicalIndexOrZero",
-      "Unsigned64"
+      "Unsigned64",
+      "EntPhysicalIndexOrZero"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -15,33 +15,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowPointer",
-      "TimeStamp",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp",
+      "TruthValue",
+      "RowPointer"
     ]
   },
   "ciscoProcessMIB": {
@@ -49,6 +49,10 @@
     "oid": "1.3.6.1.4.1.9.9.109",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2020-04-21 00:00",
+        "description": "Added new attribute in cpmProcessTable. Added new notification for a process in cpmProcessTable upon PM state change."
+      },
       {
         "revision": "2011-06-23 00:00",
         "description": "Added new table cpmCoreTable as well as a new optoinal compliance group cpmCoreGroup."
@@ -801,6 +805,30 @@
             "max": 32
           }
         ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpmProcessState": {
+    "name": "cpmProcessState",
+    "oid": "1.3.6.1.4.1.9.9.109.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "running": 1,
+          "started": 2,
+          "waiting": 3,
+          "disabled": 4,
+          "userdisabled": 5,
+          "locked": 6,
+          "other": 7
+        }
       }
     },
     "maxaccess": "read-only",
@@ -2348,6 +2376,26 @@
     ],
     "status": "current"
   },
+  "cpmProcessStateTrap": {
+    "name": "cpmProcessStateTrap",
+    "oid": "1.3.6.1.4.1.9.9.109.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessPID"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessName"
+      },
+      {
+        "module": "CISCO-PROCESS-MIB",
+        "object": "cpmProcessState"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoProcessMIBConformance": {
     "name": "ciscoProcessMIBConformance",
     "oid": "1.3.6.1.4.1.9.9.109.3",
@@ -3422,8 +3470,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PROCESS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-PROCESS-MIB"

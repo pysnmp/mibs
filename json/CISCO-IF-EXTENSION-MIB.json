@@ -11,42 +11,42 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "ifOperStatus",
-      "ifAdminStatus",
-      "InterfaceIndexOrZero",
       "ifType",
+      "InterfaceIndexOrZero",
+      "ifIndex",
       "ifName",
-      "ifIndex"
+      "ifAdminStatus",
+      "ifOperStatus"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "ciscoIfExtensionMIB": {
@@ -54,6 +54,18 @@
     "oid": "1.3.6.1.4.1.9.9.276",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2021-02-12 00:00",
+        "description": "Added enumerated value eightSixteenThirtyTwoSixtyFourG to cieIfSpeedGroupConfig."
+      },
+      {
+        "revision": "2020-11-03 00:00",
+        "description": "Added cieIfDuplexCfgStatus and cieIfDuplexDetectStatus."
+      },
+      {
+        "revision": "2016-12-01 00:00",
+        "description": "Added enumerated value fourEightSixteenThirtyTwoG(5) to cieIfSpeedGroupConfig."
+      },
       {
         "revision": "2013-03-13 00:00",
         "description": "Added new object cieIfTransceiverFrequencyConfig, cieIfFillPatternConfig, cieIfIgnoreBitErrorsConfig and cieIfIgnoreInterruptThresholdConfig to cieIfInterfaceTable. - Added a new group ciscoIfExtensionTableIntfGroup3SupR02 - Deprecated ciscoIfExtensionMIBCompliance13 - Added ciscoIfExtensionMIBCompliance14."
@@ -683,7 +695,9 @@
           "notApplicable": 1,
           "tenG": 2,
           "oneTwoFourEightG": 3,
-          "twoFourEightSixteenG": 4
+          "twoFourEightSixteenG": 4,
+          "fourEightSixteenThirtyTwoG": 5,
+          "eightSixteenThirtyTwoSixtyFourG": 6
         }
       }
     },
@@ -770,6 +784,47 @@
       "default": {
         "value": "true",
         "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfDuplexCfgStatus": {
+    "name": "cieIfDuplexCfgStatus",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 0,
+          "half": 1,
+          "auto": 2,
+          "unsupported": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cieIfDuplexDetectStatus": {
+    "name": "cieIfDuplexDetectStatus",
+    "oid": "1.3.6.1.4.1.9.9.276.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 0,
+          "half": 1,
+          "auto": 2,
+          "unknown": 3,
+          "invalid": 4
+        }
       }
     },
     "maxaccess": "read-write",
@@ -2997,8 +3052,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IF-EXTENSION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:41 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-IF-EXTENSION-MIB"

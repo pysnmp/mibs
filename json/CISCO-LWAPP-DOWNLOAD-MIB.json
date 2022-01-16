@@ -9,32 +9,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DateAndTime",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeInterval",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "ciscoLwappDownloadMIB": {
@@ -43,8 +44,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2008-05-12 00:00",
-        "description": "Initial version of this MIB module. "
+        "revision": "2017-05-23 00:00",
+        "description": "Initial version of this MIB module."
       }
     ]
   },
@@ -71,6 +72,11 @@
   "ciscoLwappDLReset": {
     "name": "ciscoLwappDLReset",
     "oid": "1.3.6.1.4.1.9.9.513.4.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappDLRestart": {
+    "name": "ciscoLwappDLRestart",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3",
     "class": "objectidentity"
   },
   "clDLApBootTable": {
@@ -150,8 +156,8 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "cldlApDownloadImage": {
-    "name": "cldlApDownloadImage",
+  "cldlAPDownloadImage": {
+    "name": "cldlAPDownloadImage",
     "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
@@ -161,7 +167,8 @@
       "constraints": {
         "enumeration": {
           "primary": 1,
-          "backup": 2
+          "backup": 2,
+          "abort": 3
         }
       }
     },
@@ -172,6 +179,218 @@
       }
     },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldlPreDownloadVersion": {
+    "name": "cldlPreDownloadVersion",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldlPreDownloadStatus": {
+    "name": "cldlPreDownloadStatus",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "intiated": 2,
+          "preDownloading": 3,
+          "completed": 4,
+          "failed": 5,
+          "notSupported": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldlPreDownloadNextRetryTime": {
+    "name": "cldlPreDownloadNextRetryTime",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldlPreDownloadRetryCount": {
+    "name": "cldlPreDownloadRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldlPredownloadImageUpgradeRole": {
+    "name": "cldlPredownloadImageUpgradeRole",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "masterCentral": 1,
+          "masterLocal": 2,
+          "slaveCentral": 3,
+          "slaveLocal": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cldlAPSoftwareName": {
+    "name": "cldlAPSoftwareName",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clDLRestartTable": {
+    "name": "clDLRestartTable",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldlRestartEntry": {
+    "name": "cldlRestartEntry",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlRestartIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cldlRestartIndex": {
+    "name": "cldlRestartIndex",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cldlRestartDateAndTime": {
+    "name": "cldlRestartDateAndTime",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlRestartAP": {
+    "name": "cldlRestartAP",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlRestartRowStatus": {
+    "name": "cldlRestartRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlRestartSaveConfig": {
+    "name": "cldlRestartSaveConfig",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cldlRestartAlertTime": {
+    "name": "cldlRestartAlertTime",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "clDLResetTable": {
@@ -296,11 +515,36 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "units": "seconds",
     "maxaccess": "read-create",
     "status": "current"
   },
-  "ciscoLwappScheduledResetNotif": {
-    "name": "ciscoLwappScheduledResetNotif",
+  "cldlResetBootImage": {
+    "name": "cldlResetBootImage",
+    "oid": "1.3.6.1.4.1.9.9.513.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cldlScheduledResetNotif": {
+    "name": "cldlScheduledResetNotif",
     "oid": "1.3.6.1.4.1.9.9.513.4.0.1",
     "class": "notificationtype",
     "objects": [
@@ -311,50 +555,54 @@
     ],
     "status": "current"
   },
-  "ciscoLwappResetFailedNotif": {
-    "name": "ciscoLwappResetFailedNotif",
+  "cldlResetFailedNotif": {
+    "name": "cldlResetFailedNotif",
     "oid": "1.3.6.1.4.1.9.9.513.4.0.2",
     "class": "notificationtype",
     "status": "current"
   },
-  "ciscoLwappClearResetNotif": {
-    "name": "ciscoLwappClearResetNotif",
+  "cldlClearResetNotif": {
+    "name": "cldlClearResetNotif",
     "oid": "1.3.6.1.4.1.9.9.513.4.0.3",
     "class": "notificationtype",
     "status": "current"
   },
-  "ciscoLwappDownloadMIBCompliances": {
-    "name": "ciscoLwappDownloadMIBCompliances",
+  "cldlMIBCompliances": {
+    "name": "cldlMIBCompliances",
     "oid": "1.3.6.1.4.1.9.9.513.4.2.1",
     "class": "objectidentity"
   },
-  "ciscoLwappDownloadMIBGroups": {
-    "name": "ciscoLwappDownloadMIBGroups",
+  "cldlMIBGroups": {
+    "name": "cldlMIBGroups",
     "oid": "1.3.6.1.4.1.9.9.513.4.2.2",
     "class": "objectidentity"
   },
-  "ciscoLwappDownloadMIBCompliance": {
-    "name": "ciscoLwappDownloadMIBCompliance",
+  "cldlMIBCompliance": {
+    "name": "cldlMIBCompliance",
     "oid": "1.3.6.1.4.1.9.9.513.4.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
-        "object": "ciscoLwappDLApGroup",
+        "object": "cldlApGroup",
         "module": "CISCO-LWAPP-DOWNLOAD-MIB"
       },
       {
-        "object": "ciscoLwappDLResetGroup",
+        "object": "cldlResetGroup",
         "module": "CISCO-LWAPP-DOWNLOAD-MIB"
       },
       {
-        "object": "ciscoLwappDLNotifsGroup",
+        "object": "cldlNotifsGroup",
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB"
+      },
+      {
+        "object": "cldlRestartGroup",
         "module": "CISCO-LWAPP-DOWNLOAD-MIB"
       }
     ],
     "status": "current"
   },
-  "ciscoLwappDLApGroup": {
-    "name": "ciscoLwappDLApGroup",
+  "cldlApGroup": {
+    "name": "cldlApGroup",
     "oid": "1.3.6.1.4.1.9.9.513.4.2.2.1",
     "class": "objectgroup",
     "objects": [
@@ -376,13 +624,37 @@
       },
       {
         "module": "CISCO-LWAPP-DOWNLOAD-MIB",
-        "object": "cldlApDownloadImage"
+        "object": "cldlAPDownloadImage"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlPreDownloadVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlPreDownloadStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlPreDownloadNextRetryTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlPreDownloadRetryCount"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlPredownloadImageUpgradeRole"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlAPSoftwareName"
       }
     ],
     "status": "current"
   },
-  "ciscoLwappDLResetGroup": {
-    "name": "ciscoLwappDLResetGroup",
+  "cldlResetGroup": {
+    "name": "cldlResetGroup",
     "oid": "1.3.6.1.4.1.9.9.513.4.2.2.2",
     "class": "objectgroup",
     "objects": [
@@ -409,26 +681,78 @@
       {
         "module": "CISCO-LWAPP-DOWNLOAD-MIB",
         "object": "cldlResetAlertTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlResetDateAndTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlResetSwapImage"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlResetAP"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlResetRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlResetSaveConfig"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlResetBootImage"
       }
     ],
     "status": "current"
   },
-  "ciscoLwappDLNotifsGroup": {
-    "name": "ciscoLwappDLNotifsGroup",
+  "cldlRestartGroup": {
+    "name": "cldlRestartGroup",
     "oid": "1.3.6.1.4.1.9.9.513.4.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlRestartDateAndTime"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlRestartAP"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlRestartRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlRestartSaveConfig"
+      },
+      {
+        "module": "CISCO-LWAPP-DOWNLOAD-MIB",
+        "object": "cldlRestartAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cldlNotifsGroup": {
+    "name": "cldlNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.513.4.2.2.4",
     "class": "notificationgroup",
     "objects": [
       {
         "module": "CISCO-LWAPP-DOWNLOAD-MIB",
-        "object": "ciscoLwappScheduledResetNotif"
+        "object": "cldlScheduledResetNotif"
       },
       {
         "module": "CISCO-LWAPP-DOWNLOAD-MIB",
-        "object": "ciscoLwappResetFailedNotif"
+        "object": "cldlResetFailedNotif"
       },
       {
         "module": "CISCO-LWAPP-DOWNLOAD-MIB",
-        "object": "ciscoLwappClearResetNotif"
+        "object": "cldlClearResetNotif"
       }
     ],
     "status": "current"
@@ -436,8 +760,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOWNLOAD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:41 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-DOWNLOAD-MIB"

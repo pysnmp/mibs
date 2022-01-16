@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
+      "Unsigned32",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
+      "Counter32",
       "IpAddress",
-      "Counter64",
-      "TimeTicks",
-      "Counter32"
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "extremeRtStats": {
@@ -196,8 +196,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:48:01 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EXTREME-RTSTATS-MIB"

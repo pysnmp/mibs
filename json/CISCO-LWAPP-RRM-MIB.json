@@ -1,37 +1,58 @@
 {
   "imports": {
     "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApName"
+    ],
+    "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcIfType",
+      "cldcApMacAddress",
+      "cldcClientMacAddress"
+    ],
     "CISCO-LWAPP-TC-MIB": [
       "CLApIfType"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanChdEnable"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
+      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoLwappRrmMIB": {
@@ -39,6 +60,38 @@
     "oid": "1.3.6.1.4.1.9.9.615",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2020-10-12 00:00",
+        "description": "Added few values to clrRrmFraSensitivity"
+      },
+      {
+        "revision": "2020-03-26 00:00",
+        "description": "Added clrRrmBcoTable in clrRrmConfig"
+      },
+      {
+        "revision": "2019-07-30 00:00",
+        "description": "Changes in clrRrmPakRssiConfig Deprecated the following objects: -clrRrmPakRssiNtp, -clrRrmPakRssiNtpIpAddressType."
+      },
+      {
+        "revision": "2018-09-25 00:00",
+        "description": "Added following table - clrRrmRemoveChannelTable - clrRrmAddChannelTable - clrRrmDot11BandJoinedGrpMemberTable Added following new object to clrRrmDcaChannelListTable - clrRrmDcaDefaultChannelList Added notification variable clrRrmSysIdentifier"
+      },
+      {
+        "revision": "2017-06-09 00:00",
+        "description": "Added following attributes, - clrRrmFraSensorThreshold - clrRrmFraSensorCoverage - clrRrmFraServicePriority - clrRrmFraSensorDensityOptimisationTargetRssi"
+      },
+      {
+        "revision": "2017-03-28 00:00",
+        "description": "Added following new objects to clrRrmParametersTable: - clrRrmParametersTpcVersion - clrRrmParametersChdNoise - clrRrmParametersChdInterference - clrRrmParametersChdLoad - clrRrmParametersChdSignal - clrRrmParametersChdDevice - clrRrmParametersMaxClients - clrRrmParametersRssiCheckEnable - clrRrmParametersRssiThreshold - clrRrmParametersOptRoamEnable - clrRrmParametersOptRoamDataRate - clrRrmParametersOptRoamInterval - clrRrmParametersClientNetworkPreference - clrRrmParametersDcaChannelWidthRev which deprecates clrRrmParametersDcaChannelWidth Added the following OBJECT IDENTIFIER - clrRrmFraConfig - clrRrmPakRssiConfig Added the following objects to clrRrmPakRssiConfig - clrRrmHyperLocationEnable - clrRrmPakRssiThreshold - clrRrmPakRssiThresholdTrigger - clrRrmPakRssiNtpIpAddressType - clrRrmPakRssiNtp Added the following objects to clrRrmFraConfig: - clrRrmFraEnable - clrRrmFraInterval - clrRrmFraSensitivity Added new table clrRrmDcaChannelListTable. Added following Notification Objects: - clrRrmNeighborApCountRev - clrRrmNeighborApMacAddressRev - clrRrmNeighborApRssiRev - clrRrmNeighborApIfTypeRev - clrRrmSysMacAddressRev - clrRrmRssiHistogramValuesRev - clrRrmSysIpAddressType - clrRrmSysIpAddress Added following new OBJECT-GROUP: - ciscoLwappRrmChannelStatusGroup - ciscoLwappRrmParametersGroup - ciscoLwappRrmDCAChannelListGroup - ciscoLwappRrmConfigGroupSup5 - ciscoLwappRrmFraConfigGroup - ciscoLwappRrmConfigGroupSup6 - ciscoLwappRrmChdConfigGroup - ciscoLwappRrmOptRoamGroup - ciscoLwappRrmPakRssiConfigGroup - ciscoLwappRrmNotifyObjectsGroup - ciscoLwappRrmConfigGroupSup7 Added the following NOTIFICATION-GROUP: - ciscoLwappRrmNotifsGroup The following object group is deprecated: - ciscoLwappRrmConfigGroupSup2 Deprecated ciscoLwappRrmMIBComplianceRev2 and replaced by ciscoLwappRrmMIBComplianceRev3."
+      },
+      {
+        "revision": "2011-03-08 00:00",
+        "description": "Added following parameters to the table, clrRrmParametersTable. clrRrmParametersDcaChannelWidth, clrRrmParametersMaxTxPower, clrRrmParametersMinTxPower. Deprecated the following object: clrRrmParametersPicoCellMode, clrRrmTupleEntry. Added following scalar variables: clrRrmDcaDot11aOutdoorAPDca, clrRrmRfGroupingPriority. Following two tables have been added for RRM RF Grouping. clrRrmDot11BandGrpTable clrRrmDot11BandGrpMemberTable Following notification related objects have been added: clrRrmApTransmitPowerLevel clrRrmTimeStamp clrRrmClientType clrRrmRssiHistogramLength clrRrmRssiHistogramMaxIndex clrRrmRssiHistogramValues clrRrmNeighborApCount clrRrmNeighborApMacAddress clrRrmNeighborApRssi clrRrmNeighborApIfType clrRrmSysMacAddress clrRrmSysIpAddress Following notifications have been defined: ciscoLwappDot11ClientCoverageHolePreAlarm ciscoLwappRrmRfGroupLeaderChange ciscoLwappRrmRfGroupMemberAdded ciscoLwappRrmRfGroupMemberRemoved."
+      },
+      {
+        "revision": "2007-11-13 00:00",
+        "description": "The following objects have been added: 1. clrRrmParametersChdEnable 2. clrRrmParametersVoicePktCountThreshold 3. clrRrmParametersVoicePktPercentThreshold 4. clrRrmParametersVoiceRssiThreshold 5. clrRrmParametersDataPktCountThreshold 6. clrRrmParametersDataPktPercentThreshold 7. clrRrmParametersDataRssiThreshold."
+      },
       {
         "revision": "2007-02-21 00:00",
         "description": "Initial version of this MIB module."
@@ -80,6 +133,7 @@
         ]
       }
     },
+    "displayhint": "d",
     "status": "current"
   },
   "clrRrmParametersTable": {
@@ -140,6 +194,487 @@
       }
     },
     "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clrRrmParametersChdEnable": {
+    "name": "clrRrmParametersChdEnable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersVoicePktCountThreshold": {
+    "name": "clrRrmParametersVoicePktCountThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersVoicePktPercentThreshold": {
+    "name": "clrRrmParametersVoicePktPercentThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersVoiceRssiThreshold": {
+    "name": "clrRrmParametersVoiceRssiThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -90,
+            "max": -60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -80,
+        "format": "decimal"
+      }
+    },
+    "units": "dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersDataPktCountThreshold": {
+    "name": "clrRrmParametersDataPktCountThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersDataPktPercentThreshold": {
+    "name": "clrRrmParametersDataPktPercentThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersDataRssiThreshold": {
+    "name": "clrRrmParametersDataRssiThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -90,
+            "max": -60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -74,
+        "format": "decimal"
+      }
+    },
+    "units": "dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersDcaChannelWidth": {
+    "name": "clrRrmParametersDcaChannelWidth",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twenty": 1,
+          "forty": 2,
+          "eighty": 3,
+          "best": 4,
+          "oneSixty": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersMaxTxPower": {
+    "name": "clrRrmParametersMaxTxPower",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersMinTxPower": {
+    "name": "clrRrmParametersMinTxPower",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -10,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -10,
+        "format": "decimal"
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersTpcVersion": {
+    "name": "clrRrmParametersTpcVersion",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "versionOne": 1,
+          "versionTwo": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersChdNoise": {
+    "name": "clrRrmParametersChdNoise",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersChdInterference": {
+    "name": "clrRrmParametersChdInterference",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersChdLoad": {
+    "name": "clrRrmParametersChdLoad",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersChdSignal": {
+    "name": "clrRrmParametersChdSignal",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersChdDevice": {
+    "name": "clrRrmParametersChdDevice",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersMaxClients": {
+    "name": "clrRrmParametersMaxClients",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersRssiCheckEnable": {
+    "name": "clrRrmParametersRssiCheckEnable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersRssiThreshold": {
+    "name": "clrRrmParametersRssiThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -90,
+            "max": -60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -80,
+        "format": "decimal"
+      }
+    },
+    "units": "dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersOptRoamEnable": {
+    "name": "clrRrmParametersOptRoamEnable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersOptRoamDataRate": {
+    "name": "clrRrmParametersOptRoamDataRate",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 54
+          }
+        ]
+      }
+    },
+    "units": "mbps",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersOptRoamInterval": {
+    "name": "clrRrmParametersOptRoamInterval",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmParametersClientNetworkPreference": {
+    "name": "clrRrmParametersClientNetworkPreference",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "connectivity": 2,
+          "throughput": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "clrRrmTupleTable": {
@@ -148,7 +683,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleEntry": {
     "name": "clrRrmTupleEntry",
@@ -163,7 +698,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleRxSenseThresholdMin": {
     "name": "clrRrmTupleRxSenseThresholdMin",
@@ -182,7 +717,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleRxSenseThresholdMax": {
     "name": "clrRrmTupleRxSenseThresholdMax",
@@ -201,7 +736,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleRxSenseThreshold": {
     "name": "clrRrmTupleRxSenseThreshold",
@@ -220,7 +755,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleCcaSenseThresholdMin": {
     "name": "clrRrmTupleCcaSenseThresholdMin",
@@ -239,7 +774,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleCcaSenseThresholdMax": {
     "name": "clrRrmTupleCcaSenseThresholdMax",
@@ -258,7 +793,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleCcaSenseThreshold": {
     "name": "clrRrmTupleCcaSenseThreshold",
@@ -277,7 +812,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleTransmitPowerLevelMin": {
     "name": "clrRrmTupleTransmitPowerLevelMin",
@@ -296,7 +831,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleTransmitPowerLevelMax": {
     "name": "clrRrmTupleTransmitPowerLevelMax",
@@ -315,7 +850,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleTransmitPowerLevel": {
     "name": "clrRrmTupleTransmitPowerLevel",
@@ -334,7 +869,7 @@
     },
     "units": "dbm",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmTupleSetDefault": {
     "name": "clrRrmTupleSetDefault",
@@ -346,7 +881,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "clrRrmChannelTable": {
     "name": "clrRrmChannelTable",
@@ -403,7 +938,1690 @@
         "format": "enum"
       }
     },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmChannelRowStatus": {
+    "name": "clrRrmChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpTable": {
+    "name": "clrRrmDot11BandGrpTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpEntry": {
+    "name": "clrRrmDot11BandGrpEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpLeaderIpAddressType": {
+    "name": "clrRrmDot11BandGrpLeaderIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpLeaderIpAddress": {
+    "name": "clrRrmDot11BandGrpLeaderIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpLeaderName": {
+    "name": "clrRrmDot11BandGrpLeaderName",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpMode": {
+    "name": "clrRrmDot11BandGrpMode",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "off": 2,
+          "leader": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "automatic",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpRole": {
+    "name": "clrRrmDot11BandGrpRole",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "auto-leader": 2,
+          "auto-member": 3,
+          "static-leader": 4,
+          "static-member": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto-leader",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpRestart": {
+    "name": "clrRrmDot11BandGrpRestart",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpLastUpdateTime": {
+    "name": "clrRrmDot11BandGrpLastUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpInterval": {
+    "name": "clrRrmDot11BandGrpInterval",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpLeaderIpv6AddressType": {
+    "name": "clrRrmDot11BandGrpLeaderIpv6AddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpLeaderIpv6Address": {
+    "name": "clrRrmDot11BandGrpLeaderIpv6Address",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpMemberTable": {
+    "name": "clrRrmDot11BandGrpMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandGrpMemberEntry": {
+    "name": "clrRrmDot11BandGrpMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrRrmDot11BandMemberIpAddressType": {
+    "name": "clrRrmDot11BandMemberIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandMemberIpAddress": {
+    "name": "clrRrmDot11BandMemberIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandMemberName": {
+    "name": "clrRrmDot11BandMemberName",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmDot11BandMemberIsJoined": {
+    "name": "clrRrmDot11BandMemberIsJoined",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandMemberJoinFailureReason": {
+    "name": "clrRrmDot11BandMemberJoinFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "joinedSuccessfully": 1,
+          "invalidIp": 2,
+          "groupSizeExceeded": 3,
+          "invalidGroupOrder": 4,
+          "nonMatchingGroupID": 5,
+          "unexpectedError": 6,
+          "weakSignalStrength": 7,
+          "joinPending": 8,
+          "notAManager": 9,
+          "groupingDelayed": 10,
+          "groupingDisabled": 11,
+          "invalidProtocolVersion": 12,
+          "countryCodeMismatch": 13,
+          "invalidHierarchy": 14,
+          "alreadyAStaticLeader": 15,
+          "memberOfAnotherGroup": 16,
+          "unconfiguredAsStaticMember": 17,
+          "cntlrNameAndIpMismatch": 18,
+          "unexpectedMemoryError": 19,
+          "rfDomainMismatch": 20,
+          "splitForInvalidStateRequest": 21,
+          "transitioningToStaticFromAuto": 22,
+          "splitDueToUserAction": 23
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "joinedSuccessfully",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandMemberRowStatus": {
+    "name": "clrRrmDot11BandMemberRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmDcaConfig": {
+    "name": "clrRrmDcaConfig",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.7",
+    "class": "objectidentity"
+  },
+  "clrRrmDcaDot11aOutdoorAPDca": {
+    "name": "clrRrmDcaDot11aOutdoorAPDca",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmRfGroupingPriority": {
+    "name": "clrRrmRfGroupingPriority",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDcaChannelListTable": {
+    "name": "clrRrmDcaChannelListTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDcaChannelListEntry": {
+    "name": "clrRrmDcaChannelListEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrRrmDcaUsedChannelList": {
+    "name": "clrRrmDcaUsedChannelList",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDcaUnusedChannelList": {
+    "name": "clrRrmDcaUnusedChannelList",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDcaDefaultChannelList": {
+    "name": "clrRrmDcaDefaultChannelList",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmPakRssiConfig": {
+    "name": "clrRrmPakRssiConfig",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.10",
+    "class": "objectidentity"
+  },
+  "clrRrmHyperLocationEnable": {
+    "name": "clrRrmHyperLocationEnable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmPakRssiThreshold": {
+    "name": "clrRrmPakRssiThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": -50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -100,
+        "format": "decimal"
+      }
+    },
+    "units": "dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmPakRssiThresholdTrigger": {
+    "name": "clrRrmPakRssiThresholdTrigger",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "dbm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmPakRssiNtpIpAddressType": {
+    "name": "clrRrmPakRssiNtpIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clrRrmPakRssiNtp": {
+    "name": "clrRrmPakRssiNtp",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clrRrmFraConfig": {
+    "name": "clrRrmFraConfig",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11",
+    "class": "objectidentity"
+  },
+  "clrRrmFraEnable": {
+    "name": "clrRrmFraEnable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmFraInterval": {
+    "name": "clrRrmFraInterval",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "hours",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmFraSensitivity": {
+    "name": "clrRrmFraSensitivity",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "medium": 2,
+          "high": 3,
+          "higher": 4,
+          "evenhigher": 5,
+          "superhigh": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "low",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmFraSensorThreshold": {
+    "name": "clrRrmFraSensorThreshold",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clientPriority": 0,
+          "clientPreferred": 1,
+          "balanced": 2,
+          "sensorPreferred": 3,
+          "sensorPriority": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "clientPriority",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmFraSensorCoverage": {
+    "name": "clrRrmFraSensorCoverage",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmFraServicePriority": {
+    "name": "clrRrmFraServicePriority",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coverage": 0,
+          "clientAware": 1,
+          "serviceAssurance": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "coverage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmFraSensorDensityOptimisationTargetRssi": {
+    "name": "clrRrmFraSensorDensityOptimisationTargetRssi",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrm11kConfig": {
+    "name": "clrRrm11kConfig",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.12",
+    "class": "objectidentity"
+  },
+  "clrRrm11kDenialMax": {
+    "name": "clrRrm11kDenialMax",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrm11kFloorBias": {
+    "name": "clrRrm11kFloorBias",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrm11kPredictionMin": {
+    "name": "clrRrm11kPredictionMin",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "units": "count",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmRemoveChannelTable": {
+    "name": "clrRrmRemoveChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmRemoveChannelEntry": {
+    "name": "clrRrmRemoveChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRemoveChannelNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrRrmRemoveChannelNum": {
+    "name": "clrRrmRemoveChannelNum",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmRemovedChannelDcaState": {
+    "name": "clrRrmRemovedChannelDcaState",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmRemoveChannelRowStatus": {
+    "name": "clrRrmRemoveChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmAddChannelTable": {
+    "name": "clrRrmAddChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmAddChannelEntry": {
+    "name": "clrRrmAddChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmAddChannelNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrRrmAddChannelNum": {
+    "name": "clrRrmAddChannelNum",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmAddedChannelDcaState": {
+    "name": "clrRrmAddedChannelDcaState",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmAddChannelRowStatus": {
+    "name": "clrRrmAddChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedGrpMemberTable": {
+    "name": "clrRrmDot11BandJoinedGrpMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedGrpMemberEntry": {
+    "name": "clrRrmDot11BandJoinedGrpMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberIpAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberIpAddressType": {
+    "name": "clrRrmDot11BandJoinedMemberIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberIpAddress": {
+    "name": "clrRrmDot11BandJoinedMemberIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberName": {
+    "name": "clrRrmDot11BandJoinedMemberName",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberIsJoined": {
+    "name": "clrRrmDot11BandJoinedMemberIsJoined",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberJoinFailureReason": {
+    "name": "clrRrmDot11BandJoinedMemberJoinFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "joinedSuccessfully": 1,
+          "invalidIp": 2,
+          "groupSizeExceeded": 3,
+          "invalidGroupOrder": 4,
+          "nonMatchingGroupID": 5,
+          "unexpectedError": 6,
+          "weakSignalStrength": 7,
+          "joinPending": 8,
+          "notAManager": 9,
+          "groupingDelayed": 10,
+          "groupingDisabled": 11,
+          "invalidProtocolVersion": 12,
+          "countryCodeMismatch": 13,
+          "invalidHierarchy": 14,
+          "alreadyAStaticLeader": 15,
+          "memberOfAnotherGroup": 16,
+          "unconfiguredAsStaticMember": 17,
+          "cntlrNameAndIpMismatch": 18,
+          "unexpectedMemoryError": 19,
+          "rfDomainMismatch": 20
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "joinedSuccessfully",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberIpv6AddressType": {
+    "name": "clrRrmDot11BandJoinedMemberIpv6AddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmDot11BandJoinedMemberIpv6Address": {
+    "name": "clrRrmDot11BandJoinedMemberIpv6Address",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmBcoTable": {
+    "name": "clrRrmBcoTable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clrRrmBcoEntry": {
+    "name": "clrRrmBcoEntry",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clRrmBcoMode": {
+    "name": "clRrmBcoMode",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "static": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "automatic",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmTriRadioConfig": {
+    "name": "clrRrmTriRadioConfig",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.17",
+    "class": "objectidentity"
+  },
+  "clrRrmTriRadioMode": {
+    "name": "clrRrmTriRadioMode",
+    "oid": "1.3.6.1.4.1.9.9.615.1.1.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clrRrmNotificationVariable": {
+    "name": "clrRrmNotificationVariable",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2",
+    "class": "objectidentity"
+  },
+  "clrRrmApTransmitPowerLevel": {
+    "name": "clrRrmApTransmitPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmTimeStamp": {
+    "name": "clrRrmTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmClientType": {
+    "name": "clrRrmClientType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "data": 1,
+          "voice": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmRssiHistogramLength": {
+    "name": "clrRrmRssiHistogramLength",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmRssiHistogramMaxIndex": {
+    "name": "clrRrmRssiHistogramMaxIndex",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmRssiHistogramMinIndex": {
+    "name": "clrRrmRssiHistogramMinIndex",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmRssiHistogramValues": {
+    "name": "clrRrmRssiHistogramValues",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApCount": {
+    "name": "clrRrmNeighborApCount",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApMacAddress": {
+    "name": "clrRrmNeighborApMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApRssi": {
+    "name": "clrRrmNeighborApRssi",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApIfType": {
+    "name": "clrRrmNeighborApIfType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmSysMacAddress": {
+    "name": "clrRrmSysMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmSysIdentifier": {
+    "name": "clrRrmSysIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmRssiHistogramValuesRev": {
+    "name": "clrRrmRssiHistogramValuesRev",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApCountRev": {
+    "name": "clrRrmNeighborApCountRev",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApMacAddressRev": {
+    "name": "clrRrmNeighborApMacAddressRev",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApRssiRev": {
+    "name": "clrRrmNeighborApRssiRev",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmNeighborApIfTypeRev": {
+    "name": "clrRrmNeighborApIfTypeRev",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmSysMacAddressRev": {
+    "name": "clrRrmSysMacAddressRev",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmSysIpAddressType": {
+    "name": "clrRrmSysIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clrRrmSysIpAddress": {
+    "name": "clrRrmSysIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.615.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCoverageHolePreAlarm": {
+    "name": "ciscoLwappDot11ClientCoverageHolePreAlarm",
+    "oid": "1.3.6.1.4.1.9.9.615.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcApMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmApTransmitPowerLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmClientType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramLength"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramMaxIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramMinIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramValues"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApCount"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApRssi"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanChdEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmRfGroupLeaderChange": {
+    "name": "ciscoLwappRrmRfGroupLeaderChange",
+    "oid": "1.3.6.1.4.1.9.9.615.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmRfGroupMemberAdded": {
+    "name": "ciscoLwappRrmRfGroupMemberAdded",
+    "oid": "1.3.6.1.4.1.9.9.615.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmRfGroupMemberRemoved": {
+    "name": "ciscoLwappRrmRfGroupMemberRemoved",
+    "oid": "1.3.6.1.4.1.9.9.615.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappDot11ClientCoverageHolePreAlarmRev": {
+    "name": "ciscoLwappDot11ClientCoverageHolePreAlarmRev",
+    "oid": "1.3.6.1.4.1.9.9.615.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcApMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmApTransmitPowerLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmClientType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramLength"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramMaxIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramMinIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApCountRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApMacAddressRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApRssiRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApIfTypeRev"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanChdEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramValuesRev"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmRfGroupLeaderChangeRev": {
+    "name": "ciscoLwappRrmRfGroupLeaderChangeRev",
+    "oid": "1.3.6.1.4.1.9.9.615.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddressRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmRfGroupMemberAddedRev": {
+    "name": "ciscoLwappRrmRfGroupMemberAddedRev",
+    "oid": "1.3.6.1.4.1.9.9.615.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddressRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmRfGroupMemberRemovedRev": {
+    "name": "ciscoLwappRrmRfGroupMemberRemovedRev",
+    "oid": "1.3.6.1.4.1.9.9.615.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcIfType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddressRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      }
+    ],
     "status": "current"
   },
   "ciscoLwappRrmMIBCompliances": {
@@ -423,6 +2641,170 @@
     "modulecompliance": [
       {
         "object": "ciscoLwappRrmConfigGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRrmMIBComplianceRev1": {
+    "name": "ciscoLwappRrmMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.615.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRrmConfigGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup1",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRrmMIBComplianceRev2": {
+    "name": "ciscoLwappRrmMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.615.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRrmConfigGroupSup2",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup1",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup3",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup4",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmGrpStatusGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmMIBComplianceRev3": {
+    "name": "ciscoLwappRrmMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.615.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRrmConfigGroupSup7",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup1",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup3",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup4",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup5",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmGrpStatusGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmChannelStatusGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmParametersGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmDcaChannelListGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmFraConfigGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup6",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmNotifsGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmNotifyObjectsGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmPakRssiConfigGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmChdConfigGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmOptRoamGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmMIBComplianceRev4": {
+    "name": "ciscoLwappRrmMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.615.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRrmConfigGroupSup8",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup1",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup3",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup4",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmGrpStatusGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmChannelStatusGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmParametersGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmDcaChannelListGroup",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup5",
+        "module": "CISCO-LWAPP-RRM-MIB"
+      },
+      {
+        "object": "ciscoLwappRrmConfigGroupSup9",
         "module": "CISCO-LWAPP-RRM-MIB"
       }
     ],
@@ -482,13 +2864,529 @@
         "object": "clrRrmChannelDcaState"
       }
     ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRrmConfigGroupSup1": {
+    "name": "ciscoLwappRrmConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersVoicePktCountThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersVoicePktPercentThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersVoiceRssiThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersDataPktCountThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersDataPktPercentThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersDataRssiThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup2": {
+    "name": "ciscoLwappRrmConfigGroupSup2",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmChannelDcaState"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersDcaChannelWidth"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDcaDot11aOutdoorAPDca"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRrmConfigGroupSup3": {
+    "name": "ciscoLwappRrmConfigGroupSup3",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersMaxTxPower"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersMinTxPower"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup4": {
+    "name": "ciscoLwappRrmConfigGroupSup4",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpRestart"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberName"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmGrpStatusGroup": {
+    "name": "ciscoLwappRrmGrpStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpLeaderIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpLeaderIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpLeaderName"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpRole"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpLastUpdateTime"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberIsJoined"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberJoinFailureReason"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpLeaderIpv6AddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandGrpLeaderIpv6Address"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmChannelStatusGroup": {
+    "name": "ciscoLwappRrmChannelStatusGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmChannelRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmParametersGroup": {
+    "name": "ciscoLwappRrmParametersGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersTpcVersion"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersMaxClients"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdNoise"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdInterference"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdLoad"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdSignal"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdDevice"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmNotifsGroup": {
+    "name": "ciscoLwappRrmNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "ciscoLwappDot11ClientCoverageHolePreAlarmRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "ciscoLwappRrmRfGroupLeaderChangeRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "ciscoLwappRrmRfGroupMemberAddedRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "ciscoLwappRrmRfGroupMemberRemovedRev"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmDcaChannelListGroup": {
+    "name": "ciscoLwappRrmDcaChannelListGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDcaUsedChannelList"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDcaUnusedChannelList"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDcaDefaultChannelList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup5": {
+    "name": "ciscoLwappRrmConfigGroupSup5",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRfGroupingPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmFraConfigGroup": {
+    "name": "ciscoLwappRrmFraConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraSensitivity"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraSensorThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraSensorCoverage"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraServicePriority"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmFraSensorDensityOptimisationTargetRssi"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup6": {
+    "name": "ciscoLwappRrmConfigGroupSup6",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersClientNetworkPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmChdConfigGroup": {
+    "name": "ciscoLwappRrmChdConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdNoise"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdInterference"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdLoad"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdSignal"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersChdDevice"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmOptRoamGroup": {
+    "name": "ciscoLwappRrmOptRoamGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersOptRoamEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersOptRoamDataRate"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersOptRoamInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersRssiCheckEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmParametersRssiThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmPakRssiConfigGroup": {
+    "name": "ciscoLwappRrmPakRssiConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmHyperLocationEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmPakRssiThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmPakRssiThresholdTrigger"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmPakRssiNtpIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmPakRssiNtp"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmNotifyObjectsGroup": {
+    "name": "ciscoLwappRrmNotifyObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmApTransmitPowerLevel"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmTimeStamp"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmClientType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramLength"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramMaxIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramMinIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRssiHistogramValuesRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApCountRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApMacAddressRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApRssiRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmNeighborApIfTypeRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysMacAddressRev"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmSysIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup7": {
+    "name": "ciscoLwappRrmConfigGroupSup7",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmChannelDcaState"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDcaDot11aOutdoorAPDca"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup8": {
+    "name": "ciscoLwappRrmConfigGroupSup8",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRemovedChannelDcaState"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmRemoveChannelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmAddedChannelDcaState"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmAddChannelRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRrmConfigGroupSup9": {
+    "name": "ciscoLwappRrmConfigGroupSup9",
+    "oid": "1.3.6.1.4.1.9.9.615.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberName"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberIsJoined"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandMemberName"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberJoinFailureReason"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberIpv6AddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-RRM-MIB",
+        "object": "clrRrmDot11BandJoinedMemberIpv6Address"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-RRM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:35 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-RRM-MIB"

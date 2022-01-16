@@ -116,16 +116,6 @@ usmDESPrivProtocol OBJECT-IDENTITY
                  "
     ::= { snmpPrivProtocols 2 }
 
-   usmAESPrivProtocol   OBJECT-IDENTITY
-        STATUS          current
-        DESCRIPTION     "_The Rijndael Symmetric Encryption Protocol_"
-        REFERENCE       "_Advanced Encryption Standard _ NIST.
-                         http://www.nist.gov/aes_"
-   ::= { snmpPrivProtocols 4 }
-
-
-
-
 
 -- Textual Conventions ***********************************************
 
@@ -324,7 +314,6 @@ usmStatsDecryptionErrors OBJECT-TYPE
     ::= { usmStats 6 }
 
 -- The usmUser Group ************************************************
-
 usmUser          OBJECT IDENTIFIER ::= { usmMIBObjects 2 }
 
 usmUserSpinLock  OBJECT-TYPE
@@ -339,7 +328,6 @@ usmUserSpinLock  OBJECT-TYPE
     ::= { usmUser 1 }
 
 -- The table of valid users for the User-based Security Model ********
-
 
 usmUserTable     OBJECT-TYPE
     SYNTAX       SEQUENCE OF UsmUserEntry
@@ -373,7 +361,6 @@ usmUserTable     OBJECT-TYPE
                        If not, repeat steps 4-6.
 
                  If the new user will never use privacy:
-
                    7)  SET(usmUserPrivProtocol=usmNoPrivProtocol)
 
                  If the new user is to use authentication:
@@ -438,8 +425,6 @@ UsmUserEntry ::= SEQUENCE
         usmUserStatus           RowStatus
     }
 
-    --
-    --
 usmUserEngineID  OBJECT-TYPE
     SYNTAX       SnmpEngineID
     MAX-ACCESS   not-accessible
@@ -655,7 +640,6 @@ usmUserOwnAuthKeyChange OBJECT-TYPE
     DEFVAL      { ''H }    -- the empty string
     ::= { usmUserEntry 7 }
 
-
 usmUserPrivProtocol OBJECT-TYPE
     SYNTAX       AutonomousType
     MAX-ACCESS   read-create
@@ -664,7 +648,6 @@ usmUserPrivProtocol OBJECT-TYPE
                  this user to/from the SNMP engine identified by
                  usmUserEngineID, can be protected from disclosure,
                  and if so, the type of privacy protocol which is used.
-
                  An instance of this object is created concurrently
                  with the creation of any other object instance for
                  the same user (i.e., as part of the processing of

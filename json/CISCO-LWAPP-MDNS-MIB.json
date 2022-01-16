@@ -5,80 +5,80 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoLwappMdnsMIB": {
     "name": "ciscoLwappMdnsMIB",
-    "oid": "1.3.6.1.4.1.9.9.99994",
+    "oid": "1.3.6.1.4.1.9.9.842",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2012-07-04 00:00",
+        "revision": "2017-04-27 00:00",
         "description": "Initial version of this MIB module."
       }
     ]
   },
   "ciscoLwappMdnsMIBNotifs": {
     "name": "ciscoLwappMdnsMIBNotifs",
-    "oid": "1.3.6.1.4.1.9.9.99994.0",
+    "oid": "1.3.6.1.4.1.9.9.842.0",
     "class": "objectidentity"
   },
   "ciscoLwappMdnsMIBObjects": {
     "name": "ciscoLwappMdnsMIBObjects",
-    "oid": "1.3.6.1.4.1.9.9.99994.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1",
     "class": "objectidentity"
   },
   "ciscoLwappMdnsMIBConform": {
     "name": "ciscoLwappMdnsMIBConform",
-    "oid": "1.3.6.1.4.1.9.9.99994.2",
+    "oid": "1.3.6.1.4.1.9.9.842.2",
     "class": "objectidentity"
   },
   "clMdnsConfigObjects": {
     "name": "clMdnsConfigObjects",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1",
     "class": "objectidentity"
   },
   "clMdnsGlobalConfig": {
     "name": "clMdnsGlobalConfig",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.1",
     "class": "objectidentity"
   },
   "clMdnsSnoopingEnabled": {
     "name": "clMdnsSnoopingEnabled",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -96,12 +96,18 @@
   },
   "clMdnsQueryInterval": {
     "name": "clMdnsQueryInterval",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
     },
     "units": "minutes",
     "maxaccess": "read-write",
@@ -109,7 +115,7 @@
   },
   "clMdnsMasterServiceTable": {
     "name": "clMdnsMasterServiceTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -117,7 +123,7 @@
   },
   "clMdnsMasterServiceEntry": {
     "name": "clMdnsMasterServiceEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.2.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -132,7 +138,7 @@
   },
   "clMdnsServiceName": {
     "name": "clMdnsServiceName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.2.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -144,7 +150,7 @@
   },
   "clMdnsServiceString": {
     "name": "clMdnsServiceString",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.2.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -156,7 +162,7 @@
   },
   "clMdnsServiceQueryStatus": {
     "name": "clMdnsServiceQueryStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.2.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -174,7 +180,7 @@
   },
   "clMdnsServiceRowStatus": {
     "name": "clMdnsServiceRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.2.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -186,7 +192,7 @@
   },
   "clMdnsProfileTable": {
     "name": "clMdnsProfileTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -194,7 +200,7 @@
   },
   "clMdnsProfileEntry": {
     "name": "clMdnsProfileEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -209,7 +215,7 @@
   },
   "clMdnsProfileName": {
     "name": "clMdnsProfileName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -221,7 +227,7 @@
   },
   "clMdnsProfileRowStatus": {
     "name": "clMdnsProfileRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -233,7 +239,7 @@
   },
   "clMdnsProfileWlanCount": {
     "name": "clMdnsProfileWlanCount",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -245,7 +251,7 @@
   },
   "clMdnsProfileInterfaceCount": {
     "name": "clMdnsProfileInterfaceCount",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -257,7 +263,7 @@
   },
   "clMdnsProfileInterfaceGrpCount": {
     "name": "clMdnsProfileInterfaceGrpCount",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.3.1.5",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -269,7 +275,7 @@
   },
   "clMdnsProfileServiceTable": {
     "name": "clMdnsProfileServiceTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -277,7 +283,7 @@
   },
   "clMdnsProfileServiceEntry": {
     "name": "clMdnsProfileServiceEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.4.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -297,7 +303,7 @@
   },
   "clMdnsProfileServiceRowStatus": {
     "name": "clMdnsProfileServiceRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.4.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -309,7 +315,7 @@
   },
   "clMdnsServiceProviderTable": {
     "name": "clMdnsServiceProviderTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -317,7 +323,7 @@
   },
   "clMdnsServiceProviderEntry": {
     "name": "clMdnsServiceProviderEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -337,7 +343,7 @@
   },
   "clMdnsServiceProviderIndex": {
     "name": "clMdnsServiceProviderIndex",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -349,7 +355,7 @@
   },
   "clMdnsServiceProviderMacAddress": {
     "name": "clMdnsServiceProviderMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -361,7 +367,7 @@
   },
   "clMdnsServiceProviderName": {
     "name": "clMdnsServiceProviderName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -373,7 +379,7 @@
   },
   "clMdnsServiceProviderVlan": {
     "name": "clMdnsServiceProviderVlan",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -385,7 +391,7 @@
   },
   "clMdnsServiceProviderType": {
     "name": "clMdnsServiceProviderType",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.5",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -395,8 +401,7 @@
         "enumeration": {
           "wireless": 1,
           "wired": 2,
-          "wired-guest": 3,
-          "both": 4
+          "both": 3
         }
       }
     },
@@ -405,7 +410,7 @@
   },
   "clMdnsServiceProviderTtl": {
     "name": "clMdnsServiceProviderTtl",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.6",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -418,7 +423,7 @@
   },
   "clMdnsServiceProviderTimeLeft": {
     "name": "clMdnsServiceProviderTimeLeft",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.5.1.7",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.5.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -431,7 +436,7 @@
   },
   "clMdnsDnipTable": {
     "name": "clMdnsDnipTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -439,7 +444,7 @@
   },
   "clMdnsDnipEntry": {
     "name": "clMdnsDnipEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -454,7 +459,7 @@
   },
   "clMdnsDomainName": {
     "name": "clMdnsDomainName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -466,7 +471,7 @@
   },
   "clMdnsDomainMacAddress": {
     "name": "clMdnsDomainMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -478,7 +483,7 @@
   },
   "clMdnsDomainIpAddressType": {
     "name": "clMdnsDomainIpAddressType",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -490,7 +495,7 @@
   },
   "clMdnsDomainIpAddress": {
     "name": "clMdnsDomainIpAddress",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -502,7 +507,7 @@
   },
   "clMdnsDomainVlan": {
     "name": "clMdnsDomainVlan",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.5",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -514,7 +519,7 @@
   },
   "clMdnsDomainType": {
     "name": "clMdnsDomainType",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.6",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -524,8 +529,7 @@
         "enumeration": {
           "wireless": 1,
           "wired": 2,
-          "wired-guest": 3,
-          "both": 4
+          "both": 3
         }
       }
     },
@@ -534,7 +538,7 @@
   },
   "clMdnsDomainEntryTtl": {
     "name": "clMdnsDomainEntryTtl",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.7",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -547,7 +551,7 @@
   },
   "clMdnsDomainEntryTimeLeft": {
     "name": "clMdnsDomainEntryTimeLeft",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.6.1.8",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -560,7 +564,7 @@
   },
   "cLMdnsServiceGroupTable": {
     "name": "cLMdnsServiceGroupTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.7",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -568,7 +572,7 @@
   },
   "cLMdnsServiceGroupEntry": {
     "name": "cLMdnsServiceGroupEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.7.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -583,7 +587,7 @@
   },
   "cLMdnsServiceGroupName": {
     "name": "cLMdnsServiceGroupName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.7.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -603,7 +607,7 @@
   },
   "cLMdnsServiceGroupDescription": {
     "name": "cLMdnsServiceGroupDescription",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.7.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -623,7 +627,7 @@
   },
   "cLMdnsServiceGroupRowStatus": {
     "name": "cLMdnsServiceGroupRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.7.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -635,7 +639,7 @@
   },
   "cLMdnsServiceGroupDeviceMacTable": {
     "name": "cLMdnsServiceGroupDeviceMacTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -643,7 +647,7 @@
   },
   "cLMdnsServiceGroupDeviceMacEntry": {
     "name": "cLMdnsServiceGroupDeviceMacEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -663,7 +667,7 @@
   },
   "cLMdnsServiceGroupDeviceMac": {
     "name": "cLMdnsServiceGroupDeviceMac",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -675,7 +679,7 @@
   },
   "cLMdnsServiceGroupDeviceName": {
     "name": "cLMdnsServiceGroupDeviceName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -695,7 +699,7 @@
   },
   "cLMdnsServiceGroupLocationName": {
     "name": "cLMdnsServiceGroupLocationName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -715,7 +719,7 @@
   },
   "cLMdnsServiceGroupLocationType": {
     "name": "cLMdnsServiceGroupLocationType",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -734,7 +738,7 @@
   },
   "cLMdnsServiceGroupDeviceMacRowStatus": {
     "name": "cLMdnsServiceGroupDeviceMacRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.8.1.5",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.8.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -746,7 +750,7 @@
   },
   "cLMdnsServiceGroupRuleTable": {
     "name": "cLMdnsServiceGroupRuleTable",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.9",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -754,7 +758,7 @@
   },
   "cLMdnsServiceGroupRuleEntry": {
     "name": "cLMdnsServiceGroupRuleEntry",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.9.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -774,7 +778,7 @@
   },
   "cLMdnsRuleName": {
     "name": "cLMdnsRuleName",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.9.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -794,7 +798,7 @@
   },
   "cLMdnsRuleRole": {
     "name": "cLMdnsRuleRole",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.9.1.2",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -814,7 +818,7 @@
   },
   "cLMdnsRuleUserId": {
     "name": "cLMdnsRuleUserId",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.9.1.3",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -834,7 +838,7 @@
   },
   "cLMdnsServiceGroupRuleRowStatus": {
     "name": "cLMdnsServiceGroupRuleRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.99994.1.1.9.1.4",
+    "oid": "1.3.6.1.4.1.9.9.842.1.1.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -846,17 +850,17 @@
   },
   "ciscoLwappMdnsMIBCompliances": {
     "name": "ciscoLwappMdnsMIBCompliances",
-    "oid": "1.3.6.1.4.1.9.9.99994.2.1",
+    "oid": "1.3.6.1.4.1.9.9.842.2.1",
     "class": "objectidentity"
   },
   "ciscoLwappMdnsMIBGroups": {
     "name": "ciscoLwappMdnsMIBGroups",
-    "oid": "1.3.6.1.4.1.9.9.99994.2.2",
+    "oid": "1.3.6.1.4.1.9.9.842.2.2",
     "class": "objectidentity"
   },
   "ciscoLwappMdnsMIBCompliance": {
     "name": "ciscoLwappMdnsMIBCompliance",
-    "oid": "1.3.6.1.4.1.9.9.99994.2.1.1",
+    "oid": "1.3.6.1.4.1.9.9.842.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -866,13 +870,17 @@
       {
         "object": "cLMdnsMonitorGroup",
         "module": "CISCO-LWAPP-MDNS-MIB"
+      },
+      {
+        "object": "cLMdnsServiceGroup",
+        "module": "CISCO-LWAPP-MDNS-MIB"
       }
     ],
     "status": "current"
   },
   "cLMdnsConfigGroup": {
     "name": "cLMdnsConfigGroup",
-    "oid": "1.3.6.1.4.1.9.9.99994.2.2.1",
+    "oid": "1.3.6.1.4.1.9.9.842.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -882,10 +890,6 @@
       {
         "module": "CISCO-LWAPP-MDNS-MIB",
         "object": "clMdnsQueryInterval"
-      },
-      {
-        "module": "CISCO-LWAPP-MDNS-MIB",
-        "object": "clMdnsServiceName"
       },
       {
         "module": "CISCO-LWAPP-MDNS-MIB",
@@ -901,10 +905,6 @@
       },
       {
         "module": "CISCO-LWAPP-MDNS-MIB",
-        "object": "clMdnsProfileName"
-      },
-      {
-        "module": "CISCO-LWAPP-MDNS-MIB",
         "object": "clMdnsProfileRowStatus"
       },
       {
@@ -916,12 +916,20 @@
   },
   "cLMdnsMonitorGroup": {
     "name": "cLMdnsMonitorGroup",
-    "oid": "1.3.6.1.4.1.9.9.99994.2.2.2",
+    "oid": "1.3.6.1.4.1.9.9.842.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
         "module": "CISCO-LWAPP-MDNS-MIB",
-        "object": "clMdnsServiceProviderIndex"
+        "object": "clMdnsProfileWlanCount"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsProfileInterfaceCount"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsProfileInterfaceGrpCount"
       },
       {
         "module": "CISCO-LWAPP-MDNS-MIB",
@@ -942,6 +950,82 @@
       {
         "module": "CISCO-LWAPP-MDNS-MIB",
         "object": "clMdnsServiceProviderTtl"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsServiceProviderTimeLeft"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainType"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainEntryTtl"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "clMdnsDomainEntryTimeLeft"
+      }
+    ],
+    "status": "current"
+  },
+  "cLMdnsServiceGroup": {
+    "name": "cLMdnsServiceGroup",
+    "oid": "1.3.6.1.4.1.9.9.842.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupDeviceName"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupLocationName"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupLocationType"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupDeviceMacRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsRuleRole"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsRuleUserId"
+      },
+      {
+        "module": "CISCO-LWAPP-MDNS-MIB",
+        "object": "cLMdnsServiceGroupRuleRowStatus"
       }
     ],
     "status": "current"
@@ -949,8 +1033,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MDNS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-MDNS-MIB"

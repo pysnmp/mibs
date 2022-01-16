@@ -18,9 +18,6 @@ IMPORTS
        FROM SNMPv2-TC
    SnmpAdminString
       FROM SNMP-FRAMEWORK-MIB
-	  
-   Adsl2LConfProfPmMode
-      FROM ADSL2-LINE-TC-MIB
 
    HCPerfIntervalThreshold,
    HCPerfTimeElapsed
@@ -73,7 +70,7 @@ IMPORTS
    Xdsl2BitsAlloc,
    Xdsl2MrefPsdDs,
    Xdsl2MrefPsdUs
-   
+
           FROM   VDSL2-LINE-TC-MIB       -- [This document]
 
    MODULE-COMPLIANCE,

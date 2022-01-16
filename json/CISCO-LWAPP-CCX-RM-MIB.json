@@ -3,43 +3,42 @@
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
       "cLApSysMacAddress",
-      "cLApDot11IfSlotId",
-      "cLApDot11IfEntry"
+      "cLApDot11IfSlotId"
     ],
     "CISCO-LWAPP-WLAN-MIB": [
-      "cLWlanConfigEntry"
+      "cLWlanIndex"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoLwappCcxRmMIB": {
@@ -48,12 +47,16 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2017-04-18 00:00",
+        "description": "Updated description for the existing objects in accordance with MIB standard"
+      },
+      {
         "revision": "2012-02-21 00:00",
         "description": "Added ciscoLwappCcxRmDot11aConfigGroupVer1, ciscoLwappCcxRmDot11bConfigGroupVer1, and ciscoLwappCcxRmApIfConfigGroupVer1. Deprecated ciscoLwappCcxRmDot11aConfigGroup, ciscoLwappCcxRmDot11bConfigGroup, and ciscoLwappCcxRmApIfConfigGroup. Added ciscoLwappCcxRmMIBComplianceVer1 and deprecated ciscoLwappCcxRmMIBCompliance."
       },
       {
         "revision": "2006-04-11 00:00",
-        "description": "Initial version of this MIB module."
+        "description": "Initial version of this MIB module. "
       }
     ]
   },
@@ -227,11 +230,18 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "clcrAPIfEntry",
-      "module": "CISCO-LWAPP-CCX-RM-MIB",
-      "object": "cLApDot11IfEntry"
-    },
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11IfSlotId",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "clcrAPIfOverrideGlobal": {
@@ -402,11 +412,13 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "clcrWlanEntry",
-      "module": "CISCO-LWAPP-CCX-RM-MIB",
-      "object": "cLWlanConfigEntry"
-    },
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "clcrVersionIESupport": {
@@ -644,8 +656,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-CCX-RM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:39 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-CCX-RM-MIB"

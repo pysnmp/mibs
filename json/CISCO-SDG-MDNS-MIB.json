@@ -1,0 +1,1258 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "TimeIntervalMin",
+      "InterfaceIndexOrZero",
+      "CiscoPort"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TruthValue",
+      "DateAndTime"
+    ]
+  },
+  "ciscoSdgMdnsMIB": {
+    "name": "ciscoSdgMdnsMIB",
+    "oid": "1.3.6.1.4.1.9.9.851",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-05-16 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "cSdgMdnsMIBObjects": {
+    "name": "cSdgMdnsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.851.1",
+    "class": "objectidentity"
+  },
+  "cSdgMdnsMIBConformance": {
+    "name": "cSdgMdnsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.851.2",
+    "class": "objectidentity"
+  },
+  "csmMIBCompliances": {
+    "name": "csmMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.851.2.1",
+    "class": "objectidentity"
+  },
+  "csmStatistics": {
+    "name": "csmStatistics",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1",
+    "class": "objectidentity"
+  },
+  "csmGlobalStatistics": {
+    "name": "csmGlobalStatistics",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1",
+    "class": "objectidentity"
+  },
+  "csmSdgStatisticsTable": {
+    "name": "csmSdgStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmSdgStatisticsEntry": {
+    "name": "csmSdgStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csmInterface": {
+    "name": "csmInterface",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmMdnsPakSent": {
+    "name": "csmMdnsPakSent",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv4PakSent": {
+    "name": "csmIpv4PakSent",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv6PakSent": {
+    "name": "csmIpv6PakSent",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv4AdvertisementsSentCnt": {
+    "name": "csmIpv4AdvertisementsSentCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv6AdvertisementsSentCnt": {
+    "name": "csmIpv6AdvertisementsSentCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv4QuerySentCnt": {
+    "name": "csmIpv4QuerySentCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv6QuerySentCnt": {
+    "name": "csmIpv6QuerySentCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmUnicastSentCnt": {
+    "name": "csmUnicastSentCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmMdnsPakRateLtd": {
+    "name": "csmMdnsPakRateLtd",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmMdnsPakRcvd": {
+    "name": "csmMdnsPakRcvd",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAdvertisementsReceived": {
+    "name": "csmAdvertisementsReceived",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmQueriesReceived": {
+    "name": "csmQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv4AdvertisementsRcvdCnt": {
+    "name": "csmIpv4AdvertisementsRcvdCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv6AdvertisementsRcvdCnt": {
+    "name": "csmIpv6AdvertisementsRcvdCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv4QueryRcvdCnt": {
+    "name": "csmIpv4QueryRcvdCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmIpv6QueryRcvdCnt": {
+    "name": "csmIpv6QueryRcvdCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmPakDropped": {
+    "name": "csmPakDropped",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmMdnsGatewayState": {
+    "name": "csmMdnsGatewayState",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmControllerStatistics": {
+    "name": "csmControllerStatistics",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3",
+    "class": "objectidentity"
+  },
+  "csmSdgCacheStatisticsTable": {
+    "name": "csmSdgCacheStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmSdgCacheStatisticsEntry": {
+    "name": "csmSdgCacheStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCacheInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csmCacheInterface": {
+    "name": "csmCacheInterface",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csmNumOfSrvTypes": {
+    "name": "csmNumOfSrvTypes",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmNumOfAAAARecords": {
+    "name": "csmNumOfAAAARecords",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmNumOfTXTRecords": {
+    "name": "csmNumOfTXTRecords",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmNumOfSRVRecords": {
+    "name": "csmNumOfSRVRecords",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmNumOfPTRRecords": {
+    "name": "csmNumOfPTRRecords",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmNumOfARecords": {
+    "name": "csmNumOfARecords",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAvgInRateMin": {
+    "name": "csmAvgInRateMin",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAvgInRateFMin": {
+    "name": "csmAvgInRateFMin",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAvgInRateHr": {
+    "name": "csmAvgInRateHr",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAvgOutRateMin": {
+    "name": "csmAvgOutRateMin",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAvgOutRateFMin": {
+    "name": "csmAvgOutRateFMin",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmAvgOutRateHr": {
+    "name": "csmAvgOutRateHr",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeIntervalMin",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCacheLimit": {
+    "name": "csmCacheLimit",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCacheMemInUse": {
+    "name": "csmCacheMemInUse",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpAddrType": {
+    "name": "csmCntrlIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpAddr": {
+    "name": "csmCntrlIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlConnState": {
+    "name": "csmCntrlConnState",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlSrcPort": {
+    "name": "csmCntrlSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlDestPort": {
+    "name": "csmCntrlDestPort",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlSrcInterface": {
+    "name": "csmCntrlSrcInterface",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlMD5Status": {
+    "name": "csmCntrlMD5Status",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlKeepAliveTimer": {
+    "name": "csmCntrlKeepAliveTimer",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlDeadTimer": {
+    "name": "csmCntrlDeadTimer",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlTotalBCPMsgSent": {
+    "name": "csmCntrlTotalBCPMsgSent",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlTotalBCPMsgRcvd": {
+    "name": "csmCntrlTotalBCPMsgRcvd",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlBCPWithdrawMsgSent": {
+    "name": "csmCntrlBCPWithdrawMsgSent",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpv4QueryRequests": {
+    "name": "csmCntrlIpv4QueryRequests",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpv4QueryResponses": {
+    "name": "csmCntrlIpv4QueryResponses",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpv6QueryRequests": {
+    "name": "csmCntrlIpv6QueryRequests",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpv6QueryResponses": {
+    "name": "csmCntrlIpv6QueryResponses",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpv4ServiceAdvertised": {
+    "name": "csmCntrlIpv4ServiceAdvertised",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlIpv6ServiceAdvertised": {
+    "name": "csmCntrlIpv6ServiceAdvertised",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlPktRcvdCnt": {
+    "name": "csmCntrlPktRcvdCnt",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlAnnouncementQueueSize": {
+    "name": "csmCntrlAnnouncementQueueSize",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlAnnouncementTimer": {
+    "name": "csmCntrlAnnouncementTimer",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlAnnouncementsExported": {
+    "name": "csmCntrlAnnouncementsExported",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlPendingAnnouncements": {
+    "name": "csmCntrlPendingAnnouncements",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlNextAnnouncementTime": {
+    "name": "csmCntrlNextAnnouncementTime",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlQuerySuppression": {
+    "name": "csmCntrlQuerySuppression",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlPendingQueries": {
+    "name": "csmCntrlPendingQueries",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlQueryQueueSize": {
+    "name": "csmCntrlQueryQueueSize",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlQueryTimer": {
+    "name": "csmCntrlQueryTimer",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlNextQueryTime": {
+    "name": "csmCntrlNextQueryTime",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlTotalQueryExported": {
+    "name": "csmCntrlTotalQueryExported",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlTotalResync": {
+    "name": "csmCntrlTotalResync",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmCntrlLastResync": {
+    "name": "csmCntrlLastResync",
+    "oid": "1.3.6.1.4.1.9.9.851.1.1.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csmMIBGroups": {
+    "name": "csmMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.851.2.2",
+    "class": "objectidentity"
+  },
+  "csmMIBCompliance": {
+    "name": "csmMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.851.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "csmGlobalStatisticsGroup",
+        "module": "CISCO-SDG-MDNS-MIB"
+      },
+      {
+        "object": "csmSdgStatisticsGroup",
+        "module": "CISCO-SDG-MDNS-MIB"
+      },
+      {
+        "object": "csmControllerStatisticsGroup",
+        "module": "CISCO-SDG-MDNS-MIB"
+      },
+      {
+        "object": "csmSdgCacheStatisticsGroup",
+        "module": "CISCO-SDG-MDNS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "csmGlobalStatisticsGroup": {
+    "name": "csmGlobalStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.851.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAvgInRateMin"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAvgInRateFMin"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAvgInRateHr"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAvgOutRateMin"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAvgOutRateFMin"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAvgOutRateHr"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCacheLimit"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCacheMemInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "csmSdgStatisticsGroup": {
+    "name": "csmSdgStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.851.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmMdnsPakSent"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmUnicastSentCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmMdnsPakRateLtd"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmMdnsPakRcvd"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmPakDropped"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv4AdvertisementsSentCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv4QuerySentCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv6AdvertisementsSentCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv6QuerySentCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv4AdvertisementsRcvdCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv4QueryRcvdCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv6AdvertisementsRcvdCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv6QueryRcvdCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmMdnsGatewayState"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv4PakSent"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmIpv6PakSent"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmAdvertisementsReceived"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmQueriesReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "csmControllerStatisticsGroup": {
+    "name": "csmControllerStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.851.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlConnState"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlMD5Status"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlKeepAliveTimer"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlDeadTimer"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlTotalBCPMsgSent"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlTotalBCPMsgRcvd"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlTotalResync"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlLastResync"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpv4QueryResponses"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpv4QueryRequests"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpv6QueryRequests"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpv6QueryResponses"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpv4ServiceAdvertised"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpv6ServiceAdvertised"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlBCPWithdrawMsgSent"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlPktRcvdCnt"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpAddr"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlSrcPort"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlDestPort"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlAnnouncementQueueSize"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlAnnouncementTimer"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlPendingAnnouncements"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlAnnouncementsExported"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlNextAnnouncementTime"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlQuerySuppression"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlQueryQueueSize"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlQueryTimer"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlPendingQueries"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlTotalQueryExported"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlNextQueryTime"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlIpAddrType"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmCntrlSrcInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "csmSdgCacheStatisticsGroup": {
+    "name": "csmSdgCacheStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.851.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmNumOfSrvTypes"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmNumOfTXTRecords"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmNumOfSRVRecords"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmNumOfARecords"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmNumOfAAAARecords"
+      },
+      {
+        "module": "CISCO-SDG-MDNS-MIB",
+        "object": "csmNumOfPTRRecords"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDG-MDNS-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SDG-MDNS-MIB"
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappOpendnsMIB": {
+    "name": "ciscoLwappOpendnsMIB",
+    "oid": "1.3.6.1.4.1.9.9.837",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-03 00:00",
+        "description": "Added following objects -claOpendnsWlanDhcpOpt6."
+      },
+      {
+        "revision": "2017-02-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappOpendnsMIBNotifs": {
+    "name": "ciscoLwappOpendnsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.837.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappOpendnsMIBObjects": {
+    "name": "ciscoLwappOpendnsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.837.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappOpendnsMIBConform": {
+    "name": "ciscoLwappOpendnsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.837.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappOpendnsTag": {
+    "name": "ciscoLwappOpendnsTag",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappOpendnsConfig": {
+    "name": "ciscoLwappOpendnsConfig",
+    "oid": "1.3.6.1.4.1.9.9.837.1.2",
+    "class": "objectidentity"
+  },
+  "claOpendnsEnable": {
+    "name": "claOpendnsEnable",
+    "oid": "1.3.6.1.4.1.9.9.837.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claOpendnsForceEnable": {
+    "name": "claOpendnsForceEnable",
+    "oid": "1.3.6.1.4.1.9.9.837.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claOpendnsApiToken": {
+    "name": "claOpendnsApiToken",
+    "oid": "1.3.6.1.4.1.9.9.837.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claOpendnsProfileTable": {
+    "name": "claOpendnsProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claOpendnsProfileEntry": {
+    "name": "claOpendnsProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "claOpendnsProfileName": {
+    "name": "claOpendnsProfileName",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claOpendnsProfileRowStatus": {
+    "name": "claOpendnsProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claOpendnsProfileStatus": {
+    "name": "claOpendnsProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInuse": 1,
+          "inProgress": 2,
+          "success": 3,
+          "failed": 4,
+          "inuse": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notInuse",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "claOpendnsProfileIdentity": {
+    "name": "claOpendnsProfileIdentity",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "claOpendnsWlanTable": {
+    "name": "claOpendnsWlanTable",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claOpendnsWlanEntry": {
+    "name": "claOpendnsWlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "claOpendnsWlanProfileName": {
+    "name": "claOpendnsWlanProfileName",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claOpendnsWlanMode": {
+    "name": "claOpendnsWlanMode",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "force": 2,
+          "copy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "force",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claOpendnsWlanProfileStatus": {
+    "name": "claOpendnsWlanProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claOpendnsWlanDhcpOpt6": {
+    "name": "claOpendnsWlanDhcpOpt6",
+    "oid": "1.3.6.1.4.1.9.9.837.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappOpendnsMIBCompliances": {
+    "name": "ciscoLwappOpendnsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.837.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappOpendnsMIBGroups": {
+    "name": "ciscoLwappOpendnsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.837.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappOpendnsMIBCompliance": {
+    "name": "ciscoLwappOpendnsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.837.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappOpendnsTagGroup",
+        "module": "CISCO-LWAPP-OPENDNS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappOpendnsMIBComplianceRev1": {
+    "name": "ciscoLwappOpendnsMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.837.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappOpendnsTagGroup",
+        "module": "CISCO-LWAPP-OPENDNS-MIB"
+      },
+      {
+        "object": "ciscoLwappOpendnsConfigGroup",
+        "module": "CISCO-LWAPP-OPENDNS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappOpendnsMIBComplianceRev2": {
+    "name": "ciscoLwappOpendnsMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.837.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappOpendnsTagGroup",
+        "module": "CISCO-LWAPP-OPENDNS-MIB"
+      },
+      {
+        "object": "ciscoLwappOpendnsConfigGroup",
+        "module": "CISCO-LWAPP-OPENDNS-MIB"
+      },
+      {
+        "object": "ciscoLwappOpendnsTagGroupVer2",
+        "module": "CISCO-LWAPP-OPENDNS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappOpendnsTagGroup": {
+    "name": "ciscoLwappOpendnsTagGroup",
+    "oid": "1.3.6.1.4.1.9.9.837.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanMode"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanProfileStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileIdentity"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappOpendnsConfigGroup": {
+    "name": "ciscoLwappOpendnsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.837.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsForceEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsApiToken"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappOpendnsTagGroupVer2": {
+    "name": "ciscoLwappOpendnsTagGroupVer2",
+    "oid": "1.3.6.1.4.1.9.9.837.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanMode"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanProfileStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsProfileIdentity"
+      },
+      {
+        "module": "CISCO-LWAPP-OPENDNS-MIB",
+        "object": "claOpendnsWlanDhcpOpt6"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-OPENDNS-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-OPENDNS-MIB"
+  }
+}

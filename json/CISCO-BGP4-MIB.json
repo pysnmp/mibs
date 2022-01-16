@@ -3,47 +3,47 @@
     "class": "imports",
     "BGP4-MIB": [
       "bgpPeerLastError",
-      "bgpPeerState",
       "bgpPeerRemoteAddr",
+      "bgpPeerState",
       "bgpPeerEntry"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress",
+      "InetAutonomousSystemNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoBgp4MIB": {
@@ -51,6 +51,14 @@
     "oid": "1.3.6.1.4.1.9.9.187",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2020-05-06 00:00",
+        "description": "+cbgpPeer3Table: Changed VrfId, Type, RemoteAddr, VrfName to read-only"
+      },
+      {
+        "revision": "2020-04-14 00:00",
+        "description": "+Added cbgpPeer3Table"
+      },
       {
         "revision": "2010-09-30 00:00",
         "description": "+Added cbgpNotifsEnable and cbgpLocalAs +Modified CbgpNetworkAddress TC +Added cbgpPeer2Table +Added cbgpPeer2CapsTable +Added cbgpPeer2AddrFamilyTable +Added cbgpPeer2AddrFamilyPrefixTable +Added notification cbgpPeer2EstablishedNotification +Added notification cbgpPeer2BackwardTransNotification +Added notification cbgpPeer2FsmStateChange +Added notification cbgpPeer2BackwardTransition +Added notification cbgpPeer2PrefixThresholdExceeded +Added notification cbgpPeer2PrefixThresholdClear"
@@ -1765,6 +1773,543 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cbgpPeer3Table": {
+    "name": "cbgpPeer3Table",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbgpPeer3Entry": {
+    "name": "cbgpPeer3Entry",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer3VrfId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer3Type",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-BGP4-MIB",
+        "object": "cbgpPeer3RemoteAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbgpPeer3VrfId": {
+    "name": "cbgpPeer3VrfId",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3Type": {
+    "name": "cbgpPeer3Type",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3RemoteAddr": {
+    "name": "cbgpPeer3RemoteAddr",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3VrfName": {
+    "name": "cbgpPeer3VrfName",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3State": {
+    "name": "cbgpPeer3State",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3AdminStatus": {
+    "name": "cbgpPeer3AdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 1,
+          "start": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer3NegotiatedVersion": {
+    "name": "cbgpPeer3NegotiatedVersion",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3LocalAddr": {
+    "name": "cbgpPeer3LocalAddr",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3LocalPort": {
+    "name": "cbgpPeer3LocalPort",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3LocalAs": {
+    "name": "cbgpPeer3LocalAs",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3LocalIdentifier": {
+    "name": "cbgpPeer3LocalIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3RemotePort": {
+    "name": "cbgpPeer3RemotePort",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3RemoteAs": {
+    "name": "cbgpPeer3RemoteAs",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAutonomousSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3RemoteIdentifier": {
+    "name": "cbgpPeer3RemoteIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3InUpdates": {
+    "name": "cbgpPeer3InUpdates",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3OutUpdates": {
+    "name": "cbgpPeer3OutUpdates",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3InTotalMessages": {
+    "name": "cbgpPeer3InTotalMessages",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3OutTotalMessages": {
+    "name": "cbgpPeer3OutTotalMessages",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3LastError": {
+    "name": "cbgpPeer3LastError",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3FsmEstablishedTransitions": {
+    "name": "cbgpPeer3FsmEstablishedTransitions",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3FsmEstablishedTime": {
+    "name": "cbgpPeer3FsmEstablishedTime",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3ConnectRetryInterval": {
+    "name": "cbgpPeer3ConnectRetryInterval",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer3HoldTime": {
+    "name": "cbgpPeer3HoldTime",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3KeepAlive": {
+    "name": "cbgpPeer3KeepAlive",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3HoldTimeConfigured": {
+    "name": "cbgpPeer3HoldTimeConfigured",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer3KeepAliveConfigured": {
+    "name": "cbgpPeer3KeepAliveConfigured",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 21845
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer3MinASOriginationInterval": {
+    "name": "cbgpPeer3MinASOriginationInterval",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer3MinRouteAdvertisementInterval": {
+    "name": "cbgpPeer3MinRouteAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cbgpPeer3InUpdateElapsedTime": {
+    "name": "cbgpPeer3InUpdateElapsedTime",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3LastErrorTxt": {
+    "name": "cbgpPeer3LastErrorTxt",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbgpPeer3PrevState": {
+    "name": "cbgpPeer3PrevState",
+    "oid": "1.3.6.1.4.1.9.9.187.1.2.9.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "idle": 1,
+          "connect": 2,
+          "active": 3,
+          "opensent": 4,
+          "openconfirm": 5,
+          "established": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "ciscoBgp4NotifyPrefix": {
     "name": "ciscoBgp4NotifyPrefix",
     "oid": "1.3.6.1.4.1.9.9.187.0",
@@ -2457,8 +3002,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BGP4-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:35 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-BGP4-MIB"

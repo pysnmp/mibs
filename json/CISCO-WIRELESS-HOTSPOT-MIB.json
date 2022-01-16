@@ -1,0 +1,2913 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoWirelessHotspotMIB": {
+    "name": "ciscoWirelessHotspotMIB",
+    "oid": "1.3.6.1.4.1.9.9.863",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-06-18 00:00",
+        "description": "Marked cLHotspotRealmEAPAuthTable as deprecated. Added cLHotspotEAPAuthTable. Added cLHotspotAdviceChargeTable. Added cLHotspotAdviceChargePlanInfoTable. Added cLHotspotAdviceChargeNAIRealmTable. Added cLHotspotRealmEAPAuthTable."
+      },
+      {
+        "revision": "2019-06-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWirelessHotspotMIBNotifs": {
+    "name": "ciscoWirelessHotspotMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.863.0",
+    "class": "objectidentity"
+  },
+  "ciscoWirelessHotspotMIBObjects": {
+    "name": "ciscoWirelessHotspotMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.863.1",
+    "class": "objectidentity"
+  },
+  "ciscoWirelessHotspotMIBConform": {
+    "name": "ciscoWirelessHotspotMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.863.2",
+    "class": "objectidentity"
+  },
+  "ciscoWirelessHotspotConfig": {
+    "name": "ciscoWirelessHotspotConfig",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1",
+    "class": "objectidentity"
+  },
+  "cLHotspotAnqpServerConfigTable": {
+    "name": "cLHotspotAnqpServerConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerConfigEntry": {
+    "name": "cLHotspotAnqpServerConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotAnqpServerName": {
+    "name": "cLHotspotAnqpServerName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerRowStatus": {
+    "name": "cLHotspotAnqpServerRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerDescription": {
+    "name": "cLHotspotAnqpServerDescription",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerInternetEnabled": {
+    "name": "cLHotspotAnqpServerInternetEnabled",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerNetworkType": {
+    "name": "cLHotspotAnqpServerNetworkType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "private": 1,
+          "guestPrivate": 2,
+          "chargeablePublic": 3,
+          "freePublic": 4,
+          "personalDevice": 5,
+          "emergency": 6,
+          "test": 7,
+          "wildcard": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "private",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerVenueType": {
+    "name": "cLHotspotAnqpServerVenueType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecifiedUnspecified": 1,
+          "assemblyUnspecified": 2,
+          "assemblyArena": 3,
+          "assemblyStadium": 4,
+          "assemblyPassengerTerminal": 5,
+          "assemblyAmphitheater": 6,
+          "assemblyAmusementPark": 7,
+          "assemblyPlaceOfWorship": 8,
+          "assemblyConventionCenter": 9,
+          "assemblyLibrary": 10,
+          "assemblyMuseum": 11,
+          "assemblyRestaurant": 12,
+          "assemblyTheater": 13,
+          "assemblyBar": 14,
+          "assemblyCoffeeShop": 15,
+          "assemblyZoo": 16,
+          "assemblyEmergencyCoordCenter": 17,
+          "businessUnspecified": 18,
+          "businessDoctor": 19,
+          "businessBank": 20,
+          "businessFireStation": 21,
+          "businessPoliceStation": 22,
+          "businessPostOffice": 23,
+          "businessProfessionalOffice": 24,
+          "businessRdFacility": 25,
+          "businessAttorney": 26,
+          "educationalUnspecifiedEducational": 27,
+          "educationalPrimarySchool": 28,
+          "educationalSecondarySchool": 29,
+          "educationaluniversity": 30,
+          "industrialUnspecified": 31,
+          "industrialFactory": 32,
+          "institutionalUnspecified": 33,
+          "institutionalHospital": 34,
+          "institutionalLongTermCareFacility": 35,
+          "institutionalAlcoholDrugRehabCenter": 36,
+          "institutionalGroupHome": 37,
+          "institutionalJail": 38,
+          "mercantileUnspecified": 39,
+          "mercantileRetailStore": 40,
+          "mercantileGroceryMarket": 41,
+          "mercantileAutomotiveServiceStation": 42,
+          "mercantileShoppingMall": 43,
+          "mercantileGasStation": 44,
+          "residentialUnspecified": 45,
+          "residentialPrivate": 46,
+          "residentialHotel": 47,
+          "residentialDormitory": 48,
+          "residentialBoardingHouse": 49,
+          "storageUnspecified": 50,
+          "utilityUnspecified": 51,
+          "vehicularUnspecified": 52,
+          "vehicularAutomobileTruck": 53,
+          "vehicularAirplane": 54,
+          "vehicularBus": 55,
+          "vehicularFerry": 56,
+          "vehicularBoat": 57,
+          "vehicularTrain": 58,
+          "vehicularMotorbike": 59,
+          "outdoorUnspecified": 60,
+          "outdoorMuniMesh": 61,
+          "outdoorCityPark": 62,
+          "outdoorRestArea": 63,
+          "outdoorTrafficControl": 64,
+          "outdoorBusStop": 65,
+          "outdoorKiosk": 66
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unspecifiedUnspecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerHessid": {
+    "name": "cLHotspotAnqpServerHessid",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotGasRequestTimeout": {
+    "name": "cLHotspotGasRequestTimeout",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpFragmentationThreshold": {
+    "name": "cLHotspotAnqpFragmentationThreshold",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 1294
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1294,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpDomainId": {
+    "name": "cLHotspotAnqpDomainId",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpDomainIdEnabled": {
+    "name": "cLHotspotAnqpDomainIdEnabled",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerIpv4AddressType": {
+    "name": "cLHotspotAnqpServerIpv4AddressType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "public": 2,
+          "portRestricted": 3,
+          "singleNatedPrivate": 4,
+          "doubleNatedPrivate": 5,
+          "portRestrictedSingleNatedPrivate": 6,
+          "portRestrictedDoubleNatedPrivate": 7,
+          "notKnown": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notAvailable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpServerIpv6AddressType": {
+    "name": "cLHotspotAnqpServerIpv6AddressType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "available": 2,
+          "notKnown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notAvailable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAnqpOsuSsid": {
+    "name": "cLHotspotAnqpOsuSsid",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanLinkStatus": {
+    "name": "cLHotspotWanLinkStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 0,
+          "up": 1,
+          "down": 2,
+          "testState": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanIsAtCapacity": {
+    "name": "cLHotspotWanIsAtCapacity",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanDownlinkSpeed": {
+    "name": "cLHotspotWanDownlinkSpeed",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanUplinkSpeed": {
+    "name": "cLHotspotWanUplinkSpeed",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanDownlinkLoad": {
+    "name": "cLHotspotWanDownlinkLoad",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanUplinkLoad": {
+    "name": "cLHotspotWanUplinkLoad",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotWanLoadMeasDuration": {
+    "name": "cLHotspotWanLoadMeasDuration",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotTermsConditionsFilename": {
+    "name": "cLHotspotTermsConditionsFilename",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotTermsConditionsDate": {
+    "name": "cLHotspotTermsConditionsDate",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotTermsConditionsTime": {
+    "name": "cLHotspotTermsConditionsTime",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotTermsConditionsUrlFilter": {
+    "name": "cLHotspotTermsConditionsUrlFilter",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotRoamingOITable": {
+    "name": "cLHotspotRoamingOITable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotRoamingOIEntry": {
+    "name": "cLHotspotRoamingOIEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRoamingOI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotRoamingOI": {
+    "name": "cLHotspotRoamingOI",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          },
+          {
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotRoamingOIRowStatus": {
+    "name": "cLHotspotRoamingOIRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotRoamingOIIsBeacon": {
+    "name": "cLHotspotRoamingOIIsBeacon",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotDomainNameTable": {
+    "name": "cLHotspotDomainNameTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotDomainNameEntry": {
+    "name": "cLHotspotDomainNameEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotDomainName": {
+    "name": "cLHotspotDomainName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotDomainNameRowStatus": {
+    "name": "cLHotspotDomainNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspot3gppTable": {
+    "name": "cLHotspot3gppTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspot3gppEntry": {
+    "name": "cLHotspot3gppEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspot3gppNetworkCode",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspot3gppCountryCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspot3gppNetworkCode": {
+    "name": "cLHotspot3gppNetworkCode",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspot3gppCountryCode": {
+    "name": "cLHotspot3gppCountryCode",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspot3gppRowStatus": {
+    "name": "cLHotspot3gppRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotRealmTable": {
+    "name": "cLHotspotRealmTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotRealmEntry": {
+    "name": "cLHotspotRealmEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotRealmName": {
+    "name": "cLHotspotRealmName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotRealmRowStatus": {
+    "name": "cLHotspotRealmRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotRealmEAPTable": {
+    "name": "cLHotspotRealmEAPTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotRealmEAPEntry": {
+    "name": "cLHotspotRealmEAPEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotRealmEAPMethod": {
+    "name": "cLHotspotRealmEAPMethod",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eapTLS": 1,
+          "eapLEAP": 2,
+          "eapSIM": 3,
+          "eapTTLS": 4,
+          "eapAKA": 5,
+          "eapPEAP": 6,
+          "eapFAST": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotRealmEAPRowStatus": {
+    "name": "cLHotspotRealmEAPRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotRealmEAPAuthTable": {
+    "name": "cLHotspotRealmEAPAuthTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthEntry": {
+    "name": "cLHotspotRealmEAPAuthEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPMethod",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPAuthMethod",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthMethod": {
+    "name": "cLHotspotRealmEAPAuthMethod",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "innerAuthNonEap": 1,
+          "innerAuthEap": 2,
+          "credential": 3,
+          "tunneledEapCredential": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "innerAuthNonEap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthRowStatus": {
+    "name": "cLHotspotRealmEAPAuthRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthInnerAuthEAPType": {
+    "name": "cLHotspotRealmEAPAuthInnerAuthEAPType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "eapTLS": 2,
+          "eapLEAP": 3,
+          "eapSIM": 4,
+          "eapTTLS": 5,
+          "eapAKA": 6,
+          "eapPEAP": 7,
+          "eapFAST": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "reserved",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthNonInnerAuthEAPType": {
+    "name": "cLHotspotRealmEAPAuthNonInnerAuthEAPType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "pap": 2,
+          "chap": 3,
+          "mschap": 4,
+          "mschapV2": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "reserved",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthCredentialType": {
+    "name": "cLHotspotRealmEAPAuthCredentialType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "sim": 2,
+          "usim": 3,
+          "nfc": 4,
+          "hwToken": 5,
+          "softoken": 6,
+          "certificate": 7,
+          "usernamePassword": 8,
+          "none": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "reserved",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLHotspotRealmEAPAuthTunneledEAPCredentialType": {
+    "name": "cLHotspotRealmEAPAuthTunneledEAPCredentialType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "sim": 2,
+          "usim": 3,
+          "nfc": 4,
+          "hwToken": 5,
+          "softoken": 6,
+          "certificate": 7,
+          "usernamePassword": 8,
+          "anonymous": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "reserved",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLHotspotConnectionCapabilityTable": {
+    "name": "cLHotspotConnectionCapabilityTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotConnectionCapabilityEntry": {
+    "name": "cLHotspotConnectionCapabilityEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotConnectionCapabilityProtocol",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotConnectionCapabilityPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotConnectionCapabilityProtocol": {
+    "name": "cLHotspotConnectionCapabilityProtocol",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotConnectionCapabilityPort": {
+    "name": "cLHotspotConnectionCapabilityPort",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotConnectionCapabilityRowStatus": {
+    "name": "cLHotspotConnectionCapabilityRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotConnectionCapabilityStatus": {
+    "name": "cLHotspotConnectionCapabilityStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 1,
+          "open": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOperatorNameTable": {
+    "name": "cLHotspotOperatorNameTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOperatorNameEntry": {
+    "name": "cLHotspotOperatorNameEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatorNameLanguage",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotOperatorNameLanguage": {
+    "name": "cLHotspotOperatorNameLanguage",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOperatorNameRowStatus": {
+    "name": "cLHotspotOperatorNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOperatorName": {
+    "name": "cLHotspotOperatorName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderTable": {
+    "name": "cLHotspotOsuProviderTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderEntry": {
+    "name": "cLHotspotOsuProviderEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotOsuProviderName": {
+    "name": "cLHotspotOsuProviderName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderRowStatus": {
+    "name": "cLHotspotOsuProviderRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderServerUri": {
+    "name": "cLHotspotOsuProviderServerUri",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderNai": {
+    "name": "cLHotspotOsuProviderNai",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderPrimaryMethod": {
+    "name": "cLHotspotOsuProviderPrimaryMethod",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "omaDm": 2,
+          "soapXmlSpp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderSecondaryMethod": {
+    "name": "cLHotspotOsuProviderSecondaryMethod",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "omaDm": 2,
+          "soapXmlSpp": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderFriendlyNameTable": {
+    "name": "cLHotspotOsuProviderFriendlyNameTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderFriendlyNameEntry": {
+    "name": "cLHotspotOsuProviderFriendlyNameEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyNameLanguage",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotOsuProviderFriendlyNameLanguage": {
+    "name": "cLHotspotOsuProviderFriendlyNameLanguage",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderFriendlyNameRowStatus": {
+    "name": "cLHotspotOsuProviderFriendlyNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderFriendlyName": {
+    "name": "cLHotspotOsuProviderFriendlyName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderFriendlyNameDescription": {
+    "name": "cLHotspotOsuProviderFriendlyNameDescription",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderIconTable": {
+    "name": "cLHotspotOsuProviderIconTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderIconEntry": {
+    "name": "cLHotspotOsuProviderIconEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderIconFileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotOsuProviderIconFileName": {
+    "name": "cLHotspotOsuProviderIconFileName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOsuProviderIconRowStatus": {
+    "name": "cLHotspotOsuProviderIconRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotOperatingClassTable": {
+    "name": "cLHotspotOperatingClassTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOperatingClassEntry": {
+    "name": "cLHotspotOperatingClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatingClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotOperatingClassId": {
+    "name": "cLHotspotOperatingClassId",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotOperatingClassRowStatus": {
+    "name": "cLHotspotOperatingClassRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotIconTable": {
+    "name": "cLHotspotIconTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotIconEntry": {
+    "name": "cLHotspotIconEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconFileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotIconFileName": {
+    "name": "cLHotspotIconFileName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotIconRowStatus": {
+    "name": "cLHotspotIconRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotIconPath": {
+    "name": "cLHotspotIconPath",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 9,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotIconType": {
+    "name": "cLHotspotIconType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotIconLanguage": {
+    "name": "cLHotspotIconLanguage",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotIconWidth": {
+    "name": "cLHotspotIconWidth",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotIconHeight": {
+    "name": "cLHotspotIconHeight",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotVenueNameTable": {
+    "name": "cLHotspotVenueNameTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotVenueNameEntry": {
+    "name": "cLHotspotVenueNameEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameLanguage",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotVenueNameLanguage": {
+    "name": "cLHotspotVenueNameLanguage",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotVenueNameRowStatus": {
+    "name": "cLHotspotVenueNameRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotVenueNameDescription": {
+    "name": "cLHotspotVenueNameDescription",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 252
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotVenueNameUrl": {
+    "name": "cLHotspotVenueNameUrl",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotNetworkAuthTable": {
+    "name": "cLHotspotNetworkAuthTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotNetworkAuthEntry": {
+    "name": "cLHotspotNetworkAuthEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotNetworkAuthType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotNetworkAuthType": {
+    "name": "cLHotspotNetworkAuthType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "termsAndConditions": 1,
+          "onlineEnrollment": 2,
+          "httpHttpsRedirect": 3,
+          "dnsRedirect": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotNetworkAuthRowStatus": {
+    "name": "cLHotspotNetworkAuthRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotNetworkAuthUrl": {
+    "name": "cLHotspotNetworkAuthUrl",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeTable": {
+    "name": "cLHotspotAdviceChargeTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeEntry": {
+    "name": "cLHotspotAdviceChargeEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargeType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeType": {
+    "name": "cLHotspotAdviceChargeType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "time": 1,
+          "data": 2,
+          "timeAndData": 3,
+          "unlimited": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeRowStatus": {
+    "name": "cLHotspotAdviceChargeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoTable": {
+    "name": "cLHotspotAdviceChargePlanInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoEntry": {
+    "name": "cLHotspotAdviceChargePlanInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargePlanInfoFilename",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargePlanInfoPath",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoFilename": {
+    "name": "cLHotspotAdviceChargePlanInfoFilename",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoPath": {
+    "name": "cLHotspotAdviceChargePlanInfoPath",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 231
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoRowStatus": {
+    "name": "cLHotspotAdviceChargePlanInfoRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoLanguage": {
+    "name": "cLHotspotAdviceChargePlanInfoLanguage",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargePlanInfoCurrency": {
+    "name": "cLHotspotAdviceChargePlanInfoCurrency",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeNAIRealmTable": {
+    "name": "cLHotspotAdviceChargeNAIRealmTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeNAIRealmEntry": {
+    "name": "cLHotspotAdviceChargeNAIRealmEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargeType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargeNAIRealmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeNAIRealmName": {
+    "name": "cLHotspotAdviceChargeNAIRealmName",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 220
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotAdviceChargeNAIRealmRowStatus": {
+    "name": "cLHotspotAdviceChargeNAIRealmRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLHotspotEAPAuthTable": {
+    "name": "cLHotspotEAPAuthTable",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotEAPAuthEntry": {
+    "name": "cLHotspotEAPAuthEntry",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPMethod",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotEAPAuthType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLHotspotEAPAuthType": {
+    "name": "cLHotspotEAPAuthType",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "innerAuthPap": 1,
+          "innerAuthChap": 2,
+          "innerAuthMschap": 3,
+          "innerAuthMschapv2": 4,
+          "innerAuthEapTls": 5,
+          "innerAuthEapLeap": 6,
+          "innerAuthEapSim": 7,
+          "innerAuthEapTtls": 8,
+          "innerAuthEapAka": 9,
+          "innerAuthEapPeap": 10,
+          "innerAuthEapFast": 11,
+          "credentialSim": 12,
+          "credentialUsim": 13,
+          "credentialNfc": 14,
+          "credentialHwToken": 15,
+          "credentialSoftoken": 16,
+          "credentialCertificate": 17,
+          "credentialUsernamePassword": 18,
+          "credentialNone": 19,
+          "tunneledEapCredentialSim": 20,
+          "tunneledEapCredentialUsim": 21,
+          "tunneledEapCredentialNfc": 22,
+          "tunneledEapCredentialHwToken": 23,
+          "tunneledEapCredentialSoftoken": 24,
+          "tunneledEapCredentialCertificate": 25,
+          "tunneledEapCredentialUsernamePassword": 26,
+          "tunneledEapCredentialAnonymous": 27
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLHotspotEAPAuthRowStatus": {
+    "name": "cLHotspotEAPAuthRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.863.1.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoWirelessHotspotCompliances": {
+    "name": "ciscoWirelessHotspotCompliances",
+    "oid": "1.3.6.1.4.1.9.9.863.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWirelessHotspotGroups": {
+    "name": "ciscoWirelessHotspotGroups",
+    "oid": "1.3.6.1.4.1.9.9.863.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWirelessHotspotCompliance": {
+    "name": "ciscoWirelessHotspotCompliance",
+    "oid": "1.3.6.1.4.1.9.9.863.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWirelessHotspotConfigGroup1",
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB"
+      },
+      {
+        "object": "ciscoWirelessHotspotConfigGroup2",
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoWirelessHotspotComplianceRev1": {
+    "name": "ciscoWirelessHotspotComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.863.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWirelessHotspotConfigGroup2",
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB"
+      },
+      {
+        "object": "ciscoWirelessHotspotConfigGroup3",
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWirelessHotspotConfigGroup1": {
+    "name": "ciscoWirelessHotspotConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.863.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerDescription"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerInternetEnabled"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerNetworkType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerVenueType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerHessid"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotGasRequestTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpFragmentationThreshold"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpDomainId"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpDomainIdEnabled"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerIpv4AddressType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerIpv6AddressType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpOsuSsid"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanLinkStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanIsAtCapacity"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanDownlinkSpeed"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanUplinkSpeed"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanDownlinkLoad"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanUplinkLoad"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanLoadMeasDuration"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRoamingOIIsBeacon"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRoamingOIRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotDomainNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspot3gppRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPAuthInnerAuthEAPType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPAuthNonInnerAuthEAPType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPAuthCredentialType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPAuthTunneledEAPCredentialType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPAuthRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotConnectionCapabilityStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotConnectionCapabilityRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatorName"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatorNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderServerUri"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderNai"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderPrimaryMethod"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderSecondaryMethod"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyName"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyNameDescription"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderIconRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatingClassRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameDescription"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameUrl"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotNetworkAuthUrl"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotNetworkAuthRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoWirelessHotspotConfigGroup2": {
+    "name": "ciscoWirelessHotspotConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.863.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconPath"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconLanguage"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconWidth"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconHeight"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotIconRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWirelessHotspotConfigGroup3": {
+    "name": "ciscoWirelessHotspotConfigGroup3",
+    "oid": "1.3.6.1.4.1.9.9.863.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerDescription"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerInternetEnabled"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerNetworkType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerVenueType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerHessid"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotGasRequestTimeout"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpFragmentationThreshold"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpDomainId"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpDomainIdEnabled"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerIpv4AddressType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerIpv6AddressType"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpOsuSsid"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanLinkStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanIsAtCapacity"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanDownlinkSpeed"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanUplinkSpeed"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanDownlinkLoad"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanUplinkLoad"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotWanLoadMeasDuration"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotTermsConditionsFilename"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotTermsConditionsDate"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotTermsConditionsTime"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotTermsConditionsUrlFilter"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAnqpServerRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRoamingOIIsBeacon"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRoamingOIRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotDomainNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspot3gppRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotRealmEAPRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotConnectionCapabilityStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotConnectionCapabilityRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatorName"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatorNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderServerUri"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderNai"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderPrimaryMethod"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderSecondaryMethod"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyName"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyNameDescription"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderFriendlyNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOsuProviderIconRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotOperatingClassRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameDescription"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameUrl"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotVenueNameRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotNetworkAuthUrl"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotNetworkAuthRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargeRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargePlanInfoRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargePlanInfoLanguage"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargePlanInfoCurrency"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotAdviceChargeNAIRealmRowStatus"
+      },
+      {
+        "module": "CISCO-WIRELESS-HOTSPOT-MIB",
+        "object": "cLHotspotEAPAuthRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-HOTSPOT-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WIRELESS-HOTSPOT-MIB"
+  }
+}

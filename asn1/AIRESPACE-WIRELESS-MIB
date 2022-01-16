@@ -1,6 +1,6 @@
 -- **********************************************************
 -- Airespace Wireless MIB
--- Copyright 2005, 2010 Cisco Systems Inc. All rights reserved.
+-- Copyright 2005, 2010-2011, 2014 Cisco Systems Inc. All rights reserved.
 --   
 -- This SNMP Management Information Specification
 -- embodies Cisco's confidential and proprietary
@@ -18,8 +18,24 @@
 -- Internal Source Code Version:1.268
 -- Date: 01 Jan 2006
 -- **********************************************************
-
-
+--   
+-- %DNP%  FYI:  Lines containing a comment starting with the "Do Not
+-- %DNP%  Publish" prefix "%DNP%" (such as these) are automagicially
+-- %DNP%  stripped from MIBS prior to publishing on ftp and cio, and
+-- %DNP%  should be used for comments intended for cisco engineering
+-- %DNP%  eyes only, or for new product identifiers that are not yet
+-- %DNP%  announced.
+--   
+-- %DNP%   ****************************************************
+-- %DNP%   ** As approver for the 3.x review of this this MIB
+-- %DNP%   ** it is essential that I indicate that many of the
+-- %DNP%   ** changes are illegal(see RFC 2578).  In fact,
+-- %DNP%   ** these modifications will break existing applications
+-- %DNP%   ** and force those applications to become aware of
+-- %DNP%   ** which image level supports a particiular version
+-- %DNP%   ** of this MIB.  For example,the order and number of
+-- %DNP%   ** object in many of the notifications were changed.
+-- %DNP%   ****************************************************
 
 AIRESPACE-WIRELESS-MIB DEFINITIONS ::= BEGIN
 
@@ -55,7 +71,7 @@ IMPORTS
 -- ********************************************************************
 
 bsnWireless MODULE-IDENTITY
-    LAST-UPDATED    "201002090000Z"
+    LAST-UPDATED    "201406260000Z"
     ORGANIZATION    "Airespace, Inc."
     CONTACT-INFO
             "Cisco Systems,
@@ -174,6 +190,53 @@ bsnWireless MODULE-IDENTITY
 
         [2] Draft-obara-capwap-lwapp-00.txt, IETF Light 
         Weight Access Point Protocol."
+    REVISION        "201406260000Z"
+    DESCRIPTION
+        "Added enumerated value 9 - 10 to bsnMobileStationProtocol.
+        Added enumerated value 29 - 50 to bsnAPType. 
+        Updated description for bsnDot11EssStaticWEPKeyIndex, 
+        bsnRrmDot11aThroughputThreshold and bsnRrmDot11bThroughputThreshold."
+    REVISION        "201109270000Z"
+    DESCRIPTION
+        "Modified the following variables with
+        additional enumeration values:
+
+        bsnMobileStationReasonCode,
+        bsnMobileStationProtocol,
+        bsnMobileStationCcxVersion,
+        bsnAPType.
+
+        Modified the following notification variable:
+
+        bsnStationReasonCode
+
+        Deprecated the following variables:
+
+        bsnAPIfDot11CurrentCCAMode,
+        bsnDot11EssIPv6Bridging,
+        bsnAPPortNumber,
+        bsnAPAdminStatus,
+        bsnAPIfAdminStatus,
+        bsnRrmDot11aGlobalAutomaticGrouping,
+        bsnRrmDot11aGroupLeaderMacAddr,
+        bsnRrmIsDot11aGroupLeader,
+        bsnRrmDot11aGroupLastUpdateTime,
+        bsnRrmDot11aGlobalGroupInterval,
+        bsnRrmDot11bGlobalAutomaticGrouping,
+        bsnRrmDot11bGroupLeaderMacAddr,
+        bsnRrmIsDot11bGroupLeader,
+        bsnRrmDot11bGroupLastUpdateTime,
+        bsnRrmDot11bGlobalGroupInterval.
+
+        Deprecated following tables:
+
+        bsnWrasDot11aGroupTable,
+        bsnWrasDot11bGroupTable.
+
+        Deprecated following notifications:
+
+        bsnAPIfUp,
+        bsnAPIfDown."
     REVISION        "201002090000Z"
     DESCRIPTION
         "Updated:-
@@ -680,7 +743,9 @@ bsnDot11EssStaticWEPKeyIndex OBJECT-TYPE
     DESCRIPTION
         "According to 802.11 standard 4 keys are supported.
         So 802.11 Mobile Stations(Client) can have upto 4 
-        keys.  This index is for informing Mobile Station 
+        keys from 1 to 4. The read-only value zero indicates
+        that there is no WEP Authentication key information 
+        available.This index is for informing Mobile Station 
         which key it should use for Static WEP Authentication" 
     ::= { bsnDot11EssEntry 11 }
 
@@ -1292,7 +1357,7 @@ bsnDot11EssIPv6Bridging OBJECT-TYPE
                         enable(1)
                     }
     MAX-ACCESS      read-create
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "When enabled, IPv6 bridging is applied on the packets."
     DEFVAL          { disable } 
@@ -1733,7 +1798,12 @@ bsnMobileStationReasonCode OBJECT-TYPE
                         unsupportedRsnVersion(44),
                         invalidRsnIeCapabilities(45),
                         cipherSuiteRejected(46),
-                        missingReasonCode(99)
+                        missingReasonCode(99),
+                        maxAssociatedClientsReached(101),
+                        unSpecifieQosFailure(200),
+                        qosPolicyMismatch(201),
+                        inSufficientBandwidth(202),
+                        inValidQosParams(203)
                     }
     MAX-ACCESS      read-only
     STATUS          current
@@ -1918,7 +1988,10 @@ bsnMobileStationProtocol OBJECT-TYPE
                         unknown(4),
                         mobile(5),
                         dot11n24(6),
-                        dot11n5(7)
+                        dot11n5(7),
+                        ethernet(8),
+                        dot3(9),
+                        dot11ac(10)
                     }
     MAX-ACCESS      read-only
     STATUS          current
@@ -2027,7 +2100,8 @@ bsnMobileStationCcxVersion OBJECT-TYPE
                         ccxv2(2),
                         ccxv3(3),
                         ccxv4(4),
-                        ccxv5(5)
+                        ccxv5(5),
+                        ccxv6(6)
                     }
     MAX-ACCESS      read-only
     STATUS          current
@@ -3810,7 +3884,7 @@ bsnAPStatsTimer OBJECT-TYPE
 bsnAPPortNumber OBJECT-TYPE
     SYNTAX          INTEGER (0..65535)
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Port on the Switch on which this APs traffic is coming
         through." 
@@ -3902,7 +3976,41 @@ bsnAPType OBJECT-TYPE
                         ap800agn(17),
                         ap3500i(18),
                         ap3500e(19),
-                        ap1260(20)
+                        ap1260(20),
+                        ap1040(21),
+                        ap1550(22),
+                        ap602i(23),
+                        ap3500p(24),
+                        ap802gn(25),
+                        ap802agn(26),
+                        ap3600i(27),
+                        ap3600e(28),
+                        ap2600i(29),
+                        ap2600e(30),
+                        ap802hagn(31),
+                        ap1600i(32),
+                        ap1600e(33),
+                        ap702e(34),
+                        ap702i(35),
+                        ap3600p(36),
+                        ap1530i(37),
+                        ap1530e(38),
+                        ap3700e(39),
+                        ap3700i(40),
+                        ap3700p(41),
+                        ap2700e(42),
+                        ap2700i(43),
+                        ap702w(44),
+                        wap2600i(45),
+                        wap2600e(46),
+                        wap1600i(47),
+                        wap1600e(48),
+                        wap702i(49),
+                        wap702e(50),
+                        ap1700i(51),
+                        ap1700e(52),
+                        ap1570e(53),
+                        ap1570i(54)
                     }
     MAX-ACCESS      read-only
     STATUS          current
@@ -4033,7 +4141,7 @@ bsnAPAdminStatus OBJECT-TYPE
                         disable(2)
                     }
     MAX-ACCESS      read-write
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Admin State of the AP" 
     ::= { bsnAPEntry 37 }
@@ -4468,7 +4576,7 @@ bsnAPIfAdminStatus OBJECT-TYPE
                         enable(1)
                     }
     MAX-ACCESS      read-write
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Admin status of the interface." 
     ::= { bsnAPIfEntry 34 }
@@ -5271,7 +5379,7 @@ bsnAPIfDot11CurrentCCAMode OBJECT-TYPE
                         hrcsanded(16)
                     }
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "The current CCA method in operation.Valid values are:
         energy detect only (edonly) = 01,
@@ -9376,7 +9484,7 @@ bsnRrmDot11aGlobalAutomaticGrouping OBJECT-TYPE
                         off(2)
                     }
     MAX-ACCESS      read-write
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Dynamic grouping has two modes: on and off. When the grouping
         is off, no dynamic grouping occurs. Each Airespace Switch 
@@ -9390,7 +9498,7 @@ bsnRrmDot11aGlobalAutomaticGrouping OBJECT-TYPE
 bsnRrmDot11aGroupLeaderMacAddr OBJECT-TYPE
     SYNTAX          MacAddress
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "This is the MAC address of the group leader for the dot11a
         group containing this Airespace Switch." 
@@ -9402,7 +9510,7 @@ bsnRrmIsDot11aGroupLeader OBJECT-TYPE
                         yes(1)
                     }
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "If this Airespace Switch is a Dot11a Group Leader then this
         attribute will be true else it will be false." 
@@ -9411,7 +9519,7 @@ bsnRrmIsDot11aGroupLeader OBJECT-TYPE
 bsnRrmDot11aGroupLastUpdateTime OBJECT-TYPE
     SYNTAX          Unsigned32
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Last time the dot11a grouping was updated on this Airespace
         Switch. This is valid only if the Airespace Switch is a 
@@ -9421,7 +9529,7 @@ bsnRrmDot11aGroupLastUpdateTime OBJECT-TYPE
 bsnRrmDot11aGlobalGroupInterval OBJECT-TYPE
     SYNTAX          Unsigned32
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "When grouping is on, this interval(in secs) represents the
         period with which the grouping algorithm is run. Grouping 
@@ -9438,17 +9546,18 @@ bsnRrmDot11aGlobalGroupInterval OBJECT-TYPE
 bsnWrasDot11aGroupTable OBJECT-TYPE
     SYNTAX          SEQUENCE OF BsnWrasDot11aGroupEntry 
     MAX-ACCESS      not-accessible
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "This is a table of Airespace Switch addresses that identifies
         the members of the Dot11a RF group containing this Airespace 
-        Switch. Max size is 20 entries."
+        Switch. Max size is 20 entries. This has been deprecated for 
+        clrRrmDot11BandGrpMemberTable."
     ::= { bsnRrmDot11aGroup 9 }
 
 bsnWrasDot11aGroupEntry OBJECT-TYPE
     SYNTAX          BsnWrasDot11aGroupEntry
     MAX-ACCESS      not-accessible
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "..."
     INDEX           { bsnWrasDot11aPeerMacAddress } 
@@ -9462,7 +9571,7 @@ BsnWrasDot11aGroupEntry ::= SEQUENCE {
 bsnWrasDot11aPeerMacAddress OBJECT-TYPE
     SYNTAX          MacAddress
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "The MAC address of the member Switch." 
     ::= { bsnWrasDot11aGroupEntry 1 }
@@ -9470,7 +9579,7 @@ bsnWrasDot11aPeerMacAddress OBJECT-TYPE
 bsnWrasDot11aPeerIpAddress OBJECT-TYPE
     SYNTAX          IpAddress
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "The IP address of the Airespace Switch." 
     ::= { bsnWrasDot11aGroupEntry 21 }
@@ -9517,7 +9626,7 @@ bsnRrmDot11aThroughputThreshold OBJECT-TYPE
     MAX-ACCESS      read-write
     STATUS          current
     DESCRIPTION
-        "802.11A throughput threshold between 1000 and 100000" 
+        "802.11A throughput threshold between 1000 and 1000000" 
     ::= { bsnRrmDot11aAPDefault 4 }
 
 bsnRrmDot11aMobilesThreshold OBJECT-TYPE
@@ -9640,24 +9749,26 @@ bsnRrmDot11bGlobalAutomaticGrouping OBJECT-TYPE
                         off(2)
                     }
     MAX-ACCESS      read-write
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Dynamic grouping has two modes: on and off. When the grouping
         is off, no dynamic grouping occurs. Each Airespace Switch 
         optimizes only its own Airespace APs' parameters. When 
         grouping is on, the Airespace Switchs form groups and
         elect leaders to perform better dynamic parameter 
-        optimization."
+        optimization. This has been deprecated for 
+        clrRrmDot11BandGrpTable."
     DEFVAL          { automatic } 
     ::= { bsnRrmDot11bGroup 1 }
 
 bsnRrmDot11bGroupLeaderMacAddr OBJECT-TYPE
     SYNTAX          MacAddress
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "This is the MAC address of the group leader for the dot11b
-        group containing this Airespace Switch." 
+        group containing this Airespace Switch. This has been 
+         deprecated for clrRrmDot11BandGrpTable." 
     ::= { bsnRrmDot11bGroup 2 }
 
 bsnRrmIsDot11bGroupLeader OBJECT-TYPE
@@ -9666,33 +9777,35 @@ bsnRrmIsDot11bGroupLeader OBJECT-TYPE
                         yes(1)
                     }
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "If this Airespace Switch is a Dot11b Group Leader then this
-        attribute will be true else it will be false." 
+        attribute will be true else it will be false. This has been 
+         deprecated for clrRrmDot11BandGrpTable." 
     ::= { bsnRrmDot11bGroup 3 }
 
 bsnRrmDot11bGroupLastUpdateTime OBJECT-TYPE
     SYNTAX          Unsigned32
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "Last time the dot11b grouping was updated on this Airespace
         Switch. This is valid only if the Airespace Switch is a group
-        leader." 
+        leader. This has been deprecated for clrRrmDot11BandGrpTable." 
     ::= { bsnRrmDot11bGroup 4 }
 
 bsnRrmDot11bGlobalGroupInterval OBJECT-TYPE
     SYNTAX          Unsigned32
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "When grouping is on, this interval(in secs) represents the
         period with which the grouping algorithm is run. Grouping 
         algorithm will also run when the group contents changes and 
         the automatic grouping is enabled. A dynamic grouping can be 
         started upon request from the system administrator. Default 
-        value is 3600 secs."
+        value is 3600 secs. This has been 
+        deprecated for clrRrmDot11BandGrpTable."
     DEFVAL          { 3600 } 
     ::= { bsnRrmDot11bGroup 5 }
 -- ************************************************************
@@ -9702,17 +9815,18 @@ bsnRrmDot11bGlobalGroupInterval OBJECT-TYPE
 bsnWrasDot11bGroupTable OBJECT-TYPE
     SYNTAX          SEQUENCE OF BsnWrasDot11bGroupEntry 
     MAX-ACCESS      not-accessible
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "This is a table of Airespace Switch addresses that identifies
         the members of the Dot11b RF group containing this Airespace 
-        Switch. Max size is 20 entries."
+        Switch. Max size is 20 entries. This has been deprecated for 
+        clrRrmDot11BandGrpMemberTable."
     ::= { bsnRrmDot11bGroup 9 }
 
 bsnWrasDot11bGroupEntry OBJECT-TYPE
     SYNTAX          BsnWrasDot11bGroupEntry
     MAX-ACCESS      not-accessible
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "..."
     INDEX           { bsnWrasDot11bPeerMacAddress } 
@@ -9726,7 +9840,7 @@ BsnWrasDot11bGroupEntry ::= SEQUENCE {
 bsnWrasDot11bPeerMacAddress OBJECT-TYPE
     SYNTAX          MacAddress
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "The MAC address of the GIGE interface." 
     ::= { bsnWrasDot11bGroupEntry 1 }
@@ -9734,7 +9848,7 @@ bsnWrasDot11bPeerMacAddress OBJECT-TYPE
 bsnWrasDot11bPeerIpAddress OBJECT-TYPE
     SYNTAX          IpAddress
     MAX-ACCESS      read-only
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "The IP address of the Airespace Switch." 
     ::= { bsnWrasDot11bGroupEntry 21 }
@@ -9783,7 +9897,8 @@ bsnRrmDot11bThroughputThreshold OBJECT-TYPE
     MAX-ACCESS      read-write
     STATUS          current
     DESCRIPTION
-        "802.11A Airespace AP data-rate threshold between 1000 and 100000" 
+        "802.11A Airespace AP data-rate threshold between 1000 and
+        1000000" 
     ::= { bsnRrmDot11bAPDefault 4 }
 
 bsnRrmDot11bMobilesThreshold OBJECT-TYPE
@@ -12070,7 +12185,7 @@ bsnAPIfUp NOTIFICATION-TYPE
                         bsnAPIfUpDownCause,
                         bsnAPName
                     }
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "When Airespace AP's interface's operation status goes up this
         trap will be sent"
@@ -12085,7 +12200,7 @@ bsnAPIfDown NOTIFICATION-TYPE
                         bsnAPIfUpDownCause,
                         bsnAPName
                     }
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "When Airespace AP's interface's operation status goes down
         this trap will be sent."
@@ -13198,12 +13313,49 @@ bsnStationReasonCode OBJECT-TYPE
                         unsupportedRsnVersion(44),
                         invalidRsnIeCapabilities(45),
                         cipherSuiteRejected(46),
-                        missingReasonCode(99)
+                        missingReasonCode(99),
+                        maxAssociatedClientsReached(101),
+                        unSpecifiedQosFailure(200),
+                        qosPolicyMismatch(201),
+                        inSufficientBandwidth(202),
+                        inValidQosParams(203)
                     }
     MAX-ACCESS      accessible-for-notify
     STATUS          current
     DESCRIPTION
-        "" 
+        "unspecified - Unspecified.
+        previousAuthNotValid - Previous Authentication 
+                                         was not valid.
+        deauthenticationLeaving       - Leaving due to 
+                                      deauthentication.     
+        disassociationDueToInactivity - Disassociation 
+                                     due to Inactivity.
+        disassociationAPBusy - Disassociation since AP 
+                                              was busy.
+        class2FrameFromNonAuthStation -  Class 2 frame 
+                        from non authenticated station.
+        class2FrameFromNonAssStation - Class 2 frame 
+                           from non associated station.
+        disassociationStaHasLeft - Station has left due 
+                                     to disassociation.
+        staReqAssociationWithoutAuth    - Station send 
+            association request without authentication.
+        invalidInformationElement - Invalid information 
+                                               element.
+        groupCipherInvalid      - Invalid group Cipher.
+        unicastCipherInvalid  - Invalid unicast cipher.
+        akmpInvalid                     - Invalid AKMP.
+        unsupportedRsnVersion - Unsupported RSN version.
+        invalidRsnIeCapabilities       - Invalid RSN IE 
+                                           capabilities.
+        cipherSuiteRejected     - Cipher suite rejected.
+        missingReasonCode      - Reason code is missing.
+        maxAssociatedClientsReached - Maximum allowed 
+                   associated client number has reached.
+        unSpecifiedQosFailure - Unsupported QOS failure.
+        qosPolicyMismatch      - Mismatch on QOS policy.
+        inSufficientBandwidth  - Insufficient bandwidth.
+        inValidQosParams       - Invalid QOS parameters." 
     ::= { bsnTrapVariable 37 }
 
 bsnStationBlacklistingReasonCode OBJECT-TYPE
@@ -15083,7 +15235,6 @@ bsnEssGroup OBJECT-GROUP
                         bsnDot11EssL2tpSecurity,
                         bsnDot11EssBroadcastSsid,
                         bsnDot11EssExternalPolicyValidation,
-                        bsnDot11EssIPv6Bridging,
                         bsnDot11EssRowStatus,
                         bsnDot11EssWmePolicySetting,
                         bsnDot11Ess80211ePolicySetting,
@@ -15620,12 +15771,6 @@ bsnGlobalDot11Group OBJECT-GROUP
 
 bsnRrmGroup OBJECT-GROUP
     OBJECTS         {
-                        bsnRrmDot11aGroupLeaderMacAddr,
-                        bsnRrmIsDot11aGroupLeader,
-                        bsnRrmDot11aGroupLastUpdateTime,
-                        bsnRrmDot11aGlobalGroupInterval,
-                        bsnWrasDot11aPeerMacAddress,
-                        bsnWrasDot11aPeerIpAddress,
                         bsnRrmDot11aForeignInterferenceThreshold,
                         bsnRrmDot11aForeignNoiseThreshold,
                         bsnRrmDot11aRFUtilizationThreshold,
@@ -15640,13 +15785,6 @@ bsnRrmGroup OBJECT-GROUP
                         bsnRrmDot11aCoverageMeasurementInterval,
                         bsnRrmDot11aChannelMonitorList,
                         bsnRrmDot11aSetFactoryDefault,
-                        bsnRrmDot11bGlobalAutomaticGrouping,
-                        bsnRrmDot11bGroupLeaderMacAddr,
-                        bsnRrmIsDot11bGroupLeader,
-                        bsnRrmDot11bGroupLastUpdateTime,
-                        bsnRrmDot11bGlobalGroupInterval,
-                        bsnWrasDot11bPeerMacAddress,
-                        bsnWrasDot11bPeerIpAddress,
                         bsnRrmDot11bForeignInterferenceThreshold,
                         bsnRrmDot11bForeignNoiseThreshold,
                         bsnRrmDot11bRFUtilizationThreshold,
@@ -15786,7 +15924,8 @@ bsnAAAGroup OBJECT-GROUP
         "This collection of objects provide the information
         about Airespace Authentication, Authorization, and 
         Accounting Attributes. These objects are defined under
-        bsnAAA object."
+        bsnAAA object.
+        bsnAAAGroup object is superseded by banAAGroupRev1."
     ::= { bsnWrasGroups 5 }
 
 bsnTrapsGroup OBJECT-GROUP
@@ -16071,7 +16210,7 @@ bsnWrasTrap NOTIFICATION-GROUP
                         bsnDot11StationBlacklisted,
                         bsnDot11StationAssociate,
                         bsnAPUp,
-        			    bsnAPDown,
+                        bsnAPDown,
                         bsnAPAssociated,
                         bsnAPDisassociated,
                         bsnAPIfUp,
@@ -16199,7 +16338,6 @@ bsnEssGroupRev1 OBJECT-GROUP
                         bsnDot11EssL2tpSecurity,
                         bsnDot11EssBroadcastSsid,
                         bsnDot11EssExternalPolicyValidation,
-                        bsnDot11EssIPv6Bridging,
                         bsnDot11EssRowStatus,
                         bsnDot11EssWmePolicySetting,
                         bsnDot11Ess80211ePolicySetting,
@@ -16542,8 +16680,7 @@ bsnGlobalDot11GroupRev1 OBJECT-GROUP
                         bsnGlobalDot11aChannelAgilityEnabled,
                         bsnGlobalDot11hPowerConstraint,
                         bsnGlobalDot11hChannelSwitchEnable,
-                        bsnGlobalDot11hChannelSwitchMode,
-                        bsnRrmDot11aGlobalAutomaticGrouping
+                        bsnGlobalDot11hChannelSwitchMode
                     }
     STATUS          current
     DESCRIPTION
@@ -16884,7 +17021,6 @@ bsnApGroupRev1 OBJECT-GROUP
                         bsnAPPrimaryMwarName,
                         bsnAPReset,
                         bsnAPStatsTimer,
-                        bsnAPPortNumber,
                         bsnAPModel,
                         bsnAPSerialNumber,
                         bsnAPClearConfig,
@@ -16903,7 +17039,6 @@ bsnApGroupRev1 OBJECT-GROUP
                         bsnAPIOSVersion,
                         bsnAPCertificateType,
                         bsnAPEthernetMacAddress,
-                        bsnAPAdminStatus,
                         bsnAPIfSlotId,
                         bsnAPIfType,
                         bsnAPIfPhyChannelAssignment,
@@ -16927,7 +17062,6 @@ bsnApGroupRev1 OBJECT-GROUP
                         bsnAPIfChannelList,
                         bsnAPIfAbsolutePowerList,
                         bsnAPIfRegulatoryDomainSupport,
-                        bsnAPIfAdminStatus,
                         bsnAPIfDot11BeaconPeriod,
                         bsnAPIfDot11MediumOccupancyLimit,
                         bsnAPIfDot11CFPPeriod,
@@ -17055,7 +17189,7 @@ bsnApGroupRev1 OBJECT-GROUP
         about Airespace APs that are associated with the Switch.
         These objects are defined under bsnAP object."
     ::= { bsnWrasGroups 18 }
-    
+
 bsnUtilityGroupRev1 OBJECT-GROUP
     OBJECTS         {
                         bsnSyslogEnable,
@@ -17075,8 +17209,8 @@ bsnUtilityGroupRev1 OBJECT-GROUP
         "This collection of objects provide the information
         about Airespace General Utilities such as ping, syslog.
         These objects are defined under bsnUtility."
-    ::= { bsnWrasGroups 19 }   
-    
+    ::= { bsnWrasGroups 19 }
+
 bsnWrasObsGroupRev1 OBJECT-GROUP
     OBJECTS         {
                         bsnMobileStationSampleTime,
@@ -17089,8 +17223,8 @@ bsnWrasObsGroupRev1 OBJECT-GROUP
     DESCRIPTION
         "This collection of objects are  obsoleted in bsnWireless
         module."
-    ::= { bsnWrasGroups 20 }     
-    
+    ::= { bsnWrasGroups 20 }
+
 bsnWrasObsTrap NOTIFICATION-GROUP
    NOTIFICATIONS    {
                         bsnAPUp,
@@ -17100,6 +17234,8 @@ bsnWrasObsTrap NOTIFICATION-GROUP
     DESCRIPTION
         "This  collection of objects provides all notification
         that Switch need to generate to the Management System."
-    ::= { bsnWrasGroups 21 }    
+    ::= { bsnWrasGroups 21 }
 
 END
+
+

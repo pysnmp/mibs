@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "storageTextualConventions": {
@@ -34,6 +34,14 @@
     "oid": "1.3.6.1.4.1.9.12.4",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2021-02-12 00:00",
+        "description": "Added enumerated values sixtyFourG and autoMaxSixtyFourG to fcIfSpeed"
+      },
+      {
+        "revision": "2016-11-30 00:00",
+        "description": "Added enumerated values thirtyTwoG(12) and autoMaxThirtyTwoG(13) to fcIfSpeed"
+      },
       {
         "revision": "2012-08-08 00:00",
         "description": "Added sixteenG and automaxSixteenG in fcIfSpeed"
@@ -311,7 +319,11 @@
           "tenG": 8,
           "autoMaxEightG": 9,
           "sixteenG": 10,
-          "autoMaxSixteenG": 11
+          "autoMaxSixteenG": 11,
+          "thirtyTwoG": 12,
+          "autoMaxThirtyTwoG": 13,
+          "sixtyFourG": 14,
+          "autoMaxSixtyFourG": 15
         }
       }
     },
@@ -441,8 +453,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ST-TC",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:39 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-ST-TC"

@@ -7,6 +7,9 @@
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
+    "CISCO-TC": [
+      "Unsigned64"
+    ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
@@ -14,29 +17,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoPfcExtMIB": {
@@ -44,6 +47,14 @@
     "oid": "1.3.6.1.4.1.9.9.813",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2017-05-26 00:00",
+        "description": "Added support for: - ciscoPfcExtIfPriorityWaitGroup"
+      },
+      {
+        "revision": "2016-11-30 00:00",
+        "description": "Added support for: - ciscoPfcExtWatchdogIfQueueDropInPktGroup"
+      },
       {
         "revision": "2016-04-28 00:00",
         "description": "Added support for: - ciscoPfcExtWatchdogIfQueueGroup"
@@ -295,6 +306,104 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cpfcWatchdogIfQueueDropInPkts": {
+    "name": "cpfcWatchdogIfQueueDropInPkts",
+    "oid": "1.3.6.1.4.1.9.9.813.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfcWatchdogIfQueueTotalDropInPkts": {
+    "name": "cpfcWatchdogIfQueueTotalDropInPkts",
+    "oid": "1.3.6.1.4.1.9.9.813.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfcIfPriorityWaitTable": {
+    "name": "cpfcIfPriorityWaitTable",
+    "oid": "1.3.6.1.4.1.9.9.813.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfcIfPriorityWaitEntry": {
+    "name": "cpfcIfPriorityWaitEntry",
+    "oid": "1.3.6.1.4.1.9.9.813.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PFC-EXT-MIB",
+        "object": "cpfcIfPriorityWaitCoS",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpfcIfPriorityWaitCoS": {
+    "name": "cpfcIfPriorityWaitCoS",
+    "oid": "1.3.6.1.4.1.9.9.813.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpfcIfPriorityWaitRx": {
+    "name": "cpfcIfPriorityWaitRx",
+    "oid": "1.3.6.1.4.1.9.9.813.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "micro-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpfcIfPriorityWaitTx": {
+    "name": "cpfcIfPriorityWaitTx",
+    "oid": "1.3.6.1.4.1.9.9.813.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "micro-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "ciscoPfcExtMIBCompliances": {
     "name": "ciscoPfcExtMIBCompliances",
     "oid": "1.3.6.1.4.1.9.9.813.2.1",
@@ -336,6 +445,30 @@
       },
       {
         "object": "ciscoPfcExtWatchdogIfQueueGroup",
+        "module": "CISCO-PFC-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoPfcExtMIBCompliance3": {
+    "name": "ciscoPfcExtMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.813.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPfcExtIfGroup",
+        "module": "CISCO-PFC-EXT-MIB"
+      },
+      {
+        "object": "ciscoPfcExtIfPriorityGroup",
+        "module": "CISCO-PFC-EXT-MIB"
+      },
+      {
+        "object": "ciscoPfcExtWatchdogIfQueueGroup",
+        "module": "CISCO-PFC-EXT-MIB"
+      },
+      {
+        "object": "ciscoPfcExtIfPriorityWaitGroup",
         "module": "CISCO-PFC-EXT-MIB"
       }
     ],
@@ -401,11 +534,43 @@
     ],
     "status": "current"
   },
+  "ciscoPfcExtWatchdogIfQueueDropInPktGroup": {
+    "name": "ciscoPfcExtWatchdogIfQueueDropInPktGroup",
+    "oid": "1.3.6.1.4.1.9.9.813.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFC-EXT-MIB",
+        "object": "cpfcWatchdogIfQueueDropInPkts"
+      },
+      {
+        "module": "CISCO-PFC-EXT-MIB",
+        "object": "cpfcWatchdogIfQueueTotalDropInPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPfcExtIfPriorityWaitGroup": {
+    "name": "ciscoPfcExtIfPriorityWaitGroup",
+    "oid": "1.3.6.1.4.1.9.9.813.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PFC-EXT-MIB",
+        "object": "cpfcIfPriorityWaitRx"
+      },
+      {
+        "module": "CISCO-PFC-EXT-MIB",
+        "object": "cpfcIfPriorityWaitTx"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PFC-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:38 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-PFC-EXT-MIB"

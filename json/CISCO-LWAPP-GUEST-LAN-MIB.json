@@ -1,0 +1,1139 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappGuestLanMIB": {
+    "name": "ciscoLwappGuestLanMIB",
+    "oid": "1.3.6.1.4.1.9.9.868",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-10-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappGuestLanMIBNotifs": {
+    "name": "ciscoLwappGuestLanMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.868.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappGuestLanMIBObjects": {
+    "name": "ciscoLwappGuestLanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.868.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappGuestLanConform": {
+    "name": "ciscoLwappGuestLanConform",
+    "oid": "1.3.6.1.4.1.9.9.868.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappGuestLanConfig": {
+    "name": "ciscoLwappGuestLanConfig",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1",
+    "class": "objectidentity"
+  },
+  "cLGuestLanTable": {
+    "name": "cLGuestLanTable",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanEntry": {
+    "name": "cLGuestLanEntry",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGuestLanIndex": {
+    "name": "cLGuestLanIndex",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanRowStatus": {
+    "name": "cLGuestLanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanProfileName": {
+    "name": "cLGuestLanProfileName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanHasWiredVlan": {
+    "name": "cLGuestLanHasWiredVlan",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withoutWiredVlan": 1,
+          "withWiredVlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanWiredVlan": {
+    "name": "cLGuestLanWiredVlan",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanAuthenticationList": {
+    "name": "cLGuestLanAuthenticationList",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanAuthorizationList": {
+    "name": "cLGuestLanAuthorizationList",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanSecurityWebAuth": {
+    "name": "cLGuestLanSecurityWebAuth",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanWebAuthParameter": {
+    "name": "cLGuestLanWebAuthParameter",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanClientLimit": {
+    "name": "cLGuestLanClientLimit",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanStatus": {
+    "name": "cLGuestLanStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanMdnsMode": {
+    "name": "cLGuestLanMdnsMode",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridge": 0,
+          "drop": 1,
+          "gateway": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bridge",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanProfileToPolicyTable": {
+    "name": "cLGuestLanProfileToPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanProfileToPolicyEntry": {
+    "name": "cLGuestLanProfileToPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMapName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "clGuestLanMapGuestLanProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGuestLanMapName": {
+    "name": "cLGuestLanMapName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGuestLanMapGuestLanProfileName": {
+    "name": "clGuestLanMapGuestLanProfileName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanMapProfileToPolicyRowStatus": {
+    "name": "cLGuestLanMapProfileToPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGuestLanMapPolicyProfileName": {
+    "name": "clGuestLanMapPolicyProfileName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanGuestLanMapTable": {
+    "name": "cLGuestLanGuestLanMapTable",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanGuestLanMapEntry": {
+    "name": "cLGuestLanGuestLanMapEntry",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanGuestLanMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGuestLanGuestLanMapName": {
+    "name": "cLGuestLanGuestLanMapName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanGuestLanMapRowStatus": {
+    "name": "cLGuestLanGuestLanMapRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationTable": {
+    "name": "cLGuestLanMobileStationTable",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationEntry": {
+    "name": "cLGuestLanMobileStationEntry",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGuestLanMobileStationMacAddress": {
+    "name": "cLGuestLanMobileStationMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationIpAddressType": {
+    "name": "cLGuestLanMobileStationIpAddressType",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationIpAddress": {
+    "name": "cLGuestLanMobileStationIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationUserName": {
+    "name": "cLGuestLanMobileStationUserName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGuestLanMobileStationProfileName": {
+    "name": "clGuestLanMobileStationProfileName",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationAID": {
+    "name": "cLGuestLanMobileStationAID",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationStatus": {
+    "name": "cLGuestLanMobileStationStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 0,
+          "aaaPending": 1,
+          "authenticated": 2,
+          "associated": 3,
+          "powersave": 4,
+          "disassociated": 5,
+          "tobedeleted": 6,
+          "probing": 7,
+          "blacklisted": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationReasonCode": {
+    "name": "cLGuestLanMobileStationReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "previousAuthNotValid": 2,
+          "deauthenticationLeaving": 3,
+          "disassociationDueToInactivity": 4,
+          "disassociationAPBusy": 5,
+          "class2FrameFromNonAuthStation": 6,
+          "class2FrameFromNonAssStation": 7,
+          "disassociationStaHasLeft": 8,
+          "staReqAssociationWithoutAuth": 9,
+          "invalidInformationElement": 40,
+          "groupCipherInvalid": 41,
+          "unicastCipherInvalid": 42,
+          "akmpInvalid": 43,
+          "unsupportedRsnVersion": 44,
+          "invalidRsnIeCapabilities": 45,
+          "cipherSuiteRejected": 46,
+          "missingReasonCode": 99,
+          "maxAssociatedClientsReached": 101,
+          "unSpecifieQosFailure": 200,
+          "qosPolicyMismatch": 201,
+          "inSufficientBandwidth": 202,
+          "inValidQosParams": 203
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationMobilityStatus": {
+    "name": "cLGuestLanMobileStationMobilityStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unassociated": 0,
+          "local": 1,
+          "anchor": 2,
+          "foreign": 3,
+          "handoff": 4,
+          "unknown": 5,
+          "exportanchor": 6,
+          "exportforeign": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationAnchorAddressType": {
+    "name": "cLGuestLanMobileStationAnchorAddressType",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationAnchorAddress": {
+    "name": "cLGuestLanMobileStationAnchorAddress",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationSessionTimeout": {
+    "name": "cLGuestLanMobileStationSessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationAuthenticationAlgorithm": {
+    "name": "cLGuestLanMobileStationAuthenticationAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openSystem": 0,
+          "sharedKey": 1,
+          "unknown": 2,
+          "openAndEap": 128
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationDeleteAction": {
+    "name": "cLGuestLanMobileStationDeleteAction",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 0,
+          "delete": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationPolicyManagerState": {
+    "name": "cLGuestLanMobileStationPolicyManagerState",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationSecurityPolicyStatus": {
+    "name": "cLGuestLanMobileStationSecurityPolicyStatus",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 0,
+          "notcompleted": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationInterface": {
+    "name": "cLGuestLanMobileStationInterface",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationVlanId": {
+    "name": "cLGuestLanMobileStationVlanId",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationPolicyType": {
+    "name": "cLGuestLanMobileStationPolicyType",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1x": 0,
+          "wpa1": 1,
+          "wpa2": 2,
+          "wpa2vff": 3,
+          "notavailable": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationEncryptionCypher": {
+    "name": "cLGuestLanMobileStationEncryptionCypher",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmpAes": 0,
+          "tkipMic": 1,
+          "wep40": 2,
+          "wep104": 3,
+          "wep128": 4,
+          "none": 5,
+          "tkipWep40": 6,
+          "tkipWep104": 7,
+          "gcmp128": 8,
+          "gcmp256": 9,
+          "ccmp256": 10,
+          "notavailable": 11,
+          "unknown": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationEapType": {
+    "name": "cLGuestLanMobileStationEapType",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eapTls": 0,
+          "ttls": 1,
+          "peap": 2,
+          "leap": 3,
+          "speke": 4,
+          "eapFast": 5,
+          "notavailable": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationStatusCode": {
+    "name": "cLGuestLanMobileStationStatusCode",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanMobileStationAAAOverridePassphrase": {
+    "name": "cLGuestLanMobileStationAAAOverridePassphrase",
+    "oid": "1.3.6.1.4.1.9.9.868.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGuestLanAllAnchorsDown": {
+    "name": "cLGuestLanAllAnchorsDown",
+    "oid": "1.3.6.1.4.1.9.9.868.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "clGuestLanMapPolicyProfileName"
+      }
+    ],
+    "status": "current"
+  },
+  "cLGuestLanOneAnchorOnGuestLanUp": {
+    "name": "cLGuestLanOneAnchorOnGuestLanUp",
+    "oid": "1.3.6.1.4.1.9.9.868.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "clGuestLanMapPolicyProfileName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappGuestLanCompliances": {
+    "name": "ciscoLwappGuestLanCompliances",
+    "oid": "1.3.6.1.4.1.9.9.868.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappGuestLanMIBGroups": {
+    "name": "ciscoLwappGuestLanMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.868.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappGuestLanCompliance": {
+    "name": "ciscoLwappGuestLanCompliance",
+    "oid": "1.3.6.1.4.1.9.9.868.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappGuestLanConfigGroup",
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB"
+      },
+      {
+        "object": "ciscoLwappGuestLanNotifsGroup",
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappGuestLanConfigGroup": {
+    "name": "ciscoLwappGuestLanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.868.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanHasWiredVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanWiredVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanAuthenticationList"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanAuthorizationList"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanSecurityWebAuth"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanWebAuthParameter"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanClientLimit"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanGuestLanMapRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMapProfileToPolicyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "clGuestLanMapPolicyProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMdnsMode"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationUserName"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "clGuestLanMobileStationProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationAID"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationReasonCode"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationMobilityStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationAnchorAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationAnchorAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationSessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationAuthenticationAlgorithm"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationDeleteAction"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationPolicyManagerState"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationSecurityPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationPolicyType"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationEncryptionCypher"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationEapType"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationStatusCode"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanMobileStationAAAOverridePassphrase"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappGuestLanNotifsGroup": {
+    "name": "ciscoLwappGuestLanNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.868.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanAllAnchorsDown"
+      },
+      {
+        "module": "CISCO-LWAPP-GUEST-LAN-MIB",
+        "object": "cLGuestLanOneAnchorOnGuestLanUp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-GUEST-LAN-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-GUEST-LAN-MIB"
+  }
+}

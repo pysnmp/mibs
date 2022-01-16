@@ -1,0 +1,2224 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappCloudServicesMIB": {
+    "name": "ciscoLwappCloudServicesMIB",
+    "oid": "1.3.6.1.4.1.9.9.838",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-03 00:00",
+        "description": "Added cLCSNAServerResetSubscriptions, cLCSWebhookResetSubscriptions, clCSCMXOnPremisesEnable Added cLCSTelemetryFCTable, cLCSTelemetryFCFilterTable, cLCSNAServerChannelTable, cLCSWebhookChannelTable, clCSTelemetryConfigGroup, clCSNAGlobalConfigGroupRev2, clCSWebhookConfigGroupRev1, clCSCMXConfigGroupRev1 Deprecated clCSNAServerOnchangeEnable, clCSNAServerSyncInterval, clCSNAServerSubscriptionAction, clCSNAServerSubscriptionTopic, clCSNAGlobalConfigGroupRev1, clCSWebhookConfigGroup, clCSCMXConfigGroup"
+      },
+      {
+        "revision": "2018-04-24 00:00",
+        "description": "Added clCSNAServerOnchangeEnable, clCSNAServerSyncInterval, clCSNAServerSubscriptionAction, clCSNAServerSubscriptionTopic Added clCSMIBComplianceRev2, clCSNAGlobalConfigGroupRev1, clCSWebhookConfigGroup Deprecated clCSNAASIEnable, clCSNADiffSyncEnable, clCSNAGlobalConfigGroup, clCSMIBComplianceRev1"
+      },
+      {
+        "revision": "2017-12-21 00:00",
+        "description": "Updated clCSNAGlobalConfigGroup. Deprecate clCSMIBCompliance and replaced by clCSMIBComplianceRev1. Added clCSNAASIEnable,clCSNADiffSyncEnable,clCSSecTunObjects, clCSSecTunConfig,clCSSecTunInfo,clCSSecTunNotifs."
+      },
+      {
+        "revision": "2017-02-22 00:00",
+        "description": "Initial version of config cloud services MIB module."
+      }
+    ]
+  },
+  "clCSMIBNotifs": {
+    "name": "clCSMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.838.0",
+    "class": "objectidentity"
+  },
+  "clCSNANotifs": {
+    "name": "clCSNANotifs",
+    "oid": "1.3.6.1.4.1.9.9.838.0.0",
+    "class": "objectidentity"
+  },
+  "clCSSecTunNotifs": {
+    "name": "clCSSecTunNotifs",
+    "oid": "1.3.6.1.4.1.9.9.838.0.1",
+    "class": "objectidentity"
+  },
+  "clCSMIBObjects": {
+    "name": "clCSMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1",
+    "class": "objectidentity"
+  },
+  "clCSNAObjects": {
+    "name": "clCSNAObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1",
+    "class": "objectidentity"
+  },
+  "clCSNAServerConfig": {
+    "name": "clCSNAServerConfig",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1",
+    "class": "objectidentity"
+  },
+  "clCSNAGlobalConfig": {
+    "name": "clCSNAGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2",
+    "class": "objectidentity"
+  },
+  "clCSNATrapMgmtObjects": {
+    "name": "clCSNATrapMgmtObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.3",
+    "class": "objectidentity"
+  },
+  "clCSNAServerConfigTable": {
+    "name": "clCSNAServerConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4",
+    "class": "objectidentity"
+  },
+  "clCSDXObjects": {
+    "name": "clCSDXObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.2",
+    "class": "objectidentity"
+  },
+  "clCSDxConfig": {
+    "name": "clCSDxConfig",
+    "oid": "1.3.6.1.4.1.9.9.838.1.2.1",
+    "class": "objectidentity"
+  },
+  "clCSCMXObjects": {
+    "name": "clCSCMXObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3",
+    "class": "objectidentity"
+  },
+  "clCSCMXServerConfig": {
+    "name": "clCSCMXServerConfig",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3.1",
+    "class": "objectidentity"
+  },
+  "clCSCMXConfig": {
+    "name": "clCSCMXConfig",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3.2",
+    "class": "objectidentity"
+  },
+  "clCSSecTunObjects": {
+    "name": "clCSSecTunObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4",
+    "class": "objectidentity"
+  },
+  "clCSSecTunConfig": {
+    "name": "clCSSecTunConfig",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1",
+    "class": "objectidentity"
+  },
+  "clCSSecTunInfo": {
+    "name": "clCSSecTunInfo",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2",
+    "class": "objectidentity"
+  },
+  "clCSWebhookGlobalObjects": {
+    "name": "clCSWebhookGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5",
+    "class": "objectidentity"
+  },
+  "clCSWebhookTableObjects": {
+    "name": "clCSWebhookTableObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6",
+    "class": "objectidentity"
+  },
+  "clCSFilterChanTableObjects": {
+    "name": "clCSFilterChanTableObjects",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7",
+    "class": "objectidentity"
+  },
+  "clCSMIBConform": {
+    "name": "clCSMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.838.2",
+    "class": "objectidentity"
+  },
+  "clCSNAServerUrl": {
+    "name": "clCSNAServerUrl",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNAServerIdToken": {
+    "name": "clCSNAServerIdToken",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNAServerOnchangeEnable": {
+    "name": "clCSNAServerOnchangeEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSNAServerSyncInterval": {
+    "name": "clCSNAServerSyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fixed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSNAServerSubscriptionAction": {
+    "name": "clCSNAServerSubscriptionAction",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "remove": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "add",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSNAServerSubscriptionTopic": {
+    "name": "clCSNAServerSubscriptionTopic",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "system": 0,
+        "network": 1,
+        "client": 2,
+        "ap": 3,
+        "rogue": 4,
+        "interferer": 5,
+        "apEvent": 6,
+        "clientEvent": 7,
+        "scanReport": 8,
+        "clientDnsReport": 9,
+        "fra": 10,
+        "mapserver": 11
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLCSNAServerResetSubscriptions": {
+    "name": "cLCSNAServerResetSubscriptions",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLCSNAServerChannelTable": {
+    "name": "cLCSNAServerChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCSNAServerChannelEntry": {
+    "name": "cLCSNAServerChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerChannelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clCSNAServerChannelName": {
+    "name": "clCSNAServerChannelName",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clCSNAServerChannelSyncInterval": {
+    "name": "clCSNAServerChannelSyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteen": 15,
+          "thirty": 30,
+          "sixty": 60,
+          "threehundred": 300
+        }
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSNAServerChannelOnChangeMode": {
+    "name": "clCSNAServerChannelOnChangeMode",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSNAServerIsFilterChannel": {
+    "name": "clCSNAServerIsFilterChannel",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSNAServerChannelRowStatus": {
+    "name": "clCSNAServerChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLCSTelemetryFCTable": {
+    "name": "cLCSTelemetryFCTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCSTelemetryFCEntry": {
+    "name": "cLCSTelemetryFCEntry",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clCSTelemetryFCName": {
+    "name": "clCSTelemetryFCName",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clCSTelemetryFCParent": {
+    "name": "clCSTelemetryFCParent",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSTelemetryFCSubStatus": {
+    "name": "clCSTelemetryFCSubStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "assurance": 2,
+          "webhook": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSTelemetryFCFilterCount": {
+    "name": "clCSTelemetryFCFilterCount",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSTelemetryFCRowStatus": {
+    "name": "clCSTelemetryFCRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLCSTelemetryFCFilterTable": {
+    "name": "cLCSTelemetryFCFilterTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCSTelemetryFCFilterEntry": {
+    "name": "cLCSTelemetryFCFilterEntry",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCFilter",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clCSTelemetryFCFilter": {
+    "name": "clCSTelemetryFCFilter",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clCSTelemetryFCFilterRowStatus": {
+    "name": "clCSTelemetryFCFilterRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSNAEnable": {
+    "name": "clCSNAEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulSSID": {
+    "name": "clCSNASensorBackhaulSSID",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulAuthType": {
+    "name": "clCSNASensorBackhaulAuthType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1x": 1,
+          "psk": 2,
+          "open": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "open",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulEapType": {
+    "name": "clCSNASensorBackhaulEapType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eapfast": 1,
+          "peap": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulUsername": {
+    "name": "clCSNASensorBackhaulUsername",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulPassword": {
+    "name": "clCSNASensorBackhaulPassword",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulPskMode": {
+    "name": "clCSNASensorBackhaulPskMode",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ascii",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNASensorBackhaulPsk": {
+    "name": "clCSNASensorBackhaulPsk",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSNAASIEnable": {
+    "name": "clCSNAASIEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSNADiffSyncEnable": {
+    "name": "clCSNADiffSyncEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSDxMode": {
+    "name": "clCSDxMode",
+    "oid": "1.3.6.1.4.1.9.9.838.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSCMXServerUrl": {
+    "name": "clCSCMXServerUrl",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSCMXServerIdToken": {
+    "name": "clCSCMXServerIdToken",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSCMXEnable": {
+    "name": "clCSCMXEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSCMXOnPremisesEnable": {
+    "name": "clCSCMXOnPremisesEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunEnable": {
+    "name": "clCSSecTunEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunTlsGwFqdn": {
+    "name": "clCSSecTunTlsGwFqdn",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunTlsGwIpAddrType": {
+    "name": "clCSSecTunTlsGwIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunTlsGwIpAddr": {
+    "name": "clCSSecTunTlsGwIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunTlsGwPort": {
+    "name": "clCSSecTunTlsGwPort",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunPskId": {
+    "name": "clCSSecTunPskId",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunPskKey": {
+    "name": "clCSSecTunPskKey",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunRadiusEnable": {
+    "name": "clCSSecTunRadiusEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSSecTunSnmpTrapEnable": {
+    "name": "clCSSecTunSnmpTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLCSSecTunStaticNetworkTable": {
+    "name": "cLCSSecTunStaticNetworkTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCSSecTunStaticNetworkEntry": {
+    "name": "cLCSSecTunStaticNetworkEntry",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunNetworkIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunNetworkIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunNetworkIPNetmaskType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunNetworkIPNetmask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLSCSecTunNetworkIPAddressType": {
+    "name": "cLSCSecTunNetworkIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunNetworkIPAddress": {
+    "name": "cLSCSecTunNetworkIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunNetworkIPNetmaskType": {
+    "name": "cLSCSecTunNetworkIPNetmaskType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunNetworkIPNetmask": {
+    "name": "cLSCSecTunNetworkIPNetmask",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunNetworkRowStatus": {
+    "name": "cLSCSecTunNetworkRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSSecTunCurrentState": {
+    "name": "clCSSecTunCurrentState",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secureTunnelDown": 1,
+          "secureTunnelUp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "secureTunnelDown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSSecTunTlsGwIpAddrInUseType": {
+    "name": "clCSSecTunTlsGwIpAddrInUseType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSSecTunTlsGwIpInUseAddr": {
+    "name": "clCSSecTunTlsGwIpInUseAddr",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSSecTunInnerIpAddrType": {
+    "name": "clCSSecTunInnerIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSSecTunInnerIpAddr": {
+    "name": "clCSSecTunInnerIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSSecTunTLSClientProcState": {
+    "name": "clCSSecTunTLSClientProcState",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tlscProcDown": 1,
+          "tlscProcInProg": 2,
+          "tlscProcUp": 3,
+          "tlscProcReStart": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tlscProcDown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLCSSecTunRouteTable": {
+    "name": "cLCSSecTunRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCSSecTunRouteEntry": {
+    "name": "cLCSSecTunRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunRouteIPAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunRouteIPAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunRouteNetmaskType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunRouteNetmask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLSCSecTunRouteIPAddressType": {
+    "name": "cLSCSecTunRouteIPAddressType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunRouteIPAddress": {
+    "name": "cLSCSecTunRouteIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunRouteNetmaskType": {
+    "name": "cLSCSecTunRouteNetmaskType",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunRouteNetmask": {
+    "name": "cLSCSecTunRouteNetmask",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSCSecTunRouteTableRowStatus": {
+    "name": "cLSCSecTunRouteTableRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.4.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clCSWebhookUrl": {
+    "name": "clCSWebhookUrl",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSWebhookAuthToken": {
+    "name": "clCSWebhookAuthToken",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSWebhookEnable": {
+    "name": "clCSWebhookEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clCSWebhookOnchangeEnable": {
+    "name": "clCSWebhookOnchangeEnable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSWebhookSyncInterval": {
+    "name": "clCSWebhookSyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fixed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSWebhookSubscriptionAction": {
+    "name": "clCSWebhookSubscriptionAction",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "remove": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "add",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "clCSWebhookSubscriptionTopic": {
+    "name": "clCSWebhookSubscriptionTopic",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "system": 0,
+        "network": 1,
+        "client": 2,
+        "ap": 3,
+        "rogue": 4,
+        "interferer": 5,
+        "mapserver": 6
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLCSWebhookResetSubscriptions": {
+    "name": "cLCSWebhookResetSubscriptions",
+    "oid": "1.3.6.1.4.1.9.9.838.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLCSWebhookChannelTable": {
+    "name": "cLCSWebhookChannelTable",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLCSWebhookChannelEntry": {
+    "name": "cLCSWebhookChannelEntry",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookChannelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clCSWebhookChannelName": {
+    "name": "clCSWebhookChannelName",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clCSWebhookChannelSyncInterval": {
+    "name": "clCSWebhookChannelSyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteen": 15,
+          "thirty": 30,
+          "sixty": 60,
+          "threehundred": 300
+        }
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSWebhookChannelOnChangeMode": {
+    "name": "clCSWebhookChannelOnChangeMode",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSWebhookChannelRowStatus": {
+    "name": "clCSWebhookChannelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clCSNASensorLradMacAddr": {
+    "name": "clCSNASensorLradMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clCSNASensorStatus": {
+    "name": "clCSNASensorStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wsaNoUpdate": 1,
+          "wsaStatusOk": 2,
+          "wsaServerUrlNotReachable": 3,
+          "wsaServerwrongIdToken": 4,
+          "wsaServerProxyNotReachable": 5,
+          "wsaSensorIntf24Error": 6,
+          "wsaSensorIntf24ProxyError": 7,
+          "wsaSensorIntf50Error": 8,
+          "wsaSensorIntf50ProxyError": 9,
+          "wsaApLicenseDenied": 10,
+          "wsaNAServerUnreachable": 11,
+          "wsaAttemptAssocToRoot": 12,
+          "wsaAssocToRoot": 13,
+          "wsaTestCfgRcvd": 14,
+          "wsaStatusmax": 15
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clCSNASensorErrCode": {
+    "name": "clCSNASensorErrCode",
+    "oid": "1.3.6.1.4.1.9.9.838.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wsaSensorBackhaulWronSsid": 1,
+          "wsaSensorBackhaulInvalidCredential": 2,
+          "wsaSensorConnError": 3,
+          "wsaNAServerNotFound": 4,
+          "wsaNAServerInternalError": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clCSNASensorNotReachableDevStatus": {
+    "name": "clCSNASensorNotReachableDevStatus",
+    "oid": "1.3.6.1.4.1.9.9.838.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorLradMacAddr"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorErrCode"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSSecTunStateChange": {
+    "name": "clCSSecTunStateChange",
+    "oid": "1.3.6.1.4.1.9.9.838.0.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunCurrentState"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSMIBCompliances": {
+    "name": "clCSMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.838.2.1",
+    "class": "objectidentity"
+  },
+  "clCSMIBGroups": {
+    "name": "clCSMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2",
+    "class": "objectidentity"
+  },
+  "clCSMIBCompliance": {
+    "name": "clCSMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.838.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clCSNAServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNAGlobalConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNATrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNASensorTrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSDxConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSMIBComplianceRev1": {
+    "name": "clCSMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.838.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clCSNAServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNAGlobalConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNATrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNASensorTrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSDxConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunInfoGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunNotifsGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSMIBComplianceRev2": {
+    "name": "clCSMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.838.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clCSNAServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNAGlobalConfigGroupRev1",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNATrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNASensorTrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSDxConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunInfoGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunNotifsGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSWebhookConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSMIBComplianceRev3": {
+    "name": "clCSMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.838.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clCSNAServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNAGlobalConfigGroupRev2",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXServerConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSCMXConfigGroupRev1",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNATrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSNASensorTrapGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSDxConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunInfoGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSSecTunNotifsGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSWebhookConfigGroupRev1",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      },
+      {
+        "object": "clCSTelemetryConfigGroup",
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSNAServerConfigGroup": {
+    "name": "clCSNAServerConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerUrl"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerIdToken"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSNAGlobalConfigGroup": {
+    "name": "clCSNAGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulSSID"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulAuthType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulEapType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulUsername"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPsk"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPskMode"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAASIEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNADiffSyncEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSCMXServerConfigGroup": {
+    "name": "clCSCMXServerConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSCMXServerUrl"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSCMXServerIdToken"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSCMXConfigGroup": {
+    "name": "clCSCMXConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSCMXEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSDxConfigGroup": {
+    "name": "clCSDxConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSDxMode"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSNATrapGroup": {
+    "name": "clCSNATrapGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorLradMacAddr"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorErrCode"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSNASensorTrapGroup": {
+    "name": "clCSNASensorTrapGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorNotReachableDevStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSSecTunConfigGroup": {
+    "name": "clCSSecTunConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTlsGwFqdn"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTlsGwIpAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTlsGwIpAddr"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTlsGwPort"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunPskId"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunPskKey"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunRadiusEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunSnmpTrapEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunNetworkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSSecTunInfoGroup": {
+    "name": "clCSSecTunInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunCurrentState"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTlsGwIpAddrInUseType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTlsGwIpInUseAddr"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunInnerIpAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunInnerIpAddr"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunTLSClientProcState"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLSCSecTunRouteTableRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSSecTunNotifsGroup": {
+    "name": "clCSSecTunNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSSecTunStateChange"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSNAGlobalConfigGroupRev1": {
+    "name": "clCSNAGlobalConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulSSID"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulAuthType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulEapType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulUsername"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPsk"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPskMode"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerOnchangeEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerSyncInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerSubscriptionAction"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerSubscriptionTopic"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSNAGlobalConfigGroupRev2": {
+    "name": "clCSNAGlobalConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulSSID"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulAuthType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulEapType"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulUsername"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPsk"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNASensorBackhaulPskMode"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerChannelSyncInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerChannelOnChangeMode"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerChannelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSNAServerIsFilterChannel"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLCSNAServerResetSubscriptions"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSWebhookConfigGroup": {
+    "name": "clCSWebhookConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookUrl"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookAuthToken"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookOnchangeEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookSyncInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookSubscriptionAction"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookSubscriptionTopic"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "clCSWebhookConfigGroupRev1": {
+    "name": "clCSWebhookConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookUrl"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookAuthToken"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookChannelSyncInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookChannelOnChangeMode"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSWebhookChannelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "cLCSWebhookResetSubscriptions"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSCMXConfigGroupRev1": {
+    "name": "clCSCMXConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSCMXEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSCMXOnPremisesEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "clCSTelemetryConfigGroup": {
+    "name": "clCSTelemetryConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.838.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCParent"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCSubStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCFilterCount"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB",
+        "object": "clCSTelemetryFCFilterRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-CLOUD-SERVICES-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-CLOUD-SERVICES-MIB"
+  }
+}

@@ -1,0 +1,728 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoSdwanAppRouteMIB": {
+    "name": "ciscoSdwanAppRouteMIB",
+    "oid": "1.3.6.1.4.1.9.9.1001",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-01-26 00:00",
+        "description": "Cisco SDWAN AppRoute Revision 0.0"
+      }
+    ]
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "UnsignedShort": {
+    "name": "UnsignedShort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "String": {
+    "name": "String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "InetAddressIP": {
+    "name": "InetAddressIP",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSdwanAppRouteMIBObjects": {
+    "name": "ciscoSdwanAppRouteMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.1001.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanAppRouteMIBConform": {
+    "name": "ciscoSdwanAppRouteMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.1001.3",
+    "class": "objectidentity"
+  },
+  "appRouteStatisticsTable": {
+    "name": "appRouteStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsEntry": {
+    "name": "appRouteStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsSrcIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsDstIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsProto",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsDstPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appRouteStatisticsSrcIp": {
+    "name": "appRouteStatisticsSrcIp",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsDstIp": {
+    "name": "appRouteStatisticsDstIp",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsProto": {
+    "name": "appRouteStatisticsProto",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsSrcPort": {
+    "name": "appRouteStatisticsSrcPort",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsDstPort": {
+    "name": "appRouteStatisticsDstPort",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsRemoteSystemIp": {
+    "name": "appRouteStatisticsRemoteSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsLocalColor": {
+    "name": "appRouteStatisticsLocalColor",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metroEthernet": 3,
+          "bizInternet": 4,
+          "publicInternet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsRemoteColor": {
+    "name": "appRouteStatisticsRemoteColor",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metroEthernet": 3,
+          "bizInternet": 4,
+          "publicInternet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsMeanLoss": {
+    "name": "appRouteStatisticsMeanLoss",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsMeanLatency": {
+    "name": "appRouteStatisticsMeanLatency",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsMeanJitter": {
+    "name": "appRouteStatisticsMeanJitter",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalTable": {
+    "name": "appRouteStatisticsIntervalTable",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalEntry": {
+    "name": "appRouteStatisticsIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsSrcIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsDstIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsProto",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsSrcPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsDstPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalIndex": {
+    "name": "appRouteStatisticsIntervalIndex",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalTotalPackets": {
+    "name": "appRouteStatisticsIntervalTotalPackets",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalLoss": {
+    "name": "appRouteStatisticsIntervalLoss",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalAverageLatency": {
+    "name": "appRouteStatisticsIntervalAverageLatency",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalAverageJitter": {
+    "name": "appRouteStatisticsIntervalAverageJitter",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalTxDataPkts": {
+    "name": "appRouteStatisticsIntervalTxDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalRxDataPkts": {
+    "name": "appRouteStatisticsIntervalRxDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalIpv6TxDataPkts": {
+    "name": "appRouteStatisticsIntervalIpv6TxDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteStatisticsIntervalIpv6RxDataPkts": {
+    "name": "appRouteStatisticsIntervalIpv6RxDataPkts",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteSlaClassTable": {
+    "name": "appRouteSlaClassTable",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteSlaClassEntry": {
+    "name": "appRouteSlaClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteSlaClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appRouteSlaClassIndex": {
+    "name": "appRouteSlaClassIndex",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appRouteSlaClassName": {
+    "name": "appRouteSlaClassName",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteSlaClassLoss": {
+    "name": "appRouteSlaClassLoss",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteSlaClassLatency": {
+    "name": "appRouteSlaClassLatency",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appRouteSlaClassJitter": {
+    "name": "appRouteSlaClassJitter",
+    "oid": "1.3.6.1.4.1.9.9.1001.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanAppRouteMIBCompliances": {
+    "name": "ciscoSdwanAppRouteMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.1001.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanAppRouteMIBGroups": {
+    "name": "ciscoSdwanAppRouteMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.1001.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanAppRouteMIBCompliance": {
+    "name": "ciscoSdwanAppRouteMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.1001.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdwanAppRouteStatisticsGroup",
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB"
+      },
+      {
+        "object": "cSdwanAppRouteStatisticsIntervalGroup",
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB"
+      },
+      {
+        "object": "cSdwanAppRouteSlaClassGroup",
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanAppRouteStatisticsGroup": {
+    "name": "cSdwanAppRouteStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1001.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsRemoteSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsLocalColor"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsRemoteColor"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsMeanLoss"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsMeanLatency"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsMeanJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanAppRouteStatisticsIntervalGroup": {
+    "name": "cSdwanAppRouteStatisticsIntervalGroup",
+    "oid": "1.3.6.1.4.1.9.9.1001.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalTotalPackets"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalLoss"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalAverageLatency"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalAverageJitter"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalTxDataPkts"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalRxDataPkts"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalIpv6TxDataPkts"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteStatisticsIntervalIpv6RxDataPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanAppRouteSlaClassGroup": {
+    "name": "cSdwanAppRouteSlaClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.1001.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteSlaClassName"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteSlaClassLoss"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteSlaClassLatency"
+      },
+      {
+        "module": "CISCO-SDWAN-APP-ROUTE-MIB",
+        "object": "appRouteSlaClassJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDWAN-APP-ROUTE-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SDWAN-APP-ROUTE-MIB"
+  }
+}

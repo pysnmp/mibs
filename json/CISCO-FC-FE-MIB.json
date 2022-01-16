@@ -8,17 +8,18 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
+      "FcClassOfServices",
+      "FcPortTypes",
+      "FcIfSpeed",
+      "FcIfServiceStateType",
+      "FcAddressId",
       "FcPortTxTypes",
       "FcNameId",
-      "FcClassOfServices",
-      "FcAddressId",
-      "FcIfServiceStateType",
-      "FcPortTypes",
-      "FcPortModuleTypes",
-      "FcIfSpeed"
+      "FcPortModuleTypes"
     ],
     "CISCO-TC": [
-      "MicroSeconds"
+      "MicroSeconds",
+      "CiscoMilliSeconds"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
@@ -30,37 +31,37 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoFcFeMIB": {
@@ -68,6 +69,22 @@
     "oid": "1.3.6.1.4.1.9.9.289",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2021-02-12 00:00",
+        "description": "Added the twentyFiveGigSpeed and fortyGigSpeed to fcIfGigEAdminSpeed"
+      },
+      {
+        "revision": "2017-02-17 00:00",
+        "description": "-Added the following objects to FcIfEntry: fcIfAdminFecTtsState, fcIfOperFecTtsState -Added fcHCIfTxWaitCount object to FcIfErrorEntry - Added the following new groups: fcIfErrorGroupRev7 fcIfGroupRev5 - Deprecated cffFcFeMIBComplianceRev16 compliance statement - Added cffFcFeMIBComplianceRev17 compliance statement."
+      },
+      {
+        "revision": "2016-06-15 00:00",
+        "description": "-Added fcIfStateChangeCount object to FcIfErrorEntry - Added fcIfGigEServiceState object to FcIfGigEEntry - Added the following new groups: fcIfErrorGroupRev6 fcIfGigEinfoExtGroupRev4 - Deprecated cffFcFeMIBComplianceRev15 compliance statement - Added cffFcFeMIBComplianceRev16 compliance statement."
+      },
+      {
+        "revision": "2015-06-24 00:00",
+        "description": "- Added the following objects to fcIfGigEEntry: fcIfGigEAdminSpeed fcIfGigEOperStatusCause - Added the following objects to cffFcFeConfig: fcIfePortSlowportMonitorTimeout, fcIffPortSlowportMonitorTimeout, fcIffPortNoCreditDropTimeout, fcIfePortCongestionDropTimeout, fcIffPortCongestionDropTimeout -Added the following objects to FcIfErrorEntry: fcIfSlowPortCount, fcIfSlowPortOperDelay -Added the following new groups: fcFeGroupRev1, fcIfErrorGroupRev5, fcIfGigEinfoExtGroupRev2 fcIfGigEinfoExtGroupRev3 -Deprecated cffFcFeMIBComplianceRev14 compliance statement. -Added cffFcFeMIBComplianceRev15 compliance statement."
+      },
       {
         "revision": "2014-02-06 00:00",
         "description": "-Added the following objects to FcIfEntry: fcIfAdminFECState, fcIfOperFECState -Added the following objects to FcIfErrorEntry: fcIfFECCorrectedBlks, fcIfFECUncorrectedBlks -Added the following new groups: fcIfGroupRev4 fcIfErrorGroupRev3 -Deprecated cffFcFeMIBComplianceRev13 compliance statement. -Added cffFcFeMIBComplianceRev14 compliance statement."
@@ -1218,6 +1235,54 @@
   "fcIfOperFECState": {
     "name": "fcIfOperFECState",
     "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfAdminFecTtsState": {
+    "name": "fcIfAdminFecTtsState",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfOperFecTtsState": {
+    "name": "fcIfOperFecTtsState",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.2.1.44",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -2666,6 +2731,57 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "fcIfGigEAdminSpeed": {
+    "name": "fcIfGigEAdminSpeed",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "oneGigSpeed": 2,
+          "tenGigSpeed": 3,
+          "twentyFiveGigSpeed": 4,
+          "fortyGigspeed": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tenGigSpeed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfGigEOperStatusCause": {
+    "name": "fcIfGigEOperStatusCause",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIfOperStatusReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfGigEServiceState": {
+    "name": "fcIfGigEServiceState",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcIfServiceStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "fcIfModuleTable": {
     "name": "fcIfModuleTable",
     "oid": "1.3.6.1.4.1.9.9.289.1.1.15",
@@ -2718,7 +2834,8 @@
       "constraints": {
         "enumeration": {
           "enable": 1,
-          "disable": 2
+          "disable": 2,
+          "notApplicable": 3
         }
       }
     },
@@ -2736,7 +2853,8 @@
       "constraints": {
         "enumeration": {
           "enabled": 1,
-          "disabled": 2
+          "disabled": 2,
+          "notApplicable": 3
         }
       }
     },
@@ -2957,6 +3075,71 @@
         ]
       }
     },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfePortSlowportMonitorTimeout": {
+    "name": "fcIfePortSlowportMonitorTimeout",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIffPortSlowportMonitorTimeout": {
+    "name": "fcIffPortSlowportMonitorTimeout",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIffPortNoCreditDropTimeout": {
+    "name": "fcIffPortNoCreditDropTimeout",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIfePortCongestionDropTimeout": {
+    "name": "fcIfePortCongestionDropTimeout",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcIffPortCongestionDropTimeout": {
+    "name": "fcIffPortCongestionDropTimeout",
+    "oid": "1.3.6.1.4.1.9.9.289.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "units": "milliseconds",
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -3490,6 +3673,54 @@
   "fcIfFECUncorrectedBlks": {
     "name": "fcIfFECUncorrectedBlks",
     "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfSlowPortCount": {
+    "name": "fcIfSlowPortCount",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfSlowPortOperDelay": {
+    "name": "fcIfSlowPortOperDelay",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMilliSeconds",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcIfStateChangeCount": {
+    "name": "fcIfStateChangeCount",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcHCIfTxWaitCount": {
+    "name": "fcHCIfTxWaitCount",
+    "oid": "1.3.6.1.4.1.9.9.289.1.2.1.1.47",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -5295,6 +5526,474 @@
         "module": "CISCO-FC-FE-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev15": {
+    "name": "cffFcFeMIBComplianceRev15",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.16",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcFeGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev5",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev16": {
+    "name": "cffFcFeMIBComplianceRev16",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.17",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcFeGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev5",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev6",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cffFcFeMIBComplianceRev17": {
+    "name": "cffFcFeMIBComplianceRev17",
+    "oid": "1.3.6.1.4.1.9.9.289.2.1.18",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcFeGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcTrunkIfGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfLoginGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfElpGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC2AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfC3AccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCfAccountingGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfStatGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfRNIDInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfBbScnGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfCapableGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfInfoPortGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfModuleGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcotInfoNotificationGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEInfoGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfFlapCtrlConfigGroup",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcFeGroupRev1",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev5",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev2",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev3",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGigEinfoExtGroupRev4",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev6",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfErrorGroupRev7",
+        "module": "CISCO-FC-FE-MIB"
+      },
+      {
+        "object": "fcIfGroupRev5",
+        "module": "CISCO-FC-FE-MIB"
+      }
+    ],
     "status": "current"
   },
   "fcFeGroup": {
@@ -6485,11 +7184,131 @@
     ],
     "status": "current"
   },
+  "fcFeGroupRev1": {
+    "name": "fcFeGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfePortSlowportMonitorTimeout"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIffPortSlowportMonitorTimeout"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIffPortNoCreditDropTimeout"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfePortCongestionDropTimeout"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIffPortCongestionDropTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev5": {
+    "name": "fcIfErrorGroupRev5",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfSlowPortCount"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfSlowPortOperDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEinfoExtGroupRev2": {
+    "name": "fcIfGigEinfoExtGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigEAdminSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEinfoExtGroupRev3": {
+    "name": "fcIfGigEinfoExtGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigEOperStatusCause"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev6": {
+    "name": "fcIfErrorGroupRev6",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfStateChangeCount"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGigEinfoExtGroupRev4": {
+    "name": "fcIfGigEinfoExtGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfGigEServiceState"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfErrorGroupRev7": {
+    "name": "fcIfErrorGroupRev7",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcHCIfTxWaitCount"
+      }
+    ],
+    "status": "current"
+  },
+  "fcIfGroupRev5": {
+    "name": "fcIfGroupRev5",
+    "oid": "1.3.6.1.4.1.9.9.289.2.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfAdminFecTtsState"
+      },
+      {
+        "module": "CISCO-FC-FE-MIB",
+        "object": "fcIfOperFecTtsState"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-FE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:41 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-FC-FE-MIB"

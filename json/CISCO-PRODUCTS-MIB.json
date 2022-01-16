@@ -10,24 +10,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoProductsMIB": {
@@ -8777,6 +8777,16 @@
     "oid": "1.3.6.1.4.1.9.1.1925",
     "class": "objectidentity"
   },
+  "ciscoWlcCt5508K9": {
+    "name": "ciscoWlcCt5508K9",
+    "oid": "1.3.6.1.4.1.9.1.1926",
+    "class": "objectidentity"
+  },
+  "ciscoWlcCt2504K9": {
+    "name": "ciscoWlcCt2504K9",
+    "oid": "1.3.6.1.4.1.9.1.1927",
+    "class": "objectidentity"
+  },
   "ciscoUcsEN120S": {
     "name": "ciscoUcsEN120S",
     "oid": "1.3.6.1.4.1.9.1.1931",
@@ -8815,6 +8825,11 @@
   "ciscoAIRAP2702": {
     "name": "ciscoAIRAP2702",
     "oid": "1.3.6.1.4.1.9.1.1938",
+    "class": "objectidentity"
+  },
+  "ciscoNCS4016": {
+    "name": "ciscoNCS4016",
+    "oid": "1.3.6.1.4.1.9.1.1939",
     "class": "objectidentity"
   },
   "ciscoCSE340WG32K9": {
@@ -9022,9 +9037,54 @@
     "oid": "1.3.6.1.4.1.9.1.2045",
     "class": "objectidentity"
   },
+  "cisco899GLTESTK9": {
+    "name": "cisco899GLTESTK9",
+    "oid": "1.3.6.1.4.1.9.1.2046",
+    "class": "objectidentity"
+  },
+  "cisco899GLTENAK9": {
+    "name": "cisco899GLTENAK9",
+    "oid": "1.3.6.1.4.1.9.1.2048",
+    "class": "objectidentity"
+  },
+  "cisco899GLTEVZK9": {
+    "name": "cisco899GLTEVZK9",
+    "oid": "1.3.6.1.4.1.9.1.2049",
+    "class": "objectidentity"
+  },
+  "cisco819G4GNAK9": {
+    "name": "cisco819G4GNAK9",
+    "oid": "1.3.6.1.4.1.9.1.2050",
+    "class": "objectidentity"
+  },
+  "cisco819G4GSTK9": {
+    "name": "cisco819G4GSTK9",
+    "oid": "1.3.6.1.4.1.9.1.2051",
+    "class": "objectidentity"
+  },
+  "cisco898EAGLTEGAK9": {
+    "name": "cisco898EAGLTEGAK9",
+    "oid": "1.3.6.1.4.1.9.1.2052",
+    "class": "objectidentity"
+  },
   "cisco897VAGLTEGAK9": {
     "name": "cisco897VAGLTEGAK9",
     "oid": "1.3.6.1.4.1.9.1.2053",
+    "class": "objectidentity"
+  },
+  "cisco896VAGLTEGAK9": {
+    "name": "cisco896VAGLTEGAK9",
+    "oid": "1.3.6.1.4.1.9.1.2055",
+    "class": "objectidentity"
+  },
+  "cisco899GLTEGAK9": {
+    "name": "cisco899GLTEGAK9",
+    "oid": "1.3.6.1.4.1.9.1.2056",
+    "class": "objectidentity"
+  },
+  "cisco881G4GGAK9": {
+    "name": "cisco881G4GGAK9",
+    "oid": "1.3.6.1.4.1.9.1.2057",
     "class": "objectidentity"
   },
   "cisco887VAG4GGAK9": {
@@ -9035,6 +9095,11 @@
   "cisco819G4GGAK9": {
     "name": "cisco819G4GGAK9",
     "oid": "1.3.6.1.4.1.9.1.2059",
+    "class": "objectidentity"
+  },
+  "cisco819G4GVZK9": {
+    "name": "cisco819G4GVZK9",
+    "oid": "1.3.6.1.4.1.9.1.2060",
     "class": "objectidentity"
   },
   "ciscoIOG910WK9": {
@@ -9237,6 +9302,51 @@
     "oid": "1.3.6.1.4.1.9.1.2102",
     "class": "objectidentity"
   },
+  "ciscoIR809GLTESTK9": {
+    "name": "ciscoIR809GLTESTK9",
+    "oid": "1.3.6.1.4.1.9.1.2103",
+    "class": "objectidentity"
+  },
+  "ciscoIR809GLTEVZK9": {
+    "name": "ciscoIR809GLTEVZK9",
+    "oid": "1.3.6.1.4.1.9.1.2104",
+    "class": "objectidentity"
+  },
+  "ciscoIR809GLTEGAK9": {
+    "name": "ciscoIR809GLTEGAK9",
+    "oid": "1.3.6.1.4.1.9.1.2105",
+    "class": "objectidentity"
+  },
+  "ciscoIR809GLTENAK9": {
+    "name": "ciscoIR809GLTENAK9",
+    "oid": "1.3.6.1.4.1.9.1.2106",
+    "class": "objectidentity"
+  },
+  "ciscoIR829GWLTESTAK9": {
+    "name": "ciscoIR829GWLTESTAK9",
+    "oid": "1.3.6.1.4.1.9.1.2107",
+    "class": "objectidentity"
+  },
+  "ciscoIR829GWLTEVZAK9": {
+    "name": "ciscoIR829GWLTEVZAK9",
+    "oid": "1.3.6.1.4.1.9.1.2108",
+    "class": "objectidentity"
+  },
+  "ciscoIR829GWLTEGAZK9": {
+    "name": "ciscoIR829GWLTEGAZK9",
+    "oid": "1.3.6.1.4.1.9.1.2109",
+    "class": "objectidentity"
+  },
+  "ciscoIR829GWLTEGAEK9": {
+    "name": "ciscoIR829GWLTEGAEK9",
+    "oid": "1.3.6.1.4.1.9.1.2110",
+    "class": "objectidentity"
+  },
+  "ciscoIR829GWLTENAAK9": {
+    "name": "ciscoIR829GWLTENAAK9",
+    "oid": "1.3.6.1.4.1.9.1.2111",
+    "class": "objectidentity"
+  },
   "ciscoWallander1x1GESKU": {
     "name": "ciscoWallander1x1GESKU",
     "oid": "1.3.6.1.4.1.9.1.2112",
@@ -9385,6 +9495,11 @@
   "ciscocBR8": {
     "name": "ciscocBR8",
     "oid": "1.3.6.1.4.1.9.1.2141",
+    "class": "objectidentity"
+  },
+  "ciscoPwrC2911DCPOE": {
+    "name": "ciscoPwrC2911DCPOE",
+    "oid": "1.3.6.1.4.1.9.1.2142",
     "class": "objectidentity"
   },
   "ciscoASR1006X": {
@@ -9600,6 +9715,11 @@
   "ciscoCDScde2802h26": {
     "name": "ciscoCDScde2802h26",
     "oid": "1.3.6.1.4.1.9.1.2190",
+    "class": "objectidentity"
+  },
+  "ciscoWSC2960CX8PCL": {
+    "name": "ciscoWSC2960CX8PCL",
+    "oid": "1.3.6.1.4.1.9.1.2191",
     "class": "objectidentity"
   },
   "cisco1941WIK9": {
@@ -9887,6 +10007,11 @@
     "oid": "1.3.6.1.4.1.9.1.2252",
     "class": "objectidentity"
   },
+  "ciscoNCS4009": {
+    "name": "ciscoNCS4009",
+    "oid": "1.3.6.1.4.1.9.1.2253",
+    "class": "objectidentity"
+  },
   "ciscoRAISA1783SAD2T2Ssy": {
     "name": "ciscoRAISA1783SAD2T2Ssy",
     "oid": "1.3.6.1.4.1.9.1.2254",
@@ -10007,6 +10132,26 @@
     "oid": "1.3.6.1.4.1.9.1.2277",
     "class": "objectidentity"
   },
+  "catWsC365012X48UR": {
+    "name": "catWsC365012X48UR",
+    "oid": "1.3.6.1.4.1.9.1.2278",
+    "class": "objectidentity"
+  },
+  "catWsC36508X24UQ": {
+    "name": "catWsC36508X24UQ",
+    "oid": "1.3.6.1.4.1.9.1.2279",
+    "class": "objectidentity"
+  },
+  "catWsC365012X48UZ": {
+    "name": "catWsC365012X48UZ",
+    "oid": "1.3.6.1.4.1.9.1.2280",
+    "class": "objectidentity"
+  },
+  "catWsC365012X48UQ": {
+    "name": "catWsC365012X48UQ",
+    "oid": "1.3.6.1.4.1.9.1.2281",
+    "class": "objectidentity"
+  },
   "ciscoNam2420": {
     "name": "ciscoNam2420",
     "oid": "1.3.6.1.4.1.9.1.2282",
@@ -10035,6 +10180,21 @@
   "ciscoFpr9000SM36": {
     "name": "ciscoFpr9000SM36",
     "oid": "1.3.6.1.4.1.9.1.2288",
+    "class": "objectidentity"
+  },
+  "catWsC365048FQM": {
+    "name": "catWsC365048FQM",
+    "oid": "1.3.6.1.4.1.9.1.2290",
+    "class": "objectidentity"
+  },
+  "catWsC365024PDM": {
+    "name": "catWsC365024PDM",
+    "oid": "1.3.6.1.4.1.9.1.2291",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4150K9": {
+    "name": "ciscoFpr4150K9",
+    "oid": "1.3.6.1.4.1.9.1.2292",
     "class": "objectidentity"
   },
   "ciscoFpr4140K9": {
@@ -10137,6 +10297,11 @@
     "oid": "1.3.6.1.4.1.9.1.2315",
     "class": "objectidentity"
   },
+  "ciscoFpr4150SM44": {
+    "name": "ciscoFpr4150SM44",
+    "oid": "1.3.6.1.4.1.9.1.2316",
+    "class": "objectidentity"
+  },
   "ciscoNCS5001": {
     "name": "ciscoNCS5001",
     "oid": "1.3.6.1.4.1.9.1.2317",
@@ -10230,6 +10395,11 @@
   "ciscoISR4451B": {
     "name": "ciscoISR4451B",
     "oid": "1.3.6.1.4.1.9.1.2335",
+    "class": "objectidentity"
+  },
+  "ciscoISR4431B": {
+    "name": "ciscoISR4431B",
+    "oid": "1.3.6.1.4.1.9.1.2336",
     "class": "objectidentity"
   },
   "ciscoISR4351B": {
@@ -10412,6 +10582,16 @@
     "oid": "1.3.6.1.4.1.9.1.2382",
     "class": "objectidentity"
   },
+  "ciscoRAIE1783LMS5": {
+    "name": "ciscoRAIE1783LMS5",
+    "oid": "1.3.6.1.4.1.9.1.2383",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783LMS8": {
+    "name": "ciscoRAIE1783LMS8",
+    "oid": "1.3.6.1.4.1.9.1.2384",
+    "class": "objectidentity"
+  },
   "ciscoStealthWatch2404": {
     "name": "ciscoStealthWatch2404",
     "oid": "1.3.6.1.4.1.9.1.2385",
@@ -10427,9 +10607,24 @@
     "oid": "1.3.6.1.4.1.9.1.2387",
     "class": "objectidentity"
   },
+  "catWsC36508X24PD": {
+    "name": "catWsC36508X24PD",
+    "oid": "1.3.6.1.4.1.9.1.2388",
+    "class": "objectidentity"
+  },
+  "catWsC365012X48FD": {
+    "name": "catWsC365012X48FD",
+    "oid": "1.3.6.1.4.1.9.1.2389",
+    "class": "objectidentity"
+  },
   "ciscoASR9910": {
     "name": "ciscoASR9910",
     "oid": "1.3.6.1.4.1.9.1.2390",
+    "class": "objectidentity"
+  },
+  "ciscoC9800CLK9": {
+    "name": "ciscoC9800CLK9",
+    "oid": "1.3.6.1.4.1.9.1.2391",
     "class": "objectidentity"
   },
   "cisco819HGLTEMNAK9": {
@@ -10447,9 +10642,29 @@
     "oid": "1.3.6.1.4.1.9.1.2394",
     "class": "objectidentity"
   },
+  "ciscoISR4221": {
+    "name": "ciscoISR4221",
+    "oid": "1.3.6.1.4.1.9.1.2395",
+    "class": "objectidentity"
+  },
+  "ciscoISR4221B": {
+    "name": "ciscoISR4221B",
+    "oid": "1.3.6.1.4.1.9.1.2396",
+    "class": "objectidentity"
+  },
   "ciscoCSP2100": {
     "name": "ciscoCSP2100",
     "oid": "1.3.6.1.4.1.9.1.2397",
+    "class": "objectidentity"
+  },
+  "ciscoCDB8U": {
+    "name": "ciscoCDB8U",
+    "oid": "1.3.6.1.4.1.9.1.2398",
+    "class": "objectidentity"
+  },
+  "ciscoCDB8P": {
+    "name": "ciscoCDB8P",
+    "oid": "1.3.6.1.4.1.9.1.2399",
     "class": "objectidentity"
   },
   "ciscoNCS5501": {
@@ -10497,6 +10712,46 @@
     "oid": "1.3.6.1.4.1.9.1.2411",
     "class": "objectidentity"
   },
+  "ciscoNCS5504": {
+    "name": "ciscoNCS5504",
+    "oid": "1.3.6.1.4.1.9.1.2413",
+    "class": "objectidentity"
+  },
+  "ciscoUCSE160S": {
+    "name": "ciscoUCSE160S",
+    "oid": "1.3.6.1.4.1.9.1.2415",
+    "class": "objectidentity"
+  },
+  "ciscoUCSE180DM3": {
+    "name": "ciscoUCSE180DM3",
+    "oid": "1.3.6.1.4.1.9.1.2416",
+    "class": "objectidentity"
+  },
+  "ciscoUCSE1120DM3": {
+    "name": "ciscoUCSE1120DM3",
+    "oid": "1.3.6.1.4.1.9.1.2417",
+    "class": "objectidentity"
+  },
+  "ciscoCat950012Q": {
+    "name": "ciscoCat950012Q",
+    "oid": "1.3.6.1.4.1.9.1.2418",
+    "class": "objectidentity"
+  },
+  "ciscoCat950024Q": {
+    "name": "ciscoCat950024Q",
+    "oid": "1.3.6.1.4.1.9.1.2419",
+    "class": "objectidentity"
+  },
+  "ciscoCat950040X": {
+    "name": "ciscoCat950040X",
+    "oid": "1.3.6.1.4.1.9.1.2420",
+    "class": "objectidentity"
+  },
+  "ciscoNCS1001": {
+    "name": "ciscoNCS1001",
+    "oid": "1.3.6.1.4.1.9.1.2423",
+    "class": "objectidentity"
+  },
   "ciscoIR809G3GGAK9": {
     "name": "ciscoIR809G3GGAK9",
     "oid": "1.3.6.1.4.1.9.1.2425",
@@ -10507,9 +10762,194 @@
     "oid": "1.3.6.1.4.1.9.1.2426",
     "class": "objectidentity"
   },
+  "cisco3504WLC": {
+    "name": "cisco3504WLC",
+    "oid": "1.3.6.1.4.1.9.1.2427",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A136HSES": {
+    "name": "ciscoNCS55A136HSES",
+    "oid": "1.3.6.1.4.1.9.1.2428",
+    "class": "objectidentity"
+  },
+  "ciscoNCS5501HD": {
+    "name": "ciscoNCS5501HD",
+    "oid": "1.3.6.1.4.1.9.1.2430",
+    "class": "objectidentity"
+  },
+  "ciscoNCS5501HDS": {
+    "name": "ciscoNCS5501HDS",
+    "oid": "1.3.6.1.4.1.9.1.2431",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A124H": {
+    "name": "ciscoNCS55A124H",
+    "oid": "1.3.6.1.4.1.9.1.2432",
+    "class": "objectidentity"
+  },
   "ciscoCXP2270GSR12": {
     "name": "ciscoCXP2270GSR12",
     "oid": "1.3.6.1.4.1.9.1.2433",
+    "class": "objectidentity"
+  },
+  "ciscoNCS4216F2B": {
+    "name": "ciscoNCS4216F2B",
+    "oid": "1.3.6.1.4.1.9.1.2434",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024T": {
+    "name": "ciscoCat930024T",
+    "oid": "1.3.6.1.4.1.9.1.2435",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024P": {
+    "name": "ciscoCat930024P",
+    "oid": "1.3.6.1.4.1.9.1.2436",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024U": {
+    "name": "ciscoCat930024U",
+    "oid": "1.3.6.1.4.1.9.1.2437",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024UX": {
+    "name": "ciscoCat930024UX",
+    "oid": "1.3.6.1.4.1.9.1.2438",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048T": {
+    "name": "ciscoCat930048T",
+    "oid": "1.3.6.1.4.1.9.1.2439",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048P": {
+    "name": "ciscoCat930048P",
+    "oid": "1.3.6.1.4.1.9.1.2440",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048U": {
+    "name": "ciscoCat930048U",
+    "oid": "1.3.6.1.4.1.9.1.2441",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048UXM": {
+    "name": "ciscoCat930048UXM",
+    "oid": "1.3.6.1.4.1.9.1.2442",
+    "class": "objectidentity"
+  },
+  "ciscoC11118P": {
+    "name": "ciscoC11118P",
+    "oid": "1.3.6.1.4.1.9.1.2443",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteEA": {
+    "name": "ciscoC11118PLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2444",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLA": {
+    "name": "ciscoC11118PLteLA",
+    "oid": "1.3.6.1.4.1.9.1.2445",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWE": {
+    "name": "ciscoC11118PWE",
+    "oid": "1.3.6.1.4.1.9.1.2446",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWB": {
+    "name": "ciscoC11118PWB",
+    "oid": "1.3.6.1.4.1.9.1.2447",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWA": {
+    "name": "ciscoC11118PWA",
+    "oid": "1.3.6.1.4.1.9.1.2448",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWZ": {
+    "name": "ciscoC11118PWZ",
+    "oid": "1.3.6.1.4.1.9.1.2449",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWN": {
+    "name": "ciscoC11118PWN",
+    "oid": "1.3.6.1.4.1.9.1.2450",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWQ": {
+    "name": "ciscoC11118PWQ",
+    "oid": "1.3.6.1.4.1.9.1.2451",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWH": {
+    "name": "ciscoC11118PWH",
+    "oid": "1.3.6.1.4.1.9.1.2452",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWR": {
+    "name": "ciscoC11118PWR",
+    "oid": "1.3.6.1.4.1.9.1.2453",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWF": {
+    "name": "ciscoC11118PWF",
+    "oid": "1.3.6.1.4.1.9.1.2454",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteEAWE": {
+    "name": "ciscoC11118PLteEAWE",
+    "oid": "1.3.6.1.4.1.9.1.2455",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteEAWB": {
+    "name": "ciscoC11118PLteEAWB",
+    "oid": "1.3.6.1.4.1.9.1.2456",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteEAWA": {
+    "name": "ciscoC11118PLteEAWA",
+    "oid": "1.3.6.1.4.1.9.1.2457",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteEAWR": {
+    "name": "ciscoC11118PLteEAWR",
+    "oid": "1.3.6.1.4.1.9.1.2458",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWZ": {
+    "name": "ciscoC11118PLteLAWZ",
+    "oid": "1.3.6.1.4.1.9.1.2459",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWN": {
+    "name": "ciscoC11118PLteLAWN",
+    "oid": "1.3.6.1.4.1.9.1.2460",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWQ": {
+    "name": "ciscoC11118PLteLAWQ",
+    "oid": "1.3.6.1.4.1.9.1.2461",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWH": {
+    "name": "ciscoC11118PLteLAWH",
+    "oid": "1.3.6.1.4.1.9.1.2462",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWF": {
+    "name": "ciscoC11118PLteLAWF",
+    "oid": "1.3.6.1.4.1.9.1.2463",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWD": {
+    "name": "ciscoC11118PLteLAWD",
+    "oid": "1.3.6.1.4.1.9.1.2464",
+    "class": "objectidentity"
+  },
+  "ciscoASR914": {
+    "name": "ciscoASR914",
+    "oid": "1.3.6.1.4.1.9.1.2480",
     "class": "objectidentity"
   },
   "ciscoNCSFFC2": {
@@ -10517,11 +10957,2431 @@
     "oid": "1.3.6.1.4.1.9.1.2481",
     "class": "objectidentity"
   },
+  "ciscoNCS4KF": {
+    "name": "ciscoNCS4KF",
+    "oid": "1.3.6.1.4.1.9.1.2482",
+    "class": "objectidentity"
+  },
+  "ciscoFpr1010td": {
+    "name": "ciscoFpr1010td",
+    "oid": "1.3.6.1.4.1.9.1.2483",
+    "class": "objectidentity"
+  },
+  "cisco2911A": {
+    "name": "cisco2911A",
+    "oid": "1.3.6.1.4.1.9.1.2486",
+    "class": "objectidentity"
+  },
+  "ciscoUCSS3260": {
+    "name": "ciscoUCSS3260",
+    "oid": "1.3.6.1.4.1.9.1.2487",
+    "class": "objectidentity"
+  },
+  "ciscoWSC365048TSE": {
+    "name": "ciscoWSC365048TSE",
+    "oid": "1.3.6.1.4.1.9.1.2491",
+    "class": "objectidentity"
+  },
+  "ciscoUCSC220M5": {
+    "name": "ciscoUCSC220M5",
+    "oid": "1.3.6.1.4.1.9.1.2492",
+    "class": "objectidentity"
+  },
+  "ciscoUCSC240M5": {
+    "name": "ciscoUCSC240M5",
+    "oid": "1.3.6.1.4.1.9.1.2493",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300FixedSwitchStack": {
+    "name": "ciscoCat9300FixedSwitchStack",
+    "oid": "1.3.6.1.4.1.9.1.2494",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960L24TQLL": {
+    "name": "ciscoCatWSC2960L24TQLL",
+    "oid": "1.3.6.1.4.1.9.1.2495",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960L48TQLL": {
+    "name": "ciscoCatWSC2960L48TQLL",
+    "oid": "1.3.6.1.4.1.9.1.2496",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960L24PQLL": {
+    "name": "ciscoCatWSC2960L24PQLL",
+    "oid": "1.3.6.1.4.1.9.1.2497",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960L48PQLL": {
+    "name": "ciscoCatWSC2960L48PQLL",
+    "oid": "1.3.6.1.4.1.9.1.2498",
+    "class": "objectidentity"
+  },
+  "ciscoCat9404R": {
+    "name": "ciscoCat9404R",
+    "oid": "1.3.6.1.4.1.9.1.2499",
+    "class": "objectidentity"
+  },
+  "ciscoCat9407R": {
+    "name": "ciscoCat9407R",
+    "oid": "1.3.6.1.4.1.9.1.2500",
+    "class": "objectidentity"
+  },
+  "ciscoCat9410R": {
+    "name": "ciscoCat9410R",
+    "oid": "1.3.6.1.4.1.9.1.2501",
+    "class": "objectidentity"
+  },
+  "ciscoASR903U": {
+    "name": "ciscoASR903U",
+    "oid": "1.3.6.1.4.1.9.1.2502",
+    "class": "objectidentity"
+  },
+  "ciscoASR902U": {
+    "name": "ciscoASR902U",
+    "oid": "1.3.6.1.4.1.9.1.2503",
+    "class": "objectidentity"
+  },
+  "ciscoASR920U16SZIM": {
+    "name": "ciscoASR920U16SZIM",
+    "oid": "1.3.6.1.4.1.9.1.2504",
+    "class": "objectidentity"
+  },
+  "ciscoC11114P": {
+    "name": "ciscoC11114P",
+    "oid": "1.3.6.1.4.1.9.1.2505",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PLteEA": {
+    "name": "ciscoC11114PLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2506",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PLteLA": {
+    "name": "ciscoC11114PLteLA",
+    "oid": "1.3.6.1.4.1.9.1.2507",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWE": {
+    "name": "ciscoC11114PWE",
+    "oid": "1.3.6.1.4.1.9.1.2508",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWB": {
+    "name": "ciscoC11114PWB",
+    "oid": "1.3.6.1.4.1.9.1.2509",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWA": {
+    "name": "ciscoC11114PWA",
+    "oid": "1.3.6.1.4.1.9.1.2510",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWZ": {
+    "name": "ciscoC11114PWZ",
+    "oid": "1.3.6.1.4.1.9.1.2511",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWN": {
+    "name": "ciscoC11114PWN",
+    "oid": "1.3.6.1.4.1.9.1.2512",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWQ": {
+    "name": "ciscoC11114PWQ",
+    "oid": "1.3.6.1.4.1.9.1.2513",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWH": {
+    "name": "ciscoC11114PWH",
+    "oid": "1.3.6.1.4.1.9.1.2514",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWR": {
+    "name": "ciscoC11114PWR",
+    "oid": "1.3.6.1.4.1.9.1.2515",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWF": {
+    "name": "ciscoC11114PWF",
+    "oid": "1.3.6.1.4.1.9.1.2516",
+    "class": "objectidentity"
+  },
+  "ciscoC11114PWD": {
+    "name": "ciscoC11114PWD",
+    "oid": "1.3.6.1.4.1.9.1.2517",
+    "class": "objectidentity"
+  },
+  "ciscoC11164P": {
+    "name": "ciscoC11164P",
+    "oid": "1.3.6.1.4.1.9.1.2518",
+    "class": "objectidentity"
+  },
+  "ciscoC11164PLteEA": {
+    "name": "ciscoC11164PLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2519",
+    "class": "objectidentity"
+  },
+  "ciscoC11174P": {
+    "name": "ciscoC11174P",
+    "oid": "1.3.6.1.4.1.9.1.2520",
+    "class": "objectidentity"
+  },
+  "ciscoC11164PWE": {
+    "name": "ciscoC11164PWE",
+    "oid": "1.3.6.1.4.1.9.1.2521",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PLteEA": {
+    "name": "ciscoC11174PLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2522",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PLteLA": {
+    "name": "ciscoC11174PLteLA",
+    "oid": "1.3.6.1.4.1.9.1.2523",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PWE": {
+    "name": "ciscoC11174PWE",
+    "oid": "1.3.6.1.4.1.9.1.2524",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PWA": {
+    "name": "ciscoC11174PWA",
+    "oid": "1.3.6.1.4.1.9.1.2525",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PWZ": {
+    "name": "ciscoC11174PWZ",
+    "oid": "1.3.6.1.4.1.9.1.2526",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PM": {
+    "name": "ciscoC11174PM",
+    "oid": "1.3.6.1.4.1.9.1.2527",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PMLteEA": {
+    "name": "ciscoC11174PMLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2528",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PMWE": {
+    "name": "ciscoC11174PMWE",
+    "oid": "1.3.6.1.4.1.9.1.2529",
+    "class": "objectidentity"
+  },
+  "ciscoC980040K9": {
+    "name": "ciscoC980040K9",
+    "oid": "1.3.6.1.4.1.9.1.2530",
+    "class": "objectidentity"
+  },
+  "ciscoAIRCT9880K9": {
+    "name": "ciscoAIRCT9880K9",
+    "oid": "1.3.6.1.4.1.9.1.2531",
+    "class": "objectidentity"
+  },
+  "ciscoC11128P": {
+    "name": "ciscoC11128P",
+    "oid": "1.3.6.1.4.1.9.1.2532",
+    "class": "objectidentity"
+  },
+  "ciscoC11128PLteEA": {
+    "name": "ciscoC11128PLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2533",
+    "class": "objectidentity"
+  },
+  "ciscoC11138P": {
+    "name": "ciscoC11138P",
+    "oid": "1.3.6.1.4.1.9.1.2534",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PM": {
+    "name": "ciscoC11138PM",
+    "oid": "1.3.6.1.4.1.9.1.2535",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteEA": {
+    "name": "ciscoC11138PLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2536",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteLA": {
+    "name": "ciscoC11138PLteLA",
+    "oid": "1.3.6.1.4.1.9.1.2537",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PMLteEA": {
+    "name": "ciscoC11138PMLteEA",
+    "oid": "1.3.6.1.4.1.9.1.2538",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PWE": {
+    "name": "ciscoC11138PWE",
+    "oid": "1.3.6.1.4.1.9.1.2539",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PWA": {
+    "name": "ciscoC11138PWA",
+    "oid": "1.3.6.1.4.1.9.1.2540",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PWZ": {
+    "name": "ciscoC11138PWZ",
+    "oid": "1.3.6.1.4.1.9.1.2541",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PMWE": {
+    "name": "ciscoC11138PMWE",
+    "oid": "1.3.6.1.4.1.9.1.2542",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteEAWE": {
+    "name": "ciscoC11138PLteEAWE",
+    "oid": "1.3.6.1.4.1.9.1.2543",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteLAWE": {
+    "name": "ciscoC11138PLteLAWE",
+    "oid": "1.3.6.1.4.1.9.1.2544",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteLAWZ": {
+    "name": "ciscoC11138PLteLAWZ",
+    "oid": "1.3.6.1.4.1.9.1.2545",
+    "class": "objectidentity"
+  },
+  "ciscoC11188P": {
+    "name": "ciscoC11188P",
+    "oid": "1.3.6.1.4.1.9.1.2552",
+    "class": "objectidentity"
+  },
+  "ciscoC11164PLteEAWE": {
+    "name": "ciscoC11164PLteEAWE",
+    "oid": "1.3.6.1.4.1.9.1.2554",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PLteEAWE": {
+    "name": "ciscoC11174PLteEAWE",
+    "oid": "1.3.6.1.4.1.9.1.2555",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PLteEAWA": {
+    "name": "ciscoC11174PLteEAWA",
+    "oid": "1.3.6.1.4.1.9.1.2556",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PLteLAWZ": {
+    "name": "ciscoC11174PLteLAWZ",
+    "oid": "1.3.6.1.4.1.9.1.2557",
+    "class": "objectidentity"
+  },
+  "ciscoC11174PMLteEAWE": {
+    "name": "ciscoC11174PMLteEAWE",
+    "oid": "1.3.6.1.4.1.9.1.2558",
+    "class": "objectidentity"
+  },
+  "ciscoIR807GLTEVZK9": {
+    "name": "ciscoIR807GLTEVZK9",
+    "oid": "1.3.6.1.4.1.9.1.2559",
+    "class": "objectidentity"
+  },
+  "ciscoIR807GLTEGAK9": {
+    "name": "ciscoIR807GLTEGAK9",
+    "oid": "1.3.6.1.4.1.9.1.2560",
+    "class": "objectidentity"
+  },
+  "ciscoIR807GLTENAK9": {
+    "name": "ciscoIR807GLTENAK9",
+    "oid": "1.3.6.1.4.1.9.1.2561",
+    "class": "objectidentity"
+  },
+  "ciscoUCSE180DM3K9": {
+    "name": "ciscoUCSE180DM3K9",
+    "oid": "1.3.6.1.4.1.9.1.2562",
+    "class": "objectidentity"
+  },
+  "ciscoUCSE1120DM3K9": {
+    "name": "ciscoUCSE1120DM3K9",
+    "oid": "1.3.6.1.4.1.9.1.2563",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048UN": {
+    "name": "ciscoCat930048UN",
+    "oid": "1.3.6.1.4.1.9.1.2564",
+    "class": "objectidentity"
+  },
+  "ciscoNFVIS": {
+    "name": "ciscoNFVIS",
+    "oid": "1.3.6.1.4.1.9.1.2565",
+    "class": "objectidentity"
+  },
+  "ciscoCat950032C": {
+    "name": "ciscoCat950032C",
+    "oid": "1.3.6.1.4.1.9.1.2566",
+    "class": "objectidentity"
+  },
+  "ciscoCat950032QC": {
+    "name": "ciscoCat950032QC",
+    "oid": "1.3.6.1.4.1.9.1.2567",
+    "class": "objectidentity"
+  },
+  "ciscoCat950048Y4C": {
+    "name": "ciscoCat950048Y4C",
+    "oid": "1.3.6.1.4.1.9.1.2568",
+    "class": "objectidentity"
+  },
+  "ciscoIR829GWLTEGAxK9": {
+    "name": "ciscoIR829GWLTEGAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2569",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A2MODSES": {
+    "name": "ciscoNCS55A2MODSES",
+    "oid": "1.3.6.1.4.1.9.1.2570",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A2MODS": {
+    "name": "ciscoNCS55A2MODS",
+    "oid": "1.3.6.1.4.1.9.1.2571",
+    "class": "objectidentity"
+  },
+  "ciscoASR9906": {
+    "name": "ciscoASR9906",
+    "oid": "1.3.6.1.4.1.9.1.2572",
+    "class": "objectidentity"
+  },
+  "ciscoCat950024Y4C": {
+    "name": "ciscoCat950024Y4C",
+    "oid": "1.3.6.1.4.1.9.1.2573",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L24P4X": {
+    "name": "ciscoCat9200L24P4X",
+    "oid": "1.3.6.1.4.1.9.1.2574",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L48P4X": {
+    "name": "ciscoCat9200L48P4X",
+    "oid": "1.3.6.1.4.1.9.1.2575",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L24PXG4X": {
+    "name": "ciscoCat9200L24PXG4X",
+    "oid": "1.3.6.1.4.1.9.1.2576",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L24PXG2Y": {
+    "name": "ciscoCat9200L24PXG2Y",
+    "oid": "1.3.6.1.4.1.9.1.2577",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L48PXG4X": {
+    "name": "ciscoCat9200L48PXG4X",
+    "oid": "1.3.6.1.4.1.9.1.2578",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L48PXG2Y": {
+    "name": "ciscoCat9200L48PXG2Y",
+    "oid": "1.3.6.1.4.1.9.1.2579",
+    "class": "objectidentity"
+  },
+  "ciscoCat920024T": {
+    "name": "ciscoCat920024T",
+    "oid": "1.3.6.1.4.1.9.1.2580",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L24T4G": {
+    "name": "ciscoCat9200L24T4G",
+    "oid": "1.3.6.1.4.1.9.1.2581",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L48T4G": {
+    "name": "ciscoCat9200L48T4G",
+    "oid": "1.3.6.1.4.1.9.1.2582",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L24T4X": {
+    "name": "ciscoCat9200L24T4X",
+    "oid": "1.3.6.1.4.1.9.1.2583",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L48T4X": {
+    "name": "ciscoCat9200L48T4X",
+    "oid": "1.3.6.1.4.1.9.1.2584",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L24P4G": {
+    "name": "ciscoCat9200L24P4G",
+    "oid": "1.3.6.1.4.1.9.1.2585",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200L48P4G": {
+    "name": "ciscoCat9200L48P4G",
+    "oid": "1.3.6.1.4.1.9.1.2586",
+    "class": "objectidentity"
+  },
+  "ciscoCat920048T": {
+    "name": "ciscoCat920048T",
+    "oid": "1.3.6.1.4.1.9.1.2587",
+    "class": "objectidentity"
+  },
+  "ciscoCat920024P": {
+    "name": "ciscoCat920024P",
+    "oid": "1.3.6.1.4.1.9.1.2588",
+    "class": "objectidentity"
+  },
+  "ciscoCat920048P": {
+    "name": "ciscoCat920048P",
+    "oid": "1.3.6.1.4.1.9.1.2589",
+    "class": "objectidentity"
+  },
+  "ciscoCat920024PXG": {
+    "name": "ciscoCat920024PXG",
+    "oid": "1.3.6.1.4.1.9.1.2590",
+    "class": "objectidentity"
+  },
+  "ciscoCat920048PXG": {
+    "name": "ciscoCat920048PXG",
+    "oid": "1.3.6.1.4.1.9.1.2591",
+    "class": "objectidentity"
+  },
+  "ciscoCat950016X": {
+    "name": "ciscoCat950016X",
+    "oid": "1.3.6.1.4.1.9.1.2592",
+    "class": "objectidentity"
+  },
+  "ciscoCat9500FixedSwitchStack": {
+    "name": "ciscoCat9500FixedSwitchStack",
+    "oid": "1.3.6.1.4.1.9.1.2593",
+    "class": "objectidentity"
+  },
+  "ciscoN5204GAZA": {
+    "name": "ciscoN5204GAZA",
+    "oid": "1.3.6.1.4.1.9.1.2602",
+    "class": "objectidentity"
+  },
+  "ciscoN52020G4ZA": {
+    "name": "ciscoN52020G4ZA",
+    "oid": "1.3.6.1.4.1.9.1.2603",
+    "class": "objectidentity"
+  },
+  "ciscoN52020G4ZD": {
+    "name": "ciscoN52020G4ZD",
+    "oid": "1.3.6.1.4.1.9.1.2604",
+    "class": "objectidentity"
+  },
+  "ciscoN520X4G4ZA": {
+    "name": "ciscoN520X4G4ZA",
+    "oid": "1.3.6.1.4.1.9.1.2605",
+    "class": "objectidentity"
+  },
+  "ciscoN520X4G4ZD": {
+    "name": "ciscoN520X4G4ZD",
+    "oid": "1.3.6.1.4.1.9.1.2606",
+    "class": "objectidentity"
+  },
+  "ciscoN520X20G4ZA": {
+    "name": "ciscoN520X20G4ZA",
+    "oid": "1.3.6.1.4.1.9.1.2607",
+    "class": "objectidentity"
+  },
+  "ciscoN520X20G4ZD": {
+    "name": "ciscoN520X20G4ZD",
+    "oid": "1.3.6.1.4.1.9.1.2608",
+    "class": "objectidentity"
+  },
+  "ciscoIR829MLTELAxK9": {
+    "name": "ciscoIR829MLTELAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2609",
+    "class": "objectidentity"
+  },
+  "ciscoIR829M2LTEEAxK9": {
+    "name": "ciscoIR829M2LTEEAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2610",
+    "class": "objectidentity"
+  },
+  "ciscoISA30004Ctd": {
+    "name": "ciscoISA30004Ctd",
+    "oid": "1.3.6.1.4.1.9.1.2611",
+    "class": "objectidentity"
+  },
+  "ciscoISA30002C2Ftd": {
+    "name": "ciscoISA30002C2Ftd",
+    "oid": "1.3.6.1.4.1.9.1.2612",
+    "class": "objectidentity"
+  },
+  "ciscoRA1783SAD4T0Std": {
+    "name": "ciscoRA1783SAD4T0Std",
+    "oid": "1.3.6.1.4.1.9.1.2613",
+    "class": "objectidentity"
+  },
+  "ciscoRA1783SAD2T2Std": {
+    "name": "ciscoRA1783SAD2T2Std",
+    "oid": "1.3.6.1.4.1.9.1.2614",
+    "class": "objectidentity"
+  },
+  "cisco8818": {
+    "name": "cisco8818",
+    "oid": "1.3.6.1.4.1.9.1.2615",
+    "class": "objectidentity"
+  },
+  "cisco8812": {
+    "name": "cisco8812",
+    "oid": "1.3.6.1.4.1.9.1.2616",
+    "class": "objectidentity"
+  },
+  "cisco8808": {
+    "name": "cisco8808",
+    "oid": "1.3.6.1.4.1.9.1.2617",
+    "class": "objectidentity"
+  },
+  "ciscoC11092PLteGB": {
+    "name": "ciscoC11092PLteGB",
+    "oid": "1.3.6.1.4.1.9.1.2619",
+    "class": "objectidentity"
+  },
+  "ciscoC11092PLteUS": {
+    "name": "ciscoC11092PLteUS",
+    "oid": "1.3.6.1.4.1.9.1.2620",
+    "class": "objectidentity"
+  },
+  "ciscoC11092PLteVZ": {
+    "name": "ciscoC11092PLteVZ",
+    "oid": "1.3.6.1.4.1.9.1.2621",
+    "class": "objectidentity"
+  },
+  "ciscoC11092PLteJN": {
+    "name": "ciscoC11092PLteJN",
+    "oid": "1.3.6.1.4.1.9.1.2622",
+    "class": "objectidentity"
+  },
+  "ciscoC11092PLteAU": {
+    "name": "ciscoC11092PLteAU",
+    "oid": "1.3.6.1.4.1.9.1.2623",
+    "class": "objectidentity"
+  },
+  "ciscoC11092PLteIN": {
+    "name": "ciscoC11092PLteIN",
+    "oid": "1.3.6.1.4.1.9.1.2624",
+    "class": "objectidentity"
+  },
+  "ciscoC11014P": {
+    "name": "ciscoC11014P",
+    "oid": "1.3.6.1.4.1.9.1.2625",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLteP": {
+    "name": "ciscoC11014PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2626",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWE": {
+    "name": "ciscoC11014PLtePWE",
+    "oid": "1.3.6.1.4.1.9.1.2627",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWB": {
+    "name": "ciscoC11014PLtePWB",
+    "oid": "1.3.6.1.4.1.9.1.2628",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWD": {
+    "name": "ciscoC11014PLtePWD",
+    "oid": "1.3.6.1.4.1.9.1.2629",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWZ": {
+    "name": "ciscoC11014PLtePWZ",
+    "oid": "1.3.6.1.4.1.9.1.2630",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWA": {
+    "name": "ciscoC11014PLtePWA",
+    "oid": "1.3.6.1.4.1.9.1.2631",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWH": {
+    "name": "ciscoC11014PLtePWH",
+    "oid": "1.3.6.1.4.1.9.1.2632",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWQ": {
+    "name": "ciscoC11014PLtePWQ",
+    "oid": "1.3.6.1.4.1.9.1.2633",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWR": {
+    "name": "ciscoC11014PLtePWR",
+    "oid": "1.3.6.1.4.1.9.1.2634",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWN": {
+    "name": "ciscoC11014PLtePWN",
+    "oid": "1.3.6.1.4.1.9.1.2635",
+    "class": "objectidentity"
+  },
+  "ciscoC11014PLtePWF": {
+    "name": "ciscoC11014PLtePWF",
+    "oid": "1.3.6.1.4.1.9.1.2636",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2P": {
+    "name": "ciscoC11094PLte2P",
+    "oid": "1.3.6.1.4.1.9.1.2637",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWB": {
+    "name": "ciscoC11094PLte2PWB",
+    "oid": "1.3.6.1.4.1.9.1.2638",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWE": {
+    "name": "ciscoC11094PLte2PWE",
+    "oid": "1.3.6.1.4.1.9.1.2639",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWD": {
+    "name": "ciscoC11094PLte2PWD",
+    "oid": "1.3.6.1.4.1.9.1.2640",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWZ": {
+    "name": "ciscoC11094PLte2PWZ",
+    "oid": "1.3.6.1.4.1.9.1.2641",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWA": {
+    "name": "ciscoC11094PLte2PWA",
+    "oid": "1.3.6.1.4.1.9.1.2642",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWH": {
+    "name": "ciscoC11094PLte2PWH",
+    "oid": "1.3.6.1.4.1.9.1.2643",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWQ": {
+    "name": "ciscoC11094PLte2PWQ",
+    "oid": "1.3.6.1.4.1.9.1.2644",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWN": {
+    "name": "ciscoC11094PLte2PWN",
+    "oid": "1.3.6.1.4.1.9.1.2645",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWR": {
+    "name": "ciscoC11094PLte2PWR",
+    "oid": "1.3.6.1.4.1.9.1.2646",
+    "class": "objectidentity"
+  },
+  "ciscoC11094PLte2PWF": {
+    "name": "ciscoC11094PLte2PWF",
+    "oid": "1.3.6.1.4.1.9.1.2647",
+    "class": "objectidentity"
+  },
+  "ciscoC9606R": {
+    "name": "ciscoC9606R",
+    "oid": "1.3.6.1.4.1.9.1.2648",
+    "class": "objectidentity"
+  },
+  "cisco8201": {
+    "name": "cisco8201",
+    "oid": "1.3.6.1.4.1.9.1.2649",
+    "class": "objectidentity"
+  },
+  "cisco8202": {
+    "name": "cisco8202",
+    "oid": "1.3.6.1.4.1.9.1.2650",
+    "class": "objectidentity"
+  },
+  "ciscoC11128PWE": {
+    "name": "ciscoC11128PWE",
+    "oid": "1.3.6.1.4.1.9.1.2652",
+    "class": "objectidentity"
+  },
+  "ciscoC11128PLteEAWE": {
+    "name": "ciscoC11128PLteEAWE",
+    "oid": "1.3.6.1.4.1.9.1.2653",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PWB": {
+    "name": "ciscoC11138PWB",
+    "oid": "1.3.6.1.4.1.9.1.2654",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteEAWB": {
+    "name": "ciscoC11138PLteEAWB",
+    "oid": "1.3.6.1.4.1.9.1.2655",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteLAWA": {
+    "name": "ciscoC11138PLteLAWA",
+    "oid": "1.3.6.1.4.1.9.1.2656",
+    "class": "objectidentity"
+  },
+  "ciscoC11164PLteLA": {
+    "name": "ciscoC11164PLteLA",
+    "oid": "1.3.6.1.4.1.9.1.2657",
+    "class": "objectidentity"
+  },
+  "ciscoASR9901": {
+    "name": "ciscoASR9901",
+    "oid": "1.3.6.1.4.1.9.1.2658",
+    "class": "objectidentity"
+  },
+  "ciscoEsxSECPA": {
+    "name": "ciscoEsxSECPA",
+    "oid": "1.3.6.1.4.1.9.1.2659",
+    "class": "objectidentity"
+  },
+  "ciscoKvmSECPA": {
+    "name": "ciscoKvmSECPA",
+    "oid": "1.3.6.1.4.1.9.1.2660",
+    "class": "objectidentity"
+  },
+  "ciscoIR1101K9": {
+    "name": "ciscoIR1101K9",
+    "oid": "1.3.6.1.4.1.9.1.2661",
+    "class": "objectidentity"
+  },
+  "ciscoFpr1140td": {
+    "name": "ciscoFpr1140td",
+    "oid": "1.3.6.1.4.1.9.1.2662",
+    "class": "objectidentity"
+  },
+  "ciscoFpr1120td": {
+    "name": "ciscoFpr1120td",
+    "oid": "1.3.6.1.4.1.9.1.2663",
+    "class": "objectidentity"
+  },
+  "ciscoCat9400VirtualStack": {
+    "name": "ciscoCat9400VirtualStack",
+    "oid": "1.3.6.1.4.1.9.1.2664",
+    "class": "objectidentity"
+  },
+  "ciscoISRAP1100ACME": {
+    "name": "ciscoISRAP1100ACME",
+    "oid": "1.3.6.1.4.1.9.1.2665",
+    "class": "objectidentity"
+  },
+  "ciscoISR4221X": {
+    "name": "ciscoISR4221X",
+    "oid": "1.3.6.1.4.1.9.1.2666",
+    "class": "objectidentity"
+  },
+  "ciscoC1111X8P": {
+    "name": "ciscoC1111X8P",
+    "oid": "1.3.6.1.4.1.9.1.2668",
+    "class": "objectidentity"
+  },
+  "ciscoC980080K9": {
+    "name": "ciscoC980080K9",
+    "oid": "1.3.6.1.4.1.9.1.2669",
+    "class": "objectidentity"
+  },
+  "ciscoAP4800": {
+    "name": "ciscoAP4800",
+    "oid": "1.3.6.1.4.1.9.1.2670",
+    "class": "objectidentity"
+  },
+  "ciscoIR829M2LTELAxK9": {
+    "name": "ciscoIR829M2LTELAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2672",
+    "class": "objectidentity"
+  },
+  "ciscoIR829MLTEEAxK9": {
+    "name": "ciscoIR829MLTEEAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2673",
+    "class": "objectidentity"
+  },
+  "ciscoIR829BLTEEAxK9": {
+    "name": "ciscoIR829BLTEEAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2674",
+    "class": "objectidentity"
+  },
+  "ciscoIR829BLTELAxK9": {
+    "name": "ciscoIR829BLTELAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2675",
+    "class": "objectidentity"
+  },
+  "ciscoIR829B2LTEEAxK9": {
+    "name": "ciscoIR829B2LTEEAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2676",
+    "class": "objectidentity"
+  },
+  "ciscoIR829B2LTELAxK9": {
+    "name": "ciscoIR829B2LTELAxK9",
+    "oid": "1.3.6.1.4.1.9.1.2677",
+    "class": "objectidentity"
+  },
+  "ciscoASR92012SZD": {
+    "name": "ciscoASR92012SZD",
+    "oid": "1.3.6.1.4.1.9.1.2678",
+    "class": "objectidentity"
+  },
+  "ciscoASR92012SZA": {
+    "name": "ciscoASR92012SZA",
+    "oid": "1.3.6.1.4.1.9.1.2679",
+    "class": "objectidentity"
+  },
+  "ciscoISR4461": {
+    "name": "ciscoISR4461",
+    "oid": "1.3.6.1.4.1.9.1.2680",
+    "class": "objectidentity"
+  },
+  "ciscoESS3300NCP": {
+    "name": "ciscoESS3300NCP",
+    "oid": "1.3.6.1.4.1.9.1.2681",
+    "class": "objectidentity"
+  },
+  "ciscoESS3300CON": {
+    "name": "ciscoESS3300CON",
+    "oid": "1.3.6.1.4.1.9.1.2682",
+    "class": "objectidentity"
+  },
+  "ciscoIE32008T2S": {
+    "name": "ciscoIE32008T2S",
+    "oid": "1.3.6.1.4.1.9.1.2683",
+    "class": "objectidentity"
+  },
+  "ciscoIE32008P2S": {
+    "name": "ciscoIE32008P2S",
+    "oid": "1.3.6.1.4.1.9.1.2684",
+    "class": "objectidentity"
+  },
+  "ciscoIE33008T2S": {
+    "name": "ciscoIE33008T2S",
+    "oid": "1.3.6.1.4.1.9.1.2685",
+    "class": "objectidentity"
+  },
+  "ciscoIE33008P2S": {
+    "name": "ciscoIE33008P2S",
+    "oid": "1.3.6.1.4.1.9.1.2686",
+    "class": "objectidentity"
+  },
+  "ciscoIE34008P2S": {
+    "name": "ciscoIE34008P2S",
+    "oid": "1.3.6.1.4.1.9.1.2687",
+    "class": "objectidentity"
+  },
+  "ciscoCat9500VirtualStack": {
+    "name": "ciscoCat9500VirtualStack",
+    "oid": "1.3.6.1.4.1.9.1.2688",
+    "class": "objectidentity"
+  },
+  "ciscoNam2520": {
+    "name": "ciscoNam2520",
+    "oid": "1.3.6.1.4.1.9.1.2689",
+    "class": "objectidentity"
+  },
+  "ciscoNam2540": {
+    "name": "ciscoNam2540",
+    "oid": "1.3.6.1.4.1.9.1.2690",
+    "class": "objectidentity"
+  },
+  "ciscoCSPA2520": {
+    "name": "ciscoCSPA2520",
+    "oid": "1.3.6.1.4.1.9.1.2691",
+    "class": "objectidentity"
+  },
+  "ciscoIR1101XK9": {
+    "name": "ciscoIR1101XK9",
+    "oid": "1.3.6.1.4.1.9.1.2692",
+    "class": "objectidentity"
+  },
+  "ciscoVG450": {
+    "name": "ciscoVG450",
+    "oid": "1.3.6.1.4.1.9.1.2693",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200LFixedSwitchStack": {
+    "name": "ciscoCat9200LFixedSwitchStack",
+    "oid": "1.3.6.1.4.1.9.1.2694",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200FixedSwitchStack": {
+    "name": "ciscoCat9200FixedSwitchStack",
+    "oid": "1.3.6.1.4.1.9.1.2695",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10B": {
+    "name": "ciscoRAIE1783MMS10B",
+    "oid": "1.3.6.1.4.1.9.1.2697",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10BE": {
+    "name": "ciscoRAIE1783MMS10BE",
+    "oid": "1.3.6.1.4.1.9.1.2698",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10": {
+    "name": "ciscoRAIE1783MMS10",
+    "oid": "1.3.6.1.4.1.9.1.2699",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10R": {
+    "name": "ciscoRAIE1783MMS10R",
+    "oid": "1.3.6.1.4.1.9.1.2700",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10E": {
+    "name": "ciscoRAIE1783MMS10E",
+    "oid": "1.3.6.1.4.1.9.1.2701",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10ER": {
+    "name": "ciscoRAIE1783MMS10ER",
+    "oid": "1.3.6.1.4.1.9.1.2702",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10EA": {
+    "name": "ciscoRAIE1783MMS10EA",
+    "oid": "1.3.6.1.4.1.9.1.2703",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10EAR": {
+    "name": "ciscoRAIE1783MMS10EAR",
+    "oid": "1.3.6.1.4.1.9.1.2704",
+    "class": "objectidentity"
+  },
+  "ciscoASR92020SZM": {
+    "name": "ciscoASR92020SZM",
+    "oid": "1.3.6.1.4.1.9.1.2705",
+    "class": "objectidentity"
+  },
+  "cisco9214PK9": {
+    "name": "cisco9214PK9",
+    "oid": "1.3.6.1.4.1.9.1.2708",
+    "class": "objectidentity"
+  },
+  "cisco9314PK9": {
+    "name": "cisco9314PK9",
+    "oid": "1.3.6.1.4.1.9.1.2709",
+    "class": "objectidentity"
+  },
+  "cisco9214PLTEGBK9": {
+    "name": "cisco9214PLTEGBK9",
+    "oid": "1.3.6.1.4.1.9.1.2711",
+    "class": "objectidentity"
+  },
+  "cisco9214PLTEASK9": {
+    "name": "cisco9214PLTEASK9",
+    "oid": "1.3.6.1.4.1.9.1.2712",
+    "class": "objectidentity"
+  },
+  "cisco9214PLTEAUK9": {
+    "name": "cisco9214PLTEAUK9",
+    "oid": "1.3.6.1.4.1.9.1.2713",
+    "class": "objectidentity"
+  },
+  "cisco921J4PK9": {
+    "name": "cisco921J4PK9",
+    "oid": "1.3.6.1.4.1.9.1.2715",
+    "class": "objectidentity"
+  },
+  "cisco9274PK9": {
+    "name": "cisco9274PK9",
+    "oid": "1.3.6.1.4.1.9.1.2716",
+    "class": "objectidentity"
+  },
+  "cisco9274PMK9": {
+    "name": "cisco9274PMK9",
+    "oid": "1.3.6.1.4.1.9.1.2717",
+    "class": "objectidentity"
+  },
+  "cisco9264PK9": {
+    "name": "cisco9264PK9",
+    "oid": "1.3.6.1.4.1.9.1.2718",
+    "class": "objectidentity"
+  },
+  "cisco9274PLTEAUK9": {
+    "name": "cisco9274PLTEAUK9",
+    "oid": "1.3.6.1.4.1.9.1.2719",
+    "class": "objectidentity"
+  },
+  "cisco9274PLTEGBK9": {
+    "name": "cisco9274PLTEGBK9",
+    "oid": "1.3.6.1.4.1.9.1.2721",
+    "class": "objectidentity"
+  },
+  "cisco9274PMLTEGBK9": {
+    "name": "cisco9274PMLTEGBK9",
+    "oid": "1.3.6.1.4.1.9.1.2722",
+    "class": "objectidentity"
+  },
+  "cisco9264PLTEGBK9": {
+    "name": "cisco9264PLTEGBK9",
+    "oid": "1.3.6.1.4.1.9.1.2723",
+    "class": "objectidentity"
+  },
+  "ciscoAP1840": {
+    "name": "ciscoAP1840",
+    "oid": "1.3.6.1.4.1.9.1.2730",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PWS": {
+    "name": "ciscoC11118PWS",
+    "oid": "1.3.6.1.4.1.9.1.2731",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWS": {
+    "name": "ciscoC11118PLteLAWS",
+    "oid": "1.3.6.1.4.1.9.1.2732",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWA": {
+    "name": "ciscoC11118PLteLAWA",
+    "oid": "1.3.6.1.4.1.9.1.2733",
+    "class": "objectidentity"
+  },
+  "ciscoC11118PLteLAWE": {
+    "name": "ciscoC11118PLteLAWE",
+    "oid": "1.3.6.1.4.1.9.1.2734",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A2MODHDS": {
+    "name": "ciscoNCS55A2MODHDS",
+    "oid": "1.3.6.1.4.1.9.1.2735",
+    "class": "objectidentity"
+  },
+  "ciscoUCSC125": {
+    "name": "ciscoUCSC125",
+    "oid": "1.3.6.1.4.1.9.1.2737",
+    "class": "objectidentity"
+  },
+  "ciscoWSC6506E": {
+    "name": "ciscoWSC6506E",
+    "oid": "1.3.6.1.4.1.9.1.2738",
+    "class": "objectidentity"
+  },
+  "ciscoWSC6509E": {
+    "name": "ciscoWSC6509E",
+    "oid": "1.3.6.1.4.1.9.1.2739",
+    "class": "objectidentity"
+  },
+  "ciscoNCS1004": {
+    "name": "ciscoNCS1004",
+    "oid": "1.3.6.1.4.1.9.1.2740",
+    "class": "objectidentity"
+  },
+  "ciscoN54024Z8Q2CM": {
+    "name": "ciscoN54024Z8Q2CM",
+    "oid": "1.3.6.1.4.1.9.1.2741",
+    "class": "objectidentity"
+  },
+  "ciscoN540X24Z8Q2CM": {
+    "name": "ciscoN540X24Z8Q2CM",
+    "oid": "1.3.6.1.4.1.9.1.2742",
+    "class": "objectidentity"
+  },
+  "ciscoN560RSP4": {
+    "name": "ciscoN560RSP4",
+    "oid": "1.3.6.1.4.1.9.1.2743",
+    "class": "objectidentity"
+  },
+  "ciscoN560RSP4E": {
+    "name": "ciscoN560RSP4E",
+    "oid": "1.3.6.1.4.1.9.1.2744",
+    "class": "objectidentity"
+  },
+  "ciscoC11218PLteP": {
+    "name": "ciscoC11218PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2745",
+    "class": "objectidentity"
+  },
+  "ciscoC1121X8PLTEP": {
+    "name": "ciscoC1121X8PLTEP",
+    "oid": "1.3.6.1.4.1.9.1.2746",
+    "class": "objectidentity"
+  },
+  "ciscoC11218PLtePWE": {
+    "name": "ciscoC11218PLtePWE",
+    "oid": "1.3.6.1.4.1.9.1.2747",
+    "class": "objectidentity"
+  },
+  "ciscoC11218PLtePWB": {
+    "name": "ciscoC11218PLtePWB",
+    "oid": "1.3.6.1.4.1.9.1.2748",
+    "class": "objectidentity"
+  },
+  "ciscoC11218PLtePWZ": {
+    "name": "ciscoC11218PLtePWZ",
+    "oid": "1.3.6.1.4.1.9.1.2749",
+    "class": "objectidentity"
+  },
+  "ciscoC11218PLtePWQ": {
+    "name": "ciscoC11218PLtePWQ",
+    "oid": "1.3.6.1.4.1.9.1.2750",
+    "class": "objectidentity"
+  },
+  "ciscoC11218P": {
+    "name": "ciscoC11218P",
+    "oid": "1.3.6.1.4.1.9.1.2751",
+    "class": "objectidentity"
+  },
+  "ciscoC1121X8P": {
+    "name": "ciscoC1121X8P",
+    "oid": "1.3.6.1.4.1.9.1.2752",
+    "class": "objectidentity"
+  },
+  "ciscoC11618P": {
+    "name": "ciscoC11618P",
+    "oid": "1.3.6.1.4.1.9.1.2753",
+    "class": "objectidentity"
+  },
+  "ciscoC1161X8P": {
+    "name": "ciscoC1161X8P",
+    "oid": "1.3.6.1.4.1.9.1.2754",
+    "class": "objectidentity"
+  },
+  "ciscoC11618PLteP": {
+    "name": "ciscoC11618PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2755",
+    "class": "objectidentity"
+  },
+  "ciscoC1161X8PLteP": {
+    "name": "ciscoC1161X8PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2756",
+    "class": "objectidentity"
+  },
+  "ciscoFpr9000SM56": {
+    "name": "ciscoFpr9000SM56",
+    "oid": "1.3.6.1.4.1.9.1.2757",
+    "class": "objectidentity"
+  },
+  "ciscoC11268PLteP": {
+    "name": "ciscoC11268PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2758",
+    "class": "objectidentity"
+  },
+  "ciscoC11278PLteP": {
+    "name": "ciscoC11278PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2759",
+    "class": "objectidentity"
+  },
+  "ciscoC11278PMLteP": {
+    "name": "ciscoC11278PMLteP",
+    "oid": "1.3.6.1.4.1.9.1.2760",
+    "class": "objectidentity"
+  },
+  "ciscoC1126X8PLteP": {
+    "name": "ciscoC1126X8PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2761",
+    "class": "objectidentity"
+  },
+  "ciscoC1127X8PLteP": {
+    "name": "ciscoC1127X8PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2762",
+    "class": "objectidentity"
+  },
+  "ciscoC1127X8PMLteP": {
+    "name": "ciscoC1127X8PMLteP",
+    "oid": "1.3.6.1.4.1.9.1.2763",
+    "class": "objectidentity"
+  },
+  "ciscoC11214P": {
+    "name": "ciscoC11214P",
+    "oid": "1.3.6.1.4.1.9.1.2764",
+    "class": "objectidentity"
+  },
+  "ciscoC11214PLteP": {
+    "name": "ciscoC11214PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2765",
+    "class": "objectidentity"
+  },
+  "ciscoC11288PLteP": {
+    "name": "ciscoC11288PLteP",
+    "oid": "1.3.6.1.4.1.9.1.2766",
+    "class": "objectidentity"
+  },
+  "ciscoVG4002FXS2FXO": {
+    "name": "ciscoVG4002FXS2FXO",
+    "oid": "1.3.6.1.4.1.9.1.2767",
+    "class": "objectidentity"
+  },
+  "ciscoVG4004FXS4FXO": {
+    "name": "ciscoVG4004FXS4FXO",
+    "oid": "1.3.6.1.4.1.9.1.2768",
+    "class": "objectidentity"
+  },
+  "ciscoVG4006FXS6FXO": {
+    "name": "ciscoVG4006FXS6FXO",
+    "oid": "1.3.6.1.4.1.9.1.2769",
+    "class": "objectidentity"
+  },
+  "ciscoVG4008FXS": {
+    "name": "ciscoVG4008FXS",
+    "oid": "1.3.6.1.4.1.9.1.2770",
+    "class": "objectidentity"
+  },
+  "ciscoC891FJK9": {
+    "name": "ciscoC891FJK9",
+    "oid": "1.3.6.1.4.1.9.1.2771",
+    "class": "objectidentity"
+  },
+  "ciscoFpr9000SM40": {
+    "name": "ciscoFpr9000SM40",
+    "oid": "1.3.6.1.4.1.9.1.2772",
+    "class": "objectidentity"
+  },
+  "ciscoFpr9000SM48": {
+    "name": "ciscoFpr9000SM48",
+    "oid": "1.3.6.1.4.1.9.1.2773",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4115SM24": {
+    "name": "ciscoFpr4115SM24",
+    "oid": "1.3.6.1.4.1.9.1.2774",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4125SM32": {
+    "name": "ciscoFpr4125SM32",
+    "oid": "1.3.6.1.4.1.9.1.2775",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4145SM44": {
+    "name": "ciscoFpr4145SM44",
+    "oid": "1.3.6.1.4.1.9.1.2776",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4145K9": {
+    "name": "ciscoFpr4145K9",
+    "oid": "1.3.6.1.4.1.9.1.2777",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4125K9": {
+    "name": "ciscoFpr4125K9",
+    "oid": "1.3.6.1.4.1.9.1.2778",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4115K9": {
+    "name": "ciscoFpr4115K9",
+    "oid": "1.3.6.1.4.1.9.1.2779",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024S": {
+    "name": "ciscoCat930024S",
+    "oid": "1.3.6.1.4.1.9.1.2780",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048S": {
+    "name": "ciscoCat930048S",
+    "oid": "1.3.6.1.4.1.9.1.2781",
+    "class": "objectidentity"
+  },
+  "ciscoIOSXREdgecore591654XKSOACF": {
+    "name": "ciscoIOSXREdgecore591654XKSOACF",
+    "oid": "1.3.6.1.4.1.9.1.2782",
+    "class": "objectidentity"
+  },
+  "ciscoIOSXREdgecoreAS781664X": {
+    "name": "ciscoIOSXREdgecoreAS781664X",
+    "oid": "1.3.6.1.4.1.9.1.2783",
+    "class": "objectidentity"
+  },
+  "ciscoSNS3615K9": {
+    "name": "ciscoSNS3615K9",
+    "oid": "1.3.6.1.4.1.9.1.2784",
+    "class": "objectidentity"
+  },
+  "ciscoSNS3655K9": {
+    "name": "ciscoSNS3655K9",
+    "oid": "1.3.6.1.4.1.9.1.2785",
+    "class": "objectidentity"
+  },
+  "ciscoSNS3695K9": {
+    "name": "ciscoSNS3695K9",
+    "oid": "1.3.6.1.4.1.9.1.2786",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A2MODHXS": {
+    "name": "ciscoNCS55A2MODHXS",
+    "oid": "1.3.6.1.4.1.9.1.2787",
+    "class": "objectidentity"
+  },
+  "ciscoC1121X8PLtePWE": {
+    "name": "ciscoC1121X8PLtePWE",
+    "oid": "1.3.6.1.4.1.9.1.2788",
+    "class": "objectidentity"
+  },
+  "ciscoC1121X8PLtePWB": {
+    "name": "ciscoC1121X8PLtePWB",
+    "oid": "1.3.6.1.4.1.9.1.2789",
+    "class": "objectidentity"
+  },
+  "ciscoC1121X8PLtePWZ": {
+    "name": "ciscoC1121X8PLtePWZ",
+    "oid": "1.3.6.1.4.1.9.1.2790",
+    "class": "objectidentity"
+  },
+  "ciscoC1121X8PLtePWA": {
+    "name": "ciscoC1121X8PLtePWA",
+    "oid": "1.3.6.1.4.1.9.1.2791",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L24T4G": {
+    "name": "ciscoCat9300L24T4G",
+    "oid": "1.3.6.1.4.1.9.1.2792",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48T4G": {
+    "name": "ciscoCat9300L48T4G",
+    "oid": "1.3.6.1.4.1.9.1.2793",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L24T4X": {
+    "name": "ciscoCat9300L24T4X",
+    "oid": "1.3.6.1.4.1.9.1.2794",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48T4X": {
+    "name": "ciscoCat9300L48T4X",
+    "oid": "1.3.6.1.4.1.9.1.2795",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L24P4G": {
+    "name": "ciscoCat9300L24P4G",
+    "oid": "1.3.6.1.4.1.9.1.2796",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48P4G": {
+    "name": "ciscoCat9300L48P4G",
+    "oid": "1.3.6.1.4.1.9.1.2797",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L24P4X": {
+    "name": "ciscoCat9300L24P4X",
+    "oid": "1.3.6.1.4.1.9.1.2798",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48P4X": {
+    "name": "ciscoCat9300L48P4X",
+    "oid": "1.3.6.1.4.1.9.1.2799",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L24UXG4X": {
+    "name": "ciscoCat9300L24UXG4X",
+    "oid": "1.3.6.1.4.1.9.1.2800",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48UXG4X": {
+    "name": "ciscoCat9300L48UXG4X",
+    "oid": "1.3.6.1.4.1.9.1.2801",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L24UXG2Q": {
+    "name": "ciscoCat9300L24UXG2Q",
+    "oid": "1.3.6.1.4.1.9.1.2802",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48UXG2Q": {
+    "name": "ciscoCat9300L48UXG2Q",
+    "oid": "1.3.6.1.4.1.9.1.2803",
+    "class": "objectidentity"
+  },
+  "ciscocat9300Lstack": {
+    "name": "ciscocat9300Lstack",
+    "oid": "1.3.6.1.4.1.9.1.2804",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM8TS": {
+    "name": "ciscoCatWSC2960LSM8TS",
+    "oid": "1.3.6.1.4.1.9.1.2806",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM8PS": {
+    "name": "ciscoCatWSC2960LSM8PS",
+    "oid": "1.3.6.1.4.1.9.1.2807",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM16TS": {
+    "name": "ciscoCatWSC2960LSM16TS",
+    "oid": "1.3.6.1.4.1.9.1.2808",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM16PS": {
+    "name": "ciscoCatWSC2960LSM16PS",
+    "oid": "1.3.6.1.4.1.9.1.2809",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM24TS": {
+    "name": "ciscoCatWSC2960LSM24TS",
+    "oid": "1.3.6.1.4.1.9.1.2810",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM24PS": {
+    "name": "ciscoCatWSC2960LSM24PS",
+    "oid": "1.3.6.1.4.1.9.1.2811",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM48TS": {
+    "name": "ciscoCatWSC2960LSM48TS",
+    "oid": "1.3.6.1.4.1.9.1.2812",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM48PS": {
+    "name": "ciscoCatWSC2960LSM48PS",
+    "oid": "1.3.6.1.4.1.9.1.2813",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM24TQ": {
+    "name": "ciscoCatWSC2960LSM24TQ",
+    "oid": "1.3.6.1.4.1.9.1.2814",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM48TQ": {
+    "name": "ciscoCatWSC2960LSM48TQ",
+    "oid": "1.3.6.1.4.1.9.1.2815",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM24PQ": {
+    "name": "ciscoCatWSC2960LSM24PQ",
+    "oid": "1.3.6.1.4.1.9.1.2816",
+    "class": "objectidentity"
+  },
+  "ciscoCatWSC2960LSM48PQ": {
+    "name": "ciscoCatWSC2960LSM48PQ",
+    "oid": "1.3.6.1.4.1.9.1.2817",
+    "class": "objectidentity"
+  },
+  "ciscoC850012X4QC": {
+    "name": "ciscoC850012X4QC",
+    "oid": "1.3.6.1.4.1.9.1.2818",
+    "class": "objectidentity"
+  },
+  "ciscoC850012X": {
+    "name": "ciscoC850012X",
+    "oid": "1.3.6.1.4.1.9.1.2819",
+    "class": "objectidentity"
+  },
+  "ciscoC9592PLteGB": {
+    "name": "ciscoC9592PLteGB",
+    "oid": "1.3.6.1.4.1.9.1.2820",
+    "class": "objectidentity"
+  },
+  "ciscoC9592PLteUS": {
+    "name": "ciscoC9592PLteUS",
+    "oid": "1.3.6.1.4.1.9.1.2821",
+    "class": "objectidentity"
+  },
+  "ciscoC9592PLteVZ": {
+    "name": "ciscoC9592PLteVZ",
+    "oid": "1.3.6.1.4.1.9.1.2822",
+    "class": "objectidentity"
+  },
+  "ciscoC9592PLteIN": {
+    "name": "ciscoC9592PLteIN",
+    "oid": "1.3.6.1.4.1.9.1.2823",
+    "class": "objectidentity"
+  },
+  "ciscoC9514P": {
+    "name": "ciscoC9514P",
+    "oid": "1.3.6.1.4.1.9.1.2824",
+    "class": "objectidentity"
+  },
+  "ciscoCMeWlc": {
+    "name": "ciscoCMeWlc",
+    "oid": "1.3.6.1.4.1.9.1.2825",
+    "class": "objectidentity"
+  },
+  "ciscoIE34008FTMC": {
+    "name": "ciscoIE34008FTMC",
+    "oid": "1.3.6.1.4.1.9.1.2826",
+    "class": "objectidentity"
+  },
+  "ciscoIE340016FTMC": {
+    "name": "ciscoIE340016FTMC",
+    "oid": "1.3.6.1.4.1.9.1.2827",
+    "class": "objectidentity"
+  },
+  "ciscoIE340024FTMC": {
+    "name": "ciscoIE340024FTMC",
+    "oid": "1.3.6.1.4.1.9.1.2828",
+    "class": "objectidentity"
+  },
+  "ciscoIE34008TMC": {
+    "name": "ciscoIE34008TMC",
+    "oid": "1.3.6.1.4.1.9.1.2829",
+    "class": "objectidentity"
+  },
+  "ciscoIE340016TMC": {
+    "name": "ciscoIE340016TMC",
+    "oid": "1.3.6.1.4.1.9.1.2830",
+    "class": "objectidentity"
+  },
+  "ciscoIE340024TMC": {
+    "name": "ciscoIE340024TMC",
+    "oid": "1.3.6.1.4.1.9.1.2831",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024UBX": {
+    "name": "ciscoCat930024UBX",
+    "oid": "1.3.6.1.4.1.9.1.2833",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048UB": {
+    "name": "ciscoCat930048UB",
+    "oid": "1.3.6.1.4.1.9.1.2834",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024UB": {
+    "name": "ciscoCat930024UB",
+    "oid": "1.3.6.1.4.1.9.1.2835",
+    "class": "objectidentity"
+  },
+  "ciscoC9115AXI": {
+    "name": "ciscoC9115AXI",
+    "oid": "1.3.6.1.4.1.9.1.2839",
+    "class": "objectidentity"
+  },
+  "ciscoC9115AXME": {
+    "name": "ciscoC9115AXME",
+    "oid": "1.3.6.1.4.1.9.1.2840",
+    "class": "objectidentity"
+  },
+  "ciscoC9117AXME": {
+    "name": "ciscoC9117AXME",
+    "oid": "1.3.6.1.4.1.9.1.2841",
+    "class": "objectidentity"
+  },
+  "ciscoC9117AXI": {
+    "name": "ciscoC9117AXI",
+    "oid": "1.3.6.1.4.1.9.1.2842",
+    "class": "objectidentity"
+  },
+  "ciscoNCS5064": {
+    "name": "ciscoNCS5064",
+    "oid": "1.3.6.1.4.1.9.1.2843",
+    "class": "objectidentity"
+  },
+  "ciscoESR1115CONK9": {
+    "name": "ciscoESR1115CONK9",
+    "oid": "1.3.6.1.4.1.9.1.2844",
+    "class": "objectidentity"
+  },
+  "ciscoESR1115NCPK9": {
+    "name": "ciscoESR1115NCPK9",
+    "oid": "1.3.6.1.4.1.9.1.2845",
+    "class": "objectidentity"
+  },
+  "ciscoC9115AXE": {
+    "name": "ciscoC9115AXE",
+    "oid": "1.3.6.1.4.1.9.1.2846",
+    "class": "objectidentity"
+  },
+  "ciscoC9120AXI": {
+    "name": "ciscoC9120AXI",
+    "oid": "1.3.6.1.4.1.9.1.2849",
+    "class": "objectidentity"
+  },
+  "ciscoC9120AXME": {
+    "name": "ciscoC9120AXME",
+    "oid": "1.3.6.1.4.1.9.1.2850",
+    "class": "objectidentity"
+  },
+  "ciscoC9120AXE": {
+    "name": "ciscoC9120AXE",
+    "oid": "1.3.6.1.4.1.9.1.2851",
+    "class": "objectidentity"
+  },
+  "ciscoC9120AXEME": {
+    "name": "ciscoC9120AXEME",
+    "oid": "1.3.6.1.4.1.9.1.2852",
+    "class": "objectidentity"
+  },
+  "ciscoN5604": {
+    "name": "ciscoN5604",
+    "oid": "1.3.6.1.4.1.9.1.2853",
+    "class": "objectidentity"
+  },
+  "ciscoN5604CC": {
+    "name": "ciscoN5604CC",
+    "oid": "1.3.6.1.4.1.9.1.2854",
+    "class": "objectidentity"
+  },
+  "ciscoN5604RSP4": {
+    "name": "ciscoN5604RSP4",
+    "oid": "1.3.6.1.4.1.9.1.2855",
+    "class": "objectidentity"
+  },
+  "ciscoN5604RSP4E": {
+    "name": "ciscoN5604RSP4E",
+    "oid": "1.3.6.1.4.1.9.1.2856",
+    "class": "objectidentity"
+  },
+  "ciscoN5604RSP4CC": {
+    "name": "ciscoN5604RSP4CC",
+    "oid": "1.3.6.1.4.1.9.1.2857",
+    "class": "objectidentity"
+  },
+  "ciscoN5604RSP4ECC": {
+    "name": "ciscoN5604RSP4ECC",
+    "oid": "1.3.6.1.4.1.9.1.2858",
+    "class": "objectidentity"
+  },
+  "ciscoC9800LCK9": {
+    "name": "ciscoC9800LCK9",
+    "oid": "1.3.6.1.4.1.9.1.2860",
+    "class": "objectidentity"
+  },
+  "ciscoC9800LFK9": {
+    "name": "ciscoC9800LFK9",
+    "oid": "1.3.6.1.4.1.9.1.2861",
+    "class": "objectidentity"
+  },
+  "ciscoESR6300CONK9": {
+    "name": "ciscoESR6300CONK9",
+    "oid": "1.3.6.1.4.1.9.1.2864",
+    "class": "objectidentity"
+  },
+  "ciscoESR6300NCPK9": {
+    "name": "ciscoESR6300NCPK9",
+    "oid": "1.3.6.1.4.1.9.1.2865",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A148Q6H": {
+    "name": "ciscoNCS55A148Q6H",
+    "oid": "1.3.6.1.4.1.9.1.2866",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A148T6H": {
+    "name": "ciscoNCS55A148T6H",
+    "oid": "1.3.6.1.4.1.9.1.2867",
+    "class": "objectidentity"
+  },
+  "ciscoFpr1150td": {
+    "name": "ciscoFpr1150td",
+    "oid": "1.3.6.1.4.1.9.1.2870",
+    "class": "objectidentity"
+  },
+  "ciscoC9606RVirtualStack": {
+    "name": "ciscoC9606RVirtualStack",
+    "oid": "1.3.6.1.4.1.9.1.2871",
+    "class": "objectidentity"
+  },
+  "ciscoIE34008T2S": {
+    "name": "ciscoIE34008T2S",
+    "oid": "1.3.6.1.4.1.9.1.2872",
+    "class": "objectidentity"
+  },
+  "ciscoCat930024H": {
+    "name": "ciscoCat930024H",
+    "oid": "1.3.6.1.4.1.9.1.2873",
+    "class": "objectidentity"
+  },
+  "ciscoCat930048H": {
+    "name": "ciscoCat930048H",
+    "oid": "1.3.6.1.4.1.9.1.2874",
+    "class": "objectidentity"
+  },
+  "ciscoC9130AXI": {
+    "name": "ciscoC9130AXI",
+    "oid": "1.3.6.1.4.1.9.1.2877",
+    "class": "objectidentity"
+  },
+  "ciscoC9130AXIME": {
+    "name": "ciscoC9130AXIME",
+    "oid": "1.3.6.1.4.1.9.1.2878",
+    "class": "objectidentity"
+  },
+  "ciscoC9130AXE": {
+    "name": "ciscoC9130AXE",
+    "oid": "1.3.6.1.4.1.9.1.2879",
+    "class": "objectidentity"
+  },
+  "ciscoC9130AXEME": {
+    "name": "ciscoC9130AXEME",
+    "oid": "1.3.6.1.4.1.9.1.2880",
+    "class": "objectidentity"
+  },
+  "ciscoIE3400H8FT": {
+    "name": "ciscoIE3400H8FT",
+    "oid": "1.3.6.1.4.1.9.1.2881",
+    "class": "objectidentity"
+  },
+  "ciscoIE3400H16FT": {
+    "name": "ciscoIE3400H16FT",
+    "oid": "1.3.6.1.4.1.9.1.2882",
+    "class": "objectidentity"
+  },
+  "ciscoIE3400H24FT": {
+    "name": "ciscoIE3400H24FT",
+    "oid": "1.3.6.1.4.1.9.1.2883",
+    "class": "objectidentity"
+  },
+  "ciscoIE3400H8T": {
+    "name": "ciscoIE3400H8T",
+    "oid": "1.3.6.1.4.1.9.1.2884",
+    "class": "objectidentity"
+  },
+  "ciscoIE3400H16T": {
+    "name": "ciscoIE3400H16T",
+    "oid": "1.3.6.1.4.1.9.1.2885",
+    "class": "objectidentity"
+  },
+  "ciscoIE3400H24T": {
+    "name": "ciscoIE3400H24T",
+    "oid": "1.3.6.1.4.1.9.1.2886",
+    "class": "objectidentity"
+  },
+  "ciscoENCS5104": {
+    "name": "ciscoENCS5104",
+    "oid": "1.3.6.1.4.1.9.1.2889",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10A": {
+    "name": "ciscoRAIE1783MMS10A",
+    "oid": "1.3.6.1.4.1.9.1.2891",
+    "class": "objectidentity"
+  },
+  "ciscoRAIE1783MMS10AR": {
+    "name": "ciscoRAIE1783MMS10AR",
+    "oid": "1.3.6.1.4.1.9.1.2892",
+    "class": "objectidentity"
+  },
+  "ciscoENCS510464": {
+    "name": "ciscoENCS510464",
+    "oid": "1.3.6.1.4.1.9.1.2893",
+    "class": "objectidentity"
+  },
+  "ciscoENCS5104200": {
+    "name": "ciscoENCS5104200",
+    "oid": "1.3.6.1.4.1.9.1.2894",
+    "class": "objectidentity"
+  },
+  "ciscoENCS5104400": {
+    "name": "ciscoENCS5104400",
+    "oid": "1.3.6.1.4.1.9.1.2895",
+    "class": "objectidentity"
+  },
+  "ciscoC10008T2GL": {
+    "name": "ciscoC10008T2GL",
+    "oid": "1.3.6.1.4.1.9.1.2896",
+    "class": "objectidentity"
+  },
+  "ciscoCat100010GbpsStack": {
+    "name": "ciscoCat100010GbpsStack",
+    "oid": "1.3.6.1.4.1.9.1.2897",
+    "class": "objectidentity"
+  },
+  "ciscoAIRIW6300ME": {
+    "name": "ciscoAIRIW6300ME",
+    "oid": "1.3.6.1.4.1.9.1.2898",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4112K9": {
+    "name": "ciscoFpr4112K9",
+    "oid": "1.3.6.1.4.1.9.1.2899",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5200": {
+    "name": "ciscoCSP5200",
+    "oid": "1.3.6.1.4.1.9.1.2900",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5216": {
+    "name": "ciscoCSP5216",
+    "oid": "1.3.6.1.4.1.9.1.2901",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5228": {
+    "name": "ciscoCSP5228",
+    "oid": "1.3.6.1.4.1.9.1.2902",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5400": {
+    "name": "ciscoCSP5400",
+    "oid": "1.3.6.1.4.1.9.1.2903",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5436": {
+    "name": "ciscoCSP5436",
+    "oid": "1.3.6.1.4.1.9.1.2904",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5444": {
+    "name": "ciscoCSP5444",
+    "oid": "1.3.6.1.4.1.9.1.2905",
+    "class": "objectidentity"
+  },
+  "ciscoCSP5456": {
+    "name": "ciscoCSP5456",
+    "oid": "1.3.6.1.4.1.9.1.2906",
+    "class": "objectidentity"
+  },
+  "ciscoCat920024PB": {
+    "name": "ciscoCat920024PB",
+    "oid": "1.3.6.1.4.1.9.1.2907",
+    "class": "objectidentity"
+  },
+  "ciscoCat920048PB": {
+    "name": "ciscoCat920048PB",
+    "oid": "1.3.6.1.4.1.9.1.2908",
+    "class": "objectidentity"
+  },
+  "ciscoC10008TE2GL": {
+    "name": "ciscoC10008TE2GL",
+    "oid": "1.3.6.1.4.1.9.1.2909",
+    "class": "objectidentity"
+  },
+  "ciscoC10008P2GL": {
+    "name": "ciscoC10008P2GL",
+    "oid": "1.3.6.1.4.1.9.1.2910",
+    "class": "objectidentity"
+  },
+  "ciscoC10008PE2GL": {
+    "name": "ciscoC10008PE2GL",
+    "oid": "1.3.6.1.4.1.9.1.2911",
+    "class": "objectidentity"
+  },
+  "ciscoC10008FP2GL": {
+    "name": "ciscoC10008FP2GL",
+    "oid": "1.3.6.1.4.1.9.1.2912",
+    "class": "objectidentity"
+  },
+  "ciscoC10008FPE2GL": {
+    "name": "ciscoC10008FPE2GL",
+    "oid": "1.3.6.1.4.1.9.1.2913",
+    "class": "objectidentity"
+  },
+  "ciscoC100016T2GL": {
+    "name": "ciscoC100016T2GL",
+    "oid": "1.3.6.1.4.1.9.1.2914",
+    "class": "objectidentity"
+  },
+  "ciscoC100016TE2GL": {
+    "name": "ciscoC100016TE2GL",
+    "oid": "1.3.6.1.4.1.9.1.2915",
+    "class": "objectidentity"
+  },
+  "ciscoC100016P2GL": {
+    "name": "ciscoC100016P2GL",
+    "oid": "1.3.6.1.4.1.9.1.2916",
+    "class": "objectidentity"
+  },
+  "ciscoC100016PE2GL": {
+    "name": "ciscoC100016PE2GL",
+    "oid": "1.3.6.1.4.1.9.1.2917",
+    "class": "objectidentity"
+  },
+  "ciscoC100016FP2GL": {
+    "name": "ciscoC100016FP2GL",
+    "oid": "1.3.6.1.4.1.9.1.2918",
+    "class": "objectidentity"
+  },
+  "ciscoC100024T4GL": {
+    "name": "ciscoC100024T4GL",
+    "oid": "1.3.6.1.4.1.9.1.2919",
+    "class": "objectidentity"
+  },
+  "ciscoC100024PP4GL": {
+    "name": "ciscoC100024PP4GL",
+    "oid": "1.3.6.1.4.1.9.1.2920",
+    "class": "objectidentity"
+  },
+  "ciscoC100024P4GL": {
+    "name": "ciscoC100024P4GL",
+    "oid": "1.3.6.1.4.1.9.1.2921",
+    "class": "objectidentity"
+  },
+  "ciscoC100024FP4GL": {
+    "name": "ciscoC100024FP4GL",
+    "oid": "1.3.6.1.4.1.9.1.2922",
+    "class": "objectidentity"
+  },
+  "ciscoC100048T4GL": {
+    "name": "ciscoC100048T4GL",
+    "oid": "1.3.6.1.4.1.9.1.2923",
+    "class": "objectidentity"
+  },
+  "ciscoC100048PP4GL": {
+    "name": "ciscoC100048PP4GL",
+    "oid": "1.3.6.1.4.1.9.1.2924",
+    "class": "objectidentity"
+  },
+  "ciscoC100048P4GL": {
+    "name": "ciscoC100048P4GL",
+    "oid": "1.3.6.1.4.1.9.1.2925",
+    "class": "objectidentity"
+  },
+  "ciscoC100048FP4GL": {
+    "name": "ciscoC100048FP4GL",
+    "oid": "1.3.6.1.4.1.9.1.2926",
+    "class": "objectidentity"
+  },
+  "ciscoC100024T4XL": {
+    "name": "ciscoC100024T4XL",
+    "oid": "1.3.6.1.4.1.9.1.2927",
+    "class": "objectidentity"
+  },
+  "ciscoC100024P4XL": {
+    "name": "ciscoC100024P4XL",
+    "oid": "1.3.6.1.4.1.9.1.2928",
+    "class": "objectidentity"
+  },
+  "ciscoC100024FP4XL": {
+    "name": "ciscoC100024FP4XL",
+    "oid": "1.3.6.1.4.1.9.1.2929",
+    "class": "objectidentity"
+  },
+  "ciscoC100048T4XL": {
+    "name": "ciscoC100048T4XL",
+    "oid": "1.3.6.1.4.1.9.1.2930",
+    "class": "objectidentity"
+  },
+  "ciscoC100048P4XL": {
+    "name": "ciscoC100048P4XL",
+    "oid": "1.3.6.1.4.1.9.1.2931",
+    "class": "objectidentity"
+  },
+  "ciscoC100048FP4XL": {
+    "name": "ciscoC100048FP4XL",
+    "oid": "1.3.6.1.4.1.9.1.2932",
+    "class": "objectidentity"
+  },
+  "ciscoMobilityExpress": {
+    "name": "ciscoMobilityExpress",
+    "oid": "1.3.6.1.4.1.9.1.2958",
+    "class": "objectidentity"
+  },
+  "ciscoCat10001GbpsStack": {
+    "name": "ciscoCat10001GbpsStack",
+    "oid": "1.3.6.1.4.1.9.1.2959",
+    "class": "objectidentity"
+  },
+  "ciscoC82001N4T": {
+    "name": "ciscoC82001N4T",
+    "oid": "1.3.6.1.4.1.9.1.2961",
+    "class": "objectidentity"
+  },
+  "ciscoC83002N2S4T2X": {
+    "name": "ciscoC83002N2S4T2X",
+    "oid": "1.3.6.1.4.1.9.1.2963",
+    "class": "objectidentity"
+  },
+  "ciscoC83002N2S6T": {
+    "name": "ciscoC83002N2S6T",
+    "oid": "1.3.6.1.4.1.9.1.2964",
+    "class": "objectidentity"
+  },
+  "ciscoCat9200BFixedSwitchStack": {
+    "name": "ciscoCat9200BFixedSwitchStack",
+    "oid": "1.3.6.1.4.1.9.1.2965",
+    "class": "objectidentity"
+  },
+  "ciscoESW6300ME": {
+    "name": "ciscoESW6300ME",
+    "oid": "1.3.6.1.4.1.9.1.2966",
+    "class": "objectidentity"
+  },
+  "ciscoC8500L8G4X": {
+    "name": "ciscoC8500L8G4X",
+    "oid": "1.3.6.1.4.1.9.1.2968",
+    "class": "objectidentity"
+  },
+  "ciscoC1100TG1N32A": {
+    "name": "ciscoC1100TG1N32A",
+    "oid": "1.3.6.1.4.1.9.1.2971",
+    "class": "objectidentity"
+  },
+  "ciscoC1100TG1N24P32A": {
+    "name": "ciscoC1100TG1N24P32A",
+    "oid": "1.3.6.1.4.1.9.1.2972",
+    "class": "objectidentity"
+  },
+  "ciscoC1100TGX1N24P32A": {
+    "name": "ciscoC1100TGX1N24P32A",
+    "oid": "1.3.6.1.4.1.9.1.2973",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L28Z4SysA": {
+    "name": "ciscoNCS540L28Z4SysA",
+    "oid": "1.3.6.1.4.1.9.1.2981",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L28Z4SysD": {
+    "name": "ciscoNCS540L28Z4SysD",
+    "oid": "1.3.6.1.4.1.9.1.2982",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L16Z4G8Q2CA": {
+    "name": "ciscoNCS540L16Z4G8Q2CA",
+    "oid": "1.3.6.1.4.1.9.1.2983",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L16Z4G8Q2CD": {
+    "name": "ciscoNCS540L16Z4G8Q2CD",
+    "oid": "1.3.6.1.4.1.9.1.2984",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L12Z20GSysA": {
+    "name": "ciscoNCS540L12Z20GSysA",
+    "oid": "1.3.6.1.4.1.9.1.2985",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L12Z20GSysD": {
+    "name": "ciscoNCS540L12Z20GSysD",
+    "oid": "1.3.6.1.4.1.9.1.2986",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L12Z16GSysA": {
+    "name": "ciscoNCS540L12Z16GSysA",
+    "oid": "1.3.6.1.4.1.9.1.2987",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L12Z16GSysD": {
+    "name": "ciscoNCS540L12Z16GSysD",
+    "oid": "1.3.6.1.4.1.9.1.2988",
+    "class": "objectidentity"
+  },
+  "ciscoC83001N1S6T": {
+    "name": "ciscoC83001N1S6T",
+    "oid": "1.3.6.1.4.1.9.1.2989",
+    "class": "objectidentity"
+  },
+  "ciscoC83001N1S4T2X": {
+    "name": "ciscoC83001N1S4T2X",
+    "oid": "1.3.6.1.4.1.9.1.2990",
+    "class": "objectidentity"
+  },
+  "ciscoFpr4112SM12": {
+    "name": "ciscoFpr4112SM12",
+    "oid": "1.3.6.1.4.1.9.1.2991",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48PF4X": {
+    "name": "ciscoCat9300L48PF4X",
+    "oid": "1.3.6.1.4.1.9.1.2992",
+    "class": "objectidentity"
+  },
+  "ciscoCat9300L48PF4G": {
+    "name": "ciscoCat9300L48PF4G",
+    "oid": "1.3.6.1.4.1.9.1.2993",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540LFHCSRSys": {
+    "name": "ciscoNCS540LFHCSRSys",
+    "oid": "1.3.6.1.4.1.9.1.3001",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540LFHAGGSys": {
+    "name": "ciscoNCS540LFHAGGSys",
+    "oid": "1.3.6.1.4.1.9.1.3002",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540LFHIP65Sys": {
+    "name": "ciscoNCS540LFHIP65Sys",
+    "oid": "1.3.6.1.4.1.9.1.3003",
+    "class": "objectidentity"
+  },
+  "ciscoC8000V": {
+    "name": "ciscoC8000V",
+    "oid": "1.3.6.1.4.1.9.1.3004",
+    "class": "objectidentity"
+  },
+  "ciscoIE33008T2X": {
+    "name": "ciscoIE33008T2X",
+    "oid": "1.3.6.1.4.1.9.1.3007",
+    "class": "objectidentity"
+  },
+  "ciscoIE33008U2X": {
+    "name": "ciscoIE33008U2X",
+    "oid": "1.3.6.1.4.1.9.1.3008",
+    "class": "objectidentity"
+  },
+  "ciscoNCS54016G": {
+    "name": "ciscoNCS54016G",
+    "oid": "1.3.6.1.4.1.9.1.3009",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540X16G": {
+    "name": "ciscoNCS540X16G",
+    "oid": "1.3.6.1.4.1.9.1.3010",
+    "class": "objectidentity"
+  },
+  "ciscoCat920048PL": {
+    "name": "ciscoCat920048PL",
+    "oid": "1.3.6.1.4.1.9.1.3011",
+    "class": "objectidentity"
+  },
+  "ciscoC9200L48PL4G": {
+    "name": "ciscoC9200L48PL4G",
+    "oid": "1.3.6.1.4.1.9.1.3012",
+    "class": "objectidentity"
+  },
+  "ciscoC9200L48PL4X": {
+    "name": "ciscoC9200L48PL4X",
+    "oid": "1.3.6.1.4.1.9.1.3013",
+    "class": "objectidentity"
+  },
+  "ciscoISR11004G": {
+    "name": "ciscoISR11004G",
+    "oid": "1.3.6.1.4.1.9.1.3016",
+    "class": "objectidentity"
+  },
+  "ciscoISR11006G": {
+    "name": "ciscoISR11006G",
+    "oid": "1.3.6.1.4.1.9.1.3017",
+    "class": "objectidentity"
+  },
+  "ciscoISR11004GLTEGB": {
+    "name": "ciscoISR11004GLTEGB",
+    "oid": "1.3.6.1.4.1.9.1.3018",
+    "class": "objectidentity"
+  },
+  "ciscoISR11004GLTENA": {
+    "name": "ciscoISR11004GLTENA",
+    "oid": "1.3.6.1.4.1.9.1.3019",
+    "class": "objectidentity"
+  },
+  "ciscoC1000FE24T4GL": {
+    "name": "ciscoC1000FE24T4GL",
+    "oid": "1.3.6.1.4.1.9.1.3021",
+    "class": "objectidentity"
+  },
+  "ciscoC1000FE24P4GL": {
+    "name": "ciscoC1000FE24P4GL",
+    "oid": "1.3.6.1.4.1.9.1.3022",
+    "class": "objectidentity"
+  },
+  "ciscoC1000FE48T4GL": {
+    "name": "ciscoC1000FE48T4GL",
+    "oid": "1.3.6.1.4.1.9.1.3023",
+    "class": "objectidentity"
+  },
+  "ciscoC1000FE48P4GL": {
+    "name": "ciscoC1000FE48P4GL",
+    "oid": "1.3.6.1.4.1.9.1.3024",
+    "class": "objectidentity"
+  },
+  "ciscoDNAPLTTA1X": {
+    "name": "ciscoDNAPLTTA1X",
+    "oid": "1.3.6.1.4.1.9.1.3025",
+    "class": "objectidentity"
+  },
+  "ciscoIR1821K9": {
+    "name": "ciscoIR1821K9",
+    "oid": "1.3.6.1.4.1.9.1.3026",
+    "class": "objectidentity"
+  },
+  "ciscoIR1831K9": {
+    "name": "ciscoIR1831K9",
+    "oid": "1.3.6.1.4.1.9.1.3027",
+    "class": "objectidentity"
+  },
+  "ciscoIR1833K9": {
+    "name": "ciscoIR1833K9",
+    "oid": "1.3.6.1.4.1.9.1.3028",
+    "class": "objectidentity"
+  },
+  "ciscoIR1835K9": {
+    "name": "ciscoIR1835K9",
+    "oid": "1.3.6.1.4.1.9.1.3029",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L6Z18GSysA": {
+    "name": "ciscoNCS540L6Z18GSysA",
+    "oid": "1.3.6.1.4.1.9.1.3030",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L6Z18GSysD": {
+    "name": "ciscoNCS540L6Z18GSysD",
+    "oid": "1.3.6.1.4.1.9.1.3031",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L8Z16GSysD": {
+    "name": "ciscoNCS540L8Z16GSysD",
+    "oid": "1.3.6.1.4.1.9.1.3032",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L8Z16GSysA": {
+    "name": "ciscoNCS540L8Z16GSysA",
+    "oid": "1.3.6.1.4.1.9.1.3033",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L4Z14G2QA": {
+    "name": "ciscoNCS540L4Z14G2QA",
+    "oid": "1.3.6.1.4.1.9.1.3034",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L4Z14G2QD": {
+    "name": "ciscoNCS540L4Z14G2QD",
+    "oid": "1.3.6.1.4.1.9.1.3035",
+    "class": "objectidentity"
+  },
+  "ciscoC9300X12Y": {
+    "name": "ciscoC9300X12Y",
+    "oid": "1.3.6.1.4.1.9.1.3037",
+    "class": "objectidentity"
+  },
+  "ciscoC9300X24Y": {
+    "name": "ciscoC9300X24Y",
+    "oid": "1.3.6.1.4.1.9.1.3038",
+    "class": "objectidentity"
+  },
+  "ciscoC9300X48HX": {
+    "name": "ciscoC9300X48HX",
+    "oid": "1.3.6.1.4.1.9.1.3039",
+    "class": "objectidentity"
+  },
+  "ciscoC9300X48TX": {
+    "name": "ciscoC9300X48TX",
+    "oid": "1.3.6.1.4.1.9.1.3040",
+    "class": "objectidentity"
+  },
+  "ciscoISR1100X4G": {
+    "name": "ciscoISR1100X4G",
+    "oid": "1.3.6.1.4.1.9.1.3045",
+    "class": "objectidentity"
+  },
+  "ciscoISR1100X6G": {
+    "name": "ciscoISR1100X6G",
+    "oid": "1.3.6.1.4.1.9.1.3046",
+    "class": "objectidentity"
+  },
+  "ciscoESS930010XE": {
+    "name": "ciscoESS930010XE",
+    "oid": "1.3.6.1.4.1.9.1.3047",
+    "class": "objectidentity"
+  },
+  "ciscoIR8140HK9": {
+    "name": "ciscoIR8140HK9",
+    "oid": "1.3.6.1.4.1.9.1.3048",
+    "class": "objectidentity"
+  },
+  "ciscoIR8140HPK9": {
+    "name": "ciscoIR8140HPK9",
+    "oid": "1.3.6.1.4.1.9.1.3049",
+    "class": "objectidentity"
+  },
+  "ciscoC9115AXEME": {
+    "name": "ciscoC9115AXEME",
+    "oid": "1.3.6.1.4.1.9.1.3050",
+    "class": "objectidentity"
+  },
+  "ciscoC9120AXPME": {
+    "name": "ciscoC9120AXPME",
+    "oid": "1.3.6.1.4.1.9.1.3051",
+    "class": "objectidentity"
+  },
+  "ciscoC9KF1SSD960G": {
+    "name": "ciscoC9KF1SSD960G",
+    "oid": "1.3.6.1.4.1.9.1.3062",
+    "class": "objectidentity"
+  },
+  "ciscoC9KF1SSD480G": {
+    "name": "ciscoC9KF1SSD480G",
+    "oid": "1.3.6.1.4.1.9.1.3063",
+    "class": "objectidentity"
+  },
+  "ciscoC9KF1SSD240G": {
+    "name": "ciscoC9KF1SSD240G",
+    "oid": "1.3.6.1.4.1.9.1.3064",
+    "class": "objectidentity"
+  },
+  "ciscoC8500L8S4X": {
+    "name": "ciscoC8500L8S4X",
+    "oid": "1.3.6.1.4.1.9.1.3069",
+    "class": "objectidentity"
+  },
+  "ciscoC11138PLteEAWA": {
+    "name": "ciscoC11138PLteEAWA",
+    "oid": "1.3.6.1.4.1.9.1.3070",
+    "class": "objectidentity"
+  },
+  "ciscoASR9903": {
+    "name": "ciscoASR9903",
+    "oid": "1.3.6.1.4.1.9.1.3075",
+    "class": "objectidentity"
+  },
+  "ciscoCat9500X28C8D": {
+    "name": "ciscoCat9500X28C8D",
+    "oid": "1.3.6.1.4.1.9.1.3084",
+    "class": "objectidentity"
+  },
+  "ciscoASR9902": {
+    "name": "ciscoASR9902",
+    "oid": "1.3.6.1.4.1.9.1.3090",
+    "class": "objectidentity"
+  },
+  "ciscoUCSC220M6": {
+    "name": "ciscoUCSC220M6",
+    "oid": "1.3.6.1.4.1.9.1.3100",
+    "class": "objectidentity"
+  },
+  "ciscoUCSC240M6": {
+    "name": "ciscoUCSC240M6",
+    "oid": "1.3.6.1.4.1.9.1.3101",
+    "class": "objectidentity"
+  },
+  "ciscoUCSB200M5": {
+    "name": "ciscoUCSB200M5",
+    "oid": "1.3.6.1.4.1.9.1.3103",
+    "class": "objectidentity"
+  },
+  "ciscoUCSB480M5": {
+    "name": "ciscoUCSB480M5",
+    "oid": "1.3.6.1.4.1.9.1.3104",
+    "class": "objectidentity"
+  },
+  "ciscoUCSIOM2208": {
+    "name": "ciscoUCSIOM2208",
+    "oid": "1.3.6.1.4.1.9.1.3138",
+    "class": "objectidentity"
+  },
+  "ciscoUCSIOM2304": {
+    "name": "ciscoUCSIOM2304",
+    "oid": "1.3.6.1.4.1.9.1.3139",
+    "class": "objectidentity"
+  },
+  "ciscoUCSIOM2408": {
+    "name": "ciscoUCSIOM2408",
+    "oid": "1.3.6.1.4.1.9.1.3140",
+    "class": "objectidentity"
+  },
+  "cisco810132FH": {
+    "name": "cisco810132FH",
+    "oid": "1.3.6.1.4.1.9.1.3144",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A124Q6HSS": {
+    "name": "ciscoNCS55A124Q6HSS",
+    "oid": "1.3.6.1.4.1.9.1.3146",
+    "class": "objectidentity"
+  },
+  "ciscoNCS1010": {
+    "name": "ciscoNCS1010",
+    "oid": "1.3.6.1.4.1.9.1.3153",
+    "class": "objectidentity"
+  },
+  "ciscoNCS57C148Q6Sys": {
+    "name": "ciscoNCS57C148Q6Sys",
+    "oid": "1.3.6.1.4.1.9.1.3154",
+    "class": "objectidentity"
+  },
+  "ciscoNCS55A124Q6HS": {
+    "name": "ciscoNCS55A124Q6HS",
+    "oid": "1.3.6.1.4.1.9.1.3158",
+    "class": "objectidentity"
+  },
+  "ciscoNCS540L6Z14GSysD": {
+    "name": "ciscoNCS540L6Z14GSysD",
+    "oid": "1.3.6.1.4.1.9.1.3163",
+    "class": "objectidentity"
+  },
+  "ciscoUCSC225M6": {
+    "name": "ciscoUCSC225M6",
+    "oid": "1.3.6.1.4.1.9.1.3168",
+    "class": "objectidentity"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:38 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-PRODUCTS-MIB"

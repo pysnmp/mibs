@@ -10,35 +10,40 @@
     "ENTITY-MIB": [
       "PhysicalIndex"
     ],
+    "IF-MIB": [
+      "ifOperStatus",
+      "ifAdminStatus",
+      "ifIndex"
+    ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue"
     ]
   },
   "ciscoRfSupMIB": {
@@ -46,6 +51,10 @@
     "oid": "1.3.6.1.4.1.9.9.198",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2019-02-22 00:00",
+        "description": "Added the following notify object ciscoRfSupHAFailureEvent, and ciscoRfSupPeerLinkStateChangeEvent. Added ciscoRfSupNotifGroupRev1 and replaced by ciscoRfSupNotifGroup. Added ciscoRfSupMibComplianceRev3 and replaced by ciscoRfSupMibComplianceRev2."
+      },
       {
         "revision": "2004-05-27 00:00",
         "description": "Added the following scalar object to the cRfSupSystem subgroup: cRfSupSysIfCounterSync"
@@ -312,6 +321,90 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "cRfSupSysFailureReason": {
+    "name": "cRfSupSysFailureReason",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysSeverity": {
+    "name": "cRfSupSysSeverity",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "informational": 4,
+          "clear": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cRfSupSysErrorType": {
+    "name": "cRfSupSysErrorType",
+    "oid": "1.3.6.1.4.1.9.9.198.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "download-config": 1,
+          "download-code": 2,
+          "download-icon": 3,
+          "download-image": 4,
+          "download-signature": 5,
+          "download-webadmincert": 6,
+          "download-webauthcert": 7,
+          "download-webauthbundle": 8,
+          "download-eapdevcert": 9,
+          "download-eapcacert": 10,
+          "download-login-banner": 11,
+          "upload-config": 12,
+          "upload-debug-file": 13,
+          "upload-crashfile": 14,
+          "upload-watchdog-crash-file": 15,
+          "upload-panic-crash-file": 16,
+          "upload-coredump": 17,
+          "upload-errorlog": 18,
+          "upload-invalid-config": 19,
+          "upload-pac": 20,
+          "upload-radio-core-dump": 21,
+          "upload-ap-crash-data": 22,
+          "upload-signature": 23,
+          "upload-systemtrace": 24,
+          "upload-packet-capture": 25,
+          "upload-traplog": 26,
+          "route-add": 27,
+          "route-del": 28,
+          "interface-service-port": 29,
+          "reset": 30,
+          "other": 31,
+          "config-sync-fail": 32,
+          "peer-maintenance": 33,
+          "peer-loss": 34,
+          "rfTrapClearTemplist": 35
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cRfSupCpuTable": {
     "name": "cRfSupCpuTable",
     "oid": "1.3.6.1.4.1.9.9.198.1.2.1",
@@ -444,6 +537,62 @@
     ],
     "status": "current"
   },
+  "ciscoRfSupHAFailureEvent": {
+    "name": "ciscoRfSupHAFailureEvent",
+    "oid": "1.3.6.1.4.1.9.9.198.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysStartupConfigSyncTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysRunningConfigSyncTime"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupActionManualSync"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupActionLastSyncResult"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysFailureReason"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysSeverity"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "cRfSupSysErrorType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoRfSupPeerLinkStateChangeEvent": {
+    "name": "ciscoRfSupPeerLinkStateChangeEvent",
+    "oid": "1.3.6.1.4.1.9.9.198.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoRfSupMibConformance": {
     "name": "ciscoRfSupMibConformance",
     "oid": "1.3.6.1.4.1.9.9.198.2",
@@ -526,6 +675,38 @@
       },
       {
         "object": "ciscoRfSupNotifGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupSysOptionalSyncGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoRfSupMibComplianceRev3": {
+    "name": "ciscoRfSupMibComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.198.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoRfSupSysGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupActionGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupCpuGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupSysOptionalGroup",
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB"
+      },
+      {
+        "object": "ciscoRfSupNotifGroupRev1",
         "module": "CISCO-RF-SUPPLEMENTAL-MIB"
       },
       {
@@ -647,13 +828,9 @@
       {
         "module": "CISCO-RF-SUPPLEMENTAL-MIB",
         "object": "ciscoRfSupTimeChangeEvent"
-      },
-      {
-        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
-        "object": "ciscoRfSupTimeZoneChangeEvent"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "ciscoRfSupSysOptionalSyncGroup": {
     "name": "ciscoRfSupSysOptionalSyncGroup",
@@ -667,11 +844,35 @@
     ],
     "status": "current"
   },
+  "ciscoRfSupNotifGroupRev1": {
+    "name": "ciscoRfSupNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.198.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "ciscoRfSupTimeChangeEvent"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "ciscoRfSupTimeZoneChangeEvent"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "ciscoRfSupHAFailureEvent"
+      },
+      {
+        "module": "CISCO-RF-SUPPLEMENTAL-MIB",
+        "object": "ciscoRfSupPeerLinkStateChangeEvent"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RF-SUPPLEMENTAL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:35 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-RF-SUPPLEMENTAL-MIB"

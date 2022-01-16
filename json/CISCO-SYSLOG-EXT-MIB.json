@@ -8,37 +8,37 @@
       "SyslogSeverity"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
@@ -48,6 +48,14 @@
     "oid": "1.3.6.1.4.1.9.9.301",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2019-04-02 00:00",
+        "description": "Added enumeration 'nxapi', 'analytics', 'telemetry', 'vmis' in SyslogExFacility TC."
+      },
+      {
+        "revision": "2019-03-18 00:00",
+        "description": "MIB module for configuring and monitoring System Log related management parameters as defined by RFC 3164."
+      },
       {
         "revision": "2015-06-08 00:00",
         "description": "Added enumeration 'portSecurity', 'udld', 'dot1x', 'nfm', 'hsrpEngine', 'glbp', 'dhcpSnooping', 'vmm', 'tm', 'cts', 'vpc', 'bfd', 'wccp', 'evc', 'slaSender', 'slaResponder', and 'fpOam' in SyslogExFacility TC."
@@ -443,7 +451,11 @@
           "ecp": 6016,
           "adbm": 6048,
           "plcmgr": 6168,
-          "patchd": 6368
+          "patchd": 6368,
+          "nxapi": 6592,
+          "analytics": 6824,
+          "vmis": 7128,
+          "telemetry": 7272
         }
       }
     },
@@ -1010,8 +1022,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SYSLOG-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-SYSLOG-EXT-MIB"

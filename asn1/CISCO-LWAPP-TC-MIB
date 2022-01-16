@@ -2,7 +2,7 @@
 -- CISCO-LWAPP-TC-MIB.my:  Cisco LWAPP MIBs Textual Conventions
 -- March 2006, Prasanna Viswakumar
 --   
--- Copyright (c) 2006, 2007, 2010-2011 by Cisco Systems Inc.
+--Copyright (c) 2006-2007, 2010-2011, 2019-2020 by Cisco Systems, Inc.
 -- All rights reserved.
 -- *******************************************************************
 
@@ -24,7 +24,7 @@ IMPORTS
 -- ********************************************************************
 
 ciscoLwappTextualConventions MODULE-IDENTITY
-    LAST-UPDATED    "201109130000Z"
+    LAST-UPDATED    "201911290000Z"
     ORGANIZATION    "Cisco Systems, Inc."
     CONTACT-INFO
             "Cisco Systems,
@@ -186,6 +186,12 @@ ciscoLwappTextualConventions MODULE-IDENTITY
 
         [4] Enhanced Wireless Consortium PHY Specification,
             v1.27."
+    REVISION        "201911290000Z"
+    DESCRIPTION
+        "Added new textual conventions CLApNtpStatus"            
+    REVISION        "201608230000Z"
+    DESCRIPTION
+        "Added new textual conventions CLApMode"        
     REVISION        "201109130000Z"
     DESCRIPTION
         "Added new textual conventions CcxServiceVersion"
@@ -229,12 +235,19 @@ CLApIfType ::= TEXTUAL-CONVENTION
         dot11a  - This value indicates that the radio
         interface follows 802.11a standard.
 
+        dot11abgn  - This value indicates that the radio
+        interface is operating in XOR mode between 802.11a
+        and 802.11bg.
+
         uwb - This value indicates that this is a Ultra
         Wideband Interface."
+        
     SYNTAX          INTEGER  {
                         dot11bg(1),
                         dot11a(2),
-                        uwb(3)
+                        uwb(3),
+                        dot11abgn(4),
+                        unknown(5)
                     }
 
 CLDot11Channel ::= TEXTUAL-CONVENTION
@@ -748,7 +761,94 @@ CcxServiceVersion ::= TEXTUAL-CONVENTION
                         version2(3)
                     }
 
-END
+CLApMode ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+               "This textual convention defines the working 
+                mode of the AP. 
+                local(0) -        This mode enables the access points
+                                  to serve the clients.                
+                monitor(1) -      This mode enables the access points
+                                  to monitor all of its cycles scanning                   
+                                  the channels and looking for rogues.
+                remote(2) -       This mode indicates that AP is a remote 
+                                  edge lightweight access point. 
+                rogueDetector(3)- This mode enables the access points
+                                  to detect the rogue access points.
+                sniffer(4) -      This mode enables the access points
+                                  to sniff packets in a particular channel.
+                bridge(5) -       This mode indicates that a root access point.                        
+                                  is connected
+                seConnect(6) -    This mode enables the access points
+                                  to join Cisco spectrum expert and
+                                  perform spectrum intelligence.
+                remoteBridge(7) - This mode indicates that AP is a remote 
+                                  edge lightweight access point in Bridge
+                                  (Flex + Mesh) mode.
+                remoteHybrid(8) - This mode is currently not used. 
+                sensor(9) -       This mode indicates the radio inside
+                                  the access point to function as a 
+                                  dedicated sensor."
 
+
+        SYNTAX INTEGER  {
+                        local(0),
+                        monitor(1),
+                        remote(2),
+                        rogueDetector(3),
+                        sniffer(4),
+                        bridge(5),
+                        seConnect(6),
+                        remoteBridge(7),
+                        remoteHybrid(8),
+                        sensor(9)
+                    } 
+
+CLApNtpStatus ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "This textual convention defines the NTP status.
+                The semantics are as follows:
+
+                notValid - This value indicates status is not valid.
+
+                none  - This value indicates status is not received.
+
+                unreachable  - This value indicates that server is not
+                reachable.
+
+                synched  - This value indicates server is syched.
+    
+                notSynched  - This value indicates server is not 
+                sycnhed.
+    
+                waitSynch  - This value indicates NTP server is 
+                waiting to be sycnhed.
+    
+                authFail  - This value indicates NTP server 
+                authentication failed.
+    
+                notSuitable  - This value indicates NTP server is 
+                not suitable for AP."
+        SYNTAX  INTEGER {
+                         notValid(1),
+                         none(2),
+                         unreachable(3),
+                         synched(4),
+                         notSynched(5),
+                         waitSynch(6),
+                         authFail(7),
+                         notSuitable(8),
+                         unknown(9)
+                }
+
+Dscp ::= TEXTUAL-CONVENTION
+    STATUS          current
+    DESCRIPTION
+        "An integer that is in the range of the diffserv codepoint
+        values."
+    SYNTAX          INTEGER (0..63)
+
+END
 
 

@@ -1,0 +1,3515 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoCapwapWlanPolicyMIB": {
+    "name": "ciscoCapwapWlanPolicyMIB",
+    "oid": "1.3.6.1.4.1.9.9.853",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-11-20 00:00",
+        "description": "Added the following objects to cLWlanPolicyConfigTable. - cLWlanPolicyNacType - cLWlanPolicyARPProxy - cLWlanPolicyIPv6proxy - cLWlanPolicyMulticastFilter - cLWlanPolicyQBSSLoad"
+      },
+      {
+        "revision": "2019-07-23 00:00",
+        "description": "Added the following tables. - cLWlanPolicyCalendarProfileTable Added the following objects to cLWlanPolicyConfigTable. - cLWlanPolicyMdnsPolicy - cLWlanPolicyHotspotAnqpServer"
+      },
+      {
+        "revision": "2019-03-15 00:00",
+        "description": "Added the following tables. - cLWlanPolicyMonitorIPv4InConfigTable - cLWlanPolicyMonitorIPv4OutConfigTable - cLWlanPolicyMonitorIPv6InConfigTable - cLWlanPolicyMonitorIPv6OutConfigTable They configure the Netflow flow monitors used for AVC."
+      },
+      {
+        "revision": "2019-01-18 00:00",
+        "description": "Deprecated the following objects from cLWlanPolicyConfigTable. - cLWlanPolicyNetflowIPv4InputMonitorName - cLWlanPolicyNetflowIPv4OutputMonitorName - cLWlanPolicyNetflowIPv6InputMonitorName - cLWlanPolicyNetflowIPv6OutputMonitorName Deprecated the following compliance group - ciscoLwappWlanPolicyComplianceR01 Added the following compliance group - ciscoLwappWlanPolicyComplianceR02."
+      },
+      {
+        "revision": "2018-08-20 00:00",
+        "description": "Added the following objects to cLWlanPolicyConfigTable. - clWlanPolicyMobilityAnchor - cLWlanPolicyBroadcastTagging - cLWlanPolicyWgbVlan - cLWlanPolicyReanchorClassmap - cLWlanUmbrellaParamMapName - cLWlanPolicyAccountingList - cLWlanPolicyAaaPolicyName - cLWlanPolicyQosCallSnooping - cLWlanPolicyDefaultSgt - cLWlanPolicyInlineTagging - cLWlanPolicySgaclEnforcement Addition of following new table - cLWlanPolicyATFPolicyNameConfigTable - cLWlanAaaPolicyConfigTable deprecated the following compliance group - ciscoLwappWlanPolicyCompliance Added following compliance group - ciscoLwappWlanPolicyComplianceR01."
+      },
+      {
+        "revision": "2018-03-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappWlanPolicyMIBNotifs": {
+    "name": "ciscoLwappWlanPolicyMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.853.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanPolicyMIBObjects": {
+    "name": "ciscoLwappWlanPolicyMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.853.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanPolicyConfig": {
+    "name": "ciscoLwappWlanPolicyConfig",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanPolicyConform": {
+    "name": "ciscoLwappWlanPolicyConform",
+    "oid": "1.3.6.1.4.1.9.9.853.3",
+    "class": "objectidentity"
+  },
+  "cLWlanPolicyConfigTable": {
+    "name": "cLWlanPolicyConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyConfigEntry": {
+    "name": "cLWlanPolicyConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanWlanPolicyName": {
+    "name": "cLWlanWlanPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPlcyRowStatus": {
+    "name": "cLWlanPlcyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyDescription": {
+    "name": "cLWlanPolicyDescription",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyInterfaceName": {
+    "name": "cLWlanPolicyInterfaceName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyCentralSwitchMode": {
+    "name": "cLWlanPolicyCentralSwitchMode",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyCentralAuthMode": {
+    "name": "cLWlanPolicyCentralAuthMode",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDhcpCentral": {
+    "name": "cLWlanPolicyDhcpCentral",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyNatPatEnabled": {
+    "name": "cLWlanPolicyNatPatEnabled",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyAssocCentral": {
+    "name": "cLWlanPolicyAssocCentral",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyIPv4AclName": {
+    "name": "cLWlanPolicyIPv4AclName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyIPv6AclName": {
+    "name": "cLWlanPolicyIPv6AclName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyL2AclName": {
+    "name": "cLWlanPolicyL2AclName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicySessionTimeout": {
+    "name": "cLWlanPolicySessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyUserIdleTimeout": {
+    "name": "cLWlanPolicyUserIdleTimeout",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyClientExclTimeout": {
+    "name": "cLWlanPolicyClientExclTimeout",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyNativeProfiling": {
+    "name": "cLWlanPolicyNativeProfiling",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicySubscriberPolicyName": {
+    "name": "cLWlanPolicySubscriberPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyHttpDeviceProfiling": {
+    "name": "cLWlanPolicyHttpDeviceProfiling",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPDeviceProfiling": {
+    "name": "cLWlanPolicyDHCPDeviceProfiling",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyNetflowIPv4InputMonitorName": {
+    "name": "cLWlanPolicyNetflowIPv4InputMonitorName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLWlanPolicyNetflowIPv4OutputMonitorName": {
+    "name": "cLWlanPolicyNetflowIPv4OutputMonitorName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLWlanPolicyNetflowIPv6InputMonitorName": {
+    "name": "cLWlanPolicyNetflowIPv6InputMonitorName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLWlanPolicyNetflowIPv6OutputMonitorName": {
+    "name": "cLWlanPolicyNetflowIPv6OutputMonitorName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLWlanPolicyQosPerSSIDInput": {
+    "name": "cLWlanPolicyQosPerSSIDInput",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyQosPerSSIDOutput": {
+    "name": "cLWlanPolicyQosPerSSIDOutput",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyQosPerBSSIDInput": {
+    "name": "cLWlanPolicyQosPerBSSIDInput",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyQosPerBSSIDOutput": {
+    "name": "cLWlanPolicyQosPerBSSIDOutput",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyBlacklistTimeout": {
+    "name": "cLWlanPolicyBlacklistTimeout",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyBlacklistingCapability": {
+    "name": "cLWlanPolicyBlacklistingCapability",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDhcpRequired": {
+    "name": "cLWlanPolicyDhcpRequired",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDhcpServerIpAddress": {
+    "name": "cLWlanPolicyDhcpServerIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyAaaOverride": {
+    "name": "cLWlanPolicyAaaOverride",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyNac": {
+    "name": "cLWlanPolicyNac",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyStatus": {
+    "name": "cLWlanPolicyStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyRadiusHttpProfiling": {
+    "name": "cLWlanPolicyRadiusHttpProfiling",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyUserIdleThreshold": {
+    "name": "cLWlanPolicyUserIdleThreshold",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyQosFastlane": {
+    "name": "cLWlanPolicyQosFastlane",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enterprise": 1,
+          "voice": 2,
+          "guest": 3,
+          "fastlane": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Ascii": {
+    "name": "cLWlanPolicyDHCPOption82Ascii",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Rid": {
+    "name": "cLWlanPolicyDHCPOption82Rid",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Enable": {
+    "name": "cLWlanPolicyDHCPOption82Enable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Apmac": {
+    "name": "cLWlanPolicyDHCPOption82Apmac",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Apethmac": {
+    "name": "cLWlanPolicyDHCPOption82Apethmac",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Apname": {
+    "name": "cLWlanPolicyDHCPOption82Apname",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Policytag": {
+    "name": "cLWlanPolicyDHCPOption82Policytag",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Aplocation": {
+    "name": "cLWlanPolicyDHCPOption82Aplocation",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Vlanid": {
+    "name": "cLWlanPolicyDHCPOption82Vlanid",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDHCPOption82Ssid": {
+    "name": "cLWlanPolicyDHCPOption82Ssid",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicySplitMacAcl": {
+    "name": "cLWlanPolicySplitMacAcl",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyVlanCentralSwitching": {
+    "name": "cLWlanPolicyVlanCentralSwitching",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyPassiveClient": {
+    "name": "cLWlanPolicyPassiveClient",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyNBARProtocolDiscovery": {
+    "name": "cLWlanPolicyNBARProtocolDiscovery",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyStaticIPMobility": {
+    "name": "cLWlanPolicyStaticIPMobility",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clWlanPolicyMobilityAnchor": {
+    "name": "clWlanPolicyMobilityAnchor",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyBroadcastTagging": {
+    "name": "cLWlanPolicyBroadcastTagging",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyWgbVlan": {
+    "name": "cLWlanPolicyWgbVlan",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyReanchorClassmap": {
+    "name": "cLWlanPolicyReanchorClassmap",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanUmbrellaParamMapName": {
+    "name": "cLWlanUmbrellaParamMapName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyAccountingList": {
+    "name": "cLWlanPolicyAccountingList",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyAAAPolicyName": {
+    "name": "cLWlanPolicyAAAPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyQosCallSnooping": {
+    "name": "cLWlanPolicyQosCallSnooping",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyDefaultSgt": {
+    "name": "cLWlanPolicyDefaultSgt",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 65519
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyInlineTagging": {
+    "name": "cLWlanPolicyInlineTagging",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicySgaclEnforcement": {
+    "name": "cLWlanPolicySgaclEnforcement",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyMdnsPolicy": {
+    "name": "cLWlanPolicyMdnsPolicy",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyHotspotAnqpServer": {
+    "name": "cLWlanPolicyHotspotAnqpServer",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyNacType": {
+    "name": "cLWlanPolicyNacType",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 0,
+          "xwf": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "radius",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyARPProxy": {
+    "name": "cLWlanPolicyARPProxy",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyIPv6proxy": {
+    "name": "cLWlanPolicyIPv6proxy",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noproxy": 1,
+          "dadproxy": 2,
+          "fullproxy": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noproxy",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyMulticastFilter": {
+    "name": "cLWlanPolicyMulticastFilter",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyQBSSLoad": {
+    "name": "cLWlanPolicyQBSSLoad",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyATFPolicyNameConfigTable": {
+    "name": "cLWlanPolicyATFPolicyNameConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyATFPolicyNameConfigEntry": {
+    "name": "cLWlanPolicyATFPolicyNameConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBandId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanPolicyBandId": {
+    "name": "cLWlanPolicyBandId",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyATFRowStatus": {
+    "name": "cLWlanPolicyATFRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyATFPolicyName": {
+    "name": "cLWlanPolicyATFPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyConfigTable": {
+    "name": "cLWlanAaaPolicyConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyConfigEntry": {
+    "name": "cLWlanAaaPolicyConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanAaaPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanAaaPolicyName": {
+    "name": "cLWlanAaaPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyRowStatus": {
+    "name": "cLWlanAaaPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyNasId1": {
+    "name": "cLWlanAaaPolicyNasId1",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notconfigured": 0,
+          "sysname": 1,
+          "sysip": 2,
+          "sysmac": 3,
+          "apip": 4,
+          "apname": 5,
+          "apmac": 6,
+          "apethmac": 7,
+          "appolicytag": 8,
+          "apsitetag": 9,
+          "ssid": 10,
+          "aplocation": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sysname",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyNasId2": {
+    "name": "cLWlanAaaPolicyNasId2",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notconfigured": 0,
+          "sysname": 1,
+          "sysip": 2,
+          "sysmac": 3,
+          "apip": 4,
+          "apname": 5,
+          "apmac": 6,
+          "apethmac": 7,
+          "appolicytag": 8,
+          "apsitetag": 9,
+          "ssid": 10,
+          "aplocation": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notconfigured",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyNasId3": {
+    "name": "cLWlanAaaPolicyNasId3",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notconfigured": 0,
+          "sysname": 1,
+          "sysip": 2,
+          "sysmac": 3,
+          "apip": 4,
+          "apname": 5,
+          "apmac": 6,
+          "apethmac": 7,
+          "appolicytag": 8,
+          "apsitetag": 9,
+          "ssid": 10,
+          "aplocation": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notconfigured",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanAaaPolicyRealm": {
+    "name": "cLWlanAaaPolicyRealm",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv4InConfigTable": {
+    "name": "cLWlanPolicyMonitorIPv4InConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv4InConfigEntry": {
+    "name": "cLWlanPolicyMonitorIPv4InConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv4InName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanMonitorIPv4InName": {
+    "name": "cLWlanMonitorIPv4InName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanMonitorIPv4InRowStatus": {
+    "name": "cLWlanMonitorIPv4InRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv4OutConfigTable": {
+    "name": "cLWlanPolicyMonitorIPv4OutConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv4OutConfigEntry": {
+    "name": "cLWlanPolicyMonitorIPv4OutConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv4OutName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanMonitorIPv4OutName": {
+    "name": "cLWlanMonitorIPv4OutName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanMonitorIPv4OutRowStatus": {
+    "name": "cLWlanMonitorIPv4OutRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv6InConfigTable": {
+    "name": "cLWlanPolicyMonitorIPv6InConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv6InConfigEntry": {
+    "name": "cLWlanPolicyMonitorIPv6InConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv6InName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanMonitorIPv6InName": {
+    "name": "cLWlanMonitorIPv6InName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanMonitorIPv6InRowStatus": {
+    "name": "cLWlanMonitorIPv6InRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv6OutConfigTable": {
+    "name": "cLWlanPolicyMonitorIPv6OutConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyMonitorIPv6OutConfigEntry": {
+    "name": "cLWlanPolicyMonitorIPv6OutConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv6OutName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanMonitorIPv6OutName": {
+    "name": "cLWlanMonitorIPv6OutName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanMonitorIPv6OutRowStatus": {
+    "name": "cLWlanMonitorIPv6OutRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyCalendarProfileTable": {
+    "name": "cLWlanPolicyCalendarProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyCalendarProfileEntry": {
+    "name": "cLWlanPolicyCalendarProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCalendarProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLWlanPolicyCalendarProfileName": {
+    "name": "cLWlanPolicyCalendarProfileName",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLWlanPolicyCalendarProfileRowStatus": {
+    "name": "cLWlanPolicyCalendarProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLWlanPolicyCalendarProfileWlan": {
+    "name": "cLWlanPolicyCalendarProfileWlan",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLWlanPolicyCalendarProfileClientSession": {
+    "name": "cLWlanPolicyCalendarProfileClientSession",
+    "oid": "1.3.6.1.4.1.9.9.853.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "block": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappWlanPolicyCompliances": {
+    "name": "ciscoLwappWlanPolicyCompliances",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanPolicyGroups": {
+    "name": "ciscoLwappWlanPolicyGroups",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappWlanPolicyCompliance": {
+    "name": "ciscoLwappWlanPolicyCompliance",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyComplianceR01": {
+    "name": "ciscoLwappWlanPolicyComplianceR01",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupRev1",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyATFConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanAaaPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyComplianceR02": {
+    "name": "ciscoLwappWlanPolicyComplianceR02",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupRev2",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyATFConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanAaaPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyComplianceR03": {
+    "name": "ciscoLwappWlanPolicyComplianceR03",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupRev2",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyATFConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanAaaPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupFlowMonitor",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyComplianceR04": {
+    "name": "ciscoLwappWlanPolicyComplianceR04",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupRev3",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyATFConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanAaaPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupFlowMonitor",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupCalenderProfile",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyComplianceR05": {
+    "name": "ciscoLwappWlanPolicyComplianceR05",
+    "oid": "1.3.6.1.4.1.9.9.853.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupRev4",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyATFConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanAaaPolicyConfigGroup",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupFlowMonitor",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      },
+      {
+        "object": "ciscoLwappWlanPolicyConfigGroupCalenderProfile",
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanPolicyConfigGroup": {
+    "name": "ciscoLwappWlanPolicyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPlcyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralSwitchMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralAuthMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNatPatEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAssocCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv4AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv6AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyL2AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyClientExclTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNativeProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySubscriberPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHttpDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv4InputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv4OutputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv6InputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv6OutputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistingCapability"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpRequired"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpServerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAaaOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyRadiusHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosFastlane"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ascii"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Rid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Enable"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apethmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apname"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Policytag"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Aplocation"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Vlanid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ssid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySplitMacAcl"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyVlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyPassiveClient"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNBARProtocolDiscovery"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStaticIPMobility"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyConfigGroupRev1": {
+    "name": "ciscoLwappWlanPolicyConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPlcyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralSwitchMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralAuthMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNatPatEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAssocCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv4AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv6AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyL2AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyClientExclTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNativeProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySubscriberPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHttpDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv4InputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv4OutputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv6InputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNetflowIPv6OutputMonitorName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistingCapability"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpRequired"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpServerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAaaOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyRadiusHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosFastlane"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ascii"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Rid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Enable"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apethmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apname"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Policytag"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Aplocation"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Vlanid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ssid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySplitMacAcl"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyVlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyPassiveClient"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNBARProtocolDiscovery"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStaticIPMobility"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "clWlanPolicyMobilityAnchor"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBroadcastTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyWgbVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyReanchorClassmap"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanUmbrellaParamMapName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosCallSnooping"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDefaultSgt"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInlineTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySgaclEnforcement"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyATFConfigGroup": {
+    "name": "ciscoLwappWlanPolicyATFConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyATFRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyATFPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanAaaPolicyConfigGroup": {
+    "name": "ciscoLwappWlanAaaPolicyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanAaaPolicyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanAaaPolicyNasId1"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanAaaPolicyNasId2"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanAaaPolicyNasId3"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanAaaPolicyRealm"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanPolicyConfigGroupRev2": {
+    "name": "ciscoLwappWlanPolicyConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPlcyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralSwitchMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralAuthMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNatPatEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAssocCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv4AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv6AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyL2AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyClientExclTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNativeProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySubscriberPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHttpDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistingCapability"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpRequired"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpServerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAaaOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyRadiusHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosFastlane"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ascii"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Rid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Enable"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apethmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apname"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Policytag"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Aplocation"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Vlanid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ssid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySplitMacAcl"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyVlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyPassiveClient"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNBARProtocolDiscovery"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStaticIPMobility"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "clWlanPolicyMobilityAnchor"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBroadcastTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyWgbVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyReanchorClassmap"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanUmbrellaParamMapName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosCallSnooping"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDefaultSgt"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInlineTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySgaclEnforcement"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyConfigGroupFlowMonitor": {
+    "name": "ciscoLwappWlanPolicyConfigGroupFlowMonitor",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv4InRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv4OutRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv6InRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanMonitorIPv6OutRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanPolicyConfigGroupRev3": {
+    "name": "ciscoLwappWlanPolicyConfigGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPlcyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralSwitchMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralAuthMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNatPatEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAssocCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv4AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv6AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyL2AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyClientExclTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNativeProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySubscriberPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHttpDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistingCapability"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpRequired"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpServerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAaaOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyRadiusHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosFastlane"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ascii"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Rid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Enable"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apethmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apname"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Policytag"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Aplocation"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Vlanid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ssid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySplitMacAcl"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyVlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyPassiveClient"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNBARProtocolDiscovery"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStaticIPMobility"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "clWlanPolicyMobilityAnchor"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBroadcastTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyWgbVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyReanchorClassmap"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanUmbrellaParamMapName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosCallSnooping"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDefaultSgt"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInlineTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySgaclEnforcement"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyMdnsPolicy"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHotspotAnqpServer"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappWlanPolicyConfigGroupCalenderProfile": {
+    "name": "ciscoLwappWlanPolicyConfigGroupCalenderProfile",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCalendarProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCalendarProfileWlan"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCalendarProfileClientSession"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappWlanPolicyConfigGroupRev4": {
+    "name": "ciscoLwappWlanPolicyConfigGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.853.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPlcyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInterfaceName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralSwitchMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyCentralAuthMode"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNatPatEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAssocCentral"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv4AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv6AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyL2AclName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyClientExclTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNativeProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySubscriberPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHttpDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDInput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosPerBSSIDOutput"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBlacklistingCapability"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpRequired"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDhcpServerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAaaOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyRadiusHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyUserIdleThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosFastlane"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPDeviceProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ascii"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Rid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Enable"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apethmac"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Apname"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Policytag"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Aplocation"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Vlanid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDHCPOption82Ssid"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySplitMacAcl"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyVlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyPassiveClient"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNBARProtocolDiscovery"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyStaticIPMobility"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "clWlanPolicyMobilityAnchor"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyBroadcastTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyWgbVlan"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyReanchorClassmap"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanUmbrellaParamMapName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQosCallSnooping"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyDefaultSgt"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyInlineTagging"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicySgaclEnforcement"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyMdnsPolicy"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyHotspotAnqpServer"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyNacType"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyARPProxy"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyIPv6proxy"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyMulticastFilter"
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanPolicyQBSSLoad"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-WLAN-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-WLAN-POLICY-MIB"
+  }
+}

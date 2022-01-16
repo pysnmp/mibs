@@ -3,11 +3,12 @@
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
       "cLApSysMacAddress",
-      "cLApName"
+      "cLApName",
+      "cLApDot11RadioRole"
     ],
     "CISCO-LWAPP-MESH-MIB": [
-      "clMeshNeighborMacAddress",
-      "clMeshNodeBackhaul"
+      "clMeshNodeBackhaul",
+      "clMeshNeighborMacAddress"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -16,32 +17,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeInterval",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoLwappMeshStatsMIB": {
@@ -50,8 +51,16 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2017-04-23 00:00",
+        "description": "Addressing the review comments."
+      },
+      {
         "revision": "2010-09-01 00:00",
         "description": "Added following new objects to clMeshNodeStatsTable: clMeshNodeSecBackhaulCount, clMeshNodeAssociationCount. Added the following new tables: clMeshNeighStatsTable, clMeshAccessClassTable, clMeshDataRateStatsTable Added following objects to ciscoLwappMeshStatsMIBConfigObjects clMeshNodeSecBackhaulChangeNotifEnabled, clMeshNodeExcessiveAssociationNotifEnabled, clMeshNodeExcessiveAssociationThreshold. Added following new notification object. clMeshInitiatingApName Added following new notifications. ciscoLwappMeshExcessiveAssociation, ciscoLwappMeshSecBackhaulChange. Added following new Groups. ciscoLwappMeshNeighStatsGroup, ciscoLwappMeshStatsNotifObjsGroup, ciscoLwappMeshAccessClassGroup, ciscoLwappMeshDataRateStatsGroup, ciscoLwappMeshNodeStatsGroupSup1 is a supplement to ciscoLwappMeshNodeStatsGroup, ciscoLwappMeshStatsConfigObjsGroupSup1 is a supplement to ciscoLwappMeshStatsConfigObjsGroup. Added ciscoLwappMeshStatsNotifsGroupSup1, which supplements ciscoLwappMeshStatsNotifsGroup. Added ciscoLwappMeshStatsMIBComplianceR01, which deprecates ciscoLwappMeshStatsMIBCompliance."
+      },
+      {
+        "revision": "2007-08-01 00:00",
+        "description": "Added the following notifications and the associated thresholds and controls: ciscoLwappMeshExcessiveAssociation, ciscoLwappMeshSecBackhaulChange. Added the following objects to clMeshNodeStatsTable table: clMeshNodeParentChanges, clMeshNodeSecBackhaulCount, clMeshNodeAssociationCount"
       },
       {
         "revision": "2007-03-12 00:00",
@@ -1110,6 +1119,22 @@
     ],
     "status": "current"
   },
+  "ciscoLwappMeshRadioRoleChange": {
+    "name": "ciscoLwappMeshRadioRoleChange",
+    "oid": "1.3.6.1.4.1.9.9.617.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApName"
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApDot11RadioRole"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoLwappMeshStatsMIBCompliances": {
     "name": "ciscoLwappMeshStatsMIBCompliances",
     "oid": "1.3.6.1.4.1.9.9.617.3.1",
@@ -1143,6 +1168,14 @@
       },
       {
         "object": "ciscoLwappMeshStatsNotifsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshNeighStatsGroup",
+        "module": "CISCO-LWAPP-MESH-STATS-MIB"
+      },
+      {
+        "object": "ciscoLwappMeshStatsNotifObjsGroup",
         "module": "CISCO-LWAPP-MESH-STATS-MIB"
       }
     ],
@@ -1240,6 +1273,14 @@
       {
         "module": "CISCO-LWAPP-MESH-STATS-MIB",
         "object": "clMeshNodeParentChanges"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecBackhaulCount"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeAssociationCount"
       }
     ],
     "status": "current"
@@ -1372,6 +1413,18 @@
       {
         "module": "CISCO-LWAPP-MESH-STATS-MIB",
         "object": "clMeshNodeStatsTimeInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeSecBackhaulChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeExcessiveAssociationNotifEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "clMeshNodeExcessiveAssociationThreshold"
       }
     ],
     "status": "current"
@@ -1384,6 +1437,14 @@
       {
         "module": "CISCO-LWAPP-MESH-STATS-MIB",
         "object": "ciscoLwappMeshQueueOverflow"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "ciscoLwappMeshExcessiveAssociation"
+      },
+      {
+        "module": "CISCO-LWAPP-MESH-STATS-MIB",
+        "object": "ciscoLwappMeshSecBackhaulChange"
       }
     ],
     "status": "current"
@@ -1531,8 +1592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MESH-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:39 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-MESH-STATS-MIB"

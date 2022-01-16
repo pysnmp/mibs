@@ -1,0 +1,2477 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApIfMacAddress"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-LWAPP-WLAN-POLICY-MIB": [
+      "cLWlanWlanPolicyName"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Unsigned64"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappTunnelMIB": {
+    "name": "ciscoLwappTunnelMIB",
+    "oid": "1.3.6.1.4.1.9.9.848",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-06-03 00:00",
+        "description": "Created: - ciscoLwappTunnelMIBComplianceRev5 - cLTunnelConfigGroupRev3 - cLGatewayTunnelSourceInterface - clGatewayDomainAdminStatus - clGatewayDomainRedundancyModel - clGatewayProfileAdminStatus - clGatewayProfileAAAOverride Added to clGatewayTunnelEntry and cLTunnelConfigGroupRev3: - cLGatewayTunnelSourceInterface - clGatewayDomainAdminStatus - clGatewayDomainRedundancyModel - clGatewayProfileAdminStatus - clGatewayProfileAAAOverride Added cLTunnelConfigGroupRev3 to ciscoLwappTunnelMIBComplianceRev5"
+      },
+      {
+        "revision": "2018-09-06 00:00",
+        "description": "Added a new module-compliance ciscoLwappTunnelMIBComplianceRev4, new object groups cLGatewayAAAProxyConfigGroup, a new table cLGatewayAAAProxyConfigTable with cLGatewayAAAProxyKey, cLGatewayAAAProxyKeyType, cLGatewayAAAProxyPort, cLGatewayAAAProxyRowStatus to allow for new configuration model of AAA Proxy on gateways. Added a new field clGatewayRuleRealm in CLGatewayRuleTable."
+      },
+      {
+        "revision": "2018-07-01 00:00",
+        "description": "Added a new module-compliance ciscoLwappTunnelMIBComplianceRev3, new object groups clApGatewayTunnelStatsGroup, clGatewayWlanProfileConfigGroup and cLTunnelConfigGroupRev2, a new table cLGatewayWlanProfileConfigTable with cLGatewayWlanProfileTunnelProfile to match new configuration model and clApGatewayTunnelStatsTunnelRxBytes64, clApGatewayTunnelStatsTunnelTxBytes64, clApGatewayTunnelStatsTunnelRxPkts64, clApGatewayTunnelStatsTunnelTxPkts64 in clApGatewayTunnelStatsTable"
+      },
+      {
+        "revision": "2018-02-05 00:00",
+        "description": "Added a new table -cLGatewayWlanConfigTable"
+      },
+      {
+        "revision": "2017-09-20 00:00",
+        "description": "Added clApGatewayTunnelMtu and clApGatewayTunnelFlapCount in ClApGatewayTunnelTable and clGatewayTunnelAdminStatus, clGatewayTunnelMtu and clGatewayTunnelFlapCount clGatewayTunnelTable."
+      },
+      {
+        "revision": "2017-05-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappTunnelMIBNotifs": {
+    "name": "ciscoLwappTunnelMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.848.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTunnelMIBObjects": {
+    "name": "ciscoLwappTunnelMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.848.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTunnelMIBConform": {
+    "name": "ciscoLwappTunnelMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.848.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappGatewayTunnel": {
+    "name": "ciscoLwappGatewayTunnel",
+    "oid": "1.3.6.1.4.1.9.9.848.3",
+    "class": "objectidentity"
+  },
+  "clGatewayGlobalInterface": {
+    "name": "clGatewayGlobalInterface",
+    "oid": "1.3.6.1.4.1.9.9.848.4",
+    "class": "objectidentity"
+  },
+  "clGatewayGlobalHeartbeatInterval": {
+    "name": "clGatewayGlobalHeartbeatInterval",
+    "oid": "1.3.6.1.4.1.9.9.848.5",
+    "class": "objectidentity"
+  },
+  "clGatewayGlobalHeartbeatMaxSkipCount": {
+    "name": "clGatewayGlobalHeartbeatMaxSkipCount",
+    "oid": "1.3.6.1.4.1.9.9.848.6",
+    "class": "objectidentity"
+  },
+  "clGatewayWlanConfig": {
+    "name": "clGatewayWlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.848.7",
+    "class": "objectidentity"
+  },
+  "clGatewayWlanProfileConfig": {
+    "name": "clGatewayWlanProfileConfig",
+    "oid": "1.3.6.1.4.1.9.9.848.8",
+    "class": "objectidentity"
+  },
+  "clGatewayAAAProxyConfig": {
+    "name": "clGatewayAAAProxyConfig",
+    "oid": "1.3.6.1.4.1.9.9.848.9",
+    "class": "objectidentity"
+  },
+  "cLGatewayInterface": {
+    "name": "cLGatewayInterface",
+    "oid": "1.3.6.1.4.1.9.9.848.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "management",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayHeartbeatInterval": {
+    "name": "cLGatewayHeartbeatInterval",
+    "oid": "1.3.6.1.4.1.9.9.848.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayHeartbeatMaxSkipCount": {
+    "name": "cLGatewayHeartbeatMaxSkipCount",
+    "oid": "1.3.6.1.4.1.9.9.848.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayWlanConfigTable": {
+    "name": "cLGatewayWlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.848.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGatewayWlanConfigEntry": {
+    "name": "cLGatewayWlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGatewayWlanVlanOverrideEnable": {
+    "name": "cLGatewayWlanVlanOverrideEnable",
+    "oid": "1.3.6.1.4.1.9.9.848.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayWlanVlanId": {
+    "name": "cLGatewayWlanVlanId",
+    "oid": "1.3.6.1.4.1.9.9.848.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayWlanProfileConfigTable": {
+    "name": "cLGatewayWlanProfileConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.848.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGatewayWlanProfileConfigEntry": {
+    "name": "cLGatewayWlanProfileConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGatewayWlanProfileTunnelProfile": {
+    "name": "cLGatewayWlanProfileTunnelProfile",
+    "oid": "1.3.6.1.4.1.9.9.848.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayAAAProxyConfigTable": {
+    "name": "cLGatewayAAAProxyConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.848.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLGatewayAAAProxyConfigEntry": {
+    "name": "cLGatewayAAAProxyConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLGatewayAAAProxyKey": {
+    "name": "cLGatewayAAAProxyKey",
+    "oid": "1.3.6.1.4.1.9.9.848.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayAAAProxyRowStatus": {
+    "name": "cLGatewayAAAProxyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLGatewayAAAProxyKeyType": {
+    "name": "cLGatewayAAAProxyKeyType",
+    "oid": "1.3.6.1.4.1.9.9.848.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "aes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLGatewayAAAProxyPort": {
+    "name": "cLGatewayAAAProxyPort",
+    "oid": "1.3.6.1.4.1.9.9.848.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clGatewayTunnelTable": {
+    "name": "clGatewayTunnelTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayTunnelEntry": {
+    "name": "clGatewayTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayTunnelName": {
+    "name": "clGatewayTunnelName",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayTunnelType": {
+    "name": "clGatewayTunnelType",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pmipv6": 2,
+          "gtpv2": 3,
+          "eogre": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayTunnelAddressType": {
+    "name": "clGatewayTunnelAddressType",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayTunnelAddress": {
+    "name": "clGatewayTunnelAddress",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayTunnelStatus": {
+    "name": "clGatewayTunnelStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelRowStatus": {
+    "name": "clGatewayTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayTunnelAdminStatus": {
+    "name": "clGatewayTunnelAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelMtu": {
+    "name": "clGatewayTunnelMtu",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1476,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelFlapCount": {
+    "name": "clGatewayTunnelFlapCount",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLGatewayTunnelSourceInterface": {
+    "name": "cLGatewayTunnelSourceInterface",
+    "oid": "1.3.6.1.4.1.9.9.848.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayDomainTable": {
+    "name": "clGatewayDomainTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayDomainEntry": {
+    "name": "clGatewayDomainEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainTunnelType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayDomainName": {
+    "name": "clGatewayDomainName",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayDomainTunnelType": {
+    "name": "clGatewayDomainTunnelType",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pmipv6": 2,
+          "gtpv2": 3,
+          "eogre": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayDomainActiveGateway": {
+    "name": "clGatewayDomainActiveGateway",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayDomainPrimaryGateway": {
+    "name": "clGatewayDomainPrimaryGateway",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayDomainSecondaryGateway": {
+    "name": "clGatewayDomainSecondaryGateway",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayDomainRowStatus": {
+    "name": "clGatewayDomainRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayDomainAdminStatus": {
+    "name": "clGatewayDomainAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayDomainRedundancyModel": {
+    "name": "clGatewayDomainRedundancyModel",
+    "oid": "1.3.6.1.4.1.9.9.848.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonrevertive": 0,
+          "revertive": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayDomainGatewayListTable": {
+    "name": "clGatewayDomainGatewayListTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayDomainGatewayListEntry": {
+    "name": "clGatewayDomainGatewayListEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainTunnelType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayDomainGatewayListRowStatus": {
+    "name": "clGatewayDomainGatewayListRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileTable": {
+    "name": "clGatewayProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayProfileEntry": {
+    "name": "clGatewayProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayProfileName": {
+    "name": "clGatewayProfileName",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayProfileDhcpOpt82Status": {
+    "name": "clGatewayProfileDhcpOpt82Status",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileDhcpOpt82Format": {
+    "name": "clGatewayProfileDhcpOpt82Format",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileDhcpOpt82Delimiter": {
+    "name": "clGatewayProfileDhcpOpt82Delimiter",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileCircuitId": {
+    "name": "clGatewayProfileCircuitId",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileRemoteId": {
+    "name": "clGatewayProfileRemoteId",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileRadiusProxyStatus": {
+    "name": "clGatewayProfileRadiusProxyStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileRadiusProxyAccounting": {
+    "name": "clGatewayProfileRadiusProxyAccounting",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileRowStatus": {
+    "name": "clGatewayProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileAdminStatus": {
+    "name": "clGatewayProfileAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayProfileAAAOverride": {
+    "name": "clGatewayProfileAAAOverride",
+    "oid": "1.3.6.1.4.1.9.9.848.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayRuleTable": {
+    "name": "clGatewayRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayRuleEntry": {
+    "name": "clGatewayRuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayRuleName": {
+    "name": "clGatewayRuleName",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayRuleTunnelType": {
+    "name": "clGatewayRuleTunnelType",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pmipv6": 2,
+          "gtpv2": 3,
+          "eogre": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayRuleVlanId": {
+    "name": "clGatewayRuleVlanId",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayRuleDomainName": {
+    "name": "clGatewayRuleDomainName",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayRuleRowStatus": {
+    "name": "clGatewayRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clGatewayRuleRealm": {
+    "name": "clGatewayRuleRealm",
+    "oid": "1.3.6.1.4.1.9.9.848.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "clApGatewayTunnelTable": {
+    "name": "clApGatewayTunnelTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clApGatewayTunnelEntry": {
+    "name": "clApGatewayTunnelEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApIfMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clApGatewayTunnelStatus": {
+    "name": "clApGatewayTunnelStatus",
+    "oid": "1.3.6.1.4.1.9.9.848.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelClientCount": {
+    "name": "clApGatewayTunnelClientCount",
+    "oid": "1.3.6.1.4.1.9.9.848.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelMtu": {
+    "name": "clApGatewayTunnelMtu",
+    "oid": "1.3.6.1.4.1.9.9.848.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1476,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelFlapCount": {
+    "name": "clApGatewayTunnelFlapCount",
+    "oid": "1.3.6.1.4.1.9.9.848.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayDomainTable": {
+    "name": "clApGatewayDomainTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clApGatewayDomainEntry": {
+    "name": "clApGatewayDomainEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApIfMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clApGatewayDomainActiveGateway": {
+    "name": "clApGatewayDomainActiveGateway",
+    "oid": "1.3.6.1.4.1.9.9.848.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsTable": {
+    "name": "clGatewayTunnelStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsEntry": {
+    "name": "clGatewayTunnelStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayTunnelStatsClientCount": {
+    "name": "clGatewayTunnelStatsClientCount",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsTunnelUpTime": {
+    "name": "clGatewayTunnelStatsTunnelUpTime",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsKeepaliveLoss": {
+    "name": "clGatewayTunnelStatsKeepaliveLoss",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsTunnelRxBytes": {
+    "name": "clGatewayTunnelStatsTunnelRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsTunnelTxBytes": {
+    "name": "clGatewayTunnelStatsTunnelTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsTunnelRxPkts": {
+    "name": "clGatewayTunnelStatsTunnelRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clGatewayTunnelStatsTunnelTxPkts": {
+    "name": "clGatewayTunnelStatsTunnelTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.848.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsTable": {
+    "name": "clApGatewayTunnelStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsEntry": {
+    "name": "clApGatewayTunnelStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApIfMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsTunnelUpTime": {
+    "name": "clApGatewayTunnelStatsTunnelUpTime",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsKeepaliveLoss": {
+    "name": "clApGatewayTunnelStatsKeepaliveLoss",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsTunnelRxBytes": {
+    "name": "clApGatewayTunnelStatsTunnelRxBytes",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "clApGatewayTunnelStatsTunnelTxBytes": {
+    "name": "clApGatewayTunnelStatsTunnelTxBytes",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "clApGatewayTunnelStatsTunnelRxPkts": {
+    "name": "clApGatewayTunnelStatsTunnelRxPkts",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "clApGatewayTunnelStatsTunnelTxPkts": {
+    "name": "clApGatewayTunnelStatsTunnelTxPkts",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "clApGatewayTunnelStatsTunnelRxBytes64": {
+    "name": "clApGatewayTunnelStatsTunnelRxBytes64",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsTunnelTxBytes64": {
+    "name": "clApGatewayTunnelStatsTunnelTxBytes64",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsTunnelRxPkts64": {
+    "name": "clApGatewayTunnelStatsTunnelRxPkts64",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsTunnelTxPkts64": {
+    "name": "clApGatewayTunnelStatsTunnelTxPkts64",
+    "oid": "1.3.6.1.4.1.9.9.848.3.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLWATunnelStatusChangeReasonCode": {
+    "name": "cLWATunnelStatusChangeReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.848.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2,
+          "progress": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelGwIPType": {
+    "name": "cLWATunnelGwIPType",
+    "oid": "1.3.6.1.4.1.9.9.848.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelGwIP": {
+    "name": "cLWATunnelGwIP",
+    "oid": "1.3.6.1.4.1.9.9.848.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelGwName": {
+    "name": "cLWATunnelGwName",
+    "oid": "1.3.6.1.4.1.9.9.848.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelType": {
+    "name": "cLWATunnelType",
+    "oid": "1.3.6.1.4.1.9.9.848.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "pmipv6": 2,
+          "gtpv2": 3,
+          "eogre": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelDomainName": {
+    "name": "cLWATunnelDomainName",
+    "oid": "1.3.6.1.4.1.9.9.848.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelActiveGwIPType": {
+    "name": "cLWATunnelActiveGwIPType",
+    "oid": "1.3.6.1.4.1.9.9.848.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelActiveGwIP": {
+    "name": "cLWATunnelActiveGwIP",
+    "oid": "1.3.6.1.4.1.9.9.848.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelActiveGwName": {
+    "name": "cLWATunnelActiveGwName",
+    "oid": "1.3.6.1.4.1.9.9.848.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelProfileName": {
+    "name": "cLWATunnelProfileName",
+    "oid": "1.3.6.1.4.1.9.9.848.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelRealm": {
+    "name": "cLWATunnelRealm",
+    "oid": "1.3.6.1.4.1.9.9.848.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelVlanId": {
+    "name": "cLWATunnelVlanId",
+    "oid": "1.3.6.1.4.1.9.9.848.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelClientMacAddress": {
+    "name": "cLWATunnelClientMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.848.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelClientTypeChangeReasonCode": {
+    "name": "cLWATunnelClientTypeChangeReasonCode",
+    "oid": "1.3.6.1.4.1.9.9.848.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticProfile": 1,
+          "aaaOveride": 2,
+          "dot1xAuthentication": 3,
+          "mobilityHandoff": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLWATunnelStatusChange": {
+    "name": "cLWATunnelStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.848.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelGwName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelGwIPType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelGwIP"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelStatusChangeReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "cLWATunnelDomainStatusChange": {
+    "name": "cLWATunnelDomainStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.848.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwIPType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwIP"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwName"
+      }
+    ],
+    "status": "current"
+  },
+  "cLWATunnelClientTypeChange": {
+    "name": "cLWATunnelClientTypeChange",
+    "oid": "1.3.6.1.4.1.9.9.848.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelClientMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelRealm"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwIPType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwIP"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelClientTypeChangeReasonCode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappTunnelMIBCompliances": {
+    "name": "ciscoLwappTunnelMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTunnelMIBGroups": {
+    "name": "ciscoLwappTunnelMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTunnelMIBCompliance": {
+    "name": "ciscoLwappTunnelMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLTunnelConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationObjectsGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappTunnelMIBComplianceRev1": {
+    "name": "ciscoLwappTunnelMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLTunnelConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationObjectsGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelConfigGroupRev1",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappTunnelMIBComplianceRev2": {
+    "name": "ciscoLwappTunnelMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLTunnelConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationObjectsGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelConfigGroupRev1",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "clGatewayWlanConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappTunnelMIBComplianceRev3": {
+    "name": "ciscoLwappTunnelMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLTunnelConfigGroupRev2",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationObjectsGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "clGatewayWlanProfileConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelConfigGroupRev1",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappTunnelMIBComplianceRev4": {
+    "name": "ciscoLwappTunnelMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLTunnelConfigGroupRev2",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationObjectsGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "clGatewayWlanProfileConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLGatewayAAAProxyConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelConfigGroupRev1",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappTunnelMIBComplianceRev5": {
+    "name": "ciscoLwappTunnelMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.848.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLTunnelConfigGroupRev3",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationObjectsGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelNotificationGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "clGatewayWlanProfileConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLGatewayAAAProxyConfigGroup",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      },
+      {
+        "object": "cLTunnelConfigGroupRev1",
+        "module": "CISCO-LWAPP-TUNNEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cLTunnelConfigGroup": {
+    "name": "cLTunnelConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainActiveGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainGatewayListRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Status"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Format"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Delimiter"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileCircuitId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRemoteId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRadiusProxyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRadiusProxyAccounting"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleTunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelClientCount"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayDomainActiveGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayHeartbeatInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayHeartbeatMaxSkipCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cLTunnelNotificationObjectsGroup": {
+    "name": "cLTunnelNotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelStatusChangeReasonCode"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelGwName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelGwIPType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelGwIP"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwIPType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwIP"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelActiveGwName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelClientMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelRealm"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelClientTypeChangeReasonCode"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelStatsClientCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cLTunnelNotificationGroup": {
+    "name": "cLTunnelNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelStatusChange"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelDomainStatusChange"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLWATunnelClientTypeChange"
+      }
+    ],
+    "status": "current"
+  },
+  "cLTunnelConfigGroupRev1": {
+    "name": "cLTunnelConfigGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAdminStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelMtu"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelFlapCount"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelMtu"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelFlapCount"
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayWlanConfigGroup": {
+    "name": "clGatewayWlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayWlanVlanOverrideEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayWlanVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "cLTunnelConfigGroupRev2": {
+    "name": "cLTunnelConfigGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainActiveGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainPrimaryGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainSecondaryGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Status"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Format"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Delimiter"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileCircuitId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRemoteId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRadiusProxyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRadiusProxyAccounting"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleTunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelClientCount"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayDomainActiveGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayHeartbeatInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayHeartbeatMaxSkipCount"
+      }
+    ],
+    "status": "current"
+  },
+  "clGatewayWlanProfileConfigGroup": {
+    "name": "clGatewayWlanProfileConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayWlanProfileTunnelProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "clApGatewayTunnelStatsGroup": {
+    "name": "clApGatewayTunnelStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatsTunnelRxBytes64"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatsTunnelTxBytes64"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatsTunnelRxPkts64"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatsTunnelTxPkts64"
+      }
+    ],
+    "status": "current"
+  },
+  "cLGatewayAAAProxyConfigGroup": {
+    "name": "cLGatewayAAAProxyConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayAAAProxyKey"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayAAAProxyKeyType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayAAAProxyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cLTunnelConfigGroupRev3": {
+    "name": "cLTunnelConfigGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.848.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelAdminStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayTunnelSourceInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayTunnelRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainActiveGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainPrimaryGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainSecondaryGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainAdminStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainRedundancyModel"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayDomainRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Status"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Format"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileDhcpOpt82Delimiter"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileCircuitId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRemoteId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRadiusProxyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRadiusProxyAccounting"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileAdminStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayProfileAAAOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleTunnelType"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleDomainName"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clGatewayRuleRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayTunnelClientCount"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "clApGatewayDomainActiveGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayHeartbeatInterval"
+      },
+      {
+        "module": "CISCO-LWAPP-TUNNEL-MIB",
+        "object": "cLGatewayHeartbeatMaxSkipCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-TUNNEL-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-TUNNEL-MIB"
+  }
+}

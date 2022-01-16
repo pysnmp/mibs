@@ -1,0 +1,392 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "ciscoAlarmMIB": {
+    "name": "ciscoAlarmMIB",
+    "oid": "1.3.6.1.4.1.9.9.869",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-31 00:00",
+        "description": "MIB changes for trap"
+      },
+      {
+        "revision": "2019-08-28 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "CoiAlarmObjectTypeClass": {
+    "name": "CoiAlarmObjectTypeClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "hwMemorySbe": 2,
+          "hwMemoryMbe": 3,
+          "hwMemoryParity": 4,
+          "hwFreeze": 5,
+          "hwFlopError": 6,
+          "hwInternal": 7,
+          "hwTimeout": 8,
+          "hwHang": 9,
+          "hwError": 10,
+          "hwLinkCrc": 11,
+          "hwCodeViolation": 12,
+          "hwLinkDisparity": 13,
+          "hwEnvmonSensorAlarm": 14,
+          "hwEnvmonPemAlarm": 15,
+          "hwEnvmonFanAlarm": 16,
+          "swMemoryFault": 17,
+          "swBusError": 18,
+          "swProcessCrash": 19,
+          "swMallocError": 20,
+          "swFoobar": 21,
+          "swConnectFail": 22,
+          "swProcessRestart": 23,
+          "swProcessFailure": 24,
+          "swMandatoryProcessFailure": 25,
+          "swServiceRestart": 26,
+          "swServiceFailure": 27,
+          "swPmHeartbeat": 28,
+          "swHostosHeartbeat": 29,
+          "swCccWdog": 30,
+          "hwConfigErr": 31,
+          "hwGenericErr": 32,
+          "hwIndirectErr": 33,
+          "hwOorThreshErr": 34,
+          "hwUnexpectedErr": 35,
+          "hwBoardReload": 36,
+          "hwSliceReload": 37,
+          "hwMiscErr": 38,
+          "hwRxResourceErr": 39,
+          "hwTxResourceErr": 40,
+          "hwLinkStatChange": 41,
+          "hwEtherBridge": 42,
+          "swInitErr": 43,
+          "swMiscErr": 44,
+          "hwEnvmonEcuAlarm": 45,
+          "hwEnvmonPwrFilterAlarm": 46,
+          "hwSonet": 47,
+          "hwG709": 48,
+          "hwEthernet": 49,
+          "hwOptics": 50,
+          "hwGfp": 51,
+          "hwSdhController": 52,
+          "swFsdbaggPlane": 53,
+          "hwOts": 54,
+          "swMacsecMka": 55,
+          "swSmartLicErr": 56,
+          "swProvisionErr": 57,
+          "hwSyncec": 58,
+          "hwPci": 59,
+          "swWdDiskUsage": 60,
+          "swCfgmgr": 61,
+          "swG709Otnsec": 62,
+          "hwCpri": 63,
+          "hwImfpga": 64
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoAlarmMIBNotifs": {
+    "name": "ciscoAlarmMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.869.0",
+    "class": "objectidentity"
+  },
+  "ciscoAlarmMIBObjects": {
+    "name": "ciscoAlarmMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.869.1",
+    "class": "objectidentity"
+  },
+  "coiAlarmActive": {
+    "name": "coiAlarmActive",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1",
+    "class": "objectidentity"
+  },
+  "coiAlarmActiveTable": {
+    "name": "coiAlarmActiveTable",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "coiAlarmActiveEntry": {
+    "name": "coiAlarmActiveEntry",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmObjectIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmObjectEntPhyIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coiAlarmIndex": {
+    "name": "coiAlarmIndex",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmObjectIfIndex": {
+    "name": "coiAlarmObjectIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmObjectEntPhyIndex": {
+    "name": "coiAlarmObjectEntPhyIndex",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmObjectName": {
+    "name": "coiAlarmObjectName",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmObjectType": {
+    "name": "coiAlarmObjectType",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CoiAlarmObjectTypeClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmType": {
+    "name": "coiAlarmType",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmTimeStamp": {
+    "name": "coiAlarmTimeStamp",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmSeverity": {
+    "name": "coiAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "notReported": 1,
+          "notAlarmed": 2,
+          "minor": 3,
+          "major": 4,
+          "critical": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmStatus": {
+    "name": "coiAlarmStatus",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "set": 1,
+          "clear": 2,
+          "suppress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmServiceAffecting": {
+    "name": "coiAlarmServiceAffecting",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "notServiceAffecting": 1,
+          "serviceAffecting": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmDescription": {
+    "name": "coiAlarmDescription",
+    "oid": "1.3.6.1.4.1.9.9.869.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coiAlarmStatusChange": {
+    "name": "coiAlarmStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.869.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmIndex"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmObjectIfIndex"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmObjectEntPhyIndex"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmObjectName"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmType"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmSeverity"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmStatus"
+      },
+      {
+        "module": "CISCO-ALARM-MIB",
+        "object": "coiAlarmDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ALARM-MIB"
+  }
+}

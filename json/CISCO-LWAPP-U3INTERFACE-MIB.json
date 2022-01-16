@@ -1,0 +1,328 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoLwappU3InterfaceMIB": {
+    "name": "ciscoLwappU3InterfaceMIB",
+    "oid": "1.3.6.1.4.1.9.9.852",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-10-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappU3InterfaceMIBNotifs": {
+    "name": "ciscoLwappU3InterfaceMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.852.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappU3InterfaceMIBObjects": {
+    "name": "ciscoLwappU3InterfaceMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.852.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappU3InterfaceMIBConform": {
+    "name": "ciscoLwappU3InterfaceMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.852.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappU3InterfaceMIBTableObjects": {
+    "name": "ciscoLwappU3InterfaceMIBTableObjects",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1",
+    "class": "objectidentity"
+  },
+  "cLU3InterfaceWlanTable": {
+    "name": "cLU3InterfaceWlanTable",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLU3InterfaceWlanEntry": {
+    "name": "cLU3InterfaceWlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLU3InterfaceWlanStatus": {
+    "name": "cLU3InterfaceWlanStatus",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLU3InterfaceReportingInterval": {
+    "name": "cLU3InterfaceReportingInterval",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLU3InterfaceClientTable": {
+    "name": "cLU3InterfaceClientTable",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLU3InterfaceClientEntry": {
+    "name": "cLU3InterfaceClientEntry",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-DOT11-CLIENT-MIB",
+        "object": "cldcClientMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLU3InterfaceClientSkipCount": {
+    "name": "cLU3InterfaceClientSkipCount",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLU3InterfaceClientKeepAliveCount": {
+    "name": "cLU3InterfaceClientKeepAliveCount",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLU3InterfaceClientEstimatePeriod": {
+    "name": "cLU3InterfaceClientEstimatePeriod",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLU3InterfaceClientBackoffTimer": {
+    "name": "cLU3InterfaceClientBackoffTimer",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLU3InterfaceClientThroughput": {
+    "name": "cLU3InterfaceClientThroughput",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLU3InterfaceClientThreshold": {
+    "name": "cLU3InterfaceClientThreshold",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLU3InterfaceClientEarlyLift": {
+    "name": "cLU3InterfaceClientEarlyLift",
+    "oid": "1.3.6.1.4.1.9.9.852.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoLwappU3InterfaceMIBCompliances": {
+    "name": "ciscoLwappU3InterfaceMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.852.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappU3InterfaceMIBGroups": {
+    "name": "ciscoLwappU3InterfaceMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.852.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappU3InterfaceMIBCompliance": {
+    "name": "ciscoLwappU3InterfaceMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.852.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLU3InterfaceConfigGroup",
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB"
+      },
+      {
+        "object": "cLU3InterfaceClientMonitorGroup",
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cLU3InterfaceConfigGroup": {
+    "name": "cLU3InterfaceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.852.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceWlanStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceReportingInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cLU3InterfaceClientMonitorGroup": {
+    "name": "cLU3InterfaceClientMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.852.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientSkipCount"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientKeepAliveCount"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientEstimatePeriod"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientBackoffTimer"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientThroughput"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientThreshold"
+      },
+      {
+        "module": "CISCO-LWAPP-U3INTERFACE-MIB",
+        "object": "cLU3InterfaceClientEarlyLift"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-U3INTERFACE-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:00 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-U3INTERFACE-MIB"
+  }
+}

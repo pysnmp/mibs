@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "CISCO-DOT11-IF-MIB": [
-      "cd11IfAuxSsid",
+      "CDot11IfVlanIdOrZero",
       "CDot11IfCipherType",
-      "CDot11IfVlanIdOrZero"
+      "cd11IfAuxSsid"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -14,38 +14,38 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "ciscoDot11AssociationMIB": {
@@ -54,12 +54,16 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2016-12-06 00:00",
+        "description": "Added ciscoDot11StationStatusTrap to indicate wireless client status change like associate to AP or disassociate from AP"
+      },
+      {
         "revision": "2007-01-05 00:00",
-        "description": "The changes made are as follows. - Added more explanations on the kind of entries populated for cDot11ClientConfigInfoTable, on infrastructure clients like repeaters, non-root bridges and workgroup bridges. - Added cDot11ClientNewKeyManagement object to the cDot11ClientConfigInfoTable. "
+        "description": "The changes made are as follows. - Added more explanations on the kind of entries populated for cDot11ClientConfigInfoTable, on infrastructure clients like repeaters, non-root bridges and workgroup bridges. - Added cDot11ClientNewKeyManagement object to the cDot11ClientConfigInfoTable."
       },
       {
         "revision": "2006-06-12 00:00",
-        "description": "The changes made are as follows. - Added the following enumerations to CDot11ClientRadioType. - 'cb21ag' - 'ccxClient' - 'unknown' - Added 'unknown' to CDot11ClientDevType. - Added cDot11ClientDevObjectID to cDot11ClientConfigInfoTable. "
+        "description": "The changes made are as follows. - Added the following enumerations to CDot11ClientRadioType. - 'cb21ag' - 'ccxClient' - 'unknown' - Added 'unknown' to CDot11ClientDevType. - Added cDot11ClientDevObjectID to cDot11ClientConfigInfoTable."
       },
       {
         "revision": "2005-03-08 00:00",
@@ -121,6 +125,11 @@
   "cDot11ClientStatistics": {
     "name": "cDot11ClientStatistics",
     "oid": "1.3.6.1.4.1.9.9.273.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoDot11StationTraps": {
+    "name": "ciscoDot11StationTraps",
+    "oid": "1.3.6.1.4.1.9.9.273.1.4",
     "class": "objectidentity"
   },
   "CDot11ClientRoleClassType": {
@@ -285,6 +294,208 @@
         "wpa2": 2
       }
     },
+    "status": "current"
+  },
+  "ciscoDot11StationInfoTable": {
+    "name": "ciscoDot11StationInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciscoDot11StationInfoEntry": {
+    "name": "ciscoDot11StationInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clientMacAddr": {
+    "name": "clientMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clientDeviceType": {
+    "name": "clientDeviceType",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11ClientRoleClassType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clientDeviceName": {
+    "name": "clientDeviceName",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clientIpv4Address": {
+    "name": "clientIpv4Address",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clientIpv6Address": {
+    "name": "clientIpv6Address",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apMacAddr": {
+    "name": "apMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apIpv4Address": {
+    "name": "apIpv4Address",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apIpv6Address": {
+    "name": "apIpv6Address",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clientStationState": {
+    "name": "clientStationState",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "associated": 1,
+          "disAssociated": 2,
+          "run": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clientDisassocReasonStr": {
+    "name": "clientDisassocReasonStr",
+    "oid": "1.3.6.1.4.1.9.9.273.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciscoDot11StationStatusTrap": {
+    "name": "ciscoDot11StationStatusTrap",
+    "oid": "1.3.6.1.4.1.9.9.273.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientMacAddr"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientDeviceType"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientDeviceName"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientIpv4Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientIpv6Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "apMacAddr"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "apIpv4Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "apIpv6Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientStationState"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientDisassocReasonStr"
+      }
+    ],
     "status": "current"
   },
   "cDot11ParentAddress": {
@@ -1430,6 +1641,54 @@
     ],
     "status": "current"
   },
+  "ciscoDot11AssocMIBComplianceRev6": {
+    "name": "ciscoDot11AssocMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.273.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11ClientConfigGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientAuthenGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientInfoGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfAssocStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfCipherStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientConfigExtGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientNewAuthenGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ApAssocGlobalGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientStatusTrapsGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoDot11AssocGlobalGroup": {
     "name": "ciscoDot11AssocGlobalGroup",
     "oid": "1.3.6.1.4.1.9.9.273.2.2.1",
@@ -1774,11 +2033,59 @@
     ],
     "status": "current"
   },
+  "ciscoDot11ClientStatusTrapsGroup": {
+    "name": "ciscoDot11ClientStatusTrapsGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientMacAddr"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientDeviceType"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientDeviceName"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientIpv4Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientIpv6Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "apMacAddr"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "apIpv4Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "apIpv6Address"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientStationState"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "clientDisassocReasonStr"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-ASSOCIATION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:37 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:00 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-DOT11-ASSOCIATION-MIB"

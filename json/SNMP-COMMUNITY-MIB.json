@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpAdminString",
-      "SnmpEngineID"
+      "SnmpEngineID",
+      "SnmpAdminString"
     ],
     "SNMP-TARGET-MIB": [
       "SnmpTagValue",
       "snmpTargetAddrEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "snmpModules",
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
       "Bits",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "snmpModules",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -44,12 +44,12 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2000-03-06 00:00",
-        "description": "This version published as RFC 2576."
+        "revision": "2003-08-06 00:00",
+        "description": "Updated the LAST-UPDATED, CONTACT-INFO, and REVISION clauses and added a copyright notice to the DESCRIPTION clause of the MIB module's MODULE-IDENTITY invocation. Updated the description of snmpCommunityTransportTag to make it consistent with the rest of the document. Updated the description of `snmpTargetAddrMMS' to clarify that a value of 0 means that the maximum message size is unknown. Changed the name of 'snmpCommunityGroup' to snmpCommunityTableGroup to avoid a name conflict with the SNMPv2-MIB. Updated DESCRIPTION of snmpCommunityName. Updated DESCRIPTION of snmpTrapCommunity. Added snmpCommunityMIBFullCompliance. This version published as RFC 3584."
       },
       {
-        "revision": "1999-05-13 00:00",
-        "description": "The Initial Revision"
+        "revision": "2000-03-06 00:00",
+        "description": "This version published as RFC 2576."
       }
     ]
   },
@@ -335,7 +335,7 @@
     "class": "modulecompliance",
     "modulecompliance": [
       {
-        "object": "snmpCommunityGroup",
+        "object": "snmpCommunityTableGroup",
         "module": "SNMP-COMMUNITY-MIB"
       }
     ],
@@ -353,8 +353,20 @@
     ],
     "status": "current"
   },
-  "snmpCommunityGroup": {
-    "name": "snmpCommunityGroup",
+  "snmpCommunityMIBFullCompliance": {
+    "name": "snmpCommunityMIBFullCompliance",
+    "oid": "1.3.6.1.6.3.18.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpCommunityTableGroup",
+        "module": "SNMP-COMMUNITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpCommunityTableGroup": {
+    "name": "snmpCommunityTableGroup",
     "oid": "1.3.6.1.6.3.18.2.2.1",
     "class": "objectgroup",
     "objects": [
@@ -416,8 +428,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-COMMUNITY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:41:52 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:31:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SNMP-COMMUNITY-MIB"

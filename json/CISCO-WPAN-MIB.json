@@ -9,30 +9,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoWpanMIB": {
@@ -188,7 +188,95 @@
       "type": "Unsigned32",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfHAState": {
+    "name": "cwpanIfHAState",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfHAFailureCode": {
+    "name": "cwpanIfHAFailureCode",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "registrationFailed": 1,
+          "sessionMismatch": 2,
+          "modeMismatch": 4,
+          "processEnableFail": 8,
+          "modeSetFail": 16,
+          "eui64SetFail": 32,
+          "eui64GetFail": 64,
+          "beaconVersionSetFail": 128,
+          "rplVersionSetFail": 256,
+          "neighbourSetFail": 512,
+          "sockCloseFail": 1024,
+          "peerConnectionFail": 2048,
+          "invalidEvent": 4096,
+          "prefixUpdateFail": 8192,
+          "standbyNotReady": 16384,
+          "configMismatch": 32768
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfHAStateChangeReason": {
+    "name": "cwpanIfHAStateChangeReason",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "automatic": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwpanIfHAStandbyReady": {
+    "name": "cwpanIfHAStandbyReady",
+    "oid": "1.3.6.1.4.1.9.9.819.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "cwpanNotificationEnable": {
@@ -323,6 +411,46 @@
     ],
     "status": "current"
   },
+  "cwpanHAStateChangeNotif": {
+    "name": "cwpanHAStateChangeNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAStandbyReady"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAStateChangeReason"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAState"
+      }
+    ],
+    "status": "current"
+  },
+  "cwpanHAFailureNotif": {
+    "name": "cwpanHAFailureNotif",
+    "oid": "1.3.6.1.4.1.9.9.819.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAFailureCode"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoWpanMIBCompliances": {
     "name": "ciscoWpanMIBCompliances",
     "oid": "1.3.6.1.4.1.9.9.819.2.1",
@@ -381,6 +509,26 @@
       {
         "module": "CISCO-WPAN-MIB",
         "object": "cwpanIfRplTableMinorThreshNodes"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAState"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAFailureCode"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanNotificationEnable"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAStateChangeReason"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanIfHAStandbyReady"
       }
     ],
     "status": "current"
@@ -425,6 +573,14 @@
       {
         "module": "CISCO-WPAN-MIB",
         "object": "cwpanFallingIfRplTblMajorThreshNodesNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanHAStateChangeNotif"
+      },
+      {
+        "module": "CISCO-WPAN-MIB",
+        "object": "cwpanHAFailureNotif"
       }
     ],
     "status": "current"
@@ -432,8 +588,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WPAN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-WPAN-MIB"

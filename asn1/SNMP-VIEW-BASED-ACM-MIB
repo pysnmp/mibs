@@ -208,8 +208,8 @@ vacmSecurityToGroupStorageType OBJECT-TYPE
                  Conceptual rows having the value 'permanent' need not
                  allow write-access to any columnar objects in the row.
                 "
-    DEFVAL      { nonVolatile }
-    ::= { vacmSecurityToGroupEntry 4 }
+    DEFVAL      { nonVolatile }	
+::= { vacmSecurityToGroupEntry 4 }
 
 vacmSecurityToGroupStatus OBJECT-TYPE
     SYNTAX       RowStatus
@@ -688,7 +688,7 @@ vacmViewTreeFamilyStorageType OBJECT-TYPE
     DESCRIPTION "The storage type for this conceptual row.
 
                  Conceptual rows having the value 'permanent' need not
-                 allow write-access to any columnar objects in the row.
+        allow write-access to any columnar objects in the row.
                 "
     DEFVAL      { nonVolatile }
     ::= { vacmViewTreeFamilyEntry 5 }
@@ -735,6 +735,7 @@ vacmMIBCompliance MODULE-COMPLIANCE
         OBJECT        vacmAccessWriteViewName
         MIN-ACCESS    read-only
         DESCRIPTION  "Write access is not required."
+
         OBJECT        vacmAccessNotifyViewName
         MIN-ACCESS    read-only
         DESCRIPTION  "Write access is not required."
@@ -799,3 +800,5 @@ vacmBasicGroup OBJECT-GROUP
     ::= { vacmMIBGroups 1 }
 
 END
+
+

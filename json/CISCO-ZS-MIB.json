@@ -8,53 +8,53 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "DomainIdOrZero",
-      "FcNameId",
       "FcAddressId",
+      "FcNameId",
+      "DomainIdOrZero",
       "VsanIndex"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TestAndIncr",
-      "DisplayString"
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoZsMIB": {
@@ -62,6 +62,26 @@
     "oid": "1.3.6.1.4.1.9.9.294",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2014-11-25 00:00",
+        "description": "Added following OBJECT-GROUP - zoneConfigGroupSup4 - zoneConfigGroupSup5 - zoneConfigGroupSup6 Deprecated following OBJECT-GROUP - zoneConfigGroupSup1 Added new compliance - zoneServerMIBComplianceRev9."
+      },
+      {
+        "revision": "2012-04-12 00:00",
+        "description": "Add default value to zoneMemberAttr object attribute."
+      },
+      {
+        "revision": "2011-10-31 00:00",
+        "description": "Update FcChangeProtoFailCause to add the following three enum values smartZoningAttrMismatch(26), smartZoningFeatureMismatch(27), smartZoningConfMismatch(28) Update ZoneMergeFailCause to add the following three enum values smartZoningAttrMismatch(16), smartZoningFeatureMismatch(17), smartZoningConfMismatch(18) Added new enumeration to 'ZoneEntry' and 'ZoneMemberEntry' for supporting smart zoning TC."
+      },
+      {
+        "revision": "2008-03-06 00:00",
+        "description": "Added new enumeration 'unknown' to FcChangeProtoFailCause TC."
+      },
+      {
+        "revision": "2006-07-05 00:00",
+        "description": "Added new eumeration 'clearAutoZones' to zoneDbClearDb object."
+      },
       {
         "revision": "2005-11-10 00:00",
         "description": "Added new enum 'ipAddrv6' to ZoneMemberType TC. Added description to the object zoneMemberID corresponding to this enum. Added zoneSetZoneListTable and zoneSetEnforcedZoneListTable to increase the number of zones that can be associated with a zoneset to 8192 from 2048. Changed the upper limit of zoneIndex and zoneMemberParentIndex objects to 8192 from 2048. Added zoneCompactTable and zoneCompactNotify. Added new enum 'deviceAlias' to ZoneMemberType TC. Deprecated zoneCopyActiveToFullOnVsan object. Added new objects zoneCopyActToFullSpinLock, zoneCopyActToFullMode and zoneCopyActToFullVsan. Enhanced zoneMergeFailure notification to include information regarding the details of merge failure."
@@ -244,7 +264,11 @@
           "zsetUnchangedAndActive": 21,
           "fabricUnstable": 22,
           "nonInteropMember": 23,
-          "lcUpgradeInProgress": 24
+          "lcUpgradeInProgress": 24,
+          "unknown": 25,
+          "smartZoningAttrMismatch": 26,
+          "smartZoningFeatureMismatch": 27,
+          "smartZoningConfMismatch": 28
         }
       }
     },
@@ -321,7 +345,26 @@
           "invPayloadFormat": 12,
           "sizeExceeded": 13,
           "unlicensedMember": 14,
-          "nonInteropZoneset": 15
+          "nonInteropZoneset": 15,
+          "smartZoningAttrMismatch": 16,
+          "smartZoningFeatureMismatch": 17,
+          "smartZoningConfMismatch": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ZoneMemberDeviceTypeAttr": {
+    "name": "ZoneMemberDeviceTypeAttr",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initiator": 1,
+          "target": 2,
+          "both": 3
         }
       }
     },
@@ -990,6 +1033,24 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "zoneSmartZoning": {
+    "name": "zoneSmartZoning",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "zoneAliasNumber": {
     "name": "zoneAliasNumber",
     "oid": "1.3.6.1.4.1.9.9.294.1.1.8",
@@ -1330,6 +1391,24 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "zoneMemberAttr": {
+    "name": "zoneMemberAttr",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneMemberDeviceTypeAttr",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "zoneEnforcedZoneSetNumber": {
     "name": "zoneEnforcedZoneSetNumber",
     "oid": "1.3.6.1.4.1.9.9.294.1.1.12",
@@ -1569,6 +1648,18 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "zoneEnforcedZoneSmartZoning": {
+    "name": "zoneEnforcedZoneSmartZoning",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "zoneEnforcedZoneAliasNumber": {
     "name": "zoneEnforcedZoneAliasNumber",
     "oid": "1.3.6.1.4.1.9.9.294.1.1.16",
@@ -1759,6 +1850,18 @@
           }
         ]
       }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneEnforcedZoneMemberAttr": {
+    "name": "zoneEnforcedZoneMemberAttr",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZoneMemberDeviceTypeAttr",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2428,7 +2531,8 @@
       "constraints": {
         "enumeration": {
           "clear": 1,
-          "noop": 2
+          "noop": 2,
+          "clearAutoZones": 3
         }
       }
     },
@@ -2823,6 +2927,78 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "zoneSetZoneListBmap10k": {
+    "name": "zoneSetZoneListBmap10k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetZoneListBmap12k": {
+    "name": "zoneSetZoneListBmap12k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetZoneListBmap14k": {
+    "name": "zoneSetZoneListBmap14k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "zoneSetZoneListBmap16k": {
+    "name": "zoneSetZoneListBmap16k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.38.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "zoneSetEnforcedZoneListTable": {
     "name": "zoneSetEnforcedZoneListTable",
     "oid": "1.3.6.1.4.1.9.9.294.1.1.39",
@@ -2880,6 +3056,54 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "zoneSetEnforcedZoneListBmap10k": {
+    "name": "zoneSetEnforcedZoneListBmap10k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListBmap12k": {
+    "name": "zoneSetEnforcedZoneListBmap12k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListBmap14k": {
+    "name": "zoneSetEnforcedZoneListBmap14k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "zoneSetEnforcedZoneListBmap16k": {
+    "name": "zoneSetEnforcedZoneListBmap16k",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.39.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "zoneCompactTable": {
     "name": "zoneCompactTable",
     "oid": "1.3.6.1.4.1.9.9.294.1.1.40",
@@ -2906,6 +3130,24 @@
   "zoneCompactFirst2k": {
     "name": "zoneCompactFirst2k",
     "oid": "1.3.6.1.4.1.9.9.294.1.1.40.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compact": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "zoneCompactZones": {
+    "name": "zoneCompactZones",
+    "oid": "1.3.6.1.4.1.9.9.294.1.1.40.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -3365,6 +3607,62 @@
       },
       {
         "object": "zoneNotificationGroup2Sup1",
+        "module": "CISCO-ZS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "zoneServerMIBComplianceRev9": {
+    "name": "zoneServerMIBComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.294.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "zoneConfigurationGroup7",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneStatisticsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1Sup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneConfigGroupSup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneLunStatsGroup",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationControlGroup1Sup2",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneNotificationGroup2Sup1",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneConfigGroupSup4",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneConfigGroupSup5",
+        "module": "CISCO-ZS-MIB"
+      },
+      {
+        "object": "zoneConfigGroupSup6",
         "module": "CISCO-ZS-MIB"
       }
     ],
@@ -5484,7 +5782,7 @@
         "object": "zoneCompactFirst2k"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "zoneNotificationControlGroup1Sup2": {
     "name": "zoneNotificationControlGroup1Sup2",
@@ -5661,6 +5959,10 @@
       },
       {
         "module": "CISCO-ZS-MIB",
+        "object": "zoneSmartZoning"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
         "object": "zoneAliasNumber"
       },
       {
@@ -5702,6 +6004,10 @@
       {
         "module": "CISCO-ZS-MIB",
         "object": "zoneMemberRowStatus"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneMemberAttr"
       },
       {
         "module": "CISCO-ZS-MIB",
@@ -5757,6 +6063,10 @@
       },
       {
         "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneSmartZoning"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
         "object": "zoneEnforcedZoneMemberNumber"
       },
       {
@@ -5770,6 +6080,10 @@
       {
         "module": "CISCO-ZS-MIB",
         "object": "zoneEnforcedZoneMemberLunID"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneEnforcedZoneMemberAttr"
       },
       {
         "module": "CISCO-ZS-MIB",
@@ -5858,11 +6172,95 @@
     ],
     "status": "current"
   },
+  "zoneConfigGroupSup4": {
+    "name": "zoneConfigGroupSup4",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap4k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap6k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap8k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap4k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap6k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap8k"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigGroupSup5": {
+    "name": "zoneConfigGroupSup5",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap10k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap12k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap14k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetZoneListBmap16k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap10k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap12k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap14k"
+      },
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneSetEnforcedZoneListBmap16k"
+      }
+    ],
+    "status": "current"
+  },
+  "zoneConfigGroupSup6": {
+    "name": "zoneConfigGroupSup6",
+    "oid": "1.3.6.1.4.1.9.9.294.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ZS-MIB",
+        "object": "zoneCompactZones"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ZS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:37 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:00 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-ZS-MIB"

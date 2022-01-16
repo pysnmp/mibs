@@ -2,111 +2,136 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanProfileName",
       "cLWlanIndex"
+    ],
+    "CISCO-LWAPP-WLAN-POLICY-MIB": [
+      "cLWlanWlanPolicyName"
+    ],
+    "CISCO-QOS-PIB-MIB": [
+      "Dscp"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DateAndTime",
+      "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "ciscoLwappMobilityExtMIB": {
     "name": "ciscoLwappMobilityExtMIB",
-    "oid": "1.3.6.1.4.1.9.9.999999",
+    "oid": "1.3.6.1.4.1.9.9.846",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2014-04-14 00:00",
-        "description": "Deprecated the mib objects cLMobilityExtMCClientAssociationTime, cLMobilityExtMOClientAssociationTime and Added the mib object cLMobilityExtMCClientUpTime, cLMobilityExtMOClientUpTime"
+        "revision": "2020-11-04 00:00",
+        "description": " Added cLMobilityExtWlanPolicyName cLGuestWlanAllAnchorsDown cLGuestWlanOneAnchorOnGuestLanUp notification"
       },
       {
-        "revision": "2013-01-09 01:00",
+        "revision": "2019-06-20 00:00",
+        "description": " Added C9800-specific attributes."
+      },
+      {
+        "revision": "2017-05-02 00:00",
         "description": "Initial version of this MIB module."
       }
     ]
   },
   "ciscoLwappMobilityExtMIBNotifs": {
     "name": "ciscoLwappMobilityExtMIBNotifs",
-    "oid": "1.3.6.1.4.1.9.9.999999.0",
+    "oid": "1.3.6.1.4.1.9.9.846.0",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMIBObjects": {
     "name": "ciscoLwappMobilityExtMIBObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMIBConform": {
     "name": "ciscoLwappMobilityExtMIBConform",
-    "oid": "1.3.6.1.4.1.9.9.999999.2",
+    "oid": "1.3.6.1.4.1.9.9.846.2",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtGlobalObjects": {
     "name": "ciscoLwappMobilityExtGlobalObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtTableObjects": {
     "name": "ciscoLwappMobilityExtTableObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtNotifObjects": {
     "name": "ciscoLwappMobilityExtNotifObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.3",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMCGlobalObjects": {
     "name": "ciscoLwappMobilityExtMCGlobalObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMCMAGlobalObjects": {
     "name": "ciscoLwappMobilityExtMCMAGlobalObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMAGlobalObjects": {
     "name": "ciscoLwappMobilityExtMAGlobalObjects",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMCStats": {
     "name": "ciscoLwappMobilityExtMCStats",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMobilityExtMAStats": {
+    "name": "ciscoLwappMobilityExtMAStats",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMobilityExtGlobalStats": {
+    "name": "ciscoLwappMobilityExtGlobalStats",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.6",
     "class": "objectidentity"
   },
   "CiscoAbsZeroBasedCounter64": {
@@ -120,7 +145,7 @@
   },
   "cLMobilityExtMCMOEnableStatus": {
     "name": "cLMobilityExtMCMOEnableStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -138,7 +163,7 @@
   },
   "cLMobilityExtMCMOAdminEnableStatus": {
     "name": "cLMobilityExtMCMOAdminEnableStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -156,7 +181,7 @@
   },
   "cLMobilityExtMCEnableStatus": {
     "name": "cLMobilityExtMCEnableStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -174,7 +199,7 @@
   },
   "cLMobilityExtMCAdminEnableStatus": {
     "name": "cLMobilityExtMCAdminEnableStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -192,7 +217,7 @@
   },
   "cLMobilityExtMCMulticastMode": {
     "name": "cLMobilityExtMCMulticastMode",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -210,7 +235,7 @@
   },
   "cLMobilityExtMCKeepAliveCount": {
     "name": "cLMobilityExtMCKeepAliveCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -236,7 +261,7 @@
   },
   "cLMobilityExtMCKeepAliveInterval": {
     "name": "cLMobilityExtMCKeepAliveInterval",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -251,38 +276,25 @@
         ]
       }
     },
-    "default": {
-      "default": {
-        "value": 10,
-        "format": "decimal"
-      }
-    },
+    "units": "seconds",
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLMobilityExtMCDscpValue": {
     "name": "cLMobilityExtMCDscpValue",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 63
-          }
-        ]
-      }
+      "type": "Dscp",
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLMobilityExtMCMOPublicAddressType": {
     "name": "cLMobilityExtMCMOPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -294,7 +306,7 @@
   },
   "cLMobilityExtMCMOPublicAddress": {
     "name": "cLMobilityExtMCMOPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -306,7 +318,7 @@
   },
   "cLMobilityExtMCApCountLicensesInUse": {
     "name": "cLMobilityExtMCApCountLicensesInUse",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.11",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -318,7 +330,7 @@
   },
   "cLMobilityExtMCOwnGroupMulticastAddressType": {
     "name": "cLMobilityExtMCOwnGroupMulticastAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.12",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -330,7 +342,7 @@
   },
   "cLMobilityExtMCOwnGroupMulticastAddress": {
     "name": "cLMobilityExtMCOwnGroupMulticastAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.13",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -342,19 +354,117 @@
   },
   "cLMobilityExtMCMobilityGroupName": {
     "name": "cLMobilityExtMCMobilityGroupName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.1.14",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityExtMCMONumberOfClients": {
+    "name": "cLMobilityExtMCMONumberOfClients",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
       "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCNumberOfMCs": {
+    "name": "cLMobilityExtMCNumberOfMCs",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCTotalNumberOfReportedAPs": {
+    "name": "cLMobilityExtMCTotalNumberOfReportedAPs",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCNumberOfReportedAPsInSubDomain": {
+    "name": "cLMobilityExtMCNumberOfReportedAPsInSubDomain",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCOwnGroupMulticastAddressv6Type": {
+    "name": "cLMobilityExtMCOwnGroupMulticastAddressv6Type",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityExtMCOwnGroupMulticastAddressv6": {
+    "name": "cLMobilityExtMCOwnGroupMulticastAddressv6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityExtMCMulticastModev6": {
+    "name": "cLMobilityExtMCMulticastModev6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLMobilityExtMgrAddressType": {
     "name": "cLMobilityExtMgrAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -366,7 +476,7 @@
   },
   "cLMobilityExtMgrAddress": {
     "name": "cLMobilityExtMgrAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -378,7 +488,7 @@
   },
   "cLMobilityExtMgrNetmaskType": {
     "name": "cLMobilityExtMgrNetmaskType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -390,7 +500,7 @@
   },
   "cLMobilityExtMgrNetmask": {
     "name": "cLMobilityExtMgrNetmask",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -402,7 +512,7 @@
   },
   "cLMobilityExtMgrMacAddress": {
     "name": "cLMobilityExtMgrMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -414,11 +524,11 @@
   },
   "cLMobilityExtMgrVlanId": {
     "name": "cLMobilityExtMgrVlanId",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Unsigned32",
+      "type": "VlanIndex",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -426,19 +536,27 @@
   },
   "cLMobilityExtMgrName": {
     "name": "cLMobilityExtMgrName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "SnmpAdminString",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLMobilityExtMgrInterfaceType": {
     "name": "cLMobilityExtMgrInterfaceType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -456,7 +574,7 @@
   },
   "cLMobilityExtNewArchitectureEnableStatus": {
     "name": "cLMobilityExtNewArchitectureEnableStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -468,7 +586,7 @@
   },
   "cLMobilityExtNewArchitectureAdminEnableStatus": {
     "name": "cLMobilityExtNewArchitectureAdminEnableStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.2.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -478,9 +596,40 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "cLMobilityExtSecureCipher": {
+    "name": "cLMobilityExtSecureCipher",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "aes256sha1": 2,
+          "aes256sha2": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMobilityExtEncryptionStatus": {
+    "name": "cLMobilityExtEncryptionStatus",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cLMobilityExtSpgTable": {
     "name": "cLMobilityExtSpgTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -488,7 +637,7 @@
   },
   "cLMobilityExtSpgEntry": {
     "name": "cLMobilityExtSpgEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -503,7 +652,7 @@
   },
   "cLMobilityExtSpgGroupName": {
     "name": "cLMobilityExtSpgGroupName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -523,7 +672,7 @@
   },
   "cLMobilityExtSpgGroupId": {
     "name": "cLMobilityExtSpgGroupId",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -535,7 +684,7 @@
   },
   "cLMobilityExtSpgBridgeDomainId": {
     "name": "cLMobilityExtSpgBridgeDomainId",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -547,7 +696,7 @@
   },
   "cLMobilityExtSpgMemberCount": {
     "name": "cLMobilityExtSpgMemberCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -559,7 +708,7 @@
   },
   "cLMobilityExtSpgMulticastAddressType": {
     "name": "cLMobilityExtSpgMulticastAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -571,7 +720,7 @@
   },
   "cLMobilityExtSpgMulticastAddress": {
     "name": "cLMobilityExtSpgMulticastAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -583,7 +732,7 @@
   },
   "cLMobilityExtSpgMulticastMode": {
     "name": "cLMobilityExtSpgMulticastMode",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -593,9 +742,21 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "cLMobilityExtSpgStorageType": {
+    "name": "cLMobilityExtSpgStorageType",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "cLMobilityExtSpgRowStatus": {
     "name": "cLMobilityExtSpgRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.1.1.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.1.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -607,7 +768,7 @@
   },
   "cLMobilityExtSpgMemberTable": {
     "name": "cLMobilityExtSpgMemberTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -615,7 +776,7 @@
   },
   "cLMobilityExtSpgMemberEntry": {
     "name": "cLMobilityExtSpgMemberEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -640,7 +801,7 @@
   },
   "cLMobilityExtSpgMemberPrivateAddressType": {
     "name": "cLMobilityExtSpgMemberPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -652,7 +813,7 @@
   },
   "cLMobilityExtSpgMemberPrivateAddress": {
     "name": "cLMobilityExtSpgMemberPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -664,7 +825,7 @@
   },
   "cLMobilityExtSpgMemberStatus": {
     "name": "cLMobilityExtSpgMemberStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -685,7 +846,7 @@
   },
   "cLMobilityExtSpgMemberPublicAddressType": {
     "name": "cLMobilityExtSpgMemberPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -697,7 +858,7 @@
   },
   "cLMobilityExtSpgMemberPublicAddress": {
     "name": "cLMobilityExtSpgMemberPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -709,7 +870,7 @@
   },
   "cLMobilityExtSpgMemberRowStatus": {
     "name": "cLMobilityExtSpgMemberRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.2.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -721,7 +882,7 @@
   },
   "cLMobilityExtGroupMemberTable": {
     "name": "cLMobilityExtGroupMemberTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -729,7 +890,7 @@
   },
   "cLMobilityExtGroupMemberEntry": {
     "name": "cLMobilityExtGroupMemberEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -749,7 +910,7 @@
   },
   "cLMobilityExtGroupMemberPrivateAddressType": {
     "name": "cLMobilityExtGroupMemberPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -761,7 +922,7 @@
   },
   "cLMobilityExtGroupMemberPrivateAddress": {
     "name": "cLMobilityExtGroupMemberPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -773,7 +934,7 @@
   },
   "cLMobilityExtGroupMemberGroupName": {
     "name": "cLMobilityExtGroupMemberGroupName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -793,7 +954,7 @@
   },
   "cLMobilityExtGroupMemberPublicAddressType": {
     "name": "cLMobilityExtGroupMemberPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -805,7 +966,7 @@
   },
   "cLMobilityExtGroupMemberPublicAddress": {
     "name": "cLMobilityExtGroupMemberPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -817,7 +978,7 @@
   },
   "cLMobilityExtGroupMemberStatus": {
     "name": "cLMobilityExtGroupMemberStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -838,7 +999,7 @@
   },
   "cLMobilityExtGroupMemberMacAddress": {
     "name": "cLMobilityExtGroupMemberMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -850,7 +1011,7 @@
   },
   "cLMobilityExtGroupMemberMulticastAddressType": {
     "name": "cLMobilityExtGroupMemberMulticastAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -862,7 +1023,7 @@
   },
   "cLMobilityExtGroupMemberMulticastAddress": {
     "name": "cLMobilityExtGroupMemberMulticastAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -874,7 +1035,7 @@
   },
   "cLMobilityExtGroupMemberHashKey": {
     "name": "cLMobilityExtGroupMemberHashKey",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -894,7 +1055,7 @@
   },
   "cLMobilityExtGroupMemberRowStatus": {
     "name": "cLMobilityExtGroupMemberRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.3.1.11",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.3.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -906,7 +1067,7 @@
   },
   "cLMobilityExtAnchorTable": {
     "name": "cLMobilityExtAnchorTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -914,7 +1075,7 @@
   },
   "cLMobilityExtAnchorEntry": {
     "name": "cLMobilityExtAnchorEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.4.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -939,7 +1100,7 @@
   },
   "cLMobilityExtAnchorAssociatedMCAddressType": {
     "name": "cLMobilityExtAnchorAssociatedMCAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.4.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -951,7 +1112,7 @@
   },
   "cLMobilityExtAnchorAssociatedMCAddress": {
     "name": "cLMobilityExtAnchorAssociatedMCAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.4.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -963,7 +1124,7 @@
   },
   "cLMobilityExtAnchorStatus": {
     "name": "cLMobilityExtAnchorStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.4.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -984,7 +1145,7 @@
   },
   "cLMobilityExtAnchorRowStatus": {
     "name": "cLMobilityExtAnchorRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.4.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -994,9 +1155,29 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "cLMobilityExtAnchorPriority": {
+    "name": "cLMobilityExtAnchorPriority",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "primary": 2,
+          "secondary": 3,
+          "tertiary": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "cLMobilityExtMOMCTable": {
     "name": "cLMobilityExtMOMCTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1004,7 +1185,7 @@
   },
   "cLMobilityExtMOMCEntry": {
     "name": "cLMobilityExtMOMCEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1024,7 +1205,7 @@
   },
   "cLMobilityExtMOMCAddressType": {
     "name": "cLMobilityExtMOMCAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1036,7 +1217,7 @@
   },
   "cLMobilityExtMOMCAddress": {
     "name": "cLMobilityExtMOMCAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1048,7 +1229,7 @@
   },
   "cLMobilityExtMOMCMacAddress": {
     "name": "cLMobilityExtMOMCMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1060,7 +1241,7 @@
   },
   "cLMobilityExtMOMCLinkStatus": {
     "name": "cLMobilityExtMOMCLinkStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1081,7 +1262,7 @@
   },
   "cLMobilityExtMOMCClientCount": {
     "name": "cLMobilityExtMOMCClientCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.5.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.5.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1093,7 +1274,7 @@
   },
   "cLMobilityExtMCClientTable": {
     "name": "cLMobilityExtMCClientTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1101,7 +1282,7 @@
   },
   "cLMobilityExtMCClientEntry": {
     "name": "cLMobilityExtMCClientEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1116,7 +1297,7 @@
   },
   "cLMobilityExtMCClientMacAddress": {
     "name": "cLMobilityExtMCClientMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1128,7 +1309,7 @@
   },
   "cLMobilityExtMCClientAnchorMCPrivateAddressType": {
     "name": "cLMobilityExtMCClientAnchorMCPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1140,7 +1321,7 @@
   },
   "cLMobilityExtMCClientAnchorMCPrivateAddress": {
     "name": "cLMobilityExtMCClientAnchorMCPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1152,7 +1333,7 @@
   },
   "cLMobilityExtMCClientAssociatedMCAddressType": {
     "name": "cLMobilityExtMCClientAssociatedMCAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1164,7 +1345,7 @@
   },
   "cLMobilityExtMCClientAssociatedMCAddress": {
     "name": "cLMobilityExtMCClientAssociatedMCAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1176,7 +1357,7 @@
   },
   "cLMobilityExtMCClientAddressType": {
     "name": "cLMobilityExtMCClientAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1188,7 +1369,7 @@
   },
   "cLMobilityExtMCClientAddress": {
     "name": "cLMobilityExtMCClientAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1200,7 +1381,7 @@
   },
   "cLMobilityExtMCClientState": {
     "name": "cLMobilityExtMCClientState",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1220,7 +1401,7 @@
   },
   "cLMobilityExtMCClientAssociationTime": {
     "name": "cLMobilityExtMCClientAssociationTime",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1232,7 +1413,7 @@
   },
   "cLMobilityExtMCClientLocalClient": {
     "name": "cLMobilityExtMCClientLocalClient",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1244,7 +1425,7 @@
   },
   "cLMobilityExtMCClientAnchorMCGroupId": {
     "name": "cLMobilityExtMCClientAnchorMCGroupId",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.11",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1256,7 +1437,7 @@
   },
   "cLMobilityExtMCClientAssociatedMCGroupId": {
     "name": "cLMobilityExtMCClientAssociatedMCGroupId",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.12",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1268,7 +1449,7 @@
   },
   "cLMobilityExtMCClientAssociatedMAAddressType": {
     "name": "cLMobilityExtMCClientAssociatedMAAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.13",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1280,7 +1461,7 @@
   },
   "cLMobilityExtMCClientAssociatedMAAddress": {
     "name": "cLMobilityExtMCClientAssociatedMAAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.14",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1292,7 +1473,7 @@
   },
   "cLMobilityExtMCClientAnchorMAAddressType": {
     "name": "cLMobilityExtMCClientAnchorMAAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.15",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1304,7 +1485,7 @@
   },
   "cLMobilityExtMCClientAnchorMAAddress": {
     "name": "cLMobilityExtMCClientAnchorMAAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.16",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1316,7 +1497,7 @@
   },
   "cLMobilityExtMCClientUpTime": {
     "name": "cLMobilityExtMCClientUpTime",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.6.1.17",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.6.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1328,7 +1509,7 @@
   },
   "cLMobilityExtMOClientTable": {
     "name": "cLMobilityExtMOClientTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1336,7 +1517,7 @@
   },
   "cLMobilityExtMOClientEntry": {
     "name": "cLMobilityExtMOClientEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1351,7 +1532,7 @@
   },
   "cLMobilityExtMOClientMacAddress": {
     "name": "cLMobilityExtMOClientMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1363,7 +1544,7 @@
   },
   "cLMobilityExtMOClientAnchorMCPublicAddressType": {
     "name": "cLMobilityExtMOClientAnchorMCPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1375,7 +1556,7 @@
   },
   "cLMobilityExtMOClientAnchorMCPublicAddress": {
     "name": "cLMobilityExtMOClientAnchorMCPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1387,7 +1568,7 @@
   },
   "cLMobilityExtMOClientAnchorMCPrivateAddressType": {
     "name": "cLMobilityExtMOClientAnchorMCPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1399,7 +1580,7 @@
   },
   "cLMobilityExtMOClientAnchorMCPrivateAddress": {
     "name": "cLMobilityExtMOClientAnchorMCPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1411,7 +1592,7 @@
   },
   "cLMobilityExtMOClientAssociatedMCPublicAddressType": {
     "name": "cLMobilityExtMOClientAssociatedMCPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1423,7 +1604,7 @@
   },
   "cLMobilityExtMOClientAssociatedMCPublicAddress": {
     "name": "cLMobilityExtMOClientAssociatedMCPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1435,7 +1616,7 @@
   },
   "cLMobilityExtMOClientAssociatedMCPrivateAddressType": {
     "name": "cLMobilityExtMOClientAssociatedMCPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1447,7 +1628,7 @@
   },
   "cLMobilityExtMOClientAssociatedMCPrivateAddress": {
     "name": "cLMobilityExtMOClientAssociatedMCPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1459,7 +1640,7 @@
   },
   "cLMobilityExtMOClientAddressType": {
     "name": "cLMobilityExtMOClientAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1471,7 +1652,7 @@
   },
   "cLMobilityExtMOClientAddress": {
     "name": "cLMobilityExtMOClientAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.11",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1483,7 +1664,7 @@
   },
   "cLMobilityExtMOClientLocalTime": {
     "name": "cLMobilityExtMOClientLocalTime",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.12",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1495,11 +1676,11 @@
   },
   "cLMobilityExtMOClientAssociationTime": {
     "name": "cLMobilityExtMOClientAssociationTime",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.13",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DateAndTime",
+      "type": "Counter64",
       "class": "type"
     },
     "units": "seconds",
@@ -1508,7 +1689,7 @@
   },
   "cLMobilityExtMOClientUpTime": {
     "name": "cLMobilityExtMOClientUpTime",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.7.1.14",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.7.1.14",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1520,7 +1701,7 @@
   },
   "cLMobilityExtApMgrTable": {
     "name": "cLMobilityExtApMgrTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1528,7 +1709,7 @@
   },
   "cLMobilityExtApMgrEntry": {
     "name": "cLMobilityExtApMgrEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1543,7 +1724,7 @@
   },
   "cLMobilityExtApMgrName": {
     "name": "cLMobilityExtApMgrName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1555,7 +1736,7 @@
   },
   "cLMobilityExtApMgrAddressType": {
     "name": "cLMobilityExtApMgrAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1567,7 +1748,7 @@
   },
   "cLMobilityExtApMgrAddress": {
     "name": "cLMobilityExtApMgrAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1579,7 +1760,7 @@
   },
   "cLMobilityExtApMgrNetmaskType": {
     "name": "cLMobilityExtApMgrNetmaskType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1591,7 +1772,7 @@
   },
   "cLMobilityExtApMgrNetmask": {
     "name": "cLMobilityExtApMgrNetmask",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1603,7 +1784,7 @@
   },
   "cLMobilityExtApMgrMacAddress": {
     "name": "cLMobilityExtApMgrMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1615,7 +1796,7 @@
   },
   "cLMobilityExtApMgrVlanId": {
     "name": "cLMobilityExtApMgrVlanId",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1627,7 +1808,7 @@
   },
   "cLMobilityExtApMgrInterfaceType": {
     "name": "cLMobilityExtApMgrInterfaceType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1645,7 +1826,7 @@
   },
   "cLMobilityExtApMgrRowStatus": {
     "name": "cLMobilityExtApMgrRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.8.1.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.8.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1657,7 +1838,7 @@
   },
   "cLMobilityExtForeignWlcMapTable": {
     "name": "cLMobilityExtForeignWlcMapTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.9",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1665,7 +1846,7 @@
   },
   "cLMobilityExtForeignWlcMapEntry": {
     "name": "cLMobilityExtForeignWlcMapEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.9.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.9.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1690,7 +1871,7 @@
   },
   "cLMobilityExtForeignWlcAddressType": {
     "name": "cLMobilityExtForeignWlcAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.9.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.9.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1702,7 +1883,7 @@
   },
   "cLMobilityExtForeignWlcAddress": {
     "name": "cLMobilityExtForeignWlcAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.9.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.9.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1714,7 +1895,7 @@
   },
   "cLMobilityExtForeignWlcMapIf": {
     "name": "cLMobilityExtForeignWlcMapIf",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.9.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.9.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1726,7 +1907,7 @@
   },
   "cLMobilityExtForeignWlcMapRowStatus": {
     "name": "cLMobilityExtForeignWlcMapRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.9.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.9.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1738,7 +1919,7 @@
   },
   "cLMobilityExtGroupTable": {
     "name": "cLMobilityExtGroupTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1746,7 +1927,7 @@
   },
   "cLMobilityExtGroupEntry": {
     "name": "cLMobilityExtGroupEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.10.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1761,7 +1942,7 @@
   },
   "cLMobilityExtGroupName": {
     "name": "cLMobilityExtGroupName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.10.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1773,31 +1954,91 @@
   },
   "cLMobilityExtGroupMulticastAddressType": {
     "name": "cLMobilityExtGroupMulticastAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.10.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "InetAddressType",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "cLMobilityExtGroupMulticastAddress": {
     "name": "cLMobilityExtGroupMulticastAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.10.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "InetAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityExtGroupRowStatus": {
+    "name": "cLMobilityExtGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityExtGroupMulticastMode": {
+    "name": "cLMobilityExtGroupMulticastMode",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityExtGroupMulticastModev6": {
+    "name": "cLMobilityExtGroupMulticastModev6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityExtGroupMulticastAddressv6Type": {
+    "name": "cLMobilityExtGroupMulticastAddressv6Type",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityExtGroupMulticastAddressv6": {
+    "name": "cLMobilityExtGroupMulticastAddressv6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
     "status": "current"
   },
   "cLMobilityExtMAPeerTable": {
     "name": "cLMobilityExtMAPeerTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1805,7 +2046,7 @@
   },
   "cLMobilityExtMAPeerEntry": {
     "name": "cLMobilityExtMAPeerEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1825,7 +2066,7 @@
   },
   "cLMobilityExtMAPeerPrivateAddressType": {
     "name": "cLMobilityExtMAPeerPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1837,7 +2078,7 @@
   },
   "cLMobilityExtMAPeerPrivateAddress": {
     "name": "cLMobilityExtMAPeerPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1849,7 +2090,7 @@
   },
   "cLMobilityExtMAPeerPublicAddressType": {
     "name": "cLMobilityExtMAPeerPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1861,7 +2102,7 @@
   },
   "cLMobilityExtMAPeerPublicAddress": {
     "name": "cLMobilityExtMAPeerPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11.1.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1873,7 +2114,7 @@
   },
   "cLMobilityExtMAPeerLinkStatus": {
     "name": "cLMobilityExtMAPeerLinkStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.11.1.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.11.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1894,7 +2135,7 @@
   },
   "cLMobilityExtMCMAStatisticsTable": {
     "name": "cLMobilityExtMCMAStatisticsTable",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.12",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.12",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1902,7 +2143,7 @@
   },
   "cLMobilityExtMCMAStatisticsEntry": {
     "name": "cLMobilityExtMCMAStatisticsEntry",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.12.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.12.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -1922,7 +2163,7 @@
   },
   "cLMobilityExtMCMAPrivateAddressType": {
     "name": "cLMobilityExtMCMAPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.12.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.12.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1934,7 +2175,7 @@
   },
   "cLMobilityExtMCMAPrivateAddress": {
     "name": "cLMobilityExtMCMAPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.12.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.12.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1946,7 +2187,7 @@
   },
   "cLMobilityExtMCMAClientCount": {
     "name": "cLMobilityExtMCMAClientCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.2.12.1.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.12.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1956,9 +2197,260 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cLMobilityExtMCAPTable": {
+    "name": "cLMobilityExtMCAPTable",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPEntry": {
+    "name": "cLMobilityExtMCAPEntry",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityExtMCAPMacAddress": {
+    "name": "cLMobilityExtMCAPMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPName": {
+    "name": "cLMobilityExtMCAPName",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPReportingDeviceAddressType": {
+    "name": "cLMobilityExtMCAPReportingDeviceAddressType",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPReportingDeviceAddress": {
+    "name": "cLMobilityExtMCAPReportingDeviceAddress",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPReportingDeviceType": {
+    "name": "cLMobilityExtMCAPReportingDeviceType",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "peerMC": 0,
+          "associatedMA": 1,
+          "localMC": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPCountTable": {
+    "name": "cLMobilityExtMCAPCountTable",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPCountEntry": {
+    "name": "cLMobilityExtMCAPCountEntry",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPCountReportingDeviceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPCountReportingDeviceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityExtMCAPCountReportingDeviceAddressType": {
+    "name": "cLMobilityExtMCAPCountReportingDeviceAddressType",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPCountReportingDeviceAddress": {
+    "name": "cLMobilityExtMCAPCountReportingDeviceAddress",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityExtMCAPCount": {
+    "name": "cLMobilityExtMCAPCount",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityAnchorPolicyEntryTable": {
+    "name": "cLMobilityAnchorPolicyEntryTable",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorWlanPolicyEntry": {
+    "name": "cLMobilityAnchorWlanPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-POLICY-MIB",
+        "object": "cLWlanWlanPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityAnchorPolicyMCAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityAnchorPolicyMCAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityAnchorPolicyMCAddressType": {
+    "name": "cLMobilityAnchorPolicyMCAddressType",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorPolicyMCAddress": {
+    "name": "cLMobilityAnchorPolicyMCAddress",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLMobilityAnchorPolicyRowStatus": {
+    "name": "cLMobilityAnchorPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLMobilityAnchorPolicyMCPriority": {
+    "name": "cLMobilityAnchorPolicyMCPriority",
+    "oid": "1.3.6.1.4.1.9.9.846.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "primary": 2,
+          "secondary": 3,
+          "tertiary": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "cLMobilityExtMAMCPublicAddressType": {
     "name": "cLMobilityExtMAMCPublicAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1970,7 +2462,7 @@
   },
   "cLMobilityExtMAMCPublicAddress": {
     "name": "cLMobilityExtMAMCPublicAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1982,7 +2474,7 @@
   },
   "cLMobilityExtMAMCPrivateAddressType": {
     "name": "cLMobilityExtMAMCPrivateAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1994,7 +2486,7 @@
   },
   "cLMobilityExtMAMCPrivateAddress": {
     "name": "cLMobilityExtMAMCPrivateAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2006,7 +2498,7 @@
   },
   "cLMobilityExtMAToMCLinkStatus": {
     "name": "cLMobilityExtMAToMCLinkStatus",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2027,7 +2519,7 @@
   },
   "cLMobilityExtMASpgPeerCount": {
     "name": "cLMobilityExtMASpgPeerCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2039,7 +2531,7 @@
   },
   "cLMobilityExtMASpgName": {
     "name": "cLMobilityExtMASpgName",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2059,7 +2551,7 @@
   },
   "cLMobilityExtMAOwnMulticastAddressType": {
     "name": "cLMobilityExtMAOwnMulticastAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.8",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2071,7 +2563,7 @@
   },
   "cLMobilityExtMAOwnMulticastAddress": {
     "name": "cLMobilityExtMAOwnMulticastAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2083,7 +2575,7 @@
   },
   "cLMobilityExtMAKeepAliveCount": {
     "name": "cLMobilityExtMAKeepAliveCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2109,7 +2601,7 @@
   },
   "cLMobilityExtMAKeepAliveInterval": {
     "name": "cLMobilityExtMAKeepAliveInterval",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.11",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2130,32 +2622,25 @@
         "format": "decimal"
       }
     },
+    "units": "seconds",
     "maxaccess": "read-only",
     "status": "current"
   },
   "cLMobilityExtMADscpValue": {
     "name": "cLMobilityExtMADscpValue",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.3.12",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.3.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 63
-          }
-        ]
-      }
+      "type": "Dscp",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
   },
   "cLMobilityExtMCReceivedTotal": {
     "name": "cLMobilityExtMCReceivedTotal",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2167,7 +2652,7 @@
   },
   "cLMobilityExtMCReceivedDrops": {
     "name": "cLMobilityExtMCReceivedDrops",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2179,7 +2664,7 @@
   },
   "cLMobilityExtMCProtocolReceiveErrors": {
     "name": "cLMobilityExtMCProtocolReceiveErrors",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2191,7 +2676,7 @@
   },
   "cLMobilityExtMCProtocolTransmitErrors": {
     "name": "cLMobilityExtMCProtocolTransmitErrors",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2203,7 +2688,7 @@
   },
   "cLMobilityExtMCStateErrors": {
     "name": "cLMobilityExtMCStateErrors",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.5",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2215,7 +2700,7 @@
   },
   "cLMobilityExtMCProtocolRetransmitted": {
     "name": "cLMobilityExtMCProtocolRetransmitted",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.6",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2227,7 +2712,7 @@
   },
   "cLMobilityExtMCHandoffRequestsReceived": {
     "name": "cLMobilityExtMCHandoffRequestsReceived",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.7",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2237,9 +2722,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "cLMobilityExtMCHandoffCmplReceived": {
-    "name": "cLMobilityExtMCHandoffCmplReceived",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.8",
+  "cLMobilityExtMCHandoffCompleteReceived": {
+    "name": "cLMobilityExtMCHandoffCompleteReceived",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2251,7 +2736,7 @@
   },
   "cLMobilityExtMCHandoffClientDeleteReceived": {
     "name": "cLMobilityExtMCHandoffClientDeleteReceived",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.9",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2263,7 +2748,7 @@
   },
   "cLMobilityExtMCHandoffRequestsTransmitted": {
     "name": "cLMobilityExtMCHandoffRequestsTransmitted",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.10",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2273,9 +2758,9 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "cLMobilityExtMCHandoffCmplTransmitted": {
-    "name": "cLMobilityExtMCHandoffCmplTransmitted",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.11",
+  "cLMobilityExtMCHandoffCompleteTransmitted": {
+    "name": "cLMobilityExtMCHandoffCompleteTransmitted",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2287,7 +2772,7 @@
   },
   "cLMobilityExtMCHandoffClientDeleteTransmitted": {
     "name": "cLMobilityExtMCHandoffClientDeleteTransmitted",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.12",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2299,7 +2784,7 @@
   },
   "cLMobilityExtMCTotalClientCount": {
     "name": "cLMobilityExtMCTotalClientCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.13",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2311,7 +2796,7 @@
   },
   "cLMobilityExtMCWgbCount": {
     "name": "cLMobilityExtMCWgbCount",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.1.4.14",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.4.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2323,7 +2808,7 @@
   },
   "cLMobilityExtNotifyObjectSourceIPAddressType": {
     "name": "cLMobilityExtNotifyObjectSourceIPAddressType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.3.1",
+    "oid": "1.3.6.1.4.1.9.9.846.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2335,7 +2820,7 @@
   },
   "cLMobilityExtNotifyObjectSourceIPAddress": {
     "name": "cLMobilityExtNotifyObjectSourceIPAddress",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.3.2",
+    "oid": "1.3.6.1.4.1.9.9.846.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2347,7 +2832,7 @@
   },
   "cLMobilityExtNotifyObjectSourceType": {
     "name": "cLMobilityExtNotifyObjectSourceType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.3.3",
+    "oid": "1.3.6.1.4.1.9.9.846.1.3.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2367,7 +2852,7 @@
   },
   "cLMobilityExtNotifyObjectDestinationType": {
     "name": "cLMobilityExtNotifyObjectDestinationType",
-    "oid": "1.3.6.1.4.1.9.9.999999.1.3.4",
+    "oid": "1.3.6.1.4.1.9.9.846.1.3.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2385,9 +2870,257 @@
     "maxaccess": "accessible-for-notify",
     "status": "current"
   },
+  "cLMobilityExtWlanPolicyName": {
+    "name": "cLMobilityExtWlanPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.846.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cLMobilityExtMAReceivedTotal": {
+    "name": "cLMobilityExtMAReceivedTotal",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAReceivedDrops": {
+    "name": "cLMobilityExtMAReceivedDrops",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAProtocolReceiveErrors": {
+    "name": "cLMobilityExtMAProtocolReceiveErrors",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAProtocolTransmitErrors": {
+    "name": "cLMobilityExtMAProtocolTransmitErrors",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAStateErrors": {
+    "name": "cLMobilityExtMAStateErrors",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAProtocolRetransmitted": {
+    "name": "cLMobilityExtMAProtocolRetransmitted",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMATotalClients": {
+    "name": "cLMobilityExtMATotalClients",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMALocalClients": {
+    "name": "cLMobilityExtMALocalClients",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAAnchoredClients": {
+    "name": "cLMobilityExtMAAnchoredClients",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMAForeignedClients": {
+    "name": "cLMobilityExtMAForeignedClients",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMATotalInterGroupHandoffReceived": {
+    "name": "cLMobilityExtMATotalInterGroupHandoffReceived",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMATotalIntraGroupHandoffReceived": {
+    "name": "cLMobilityExtMATotalIntraGroupHandoffReceived",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMATotalHandoffEndRequestReceived": {
+    "name": "cLMobilityExtMATotalHandoffEndRequestReceived",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMATotalInterGroupHandoffSent": {
+    "name": "cLMobilityExtMATotalInterGroupHandoffSent",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtMATotalIntraGroupHandoffSent": {
+    "name": "cLMobilityExtMATotalIntraGroupHandoffSent",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtReceivedTotal": {
+    "name": "cLMobilityExtReceivedTotal",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtTransmitTotal": {
+    "name": "cLMobilityExtTransmitTotal",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtTotalResourceAllocation": {
+    "name": "cLMobilityExtTotalResourceAllocation",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMobilityExtTotalResourceFree": {
+    "name": "cLMobilityExtTotalResourceFree",
+    "oid": "1.3.6.1.4.1.9.9.846.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "ciscoLwappMobilityControlPathDown": {
     "name": "ciscoLwappMobilityControlPathDown",
-    "oid": "1.3.6.1.4.1.9.9.999999.0.1",
+    "oid": "1.3.6.1.4.1.9.9.846.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2411,7 +3144,7 @@
   },
   "ciscoLwappMobilityControlPathUp": {
     "name": "ciscoLwappMobilityControlPathUp",
-    "oid": "1.3.6.1.4.1.9.9.999999.0.2",
+    "oid": "1.3.6.1.4.1.9.9.846.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -2435,7 +3168,7 @@
   },
   "ciscoLwappMobilityDataPathDown": {
     "name": "ciscoLwappMobilityDataPathDown",
-    "oid": "1.3.6.1.4.1.9.9.999999.0.3",
+    "oid": "1.3.6.1.4.1.9.9.846.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -2459,7 +3192,7 @@
   },
   "ciscoLwappMobilityDataPathUp": {
     "name": "ciscoLwappMobilityDataPathUp",
-    "oid": "1.3.6.1.4.1.9.9.999999.0.4",
+    "oid": "1.3.6.1.4.1.9.9.846.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -2481,19 +3214,51 @@
     ],
     "status": "current"
   },
+  "cLGuestWlanAllAnchorsDown": {
+    "name": "cLGuestWlanAllAnchorsDown",
+    "oid": "1.3.6.1.4.1.9.9.846.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtWlanPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "cLGuestWlanOneAnchorOnGuestLanUp": {
+    "name": "cLGuestWlanOneAnchorOnGuestLanUp",
+    "oid": "1.3.6.1.4.1.9.9.846.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtWlanPolicyName"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoLwappMobilityExtMIBCompliances": {
     "name": "ciscoLwappMobilityExtMIBCompliances",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.1",
+    "oid": "1.3.6.1.4.1.9.9.846.2.1",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMIBGroups": {
     "name": "ciscoLwappMobilityExtMIBGroups",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.2",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2",
     "class": "objectidentity"
   },
   "ciscoLwappMobilityExtMIBCompliance": {
     "name": "ciscoLwappMobilityExtMIBCompliance",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.1.1",
+    "oid": "1.3.6.1.4.1.9.9.846.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2513,7 +3278,7 @@
   },
   "ciscoLwappMobilityExtMIBComplianceRev1": {
     "name": "ciscoLwappMobilityExtMIBComplianceRev1",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.1.2",
+    "oid": "1.3.6.1.4.1.9.9.846.2.1.2",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -2529,11 +3294,103 @@
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "ciscoLwappMobilityExtMIBComplianceRev2": {
+    "name": "ciscoLwappMobilityExtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.846.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLMobilityExtConfigGroupRev1",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "cLMobilityExtMAStatsConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtNotifyObjectsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtNotifsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappMobilityExtMIBComplianceRev3": {
+    "name": "ciscoLwappMobilityExtMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.846.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLMobilityExtConfigGroupRev1",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "cLMobilityExtMAStatsConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtNotifyObjectsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtNotifsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtMCMAStatsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "cLMobilityExtAnchorConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappMobilityExtMIBComplianceRev4": {
+    "name": "ciscoLwappMobilityExtMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.846.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cLMobilityExtConfigGroupRev1",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "cLMobilityExtMAStatsConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtNotifyObjectsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtNotifsGroupRev1",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "ciscoLwappMobilityExtMCMAStatsGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "cLMobilityExtAnchorConfigGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      },
+      {
+        "object": "cLMobilityExtWlanPolicyNameGroup",
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"
+      }
+    ],
     "status": "current"
   },
   "cLMobilityExtConfigGroup": {
     "name": "cLMobilityExtConfigGroup",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.2.1",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -2555,6 +3412,10 @@
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMCMulticastMode"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCMulticastModev6"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -2590,7 +3451,31 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCOwnGroupMulticastAddressv6Type"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCOwnGroupMulticastAddressv6"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMCMobilityGroupName"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCMONumberOfClients"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCNumberOfMCs"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCTotalNumberOfReportedAPs"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCNumberOfReportedAPsInSubDomain"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -2890,6 +3775,26 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastMode"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastModev6"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastAddressv6Type"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastAddressv6"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMAPeerPublicAddressType"
       },
       {
@@ -2903,6 +3808,26 @@
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMCMAClientCount"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPName"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPReportingDeviceAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPReportingDeviceAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPReportingDeviceType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPCount"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -2982,7 +3907,7 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
-        "object": "cLMobilityExtMCHandoffCmplReceived"
+        "object": "cLMobilityExtMCHandoffCompleteReceived"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -2994,7 +3919,7 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
-        "object": "cLMobilityExtMCHandoffCmplTransmitted"
+        "object": "cLMobilityExtMCHandoffCompleteTransmitted"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -3013,7 +3938,7 @@
   },
   "ciscoLwappMobilityExtNotifyObjectsGroup": {
     "name": "ciscoLwappMobilityExtNotifyObjectsGroup",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.2.2",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -3037,7 +3962,7 @@
   },
   "ciscoLwappMobilityExtNotifsGroup": {
     "name": "ciscoLwappMobilityExtNotifsGroup",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.2.3",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.3",
     "class": "notificationgroup",
     "objects": [
       {
@@ -3057,11 +3982,11 @@
         "object": "ciscoLwappMobilityDataPathUp"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cLMobilityExtConfigGroupRev1": {
     "name": "cLMobilityExtConfigGroupRev1",
-    "oid": "1.3.6.1.4.1.9.9.999999.2.2.4",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -3083,6 +4008,10 @@
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMCMulticastMode"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCMulticastModev6"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -3118,7 +4047,31 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCOwnGroupMulticastAddressv6Type"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCOwnGroupMulticastAddressv6"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMCMobilityGroupName"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCMONumberOfClients"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCNumberOfMCs"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCTotalNumberOfReportedAPs"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCNumberOfReportedAPsInSubDomain"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -3410,6 +4363,26 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastMode"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastModev6"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastAddressv6Type"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupMulticastAddressv6"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtGroupRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMAPeerPublicAddressType"
       },
       {
@@ -3423,6 +4396,26 @@
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
         "object": "cLMobilityExtMCMAClientCount"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPName"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPReportingDeviceAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPReportingDeviceAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPReportingDeviceType"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMCAPCount"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -3502,7 +4495,7 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
-        "object": "cLMobilityExtMCHandoffCmplReceived"
+        "object": "cLMobilityExtMCHandoffCompleteReceived"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -3514,7 +4507,7 @@
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
-        "object": "cLMobilityExtMCHandoffCmplTransmitted"
+        "object": "cLMobilityExtMCHandoffCompleteTransmitted"
       },
       {
         "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
@@ -3539,11 +4532,171 @@
     ],
     "status": "current"
   },
+  "cLMobilityExtMAStatsConfigGroup": {
+    "name": "cLMobilityExtMAStatsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAReceivedTotal"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAReceivedDrops"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAProtocolReceiveErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAProtocolTransmitErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAStateErrors"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAProtocolRetransmitted"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMATotalClients"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMALocalClients"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAAnchoredClients"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMAForeignedClients"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMATotalInterGroupHandoffReceived"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMATotalIntraGroupHandoffReceived"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMATotalHandoffEndRequestReceived"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMATotalInterGroupHandoffSent"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtMATotalIntraGroupHandoffSent"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtReceivedTotal"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtTransmitTotal"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtTotalResourceAllocation"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtTotalResourceFree"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityExtMCMAStatsGroup": {
+    "name": "ciscoLwappMobilityExtMCMAStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtEncryptionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityExtAnchorConfigGroup": {
+    "name": "cLMobilityExtAnchorConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtAnchorPriority"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtAnchorStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtAnchorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cLMobilityExtWlanPolicyNameGroup": {
+    "name": "cLMobilityExtWlanPolicyNameGroup",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLMobilityExtWlanPolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMobilityExtNotifsGroupRev1": {
+    "name": "ciscoLwappMobilityExtNotifsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.846.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "ciscoLwappMobilityControlPathDown"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "ciscoLwappMobilityControlPathUp"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "ciscoLwappMobilityDataPathDown"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "ciscoLwappMobilityDataPathUp"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLGuestWlanAllAnchorsDown"
+      },
+      {
+        "module": "CISCO-LWAPP-MOBILITY-EXT-MIB",
+        "object": "cLGuestWlanOneAnchorOnGuestLanUp"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MOBILITY-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:41 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"

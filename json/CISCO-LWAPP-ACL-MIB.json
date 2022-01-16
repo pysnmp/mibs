@@ -4,31 +4,42 @@
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
+    "CISCO-TC": [
+      "CiscoURLString"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ciscoLwappAclMIB": {
@@ -36,6 +47,10 @@
     "oid": "1.3.6.1.4.1.9.9.577",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2017-04-24 00:00",
+        "description": "Changed name claAclUrl to claAclUrlName."
+      },
       {
         "revision": "2010-03-04 00:00",
         "description": "Added claAclTable and claAclRuleTable."
@@ -98,6 +113,30 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "claUrlAclExternalServerIpType": {
+    "name": "claUrlAclExternalServerIpType",
+    "oid": "1.3.6.1.4.1.9.9.577.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "claUrlAclExternalServerIp": {
+    "name": "claUrlAclExternalServerIp",
+    "oid": "1.3.6.1.4.1.9.9.577.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "claCpuAclTable": {
     "name": "claCpuAclTable",
     "oid": "1.3.6.1.4.1.9.9.577.1.1.1",
@@ -139,7 +178,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DisplayString",
+      "type": "SnmpAdminString",
       "class": "type",
       "constraints": {
         "size": [
@@ -168,6 +207,12 @@
           "wireless": 3,
           "both": 4
         }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -224,6 +269,12 @@
     "syntax": {
       "type": "TruthValue",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -286,6 +337,307 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "claAclUrlTable": {
+    "name": "claAclUrlTable",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claAclUrlEntry": {
+    "name": "claAclUrlEntry",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclUrlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "claAclUrlIndex": {
+    "name": "claAclUrlIndex",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claAclUrlName": {
+    "name": "claAclUrlName",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claAclUrlRowStatus": {
+    "name": "claAclUrlRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclTable": {
+    "name": "claUrlAclTable",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claUrlAclEntry": {
+    "name": "claUrlAclEntry",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "claUrlAclName": {
+    "name": "claUrlAclName",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claUrlAclApplyMode": {
+    "name": "claUrlAclApplyMode",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notapplied": 1,
+          "applied": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notapplied",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclCounterClear": {
+    "name": "claUrlAclCounterClear",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclRowStatus": {
+    "name": "claUrlAclRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclListType": {
+    "name": "claUrlAclListType",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "whitelist": 1,
+          "blacklist": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "whitelist",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclRuleTable": {
+    "name": "claUrlAclRuleTable",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claUrlAclRuleEntry": {
+    "name": "claUrlAclRuleEntry",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "claUrlAclRuleIndex": {
+    "name": "claUrlAclRuleIndex",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "claUrlAclRuleUrl": {
+    "name": "claUrlAclRuleUrl",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclRuleAction": {
+    "name": "claUrlAclRuleAction",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "claUrlAclRuleHits": {
+    "name": "claUrlAclRuleHits",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "claUrlAclRuleRowStatus": {
+    "name": "claUrlAclRuleRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.577.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
     "status": "current"
   },
   "ciscoLwappAclMIBCompliances": {
@@ -358,6 +710,66 @@
       {
         "module": "CISCO-LWAPP-ACL-MIB",
         "object": "claAclRuleHits"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclCounterEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclCounterClear"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclRuleHits"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclExternalServerIpType"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclExternalServerIp"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclUrlName"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claAclUrlRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclApplyMode"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclCounterClear"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclListType"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclRuleUrl"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclRuleAction"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclRuleHits"
+      },
+      {
+        "module": "CISCO-LWAPP-ACL-MIB",
+        "object": "claUrlAclRuleRowStatus"
       }
     ],
     "status": "current"
@@ -365,8 +777,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ACL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:41 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-ACL-MIB"

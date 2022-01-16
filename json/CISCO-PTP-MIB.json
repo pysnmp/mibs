@@ -8,34 +8,35 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ciscoPtpMIB": {
@@ -44,8 +45,16 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2011-01-28 00:00",
-        "description": "Initial Version"
+        "revision": "2020-03-17 00:00",
+        "description": "Added a new MIB notification ciscoPtpMIBNotifyRogueMaster for the new object cPtpClockRogueMasterDetect."
+      },
+      {
+        "revision": "2020-03-16 00:00",
+        "description": "Added the following objects to cPtpClockPortTable. cPtpClockPortBlockGMC TruthValue cPtpClockRogueMasterDetect TruthValue Also modified the MIB conform group, ciscoPtpMIBClockPortGroup for the new objects. Added the following objects to the MIB cPtpClockSystemTimePropertiesDomainIndex ClockDomainType cPtpClockSystemTimePropertiesClockTypeIndex ClockType cPtpClockSystemTimePropertiesInstanceIndex ClockInstanceType cPtpClockSystemTimePropertiesClockSyntonized TruthValue cPtpClockSystemTimePropertiesDomainSyntonized TruthValue cPtpClockSystemTimePropertiesFrequencyOffset Integer32 to cPtpClockSystemTimePropertiesTable. Added a new MIB conform group, ciscoPtpMIBClockSystemTimePropertiesGroup for the new objects. Also modified the ciscoPtpMIBCompliances2 to add the new group ciscoPtpMIBClockSystemTimePropertiesGroup."
+      },
+      {
+        "revision": "2019-08-22 00:00",
+        "description": "Version updating PTP notification objects."
       }
     ]
   },
@@ -373,6 +382,46 @@
     "oid": "1.3.6.1.4.1.9.9.760.2.1",
     "class": "objectidentity"
   },
+  "ciscoPtpGMClockChange": {
+    "name": "ciscoPtpGMClockChange",
+    "oid": "1.3.6.1.4.1.9.9.760.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockIdentity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpParentClockChange": {
+    "name": "ciscoPtpParentClockChange",
+    "oid": "1.3.6.1.4.1.9.9.760.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSParentPortIdentity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpRogueMaster": {
+    "name": "ciscoPtpRogueMaster",
+    "oid": "1.3.6.1.4.1.9.9.760.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRogueMasterDetect"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortName"
+      }
+    ],
+    "status": "current"
+  },
   "ciscoPtpMIBGroups": {
     "name": "ciscoPtpMIBGroups",
     "oid": "1.3.6.1.4.1.9.9.760.2.2",
@@ -414,6 +463,10 @@
       {
         "object": "ciscoPtpMIBClockTimepropertiesGroup",
         "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockSystemTimePropertiesGroup",
+        "module": "CISCO-PTP-MIB"
       }
     ],
     "status": "current"
@@ -453,6 +506,18 @@
       },
       {
         "object": "ciscoPtpMIBClockPortTransDSGroup",
+        "module": "CISCO-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBCompliances5": {
+    "name": "ciscoPtpMIBCompliances5",
+    "oid": "1.3.6.1.4.1.9.9.760.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPtpMIBNotificationGroup",
         "module": "CISCO-PTP-MIB"
       }
     ],
@@ -742,6 +807,14 @@
       {
         "module": "CISCO-PTP-MIB",
         "object": "cPtpClockPortRole"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortBlockGMC"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRogueMasterDetect"
       }
     ],
     "status": "current"
@@ -898,6 +971,42 @@
       {
         "module": "CISCO-PTP-MIB",
         "object": "cPtpClockPortAssociateOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBNotificationGroup": {
+    "name": "ciscoPtpMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "ciscoPtpParentClockChange"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "ciscoPtpGMClockChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockSystemTimePropertiesGroup": {
+    "name": "ciscoPtpMIBClockSystemTimePropertiesGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockSystemTimePropertiesClockSyntonized"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockSystemTimePropertiesDomainSyntonized"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockSystemTimePropertiesFrequencyOffset"
       }
     ],
     "status": "current"
@@ -2335,6 +2444,30 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cPtpClockPortBlockGMC": {
+    "name": "cPtpClockPortBlockGMC",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockRogueMasterDetect": {
+    "name": "cPtpClockRogueMasterDetect",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cPtpClockPortDSTable": {
     "name": "cPtpClockPortDSTable",
     "oid": "1.3.6.1.4.1.9.9.760.1.2.8",
@@ -3129,11 +3262,124 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cPtpClockSystemTimePropertiesTable": {
+    "name": "cPtpClockSystemTimePropertiesTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesEntry": {
+    "name": "cPtpClockSystemTimePropertiesEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockSystemTimePropertiesDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockSystemTimePropertiesInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockSystemTimePropertiesClockTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesDomainIndex": {
+    "name": "cPtpClockSystemTimePropertiesDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesClockTypeIndex": {
+    "name": "cPtpClockSystemTimePropertiesClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesInstanceIndex": {
+    "name": "cPtpClockSystemTimePropertiesInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesClockSyntonized": {
+    "name": "cPtpClockSystemTimePropertiesClockSyntonized",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesDomainSyntonized": {
+    "name": "cPtpClockSystemTimePropertiesDomainSyntonized",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockSystemTimePropertiesFrequencyOffset": {
+    "name": "cPtpClockSystemTimePropertiesFrequencyOffset",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PTP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:36 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:59 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-PTP-MIB"

@@ -1,0 +1,1883 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappRlanMIB": {
+    "name": "ciscoLwappRlanMIB",
+    "oid": "1.3.6.1.4.1.9.9.856",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-06-21 00:00",
+        "description": "Added below entry to cLRlanTable - cLRlanMdnsMode Added below entry to cLRlanPolicyEntry table - cLRlanMdnsPolicy Rearranged value for cLRlanHostMode Deprecated the following compliance group - ciscoLwappRlanComplianceRev1 Added following compliance group - ciscoLwappRlanComplianceRev2"
+      },
+      {
+        "revision": "2019-04-23 00:00",
+        "description": "Deprecated following objects - cLRlanRadiusHttpProfiling - cLRlanRadiusDhcpProfiling - cLRlanLocalHttpProfiling - cLRlanLocalDhcpProfiling"
+      },
+      {
+        "revision": "2018-07-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappRlanMIBNotifs": {
+    "name": "ciscoLwappRlanMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.856.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRlanMIBObjects": {
+    "name": "ciscoLwappRlanMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.856.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRlanConform": {
+    "name": "ciscoLwappRlanConform",
+    "oid": "1.3.6.1.4.1.9.9.856.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRlanConfig": {
+    "name": "ciscoLwappRlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1",
+    "class": "objectidentity"
+  },
+  "cLRlanTable": {
+    "name": "cLRlanTable",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanEntry": {
+    "name": "cLRlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRlanIndex": {
+    "name": "cLRlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanRowStatus": {
+    "name": "cLRlanRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRlanProfileName": {
+    "name": "cLRlanProfileName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRlanMacFiltering": {
+    "name": "cLRlanMacFiltering",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanAuthList": {
+    "name": "cLRlanAuthList",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSecurity8021X": {
+    "name": "cLRlanSecurity8021X",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSecurityWebAuth": {
+    "name": "cLRlanSecurityWebAuth",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanEapAuthProfileName": {
+    "name": "cLRlanEapAuthProfileName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanEapAuthStatus": {
+    "name": "cLRlanEapAuthStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanWebAuthParameter": {
+    "name": "cLRlanWebAuthParameter",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLRlanClientLimit": {
+    "name": "cLRlanClientLimit",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanStatus": {
+    "name": "cLRlanStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanWebAuthIpv4Acl": {
+    "name": "cLRlanWebAuthIpv4Acl",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanWebAuthIpv6Acl": {
+    "name": "cLRlanWebAuthIpv6Acl",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSecurity8021XAuthList": {
+    "name": "cLRlanSecurity8021XAuthList",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanMdnsMode": {
+    "name": "cLRlanMdnsMode",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridge": 0,
+          "drop": 1,
+          "gateway": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPolicyTable": {
+    "name": "cLRlanPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanPolicyEntry": {
+    "name": "cLRlanPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRlanPolicyProfileName": {
+    "name": "cLRlanPolicyProfileName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanPolicyRowStatus": {
+    "name": "cLRlanPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRlanPolicyStatus": {
+    "name": "cLRlanPolicyStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPolicyDesc": {
+    "name": "cLRlanPolicyDesc",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPolicyIpv4Acl": {
+    "name": "cLRlanPolicyIpv4Acl",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPolicyIpv6Acl": {
+    "name": "cLRlanPolicyIpv6Acl",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanAAAOverride": {
+    "name": "cLRlanAAAOverride",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanCentralSwitching": {
+    "name": "cLRlanCentralSwitching",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanInterface": {
+    "name": "cLRlanInterface",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "1",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPoeEnabled": {
+    "name": "cLRlanPoeEnabled",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanHostMode": {
+    "name": "cLRlanHostMode",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sinlgeHostMode": 0,
+          "multiHostMode": 1,
+          "multiDomainMode": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanViolationMode": {
+    "name": "cLRlanViolationMode",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protect": 0,
+          "replace": 1,
+          "shutdown": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanVoiceVlanId": {
+    "name": "cLRlanVoiceVlanId",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanDataVlanId": {
+    "name": "cLRlanDataVlanId",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanBlacklistEnabled": {
+    "name": "cLRlanBlacklistEnabled",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanBlacklistTimeout": {
+    "name": "cLRlanBlacklistTimeout",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanAAAPolicyName": {
+    "name": "cLRlanAAAPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "default-aaa-policy",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSessionTimeout": {
+    "name": "cLRlanSessionTimeout",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPreAuthEnabled": {
+    "name": "cLRlanPreAuthEnabled",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanDhcpServerType": {
+    "name": "cLRlanDhcpServerType",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanDhcpServer": {
+    "name": "cLRlanDhcpServer",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanRadiusHttpProfiling": {
+    "name": "cLRlanRadiusHttpProfiling",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLRlanRadiusDhcpProfiling": {
+    "name": "cLRlanRadiusDhcpProfiling",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLRlanLocalHttpProfiling": {
+    "name": "cLRlanLocalHttpProfiling",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLRlanLocalDhcpProfiling": {
+    "name": "cLRlanLocalDhcpProfiling",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cLRlanIpv6IngressStatus": {
+    "name": "cLRlanIpv6IngressStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv6EgressStatus": {
+    "name": "cLRlanIpv6EgressStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv4IngressStatus": {
+    "name": "cLRlanIpv4IngressStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv4EgressStatus": {
+    "name": "cLRlanIpv4EgressStatus",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv6IngressName": {
+    "name": "cLRlanIpv6IngressName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv6EgressName": {
+    "name": "cLRlanIpv6EgressName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv4IngressName": {
+    "name": "cLRlanIpv4IngressName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanIpv4EgressName": {
+    "name": "cLRlanIpv4EgressName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSplitTunnelGatewayType": {
+    "name": "cLRlanSplitTunnelGatewayType",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSplitTunnelGateway": {
+    "name": "cLRlanSplitTunnelGateway",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSplitTunnelNetmaskType": {
+    "name": "cLRlanSplitTunnelNetmaskType",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSplitTunnelNetmask": {
+    "name": "cLRlanSplitTunnelNetmask",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSplitTunnel": {
+    "name": "cLRlanSplitTunnel",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanAclName": {
+    "name": "cLRlanAclName",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanSplitTunnelOverride": {
+    "name": "cLRlanSplitTunnelOverride",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanAccountingList": {
+    "name": "cLRlanAccountingList",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanDhcpEnabled": {
+    "name": "cLRlanDhcpEnabled",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanCentralDhcp": {
+    "name": "cLRlanCentralDhcp",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanMdnsPolicy": {
+    "name": "cLRlanMdnsPolicy",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPowerLevelId": {
+    "name": "cLRlanPowerLevelId",
+    "oid": "1.3.6.1.4.1.9.9.856.1.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoLwappRlanCompliances": {
+    "name": "ciscoLwappRlanCompliances",
+    "oid": "1.3.6.1.4.1.9.9.856.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRlanGroups": {
+    "name": "ciscoLwappRlanGroups",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRlanCompliance": {
+    "name": "ciscoLwappRlanCompliance",
+    "oid": "1.3.6.1.4.1.9.9.856.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRlanConfigGroup1",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      },
+      {
+        "object": "ciscoLwappRlanConfigGroup2",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRlanComplianceRev1": {
+    "name": "ciscoLwappRlanComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.856.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRlanConfigGroup1",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      },
+      {
+        "object": "ciscoLwappRlanConfigGroup2Sup1",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRlanComplianceRev2": {
+    "name": "ciscoLwappRlanComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.856.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRlanConfigGroup1Sup1",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      },
+      {
+        "object": "ciscoLwappRlanConfigGroup2Sup2",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRlanComplianceRev3": {
+    "name": "ciscoLwappRlanComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.856.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappRlanConfigGroup1Sup1",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      },
+      {
+        "object": "ciscoLwappRlanConfigGroup2Sup2",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      },
+      {
+        "object": "ciscoLwappRlanConfigGroup2Sup3",
+        "module": "CISCO-LWAPP-RLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRlanConfigGroup1": {
+    "name": "ciscoLwappRlanConfigGroup1",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanMacFiltering"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAuthList"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSecurity8021X"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSecurityWebAuth"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanEapAuthProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanEapAuthStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanWebAuthParameter"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanClientLimit"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanWebAuthIpv4Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanWebAuthIpv6Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSecurity8021XAuthList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRlanConfigGroup2": {
+    "name": "ciscoLwappRlanConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyDesc"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyIpv4Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyIpv6Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAAAOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPoeEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanHostMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanViolationMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanVoiceVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDataVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanBlacklistEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPreAuthEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpServerType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpServer"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanRadiusHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanRadiusDhcpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanLocalHttpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanLocalDhcpProfiling"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6IngressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6EgressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4IngressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4EgressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6IngressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6EgressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4IngressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4EgressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelGatewayType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelNetmaskType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelNetmask"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnel"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAclName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanCentralDhcp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRlanConfigGroup2Sup1": {
+    "name": "ciscoLwappRlanConfigGroup2Sup1",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyDesc"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyIpv4Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyIpv6Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAAAOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPoeEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanHostMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanViolationMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanVoiceVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDataVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanBlacklistEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPreAuthEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpServerType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpServer"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6IngressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6EgressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4IngressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4EgressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6IngressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6EgressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4IngressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4EgressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelGatewayType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelNetmaskType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelNetmask"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnel"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAclName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanCentralDhcp"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappRlanConfigGroup2Sup2": {
+    "name": "ciscoLwappRlanConfigGroup2Sup2",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyDesc"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyIpv4Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPolicyIpv6Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAAAOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanCentralSwitching"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPoeEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanHostMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanViolationMode"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanVoiceVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDataVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanBlacklistEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanBlacklistTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAAAPolicyName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSessionTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPreAuthEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpServerType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpServer"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6IngressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6EgressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4IngressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4EgressStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6IngressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv6EgressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4IngressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanIpv4EgressName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelGatewayType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelNetmaskType"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelNetmask"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnel"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAclName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSplitTunnelOverride"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAccountingList"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanDhcpEnabled"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanCentralDhcp"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanMdnsPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRlanConfigGroup1Sup1": {
+    "name": "ciscoLwappRlanConfigGroup1Sup1",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanMacFiltering"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanAuthList"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSecurity8021X"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSecurityWebAuth"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanEapAuthProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanEapAuthStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanWebAuthParameter"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanClientLimit"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanWebAuthIpv4Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanWebAuthIpv6Acl"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanSecurity8021XAuthList"
+      },
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanMdnsMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRlanConfigGroup2Sup3": {
+    "name": "ciscoLwappRlanConfigGroup2Sup3",
+    "oid": "1.3.6.1.4.1.9.9.856.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-RLAN-MIB",
+        "object": "cLRlanPowerLevelId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-RLAN-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:03 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-RLAN-MIB"
+  }
+}

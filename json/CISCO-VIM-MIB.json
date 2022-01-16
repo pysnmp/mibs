@@ -1,0 +1,360 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "ciscoVimMIB": {
+    "name": "ciscoVimMIB",
+    "oid": "1.3.6.1.4.1.9.9.855",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-07-16 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CFaultSeverity": {
+    "name": "CFaultSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "critical": 2,
+          "major": 3,
+          "alert": 4,
+          "informational": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CFaultCode": {
+    "name": "CFaultCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "resourceUsage": 2,
+          "resourceThreshold": 3,
+          "serviceFailure": 4,
+          "hardwareFailure": 5,
+          "networkConnectivity": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoVimMIBNotifs": {
+    "name": "ciscoVimMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.855.0",
+    "class": "objectidentity"
+  },
+  "ciscoVimMIBFaults": {
+    "name": "ciscoVimMIBFaults",
+    "oid": "1.3.6.1.4.1.9.9.855.1",
+    "class": "objectidentity"
+  },
+  "ciscoVimMIBConform": {
+    "name": "ciscoVimMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.855.2",
+    "class": "objectidentity"
+  },
+  "cvimPodId": {
+    "name": "cvimPodId",
+    "oid": "1.3.6.1.4.1.9.9.855.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimFaultCreationTime": {
+    "name": "cvimFaultCreationTime",
+    "oid": "1.3.6.1.4.1.9.9.855.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimNodeId": {
+    "name": "cvimNodeId",
+    "oid": "1.3.6.1.4.1.9.9.855.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimFaultSource": {
+    "name": "cvimFaultSource",
+    "oid": "1.3.6.1.4.1.9.9.855.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimFaultSeverity": {
+    "name": "cvimFaultSeverity",
+    "oid": "1.3.6.1.4.1.9.9.855.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFaultSeverity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimFaultCode": {
+    "name": "cvimFaultCode",
+    "oid": "1.3.6.1.4.1.9.9.855.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CFaultCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimFaultDescription": {
+    "name": "cvimFaultDescription",
+    "oid": "1.3.6.1.4.1.9.9.855.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cvimFaultActiveNotif": {
+    "name": "cvimFaultActiveNotif",
+    "oid": "1.3.6.1.4.1.9.9.855.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimPodId"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultCreationTime"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimNodeId"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultSource"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultSeverity"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultCode"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "cvimFaultClearNotif": {
+    "name": "cvimFaultClearNotif",
+    "oid": "1.3.6.1.4.1.9.9.855.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimPodId"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultCreationTime"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimNodeId"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultSource"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultSeverity"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultCode"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVimMIBCompliances": {
+    "name": "ciscoVimMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.855.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVimMIBGroups": {
+    "name": "ciscoVimMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.855.2.2",
+    "class": "objectidentity"
+  },
+  "cvimMIBCompliance": {
+    "name": "cvimMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.855.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cvimMIBFaultGroup",
+        "module": "CISCO-VIM-MIB"
+      },
+      {
+        "object": "cvimMIBNotificationGroup",
+        "module": "CISCO-VIM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cvimMIBFaultGroup": {
+    "name": "cvimMIBFaultGroup",
+    "oid": "1.3.6.1.4.1.9.9.855.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimPodId"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultSource"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultCreationTime"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultSeverity"
+      },
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultCode"
+      }
+    ],
+    "status": "current"
+  },
+  "cvimMIBNotificationGroup": {
+    "name": "cvimMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.855.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-VIM-MIB",
+        "object": "cvimFaultActiveNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VIM-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VIM-MIB"
+  }
+}

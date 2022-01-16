@@ -8,48 +8,49 @@
       "CiscoVrfName"
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
+      "CtsPasswordEncryptionType",
       "CtsSecurityGroupTag",
-      "CtsPassword",
-      "CtsPasswordEncryptionType"
+      "CtsSxpConnectionStatus",
+      "CtsPassword"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddressType",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
       "RowStatus",
+      "DisplayString",
+      "StorageType",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ciscoTrustSecSxpMIB": {
@@ -57,6 +58,10 @@
     "oid": "1.3.6.1.4.1.9.9.720",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2013-07-29 00:00",
+        "description": "Added following OBJECT-GROUP - ctsxBiDirectionalSxpGroup Added new compliance - ciscoTrustSecSxpMIBCompliance4. Added enumeration both(3) for the object ctsxSxpConnMode."
+      },
       {
         "revision": "2012-04-17 00:00",
         "description": "Added following OBJECT-GROUP - ctsxSxpBindingLogGroup - ctsxSxpBindingNotifInfoGroup - ctsxSxpNotifErrMsgGroup - ctsxSxpNodeIdInfoGroup - ctsxSxpSgtMapGroup - ctsxNotifsControlGroup - ctsxNotifsGroup - ctsxSxpGlobalHoldTimeGroup - ctsxSxpConnHoldTimeGroup - ctsxSxpConnCapbilityGroup - ctsxSxpVersionSupportGroup - ctsxSgtMapPeerSeqGroup Added new compliance - ciscoTrustSecSxpMIBCompliance3. Added enumerations three(4) and four(5) for the object ctsxSxpConnVersion."
@@ -646,7 +651,8 @@
       "constraints": {
         "enumeration": {
           "speaker": 1,
-          "listener": 2
+          "listener": 2,
+          "both": 3
         }
       }
     },
@@ -690,17 +696,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "off": 2,
-          "on": 3,
-          "pendingOn": 4,
-          "deleteHoldDown": 5
-        }
-      }
+      "type": "CtsSxpConnectionStatus",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -882,6 +879,31 @@
         "subnet": 2
       }
     },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnBiDirListenerStatus": {
+    "name": "ctsxSxpConnBiDirListenerStatus",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtsSxpConnectionStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ctsxSxpConnBiDirListenerHoldTime": {
+    "name": "ctsxSxpConnBiDirListenerHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.720.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1828,6 +1850,82 @@
         "module": "CISCO-TRUSTSEC-SXP-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "ciscoTrustSecSxpMIBCompliance4": {
+    "name": "ciscoTrustSecSxpMIBCompliance4",
+    "oid": "1.3.6.1.4.1.9.9.720.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ctsxSxpGlobalGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnectionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpVersionGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpBindingLogGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpBindingNotifInfoGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpNodeIdInfoGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxIpSgtMappingGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpSgtMapGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxNotifsControlGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxNotifsGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpNotifErrMsgGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpGlobalHoldTimeGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnHoldTimeGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpConnCapbilityGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSxpVersionSupportGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxSgtMapPeerSeqGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      },
+      {
+        "object": "ctsxBiDirectionalSxpGroup",
+        "module": "CISCO-TRUSTSEC-SXP-MIB"
+      }
+    ],
     "status": "current"
   },
   "ctsxSxpGlobalGroup": {
@@ -2286,11 +2384,27 @@
     ],
     "status": "current"
   },
+  "ctsxBiDirectionalSxpGroup": {
+    "name": "ctsxBiDirectionalSxpGroup",
+    "oid": "1.3.6.1.4.1.9.9.720.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnBiDirListenerStatus"
+      },
+      {
+        "module": "CISCO-TRUSTSEC-SXP-MIB",
+        "object": "ctsxSxpConnBiDirListenerHoldTime"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-SXP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:37 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:59 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-TRUSTSEC-SXP-MIB"

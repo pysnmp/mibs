@@ -1,0 +1,74 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "CISCO-TC": [
+      "CiscoMilliSeconds"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoFcFeCapability": {
+    "name": "ciscoFcFeCapability",
+    "oid": "1.3.6.1.4.1.9.7.627",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-23 00:00",
+        "description": "Added capability statement ciscoFcFeCapabilityV06R0213PMds."
+      },
+      {
+        "revision": "2005-05-24 00:00",
+        "description": "Agent capabilities for Cisco MDS 3.0."
+      }
+    ]
+  },
+  "ciscoFcFeCapabilityMDS3R0": {
+    "name": "ciscoFcFeCapabilityMDS3R0",
+    "oid": "1.3.6.1.4.1.9.7.627.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco MDS 3.0(1)",
+    "status": "current"
+  },
+  "ciscoFcFeCapabilityV06R0213PMds": {
+    "name": "ciscoFcFeCapabilityV06R0213PMds",
+    "oid": "1.3.6.1.4.1.9.7.627.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(13) on MDS series devices.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-FE-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:59 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FC-FE-CAPABILITY"
+  }
+}

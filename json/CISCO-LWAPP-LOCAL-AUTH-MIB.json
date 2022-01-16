@@ -8,31 +8,31 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoLwappLocalAuthMIB": {
@@ -40,6 +40,10 @@
     "oid": "1.3.6.1.4.1.9.9.619",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2017-04-27 00:00",
+        "description": "-Added the following objects: cllaEapBroadcastKeyInterval"
+      },
       {
         "revision": "2010-02-09 00:00",
         "description": "-Added the following objects: *cllaEapMaxLoginIgnIdResp, *cllaEapKeyTimeout, *cllaEapKeyMaxRetries."
@@ -86,7 +90,21 @@
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
     },
     "units": "seconds",
     "maxaccess": "read-write",
@@ -99,7 +117,21 @@
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
     },
     "units": "seconds",
     "maxaccess": "read-write",
@@ -112,7 +144,21 @@
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -144,7 +190,21 @@
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
     },
     "units": "seconds",
     "maxaccess": "read-write",
@@ -157,7 +217,21 @@
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -230,6 +304,33 @@
         "format": "decimal"
       }
     },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cllaEapBroadcastKeyInterval": {
+    "name": "cllaEapBroadcastKeyInterval",
+    "oid": "1.3.6.1.4.1.9.9.619.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 120,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -895,6 +996,10 @@
       {
         "module": "CISCO-LWAPP-LOCAL-AUTH-MIB",
         "object": "cllaEapKeyMaxRetries"
+      },
+      {
+        "module": "CISCO-LWAPP-LOCAL-AUTH-MIB",
+        "object": "cllaEapBroadcastKeyInterval"
       }
     ],
     "status": "current"
@@ -902,8 +1007,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-LOCAL-AUTH-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:37 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:00 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-LOCAL-AUTH-MIB"

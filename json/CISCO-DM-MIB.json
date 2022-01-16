@@ -8,15 +8,15 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
+      "FcAddressId",
       "DomainId",
       "FcNameId",
-      "FcAddressId",
-      "DomainIdOrZero",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "DomainIdOrZero"
     ],
     "CISCO-VSAN-MIB": [
-      "vsanIndex",
-      "notifyVsanIndex"
+      "notifyVsanIndex",
+      "vsanIndex"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -25,30 +25,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus"
     ]
   },
@@ -57,6 +57,14 @@
     "oid": "1.3.6.1.4.1.9.9.302",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2014-02-25 00:00",
+        "description": "Updated with the latest DM MIB in NXOS Also updated the description of dmOptimize object to support the new scale-restart optimization mode"
+      },
+      {
+        "revision": "2009-02-06 00:00",
+        "description": "Added a new object dmOptimize to dmTable. Deprecated dmGroupRev1 and added new group dmGroupRev2. Deprecated dmMIBCompliance2 and added dmMIBCompliance3 MODULE-COMPLIANCE."
+      },
       {
         "revision": "2003-09-22 00:00",
         "description": "Added a new table dmAllowedDomainIDListTable. Added a new compliance statement dmMIBCompliance2 which obseletes dmMIBCompliance1."
@@ -340,7 +348,7 @@
     },
     "default": {
       "default": {
-        "value": "20010005300028df",
+        "value": "20010005300028DF",
         "format": "hex"
       }
     },
@@ -584,6 +592,26 @@
           "noOp": 1,
           "enable": 2
         }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dmOptimize": {
+    "name": "dmOptimize",
+    "oid": "1.3.6.1.4.1.9.9.302.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
       }
     },
     "maxaccess": "read-write",
@@ -1254,6 +1282,42 @@
         "module": "CISCO-DM-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "dmMIBCompliance3": {
+    "name": "dmMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.302.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dmGroupRev2",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmDatabaseGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmAreaGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmCacheGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmNotificationGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmFcIdPersistencyGroup",
+        "module": "CISCO-DM-MIB"
+      },
+      {
+        "object": "dmDomainIDAllowedGroup",
+        "module": "CISCO-DM-MIB"
+      }
+    ],
     "status": "current"
   },
   "dmGroup": {
@@ -1554,7 +1618,7 @@
         "object": "dmIfRowStatus"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "dmFcIdPersistencyGroup": {
     "name": "dmFcIdPersistencyGroup",
@@ -1608,11 +1672,135 @@
     ],
     "status": "current"
   },
+  "dmGroupRev2": {
+    "name": "dmGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.302.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmConfigDomainId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmConfigDomainIdType"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmEnable"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAutoReconfigure"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmContiguousAllocation"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmRestart"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricName"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincipalSwitchWwn"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmLocalSwitchWwn"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAssignedAreaIdList"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdsGranted"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFcIdsRecovered"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFreeFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmAssignedFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmReservedFcIds"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmRunningPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincSwRunningPriority"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmState"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmPrincipalSwitchSelections"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmBuildFabrics"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmFabricReconfigures"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmDomainId"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmLocalPrincipalSwitchSelctns"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmReConfFabricChangeNotifyEnable"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRcfReject"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRole"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmIfRowStatus"
+      },
+      {
+        "module": "CISCO-DM-MIB",
+        "object": "dmOptimize"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:36 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-DM-MIB"

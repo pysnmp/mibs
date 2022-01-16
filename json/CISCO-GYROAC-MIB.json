@@ -1,0 +1,70 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoGyroacMIB": {
+    "name": "ciscoGyroacMIB",
+    "oid": "1.3.6.1.4.1.9.9.859",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-01-09 00:00",
+        "description": "Latest version of this MIB module."
+      }
+    ]
+  },
+  "ciscoGyroacMIBObjects": {
+    "name": "ciscoGyroacMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.859.0",
+    "class": "objectidentity"
+  },
+  "ciscoGyro": {
+    "name": "ciscoGyro",
+    "oid": "1.3.6.1.4.1.9.9.859.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GYROAC-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-GYROAC-MIB"
+  }
+}

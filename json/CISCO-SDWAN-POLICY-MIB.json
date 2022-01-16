@@ -1,0 +1,4712 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoSdwanPolicyMIB": {
+    "name": "ciscoSdwanPolicyMIB",
+    "oid": "1.3.6.1.4.1.9.9.1005",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-03-01 00:00",
+        "description": "Cisco SDWAN Policy Revision 0"
+      }
+    ]
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "UnsignedShort": {
+    "name": "UnsignedShort",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "Ipv4Prefix": {
+    "name": "Ipv4Prefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d.1d.1d/1d",
+    "status": "current"
+  },
+  "InetAddressIP": {
+    "name": "InetAddressIP",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "String": {
+    "name": "String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "DestinationIp": {
+    "name": "DestinationIp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "SourceIp": {
+    "name": "SourceIp",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "TcpFlags": {
+    "name": "TcpFlags",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "syn": 0
+      }
+    },
+    "status": "current"
+  },
+  "DataPolicyDirectionEnum": {
+    "name": "DataPolicyDirectionEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "from-service": 0,
+          "from-tunnel": 1,
+          "all": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DirectionEnum": {
+    "name": "DirectionEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 0,
+          "out": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TransportProtocol": {
+    "name": "TransportProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transport-tcp": 0,
+          "transport-udp": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ActionDataEnum": {
+    "name": "ActionDataEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 0,
+          "drop": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EncapsulationList": {
+    "name": "EncapsulationList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "FnfMonitorEnum": {
+    "name": "FnfMonitorEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 0,
+          "ipv6": 1,
+          "both": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColorList": {
+    "name": "ColorList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "NotificationSeverity": {
+    "name": "NotificationSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VpnId": {
+    "name": "VpnId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65530
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyMIBNotifs": {
+    "name": "ciscoSdwanPolicyMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.1005.0",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanPolicyMIBObjects": {
+    "name": "ciscoSdwanPolicyMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.1005.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanPolicyMIBNotifObjects": {
+    "name": "ciscoSdwanPolicyMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.1005.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanPolicyMIBConform": {
+    "name": "ciscoSdwanPolicyMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.1005.3",
+    "class": "objectidentity"
+  },
+  "policy": {
+    "name": "policy",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4",
+    "class": "objectidentity"
+  },
+  "policyDataPolicyFilter": {
+    "name": "policyDataPolicyFilter",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1",
+    "class": "objectidentity"
+  },
+  "policyAppRoutePolicy": {
+    "name": "policyAppRoutePolicy",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2",
+    "class": "objectidentity"
+  },
+  "policyAccessListNames": {
+    "name": "policyAccessListNames",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.3",
+    "class": "objectidentity"
+  },
+  "policyAccessListCounters": {
+    "name": "policyAccessListCounters",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4",
+    "class": "objectidentity"
+  },
+  "policyAccessListPolicers": {
+    "name": "policyAccessListPolicers",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5",
+    "class": "objectidentity"
+  },
+  "policyAccessListAssociations": {
+    "name": "policyAccessListAssociations",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8",
+    "class": "objectidentity"
+  },
+  "policyRewriteAssociations": {
+    "name": "policyRewriteAssociations",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9",
+    "class": "objectidentity"
+  },
+  "policyFromVsmart": {
+    "name": "policyFromVsmart",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10",
+    "class": "objectidentity"
+  },
+  "policyDataPolicyFilterTable": {
+    "name": "policyDataPolicyFilterTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyDataPolicyFilterEntry": {
+    "name": "policyDataPolicyFilterEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyDataPolicyFilterName": {
+    "name": "policyDataPolicyFilterName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistTable": {
+    "name": "policyDataPolicyFilterVpnlistTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistEntry": {
+    "name": "policyDataPolicyFilterVpnlistEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistName": {
+    "name": "policyDataPolicyFilterVpnlistName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistCounterTable": {
+    "name": "policyDataPolicyFilterVpnlistCounterTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistCounterEntry": {
+    "name": "policyDataPolicyFilterVpnlistCounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistCounterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistCounterName": {
+    "name": "policyDataPolicyFilterVpnlistCounterName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistCounterPackets": {
+    "name": "policyDataPolicyFilterVpnlistCounterPackets",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistCounterBytes": {
+    "name": "policyDataPolicyFilterVpnlistCounterBytes",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistPolicerTable": {
+    "name": "policyDataPolicyFilterVpnlistPolicerTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistPolicerEntry": {
+    "name": "policyDataPolicyFilterVpnlistPolicerEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistPolicerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistPolicerName": {
+    "name": "policyDataPolicyFilterVpnlistPolicerName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistPolicerOosPackets": {
+    "name": "policyDataPolicyFilterVpnlistPolicerOosPackets",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyDataPolicyFilterVpnlistPolicerOosBytes": {
+    "name": "policyDataPolicyFilterVpnlistPolicerOosBytes",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterTable": {
+    "name": "policyAppRoutePolicyFilterTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterEntry": {
+    "name": "policyAppRoutePolicyFilterEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterName": {
+    "name": "policyAppRoutePolicyFilterName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistTable": {
+    "name": "policyAppRoutePolicyFilterVpnlistTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistEntry": {
+    "name": "policyAppRoutePolicyFilterVpnlistEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterVpnlistName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistName": {
+    "name": "policyAppRoutePolicyFilterVpnlistName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistCounterTable": {
+    "name": "policyAppRoutePolicyFilterVpnlistCounterTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistCounterEntry": {
+    "name": "policyAppRoutePolicyFilterVpnlistCounterEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterVpnlistName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterVpnlistCounterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistCounterName": {
+    "name": "policyAppRoutePolicyFilterVpnlistCounterName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistCounterPackets": {
+    "name": "policyAppRoutePolicyFilterVpnlistCounterPackets",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAppRoutePolicyFilterVpnlistCounterBytes": {
+    "name": "policyAppRoutePolicyFilterVpnlistCounterBytes",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListNamesTable": {
+    "name": "policyAccessListNamesTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListNamesEntry": {
+    "name": "policyAccessListNamesEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListNamesName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListNamesName": {
+    "name": "policyAccessListNamesName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListCountersTable": {
+    "name": "policyAccessListCountersTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListCountersEntry": {
+    "name": "policyAccessListCountersEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListCountersName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListCountersName": {
+    "name": "policyAccessListCountersName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListCountersAccessPolicyCounterListTable": {
+    "name": "policyAccessListCountersAccessPolicyCounterListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListCountersAccessPolicyCounterListEntry": {
+    "name": "policyAccessListCountersAccessPolicyCounterListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListCountersName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListCountersAccessPolicyCounterListCounterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListCountersAccessPolicyCounterListCounterName": {
+    "name": "policyAccessListCountersAccessPolicyCounterListCounterName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListCountersAccessPolicyCounterListPackets": {
+    "name": "policyAccessListCountersAccessPolicyCounterListPackets",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListCountersAccessPolicyCounterListBytes": {
+    "name": "policyAccessListCountersAccessPolicyCounterListBytes",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListPolicersTable": {
+    "name": "policyAccessListPolicersTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListPolicersEntry": {
+    "name": "policyAccessListPolicersEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListPolicersName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListPolicersName": {
+    "name": "policyAccessListPolicersName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListPolicersAccessPolicyPolicerListTable": {
+    "name": "policyAccessListPolicersAccessPolicyPolicerListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListPolicersAccessPolicyPolicerListEntry": {
+    "name": "policyAccessListPolicersAccessPolicyPolicerListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListPolicersName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListPolicersAccessPolicyPolicerListPolicerName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListPolicersAccessPolicyPolicerListPolicerName": {
+    "name": "policyAccessListPolicersAccessPolicyPolicerListPolicerName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListPolicersAccessPolicyPolicerListOosPackets": {
+    "name": "policyAccessListPolicersAccessPolicyPolicerListOosPackets",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListPolicersAccessPolicyPolicerListOosBytes": {
+    "name": "policyAccessListPolicersAccessPolicyPolicerListOosBytes",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListAssociationsTable": {
+    "name": "policyAccessListAssociationsTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListAssociationsEntry": {
+    "name": "policyAccessListAssociationsEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListAssociationsName": {
+    "name": "policyAccessListAssociationsName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListAssociationsAccessPolicyInterfaceListTable": {
+    "name": "policyAccessListAssociationsAccessPolicyInterfaceListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyAccessListAssociationsAccessPolicyInterfaceListEntry": {
+    "name": "policyAccessListAssociationsAccessPolicyInterfaceListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsAccessPolicyInterfaceListIntName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsAccessPolicyInterfaceListIntDir",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyAccessListAssociationsAccessPolicyInterfaceListIntName": {
+    "name": "policyAccessListAssociationsAccessPolicyInterfaceListIntName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyAccessListAssociationsAccessPolicyInterfaceListIntDir": {
+    "name": "policyAccessListAssociationsAccessPolicyInterfaceListIntDir",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DirectionEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyRewriteAssociationsTable": {
+    "name": "policyRewriteAssociationsTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyRewriteAssociationsEntry": {
+    "name": "policyRewriteAssociationsEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyRewriteAssociationsName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyRewriteAssociationsName": {
+    "name": "policyRewriteAssociationsName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyRewriteAssociationsRewriteInterfaceListTable": {
+    "name": "policyRewriteAssociationsRewriteInterfaceListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyRewriteAssociationsRewriteInterfaceListEntry": {
+    "name": "policyRewriteAssociationsRewriteInterfaceListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyRewriteAssociationsName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyRewriteAssociationsRewriteInterfaceListInterfaceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyRewriteAssociationsRewriteInterfaceListInterfaceName": {
+    "name": "policyRewriteAssociationsRewriteInterfaceListInterfaceName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassTable": {
+    "name": "policyFromVsmartSlaClassTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassEntry": {
+    "name": "policyFromVsmartSlaClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartSlaClassName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassName": {
+    "name": "policyFromVsmartSlaClassName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassLoss": {
+    "name": "policyFromVsmartSlaClassLoss",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassLatency": {
+    "name": "policyFromVsmartSlaClassLatency",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassJitter": {
+    "name": "policyFromVsmartSlaClassJitter",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartSlaClassAppProbeClass": {
+    "name": "policyFromVsmartSlaClassAppProbeClass",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyTable": {
+    "name": "policyFromVsmartDataPolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyEntry": {
+    "name": "policyFromVsmartDataPolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyName": {
+    "name": "policyFromVsmartDataPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyDirection": {
+    "name": "policyFromVsmartDataPolicyDirection",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DataPolicyDirectionEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListTable": {
+    "name": "policyFromVsmartDataPolicyVpnListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListEntry": {
+    "name": "policyFromVsmartDataPolicyVpnListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListName": {
+    "name": "policyFromVsmartDataPolicyVpnListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListDefaultAction": {
+    "name": "policyFromVsmartDataPolicyVpnListDefaultAction",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ActionDataEnum",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceTable": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceEntry": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceSeqValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceSeqValue": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceSeqValue",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65530
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceMatchSrcDataPrLst": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceMatchSrcDataPrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceMatchSrcDataV6PrLst": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceMatchSrcDataV6PrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceMatchDestDataPrLst": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceMatchDestDataPrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceMatchDestDataV6PrLst": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceMatchDestDataV6PrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceMatchTcp": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceMatchTcp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TcpFlags",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionActionValue": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionActionValue",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ActionDataEnum",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "drop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionCount": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionCount",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionNatUseVpn": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionNatUseVpn",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionCflowd": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionCflowd",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetLocalTlocColor": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetLocalTlocColor",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetLocalTlocEncap": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetLocalTlocEncap",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHop": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHop",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetPolicer": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetPolicer",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetVpn": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetVpn",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65530
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetVpnLabel": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetVpnLabel",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocIp": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocColor": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocColor",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocList": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocList",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceSvcType": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceSvcType",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fW": 1,
+          "iDS": 2,
+          "iDP": 3,
+          "netsvc1": 4,
+          "netsvc2": 5,
+          "netsvc3": 6,
+          "netsvc4": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceVpn": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceVpn",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65530
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceTlocIp": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceTlocIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetSvcTlocClr": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetSvcTlocClr",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequencActionSetSvcTlocLst": {
+    "name": "policyFromVsmartDataPolicyVpnListSequencActionSetSvcTlocLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceLocal": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceLocal",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetServiceRestrict": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetServiceRestrict",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionLog": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionLog",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListColor": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListColor",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListEncap": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListEncap",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncapsulationList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListRestrict": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListRestrict",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionTcpOptimization": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionTcpOptimization",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHopIpv6": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHopIpv6",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSig": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSig",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHopLoose": {
+    "name": "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHopLoose",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.5.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTable": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstEntry": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceSeqValue",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstListNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstListNum": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstListNum",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocLbl": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocLbl",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocIp": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocClr": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocClr",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocEn": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocEn",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocPrf": {
+    "name": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocPrf",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplate": {
+    "name": "policyFromVsmartCflowdTemplate",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7",
+    "class": "objectidentity"
+  },
+  "policyFromVsmartCflowdTemplateName": {
+    "name": "policyFromVsmartCflowdTemplateName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateFlowActiveTimeout": {
+    "name": "policyFromVsmartCflowdTemplateFlowActiveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateFlowInactiveTimeout": {
+    "name": "policyFromVsmartCflowdTemplateFlowInactiveTimeout",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateTemplateRefresh": {
+    "name": "policyFromVsmartCflowdTemplateTemplateRefresh",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateFlowSamplingInterval": {
+    "name": "policyFromVsmartCflowdTemplateFlowSamplingInterval",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateProtocol": {
+    "name": "policyFromVsmartCflowdTemplateProtocol",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FnfMonitorEnum",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorTable": {
+    "name": "policyFromVsmartCflowdTemplateCollectorTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorEntry": {
+    "name": "policyFromVsmartCflowdTemplateCollectorEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateCollectorVpn",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateCollectorAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateCollectorPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateCollectorTransport",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorVpn": {
+    "name": "policyFromVsmartCflowdTemplateCollectorVpn",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65531
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorAddress": {
+    "name": "policyFromVsmartCflowdTemplateCollectorAddress",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorPort": {
+    "name": "policyFromVsmartCflowdTemplateCollectorPort",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorTransport": {
+    "name": "policyFromVsmartCflowdTemplateCollectorTransport",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportProtocol",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartCflowdTemplateCollectorSourceInterface": {
+    "name": "policyFromVsmartCflowdTemplateCollectorSourceInterface",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyTable": {
+    "name": "policyFromVsmartAppRoutePolicyTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyEntry": {
+    "name": "policyFromVsmartAppRoutePolicyEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyName": {
+    "name": "policyFromVsmartAppRoutePolicyName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListTable": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListEntry": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListName": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListDefActSlaClassName": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListDefActSlaClassName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceTable": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceEntry": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceSeqValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceSeqValue": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceSeqValue",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedShort",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65530
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceMatchSrcDtPrLst": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchSrcDtPrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceMatchSrcDtV6PrLst": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchSrcDtV6PrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceMatchDestDtPrLst": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchDestDtPrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceMatchDestDtV6PrLst": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchDestDtV6PrLst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceActionCount": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceActionCount",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClName": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClStrict": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClStrict",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClPrefClr": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClPrefClr",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorList",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceActionLog": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceActionLog",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSeqActBackupSlaPrefClr": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSeqActBackupSlaPrefClr",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorList",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClFallback": {
+    "name": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClFallback",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartPolicerTable": {
+    "name": "policyFromVsmartPolicerTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartPolicerEntry": {
+    "name": "policyFromVsmartPolicerEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartPolicerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartPolicerName": {
+    "name": "policyFromVsmartPolicerName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartPolicerRate": {
+    "name": "policyFromVsmartPolicerRate",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartPolicerBurst": {
+    "name": "policyFromVsmartPolicerBurst",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15000,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartPolicerExceed": {
+    "name": "policyFromVsmartPolicerExceed",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 0,
+          "remark": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsVpnListTable": {
+    "name": "policyFromVsmartListsVpnListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsVpnListEntry": {
+    "name": "policyFromVsmartListsVpnListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsVpnListName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsVpnListName": {
+    "name": "policyFromVsmartListsVpnListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsVpnListVpnTable": {
+    "name": "policyFromVsmartListsVpnListVpnTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsVpnListVpnEntry": {
+    "name": "policyFromVsmartListsVpnListVpnEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsVpnListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsVpnListVpnId",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsVpnListVpnId": {
+    "name": "policyFromVsmartListsVpnListVpnId",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsDataPrefixListTable": {
+    "name": "policyFromVsmartListsDataPrefixListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsDataPrefixListEntry": {
+    "name": "policyFromVsmartListsDataPrefixListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsDataPrefixListName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsDataPrefixListName": {
+    "name": "policyFromVsmartListsDataPrefixListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsDataPrefixListIpPrefixTable": {
+    "name": "policyFromVsmartListsDataPrefixListIpPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsDataPrefixListIpPrefixEntry": {
+    "name": "policyFromVsmartListsDataPrefixListIpPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsDataPrefixListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsDataPrefixListIpPrefixIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsDataPrefixListIpPrefixIp": {
+    "name": "policyFromVsmartListsDataPrefixListIpPrefixIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Ipv4Prefix",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTable": {
+    "name": "policyFromVsmartListsTlocListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListEntry": {
+    "name": "policyFromVsmartListsTlocListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListName": {
+    "name": "policyFromVsmartListsTlocListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTlocTable": {
+    "name": "policyFromVsmartListsTlocListTlocTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTlocEntry": {
+    "name": "policyFromVsmartListsTlocListTlocEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListTlocIp",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListTlocColor",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListTlocEncap",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTlocIp": {
+    "name": "policyFromVsmartListsTlocListTlocIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTlocColor": {
+    "name": "policyFromVsmartListsTlocListTlocColor",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTlocEncap": {
+    "name": "policyFromVsmartListsTlocListTlocEncap",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipsec": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsTlocListTlocPreference": {
+    "name": "policyFromVsmartListsTlocListTlocPreference",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassListTable": {
+    "name": "policyFromVsmartListsAppProbeClassListTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassListEntry": {
+    "name": "policyFromVsmartListsAppProbeClassListEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsAppProbeClassListName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassListName": {
+    "name": "policyFromVsmartListsAppProbeClassListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassListForwardingClass": {
+    "name": "policyFromVsmartListsAppProbeClassListForwardingClass",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassColorTable": {
+    "name": "policyFromVsmartListsAppProbeClassColorTable",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassColorEntry": {
+    "name": "policyFromVsmartListsAppProbeClassColorEntry",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsAppProbeClassListName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsAppProbeClassColorName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassColorName": {
+    "name": "policyFromVsmartListsAppProbeClassColorName",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "policyFromVsmartListsAppProbeClassColorDscp": {
+    "name": "policyFromVsmartListsAppProbeClassColorDscp",
+    "oid": "1.3.6.1.4.1.9.9.1005.1.4.10.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netconfNotificationSeverity": {
+    "name": "netconfNotificationSeverity",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyVpnId": {
+    "name": "ciscoSdwanPolicyVpnId",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpnId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyApplication": {
+    "name": "ciscoSdwanPolicyApplication",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicySourceIp": {
+    "name": "ciscoSdwanPolicySourceIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SourceIp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicySourcePort": {
+    "name": "ciscoSdwanPolicySourcePort",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyDestinationIp": {
+    "name": "ciscoSdwanPolicyDestinationIp",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DestinationIp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyDestinationPort": {
+    "name": "ciscoSdwanPolicyDestinationPort",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyProtocol": {
+    "name": "ciscoSdwanPolicyProtocol",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyDscp": {
+    "name": "ciscoSdwanPolicyDscp",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicySlaInformation": {
+    "name": "ciscoSdwanPolicySlaInformation",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicySlaStatus": {
+    "name": "ciscoSdwanPolicySlaStatus",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyVpnListName": {
+    "name": "ciscoSdwanPolicyVpnListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyName": {
+    "name": "ciscoSdwanPolicyName",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyAccessListName": {
+    "name": "ciscoSdwanPolicyAccessListName",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicyStatus": {
+    "name": "ciscoSdwanPolicyStatus",
+    "oid": "1.3.6.1.4.1.9.9.1005.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanPolicySlaViolation": {
+    "name": "ciscoSdwanPolicySlaViolation",
+    "oid": "1.3.6.1.4.1.9.9.1005.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyVpnId"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyApplication"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySourceIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySourcePort"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDestinationIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDestinationPort"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyProtocol"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDscp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaInformation"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanPolicySlaViolationPktDrop": {
+    "name": "ciscoSdwanPolicySlaViolationPktDrop",
+    "oid": "1.3.6.1.4.1.9.9.1005.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyVpnId"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyApplication"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySourceIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySourcePort"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDestinationIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDestinationPort"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyProtocol"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDscp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaInformation"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanPolicyDataPolicyAssociationStatus": {
+    "name": "ciscoSdwanPolicyDataPolicyAssociationStatus",
+    "oid": "1.3.6.1.4.1.9.9.1005.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyVpnListName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanPolicyAccessListAssociationStatus": {
+    "name": "ciscoSdwanPolicyAccessListAssociationStatus",
+    "oid": "1.3.6.1.4.1.9.9.1005.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyAccessListName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanPolicyMIBCompliances": {
+    "name": "ciscoSdwanPolicyMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanPolicyMIBGroups": {
+    "name": "ciscoSdwanPolicyMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanPolicyMIBCompliance": {
+    "name": "ciscoSdwanPolicyMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdwanPolicyDataPolicyFilterGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyDataPolicyFilterVpnlistGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyDataPolicyFilterVpnlistCounterGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyDataPolicyFilterVpnlistPolicerGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAppRoutePolicyFilterGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAppRoutePolicyFilterVpnlistGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAppRoutePolicyFilterVpnlistCounterGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListNamesGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListCountersGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListCountersAccessPolicyCounterListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListPolicersGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListPolicersAccessPolicyPolicerListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListAssociationsGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyAccessListAssociationsAccessPolicyInterfaceListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyRewriteAssociationsGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyRewriteAssociationsRewriteInterfaceListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartSlaClassGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsVpnListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsVpnListVpnGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsDataPrefixListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsDataPrefixListIpPrefixGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsTlocListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsTlocListTlocGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsAppProbeClassListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartListsAppProbeClassColorGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyNotifObjsGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyNotifsGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartDataPolicyGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartDataPolicyVpnListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartDataPolicyVpnListSequenceGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanpolicyFromVsmartDataPolVpnListSeqActSetVipTlocPrLstGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartCflowdTemplateGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartCflowdTemplateCollectorGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartAppRoutePolicyGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartAppRoutePolicyVpnListGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartAppRoutePolicyVpnListSequenceGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      },
+      {
+        "object": "cSdwanPolicyFromVsmartPolicerGroup",
+        "module": "CISCO-SDWAN-POLICY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyDataPolicyFilterGroup": {
+    "name": "cSdwanPolicyDataPolicyFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyDataPolicyFilterVpnlistGroup": {
+    "name": "cSdwanPolicyDataPolicyFilterVpnlistGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyDataPolicyFilterVpnlistCounterGroup": {
+    "name": "cSdwanPolicyDataPolicyFilterVpnlistCounterGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistCounterPackets"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistCounterBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyDataPolicyFilterVpnlistPolicerGroup": {
+    "name": "cSdwanPolicyDataPolicyFilterVpnlistPolicerGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistPolicerOosPackets"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyDataPolicyFilterVpnlistPolicerOosBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAppRoutePolicyFilterGroup": {
+    "name": "cSdwanPolicyAppRoutePolicyFilterGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAppRoutePolicyFilterVpnlistGroup": {
+    "name": "cSdwanPolicyAppRoutePolicyFilterVpnlistGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterVpnlistName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAppRoutePolicyFilterVpnlistCounterGroup": {
+    "name": "cSdwanPolicyAppRoutePolicyFilterVpnlistCounterGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterVpnlistCounterPackets"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAppRoutePolicyFilterVpnlistCounterBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListNamesGroup": {
+    "name": "cSdwanPolicyAccessListNamesGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListNamesName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListCountersGroup": {
+    "name": "cSdwanPolicyAccessListCountersGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListCountersName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListCountersAccessPolicyCounterListGroup": {
+    "name": "cSdwanPolicyAccessListCountersAccessPolicyCounterListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListCountersAccessPolicyCounterListPackets"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListCountersAccessPolicyCounterListBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListPolicersGroup": {
+    "name": "cSdwanPolicyAccessListPolicersGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListPolicersName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListPolicersAccessPolicyPolicerListGroup": {
+    "name": "cSdwanPolicyAccessListPolicersAccessPolicyPolicerListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListPolicersAccessPolicyPolicerListOosPackets"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListPolicersAccessPolicyPolicerListOosBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListAssociationsGroup": {
+    "name": "cSdwanPolicyAccessListAssociationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyAccessListAssociationsAccessPolicyInterfaceListGroup": {
+    "name": "cSdwanPolicyAccessListAssociationsAccessPolicyInterfaceListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsAccessPolicyInterfaceListIntName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyAccessListAssociationsAccessPolicyInterfaceListIntDir"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyRewriteAssociationsGroup": {
+    "name": "cSdwanPolicyRewriteAssociationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyRewriteAssociationsName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyRewriteAssociationsRewriteInterfaceListGroup": {
+    "name": "cSdwanPolicyRewriteAssociationsRewriteInterfaceListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyRewriteAssociationsRewriteInterfaceListInterfaceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartSlaClassGroup": {
+    "name": "cSdwanPolicyFromVsmartSlaClassGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartSlaClassLoss"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartSlaClassLatency"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartSlaClassJitter"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartSlaClassAppProbeClass"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsVpnListGroup": {
+    "name": "cSdwanPolicyFromVsmartListsVpnListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsVpnListName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsVpnListVpnGroup": {
+    "name": "cSdwanPolicyFromVsmartListsVpnListVpnGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsVpnListVpnId"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsDataPrefixListGroup": {
+    "name": "cSdwanPolicyFromVsmartListsDataPrefixListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsDataPrefixListName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsDataPrefixListIpPrefixGroup": {
+    "name": "cSdwanPolicyFromVsmartListsDataPrefixListIpPrefixGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsDataPrefixListIpPrefixIp"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsTlocListGroup": {
+    "name": "cSdwanPolicyFromVsmartListsTlocListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsTlocListTlocGroup": {
+    "name": "cSdwanPolicyFromVsmartListsTlocListTlocGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsTlocListTlocPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsAppProbeClassListGroup": {
+    "name": "cSdwanPolicyFromVsmartListsAppProbeClassListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsAppProbeClassListForwardingClass"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartListsAppProbeClassColorGroup": {
+    "name": "cSdwanPolicyFromVsmartListsAppProbeClassColorGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartListsAppProbeClassColorDscp"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyNotifObjsGroup": {
+    "name": "cSdwanPolicyNotifObjsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyVpnId"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyApplication"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySourceIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySourcePort"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDestinationIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDestinationPort"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyProtocol"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDscp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaInformation"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaStatus"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyVpnListName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyAccessListName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyNotifsGroup": {
+    "name": "cSdwanPolicyNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.27",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaViolation"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicySlaViolationPktDrop"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyDataPolicyAssociationStatus"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "ciscoSdwanPolicyAccessListAssociationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartDataPolicyGroup": {
+    "name": "cSdwanPolicyFromVsmartDataPolicyGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartDataPolicyVpnListGroup": {
+    "name": "cSdwanPolicyFromVsmartDataPolicyVpnListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListDefaultAction"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartDataPolicyVpnListSequenceGroup": {
+    "name": "cSdwanPolicyFromVsmartDataPolicyVpnListSequenceGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceMatchSrcDataPrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceMatchSrcDataV6PrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceMatchDestDataPrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceMatchDestDataV6PrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceMatchTcp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionActionValue"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionCount"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionNatUseVpn"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionCflowd"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetLocalTlocColor"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetLocalTlocEncap"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHop"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetPolicer"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetVpn"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetVpnLabel"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocColor"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetTlocList"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceSvcType"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceVpn"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceTlocIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetSvcTlocClr"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequencActionSetSvcTlocLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetServiceLocal"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetServiceRestrict"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionLog"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListColor"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListEncap"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetLocalTlocListRestrict"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionTcpOptimization"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHopIpv6"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSig"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSequenceActionSetNextHopLoose"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanpolicyFromVsmartDataPolVpnListSeqActSetVipTlocPrLstGroup": {
+    "name": "cSdwanpolicyFromVsmartDataPolVpnListSeqActSetVipTlocPrLstGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocLbl"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocIp"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocClr"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocEn"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartDataPolicyVpnListSeqActSetVipTlocPrLstTlocPrf"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartCflowdTemplateGroup": {
+    "name": "cSdwanPolicyFromVsmartCflowdTemplateGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateFlowActiveTimeout"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateFlowInactiveTimeout"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateTemplateRefresh"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateFlowSamplingInterval"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartCflowdTemplateCollectorGroup": {
+    "name": "cSdwanPolicyFromVsmartCflowdTemplateCollectorGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartCflowdTemplateCollectorSourceInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartAppRoutePolicyGroup": {
+    "name": "cSdwanPolicyFromVsmartAppRoutePolicyGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartAppRoutePolicyVpnListGroup": {
+    "name": "cSdwanPolicyFromVsmartAppRoutePolicyVpnListGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListDefActSlaClassName"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartAppRoutePolicyVpnListSequenceGroup": {
+    "name": "cSdwanPolicyFromVsmartAppRoutePolicyVpnListSequenceGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchSrcDtPrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchSrcDtV6PrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchDestDtPrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceMatchDestDtV6PrLst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceActionCount"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClName"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClStrict"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceActionLog"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartAppRoutePolicyVpnListSequenceActionSlaClFallback"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanPolicyFromVsmartPolicerGroup": {
+    "name": "cSdwanPolicyFromVsmartPolicerGroup",
+    "oid": "1.3.6.1.4.1.9.9.1005.3.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartPolicerRate"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartPolicerBurst"
+      },
+      {
+        "module": "CISCO-SDWAN-POLICY-MIB",
+        "object": "policyFromVsmartPolicerExceed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDWAN-POLICY-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:01 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SDWAN-POLICY-MIB"
+  }
+}

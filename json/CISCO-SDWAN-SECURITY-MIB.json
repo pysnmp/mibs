@@ -1,0 +1,2016 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "ciscoSdwanSecurityMIB": {
+    "name": "ciscoSdwanSecurityMIB",
+    "oid": "1.3.6.1.4.1.9.9.1006",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-02-26 00:00",
+        "description": "Cisco SDWAN Revision 0.0"
+      }
+    ]
+  },
+  "UnsignedByte": {
+    "name": "UnsignedByte",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "InetAddressIP": {
+    "name": "InetAddressIP",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "String": {
+    "name": "String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "NotificationSeverity": {
+    "name": "NotificationSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PersonalityEnumOper": {
+    "name": "PersonalityEnumOper",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "vedge": 1,
+          "vhub": 2,
+          "vsmart": 3,
+          "vbond": 4,
+          "vmanage": 5,
+          "ztp": 6,
+          "vcontainer": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColorEnum": {
+    "name": "ColorEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "mpls": 2,
+          "metro-ethernet": 3,
+          "biz-internet": 4,
+          "public-internet": 5,
+          "lte": 6,
+          "threeG": 7,
+          "red": 8,
+          "green": 9,
+          "blue": 10,
+          "gold": 11,
+          "silver": 12,
+          "bronze": 13,
+          "custom1": 14,
+          "custom2": 15,
+          "custom3": 16,
+          "private1": 17,
+          "private2": 18,
+          "private3": 19,
+          "private4": 20,
+          "private5": 21,
+          "private6": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OperState": {
+    "name": "OperState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 0,
+          "down": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CertificateTypeEnum": {
+    "name": "CertificateTypeEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "web-server": 1,
+          "enterprise": 2,
+          "vmanage": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoSdwanSecurityMIBNotifs": {
+    "name": "ciscoSdwanSecurityMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.1006.0",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanSecurityMIBObjects": {
+    "name": "ciscoSdwanSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.1006.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanSecurityMIBNotifObjects": {
+    "name": "ciscoSdwanSecurityMIBNotifObjects",
+    "oid": "1.3.6.1.4.1.9.9.1006.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanSecurityMIBConform": {
+    "name": "ciscoSdwanSecurityMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.1006.3",
+    "class": "objectidentity"
+  },
+  "control": {
+    "name": "control",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2",
+    "class": "objectidentity"
+  },
+  "controlLocalProperties": {
+    "name": "controlLocalProperties",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5",
+    "class": "objectidentity"
+  },
+  "controlLocalPropertiesDeviceType": {
+    "name": "controlLocalPropertiesDeviceType",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "vedge": 1,
+          "vhub": 2,
+          "vsmart": 3,
+          "vbond": 4,
+          "vmanage": 5,
+          "ztp": 6,
+          "vcontainer": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesOrganizationName": {
+    "name": "controlLocalPropertiesOrganizationName",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesCertificateStatus": {
+    "name": "controlLocalPropertiesCertificateStatus",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesRootCaChainStatus": {
+    "name": "controlLocalPropertiesRootCaChainStatus",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesCertificateValidity": {
+    "name": "controlLocalPropertiesCertificateValidity",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesCertificateNotValidBefore": {
+    "name": "controlLocalPropertiesCertificateNotValidBefore",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesCertificateNotValidAfter": {
+    "name": "controlLocalPropertiesCertificateNotValidAfter",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesDnsName": {
+    "name": "controlLocalPropertiesDnsName",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesSiteId": {
+    "name": "controlLocalPropertiesSiteId",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesDomainId": {
+    "name": "controlLocalPropertiesDomainId",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesTlsPort": {
+    "name": "controlLocalPropertiesTlsPort",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesSystemIp": {
+    "name": "controlLocalPropertiesSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesUuid": {
+    "name": "controlLocalPropertiesUuid",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesBoardSerial": {
+    "name": "controlLocalPropertiesBoardSerial",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesRegisterInterval": {
+    "name": "controlLocalPropertiesRegisterInterval",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesRetryInterval": {
+    "name": "controlLocalPropertiesRetryInterval",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesNoActivity": {
+    "name": "controlLocalPropertiesNoActivity",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesDnsCacheFlushInterval": {
+    "name": "controlLocalPropertiesDnsCacheFlushInterval",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesPortHopped": {
+    "name": "controlLocalPropertiesPortHopped",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesTimeSincePortHop": {
+    "name": "controlLocalPropertiesTimeSincePortHop",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesMaxControllers": {
+    "name": "controlLocalPropertiesMaxControllers",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesKeygenInterval": {
+    "name": "controlLocalPropertiesKeygenInterval",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesNumberVbondPeers": {
+    "name": "controlLocalPropertiesNumberVbondPeers",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesNumberActiveWanInterfaces": {
+    "name": "controlLocalPropertiesNumberActiveWanInterfaces",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesEnterpriseCertificateStatus": {
+    "name": "controlLocalPropertiesEnterpriseCertificateStatus",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesEnterpriseCertificateValidity": {
+    "name": "controlLocalPropertiesEnterpriseCertificateValidity",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesEnterpriseCertificateNotValidBefore": {
+    "name": "controlLocalPropertiesEnterpriseCertificateNotValidBefore",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlLocalPropertiesEnterpriseCertificateNotValidAfter": {
+    "name": "controlLocalPropertiesEnterpriseCertificateNotValidAfter",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.5.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlSummary": {
+    "name": "controlSummary",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.6",
+    "class": "objectidentity"
+  },
+  "controlSummaryInstance": {
+    "name": "controlSummaryInstance",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlSummaryVbondCounts": {
+    "name": "controlSummaryVbondCounts",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlSummaryVmanageCounts": {
+    "name": "controlSummaryVmanageCounts",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlSummaryVsmartCounts": {
+    "name": "controlSummaryVsmartCounts",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinity": {
+    "name": "controlAffinity",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7",
+    "class": "objectidentity"
+  },
+  "controlAffinityConfigAffcIndex": {
+    "name": "controlAffinityConfigAffcIndex",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinityConfigAffcInterface": {
+    "name": "controlAffinityConfigAffcInterface",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinityConfigAffcErvc": {
+    "name": "controlAffinityConfigAffcErvc",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinityConfigAffcEcl": {
+    "name": "controlAffinityConfigAffcEcl",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinityConfigAffcCcl": {
+    "name": "controlAffinityConfigAffcCcl",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinityConfigAffcEquil": {
+    "name": "controlAffinityConfigAffcEquil",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controlAffinityConfigAffcLastResort": {
+    "name": "controlAffinityConfigAffcLastResort",
+    "oid": "1.3.6.1.4.1.9.9.1006.1.2.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "netconfNotificationSeverity": {
+    "name": "netconfNotificationSeverity",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityPersonality": {
+    "name": "ciscoSdwanSecurityPersonality",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PersonalityEnumOper",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityPeerType": {
+    "name": "ciscoSdwanSecurityPeerType",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PersonalityEnumOper",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityPeerSystemIp": {
+    "name": "ciscoSdwanSecurityPeerSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityPeerVmanageSystemIp": {
+    "name": "ciscoSdwanSecurityPeerVmanageSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityPublicIp": {
+    "name": "ciscoSdwanSecurityPublicIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityPublicPort": {
+    "name": "ciscoSdwanSecurityPublicPort",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySrcColor": {
+    "name": "ciscoSdwanSecuritySrcColor",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityRemoteColor": {
+    "name": "ciscoSdwanSecurityRemoteColor",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityUptime": {
+    "name": "ciscoSdwanSecurityUptime",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityNewState": {
+    "name": "ciscoSdwanSecurityNewState",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityLocalSystemIp": {
+    "name": "ciscoSdwanSecurityLocalSystemIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityLocalColor": {
+    "name": "ciscoSdwanSecurityLocalColor",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityReason": {
+    "name": "ciscoSdwanSecurityReason",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityOldPublicIp": {
+    "name": "ciscoSdwanSecurityOldPublicIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityOldPublicPort": {
+    "name": "ciscoSdwanSecurityOldPublicPort",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityNewPublicIp": {
+    "name": "ciscoSdwanSecurityNewPublicIp",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIP",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityNewPublicPort": {
+    "name": "ciscoSdwanSecurityNewPublicPort",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityColor": {
+    "name": "ciscoSdwanSecurityColor",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColorEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityUuid": {
+    "name": "ciscoSdwanSecurityUuid",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySerial": {
+    "name": "ciscoSdwanSecuritySerial",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityVmanageConnectionPreference": {
+    "name": "ciscoSdwanSecurityVmanageConnectionPreference",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnsignedByte",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityOrganizationName": {
+    "name": "ciscoSdwanSecurityOrganizationName",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySpOrganizationName": {
+    "name": "ciscoSdwanSecuritySpOrganizationName",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityCertificateType": {
+    "name": "ciscoSdwanSecurityCertificateType",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CertificateTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityCertificateSerialNumber": {
+    "name": "ciscoSdwanSecurityCertificateSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityIssuer": {
+    "name": "ciscoSdwanSecurityIssuer",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityDaysToExpiry": {
+    "name": "ciscoSdwanSecurityDaysToExpiry",
+    "oid": "1.3.6.1.4.1.9.9.1006.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoSdwanSecurityControlConnectionStateChange": {
+    "name": "ciscoSdwanSecurityControlConnectionStateChange",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerType"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerVmanageSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPublicIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPublicPort"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySrcColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityRemoteColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUptime"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityControlConnectionAuthFail": {
+    "name": "ciscoSdwanSecurityControlConnectionAuthFail",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerType"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityLocalSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityLocalColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityControlConnectionTlocIpChange": {
+    "name": "ciscoSdwanSecurityControlConnectionTlocIpChange",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityOldPublicIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityOldPublicPort"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewPublicIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewPublicPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityControlVbondStateChange": {
+    "name": "ciscoSdwanSecurityControlVbondStateChange",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityControlNoActiveVsmart": {
+    "name": "ciscoSdwanSecurityControlNoActiveVsmart",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityControlNoActiveVbond": {
+    "name": "ciscoSdwanSecurityControlNoActiveVbond",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityTunnelIpsecRekey": {
+    "name": "ciscoSdwanSecurityTunnelIpsecRekey",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityColor"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityTunnelIpsecManualRekey": {
+    "name": "ciscoSdwanSecurityTunnelIpsecManualRekey",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityColor"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityRootCertChainInstalled": {
+    "name": "ciscoSdwanSecuritySecurityRootCertChainInstalled",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityCertificateExpiring": {
+    "name": "ciscoSdwanSecuritySecurityCertificateExpiring",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityCertificateType"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityCertificateSerialNumber"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityIssuer"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityDaysToExpiry"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityCertificateExpired": {
+    "name": "ciscoSdwanSecuritySecurityCertificateExpired",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityCertificateInstalled": {
+    "name": "ciscoSdwanSecuritySecurityCertificateInstalled",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityNewCsrGenerated": {
+    "name": "ciscoSdwanSecuritySecurityNewCsrGenerated",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityRootCertChainUninstalled": {
+    "name": "ciscoSdwanSecuritySecurityRootCertChainUninstalled",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityClearInstalledCertificate": {
+    "name": "ciscoSdwanSecuritySecurityClearInstalledCertificate",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityVedgeSerialFileUploaded": {
+    "name": "ciscoSdwanSecuritySecurityVedgeSerialFileUploaded",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityVsmartSerialFileUploaded": {
+    "name": "ciscoSdwanSecuritySecurityVsmartSerialFileUploaded",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityVedgeEntryAdded": {
+    "name": "ciscoSdwanSecuritySecurityVedgeEntryAdded",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUuid"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySerial"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityVedgeEntryRemoved": {
+    "name": "ciscoSdwanSecuritySecurityVedgeEntryRemoved",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUuid"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityVsmartEntryAdded": {
+    "name": "ciscoSdwanSecuritySecurityVsmartEntryAdded",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySerial"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecuritySecurityVsmartEntryRemoved": {
+    "name": "ciscoSdwanSecuritySecurityVsmartEntryRemoved",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySerial"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityVmanageConnectionPreferenceChanged": {
+    "name": "ciscoSdwanSecurityVmanageConnectionPreferenceChanged",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityVmanageConnectionPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityVbondRejectVedgeConnection": {
+    "name": "ciscoSdwanSecurityVbondRejectVedgeConnection",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUuid"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityOrganizationName"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySpOrganizationName"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityDeviceTemplateMissing": {
+    "name": "ciscoSdwanSecurityDeviceTemplateMissing",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUuid"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityDeviceTemplateAttachedDuringZtp": {
+    "name": "ciscoSdwanSecurityDeviceTemplateAttachedDuringZtp",
+    "oid": "1.3.6.1.4.1.9.9.1006.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUuid"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSdwanSecurityMIBCompliances": {
+    "name": "ciscoSdwanSecurityMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanSecurityMIBGroups": {
+    "name": "ciscoSdwanSecurityMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoSdwanSecurityMIBCompliance": {
+    "name": "ciscoSdwanSecurityMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cSdwanSecurityControlLocalPropertiesGroup",
+        "module": "CISCO-SDWAN-SECURITY-MIB"
+      },
+      {
+        "object": "cSdwanSecurityNotifObjsGroup",
+        "module": "CISCO-SDWAN-SECURITY-MIB"
+      },
+      {
+        "object": "cSdwanSecurityNotifsGroup",
+        "module": "CISCO-SDWAN-SECURITY-MIB"
+      },
+      {
+        "object": "cSdwanSecurityControlSummaryGroup",
+        "module": "CISCO-SDWAN-SECURITY-MIB"
+      },
+      {
+        "object": "cSdwanSecurityControlAffinityGroup",
+        "module": "CISCO-SDWAN-SECURITY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanSecurityControlLocalPropertiesGroup": {
+    "name": "cSdwanSecurityControlLocalPropertiesGroup",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesDeviceType"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesOrganizationName"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesCertificateStatus"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesRootCaChainStatus"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesCertificateValidity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesCertificateNotValidBefore"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesCertificateNotValidAfter"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesDnsName"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesSiteId"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesDomainId"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesTlsPort"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesUuid"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesBoardSerial"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesRegisterInterval"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesRetryInterval"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesNoActivity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesDnsCacheFlushInterval"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesPortHopped"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesTimeSincePortHop"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesMaxControllers"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesKeygenInterval"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesNumberVbondPeers"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesNumberActiveWanInterfaces"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesEnterpriseCertificateStatus"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesEnterpriseCertificateValidity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesEnterpriseCertificateNotValidBefore"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlLocalPropertiesEnterpriseCertificateNotValidAfter"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanSecurityNotifObjsGroup": {
+    "name": "cSdwanSecurityNotifObjsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "netconfNotificationSeverity"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPersonality"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerType"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPeerVmanageSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPublicIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityPublicPort"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySrcColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityRemoteColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUptime"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewState"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityLocalSystemIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityLocalColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityReason"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityOldPublicIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityOldPublicPort"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewPublicIp"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityNewPublicPort"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityColor"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityUuid"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySerial"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityVmanageConnectionPreference"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityOrganizationName"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySpOrganizationName"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityCertificateType"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityCertificateSerialNumber"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityIssuer"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityDaysToExpiry"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanSecurityNotifsGroup": {
+    "name": "cSdwanSecurityNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityControlConnectionStateChange"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityControlConnectionAuthFail"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityControlConnectionTlocIpChange"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityControlVbondStateChange"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityControlNoActiveVsmart"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityControlNoActiveVbond"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityTunnelIpsecRekey"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityTunnelIpsecManualRekey"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityRootCertChainInstalled"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityCertificateExpiring"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityCertificateExpired"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityCertificateInstalled"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityNewCsrGenerated"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityRootCertChainUninstalled"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityClearInstalledCertificate"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityVedgeSerialFileUploaded"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityVsmartSerialFileUploaded"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityVedgeEntryAdded"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityVedgeEntryRemoved"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityVsmartEntryAdded"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecuritySecurityVsmartEntryRemoved"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityVmanageConnectionPreferenceChanged"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityVbondRejectVedgeConnection"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityDeviceTemplateMissing"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "ciscoSdwanSecurityDeviceTemplateAttachedDuringZtp"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanSecurityControlSummaryGroup": {
+    "name": "cSdwanSecurityControlSummaryGroup",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlSummaryInstance"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlSummaryVbondCounts"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlSummaryVmanageCounts"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlSummaryVsmartCounts"
+      }
+    ],
+    "status": "current"
+  },
+  "cSdwanSecurityControlAffinityGroup": {
+    "name": "cSdwanSecurityControlAffinityGroup",
+    "oid": "1.3.6.1.4.1.9.9.1006.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcIndex"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcInterface"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcErvc"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcEcl"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcCcl"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcEquil"
+      },
+      {
+        "module": "CISCO-SDWAN-SECURITY-MIB",
+        "object": "controlAffinityConfigAffcLastResort"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDWAN-SECURITY-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SDWAN-SECURITY-MIB"
+  }
+}

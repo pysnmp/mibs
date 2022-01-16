@@ -1,0 +1,1167 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ciscoLwappTagsMIB": {
+    "name": "ciscoLwappTagsMIB",
+    "oid": "1.3.6.1.4.1.9.9.858",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-09-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappTagsMIBNotifs": {
+    "name": "ciscoLwappTagsMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.858.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTagsMIBObjects": {
+    "name": "ciscoLwappTagsMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.858.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTagsMIBConform": {
+    "name": "ciscoLwappTagsMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.858.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappPolicyTagConfig": {
+    "name": "ciscoLwappPolicyTagConfig",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappSiteTagConfig": {
+    "name": "ciscoLwappSiteTagConfig",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappRfTagConfig": {
+    "name": "ciscoLwappRfTagConfig",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoLwappApTag": {
+    "name": "ciscoLwappApTag",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoLwappApFilter": {
+    "name": "ciscoLwappApFilter",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5",
+    "class": "objectidentity"
+  },
+  "cLPolicyTagConfigTable": {
+    "name": "cLPolicyTagConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPolicyTagConfigEntry": {
+    "name": "cLPolicyTagConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyTagName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLPolicyTagName": {
+    "name": "cLPolicyTagName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPolicyTagDescription": {
+    "name": "cLPolicyTagDescription",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLPolicyTagRowStatus": {
+    "name": "cLPolicyTagRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPolicyProfileConfigTable": {
+    "name": "cLPolicyProfileConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPolicyProfileConfigEntry": {
+    "name": "cLPolicyProfileConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyTagName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLProfileName": {
+    "name": "cLProfileName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLPolicyProfileName": {
+    "name": "cLPolicyProfileName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLPolicyProfileRowStatus": {
+    "name": "cLPolicyProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLRlanPolicyProfileConfigTable": {
+    "name": "cLRlanPolicyProfileConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanPolicyProfileConfigEntry": {
+    "name": "cLRlanPolicyProfileConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyTagName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLRlanPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRlanPortID": {
+    "name": "cLRlanPortID",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanProfile": {
+    "name": "cLRlanProfile",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRlanPolicyProfile": {
+    "name": "cLRlanPolicyProfile",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRlanPolicyProfileRowStatus": {
+    "name": "cLRlanPolicyProfileRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRfTagConfigTable": {
+    "name": "cLRfTagConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRfTagConfigEntry": {
+    "name": "cLRfTagConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLRfTagName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLRfTagName": {
+    "name": "cLRfTagName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLRfTagRowStatus": {
+    "name": "cLRfTagRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cL11aRfProfName": {
+    "name": "cL11aRfProfName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cL11bRfProfName": {
+    "name": "cL11bRfProfName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLRfTagDescription": {
+    "name": "cLRfTagDescription",
+    "oid": "1.3.6.1.4.1.9.9.858.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSiteTagConfigTable": {
+    "name": "cLSiteTagConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSiteTagConfigEntry": {
+    "name": "cLSiteTagConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLSiteTagName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLSiteTagName": {
+    "name": "cLSiteTagName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLSiteTagRowStatus": {
+    "name": "cLSiteTagRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLApJoinProfName": {
+    "name": "cLApJoinProfName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLFlexProfName": {
+    "name": "cLFlexProfName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLSiteTagDescription": {
+    "name": "cLSiteTagDescription",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapSiteUpgradeStart": {
+    "name": "cLReapSiteUpgradeStart",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initiatePrimary": 1,
+          "initiateBackup": 2,
+          "abort": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapSiteTagStartCertificateDownload": {
+    "name": "cLReapSiteTagStartCertificateDownload",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLIsLocalSite": {
+    "name": "cLIsLocalSite",
+    "oid": "1.3.6.1.4.1.9.9.858.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApConfigTagTable": {
+    "name": "cLApConfigTagTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApConfigTagEntry": {
+    "name": "cLApConfigTagEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApConfigTagSysMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLApConfigTagSysMacAddress": {
+    "name": "cLApConfigTagSysMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApConfigPolicyTagName": {
+    "name": "cLApConfigPolicyTagName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApConfigRfTagName": {
+    "name": "cLApConfigRfTagName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApConfigSiteTagName": {
+    "name": "cLApConfigSiteTagName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApConfigTagRowStatus": {
+    "name": "cLApConfigTagRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLApFilterTable": {
+    "name": "cLApFilterTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApFilterEntry": {
+    "name": "cLApFilterEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLApFilterName": {
+    "name": "cLApFilterName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApFilterRowStatus": {
+    "name": "cLApFilterRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLApFilterNameApNameRule": {
+    "name": "cLApFilterNameApNameRule",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApFilterPolicyTag": {
+    "name": "cLApFilterPolicyTag",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApFilterSiteTag": {
+    "name": "cLApFilterSiteTag",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApFilterRfTag": {
+    "name": "cLApFilterRfTag",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApFilterPriorityTable": {
+    "name": "cLApFilterPriorityTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApFilterPriorityEntry": {
+    "name": "cLApFilterPriorityEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLApFilterPriority": {
+    "name": "cLApFilterPriority",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApFilterPriorityRowStatus": {
+    "name": "cLApFilterPriorityRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLApFilterPriorityFilterName": {
+    "name": "cLApFilterPriorityFilterName",
+    "oid": "1.3.6.1.4.1.9.9.858.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLApTagSrcTable": {
+    "name": "cLApTagSrcTable",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApTagSrcEntry": {
+    "name": "cLApTagSrcEntry",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApTagSrcPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLApTagSrcPriority": {
+    "name": "cLApTagSrcPriority",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLApTagSrcRowStatus": {
+    "name": "cLApTagSrcRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLApTagSrcList": {
+    "name": "cLApTagSrcList",
+    "oid": "1.3.6.1.4.1.9.9.858.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "static": 2,
+          "filter": 3,
+          "ap": 4,
+          "default": 5,
+          "location": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappTagsMIBCompliances": {
+    "name": "ciscoLwappTagsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.858.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTagsMIBGroups": {
+    "name": "ciscoLwappTagsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.858.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappTagsMIBCompliance": {
+    "name": "ciscoLwappTagsMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.858.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappTagsConfigGroup",
+        "module": "CISCO-LWAPP-TAGS-MIB"
+      },
+      {
+        "object": "ciscoLwappFilterConfigGroup",
+        "module": "CISCO-LWAPP-TAGS-MIB"
+      },
+      {
+        "object": "ciscoLwappRlanConfigGroup",
+        "module": "CISCO-LWAPP-TAGS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappTagsConfigGroup": {
+    "name": "ciscoLwappTagsConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.858.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyTagDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyTagRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyProfileName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLPolicyProfileRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLRfTagRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLRfTagDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cL11aRfProfName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cL11bRfProfName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLSiteTagRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApJoinProfName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLFlexProfName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLSiteTagDescription"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLReapSiteUpgradeStart"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLReapSiteTagStartCertificateDownload"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLIsLocalSite"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApConfigPolicyTagName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApConfigRfTagName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApConfigSiteTagName"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApConfigTagRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApTagSrcRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApTagSrcList"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappFilterConfigGroup": {
+    "name": "ciscoLwappFilterConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.858.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterNameApNameRule"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterPolicyTag"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterRfTag"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterSiteTag"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterPriorityRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLApFilterPriorityFilterName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappRlanConfigGroup": {
+    "name": "ciscoLwappRlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.858.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLRlanPolicyProfile"
+      },
+      {
+        "module": "CISCO-LWAPP-TAGS-MIB",
+        "object": "cLRlanPolicyProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-TAGS-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:35:59 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-TAGS-MIB"
+  }
+}

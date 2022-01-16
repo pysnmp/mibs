@@ -8,95 +8,159 @@
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
-    "CISCO-TC": [
-      "CiscoURLString"
-    ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
+      "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoLwappHaMIB": {
     "name": "ciscoLwappHaMIB",
-    "oid": "1.3.6.1.4.1.9.9.198888",
+    "oid": "1.3.6.1.4.1.9.9.843",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2012-01-24 11:50",
-        "description": "Initial version of this MIB module. "
+        "revision": "2020-06-07 00:00",
+        "description": "Added Gateway Failover Interval object in (ciscoLwappMcRmiConfig)"
+      },
+      {
+        "revision": "2019-07-08 00:00",
+        "description": "Added Multi-Chassis RMI configuration objects in (ciscoLwappMcRmiConfig)"
+      },
+      {
+        "revision": "2017-11-08 00:00",
+        "description": "Added Multi-Chassis HA configuration objects in (ciscoLwappMcHaConfig)"
+      },
+      {
+        "revision": "2017-03-14 00:00",
+        "description": "Initial version of this MIB module."
       }
     ]
   },
+  "ciscoLwappHaMIBNotifs": {
+    "name": "ciscoLwappHaMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.843.0",
+    "class": "objectidentity"
+  },
   "ciscoLwappHaMIBObjects": {
     "name": "ciscoLwappHaMIBObjects",
-    "oid": "1.3.6.1.4.1.9.9.198888.0",
+    "oid": "1.3.6.1.4.1.9.9.843.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaMIBConform": {
+    "name": "ciscoLwappHaMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.843.2",
     "class": "objectidentity"
   },
   "ciscoLwappHaGlobalConfig": {
     "name": "ciscoLwappHaGlobalConfig",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1",
     "class": "objectidentity"
   },
   "ciscoLwappHaNetworkConfig": {
     "name": "ciscoLwappHaNetworkConfig",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2",
     "class": "objectidentity"
   },
-  "ciscoLwappHaMIBNotifs": {
-    "name": "ciscoLwappHaMIBNotifs",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.3",
+  "ciscoLwappHaNotificationVariable": {
+    "name": "ciscoLwappHaNotificationVariable",
+    "oid": "1.3.6.1.4.1.9.9.843.1.3",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaPeerStatisticsVariable": {
+    "name": "ciscoLwappHaPeerStatisticsVariable",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaStatisticsVariable": {
+    "name": "ciscoLwappHaStatisticsVariable",
+    "oid": "1.3.6.1.4.1.9.9.843.1.5",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMcHaConfig": {
+    "name": "ciscoLwappMcHaConfig",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6",
+    "class": "objectidentity"
+  },
+  "ciscoLwappMcRmiConfig": {
+    "name": "ciscoLwappMcRmiConfig",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaSystemStatistics": {
+    "name": "ciscoLwappHaSystemStatistics",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaCpuStatistics": {
+    "name": "ciscoLwappHaCpuStatistics",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaPowerSupplyStatistics": {
+    "name": "ciscoLwappHaPowerSupplyStatistics",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaMemoryStatistics": {
+    "name": "ciscoLwappHaMemoryStatistics",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3",
     "class": "objectidentity"
   },
   "cLHaApSsoConfig": {
     "name": "cLHaApSsoConfig",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.1",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "TruthValue",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLHaPeerIpAddressType": {
     "name": "cLHaPeerIpAddressType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.2",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -108,7 +172,7 @@
   },
   "cLHaPeerIpAddress": {
     "name": "cLHaPeerIpAddress",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.3",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -120,7 +184,7 @@
   },
   "cLHaServicePortPeerIpAddressType": {
     "name": "cLHaServicePortPeerIpAddressType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.4",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -132,7 +196,7 @@
   },
   "cLHaServicePortPeerIpAddress": {
     "name": "cLHaServicePortPeerIpAddress",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.5",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -144,7 +208,7 @@
   },
   "cLHaServicePortPeerIpNetMaskType": {
     "name": "cLHaServicePortPeerIpNetMaskType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.6",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -156,7 +220,7 @@
   },
   "cLHaServicePortPeerIpNetMask": {
     "name": "cLHaServicePortPeerIpNetMask",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.7",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -168,7 +232,7 @@
   },
   "cLHaRedundancyIpAddressType": {
     "name": "cLHaRedundancyIpAddressType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.8",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -180,7 +244,7 @@
   },
   "cLHaRedundancyIpAddress": {
     "name": "cLHaRedundancyIpAddress",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.9",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -192,7 +256,7 @@
   },
   "cLHaPeerMacAddress": {
     "name": "cLHaPeerMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.10",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -204,7 +268,7 @@
   },
   "cLHaVirtualMacAddress": {
     "name": "cLHaVirtualMacAddress",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.11",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -216,43 +280,61 @@
   },
   "cLHaPrimaryUnit": {
     "name": "cLHaPrimaryUnit",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.12",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "TruthValue",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLHaLinkEncryption": {
     "name": "cLHaLinkEncryption",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.13",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "TruthValue",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLHaNetworkFailOver": {
     "name": "cLHaNetworkFailOver",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.14",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
       "type": "TruthValue",
       "class": "type"
     },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
     "status": "current"
   },
   "cLHaRFStatusUnitIp": {
     "name": "cLHaRFStatusUnitIp",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.1.15",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -262,9 +344,457 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cLHaKATimeout": {
+    "name": "cLHaKATimeout",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLHaKARetryCount": {
+    "name": "cLHaKARetryCount",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLHaGwRetryCount": {
+    "name": "cLHaGwRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLHaPeerSearchTimeout": {
+    "name": "cLHaPeerSearchTimeout",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLHaRFStatusUnitIpType": {
+    "name": "cLHaRFStatusUnitIpType",
+    "oid": "1.3.6.1.4.1.9.9.843.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLMcHaPortName": {
+    "name": "cLMcHaPortName",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaPortLocIpAddrType": {
+    "name": "cLMcHaPortLocIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaPortLocIp": {
+    "name": "cLMcHaPortLocIp",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaPortMask": {
+    "name": "cLMcHaPortMask",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaPortRemoteIpAddrType": {
+    "name": "cLMcHaPortRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaPortRemIp": {
+    "name": "cLMcHaPortRemIp",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaKeepAliveTimeOut": {
+    "name": "cLMcHaKeepAliveTimeOut",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaChassisPriority": {
+    "name": "cLMcHaChassisPriority",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaClearConfig": {
+    "name": "cLMcHaClearConfig",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcHaKeepAliveRetryCount": {
+    "name": "cLMcHaKeepAliveRetryCount",
+    "oid": "1.3.6.1.4.1.9.9.843.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiConfigAction": {
+    "name": "cLMcRmiConfigAction",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiInterface": {
+    "name": "cLMcRmiInterface",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiChassisANum": {
+    "name": "cLMcRmiChassisANum",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiChassisAIpAddrType": {
+    "name": "cLMcRmiChassisAIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiChassisAIp": {
+    "name": "cLMcRmiChassisAIp",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiChassisBNum": {
+    "name": "cLMcRmiChassisBNum",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiChassisBIpAddrType": {
+    "name": "cLMcRmiChassisBIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiChassisBIp": {
+    "name": "cLMcRmiChassisBIp",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiGatewayFailover": {
+    "name": "cLMcRmiGatewayFailover",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLMcRmiGatewayFailoverInterval": {
+    "name": "cLMcRmiGatewayFailoverInterval",
+    "oid": "1.3.6.1.4.1.9.9.843.1.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "cLHaNetworkRoutePeerConfigTable": {
     "name": "cLHaNetworkRoutePeerConfigTable",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -272,7 +802,7 @@
   },
   "cLHaNetworkRoutePeerConfigEntry": {
     "name": "cLHaNetworkRoutePeerConfigEntry",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -292,7 +822,7 @@
   },
   "cLHaNetworkRoutePeerIPAddressType": {
     "name": "cLHaNetworkRoutePeerIPAddressType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.1",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -304,7 +834,7 @@
   },
   "cLHaNetworkRoutePeerIPAddress": {
     "name": "cLHaNetworkRoutePeerIPAddress",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.2",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -316,7 +846,7 @@
   },
   "cLHaNetworkRoutePeerIPNetmaskType": {
     "name": "cLHaNetworkRoutePeerIPNetmaskType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.3",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -328,7 +858,7 @@
   },
   "cLHaNetworkRoutePeerIPNetmask": {
     "name": "cLHaNetworkRoutePeerIPNetmask",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.4",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -340,7 +870,7 @@
   },
   "cLHaNetworkRoutePeerGatewayType": {
     "name": "cLHaNetworkRoutePeerGatewayType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.5",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -352,7 +882,7 @@
   },
   "cLHaNetworkRoutePeerGateway": {
     "name": "cLHaNetworkRoutePeerGateway",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.6",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -364,7 +894,7 @@
   },
   "cLHaNetworkRoutePeerTransferStatus": {
     "name": "cLHaNetworkRoutePeerTransferStatus",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.7",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -380,12 +910,12 @@
         }
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "cLHaNetworkRoutePeerRowStatus": {
     "name": "cLHaNetworkRoutePeerRowStatus",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.2.1.1.8",
+    "oid": "1.3.6.1.4.1.9.9.843.1.2.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -395,14 +925,298 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "ciscoLwappHaNotificationVariable": {
-    "name": "ciscoLwappHaNotificationVariable",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.4",
-    "class": "objectidentity"
+  "cLHaAllCpuUsage": {
+    "name": "cLHaAllCpuUsage",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaPowerSupply1Present": {
+    "name": "cLHaPowerSupply1Present",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaPowerSupply1Operational": {
+    "name": "cLHaPowerSupply1Operational",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaPowerSupply2Present": {
+    "name": "cLHaPowerSupply2Present",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaPowerSupply2Operational": {
+    "name": "cLHaPowerSupply2Operational",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTotalSystemMemory": {
+    "name": "cLHaTotalSystemMemory",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaFreeSystemMemory": {
+    "name": "cLHaFreeSystemMemory",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaUsedSystemMemory": {
+    "name": "cLHaUsedSystemMemory",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaAllocatedFromRtos": {
+    "name": "cLHaAllocatedFromRtos",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaChunksFree": {
+    "name": "cLHaChunksFree",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaMmappedRegions": {
+    "name": "cLHaMmappedRegions",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaSpaceInMmappedRegions": {
+    "name": "cLHaSpaceInMmappedRegions",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTotalAllocatedSpace": {
+    "name": "cLHaTotalAllocatedSpace",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTotalNotInUseSpace": {
+    "name": "cLHaTotalNotInUseSpace",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTopMostReleasableSpace": {
+    "name": "cLHaTopMostReleasableSpace",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTotalAllocatedInclMmap": {
+    "name": "cLHaTotalAllocatedInclMmap",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTotalUsedMmap": {
+    "name": "cLHaTotalUsedMmap",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaTotalFreeInclMmap": {
+    "name": "cLHaTotalFreeInclMmap",
+    "oid": "1.3.6.1.4.1.9.9.843.1.4.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaAvgPeerReachLatency": {
+    "name": "cLHaAvgPeerReachLatency",
+    "oid": "1.3.6.1.4.1.9.9.843.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaAvgGwReachLatency": {
+    "name": "cLHaAvgGwReachLatency",
+    "oid": "1.3.6.1.4.1.9.9.843.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaBulkSyncStatus": {
+    "name": "cLHaBulkSyncStatus",
+    "oid": "1.3.6.1.4.1.9.9.843.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "cLHaSecondaryControllerUsageTrapType": {
     "name": "cLHaSecondaryControllerUsageTrapType",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.4.1",
+    "oid": "1.3.6.1.4.1.9.9.843.1.3.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -421,7 +1235,7 @@
   },
   "cLHaSecondaryControllerUsageDayCounter": {
     "name": "cLHaSecondaryControllerUsageDayCounter",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.4.2",
+    "oid": "1.3.6.1.4.1.9.9.843.1.3.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -431,9 +1245,43 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cLHaBulkSyncCompleteEvent": {
+    "name": "cLHaBulkSyncCompleteEvent",
+    "oid": "1.3.6.1.4.1.9.9.843.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bulkSyncComplete": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cLHaPeerHotStandbyEvent": {
+    "name": "cLHaPeerHotStandbyEvent",
+    "oid": "1.3.6.1.4.1.9.9.843.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "haPeerHotstandby": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cLHaSecondaryControllerUsageTrap": {
     "name": "cLHaSecondaryControllerUsageTrap",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.3.1",
+    "oid": "1.3.6.1.4.1.9.9.843.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -453,7 +1301,7 @@
   },
   "cLHaRFSwapInfoTrap": {
     "name": "cLHaRFSwapInfoTrap",
-    "oid": "1.3.6.1.4.1.9.9.198888.0.3.2",
+    "oid": "1.3.6.1.4.1.9.9.843.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -475,11 +1323,469 @@
     ],
     "status": "current"
   },
+  "cLHaBulkSyncCompleteTrap": {
+    "name": "cLHaBulkSyncCompleteTrap",
+    "oid": "1.3.6.1.4.1.9.9.843.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaBulkSyncCompleteEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "cLHaPeerHotStandbyTrap": {
+    "name": "cLHaPeerHotStandbyTrap",
+    "oid": "1.3.6.1.4.1.9.9.843.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerHotStandbyEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappHaMIBCompliances": {
+    "name": "ciscoLwappHaMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.843.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaMIBGroups": {
+    "name": "ciscoLwappHaMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappHaMIBCompliance": {
+    "name": "ciscoLwappHaMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.843.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappHaGlobalConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaNetworkConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaStatisticsGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaMIBNotificationVariableGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaMIBNotificationGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappMcHaConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappHaMIBComplianceRev1": {
+    "name": "ciscoLwappHaMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.843.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappHaGlobalConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaNetworkConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaStatisticsGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaMIBNotificationVariableGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappHaMIBNotificationGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappMcHaConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      },
+      {
+        "object": "ciscoLwappMcRmiConfigGroup",
+        "module": "CISCO-LWAPP-HA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappHaGlobalConfigGroup": {
+    "name": "ciscoLwappHaGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaApSsoConfig"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaServicePortPeerIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaServicePortPeerIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaServicePortPeerIpNetMaskType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaServicePortPeerIpNetMask"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaRedundancyIpAddressType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaRedundancyIpAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaVirtualMacAddress"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPrimaryUnit"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaLinkEncryption"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkFailOver"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaRFStatusUnitIpType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaRFStatusUnitIp"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaKATimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaKARetryCount"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaGwRetryCount"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerSearchTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappHaNetworkConfigGroup": {
+    "name": "ciscoLwappHaNetworkConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkRoutePeerIPNetmaskType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkRoutePeerIPNetmask"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkRoutePeerGatewayType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkRoutePeerGateway"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkRoutePeerTransferStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaNetworkRoutePeerRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappHaStatisticsGroup": {
+    "name": "ciscoLwappHaStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaAvgPeerReachLatency"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaAvgGwReachLatency"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaBulkSyncStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTotalSystemMemory"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaFreeSystemMemory"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaUsedSystemMemory"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaAllocatedFromRtos"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaChunksFree"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaMmappedRegions"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaSpaceInMmappedRegions"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTotalAllocatedSpace"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTotalNotInUseSpace"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTopMostReleasableSpace"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTotalAllocatedInclMmap"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTotalUsedMmap"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaTotalFreeInclMmap"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaAllCpuUsage"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPowerSupply1Present"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPowerSupply1Operational"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPowerSupply2Present"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPowerSupply2Operational"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappHaMIBNotificationVariableGroup": {
+    "name": "ciscoLwappHaMIBNotificationVariableGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaSecondaryControllerUsageTrapType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaSecondaryControllerUsageDayCounter"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaBulkSyncCompleteEvent"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerHotStandbyEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappHaMIBNotificationGroup": {
+    "name": "ciscoLwappHaMIBNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaSecondaryControllerUsageTrap"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaRFSwapInfoTrap"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaBulkSyncCompleteTrap"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLHaPeerHotStandbyTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMcHaConfigGroup": {
+    "name": "ciscoLwappMcHaConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaPortName"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaPortLocIpAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaPortLocIp"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaPortMask"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaPortRemoteIpAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaPortRemIp"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaKeepAliveTimeOut"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaChassisPriority"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaClearConfig"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcHaKeepAliveRetryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappMcRmiConfigGroup": {
+    "name": "ciscoLwappMcRmiConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.843.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiConfigAction"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiInterface"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiChassisANum"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiChassisAIpAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiChassisAIp"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiChassisBNum"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiChassisBIpAddrType"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiChassisBIp"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiGatewayFailover"
+      },
+      {
+        "module": "CISCO-LWAPP-HA-MIB",
+        "object": "cLMcRmiGatewayFailoverInterval"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-HA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 00:36:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-HA-MIB"
