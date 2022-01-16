@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BROCADE-SYSTEM-MIB": [
-      "swID",
-      "swSsn"
+      "swSsn",
+      "swID"
     ],
     "Brocade-REG-MIB": [
       "fibrechannel"
@@ -13,23 +13,23 @@
       "entPhysicalName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
       "Counter64",
+      "TimeTicks",
       "Counter32"
     ],
     "SNMPv2-TC": [
@@ -574,8 +574,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/HA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:25:23 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:48:02 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HA-MIB"

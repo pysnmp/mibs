@@ -5,35 +5,35 @@
       "alPptpMibModule"
     ],
     "ALTIGA-MIB": [
-      "alPptpGroup",
-      "alStatsPptp"
+      "alStatsPptp",
+      "alPptpGroup"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Counter64",
-      "Integer32"
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "altigaPptpStatsMibModule": {
@@ -1213,8 +1213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-PPTP-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:24:10 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:38 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALTIGA-PPTP-STATS-MIB"

@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSApplications",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSApplications"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
+      "iso",
+      "Integer32",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "iso",
-      "Gauge32"
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAOSDns": {
@@ -301,8 +301,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-DNS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:48 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:42:06 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADTRAN-AOS-DNS-MIB"

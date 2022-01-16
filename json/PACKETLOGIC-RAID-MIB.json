@@ -11,29 +11,29 @@
       "packetlogic2"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "raid": {
@@ -237,8 +237,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-RAID-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:31:27 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:55:41 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PACKETLOGIC-RAID-MIB"

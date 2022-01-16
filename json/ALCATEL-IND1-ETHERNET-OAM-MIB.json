@@ -5,38 +5,38 @@
       "softentIND1EthernetOam"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMaIndex",
       "dot1agCfmMepIdentifier",
       "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMdIndex",
+      "dot1agCfmMepEntry",
+      "dot1agCfmMaIndex",
       "Dot1agCfmMepId",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMdIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "Gauge32",
       "Counter32",
-      "MibIdentifier",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "iso",
       "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1EoamMIB": {
@@ -525,8 +525,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-ETHERNET-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:30:44 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:54:58 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-ETHERNET-OAM-MIB"

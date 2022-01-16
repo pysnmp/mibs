@@ -8,17 +8,17 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcAddressId",
-      "VsanIndex",
       "DomainIdOrZero",
-      "FcNameId"
+      "FcNameId",
+      "FcAddressId",
+      "VsanIndex"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -28,33 +28,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Counter64",
-      "Integer32"
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
       "TruthValue",
-      "RowStatus",
-      "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "RowStatus",
+      "TestAndIncr",
+      "DisplayString"
     ]
   },
   "ciscoZsMIB": {
@@ -5861,8 +5861,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ZS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 23:24:09 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:46:37 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-ZS-MIB"
