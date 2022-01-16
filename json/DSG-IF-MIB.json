@@ -4,6 +4,9 @@
     "CLAB-DEF-MIB": [
       "clabProjDocsis"
     ],
+    "DOCS-IF3-MIB": [
+      "Dsid"
+    ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
@@ -11,38 +14,38 @@
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
       "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "iso",
+      "MibIdentifier",
+      "Gauge32",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -52,7 +55,11 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2004-08-04 00:00",
+        "revision": "2018-11-02 00:00",
+        "description": "This revision is published as part of the CableLabs DOCSIS Set-top Gateway (DSG) Interface Specification CM-SP-DSG-I12"
+      },
+      {
+        "revision": "2009-03-23 00:00",
         "description": "Initial revision, published as part of DOCSIS Set-top Gateway Specification."
       }
     ]
@@ -95,6 +102,11 @@
   "dsgIfDCD": {
     "name": "dsgIfDCD",
     "oid": "1.3.6.1.4.1.4491.2.1.3.1.5",
+    "class": "objectidentity"
+  },
+  "dsgIfTunnelDsStats": {
+    "name": "dsgIfTunnelDsStats",
+    "oid": "1.3.6.1.4.1.4491.2.1.3.1.6",
     "class": "objectidentity"
   },
   "dsgIfClassifierTable": {
@@ -194,7 +206,7 @@
     },
     "default": {
       "default": {
-        "value": "00000000",
+        "value": "",
         "format": "hex"
       }
     },
@@ -248,7 +260,7 @@
     },
     "default": {
       "default": {
-        "value": "00000000",
+        "value": "",
         "format": "hex"
       }
     },
@@ -1093,6 +1105,78 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "dsgIfTunnelDsStatsTable": {
+    "name": "dsgIfTunnelDsStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.3.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsgIfTunnelDsStatsEntry": {
+    "name": "dsgIfTunnelDsStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.3.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DSG-IF-MIB",
+        "object": "dsgIfTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsgIfTunnelDsStatsPkts": {
+    "name": "dsgIfTunnelDsStatsPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.3.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsgIfTunnelDsStatsOctets": {
+    "name": "dsgIfTunnelDsStatsOctets",
+    "oid": "1.3.6.1.4.1.4491.2.1.3.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsgIfTunnelDsStatsDsid": {
+    "name": "dsgIfTunnelDsStatsDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.3.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "dsgIfConformance": {
     "name": "dsgIfConformance",
     "oid": "1.3.6.1.4.1.4491.2.1.3.4",
@@ -1306,9 +1390,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-DSG-IF-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:25:28 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DSG-IF-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:10 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DSG-IF-MIB"

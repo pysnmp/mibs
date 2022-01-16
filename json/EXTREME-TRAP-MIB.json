@@ -6,29 +6,29 @@
       "extremeV1Traps"
     ],
     "EXTREME-EDP-MIB": [
-      "extremeEdpPortIfIndex",
-      "extremeEdpNeighborVlanName",
-      "extremeEdpEntryAge",
       "extremeEdpNeighborVlanIpAddress",
-      "extremeEdpNeighborId"
+      "extremeEdpEntryAge",
+      "extremeEdpPortIfIndex",
+      "extremeEdpNeighborId",
+      "extremeEdpNeighborVlanName"
     ],
     "EXTREME-ESRP-MIB": [
-      "extremeEsrpState",
+      "extremeEsrpNetAddress",
       "extremeEsrpInternalActivePorts",
-      "extremeEsrpTrackedActivePorts",
+      "extremeEsrpState",
+      "extremeEsrpGroup",
       "extremeEsrpTrackedIpRoutes",
       "extremeEsrpActivePorts",
-      "extremeEsrpGroup",
-      "extremeEsrpNetAddress"
+      "extremeEsrpTrackedActivePorts"
     ],
     "EXTREME-SYSTEM-MIB": [
       "extremePowerSupplyNumber",
-      "extremeSlotNumber",
-      "extremeSlotModuleState",
-      "extremeSlotModuleConfiguredType",
       "extremeSlotModuleInsertedType",
+      "extremeSlotModuleConfiguredType",
+      "extremeSlotModuleState",
+      "extremeFanNumber",
       "extremeCurrentTemperature",
-      "extremeFanNumber"
+      "extremeSlotNumber"
     ],
     "EXTREME-VLAN-MIB": [
       "extremeVlanIfIndex",
@@ -36,8 +36,8 @@
     ],
     "IF-MIB": [
       "ifAlias",
-      "ifPhysAddress",
-      "ifDescr"
+      "ifDescr",
+      "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -48,20 +48,20 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "Integer32",
       "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -395,8 +395,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:30:48 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:52:10 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EXTREME-TRAP-MIB"

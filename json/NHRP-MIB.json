@@ -9,32 +9,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
       "Counter64",
       "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "mib-2",
-      "OBJECT-TYPE",
       "iso",
+      "MibIdentifier",
+      "Gauge32",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "StorageType",
       "TruthValue",
-      "RowStatus",
+      "StorageType",
       "TimeStamp",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -2780,9 +2780,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/NHRP-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:25:28 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/NHRP-MIB",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:10 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NHRP-MIB"

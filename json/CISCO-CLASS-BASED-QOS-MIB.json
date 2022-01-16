@@ -8,51 +8,51 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
-      "EntPhysicalIndexOrZero"
+      "EntPhysicalIndexOrZero",
+      "Unsigned64"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Opaque",
-      "Counter64",
-      "Bits",
-      "dod",
-      "Gauge32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "TimeTicks",
-      "MibIdentifier"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "dod",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoCBQosMIB": {
@@ -11993,8 +11993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CLASS-BASED-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:29:46 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:03 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-CLASS-BASED-QOS-MIB"

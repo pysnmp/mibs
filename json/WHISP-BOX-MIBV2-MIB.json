@@ -3,38 +3,38 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "OBJECT-TYPE",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Bits",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString"
     ],
     "WHISP-GLOBAL-REG-MIB": [
-      "whispBox",
-      "whispModules"
+      "whispModules",
+      "whispBox"
     ],
     "WHISP-TCV2-MIB": [
+      "WhispMACAddress",
       "EventString",
-      "WhispLUID",
-      "WhispMACAddress"
+      "WhispLUID"
     ]
   },
   "whispBoxLevelMibModule": {
@@ -13605,8 +13605,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-BOX-MIBV2-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:27:04 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:48:10 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "WHISP-BOX-MIBV2-MIB"

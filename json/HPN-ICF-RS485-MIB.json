@@ -8,33 +8,33 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Integer32",
+      "Unsigned32",
       "IpAddress",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfRS485": {
@@ -521,8 +521,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RS485-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:32:55 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:54:05 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-RS485-MIB"

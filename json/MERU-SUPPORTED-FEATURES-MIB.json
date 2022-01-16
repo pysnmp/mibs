@@ -16,31 +16,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "iso",
       "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "Bits",
       "Counter32",
       "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "TimeInterval",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp"
     ]
   },
   "mwSupportedFeatures": {
@@ -92,8 +92,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-SUPPORTED-FEATURES-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:30:56 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:52:19 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MERU-SUPPORTED-FEATURES-MIB"

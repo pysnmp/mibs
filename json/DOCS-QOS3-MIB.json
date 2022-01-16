@@ -8,57 +8,57 @@
       "DscpOrAny"
     ],
     "DOCS-IF3-MIB": [
-      "AttributeMask",
       "ChannelList",
-      "Dsid",
       "ChSetId",
+      "AttrAggrRuleMask",
+      "AttributeMask",
       "ChId",
-      "AttrAggrRuleMask"
+      "Dsid"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
       "Unsigned32",
       "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
       "Counter64",
       "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "StorageType",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "TruthValue",
       "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:25:29 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:46:29 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-QOS3-MIB"

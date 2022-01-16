@@ -5,28 +5,28 @@
       "cadant"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "iso",
-      "Unsigned32",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cadTextualConventions": {
@@ -1382,8 +1382,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-TC-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:26:22 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:47:26 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CADANT-TC"

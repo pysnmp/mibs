@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
       "Unsigned32",
+      "Bits",
+      "IpAddress",
       "Gauge32",
+      "Counter32",
+      "Counter64",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "iec62439": {
@@ -1258,8 +1258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iec/IEC-62439-3-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:25:04 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:46:01 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEC-62439-3-MIB"

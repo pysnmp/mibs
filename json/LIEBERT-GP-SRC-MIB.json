@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "LIEBERT-GP-REGISTRATION-MIB": [
-      "liebertSrcModuleReg",
-      "lgpSrc"
+      "lgpSrc",
+      "liebertSrcModuleReg"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -13,24 +13,24 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "Counter32",
-      "Counter64",
+      "TimeTicks",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "liebertGlobalProductsSrcModule": {
@@ -324,8 +324,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-SRC-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:34:07 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:55:33 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LIEBERT-GP-SRC-MIB"

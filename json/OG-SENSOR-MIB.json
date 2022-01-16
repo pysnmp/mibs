@@ -11,19 +11,19 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "MibIdentifier",
       "Bits",
-      "TimeTicks"
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -254,8 +254,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SENSOR-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:35:22 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:56:49 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "OG-SENSOR-MIB"

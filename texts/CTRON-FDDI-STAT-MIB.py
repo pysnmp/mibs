@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-FDDI-STAT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-FDDI-STAT-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:30:28 2022
-# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sun Jan 16 15:51:48 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 ctFDDIStats, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctFDDIStats")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, ModuleIdentity, NotificationType, TimeTicks, MibIdentifier, ObjectIdentity, Counter64, Gauge32, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "NotificationType", "TimeTicks", "MibIdentifier", "ObjectIdentity", "Counter64", "Gauge32", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "iso")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, TimeTicks, Integer32, NotificationType, MibIdentifier, ModuleIdentity, ObjectIdentity, IpAddress, Counter64, Bits, Unsigned32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "TimeTicks", "Integer32", "NotificationType", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "IpAddress", "Counter64", "Bits", "Unsigned32", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctFDDIStatsUtil = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 5, 2, 1))
 ctFDDIStatsCtlTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 5, 2, 1, 1), )
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: ctFDDIStatsSMT.setDescription('The FDDI SMT index for w
 ctFDDIStatsPath = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 5, 2, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctFDDIStatsPath.setStatus('mandatory')
 if mibBuilder.loadTexts: ctFDDIStatsPath.setDescription('The FDDI MAC path index for which these statistics pertain.\n                The value of the object must match a corresponding value\n                of ctFDDIPath.')
-mibBuilder.exportSymbols("CTRON-FDDI-STAT-MIB", ctFDDIStatsTimeStamp=ctFDDIStatsTimeStamp, ctFDDIFrames=ctFDDIFrames, ctFDDIStatsUtil=ctFDDIStatsUtil, ctFDDISlot=ctFDDISlot, ctFDDIResetPeak=ctFDDIResetPeak, ctFDDIStatsCtlEntry=ctFDDIStatsCtlEntry, ctFDDIStatsHistoryEntry=ctFDDIStatsHistoryEntry, ctFDDIPeakBytes=ctFDDIPeakBytes, ctFDDIStatsIndex=ctFDDIStatsIndex, ctFDDISMT=ctFDDISMT, ctFDDIPeakTime=ctFDDIPeakTime, ctFDDIStatsCtlTable=ctFDDIStatsCtlTable, ctFDDIStatsPath=ctFDDIStatsPath, ctFDDIStatsHistoryTable=ctFDDIStatsHistoryTable, ctFDDIPath=ctFDDIPath, ctFDDINextEntry=ctFDDINextEntry, ctFDDIBytes=ctFDDIBytes, ctFDDIStatsSMT=ctFDDIStatsSMT)
+mibBuilder.exportSymbols("CTRON-FDDI-STAT-MIB", ctFDDIStatsCtlEntry=ctFDDIStatsCtlEntry, ctFDDIStatsPath=ctFDDIStatsPath, ctFDDIFrames=ctFDDIFrames, ctFDDIStatsCtlTable=ctFDDIStatsCtlTable, ctFDDIPath=ctFDDIPath, ctFDDIPeakTime=ctFDDIPeakTime, ctFDDIStatsHistoryEntry=ctFDDIStatsHistoryEntry, ctFDDISMT=ctFDDISMT, ctFDDIStatsIndex=ctFDDIStatsIndex, ctFDDIResetPeak=ctFDDIResetPeak, ctFDDIBytes=ctFDDIBytes, ctFDDIPeakBytes=ctFDDIPeakBytes, ctFDDIStatsHistoryTable=ctFDDIStatsHistoryTable, ctFDDINextEntry=ctFDDINextEntry, ctFDDIStatsTimeStamp=ctFDDIStatsTimeStamp, ctFDDISlot=ctFDDISlot, ctFDDIStatsUtil=ctFDDIStatsUtil, ctFDDIStatsSMT=ctFDDIStatsSMT)

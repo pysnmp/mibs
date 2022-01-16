@@ -5,29 +5,29 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
+      "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "juniDhcpAgent": {
@@ -210,8 +210,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DHCP-CONF",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:34:12 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sun Jan 16 15:55:30 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Juniper-DHCP-CONF"
