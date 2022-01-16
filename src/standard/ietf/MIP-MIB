@@ -1,15 +1,14 @@
-    MIP-MIB DEFINITIONS ::= BEGIN
+MIP-MIB DEFINITIONS ::= BEGIN
 
     IMPORTS
-        Counter32, Gauge32, Integer32, Unsigned32,
-        IpAddress, mib-2,
-        MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE
+        Counter32, Gauge32, Integer32, IpAddress, experimental,
+        MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE, mib-2,
+        Unsigned32
                                         FROM SNMPv2-SMI
         RowStatus, TruthValue, TimeStamp,
         TEXTUAL-CONVENTION
                                         FROM SNMPv2-TC
-        MODULE-COMPLIANCE, OBJECT-GROUP,
-        NOTIFICATION-GROUP
+        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
                                         FROM SNMPv2-CONF;
 
     mipMIB    MODULE-IDENTITY
@@ -40,12 +39,13 @@
     mnSystem    OBJECT IDENTIFIER ::= { mipMN 1 }
     mnDiscovery    OBJECT IDENTIFIER ::= { mipMN 2 }
     mnRegistration    OBJECT IDENTIFIER ::= { mipMN 3 }
-
+    
     maAdvertisement    OBJECT IDENTIFIER ::= { mipMA 2 }
 
     faSystem   OBJECT IDENTIFIER ::= { mipFA 1 }
     faAdvertisement   OBJECT IDENTIFIER ::= { mipFA 2 }
     faRegistration    OBJECT IDENTIFIER ::= { mipFA 3 }
+
     haRegistration    OBJECT IDENTIFIER ::= { mipHA 3 }
 
     -- Textual convention
@@ -192,6 +192,7 @@
                             prefixSuffix(2)
                     }
         MAX-ACCESS  read-create
+
         STATUS      current
         DESCRIPTION
                 "Security mode used by this algorithm."
@@ -263,7 +264,7 @@
 
     mipSecViolatorAddress  OBJECT-TYPE
         SYNTAX      IpAddress
-        MAX-ACCESS  accessible-for-notify
+        MAX-ACCESS  read-only
         STATUS      current
         DESCRIPTION
                 "Violator's IP address. The violator is not necessary
@@ -377,7 +378,7 @@
                 attachment."
         ::= { mnSystem 2 }
 
-   -- Mobile node's home agent list
+    -- Mobile node's home agent list
 
     mnHATable OBJECT-TYPE
         SYNTAX      SEQUENCE OF MnHAEntry
@@ -574,7 +575,7 @@
                 advertisement was received."
         ::= { mnRecentAdvReceived 6 }
 
-   -- Mobile Node Discovery Group Counter
+    -- Mobile Node Discovery Group Counter
 
     mnSolicitationsSent OBJECT-TYPE
         SYNTAX      Counter32
@@ -964,6 +965,7 @@
                 agent field."
         ::= { mnRegistration 18 }
 
+
     -- MA Advertisement Group
 
     -- Mobility agent advertisement configuration table
@@ -1297,6 +1299,7 @@
         ::= { faVisitorEntry 6 }
 
     faVisitorRegIDLow OBJECT-TYPE
+
         SYNTAX      Integer32
         MAX-ACCESS  read-only
         STATUS      current

@@ -1,3 +1,14 @@
+-- *****************************************************************
+-- DISMAN-EXPRESSION-MIB.my: Expression MIB
+--
+-- July 2006, Chinna Pellacuru
+--
+-- Copyright (c) 2006-2007 by cisco Systems, Inc.
+-- All rights reserved.
+-- 
+-- *****************************************************************
+-- extracted from RFC 2982
+
 DISMAN-EXPRESSION-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -40,7 +51,6 @@ expValue  OBJECT IDENTIFIER ::= { dismanExpressionMIBObjects 3 }
 --
 -- Resource Control
 --
-
 
 
 expResourceDeltaMinimum OBJECT-TYPE
@@ -91,8 +101,6 @@ expResourceDeltaWildcardInstanceMaximum OBJECT-TYPE
      Unless explicitly resource limited, a system's value for
      this object should be 0.
 
-
-
      Changing this value will not eliminate or inhibit existing delta
      wildcard instance objects but will prevent the creation of more
      such objects.
@@ -141,8 +149,6 @@ expResourceDeltaWildcardInstanceResourceLacks OBJECT-TYPE
 --
 
 expExpressionTable OBJECT-TYPE
-
-
     SYNTAX      SEQUENCE OF ExpExpressionEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -191,8 +197,6 @@ expExpressionEntry OBJECT-TYPE
      security credentials of the creator of its expExpressionEntry.
 
      Values of read-write objects in this table may be changed
-
-
      at any time."
     INDEX       { expExpressionOwner, expExpressionName }
     ::= { expExpressionTable 1 }
@@ -241,8 +245,6 @@ expExpression OBJECT-TYPE
      listed here is allowed.
 
      Variables are expressed as a dollar sign ('$') and an
-
-
      integer that corresponds to an expObjectIndex.  An
      example of a valid expression is:
 
@@ -292,7 +294,6 @@ expExpression OBJECT-TYPE
           .0
           1.3.6.1
 
-
      No additional leading or trailing subidentifiers are automatically
      added to an OID constant.  The constant is taken as expressed.
 
@@ -341,8 +342,6 @@ expExpression OBJECT-TYPE
 
           If either side is IpAddress, use that.
 
-
-
           If either side is TimeTicks, use that.
 
           If either side is Counter32, use that.
@@ -390,8 +389,6 @@ expExpression OBJECT-TYPE
           minimum
           sum
           exists
-
-
 
      The following function definitions indicate their parameters by
      naming the data type of the parameter in the parameter's position
@@ -442,7 +439,6 @@ expExpression OBJECT-TYPE
      return value of 0 indicates NoSuchInstance (i.e. boolean
      false)."
 
-
     ::= { expExpressionEntry 3 }
 
 expExpressionValueType OBJECT-TYPE
@@ -491,8 +487,6 @@ expExpressionDeltaInterval OBJECT-TYPE
      automated samples.
 
      Until the delta interval has expired once the delta for the
-
-
      object is effectively not instantiated and evaluating
      the expression has results as if the object itself were not
      instantiated.
@@ -541,8 +535,6 @@ expExpressionPrefix OBJECT-TYPE
     ::= { expExpressionEntry 7 }
 
 expExpressionErrors OBJECT-TYPE
-
-
     SYNTAX      Counter32
     MAX-ACCESS  read-only
     STATUS      current
@@ -592,7 +584,6 @@ expErrorEntry OBJECT-TYPE
      defined for expErrorCode."
     INDEX       { expExpressionOwner, expExpressionName }
 
-
     ::= { expErrorTable 1 }
 
 ExpErrorEntry ::= SEQUENCE {
@@ -641,8 +632,6 @@ expErrorCode OBJECT-TYPE
      "The error that occurred.  In the following explanations the
      expected timing of the error is in parentheses.  'S' means
      the error occurs on a Set request.  'E' means the error
-
-
      occurs on the attempt to evaluate the expression either due to
      Get from expValueTable or in ongoing delta processing.
 
@@ -691,8 +680,6 @@ expErrorCode OBJECT-TYPE
 expErrorInstance OBJECT-TYPE
     SYNTAX      OBJECT IDENTIFIER
     MAX-ACCESS  read-only
-
-
     STATUS      current
     DESCRIPTION
      "The expValueInstance being evaluated when the error
@@ -741,8 +728,6 @@ ExpObjectEntry ::= SEQUENCE {
     expObjectIndex                     Unsigned32,
     expObjectID                        OBJECT IDENTIFIER,
     expObjectIDWildcard                TruthValue,
-
-
     expObjectSampleType                INTEGER,
     expObjectDeltaDiscontinuityID      OBJECT IDENTIFIER,
     expObjectDiscontinuityIDWildcard   TruthValue,
@@ -791,8 +776,6 @@ expObjectIDWildcard  OBJECT-TYPE
         "A true value indicates the expObjecID of this row is a wildcard
         object. False indicates that expObjectID is fully instanced.
         If all expObjectWildcard values for a given expression are FALSE,
-
-
         expExpressionPrefix will reflect a scalar object (i.e. will
         be 0.0).
 
@@ -830,7 +813,7 @@ expObjectSampleType OBJECT-TYPE
     DEFVAL      { absoluteValue }
     ::= { expObjectEntry 4 }
 
--- sysUpTimeInstance OBJECT IDENTIFIER ::= { sysUpTime 0 }
+sysUpTimeInstance OBJECT IDENTIFIER ::= { sysUpTime 0 }
 
 expObjectDeltaDiscontinuityID OBJECT-TYPE
     SYNTAX      OBJECT IDENTIFIER
@@ -840,8 +823,6 @@ expObjectDeltaDiscontinuityID OBJECT-TYPE
      "The OBJECT IDENTIFIER (OID) of a TimeTicks, TimeStamp, or
      DateAndTime object that indicates a discontinuity in the value
      at expObjectID.
-
-
 
      This object is instantiated only if expObjectSampleType is
      'deltaValue' or 'changedValue'.
@@ -856,7 +837,7 @@ expObjectDeltaDiscontinuityID OBJECT-TYPE
 
      If the object identified is not accessible no discontinuity
      check will be made."
---  DEFVAL      { sysUpTimeInstance }
+    DEFVAL      { sysUpTimeInstance }
     ::= { expObjectEntry 5 }
 
 expObjectDiscontinuityIDWildcard OBJECT-TYPE
@@ -891,8 +872,6 @@ expObjectDiscontinuityIDType OBJECT-TYPE
     DEFVAL      { timeTicks }
      ::= { expObjectEntry 7 }
 
-
-
 expObjectConditional OBJECT-TYPE
     SYNTAX      OBJECT IDENTIFIER
     MAX-ACCESS  read-create
@@ -923,7 +902,7 @@ expObjectConditional OBJECT-TYPE
     DEFVAL      { zeroDotZero }
     ::= { expObjectEntry 8 }
 
- expObjectConditionalWildcard  OBJECT-TYPE
+expObjectConditionalWildcard  OBJECT-TYPE
      SYNTAX      TruthValue
      MAX-ACCESS  read-create
      STATUS      current
@@ -941,8 +920,6 @@ expObjectConditional OBJECT-TYPE
 expObjectEntryStatus OBJECT-TYPE
     SYNTAX      RowStatus
     MAX-ACCESS  read-create
-
-
     STATUS      current
     DESCRIPTION
      "The control that allows creation/deletion of entries.
@@ -991,8 +968,6 @@ expValueEntry OBJECT-TYPE
      ensure that it does not violate security.
 
      The evaluation of that expression takes place under the
-
-
      security credentials of the creator of its expExpressionEntry.
 
      To maintain security of MIB information, expression evaluation must
@@ -1041,8 +1016,6 @@ expValueInstance OBJECT-TYPE
 expValueCounter32Val OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
-
-
     STATUS      current
     DESCRIPTION
      "The value when expExpressionValueType is 'counter32'."
@@ -1081,7 +1054,7 @@ expValueIpAddressVal OBJECT-TYPE
     ::= { expValueEntry 6 }
 
 expValueOctetStringVal OBJECT-TYPE
-    SYNTAX      OCTET STRING -- (SIZE (0..65536))
+    SYNTAX      OCTET STRING (SIZE (0..65536))
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
@@ -1091,8 +1064,6 @@ expValueOctetStringVal OBJECT-TYPE
 expValueOidVal OBJECT-TYPE
     SYNTAX      OBJECT IDENTIFIER
     MAX-ACCESS  read-only
-
-
     STATUS      current
     DESCRIPTION
      "The value when expExpressionValueType is 'objectId'."
@@ -1141,8 +1112,6 @@ dismanExpressionMIBCompliance MODULE-COMPLIANCE
      WRITE-SYNTAX   INTEGER { absoluteValue(1) }
      DESCRIPTION
           "Implementation may disallow deltas calculation or
-
-
           change detection."
 
      OBJECT         expObjectIDWildcard
@@ -1191,8 +1160,6 @@ dismanExpressionDefinitionGroup OBJECT-GROUP
           expErrorIndex,
           expErrorCode,
           expErrorInstance,
-
-
           expObjectID,
           expObjectIDWildcard,
           expObjectSampleType,
