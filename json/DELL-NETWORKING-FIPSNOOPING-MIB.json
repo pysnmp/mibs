@@ -16,26 +16,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "IpAddress",
-      "Counter64",
-      "MibIdentifier",
+      "Gauge32",
+      "Bits",
       "Unsigned32",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dellNetFipSnooping": {
@@ -2120,8 +2120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-FIPSNOOPING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:55:33 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:51:56 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DELL-NETWORKING-FIPSNOOPING-MIB"

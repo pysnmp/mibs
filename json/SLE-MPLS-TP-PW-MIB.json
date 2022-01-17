@@ -11,22 +11,22 @@
       "InterfaceIndexOrZero"
     ],
     "MPLS-TC-EXT-STD-MIB": [
-      "MplsIccId",
-      "MplsCcId"
+      "MplsCcId",
+      "MplsIccId"
     ],
     "MPLS-TC-STD-MIB": [
       "MplsLabel"
     ],
     "PW-TC-STD-MIB": [
-      "PwGroupID",
-      "PwIDType"
+      "PwIDType",
+      "PwGroupID"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrAnyOrNone"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -36,25 +36,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "transmission",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
       "MODULE-IDENTITY",
       "Bits",
-      "transmission",
       "Integer32",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
       "IpAddress",
-      "Counter64",
-      "Gauge32"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleMplsTpPw": {
@@ -1682,8 +1682,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-PW-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:54:43 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:51:07 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SLE-MPLS-TP-PW-MIB"

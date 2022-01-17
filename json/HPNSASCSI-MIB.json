@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "Bits",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "enterprises",
-      "iso",
-      "MibIdentifier",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "enterprises",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hp": {
@@ -613,8 +613,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSASCSI-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 15:00:52 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:56:33 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPNSASCSI-MIB"

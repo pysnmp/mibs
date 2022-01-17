@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARConfs",
       "aluSARMIBModules",
+      "aluSARObjs",
       "aluSARNotifyPrefix",
-      "aluSARObjs"
+      "aluSARConfs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
       "iso",
       "Counter32",
       "Gauge32",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "TimeStamp"
+      "TimeStamp",
+      "TruthValue",
+      "DateAndTime",
+      "RowStatus"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxChassisIndex"
@@ -46,10 +46,10 @@
       "TmnxPortOperStatus"
     ],
     "TIMETRA-TC-MIB": [
+      "TmnxPortID",
       "TNamedItemOrEmpty",
-      "TmnxDisplayStringURL",
       "TmnxActionType",
-      "TmnxPortID"
+      "TmnxDisplayStringURL"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 15:04:15 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:00:14 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

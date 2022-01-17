@@ -3,9 +3,9 @@
     "class": "imports",
     "Dell-BRIDGEMIBOBJECTS-MIB": [
       "VlanList2",
-      "VlanList1",
       "VlanList3",
-      "VlanList4"
+      "VlanList4",
+      "VlanList1"
     ],
     "Dell-MIB": [
       "rnd"
@@ -21,26 +21,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "Gauge32",
       "MibIdentifier",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "iso",
       "Counter32",
-      "Gauge32"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rsDHCP": {
@@ -1609,8 +1609,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:55:33 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:51:56 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Dell-DHCP-MIB"

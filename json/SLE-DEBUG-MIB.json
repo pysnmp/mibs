@@ -5,34 +5,34 @@
       "sleMgmt"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "BITS",
-      "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Counter64",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Integer32",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
       "IpAddress",
-      "Counter64",
-      "Gauge32"
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleDebug": {
@@ -956,8 +956,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DEBUG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:54:44 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:51:08 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SLE-DEBUG-MIB"

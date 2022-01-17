@@ -5,12 +5,12 @@
       "f10Mgmt"
     ],
     "FORCE10-TC": [
-      "F10QueueID",
-      "F10VlanID",
-      "F10CycloneVersion",
       "F10PortPipeID",
       "F10SlotID",
-      "F10ProcessorModuleType"
+      "F10CycloneVersion",
+      "F10ProcessorModuleType",
+      "F10QueueID",
+      "F10VlanID"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -21,26 +21,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Counter64",
+      "Gauge32",
       "MibIdentifier",
       "Unsigned32",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
       "Counter32",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "MacAddress",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "f10MonitoringMib": {
@@ -1842,8 +1842,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-MONITORING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:55:33 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:51:56 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FORCE10-MONITORING-MIB"

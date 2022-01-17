@@ -13,25 +13,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Integer32",
-      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "Bits",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atEpsrv2": {
@@ -456,8 +456,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-EPSRv2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:51:22 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:47:23 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-EPSRv2-MIB"

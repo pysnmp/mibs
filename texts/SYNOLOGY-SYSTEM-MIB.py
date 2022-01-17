@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Mon Jan 17 15:06:47 2022
-# On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 18:02:48 2022
+# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Bits, Unsigned32, Counter32, Integer32, IpAddress, ModuleIdentity, enterprises, Counter64, TimeTicks, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Bits", "Unsigned32", "Counter32", "Integer32", "IpAddress", "ModuleIdentity", "enterprises", "Counter64", "TimeTicks", "MibIdentifier", "Gauge32")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, Bits, Integer32, ModuleIdentity, NotificationType, ObjectIdentity, IpAddress, Unsigned32, enterprises, TimeTicks, iso, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "Bits", "Integer32", "ModuleIdentity", "NotificationType", "ObjectIdentity", "IpAddress", "Unsigned32", "enterprises", "TimeTicks", "iso", "Gauge32", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 synoSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 1))
 synoSystem.setRevisions(('2013-09-11 00:00',))
@@ -62,4 +62,4 @@ systemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 1, 6, 2, 1)).setObjects(("SYN
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     systemGroup = systemGroup.setStatus('current')
 if mibBuilder.loadTexts: systemGroup.setDescription('A collection of objects providing basic information\n             of an synology system entity.')
-mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", systemFanStatus=systemFanStatus, synoSystem=synoSystem, serialNumber=serialNumber, PYSNMP_MODULE_ID=synoSystem, modelName=modelName, systemConformance=systemConformance, version=version, systemGroups=systemGroups, dsmInfo=dsmInfo, cpuFanStatus=cpuFanStatus, powerStatus=powerStatus, systemGroup=systemGroup, temperature=temperature, systemCompliance=systemCompliance, fan=fan, systemCompliances=systemCompliances, upgradeAvailable=upgradeAvailable, synology=synology, systemStatus=systemStatus)
+mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", powerStatus=powerStatus, synoSystem=synoSystem, fan=fan, PYSNMP_MODULE_ID=synoSystem, modelName=modelName, version=version, serialNumber=serialNumber, systemStatus=systemStatus, systemGroup=systemGroup, systemCompliances=systemCompliances, synology=synology, upgradeAvailable=upgradeAvailable, dsmInfo=dsmInfo, temperature=temperature, systemGroups=systemGroups, systemConformance=systemConformance, systemCompliance=systemCompliance, cpuFanStatus=cpuFanStatus, systemFanStatus=systemFanStatus)

@@ -14,28 +14,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
       "Unsigned32",
-      "Counter64",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
-      "PhysAddress",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "PhysAddress",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "mimosaB5Module": {
@@ -1318,8 +1318,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mimosa/MIMOSA-NETWORKS-BFIVE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 15:02:46 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:58:43 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MIMOSA-NETWORKS-BFIVE-MIB"

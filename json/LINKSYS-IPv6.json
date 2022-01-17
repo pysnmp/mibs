@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAutonomousSystemNumber",
       "InetAddressPrefixLength",
+      "InetAddress",
       "InetAddressType"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipv6InterfaceEntry",
-      "ipNetToPhysicalEntry",
       "ipAddressEntry",
-      "ipv6RouterAdvertEntry"
+      "ipv6InterfaceEntry",
+      "ipv6RouterAdvertEntry",
+      "ipNetToPhysicalEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
+      "Integer32",
       "Unsigned32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
       "zeroDotZero",
-      "Gauge32",
-      "mib-2",
-      "Integer32",
-      "Counter32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
-      "TimeInterval"
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 15:02:35 2022",
-      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 17:58:28 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-IPv6"
