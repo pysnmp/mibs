@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "ADVA-MIB": [
-      "neEventLogTimeStamp",
-      "fspR7",
       "TrapAlarmSeverity",
-      "ServiceImpairment",
-      "neEventLogIdentityTranslation"
+      "fspR7",
+      "neEventLogTimeStamp",
+      "neEventLogIdentityTranslation",
+      "ServiceImpairment"
     ],
     "FspR7-LAYER2-MIB": [
-      "flowEntityIndexEth",
-      "flowEntityIndexFlow"
+      "flowEntityIndexFlow",
+      "flowEntityIndexEth"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepIdentifier",
+      "dot1agCfmMaIndex",
       "dot1agCfmMdIndex",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMepIdentifier"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "TimeTicks",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
       "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
@@ -762,8 +762,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-CFM-EXTENSION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:13:13 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:13:34 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADVA-FSPR7-CFM-EXTENSION-MIB"

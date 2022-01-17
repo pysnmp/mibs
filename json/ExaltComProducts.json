@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "AuxNmsMode",
-      "EthPortMode",
-      "AcmModulationT",
-      "Te1StatusT",
-      "AlarmLevelT",
-      "VlanStatusT",
-      "EnableStatusT",
-      "VlanGroupT",
-      "TimeZoneT",
-      "Led4ColorT",
-      "FileTransferTypeT",
-      "Te1LineCodeT",
-      "EthMainStatusT",
-      "Te1LboT",
-      "EthAuxStatusT",
-      "Te1LoopBackModeT",
-      "FileTransferStartT",
       "NtpClientEnableT",
+      "Te1LineCodeT",
+      "FileTransferTypeT",
+      "AcmModulationT",
+      "EnableStatusT",
+      "AuxNmsMode",
+      "Te1LboT",
+      "Led4ColorT",
+      "VlanGroupT",
       "ExaltEnableT",
-      "exaltcommunications"
+      "exaltcommunications",
+      "TimeZoneT",
+      "AlarmLevelT",
+      "EthMainStatusT",
+      "Te1StatusT",
+      "Te1LoopBackModeT",
+      "EthPortMode",
+      "FileTransferStartT",
+      "EthAuxStatusT",
+      "VlanStatusT"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
       "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
       "Gauge32",
       "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:04 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:19:19 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ExaltComProducts"

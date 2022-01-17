@@ -16,31 +16,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Counter32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "iso",
-      "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
+      "DisplayString",
       "TimeStamp",
+      "MacAddress",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1Dot1XMIB": {
@@ -1718,8 +1718,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:23:23 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:26:43 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DOT1X-MIB"

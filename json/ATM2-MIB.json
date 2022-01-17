@@ -2,60 +2,60 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVclVci",
-      "atmMIBObjects",
-      "atmVcCrossConnectEntry",
-      "atmVplVpi",
-      "atmInterfaceConfEntry",
+      "atmVclEntry",
       "atmVpCrossConnectEntry",
-      "atmVclVpi",
+      "atmMIBObjects",
       "atmVplEntry",
-      "atmVclEntry"
+      "atmVcCrossConnectEntry",
+      "atmVclVpi",
+      "atmInterfaceConfEntry",
+      "atmVclVci",
+      "atmVplVpi"
     ],
     "ATM-TC-MIB": [
-      "AtmSigDescrParamIndex",
-      "AtmInterfaceType",
-      "AtmVpIdentifier",
+      "AtmTrafficDescrParamIndex",
       "AtmAddr",
-      "AtmIlmiNetworkPrefix",
+      "AtmVpIdentifier",
       "AtmVcIdentifier",
-      "AtmTrafficDescrParamIndex"
+      "AtmIlmiNetworkPrefix",
+      "AtmSigDescrParamIndex",
+      "AtmInterfaceType"
     ],
     "IF-MIB": [
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
       "Counter32",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atm2MIB": {
@@ -3395,8 +3395,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ATM2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:33 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:50 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ATM2-MIB"

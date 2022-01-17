@@ -7,12 +7,12 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PortAcceptableFrameTypes",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021VlanIndexOrWildcard",
-      "ieee802dot1mibs",
-      "IEEE8021BridgePortNumberOrZero",
       "IEEE8021VlanIndex",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021VlanIndexOrWildcard",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PortAcceptableFrameTypes",
+      "ieee802dot1mibs",
       "IEEE8021PbbComponentIdentifier"
     ],
     "Q-BRIDGE-MIB": [
@@ -27,32 +27,32 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter64",
+      "OBJECT-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
+      "MibIdentifier",
+      "Counter32",
       "Gauge32",
       "Integer32",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus"
+      "RowStatus",
+      "StorageType"
     ]
   },
   "ieee8021QBridgeMib": {
@@ -2482,9 +2482,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-Q-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:25:13 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Q-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:31 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-Q-BRIDGE-MIB"

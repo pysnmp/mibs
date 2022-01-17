@@ -5,24 +5,24 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
       "TimeTicks",
-      "Integer32",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
       "Unsigned32",
+      "Gauge32",
       "iso",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32"
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1334,8 +1334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-LLDPINFO-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:25:45 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:29:39 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TPLINK-LLDPINFO-MIB"

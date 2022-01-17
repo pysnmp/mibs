@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
-      "experimental",
-      "Integer32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "Counter64",
-      "iso",
+      "Bits",
+      "Integer32",
       "IpAddress",
+      "Unsigned32",
+      "Counter32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits"
+      "experimental"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowPointer",
-      "TimeStamp",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "TimeStamp"
     ]
   },
   "iscsiModule": {
@@ -3392,8 +3392,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/ISCSI-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:52 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:19:06 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ISCSI-MIB"

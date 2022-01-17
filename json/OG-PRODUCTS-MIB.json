@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "OG-SMI-MIB": [
-      "ogModules",
-      "ogProducts"
+      "ogProducts",
+      "ogModules"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
       "Unsigned32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "Gauge32",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
       "Bits",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -188,8 +188,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:23:05 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:26:15 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "OG-PRODUCTS-MIB"

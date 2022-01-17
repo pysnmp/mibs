@@ -5,32 +5,32 @@
       "CounterBasedGauge64"
     ],
     "HH3C-LSW-DEV-ADM-MIB": [
-      "hh3cLswCpuMemorySevereThreshold",
-      "hh3cLswCpuMemoryCriticalThreshold",
-      "hh3cLswCoreMinorThreshold",
-      "hh3cLswCpuUsageSevereThreshold",
-      "hh3cLswCpuMemoryCurrentState",
-      "hh3cLswCpuMemoryMinorThreshold",
-      "hh3cLswCpuMemoryHighFree",
-      "hh3cLswCpuMemoryEarlyWarningThreshold",
       "hh3cLswCoreThreshold",
-      "hh3cLswSlotIndex",
-      "hh3cLswCpuMemorySecureThreshold",
-      "hh3cLswCpuMemoryLowTotal",
-      "hh3cLswCpuIndex",
-      "hh3cLswCpuUsageRecoverThreshold",
       "hh3cLswCoreRecoveryThreshold",
-      "hh3cLswCpuMemory",
-      "hh3cLswCpuRatio",
-      "hh3cLswCpuMemoryNormalThreshold",
-      "hh3cLswFrameIndex",
-      "hh3cLswSubslotIndex",
+      "hh3cLswCpuMemoryCriticalThreshold",
+      "hh3cLswCpuUsageRecoverThreshold",
       "hh3cLswCoreIndex",
-      "hh3cLswCpuUsageMinorThreshold",
-      "hh3cLswCpuMemoryFree",
+      "hh3cLswCpuMemorySecureThreshold",
+      "hh3cLswCpuUsageSevereThreshold",
+      "hh3cLswFrameIndex",
+      "hh3cLswSlotIndex",
+      "hh3cLswCpuMemoryMinorThreshold",
+      "hh3cLswCpuMemoryNormalThreshold",
       "hh3cLswCpuMemoryFreeRatio",
+      "hh3cLswCpuMemoryLowTotal",
       "hh3cLswCpuMemoryHighTotal",
-      "hh3cLswCpuMemoryLowFree"
+      "hh3cLswSubslotIndex",
+      "hh3cLswCpuMemoryEarlyWarningThreshold",
+      "hh3cLswCoreMinorThreshold",
+      "hh3cLswCpuUsageMinorThreshold",
+      "hh3cLswCpuMemoryHighFree",
+      "hh3cLswCpuMemorySevereThreshold",
+      "hh3cLswCpuMemoryCurrentState",
+      "hh3cLswCpuRatio",
+      "hh3cLswCpuMemoryFree",
+      "hh3cLswCpuMemoryLowFree",
+      "hh3cLswCpuIndex",
+      "hh3cLswCpuMemory"
     ],
     "HH3C-LswDEVM-MIB": [
       "hh3cDevMFirstTrapTime",
@@ -44,24 +44,24 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
       "Counter32",
-      "Integer32",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2066,8 +2066,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:15:16 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:15:55 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HH3C-LswTRAP-MIB"

@@ -11,28 +11,28 @@
       "ciscoMgmt"
     ],
     "CISCO-SUBSCRIBER-IDENTITY-TC-MIB": [
-      "SubscriberRemoteId",
-      "SubscriberVRF",
-      "SubscriberTunnelName",
-      "SubscriberProtocolType",
-      "SubscriberMediaType",
       "SubscriberPbhk",
-      "SubscriberUsername",
-      "SubscriberDhcpClass",
-      "SubscriberNasPort",
-      "SubSessionIdentity",
-      "SubscriberAcctSessionId",
-      "SubscriberDomain",
-      "SubscriberLocationName",
-      "SubSessionIdentities",
-      "SubscriberServiceName",
-      "SubscriberDnis",
       "SubscriberCircuitId",
-      "SubscriberLabel"
+      "SubscriberDhcpClass",
+      "SubscriberVRF",
+      "SubscriberUsername",
+      "SubSessionIdentity",
+      "SubscriberServiceName",
+      "SubscriberNasPort",
+      "SubscriberProtocolType",
+      "SubscriberTunnelName",
+      "SubscriberDomain",
+      "SubscriberLabel",
+      "SubscriberAcctSessionId",
+      "SubscriberRemoteId",
+      "SubscriberDnis",
+      "SubscriberMediaType",
+      "SubSessionIdentities",
+      "SubscriberLocationName"
     ],
     "CISCO-SUBSCRIBER-SESSION-TC-MIB": [
-      "SubSessionState",
       "SubSessionRedundancyMode",
+      "SubSessionState",
       "SubSessionType"
     ],
     "ENTITY-MIB": [
@@ -48,39 +48,39 @@
     ],
     "PerfHist-TC-MIB": [
       "PerfIntervalCount",
-      "PerfTotalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfTotalCount"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "iso",
-      "Counter64"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TimeStamp",
-      "StorageType",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ]
   },
   "ciscoSubscriberSessionMIB": {
@@ -3209,8 +3209,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SUBSCRIBER-SESSION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:04 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:04 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-SUBSCRIBER-SESSION-MIB"

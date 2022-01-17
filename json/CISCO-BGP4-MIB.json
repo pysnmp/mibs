@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "BGP4-MIB": [
+      "bgpPeerLastError",
       "bgpPeerRemoteAddr",
-      "bgpPeerState",
       "bgpPeerEntry",
-      "bgpPeerLastError"
+      "bgpPeerState"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAutonomousSystemNumber",
       "InetAddressType",
+      "InetAutonomousSystemNumber",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -25,20 +25,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "iso",
-      "Counter64"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -3002,8 +3002,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BGP4-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:04 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:03 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-BGP4-MIB"

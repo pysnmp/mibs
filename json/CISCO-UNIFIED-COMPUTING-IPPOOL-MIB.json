@@ -5,11 +5,11 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
       "Unsigned64",
-      "CiscoInetAddressMask",
       "CiscoNetworkAddress",
-      "TimeIntervalSec"
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectId",
@@ -17,12 +17,12 @@
       "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsPolicyPolicyOwner",
       "CucsIppoolManagementMode",
       "CucsIppoolNetBIOSMode",
+      "CucsIppoolPoolAssignmentOrder",
       "CucsIppoolDHCPMode",
       "CucsPoolElementOwner",
-      "CucsIppoolPoolAssignmentOrder"
+      "CucsPolicyPolicyOwner"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -36,30 +36,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
       "iso",
-      "Counter64"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "TruthValue",
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TimeStamp",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "TimeInterval"
     ]
   },
   "cucsIppoolObjects": {
@@ -1333,8 +1333,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IPPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:05 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:05 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-IPPOOL-MIB"

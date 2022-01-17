@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "ADSL2-LINE-TC-MIB": [
-      "Adsl2SymbolProtection",
-      "Adsl2ScMaskUs",
-      "Adsl2RaMode",
-      "Adsl2Unit",
-      "Adsl2LineLdsf",
-      "Adsl2LConfProfPmMode",
-      "Adsl2Tssi",
-      "Adsl2PowerMngState",
-      "Adsl2Direction",
-      "Adsl2LineStatus",
-      "Adsl2MaxBer",
-      "Adsl2InitResult",
-      "Adsl2ChAtmStatus",
-      "Adsl2RfiDs",
-      "Adsl2LastTransmittedState",
-      "Adsl2LdsfResult",
       "Adsl2PsdMaskDs",
-      "Adsl2ConfPmsForce",
-      "Adsl2PsdMaskUs",
-      "Adsl2OperationModes",
       "Adsl2TransmissionModeType",
+      "Adsl2ScMaskDs",
+      "Adsl2LineStatus",
+      "Adsl2LdsfResult",
+      "Adsl2LastTransmittedState",
+      "Adsl2ChAtmStatus",
+      "Adsl2SymbolProtection",
+      "Adsl2OperationModes",
+      "Adsl2InitResult",
+      "Adsl2LConfProfPmMode",
+      "Adsl2PsdMaskUs",
+      "Adsl2ScMaskUs",
+      "Adsl2RfiDs",
+      "Adsl2MaxBer",
       "Adsl2ChPtmStatus",
-      "Adsl2ScMaskDs"
+      "Adsl2Tssi",
+      "Adsl2Unit",
+      "Adsl2RaMode",
+      "Adsl2LineLdsf",
+      "Adsl2ConfPmsForce",
+      "Adsl2PowerMngState",
+      "Adsl2Direction"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfTimeElapsed",
-      "HCPerfIntervalThreshold"
+      "HCPerfIntervalThreshold",
+      "HCPerfTimeElapsed"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -37,32 +37,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "transmission",
-      "Integer32",
       "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits"
+      "transmission",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "adsl2MIB": {
@@ -6519,8 +6519,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL2-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:33 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:51 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADSL2-LINE-MIB"

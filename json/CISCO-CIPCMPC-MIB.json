@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "CISCO-CHANNEL-MIB": [
+      "cipCardEntryIndex",
       "cipCardDtrBrdIndex",
-      "cipCardSubChannelIndex",
-      "cipCardEntryIndex"
+      "cipCardSubChannelIndex"
     ],
     "CISCO-CIPCSNA-MIB": [
-      "ChannelPath",
-      "ChannelDevice"
+      "ChannelDevice",
+      "ChannelPath"
     ],
     "CISCO-CIPTG-MIB": [
       "ChannelTgName"
@@ -25,27 +25,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "Bits",
-      "Unsigned32",
+      "Counter64",
       "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "Counter64"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TDomain",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "ciscoCipCmpcMIB": {
@@ -696,8 +696,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CIPCMPC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:04 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:03 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-CIPCMPC-MIB"

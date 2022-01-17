@@ -3,48 +3,48 @@
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
       "AristaBgp4V2IdentifierTC",
-      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
-      "AristaBgp4V2AddressFamilyIdentifierTC"
+      "AristaBgp4V2AddressFamilyIdentifierTC",
+      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "TimeTicks",
-      "Gauge32",
-      "Counter32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter64",
       "Bits",
+      "Counter64",
+      "IpAddress",
       "MibIdentifier",
       "iso",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowPointer",
       "DisplayString",
       "TruthValue",
+      "TimeStamp",
+      "RowPointer",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1865,8 +1865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:13:25 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:13:46 2022",
+      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ARISTA-BGP4V2-MIB"
