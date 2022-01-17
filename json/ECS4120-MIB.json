@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpPort",
-      "dot1dStpPortEntry",
       "BridgeId",
+      "dot1dStpPortEntry",
+      "dot1dStpPort",
       "Timeout"
     ],
     "DIFFSERV-MIB": [
       "IndexIntegerNextFree",
       "diffServMultiFieldClfrEntry",
-      "IndexInteger",
-      "diffServClfrEntry"
+      "diffServClfrEntry",
+      "IndexInteger"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
-      "dot1agCfmMaIndex",
+      "Dot1agCfmMepId",
       "dot1agCfmMepDbRMepIdentifier",
+      "dot1agCfmMaIndex",
       "dot1agCfmMepIdentifier",
-      "Dot1agCfmMepId"
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
     ],
     "IF-MIB": [
-      "ifOperStatus",
+      "ifIndex",
       "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifOperStatus"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
+      "InetAddressIPv6",
       "InetAddressType",
-      "InetAddress",
-      "InetAddressIPv6"
+      "InetAddress"
     ],
     "OSPF-MIB": [
-      "TOSType",
-      "Metric"
+      "Metric",
+      "TOSType"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "POWER-ETHERNET-MIB": [
       "pethPsePortEntry",
-      "pethPsePortDetectionStatus",
       "pethMainPseEntry",
+      "pethPsePortDetectionStatus",
       "pethMainPseConsumptionPower"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
       "dot1qVlanStaticEntry",
+      "PortList",
       "VlanId",
       "VlanIndex"
     ],
@@ -58,31 +58,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "enterprises",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "TimeTicks",
-      "iso",
-      "Counter64",
       "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "RowPointer",
+      "DisplayString",
       "TruthValue"
     ],
     "TOKEN-RING-RMON-MIB": [
@@ -28960,8 +28960,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS4120-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:41:41 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:28 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ECS4120-MIB"

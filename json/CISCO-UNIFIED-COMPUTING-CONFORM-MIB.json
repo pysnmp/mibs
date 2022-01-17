@@ -5,20 +5,20 @@
       "ciscoMgmt"
     ],
     "CISCO-UNIFIED-COMPUTING-FAULT-MIB": [
-      "cucsFaultCreationTime",
-      "cucsFaultLastModificationTime",
-      "cucsFaultAffectedObjectDn",
-      "cucsFaultCode",
-      "cucsFaultType",
-      "cucsFaultAffectedObjectId",
-      "cucsFaultDescription",
       "cucsFaultSeverity",
+      "cucsFaultType",
+      "cucsFaultDescription",
       "cucsFaultOccur",
-      "cucsFaultProbableCause"
+      "cucsFaultCreationTime",
+      "cucsFaultProbableCause",
+      "cucsFaultAffectedObjectId",
+      "cucsFaultCode",
+      "cucsFaultAffectedObjectDn",
+      "cucsFaultLastModificationTime"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
-      "ciscoUnifiedComputingMIB"
+      "ciscoUnifiedComputingMIB",
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-NOTIFS-MIB": [
       "cucsFaultClearNotif",
@@ -29,24 +29,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Gauge32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
       "MibIdentifier",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "iso",
+      "Counter32",
       "Counter64",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoUnifiedComputingMIBConform": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFORM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:41:14 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:01 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CONFORM-MIB"

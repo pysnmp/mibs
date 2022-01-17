@@ -10,13 +10,13 @@
       "InetAddressType"
     ],
     "RAPID-CITY": [
-      "EnableValue",
-      "PortSet",
-      "IdList",
-      "RcVlanIdOrNone",
       "rcSvlan",
       "rcVlan",
-      "LPortSet"
+      "RcVlanIdOrNone",
+      "IdList",
+      "LPortSet",
+      "PortSet",
+      "EnableValue"
     ],
     "RC-VRF-MIB": [
       "VrfIdentifier"
@@ -26,27 +26,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "Integer32",
       "Bits",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
       "IpAddress",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "MacAddress",
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "rcVlanMib": {
@@ -3530,8 +3530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:47:07 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:10:03 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RC-VLAN-MIB"

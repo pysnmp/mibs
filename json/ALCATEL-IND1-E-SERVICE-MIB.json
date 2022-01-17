@@ -11,30 +11,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
       "IpAddress",
-      "Bits",
       "Integer32",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "alcatelIND1EServiceMIB": {
@@ -1470,8 +1470,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-E-SERVICE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:47:46 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:10:43 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-E-SERVICE-MIB"

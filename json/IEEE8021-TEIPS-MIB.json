@@ -5,37 +5,37 @@
       "ieee8021BridgeBaseComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "ieee802dot1mibs",
-      "IEEE8021TeipsIpgConfigAdmin",
-      "IEEE8021TeipsIpgid",
       "IEEE8021TeipsIpgConfigActiveRequests",
+      "IEEE8021TeipsIpgid",
+      "IEEE8021BridgePortNumber",
       "IEEE8021PbbTeTSidId",
-      "IEEE8021BridgePortNumber"
+      "IEEE8021TeipsIpgConfigAdmin",
+      "ieee802dot1mibs"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
       "iso",
-      "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
+      "Bits",
       "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
+      "RowStatus",
       "StorageType",
       "TEXTUAL-CONVENTION",
       "DisplayString"
@@ -848,8 +848,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-TEIPS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:36:11 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:58:49 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-TEIPS-MIB"

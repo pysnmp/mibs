@@ -6,37 +6,37 @@
     ],
     "CISCO-TC": [
       "TimeIntervalSec",
-      "CiscoAlarmSeverity",
       "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
       "Unsigned64",
-      "CiscoNetworkAddress"
+      "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsPowerMgmtStyle",
-      "CucsPowerReallocation",
-      "CucsPowerReqConflict",
-      "CucsPowerOperState",
-      "CucsPowerPolicyFanSpeed",
-      "CucsPowerBudgetFanSpeed",
+      "CucsPowerGroupState",
       "CucsPowerCapAction",
-      "CucsPowerMemberState",
-      "CucsPowerGroupStatsThresholded",
-      "CucsPolicyPolicyOwner",
+      "CucsPowerReqConflict",
+      "CucsPowerPolicyFanSpeed",
+      "CucsPowerPowerAvailState",
       "CucsPowerPrioritySharing",
       "CucsPowerGroupStatsHistThresholded",
-      "CucsPowerPowerAvailState",
-      "CucsPowerChThrAction",
-      "CucsPowerPsuLineMode",
+      "CucsPowerBudgetFanSpeed",
       "CucsPowerLockState",
-      "CucsPowerPowerDeployState",
+      "CucsPowerChThrAction",
       "CucsPowerPsuState",
-      "CucsPowerGroupState",
-      "CucsPowerProfilingMethod"
+      "CucsPolicyPolicyOwner",
+      "CucsPowerMemberState",
+      "CucsPowerMgmtStyle",
+      "CucsPowerProfilingMethod",
+      "CucsPowerPsuLineMode",
+      "CucsPowerGroupStatsThresholded",
+      "CucsPowerReallocation",
+      "CucsPowerPowerDeployState",
+      "CucsPowerOperState"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -50,30 +50,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Gauge32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
       "MibIdentifier",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Bits",
       "Counter64",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "MacAddress",
       "DateAndTime",
-      "RowPointer",
-      "TruthValue"
+      "TimeInterval",
+      "TimeStamp",
+      "RowPointer"
     ]
   },
   "cucsPowerObjects": {
@@ -2350,8 +2350,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-POWER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:41:15 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:02 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-POWER-MIB"
