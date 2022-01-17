@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HDSL2-SHDSL-LINE-MIB": [
-      "hdsl2ShdslEndpointCurrEntry",
       "hdsl2ShdslSpanStatusEntry",
-      "hdsl2ShdslSpanConfProfileEntry"
+      "hdsl2ShdslSpanConfProfileEntry",
+      "hdsl2ShdslEndpointCurrEntry"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -17,24 +17,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
       "Integer32",
-      "Counter64",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter32",
+      "Gauge32",
+      "MibIdentifier",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "oacSHDSLMIBModule": {
@@ -876,8 +876,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oneaccess/ONEACCESS-SHDSL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:50:47 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:47:16 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ONEACCESS-SHDSL-MIB"

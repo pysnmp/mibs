@@ -5,21 +5,21 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "OperationalState",
+      "SecondaryState",
       "PerfCounter32",
       "PerfCounter64",
-      "IpVersion",
+      "IpPriorityMapMode",
+      "SchedActivityStatus",
+      "ScheduleType",
       "AdminState",
       "CmPmIntervalType",
-      "SecondaryState",
-      "ScheduleType",
-      "SchedActivityStatus",
-      "OperationalState",
       "CmPmBinAction",
-      "IpPriorityMapMode"
+      "IpVersion"
     ],
     "CM-ENTITY-MIB": [
-      "shelfIndex",
       "slotIndex",
+      "shelfIndex",
       "neIndex"
     ],
     "F3-PTP-MIB": [
@@ -30,34 +30,34 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "iso",
-      "Bits",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
-      "Counter32",
-      "IpAddress"
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "DateAndTime",
+      "DisplayString",
       "MacAddress",
+      "TEXTUAL-CONVENTION",
       "StorageType",
       "TruthValue",
-      "VariablePointer",
-      "TEXTUAL-CONVENTION"
+      "VariablePointer"
     ]
   },
   "f3SyncJMIB": {
@@ -7701,8 +7701,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SYNCJACK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:41:06 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:37:12 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-SYNCJACK-MIB"

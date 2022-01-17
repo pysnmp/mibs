@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Mon Jan 17 19:45:48 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 21:41:55 2022
+# On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Counter64, Bits, Counter32, Integer32, ObjectIdentity, MibIdentifier, Gauge32, ModuleIdentity, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter64", "Bits", "Counter32", "Integer32", "ObjectIdentity", "MibIdentifier", "Gauge32", "ModuleIdentity", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32")
+NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, ModuleIdentity, IpAddress, Gauge32, Counter32, Integer32, Unsigned32, Bits, Counter64, MibIdentifier, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "ModuleIdentity", "IpAddress", "Gauge32", "Counter32", "Integer32", "Unsigned32", "Bits", "Counter64", "MibIdentifier", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", nb30Rev1=nb30Rev1, sysIntDev=sysIntDev, commonRev1=commonRev1, subSysDevice=subSysDevice, bridge=bridge, repeater=repeater, sysRepeaters=sysRepeaters, sysOIDs=sysOIDs, sysBridges=sysBridges, backplaneProtocol=backplaneProtocol, product=product, sysRouters=sysRouters, layerMgmt=layerMgmt, ups=ups, router=router, sysOtherType=sysOtherType, sysChassis=sysChassis, dl=dl, common=common, subSysMMAC=subSysMMAC, commsDevice=commsDevice, subsystem=subsystem, repeaterRev2=repeaterRev2, repeaterRev1=repeaterRev1)
+mibBuilder.exportSymbols("IRM-OIDS", nb30Rev1=nb30Rev1, commsDevice=commsDevice, router=router, commonRev1=commonRev1, dl=dl, sysChassis=sysChassis, sysRepeaters=sysRepeaters, repeaterRev2=repeaterRev2, subSysMMAC=subSysMMAC, repeater=repeater, sysIntDev=sysIntDev, subsystem=subsystem, sysBridges=sysBridges, sysRouters=sysRouters, common=common, bridge=bridge, repeaterRev1=repeaterRev1, sysOIDs=sysOIDs, subSysDevice=subSysDevice, layerMgmt=layerMgmt, ups=ups, product=product, backplaneProtocol=backplaneProtocol, sysOtherType=sysOtherType)

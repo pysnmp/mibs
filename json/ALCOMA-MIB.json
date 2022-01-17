@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "Counter32",
       "Gauge32",
       "Bits",
-      "enterprises",
-      "Unsigned32",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Counter32",
+      "iso",
+      "IpAddress",
+      "enterprises",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -6404,8 +6404,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcoma/ALCOMA-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:40:55 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:37:01 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCOMA-MIB"

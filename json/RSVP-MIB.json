@@ -6,46 +6,46 @@
       "ifIndex"
     ],
     "INTEGRATED-SERVICES-MIB": [
-      "MessageSize",
       "intSrvFlowStatus",
-      "SessionType",
-      "Port",
-      "QosService",
+      "SessionNumber",
       "BitRate",
+      "Port",
       "Protocol",
+      "MessageSize",
+      "SessionType",
       "BurstSize",
-      "SessionNumber"
+      "QosService"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
-      "TimeTicks",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "mib-2",
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TimeInterval",
-      "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TestAndIncr",
+      "RowStatus",
+      "TimeInterval",
+      "DisplayString"
     ]
   },
   "rsvp": {
@@ -2975,9 +2975,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RSVP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:45:12 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RSVP-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:36:29 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RSVP-MIB"

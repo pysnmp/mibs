@@ -19,30 +19,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "Counter32",
       "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "experimental",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "experimental",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "TruthValue",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "DisplayString",
+      "TimeStamp",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "mplsLsrMIB": {
@@ -2323,9 +2323,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-LSR-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:51:14 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:36:29 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MPLS-LSR-MIB"

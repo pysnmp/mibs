@@ -6,50 +6,50 @@
     ],
     "IF-MIB": [
       "ifGeneralInformationGroup",
-      "InterfaceIndexOrZero",
-      "ifCounterDiscontinuityGroup"
+      "ifCounterDiscontinuityGroup",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsOwner",
       "MplsLabel",
-      "mplsStdMIB",
       "MplsBitRate",
-      "MplsLSPID"
+      "MplsOwner",
+      "MplsLSPID",
+      "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "zeroDotZero",
-      "Integer32",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
       "Counter32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowPointer",
-      "RowStatus",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TimeStamp",
+      "RowStatus",
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "mplsLsrStdMIB": {
@@ -1829,9 +1829,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:45:12 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-STD-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:36:30 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MPLS-LSR-STD-MIB"

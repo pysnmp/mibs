@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "SIAE-ALARM-MIB": [
-      "AlarmStatus",
-      "AlarmSeverityCode"
+      "AlarmSeverityCode",
+      "AlarmStatus"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Integer32",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "iso",
+      "Counter64",
       "MODULE-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "TimeTicks"
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -204,8 +204,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-QUEUE-DEPTH-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:52:59 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:49:31 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SIAE-QUEUE-DEPTH-MIB"
