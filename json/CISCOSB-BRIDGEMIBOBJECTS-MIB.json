@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "Timeout",
-      "BridgeId",
       "dot1dBasePort",
       "dot1dStpPort",
-      "MacAddress"
+      "MacAddress",
+      "Timeout",
+      "BridgeId"
     ],
     "CISCOSB-MIB": [
       "switch001"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -27,25 +27,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Counter64",
       "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus"
     ]
   },
@@ -3568,8 +3568,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-BRIDGEMIBOBJECTS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 09:59:51 2022",
-      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:33:10 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-BRIDGEMIBOBJECTS-MIB"

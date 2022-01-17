@@ -10,14 +10,14 @@
     ],
     "LLDP-V2-TC-MIB": [
       "LldpV2ChassisId",
-      "LldpV2ChassisIdSubtype",
+      "LldpV2DestAddressTableIndex",
+      "LldpV2ManAddress",
+      "LldpV2SystemCapabilitiesMap",
       "LldpV2PortId",
       "LldpV2PortIdSubtype",
       "ieee802dot1mibs",
-      "LldpV2ManAddress",
       "LldpV2ManAddrIfSubtype",
-      "LldpV2SystemCapabilitiesMap",
-      "LldpV2DestAddressTableIndex"
+      "LldpV2ChassisIdSubtype"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32",
@@ -27,33 +27,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Counter32",
       "iso",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
       "MODULE-IDENTITY",
       "Integer32",
       "OBJECT-TYPE",
       "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 09:53:08 2022",
-      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:28:05 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LLDP-V2-MIB"

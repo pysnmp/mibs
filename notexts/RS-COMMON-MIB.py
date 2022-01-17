@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module RS-COMMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-COMMON-MIB
-# Produced by pysmi-1.1.8 at Mon Jan 17 10:09:23 2022
-# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 14:40:50 2022
+# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Gauge32, Counter32, Unsigned32, NotificationType, Integer32, IpAddress, MibIdentifier, Bits, Counter64, iso, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Gauge32", "Counter32", "Unsigned32", "NotificationType", "Integer32", "IpAddress", "MibIdentifier", "Bits", "Counter64", "iso", "TimeTicks")
+ObjectIdentity, Integer32, IpAddress, NotificationType, Counter32, MibIdentifier, enterprises, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, iso, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "IpAddress", "NotificationType", "Counter32", "MibIdentifier", "enterprises", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "iso", "TimeTicks", "Gauge32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rsRoot = ModuleIdentity((1, 3, 6, 1, 4, 1, 2566))
 rsRoot.setRevisions(('2006-05-17 08:40',))
@@ -41,4 +41,4 @@ rsRegBroadcastMeasurement = ObjectIdentity((1, 3, 6, 1, 4, 1, 2566, 149, 2, 1))
 if mibBuilder.loadTexts: rsRegBroadcastMeasurement.setStatus('current')
 rsRegBroadcastTransmitter = ObjectIdentity((1, 3, 6, 1, 4, 1, 2566, 149, 2, 2))
 if mibBuilder.loadTexts: rsRegBroadcastTransmitter.setStatus('current')
-mibBuilder.exportSymbols("RS-COMMON-MIB", PYSNMP_MODULE_ID=rsRoot, rsRoot=rsRoot, rsRequirements=rsRequirements, rsCommon=rsCommon, rsProdBroadcastMeasurement=rsProdBroadcastMeasurement, rsRegistration=rsRegistration, rsExperimental=rsExperimental, rsRegBroadcast=rsRegBroadcast, rsCapabilities=rsCapabilities, rsProdBroadcast=rsProdBroadcast, rsRegBroadcastMeasurement=rsRegBroadcastMeasurement, rsProducts=rsProducts, rsProdBroadcastTransmitter=rsProdBroadcastTransmitter, rsRegModules=rsRegModules, rsRegBroadcastTransmitter=rsRegBroadcastTransmitter)
+mibBuilder.exportSymbols("RS-COMMON-MIB", rsRoot=rsRoot, rsExperimental=rsExperimental, rsCapabilities=rsCapabilities, rsCommon=rsCommon, rsProducts=rsProducts, rsRegistration=rsRegistration, rsProdBroadcast=rsProdBroadcast, rsRegModules=rsRegModules, rsRequirements=rsRequirements, rsRegBroadcastTransmitter=rsRegBroadcastTransmitter, rsProdBroadcastMeasurement=rsProdBroadcastMeasurement, rsProdBroadcastTransmitter=rsProdBroadcastTransmitter, rsRegBroadcastMeasurement=rsRegBroadcastMeasurement, PYSNMP_MODULE_ID=rsRoot, rsRegBroadcast=rsRegBroadcast)
