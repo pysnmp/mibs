@@ -18,7 +18,7 @@ dirs:
 standard: dirs $(RFC)
 	@# Compile mibs
 
-	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | sort | uniq >output/standard.txt
+	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
 	./scripts/vendor.sh standard	
 
 vendor:
