@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module DPS-MIB-CG-V1 (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-MIB-CG-V1
-# Produced by pysmi-1.1.8 at Mon Jan 17 18:25:18 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 18:46:10 2022
+# On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Gauge32, ObjectIdentity, Counter32, Unsigned32, ModuleIdentity, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, enterprises, IpAddress, iso, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Gauge32", "ObjectIdentity", "Counter32", "Unsigned32", "ModuleIdentity", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "enterprises", "IpAddress", "iso", "TimeTicks", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, ModuleIdentity, Bits, NotificationType, TimeTicks, Gauge32, Counter32, Unsigned32, IpAddress, enterprises, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "Bits", "NotificationType", "TimeTicks", "Gauge32", "Counter32", "Unsigned32", "IpAddress", "enterprises", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 dpsCellguard = ModuleIdentity((1, 3, 6, 1, 4, 1, 2682, 2))
 dpsCellguard.setRevisions(('2013-10-18 12:00',))
 if mibBuilder.loadTexts: dpsCellguard.setLastUpdated('201310181200Z')
@@ -67,4 +67,4 @@ cgTrapStatus = MibScalar((1, 3, 6, 1, 4, 1, 2682, 2, 8000, 3), Integer32().subty
 if mibBuilder.loadTexts: cgTrapStatus.setStatus('current')
 cgTrapValue = MibScalar((1, 3, 6, 1, 4, 1, 2682, 2, 8000, 4), DisplayString())
 if mibBuilder.loadTexts: cgTrapValue.setStatus('current')
-mibBuilder.exportSymbols("DPS-MIB-CG-V1", cgBatteryNumber=cgBatteryNumber, cellguardTrap=cellguardTrap, cgStatus=cgStatus, dpsCellguard=dpsCellguard, cgStringChannels=cgStringChannels, cgStrapResist=cgStrapResist, cgStrConductance=cgStrConductance, cgBatteryEntry=cgBatteryEntry, cgTrapValue=cgTrapValue, cgTrapStatus=cgTrapStatus, cgAlarmTrap=cgAlarmTrap, cgConductance=cgConductance, cgStringNumber=cgStringNumber, cgStrCurrent=cgStrCurrent, cgStrLife=cgStrLife, cgBatteryLife=cgBatteryLife, cgTrapType=cgTrapType, cgStrVoltage=cgStrVoltage, cgBatteryChannels=cgBatteryChannels, cgVoltage=cgVoltage, cgStrEnabled=cgStrEnabled, dpsInc=dpsInc, cgStrNumber=cgStrNumber, cgStrTempA=cgStrTempA, cgStringEntry=cgStringEntry, PYSNMP_MODULE_ID=dpsCellguard, cgStrTempB=cgStrTempB, cgTemperature=cgTemperature, cgStrStatus=cgStrStatus)
+mibBuilder.exportSymbols("DPS-MIB-CG-V1", cgStrEnabled=cgStrEnabled, cgStatus=cgStatus, cgConductance=cgConductance, cgStrTempA=cgStrTempA, cgTrapType=cgTrapType, cgStrapResist=cgStrapResist, cgStringChannels=cgStringChannels, cgStrTempB=cgStrTempB, dpsCellguard=dpsCellguard, cgStringNumber=cgStringNumber, dpsInc=dpsInc, cgStrConductance=cgStrConductance, cgStrCurrent=cgStrCurrent, cgStrNumber=cgStrNumber, cgStringEntry=cgStringEntry, cgVoltage=cgVoltage, cgAlarmTrap=cgAlarmTrap, cgTemperature=cgTemperature, cgBatteryChannels=cgBatteryChannels, cgStrStatus=cgStrStatus, cgBatteryEntry=cgBatteryEntry, cgStrLife=cgStrLife, cgTrapStatus=cgTrapStatus, cgStrVoltage=cgStrVoltage, cgBatteryNumber=cgBatteryNumber, cgTrapValue=cgTrapValue, cgBatteryLife=cgBatteryLife, PYSNMP_MODULE_ID=dpsCellguard, cellguardTrap=cellguardTrap)

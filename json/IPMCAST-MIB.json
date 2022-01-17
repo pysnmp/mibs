@@ -5,8 +5,8 @@
       "CounterBasedGauge64"
     ],
     "IANA-RTPROTO-MIB": [
-      "IANAipRouteProtocol",
-      "IANAipMRouteProtocol"
+      "IANAipMRouteProtocol",
+      "IANAipRouteProtocol"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -14,10 +14,10 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
+      "InetVersion",
       "InetAddressPrefixLength",
-      "InetAddress",
       "InetZoneIndex",
-      "InetVersion"
+      "InetAddress"
     ],
     "LANGTAG-TC-MIB": [
       "LangTag"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "mib-2",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter32",
-      "Bits",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "StorageType",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp"
+      "StorageType",
+      "RowStatus"
     ]
   },
   "ipMcastMIB": {
@@ -1855,8 +1855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMCAST-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:20:55 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:41:47 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IPMCAST-MIB"
