@@ -5,19 +5,19 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrOscState",
-      "CwrCwDegradedMinute",
-      "CwrCollectionAction",
       "CwrCwConsecutiveSevErrSecond",
-      "CwrCwDegradedSecond",
       "CwrRFZeroIndex",
+      "CwrCwDegradedMinute",
+      "CwrCwSeverelyErroredSecond",
       "CwrRadioSignalAttribute",
       "WirelessGauge64",
-      "CwrCwSeverelyErroredSecond",
+      "CwrOscState",
+      "CwrCollectionAction",
+      "CwrCwDegradedSecond",
       "CwrThreshLimitType",
       "CwrCwErrorFreeSecond",
-      "CwrCwErroredSecond",
-      "CwrCollectionStatus"
+      "CwrCollectionStatus",
+      "CwrCwErroredSecond"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -26,32 +26,32 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Integer32",
-      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Bits"
+      "Counter64",
+      "iso",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeInterval",
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TimeInterval",
+      "TruthValue"
     ]
   },
   "ciscoWirelessIfMIB": {
@@ -5487,8 +5487,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-IF-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:33:05 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:55:19 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-WIRELESS-IF-MIB"

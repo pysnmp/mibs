@@ -12,32 +12,32 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Bits",
       "Counter64",
-      "Counter32",
-      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Integer32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "VariablePointer",
-      "StorageType"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "f3DataExportMIB": {
@@ -391,8 +391,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-DATAEXPORT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:29:03 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:51:20 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-DATAEXPORT-MIB"

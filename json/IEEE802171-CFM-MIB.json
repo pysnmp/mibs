@@ -8,46 +8,46 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
-      "LldpPortIdSubtype",
+      "LldpChassisIdSubtype",
       "LldpChassisId",
       "LldpPortId",
-      "LldpChassisIdSubtype"
+      "LldpPortIdSubtype",
+      "LldpManAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Integer32",
-      "zeroDotZero",
+      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "zeroDotZero",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "RowStatus",
       "TimeStamp",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "RowStatus",
+      "TimeInterval",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "TRANSPORT-ADDRESS-MIB": [
       "TransportAddress",
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:28:05 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:50:20 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE802171-CFM-MIB"

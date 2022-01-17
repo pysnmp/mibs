@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4945,8 +4945,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teleste/TELESTE-LUMINATO-MIB2",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:41:44 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 15:03:43 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TELESTE-LUMINATO-MIB2"
