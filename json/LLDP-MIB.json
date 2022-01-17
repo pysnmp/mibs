@@ -5,8 +5,8 @@
       "AddressFamilyNumbers"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -17,25 +17,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
       "MibIdentifier",
-      "Counter32",
       "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Integer32",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1864,8 +1864,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:31 2022",
-      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:20:37 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LLDP-MIB"

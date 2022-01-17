@@ -5,8 +5,8 @@
       "ciscoExperiment"
     ],
     "DIFFSERV-MIB": [
-      "IndexIntegerNextFree",
-      "IndexInteger"
+      "IndexInteger",
+      "IndexIntegerNextFree"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -19,42 +19,42 @@
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsPathIndexOrZero",
-      "MplsLabel"
+      "MplsLabel",
+      "MplsPathIndexOrZero"
     ],
     "MPLS-TE-STD-MIB": [
+      "mplsTunnelIngressLSRId",
       "mplsTunnelInstance",
       "mplsTunnelEgressLSRId",
-      "mplsTunnelIngressLSRId",
       "mplsTunnelIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Integer32",
-      "Unsigned32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "StorageType",
+      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
   },
@@ -1348,8 +1348,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:08 2022",
-      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:25:30 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"

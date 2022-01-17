@@ -2,61 +2,61 @@
   "imports": {
     "class": "imports",
     "MWRM-UNIT-MIB": [
-      "SwCommand",
       "QueueName",
-      "NoYes",
-      "ClockSrc",
-      "OffOn",
-      "RadioId",
       "GreenYellow",
-      "SwCommandTimer",
-      "RfuId",
-      "DownUp",
       "HalfFull",
-      "Integrity",
-      "BerLevel",
-      "SignalLevel",
-      "TrailIfType",
-      "ProgressStatus",
-      "AllowedNotAllowed",
-      "SupportedNotsupported",
       "InputSeverity",
+      "OffOn",
+      "SwCommandTimer",
+      "Integrity",
+      "ClockSrc",
       "SlotId",
-      "PmTableType",
-      "TrailProtectedType",
-      "RateMbps",
-      "MetricImperial",
-      "Severity",
+      "BerLevel",
       "EnableDisableSMI2",
+      "RfuId",
+      "ProgressStatus",
       "EnableDisable",
-      "LoopbackType"
+      "TrailProtectedType",
+      "NoYes",
+      "AllowedNotAllowed",
+      "RadioId",
+      "TrailIfType",
+      "MetricImperial",
+      "DownUp",
+      "SignalLevel",
+      "LoopbackType",
+      "PmTableType",
+      "SwCommand",
+      "RateMbps",
+      "SupportedNotsupported",
+      "Severity"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
       "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "Counter32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Gauge32",
+      "IpAddress",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "enterprises"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "MacAddress",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "MuteOnOff": {
@@ -6834,8 +6834,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ceraos/MWRM-RADIO-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:15:05 2022",
-      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:22:47 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MWRM-RADIO-MIB"

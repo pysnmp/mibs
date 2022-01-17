@@ -5,29 +5,29 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Bits",
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "MibIdentifier",
-      "IpAddress"
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoRFC1407Capability": {
@@ -62,8 +62,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RFC1407-CAPABILITY",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:18:08 2022",
-      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:25:30 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-RFC1407-CAPABILITY"

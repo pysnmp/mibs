@@ -11,27 +11,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "IpAddress",
-      "Gauge32",
-      "enterprises",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "enterprises",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString",
+      "DateAndTime",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -7275,8 +7275,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raritan/PDU-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:28:01 2022",
-      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:32:05 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PDU-MIB"

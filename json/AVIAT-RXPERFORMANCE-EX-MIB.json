@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "AVIAT-RXPERFORMANCE-MIB": [
-      "aviatRxPerformQHourPeriod",
       "aviatRxPerformDayIndex",
+      "aviatRxPerformQHourIndex",
       "aviatRxPerformDayPeriod",
-      "aviatRxPerformQHourIndex"
+      "aviatRxPerformQHourPeriod"
     ],
     "AVIAT-TEXTCONVENTION-MIB": [
       "AviatPowerLevel"
@@ -14,24 +14,24 @@
       "entPhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
       "Gauge32",
       "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
+      "Unsigned32",
+      "Counter64",
       "OBJECT-TYPE",
       "Counter32",
-      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -505,8 +505,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-RXPERFORMANCE-EX-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:14:11 2022",
-      "On host fv-az135-188 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:22:08 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AVIAT-RXPERFORMANCE-EX-MIB"
