@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "iso",
-      "Integer32",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "mib-2",
+      "Counter64",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bfdTCStdMib": {
@@ -130,9 +130,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/BFD-TC-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:41:48 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/BFD-TC-STD-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:18:36 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BFD-TC-STD-MIB"

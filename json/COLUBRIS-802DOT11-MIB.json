@@ -5,45 +5,45 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisSSIDOrNone",
-      "ColubrisRadioType",
       "ColubrisNotificationEnable",
-      "ColubrisDataRate"
+      "ColubrisRadioType",
+      "ColubrisDataRate",
+      "ColubrisSSIDOrNone"
     ],
     "COLUBRIS-VIRTUAL-AP-MIB": [
-      "coVirtualAccessPointConfigEntry",
-      "coVirtualApSSID"
+      "coVirtualApSSID",
+      "coVirtualAccessPointConfigEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Gauge32",
-      "Counter32",
+      "IpAddress",
+      "Bits",
       "Counter64",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "MacAddress"
     ]
   },
@@ -5021,8 +5021,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-IEEE802DOT11.my",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:48:16 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:24:55 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "COLUBRIS-802DOT11-MIB"

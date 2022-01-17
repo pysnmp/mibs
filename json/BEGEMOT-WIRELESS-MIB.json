@@ -13,28 +13,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "iso",
-      "TimeTicks",
       "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "mib-2",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Counter32",
       "Integer32",
       "Counter64",
-      "MibIdentifier",
-      "Bits",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TruthValue"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "begemotWlan": {
@@ -5116,8 +5116,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-WIRELESS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:52:37 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:29:24 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BEGEMOT-WIRELESS-MIB"

@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
-      "ieee8021CfmMaNetGroup",
-      "dot1agCfmMdIndex",
-      "Dot1agCfmMhfCreation",
-      "ieee8021CfmDefaultMdDefGroup",
-      "dot1agCfmMaIndex",
-      "dot1agCfmMdRowStatus",
-      "dot1agCfmNotificationsGroup",
-      "Dot1agCfmIdPermission",
-      "dot1agCfmGroups",
-      "Dot1agCfmMDLevel",
-      "Dot1agCfmMpDirection",
-      "Dot1agCfmMepIdOrZero",
-      "dot1agCfmConfigErrorList",
-      "dot1agCfmCompliances",
-      "dot1agCfmVlan",
-      "dot1agCfmMepRowStatus",
-      "Dot1agCfmConfigErrors",
-      "dot1agCfmStack",
-      "dot1agCfmMa",
-      "dot1agCfmMepLbrBadMsdu",
-      "dot1agCfmMdGroup",
-      "dot1agCfmMepGroup",
-      "dot1agCfmDefaultMd",
-      "dot1agCfmMepDbGroup",
       "ieee8021CfmPbbTeExtensionGroup",
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMaIndex",
       "dot1agCfmMaMepListRowStatus",
-      "dot1agCfmMaNetRowStatus",
+      "Dot1agCfmMpDirection",
+      "dot1agCfmConfigErrorList",
       "ieee8021CfmPbbTeTrafficBitGroup",
-      "Dot1agCfmMDLevelOrNone"
+      "dot1agCfmMdRowStatus",
+      "dot1agCfmGroups",
+      "dot1agCfmDefaultMd",
+      "Dot1agCfmMDLevelOrNone",
+      "Dot1agCfmMhfCreation",
+      "Dot1agCfmIdPermission",
+      "dot1agCfmMdIndex",
+      "dot1agCfmVlan",
+      "dot1agCfmMa",
+      "dot1agCfmNotificationsGroup",
+      "dot1agCfmCompliances",
+      "ieee8021CfmDefaultMdDefGroup",
+      "ieee8021CfmMaNetGroup",
+      "dot1agCfmMepGroup",
+      "dot1agCfmStack",
+      "dot1agCfmMepRowStatus",
+      "dot1agCfmMepLbrBadMsdu",
+      "dot1agCfmMaNetRowStatus",
+      "Dot1agCfmMDLevel",
+      "dot1agCfmMepDbGroup",
+      "Dot1agCfmConfigErrors",
+      "dot1agCfmMdGroup"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021ServiceSelectorValue",
       "IEEE8021ServiceSelectorValueOrNone",
-      "ieee802dot1mibs",
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021ServiceSelectorValue",
       "IEEE8021ServiceSelectorType",
-      "IEEE8021PbbComponentIdentifier"
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -48,27 +48,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
       "iso",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
       "Bits",
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "Integer32",
-      "Counter64",
+      "Unsigned32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "ieee8021CfmV2Mib": {
@@ -893,8 +893,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFM-V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:41:29 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:17:34 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-CFM-V2-MIB"

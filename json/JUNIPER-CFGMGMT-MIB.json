@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "JUNIPER-SMI": [
-      "jnxCmNotifications",
-      "jnxMibs"
+      "jnxMibs",
+      "jnxCmNotifications"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
       "Bits",
+      "Unsigned32",
+      "MibIdentifier",
       "iso",
-      "Integer32",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "jnxCfgMgmt": {
@@ -411,8 +411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-CFGMGMT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:50:39 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:27:30 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-CFGMGMT-MIB"

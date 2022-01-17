@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "HP-SN-AGENT-MIB": [
-      "snAgGblTrapMessage",
-      "snChasFanIndex",
-      "snAgentBrdIndex",
       "snChasPwrSupplyIndex",
-      "snChasPwrSupplyStatus",
+      "snChasFanIndex",
       "snChasFanDescription",
-      "snChasPwrSupplyDescription"
+      "snAgentBrdIndex",
+      "snChasPwrSupplyDescription",
+      "snChasPwrSupplyStatus",
+      "snAgGblTrapMessage"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4TrapRealServerPort",
-      "snL4TcpSynLimit",
+      "snL4MaxSessionLimit",
       "snL4TrapRealServerCurConnections",
       "snL4TrapRealServerIP",
       "snL4TrapRealServerName",
-      "snL4MaxSessionLimit"
+      "snL4TcpSynLimit"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
@@ -30,21 +30,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-IDENTITY",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:49:15 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:26:09 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

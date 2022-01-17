@@ -16,31 +16,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Gauge32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Gauge32",
-      "Bits",
       "IpAddress",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
       "TruthValue",
       "RowStatus",
-      "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "MacAddress",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TimeInterval"
     ]
   },
   "mwConfigGRE": {
@@ -202,8 +202,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-GRE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:47:33 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:24:04 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MERU-CONFIG-GRE-MIB"

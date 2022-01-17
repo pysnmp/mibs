@@ -8,14 +8,14 @@
       "docsIfCmtsCmStatusIndex"
     ],
     "ENTITY-MIB": [
-      "entPhysicalIndex",
       "PhysicalIndexOrZero",
-      "entPhysicalName"
+      "entPhysicalName",
+      "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -27,32 +27,32 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
-      "iso",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Bits",
+      "MibIdentifier",
       "Gauge32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Counter32",
+      "TimeTicks",
       "Integer32",
-      "MibIdentifier"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "StorageType",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCableWidebandMIB": {
@@ -1499,8 +1499,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-WIDEBAND-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:46:23 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:22:49 2022",
+      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-CABLE-WIDEBAND-MIB"
