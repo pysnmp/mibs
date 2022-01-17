@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SL-ALARM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ALARM-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:57:02 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 10:07:35 2022
+# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfIntervalCount, PerfTotalCount, PerfCurrentCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfTotalCount", "PerfCurrentCount")
+PerfIntervalCount, PerfCurrentCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount", "PerfTotalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Integer32, IpAddress, Counter32, MibIdentifier, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, Unsigned32, ModuleIdentity, TimeTicks, Counter64, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "Counter32", "MibIdentifier", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "TimeTicks", "Counter64", "Bits", "NotificationType")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Gauge32, NotificationType, ObjectIdentity, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, Unsigned32, IpAddress, Counter64, Integer32, iso, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "ObjectIdentity", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "Unsigned32", "IpAddress", "Counter64", "Integer32", "iso", "MibIdentifier")
 TextualConvention, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "TimeStamp", "DisplayString")
 slAlarmMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 20))
 if mibBuilder.loadTexts: slAlarmMib.setLastUpdated('0008280000Z')
@@ -67,4 +67,4 @@ if mibBuilder.loadTexts: slAlarmTrap.setDescription('An slAlarmTrap notification
 slAlarmTrap0 = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 20, 2, 0, 2)).setObjects(("SL-ALARM-MIB", "slAlarmIfIndex"), ("SL-ALARM-MIB", "slAlarmType"), ("SL-ALARM-MIB", "slAlarmSeverity"), ("SL-ALARM-MIB", "slAlarmServiceAffect"), ("SL-ALARM-MIB", "slAlarmActive"), ("SL-ALARM-MIB", "slAlarmText"))
 if mibBuilder.loadTexts: slAlarmTrap0.setStatus('current')
 if mibBuilder.loadTexts: slAlarmTrap0.setDescription("An slAlarmTrap0 notification is sent when an alarm occures.\n                It is defined to support browsers that don't recognize RFC 2576.")
-mibBuilder.exportSymbols("SL-ALARM-MIB", slAlarmText=slAlarmText, SlAlarmType=SlAlarmType, slAlarmSeverity=slAlarmSeverity, slAlarmAckUser=slAlarmAckUser, slAlarmConfig=slAlarmConfig, slAlarmConfigTable=slAlarmConfigTable, PYSNMP_MODULE_ID=slAlarmMib, slAlarmMib=slAlarmMib, slAlarmIfIndex=slAlarmIfIndex, slAlarmTrap=slAlarmTrap, slAlarmConfigEntry=slAlarmConfigEntry, slAlarmAcknowledged=slAlarmAcknowledged, slAlarmTraps0=slAlarmTraps0, slAlarmServiceAffect=slAlarmServiceAffect, slAlarmActive=slAlarmActive, slAlarmTraps=slAlarmTraps, slAlarmType=slAlarmType, slAlarmTimeStamp=slAlarmTimeStamp, slAlarmTrap0=slAlarmTrap0)
+mibBuilder.exportSymbols("SL-ALARM-MIB", slAlarmMib=slAlarmMib, slAlarmAcknowledged=slAlarmAcknowledged, slAlarmTraps=slAlarmTraps, slAlarmIfIndex=slAlarmIfIndex, slAlarmServiceAffect=slAlarmServiceAffect, PYSNMP_MODULE_ID=slAlarmMib, slAlarmActive=slAlarmActive, slAlarmConfig=slAlarmConfig, slAlarmTimeStamp=slAlarmTimeStamp, slAlarmSeverity=slAlarmSeverity, slAlarmTrap0=slAlarmTrap0, slAlarmAckUser=slAlarmAckUser, slAlarmConfigEntry=slAlarmConfigEntry, slAlarmText=slAlarmText, slAlarmTrap=slAlarmTrap, slAlarmType=slAlarmType, SlAlarmType=SlAlarmType, slAlarmTraps0=slAlarmTraps0, slAlarmConfigTable=slAlarmConfigTable)

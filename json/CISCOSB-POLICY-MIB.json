@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList2",
       "VlanList3",
       "VlanList4",
+      "VlanList2",
       "VlanList1"
     ],
     "CISCOSB-MIB": [
-      "VlanPriority",
       "switch001",
-      "Percents"
+      "Percents",
+      "VlanPriority"
     ],
     "DIFF-SERV-MIB": [
       "diffServClassifierEntry"
@@ -20,8 +20,8 @@
       "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -30,26 +30,26 @@
     "SNMPv2-SMI": [
       "IpAddress",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "zeroDotZero",
+      "OBJECT-TYPE",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "zeroDotZero",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowPointer",
       "RowStatus",
-      "DisplayString"
+      "RowPointer",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:05 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:59:46 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

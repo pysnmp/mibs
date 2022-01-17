@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NBS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:55:56 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 10:06:09 2022
+# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, iso, NotificationType, MibIdentifier, IpAddress, Unsigned32, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, TimeTicks, Integer32, Counter32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "NotificationType", "MibIdentifier", "IpAddress", "Unsigned32", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "TimeTicks", "Integer32", "Counter32", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+enterprises, NotificationType, Counter32, TimeTicks, ModuleIdentity, Bits, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, IpAddress, Unsigned32, Counter64, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "NotificationType", "Counter32", "TimeTicks", "ModuleIdentity", "Bits", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "IpAddress", "Unsigned32", "Counter64", "MibIdentifier", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 250))
 if mibBuilder.loadTexts: nbsMib.setLastUpdated('201706280000Z')
 if mibBuilder.loadTexts: nbsMib.setOrganization('NBS')
@@ -73,4 +73,4 @@ class NbsTcStagingCommit(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
     namedValues = NamedValues(("notSupported", 1), ("supported", 2), ("revertToCommitted", 3), ("apply", 4))
 
-mibBuilder.exportSymbols("NBS-MIB", Unsigned64TC=Unsigned64TC, NbsTcMilliDb=NbsTcMilliDb, NbsTcStatusLevel=NbsTcStatusLevel, NbsTcMilliVolt=NbsTcMilliVolt, nbsMib=nbsMib, NbsTcTemperature=NbsTcTemperature, NbsTcMilliWatts=NbsTcMilliWatts, NbsTcPartIndex=NbsTcPartIndex, NbsTcMilliAmp=NbsTcMilliAmp, NbsTcStatusSimple=NbsTcStatusSimple, Unsigned16TC=Unsigned16TC, nbs=nbs, NbsTcMicroAmp=NbsTcMicroAmp, WritableU64=WritableU64, NbsTcStagingCommit=NbsTcStagingCommit, PYSNMP_MODULE_ID=nbsMib, NbsTcMHz=NbsTcMHz)
+mibBuilder.exportSymbols("NBS-MIB", NbsTcMilliDb=NbsTcMilliDb, nbs=nbs, NbsTcTemperature=NbsTcTemperature, NbsTcMicroAmp=NbsTcMicroAmp, NbsTcMilliAmp=NbsTcMilliAmp, NbsTcStatusSimple=NbsTcStatusSimple, NbsTcMHz=NbsTcMHz, NbsTcPartIndex=NbsTcPartIndex, WritableU64=WritableU64, Unsigned16TC=Unsigned16TC, NbsTcStagingCommit=NbsTcStagingCommit, NbsTcMilliWatts=NbsTcMilliWatts, Unsigned64TC=Unsigned64TC, nbsMib=nbsMib, NbsTcMilliVolt=NbsTcMilliVolt, NbsTcStatusLevel=NbsTcStatusLevel, PYSNMP_MODULE_ID=nbsMib)

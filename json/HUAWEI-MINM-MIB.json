@@ -11,8 +11,8 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -23,36 +23,36 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
+      "Gauge32",
       "Unsigned32",
-      "TimeTicks",
       "Bits",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Integer32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
       "MacAddress",
       "RowStatus",
-      "DisplayString",
-      "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportDomain",
-      "TransportAddress"
+      "TransportAddress",
+      "TransportDomain"
     ]
   },
   "hwMinMMIB": {
@@ -3679,8 +3679,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MINM-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:53:46 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 10:03:12 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-MINM-MIB"

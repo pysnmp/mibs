@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "BASIS-MIB": [
-      "frPortCnfX21PortGrp",
-      "x21"
+      "x21",
+      "frPortCnfX21PortGrp"
     ],
     "CISCOWAN-SMI": [
       "ciscoWan"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "IpAddress",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "iso",
-      "MibIdentifier",
       "Gauge32",
       "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1231,8 +1231,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-FR-X21-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:07 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:59:49 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-WAN-FR-X21-MIB"

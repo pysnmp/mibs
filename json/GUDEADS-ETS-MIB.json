@@ -8,20 +8,20 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Integer32",
-      "OBJECT-TYPE",
+      "Counter32",
       "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "iso",
+      "Gauge32",
       "Counter64",
       "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "enterprises",
-      "Counter32"
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -340,8 +340,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gude/GUDEADS-ETS-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:52:46 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 10:01:54 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "GUDEADS-ETS-MIB"

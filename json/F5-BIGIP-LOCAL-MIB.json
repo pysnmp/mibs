@@ -3,41 +3,41 @@
     "class": "imports",
     "F5-BIGIP-COMMON-MIB": [
       "LongDisplayString",
-      "bigipTrafficMgmt",
+      "bigipCompliances",
       "bigipGroups",
-      "bigipCompliances"
+      "bigipTrafficMgmt"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetPortNumber",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Opaque",
-      "enterprises",
       "Integer32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Opaque",
       "Counter64",
       "IpAddress",
+      "TimeTicks",
       "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
-      "Bits",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -66049,8 +66049,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-BIGIP-LOCAL-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:52:09 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 10:01:06 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F5-BIGIP-LOCAL-MIB"

@@ -2,60 +2,60 @@
   "imports": {
     "class": "imports",
     "BFD-TC-STD-MIB": [
-      "BfdCtrlSourcePortNumberTC",
       "BfdSessIndexTC",
       "BfdIntervalTC",
       "BfdCtrlDestPortNumberTC",
+      "BfdCtrlSourcePortNumberTC",
       "BfdMultiplierTC"
     ],
     "DIFFSERV-DSCP-TC": [
       "IndexIntegerNextFree"
     ],
     "IANA-BFD-TC-STD-MIB": [
-      "IANAbfdSessTypeTC",
-      "IANAbfdDiagTC",
       "IANAbfdSessStateTC",
-      "IANAbfdSessOperModeTC",
+      "IANAbfdSessAuthenticationKeyTC",
+      "IANAbfdSessTypeTC",
       "IANAbfdSessAuthenticationTypeTC",
-      "IANAbfdSessAuthenticationKeyTC"
+      "IANAbfdSessOperModeTC",
+      "IANAbfdDiagTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "mib-2",
-      "IpAddress",
       "Counter32",
-      "Counter64",
+      "MibIdentifier",
+      "mib-2",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowStatus",
-      "TruthValue",
-      "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeStamp",
+      "TruthValue",
+      "StorageType"
     ]
   },
   "bfdMIB": {
@@ -1497,9 +1497,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:47:10 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/BFD-STD-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:53:33 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BFD-STD-MIB"

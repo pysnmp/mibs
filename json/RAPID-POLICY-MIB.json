@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "enterprises",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "enterprises",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString"
     ]
   },
@@ -378,8 +378,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:56:30 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 10:06:54 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RAPID-POLICY-MIB"

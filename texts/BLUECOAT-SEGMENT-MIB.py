@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SEGMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SEGMENT-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:48:01 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 09:55:37 2022
+# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
 PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, iso, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits, Gauge32, ObjectIdentity, Integer32, Unsigned32, MibIdentifier, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits", "Gauge32", "ObjectIdentity", "Integer32", "Unsigned32", "MibIdentifier", "NotificationType", "Counter32")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Gauge32, ObjectIdentity, IpAddress, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, Bits, iso, ModuleIdentity, Counter32, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "IpAddress", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "Bits", "iso", "ModuleIdentity", "Counter32", "Counter64", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 segmentMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 17))
 segmentMIB.setRevisions(('2016-02-24 03:00', '2015-01-13 03:00',))
@@ -87,4 +87,4 @@ segmentMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3417, 2, 17, 3, 3, 1
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     segmentMIBNotifGroup = segmentMIBNotifGroup.setStatus('current')
 if mibBuilder.loadTexts: segmentMIBNotifGroup.setDescription('Group of Network Segment notifications.')
-mibBuilder.exportSymbols("BLUECOAT-SEGMENT-MIB", segmentStatusIdentifier=segmentStatusIdentifier, segmentStateTrap=segmentStateTrap, segmentStatusTable=segmentStatusTable, segmentStatusIfList=segmentStatusIfList, segmentStatusCopyIfList=segmentStatusCopyIfList, segmentMIBNotificationsPrefix=segmentMIBNotificationsPrefix, segmentStatusState=segmentStatusState, segmentMIBNotifGroups=segmentMIBNotifGroups, segments=segments, segmentMIBGroups=segmentMIBGroups, segmentMIBNotifications=segmentMIBNotifications, segmentStatusEntry=segmentStatusEntry, segmentStatusComment=segmentStatusComment, segmentMIBConformance=segmentMIBConformance, segmentMIBObjects=segmentMIBObjects, segmentMIBCompliance=segmentMIBCompliance, segmentMIBCompliances=segmentMIBCompliances, segmentMIBGroup=segmentMIBGroup, SegmentMode=SegmentMode, SegmentState=SegmentState, segmentMIB=segmentMIB, segmentStatusMode=segmentStatusMode, segmentStatusDownIfList=segmentStatusDownIfList, segmentStatusIndex=segmentStatusIndex, PYSNMP_MODULE_ID=segmentMIB, segmentMIBNotifGroup=segmentMIBNotifGroup)
+mibBuilder.exportSymbols("BLUECOAT-SEGMENT-MIB", segmentStatusIfList=segmentStatusIfList, SegmentMode=SegmentMode, segments=segments, segmentMIBCompliances=segmentMIBCompliances, segmentMIBObjects=segmentMIBObjects, segmentStatusComment=segmentStatusComment, segmentStateTrap=segmentStateTrap, segmentMIBNotificationsPrefix=segmentMIBNotificationsPrefix, segmentStatusDownIfList=segmentStatusDownIfList, segmentMIBConformance=segmentMIBConformance, segmentStatusTable=segmentStatusTable, segmentMIBNotifications=segmentMIBNotifications, segmentMIBNotifGroup=segmentMIBNotifGroup, segmentMIBGroups=segmentMIBGroups, segmentStatusCopyIfList=segmentStatusCopyIfList, segmentMIB=segmentMIB, segmentMIBGroup=segmentMIBGroup, segmentStatusState=segmentStatusState, PYSNMP_MODULE_ID=segmentMIB, segmentMIBCompliance=segmentMIBCompliance, segmentMIBNotifGroups=segmentMIBNotifGroups, segmentStatusEntry=segmentStatusEntry, segmentStatusMode=segmentStatusMode, segmentStatusIdentifier=segmentStatusIdentifier, SegmentState=SegmentState, segmentStatusIndex=segmentStatusIndex)

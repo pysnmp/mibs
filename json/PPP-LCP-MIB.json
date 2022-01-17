@@ -5,25 +5,25 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
       "Counter32",
-      "TimeTicks",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "transmission",
-      "Counter64",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -729,9 +729,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PPP-LCP-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:55:30 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PPP-LCP-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:53:34 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PPP-LCP-MIB"

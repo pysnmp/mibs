@@ -5,12 +5,12 @@
       "cItpSpCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcXuaName",
-      "CItpTcSubSystemNumber",
+      "CItpTcServiceIndicator",
+      "CItpTcPointCode",
       "CItpTcQos",
       "CItpTcNetworkName",
-      "CItpTcServiceIndicator",
-      "CItpTcPointCode"
+      "CItpTcXuaName",
+      "CItpTcSubSystemNumber"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -24,31 +24,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "iso",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoItpXuaMIB": {
@@ -4605,8 +4605,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-XUA-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:07 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:59:48 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-ITP-XUA-MIB"

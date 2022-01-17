@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HUAWEI-BASE-TRAP-MIB": [
-      "hwBaseTrapProbableCause",
+      "hwBaseTrapEventType",
       "hwBaseTrapSeverity",
-      "hwBaseTrapEventType"
+      "hwBaseTrapProbableCause"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -17,37 +17,37 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
-      "VlanId",
+      "VlanIdOrNone",
       "PortList",
-      "VlanIdOrNone"
+      "VlanIndex",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "TimeTicks",
+      "Gauge32",
       "Unsigned32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Gauge32",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "hwL2Mgmt": {
@@ -8006,8 +8006,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:53:46 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 10:03:12 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-L2VLAN-MIB"

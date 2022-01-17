@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ADTRAN-AOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:46:39 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 09:53:47 2022
+# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-adIdentityShared, adShared = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentityShared", "adShared")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Bits, iso, TimeTicks, Counter64, ObjectIdentity, IpAddress, Integer32, MibIdentifier, Counter32, Unsigned32, NotificationType, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "iso", "TimeTicks", "Counter64", "ObjectIdentity", "IpAddress", "Integer32", "MibIdentifier", "Counter32", "Unsigned32", "NotificationType", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+Counter32, iso, Bits, TimeTicks, ModuleIdentity, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, NotificationType, Integer32, Counter64, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "Bits", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "NotificationType", "Integer32", "Counter64", "MibIdentifier", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53))
 adGenAOSMib.setRevisions(('2014-09-10 00:00', '2012-04-27 00:00', '2010-07-05 00:00', '2004-10-20 00:00',))
@@ -32,4 +32,4 @@ adGenAOSPower = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 7))
 adGenAOSConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99))
 adGenAOSApplications = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 8))
 adGenAOSMef = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9))
-mibBuilder.exportSymbols("ADTRAN-AOS", adGenAOSMef=adGenAOSMef, adGenAOSRouter=adGenAOSRouter, adGenAOSCommon=adGenAOSCommon, adGenAOSPower=adGenAOSPower, adGenAOS=adGenAOS, adGenAOSSwitch=adGenAOSSwitch, adGenAOSSecurity=adGenAOSSecurity, adGenAOSWan=adGenAOSWan, adGenAOSConformance=adGenAOSConformance, adGenAOSVoice=adGenAOSVoice, adGenAOSMib=adGenAOSMib, PYSNMP_MODULE_ID=adGenAOSMib, adGenAOSApplications=adGenAOSApplications)
+mibBuilder.exportSymbols("ADTRAN-AOS", adGenAOSPower=adGenAOSPower, adGenAOSConformance=adGenAOSConformance, adGenAOSCommon=adGenAOSCommon, adGenAOSRouter=adGenAOSRouter, adGenAOSWan=adGenAOSWan, adGenAOSSwitch=adGenAOSSwitch, adGenAOS=adGenAOS, adGenAOSSecurity=adGenAOSSecurity, adGenAOSVoice=adGenAOSVoice, adGenAOSMef=adGenAOSMef, adGenAOSApplications=adGenAOSApplications, PYSNMP_MODULE_ID=adGenAOSMib, adGenAOSMib=adGenAOSMib)

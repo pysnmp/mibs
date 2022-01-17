@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OG-FAILOVER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-FAILOVER-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:56:48 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 10:07:17 2022
+# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-NotificationType, Unsigned32, Counter64, TimeTicks, MibIdentifier, ModuleIdentity, Gauge32, IpAddress, iso, Counter32, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Counter64", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Gauge32", "IpAddress", "iso", "Counter32", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, IpAddress, NotificationType, ModuleIdentity, Integer32, Counter32, Gauge32, Unsigned32, iso, Bits, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "IpAddress", "NotificationType", "ModuleIdentity", "Integer32", "Counter32", "Gauge32", "Unsigned32", "iso", "Bits", "TimeTicks", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ogFailoverMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 15))
 ogFailoverMib.setRevisions(('2013-08-11 00:00', '2010-03-22 11:27', '2008-11-27 11:40',))
 
@@ -59,4 +59,4 @@ ogfovrNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 15, 3
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ogfovrNotificationsGroup = ogfovrNotificationsGroup.setStatus('current')
 if mibBuilder.loadTexts: ogfovrNotificationsGroup.setDescription('A collection of notification(s) for sensor system.')
-mibBuilder.exportSymbols("OG-FAILOVER-MIB", ogFailoverMibGroup=ogFailoverMibGroup, ogfovrEventOccurred=ogfovrEventOccurred, ogfovrEventPrimary=ogfovrEventPrimary, ogfovrMibNotifications=ogfovrMibNotifications, PYSNMP_MODULE_ID=ogFailoverMib, ogFailoverMibObjects=ogFailoverMibObjects, ogfovrEventTable=ogfovrEventTable, ogfovrEvent=ogfovrEvent, ogfovrNotificationsGroup=ogfovrNotificationsGroup, ogFailoverMibCompliance=ogFailoverMibCompliance, ogFailoverMib=ogFailoverMib, ogFailoverMibGroups=ogFailoverMibGroups, ogfovrEventIndex=ogfovrEventIndex, ogfovrEventEntry=ogfovrEventEntry, ogfovrEventSecondary=ogfovrEventSecondary, ogFailoverMibNotificationPrefix=ogFailoverMibNotificationPrefix, ogFailoverMibCompliances=ogFailoverMibCompliances, ogFailoverMibConformance=ogFailoverMibConformance)
+mibBuilder.exportSymbols("OG-FAILOVER-MIB", ogFailoverMibGroups=ogFailoverMibGroups, ogFailoverMibObjects=ogFailoverMibObjects, ogFailoverMib=ogFailoverMib, ogFailoverMibConformance=ogFailoverMibConformance, ogfovrEventEntry=ogfovrEventEntry, ogfovrEventPrimary=ogfovrEventPrimary, ogFailoverMibNotificationPrefix=ogFailoverMibNotificationPrefix, ogfovrEventOccurred=ogfovrEventOccurred, ogFailoverMibCompliances=ogFailoverMibCompliances, ogfovrEventTable=ogfovrEventTable, ogFailoverMibCompliance=ogFailoverMibCompliance, ogfovrNotificationsGroup=ogfovrNotificationsGroup, ogfovrEvent=ogfovrEvent, PYSNMP_MODULE_ID=ogFailoverMib, ogfovrEventSecondary=ogfovrEventSecondary, ogFailoverMibGroup=ogFailoverMibGroup, ogfovrMibNotifications=ogfovrMibNotifications, ogfovrEventIndex=ogfovrEventIndex)

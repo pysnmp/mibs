@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcClasses",
+      "FcPortType",
       "fcmInstanceIndex",
-      "FcNameIdOrZero",
       "FcAddressIdOrZero",
-      "FcPortType"
+      "FcNameIdOrZero",
+      "FcClasses"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -18,26 +18,26 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "Counter64",
+      "MibIdentifier",
       "mib-2",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Gauge32",
       "TimeTicks",
-      "Integer32"
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "TruthValue"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
@@ -1196,9 +1196,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/T11-FC-NAME-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:49:09 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-NAME-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:53:32 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "T11-FC-NAME-SERVER-MIB"

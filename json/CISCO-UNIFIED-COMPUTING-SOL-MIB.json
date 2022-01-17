@@ -5,21 +5,21 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "CiscoInetAddressMask",
       "Unsigned64",
-      "TimeIntervalSec",
-      "CiscoNetworkAddress",
       "CiscoAlarmSeverity",
-      "CiscoInetAddressMask"
+      "CiscoNetworkAddress",
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsSolSpeed",
       "CucsPolicyPolicyOwner",
-      "CucsSolAdminState"
+      "CucsSolAdminState",
+      "CucsSolSpeed"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -33,30 +33,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "IpAddress",
       "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue",
-      "MacAddress",
       "TimeStamp",
+      "TimeInterval",
       "RowPointer",
-      "DisplayString"
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "cucsSolObjects": {
@@ -508,8 +508,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SOL-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:07 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:59:49 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-SOL-MIB"

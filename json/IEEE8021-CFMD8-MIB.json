@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "LLDP-MIB": [
+      "LldpChassisId",
       "LldpChassisIdSubtype",
-      "LldpPortId",
       "LldpPortIdSubtype",
-      "LldpChassisId"
+      "LldpPortId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
@@ -17,35 +17,35 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
+      "iso",
       "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Integer32",
       "OBJECT-TYPE",
-      "iso",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "RowStatus",
       "MacAddress",
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
       "TDomain",
-      "TAddress"
+      "TAddress",
+      "TimeInterval"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3167,8 +3167,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFMD8-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:46:11 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:53:08 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-CFMD8-MIB"

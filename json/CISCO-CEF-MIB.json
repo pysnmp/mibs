@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "CISCO-CEF-TC": [
-      "CefPrefixSearchState",
-      "CefCCType",
-      "CefCCAction",
-      "CefIpVersion",
-      "CefAdjacencySource",
-      "CefPathType",
       "CefAdminStatus",
-      "CefFailureReason",
-      "CefOperStatus",
-      "CefForwardingElementSpecialType",
+      "CefPathType",
+      "CefCCType",
       "CefAdjLinkType",
+      "CefForwardingElementSpecialType",
+      "CefAdjacencySource",
+      "CefOperStatus",
       "CefCCStatus",
+      "CefFailureReason",
+      "CefPrefixSearchState",
+      "CefIpVersion",
+      "CefCCAction",
       "CefMplsLabelList"
     ],
     "CISCO-SMI": [
@@ -23,8 +23,8 @@
       "EntPhysicalIndexOrZero"
     ],
     "ENTITY-MIB": [
-      "entPhysicalIndex",
-      "PhysicalIndex"
+      "PhysicalIndex",
+      "entPhysicalIndex"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -35,8 +35,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "MPLS-VPN-MIB": [
       "MplsVpnId"
@@ -45,33 +45,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
+      "NOTIFICATION-TYPE",
       "Integer32",
       "TimeTicks",
       "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
       "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "TimeStamp",
       "RowStatus",
-      "TestAndIncr",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TestAndIncr"
     ]
   },
   "ciscoCefMIB": {
@@ -2962,8 +2962,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CEF-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:51:05 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 09:59:46 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-CEF-MIB"

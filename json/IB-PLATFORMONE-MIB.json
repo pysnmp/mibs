@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "IB-SMI-MIB": [
-      "IbString",
       "IbIpAddr",
+      "IbFloat",
       "ibPlatformOne",
-      "IbFloat"
+      "IbString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "enterprises",
       "OBJECT-IDENTITY",
-      "enterprises"
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ibPlatformModule": {
@@ -1449,8 +1449,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-PLATFORMONE-MIB",
-      "Produced by pysmi-1.1.8 at Sun Jan 16 15:54:42 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 10:04:30 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IB-PLATFORMONE-MIB"

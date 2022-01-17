@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-HEALTHCHECK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-HEALTHCHECK-MIB
-# Produced by pysmi-1.1.8 at Sun Jan 16 15:47:59 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 09:55:36 2022
+# On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-ModuleIdentity, NotificationType, ObjectIdentity, Unsigned32, Bits, IpAddress, Gauge32, MibIdentifier, Integer32, Counter32, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Unsigned32", "Bits", "IpAddress", "Gauge32", "MibIdentifier", "Integer32", "Counter32", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter32, ObjectIdentity, Integer32, Counter64, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, TimeTicks, iso, Bits, ModuleIdentity, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "Integer32", "Counter64", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "TimeTicks", "iso", "Bits", "ModuleIdentity", "Unsigned32", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 deviceHealthCheckMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 7))
 deviceHealthCheckMIB.setRevisions(('2013-05-22 03:00', '2013-05-21 03:00', '2007-11-05 03:00', '2002-08-28 03:00',))
 if mibBuilder.loadTexts: deviceHealthCheckMIB.setLastUpdated('201305220300Z')
@@ -59,4 +59,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 deviceHealthCheckMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3417, 2, 7, 3, 3, 1)).setObjects(("BLUECOAT-SG-HEALTHCHECK-MIB", "deviceHealthCheckTrap"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     deviceHealthCheckMIBNotifGroup = deviceHealthCheckMIBNotifGroup.setStatus('current')
-mibBuilder.exportSymbols("BLUECOAT-SG-HEALTHCHECK-MIB", deviceHealthCheckName=deviceHealthCheckName, HealthCheckMessageString=HealthCheckMessageString, deviceHealthCheckMIBConformance=deviceHealthCheckMIBConformance, deviceHealthCheckMIB=deviceHealthCheckMIB, deviceHealthCheckMIBNotifGroups=deviceHealthCheckMIBNotifGroups, deviceHealthCheckMIBGroups=deviceHealthCheckMIBGroups, deviceHealthCheckMIBGroup=deviceHealthCheckMIBGroup, deviceHealthCheckStringValues=deviceHealthCheckStringValues, deviceHealthCheckState=deviceHealthCheckState, deviceHealthCheckValues=deviceHealthCheckValues, deviceHealthCheckMIBNotifGroup=deviceHealthCheckMIBNotifGroup, deviceHealthCheckMIBNotifs=deviceHealthCheckMIBNotifs, deviceHealthCheckMIBNotifsPrefix=deviceHealthCheckMIBNotifsPrefix, deviceHealthCheckMIBCompliance=deviceHealthCheckMIBCompliance, deviceHealthCheckTime=deviceHealthCheckTime, deviceHealthCheckValueEntry=deviceHealthCheckValueEntry, deviceHealthCheckMIBObjects=deviceHealthCheckMIBObjects, deviceHealthCheckMIBCompliances=deviceHealthCheckMIBCompliances, deviceHealthCheckTrap=deviceHealthCheckTrap, deviceHealthCheckValueTable=deviceHealthCheckValueTable, HealthCheckStatus=HealthCheckStatus, deviceHealthCheckMessage=deviceHealthCheckMessage, PYSNMP_MODULE_ID=deviceHealthCheckMIB)
+mibBuilder.exportSymbols("BLUECOAT-SG-HEALTHCHECK-MIB", deviceHealthCheckMIBGroups=deviceHealthCheckMIBGroups, deviceHealthCheckValues=deviceHealthCheckValues, deviceHealthCheckMIBCompliance=deviceHealthCheckMIBCompliance, deviceHealthCheckMIBGroup=deviceHealthCheckMIBGroup, deviceHealthCheckMIBNotifGroup=deviceHealthCheckMIBNotifGroup, deviceHealthCheckTrap=deviceHealthCheckTrap, deviceHealthCheckState=deviceHealthCheckState, deviceHealthCheckMessage=deviceHealthCheckMessage, deviceHealthCheckMIBObjects=deviceHealthCheckMIBObjects, PYSNMP_MODULE_ID=deviceHealthCheckMIB, deviceHealthCheckMIBNotifs=deviceHealthCheckMIBNotifs, deviceHealthCheckTime=deviceHealthCheckTime, deviceHealthCheckMIBCompliances=deviceHealthCheckMIBCompliances, deviceHealthCheckMIB=deviceHealthCheckMIB, deviceHealthCheckMIBNotifGroups=deviceHealthCheckMIBNotifGroups, HealthCheckStatus=HealthCheckStatus, deviceHealthCheckMIBConformance=deviceHealthCheckMIBConformance, deviceHealthCheckStringValues=deviceHealthCheckStringValues, deviceHealthCheckValueTable=deviceHealthCheckValueTable, deviceHealthCheckMIBNotifsPrefix=deviceHealthCheckMIBNotifsPrefix, deviceHealthCheckName=deviceHealthCheckName, deviceHealthCheckValueEntry=deviceHealthCheckValueEntry, HealthCheckMessageString=HealthCheckMessageString)
