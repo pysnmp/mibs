@@ -5,55 +5,55 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "AgentPortMask",
-      "fastPath"
+      "fastPath",
+      "AgentPortMask"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "dot1qFdbId",
       "VlanIndex",
-      "dot1qVlanIndex"
+      "dot1qFdbId",
+      "dot1qVlanIndex",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
+      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
       "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
-      "Counter32"
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
       "PhysAddress",
-      "RowStatus",
-      "DisplayString"
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "fastPathSwitching": {
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:16 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:05:50 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

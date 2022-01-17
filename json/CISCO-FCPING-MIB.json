@@ -5,36 +5,36 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcAddress",
       "FcAddressType",
+      "FcAddress",
       "VsanIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
-      "iso",
       "Counter32",
-      "Counter64",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
       "IpAddress",
-      "Unsigned32",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoFcPingMIB": {
@@ -676,8 +676,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCPING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:04 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:05:38 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-FCPING-MIB"

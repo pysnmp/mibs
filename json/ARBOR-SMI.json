@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-IDENTITY",
-      "enterprises",
-      "MibIdentifier",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Integer32",
       "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Gauge32",
+      "enterprises",
       "Unsigned32",
-      "iso",
-      "Integer32"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "arbornetworks": {
@@ -73,8 +73,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-SMI",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:58 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:00:29 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ARBOR-SMI"

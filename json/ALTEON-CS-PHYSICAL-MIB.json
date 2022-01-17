@@ -5,29 +5,29 @@
       "aws-switch"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Counter64",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "iso",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Gauge32",
+      "Counter32",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "DisplayString"
+      "PhysAddress"
     ]
   },
   "layer2": {
@@ -4103,8 +4103,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-CS-PHYSICAL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:55 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:00:25 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALTEON-CS-PHYSICAL-MIB"

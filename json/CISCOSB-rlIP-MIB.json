@@ -10,47 +10,47 @@
     "INET-ADDRESS-MIB": [
       "InetZoneIndex",
       "InetAddress",
-      "InetAddressPrefixLength",
       "InetVersion",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "IP-MIB": [
-      "IpAddressOriginTC",
-      "IpAddressStatusTC"
+      "IpAddressStatusTC",
+      "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "Counter32",
-      "iso",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "mib-2",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
       "zeroDotZero",
-      "mib-2"
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "PhysAddress",
       "TimeStamp",
       "TestAndIncr",
-      "RowStatus",
+      "RowPointer",
       "StorageType",
-      "PhysAddress",
-      "RowPointer"
+      "DisplayString"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:02 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:05:36 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

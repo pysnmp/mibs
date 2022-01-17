@@ -8,30 +8,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "MibIdentifier",
       "Counter64",
       "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "Counter32"
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "hpnicfFrQoSMib": {
@@ -701,8 +701,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FR-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:07:36 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:09:14 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-FR-QOS-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module BLUECATNETWORKS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BLUECATNETWORKS-MIB
-# Produced by pysmi-1.1.8 at Mon Jan 17 22:00:42 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 22:01:26 2022
+# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, TimeTicks, Unsigned32, Bits, enterprises, Gauge32, Counter32, MibIdentifier, IpAddress, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "TimeTicks", "Unsigned32", "Bits", "enterprises", "Gauge32", "Counter32", "MibIdentifier", "IpAddress", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity")
+IpAddress, Unsigned32, Counter32, Counter64, ModuleIdentity, NotificationType, MibIdentifier, ObjectIdentity, TimeTicks, Bits, iso, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "Counter32", "Counter64", "ModuleIdentity", "NotificationType", "MibIdentifier", "ObjectIdentity", "TimeTicks", "Bits", "iso", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bluecatnetworksId = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 1))
 bluecatnetworksId.setRevisions(('2010-11-30 00:00',))
@@ -22,4 +22,4 @@ if mibBuilder.loadTexts: bluecatnetworksId.setContactInfo('BlueCat Networks Inc.
 if mibBuilder.loadTexts: bluecatnetworksId.setDescription('New oid assignments for Cisco REPEATER MIB and others.')
 bluecatnetworks = MibIdentifier((1, 3, 6, 1, 4, 1, 13315))
 appliances = MibIdentifier((1, 3, 6, 1, 4, 1, 13315, 100))
-mibBuilder.exportSymbols("BLUECATNETWORKS-MIB", bluecatnetworksId=bluecatnetworksId, bluecatnetworks=bluecatnetworks, appliances=appliances, PYSNMP_MODULE_ID=bluecatnetworksId)
+mibBuilder.exportSymbols("BLUECATNETWORKS-MIB", bluecatnetworks=bluecatnetworks, appliances=appliances, PYSNMP_MODULE_ID=bluecatnetworksId, bluecatnetworksId=bluecatnetworksId)

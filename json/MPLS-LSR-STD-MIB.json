@@ -5,51 +5,51 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "ifGeneralInformationGroup",
-      "ifCounterDiscontinuityGroup"
+      "ifCounterDiscontinuityGroup",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLSPID",
+      "MplsBitRate",
       "MplsLabel",
       "mplsStdMIB",
-      "MplsOwner",
-      "MplsBitRate"
+      "MplsLSPID",
+      "MplsOwner"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "Unsigned32",
-      "zeroDotZero",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Counter64",
-      "Bits",
+      "Gauge32",
+      "zeroDotZero",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "StorageType",
       "DisplayString",
-      "TruthValue",
-      "RowPointer",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "RowPointer",
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus"
     ]
   },
   "mplsLsrStdMIB": {
@@ -1830,8 +1830,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:08 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:22 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MPLS-LSR-STD-MIB"

@@ -12,17 +12,17 @@
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
       "VlanList2",
-      "VlanList4",
       "VlanList3",
-      "VlanList1"
+      "VlanList1",
+      "VlanList4"
     ],
     "LINKSYS-MIB": [
       "rnd"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex",
-      "dot1qVlanIndex",
-      "PortList"
+      "PortList",
+      "dot1qVlanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -33,26 +33,26 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
       "TimeTicks",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "Counter64",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "vlan": {
@@ -2840,8 +2840,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-vlan-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:09:09 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:11:14 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-vlan-MIB"

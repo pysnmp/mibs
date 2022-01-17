@@ -8,62 +8,62 @@
       "SecondaryState",
       "CmPmBinAction",
       "OperationalState",
-      "AdminState",
+      "PerfCounter64",
       "VlanPriority",
-      "PerfCounter64"
+      "AdminState"
     ],
     "CM-ENTITY-MIB": [
-      "shelfIndex",
       "neIndex",
-      "slotIndex"
+      "slotIndex",
+      "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
+      "cmEthernetNetPortIndex",
       "cmEthernetAccPortIndex",
-      "cmEthernetTrafficPortIndex",
-      "cmEthernetNetPortIndex"
+      "cmEthernetTrafficPortIndex"
     ],
     "IEEE8021-CFM-MIB": [
       "dot1agCfmMepEntry",
-      "dot1agCfmMaIndex",
-      "Dot1agCfmMDLevel",
       "Dot1agCfmMepId",
       "dot1agCfmMepIdentifier",
-      "dot1agCfmMdIndex",
+      "dot1agCfmMaNetEntry",
+      "Dot1agCfmMDLevel",
       "dot1agCfmMaCompEntry",
-      "dot1agCfmMaNetEntry"
+      "dot1agCfmMaIndex",
+      "dot1agCfmMdIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "TimeTicks",
-      "MibIdentifier",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
       "Gauge32",
+      "Integer32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Integer32",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "VariablePointer",
-      "RowStatus",
       "DisplayString",
+      "StorageType",
+      "VariablePointer",
       "TruthValue",
-      "MacAddress"
+      "RowStatus"
     ]
   },
   "f3CfmMIB": {
@@ -2033,8 +2033,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:51 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:00:21 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-CFM-MIB"

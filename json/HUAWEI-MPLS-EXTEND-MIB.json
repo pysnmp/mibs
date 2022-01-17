@@ -5,8 +5,8 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -17,41 +17,41 @@
     ],
     "MPLS-TC-STD-MIB": [
       "MplsLsrIdentifier",
-      "MplsTunnelIndex",
+      "MplsTunnelInstanceIndex",
       "MplsExtendedTunnelId",
-      "MplsTunnelInstanceIndex"
+      "MplsTunnelIndex"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelAdminStatus",
-      "mplsTunnelOperStatus"
+      "mplsTunnelOperStatus",
+      "mplsTunnelAdminStatus"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
       "Counter64",
-      "Unsigned32"
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwMplsExtendMib": {
@@ -5631,8 +5631,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MPLS-EXTEND-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:06:57 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:09:00 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-MPLS-EXTEND-MIB"

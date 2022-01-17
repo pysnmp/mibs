@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CT-PRIORITY-CLASSIFY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-PRIORITY-CLASSIFY-MIB
-# Produced by pysmi-1.1.8 at Mon Jan 17 22:04:48 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 17 22:06:30 2022
+# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, NotificationType, ModuleIdentity, iso, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, Integer32, TimeTicks, IpAddress, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "ModuleIdentity", "iso", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "Integer32", "TimeTicks", "IpAddress", "Unsigned32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, Gauge32, Bits, iso, IpAddress, Counter32, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, NotificationType, Integer32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "Bits", "iso", "IpAddress", "Counter32", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "NotificationType", "Integer32", "TimeTicks", "Counter64")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctPriorityExtClassifyConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 5))
 pClassifyRTP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 5, 1))
 pClassifyUDP = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 5, 2))
@@ -57,4 +57,4 @@ if mibBuilder.loadTexts: pClassifyUDPState.setDescription('A packet with UDP por
 pClassifyUDPLowDelayQueuePreference = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 5, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)).clone(7)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: pClassifyUDPLowDelayQueuePreference.setStatus('mandatory')
 if mibBuilder.loadTexts: pClassifyUDPLowDelayQueuePreference.setDescription('Preference with which packet with UDP destination port\n                        number equal to pClassifyUDPPortNumberis put on the \n                        queue.  ')
-mibBuilder.exportSymbols("CT-PRIORITY-CLASSIFY-MIB", pClassifyUDPTable=pClassifyUDPTable, pClassifyRTPTOSPrecedence=pClassifyRTPTOSPrecedence, pClassifyRTPTagPriority=pClassifyRTPTagPriority, pClassifyUDPLowDelayQueuePreference=pClassifyUDPLowDelayQueuePreference, pClassifyRTCPParsing=pClassifyRTCPParsing, ctPriorityExtClassifyConfig=ctPriorityExtClassifyConfig, pClassifyRTPTable=pClassifyRTPTable, pClassifyUDPState=pClassifyUDPState, pClassifyRTPLowDelayQueuePreference=pClassifyRTPLowDelayQueuePreference, pClassifyUDP=pClassifyUDP, pClassifyRTPState=pClassifyRTPState, pClassifyRTPTagVID=pClassifyRTPTagVID, pClassifyRTPEntry=pClassifyRTPEntry, pClassifyUDPPortNumber=pClassifyUDPPortNumber, pClassifyUDPEntry=pClassifyUDPEntry, pClassifyRTPInterfaceNumber=pClassifyRTPInterfaceNumber, pClassifyRTP=pClassifyRTP)
+mibBuilder.exportSymbols("CT-PRIORITY-CLASSIFY-MIB", pClassifyRTPEntry=pClassifyRTPEntry, pClassifyUDPTable=pClassifyUDPTable, pClassifyRTPLowDelayQueuePreference=pClassifyRTPLowDelayQueuePreference, pClassifyUDPLowDelayQueuePreference=pClassifyUDPLowDelayQueuePreference, pClassifyRTPTagPriority=pClassifyRTPTagPriority, pClassifyUDPPortNumber=pClassifyUDPPortNumber, ctPriorityExtClassifyConfig=ctPriorityExtClassifyConfig, pClassifyRTPInterfaceNumber=pClassifyRTPInterfaceNumber, pClassifyRTP=pClassifyRTP, pClassifyUDPState=pClassifyUDPState, pClassifyUDP=pClassifyUDP, pClassifyRTPState=pClassifyRTPState, pClassifyRTPTOSPrecedence=pClassifyRTPTOSPrecedence, pClassifyRTPTagVID=pClassifyRTPTagVID, pClassifyRTCPParsing=pClassifyRTCPParsing, pClassifyUDPEntry=pClassifyUDPEntry, pClassifyRTPTable=pClassifyRTPTable)

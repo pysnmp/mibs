@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
       "MODULE-IDENTITY",
-      "enterprises",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "enterprises",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TimeInterval",
-      "TestAndIncr",
-      "AutonomousType"
+      "AutonomousType",
+      "TimeInterval"
     ]
   },
   "vpwrDcPowerMgt": {
@@ -3634,8 +3634,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltek/VALERE-DC-POWER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:04:29 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 22:06:07 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "VALERE-DC-POWER-MIB"
