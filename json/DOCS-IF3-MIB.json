@@ -8,22 +8,22 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvText",
-      "docsDevEvLevel",
       "docsDevEvLastTime",
-      "docsDevEvId"
+      "docsDevEvId",
+      "docsDevEvLevel",
+      "docsDevEvText"
     ],
     "DOCS-IF-MIB": [
       "DocsisQosVersion",
-      "DocsisUpstreamType",
-      "TenthdB",
       "TenthdBmV",
-      "DocsEqualizerData"
+      "TenthdB",
+      "DocsEqualizerData",
+      "DocsisUpstreamType"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -44,29 +44,29 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "MacAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "RowStatus",
+      "DisplayString",
       "DateAndTime",
-      "RowStatus"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:50:39 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:50:43 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-IF3-MIB"

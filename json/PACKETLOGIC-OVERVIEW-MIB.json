@@ -12,25 +12,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "iso"
+      "Integer32",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "systemOverview": {
@@ -138,8 +138,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-OVERVIEW-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 15:02:12 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 15:04:58 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PACKETLOGIC-OVERVIEW-MIB"

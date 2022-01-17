@@ -10,11 +10,11 @@
       "dot1agCfmMepEntry"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumber",
       "ieee802dot1mibs",
-      "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PbbTeEsp",
       "IEEE8021PbbIngressEgress",
-      "IEEE8021BridgePortNumber"
+      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbTeEsp"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -28,32 +28,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
       "Bits",
+      "Counter64",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "IpAddress",
-      "iso"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ieee8021SpbMib": {
@@ -3152,9 +3152,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:50:20 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-SPB-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:53:41 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

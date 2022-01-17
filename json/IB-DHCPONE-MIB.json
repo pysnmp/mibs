@@ -11,21 +11,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
       "Gauge32",
       "IpAddress",
+      "enterprises",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -343,8 +343,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-DHCPONE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:59:02 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 15:00:44 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IB-DHCPONE-MIB"

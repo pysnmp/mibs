@@ -3,10 +3,10 @@
     "class": "imports",
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs",
-      "IEEE8021PbbComponentIdentifier",
-      "IEEE8021PbbComponentIdentifierOrZero",
       "IEEE8021BridgePortNumber",
-      "IEEE8021BridgePortNumberOrZero"
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021PbbComponentIdentifierOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -15,33 +15,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter32",
-      "Bits",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "RowStatus",
-      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TimeInterval"
     ]
   },
   "ieee8021BridgeEvbMib": {
@@ -1838,9 +1838,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-EVBB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:50:20 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-EVBB-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 15:04:18 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-EVBB-MIB"

@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "Integer32",
       "Counter64",
-      "Unsigned32",
-      "Bits",
-      "enterprises",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE",
       "Counter32",
-      "Integer32",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "enterprises",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -83,8 +83,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBIQUOSS-SMI",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 15:04:07 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 15:07:46 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "UBIQUOSS-SMI"

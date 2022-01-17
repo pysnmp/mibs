@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "HH3C-DOT11-REF-MIB": [
-      "Hh3cDot11AssocFailType",
-      "Hh3cDot11AuthorFailType",
       "Hh3cDot11SecIEStatusType",
-      "Hh3cDot11RadioType",
-      "Hh3cDot11AKMType",
-      "Hh3cDot11AuthenType",
       "Hh3cDot11SSIDEncryptModeType",
-      "Hh3cDot11ChannelScopeType",
-      "Hh3cDot11RadioType2",
+      "Hh3cDot11AuthenType",
+      "Hh3cDot11ObjectIDType",
       "Hh3cDot11SSIDStringType",
-      "hh3cDot11",
+      "Hh3cDot11RadioType2",
+      "Hh3cDot11RadioType",
       "Hh3cDot11CipherType",
+      "Hh3cDot11AssocFailType",
       "Hh3cDot11RadioScopeType",
-      "Hh3cDot11ObjectIDType"
+      "Hh3cDot11AuthorFailType",
+      "Hh3cDot11AKMType",
+      "hh3cDot11",
+      "Hh3cDot11ChannelScopeType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Bits",
       "Counter64",
-      "iso",
+      "Counter32",
+      "Gauge32",
       "MibIdentifier",
       "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "Integer32",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Gauge32"
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "MacAddress",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "hh3cDot11STATION": {
@@ -2162,8 +2162,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-STATION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 14:53:22 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 14:53:40 2022",
+      "On host fv-az127-428 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HH3C-DOT11-STATION-MIB"
