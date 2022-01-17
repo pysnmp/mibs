@@ -3,8 +3,8 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "BridgeId",
-      "dot1dBasePort",
-      "Timeout"
+      "Timeout",
+      "dot1dBasePort"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -13,35 +13,35 @@
       "dot1dTrafficClass"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qVlanIndex",
       "VlanIndex",
-      "PortList"
+      "PortList",
+      "dot1qVlanIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "enterprises",
+      "Unsigned32",
       "iso",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "Bits",
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "enterprises",
       "MibIdentifier",
-      "IpAddress",
-      "Unsigned32"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
       "PhysAddress",
+      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
@@ -13782,8 +13782,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:48:50 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:14:19 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "E5-111-MIB"

@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsBlockResolveAPI",
-      "sfpsSubnetResolveNvram",
-      "sfpsISPResolve",
-      "sfpsSwitchResolve",
-      "sfpsSubnetResolve",
-      "sfpsUnresolveTableStats",
-      "sfpsBlockResolveStats",
-      "sfpsUnresolve",
-      "sfpsMobilityStats",
-      "sfpsUnresolveTableAPI",
-      "sfpsRelayAgentResolve",
       "sfpsSubnetResolveStats",
-      "sfpsRelayAgentResolveStats",
+      "sfpsSwitchResolve",
+      "sfpsSubnetResolveAPI",
+      "sfpsSubnetResolveNvram",
       "sfpsResolveStats",
       "sfpsBlockResolve",
-      "sfpsTableResolveAPI",
+      "sfpsUnresolveTableStats",
+      "sfpsRelayAgentResolve",
+      "sfpsBlockResolveAPI",
+      "sfpsUnresolve",
+      "sfpsUnresolveTableAPI",
+      "sfpsISPResolve",
       "sfpsTableResolve",
-      "sfpsSubnetResolveAPI"
+      "sfpsTableResolveAPI",
+      "sfpsRelayAgentResolveStats",
+      "sfpsSubnetResolve",
+      "sfpsMobilityStats",
+      "sfpsBlockResolveStats"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -27,19 +27,19 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "Counter32",
-      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2749,8 +2749,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-RESOLVE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:53:22 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:56 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CTRON-SFPS-RESOLVE-MIB"

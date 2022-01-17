@@ -16,30 +16,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "IpAddress",
-      "iso",
       "Integer32",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "RowPointer",
-      "TimeStamp",
-      "MacAddress",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "MacAddress",
+      "TimeStamp",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021XPaeMIB": {
@@ -3217,9 +3217,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021X-PAE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:46:13 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021X-PAE-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:10 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021X-PAE-MIB"

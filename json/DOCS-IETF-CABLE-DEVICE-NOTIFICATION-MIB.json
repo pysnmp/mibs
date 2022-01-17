@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevSwServer",
-      "docsDevServerTime",
-      "docsDevServerDhcp",
-      "docsDevEvId",
       "docsDevEvText",
+      "docsDevServerTime",
       "docsDevSwFilename",
-      "docsDevEvLevel"
+      "docsDevEvId",
+      "docsDevEvLevel",
+      "docsDevServerDhcp",
+      "docsDevSwServer"
     ],
     "DOCS-IF-MIB": [
-      "docsIfDocsisBaseCapability",
       "docsIfCmtsCmStatusModulationType",
-      "docsIfCmtsCmStatusDocsisRegMode",
+      "docsIfDocsisBaseCapability",
       "docsIfCmCmtsAddress",
       "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmtsCmStatusDocsisRegMode",
       "docsIfCmStatusDocsisOperMode",
       "docsIfCmStatusModulationType"
     ],
@@ -23,25 +23,25 @@
       "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "iso",
-      "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
       "Gauge32",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "mib-2"
     ],
     "SNMPv2-TC": [
@@ -1485,8 +1485,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:46:35 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:12:32 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB"

@@ -22,26 +22,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
       "IpAddress",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
       "TimeTicks",
-      "MibIdentifier"
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlSNMP": {
@@ -1058,8 +1058,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:58:28 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:21:56 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-SNMP-MIB"

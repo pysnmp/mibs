@@ -12,26 +12,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
       "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
       "Integer32",
-      "Bits"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "RowStatus"
     ],
     "SWITCH-TC": [
       "EnableVar"
@@ -5496,8 +5496,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/ROSMGMT-OSPFv2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 18:01:35 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:24:27 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ROSMGMT-OSPFV2-MIB"

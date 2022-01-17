@@ -10,27 +10,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "IpAddress",
-      "iso",
       "Integer32",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "member_body": {
@@ -3823,9 +3823,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802dot11-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:46:13 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE802dot11-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:10 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE802dot11-MIB"

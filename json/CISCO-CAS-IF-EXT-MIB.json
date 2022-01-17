@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "CISCO-CAS-IF-MIB": [
-      "ccasGrpCfgEntry",
-      "ccasVoiceCfgEntry"
+      "ccasVoiceCfgEntry",
+      "ccasGrpCfgEntry"
     ],
     "CISCO-MEDIA-GATEWAY-MIB": [
       "cmgwIndex",
-      "CVoiceTonePlanIndexOrZero",
-      "CCallControlProfileIndexOrZero"
+      "CCallControlProfileIndexOrZero",
+      "CVoiceTonePlanIndexOrZero"
     ],
     "CISCO-MEGACO-EXT-MIB": [
       "CH248Packages"
@@ -24,8 +24,8 @@
       "CiscoCodecPacketPeriod"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
-      "CvcCoderTypeRate",
-      "CvcFaxTransmitRate"
+      "CvcFaxTransmitRate",
+      "CvcCoderTypeRate"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -34,31 +34,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "Integer32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
       "IpAddress",
-      "MibIdentifier"
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "ciscoCasIfExtMIB": {
@@ -4852,8 +4852,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CAS-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:52:23 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:09 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-CAS-IF-EXT-MIB"

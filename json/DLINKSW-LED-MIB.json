@@ -5,29 +5,29 @@
       "dlinkIndustrialCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "Counter32",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "Counter32",
       "IpAddress",
-      "Integer32"
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwLedMIB": {
@@ -160,8 +160,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-LED-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:52:13 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:17:02 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-LED-MIB"

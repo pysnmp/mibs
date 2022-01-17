@@ -8,30 +8,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
       "iso",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Unsigned32",
       "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
       "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "hh3cFlowTemplate": {
@@ -418,8 +418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FLOWTEMPLATE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 17:49:59 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 18:15:15 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HH3C-FLOWTEMPLATE-MIB"
