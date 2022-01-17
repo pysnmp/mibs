@@ -3,16 +3,16 @@
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
       "HCPerfCurrentCount",
-      "HCPerfIntervalCount",
-      "HCPerfTotalCount"
+      "HCPerfTotalCount",
+      "HCPerfIntervalCount"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,28 +23,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "Counter32",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp",
+      "MacAddress",
       "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8789,9 +8789,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:17:34 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE-802DOT17-RPR-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:43:12 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

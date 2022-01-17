@@ -8,13 +8,13 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2RemIndex",
-      "lldpV2RemLocalDestMACAddress",
-      "lldpV2LocPortIfIndex",
-      "lldpV2RemTimeMark",
       "lldpV2PortConfigEntry",
+      "lldpV2LocPortIfIndex",
+      "lldpV2RemLocalDestMACAddress",
+      "lldpV2RemTimeMark",
+      "lldpV2Extensions",
       "lldpV2RemLocalIfIndex",
-      "lldpV2Extensions"
+      "lldpV2RemIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -23,30 +23,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "iso",
+      "Gauge32",
       "Counter32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lldpV2Xdot1MIB": {
@@ -4340,9 +4340,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:17:35 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-EXT-DOT1-V2-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:51:14 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LLDP-EXT-DOT1-V2-MIB"

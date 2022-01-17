@@ -5,43 +5,43 @@
       "sleMgmt"
     ],
     "MPLS-TC-EXT-STD-MIB": [
-      "MplsIccId",
-      "MplsCcId"
+      "MplsCcId",
+      "MplsIccId"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId",
       "mplsTunnelIndex",
-      "mplsTunnelIngressLSRId",
-      "mplsTunnelEgressLSRId"
+      "mplsTunnelInstance",
+      "mplsTunnelIngressLSRId"
     ],
     "SLE-TC-MIB": [
       "SleControlStatusType",
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "zeroDotZero",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
+      "zeroDotZero",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "sleMplsTpNode": {
@@ -293,8 +293,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-NODE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:21:43 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:44:07 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SLE-MPLS-TP-NODE-MIB"

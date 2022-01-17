@@ -3,52 +3,52 @@
     "class": "imports",
     "HP-SN-AGENT-MIB": [
       "snChasPwrSupplyIndex",
-      "snChasFanIndex",
-      "snChasFanDescription",
       "snAgentBrdIndex",
       "snChasPwrSupplyDescription",
+      "snAgGblTrapMessage",
+      "snChasFanDescription",
       "snChasPwrSupplyStatus",
-      "snAgGblTrapMessage"
+      "snChasFanIndex"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4TrapRealServerPort",
-      "snL4MaxSessionLimit",
       "snL4TrapRealServerCurConnections",
       "snL4TrapRealServerIP",
+      "snL4TcpSynLimit",
       "snL4TrapRealServerName",
-      "snL4TcpSynLimit"
+      "snL4MaxSessionLimit"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
       "snSwViolatorMacAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TRAP-TYPE",
       "Unsigned32",
-      "Counter64",
+      "iso",
+      "IpAddress",
+      "Counter32",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "IpAddress"
+      "TRAP-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTrapChasPwrSupply": {
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:26:09 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:48:12 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

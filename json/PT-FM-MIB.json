@@ -10,25 +10,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
       "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
+      "iso",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
       "MibIdentifier",
-      "TimeTicks"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "ptFM": {
@@ -1489,8 +1489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-FM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:23:36 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:45:59 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PT-FM-MIB"

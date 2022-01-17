@@ -12,32 +12,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Integer32",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "mib-2",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "mib-2"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
       "RowStatus",
-      "StorageType",
       "TruthValue",
+      "StorageType",
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
@@ -1497,9 +1497,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DISMAN-PING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:20:47 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DISMAN-PING-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:40:22 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DISMAN-PING-MIB"

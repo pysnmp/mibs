@@ -5,23 +5,23 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
+      "dot1agCfmMaIndex",
       "dot1agCfmMepEntry",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PbbServiceIdentifier",
       "IEEE8021PbbIngressEgress",
-      "IEEE8021BridgePortNumber",
       "IEEE8021PbbTeEsp",
+      "IEEE8021BridgePortNumber",
       "ieee802dot1mibs"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
       "VlanIdOrAny",
+      "VlanIdOrNone",
       "VlanId"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -33,26 +33,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
+      "MacAddress",
       "TruthValue"
     ]
   },
@@ -3152,9 +3152,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:17:35 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-SPB-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:43:12 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

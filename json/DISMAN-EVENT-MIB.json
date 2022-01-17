@@ -8,36 +8,36 @@
       "SnmpTagValue"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
       "zeroDotZero",
       "iso",
-      "mib-2",
-      "Counter64"
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dismanEventMIB": {
@@ -556,6 +556,11 @@
     ],
     "status": "current"
   },
+  "sysUpTimeInstance": {
+    "name": "sysUpTimeInstance",
+    "oid": "1.3.6.1.2.1.1.3.0",
+    "class": "objectidentity"
+  },
   "mteTriggerDeltaDiscontinuityID": {
     "name": "mteTriggerDeltaDiscontinuityID",
     "oid": "1.3.6.1.2.1.88.1.2.3.1.1",
@@ -564,6 +569,12 @@
     "syntax": {
       "type": "OBJECT IDENTIFIER",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(1, 3, 6, 1, 2, 1, 1, 3, 0)",
+        "format": "oid"
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2458,9 +2469,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DISMAN-EVENT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:27:31 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/EVENT-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:40:23 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DISMAN-EVENT-MIB"

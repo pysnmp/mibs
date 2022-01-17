@@ -18,29 +18,29 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "mib-2",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "TimeTicks",
       "IpAddress",
       "OBJECT-TYPE",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "mib-2"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "MacAddress",
-      "StorageType",
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
+      "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "docsIetfBpi2MIB": {
@@ -3486,9 +3486,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DOCS-IETF-BPI2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:22:51 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-BPI2-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:40:23 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-IETF-BPI2-MIB"

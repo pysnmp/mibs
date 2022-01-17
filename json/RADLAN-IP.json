@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "IP-FORWARD-MIB": [
-      "ipCidrRouteNextHop",
-      "ipCidrRouteDest",
+      "ipCidrRouteTos",
       "ipCidrRouteMask",
       "ipCidrRouteEntry",
-      "ipCidrRouteTos"
+      "ipCidrRouteNextHop",
+      "ipCidrRouteDest"
     ],
     "IP-MIB": [
       "ipAddrEntry"
@@ -22,26 +22,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
+      "Integer32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Integer32"
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1139,8 +1139,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-IP",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 19:29:54 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 17 19:52:08 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RADLAN-IP"
