@@ -11,52 +11,52 @@
       "ruckusCTRLWLANModule"
     ],
     "RUCKUS-TC-MIB": [
+      "RuckusWLANEncryptionType",
+      "RuckusUUIDType",
+      "RuckusRadioMode",
+      "RuckusSSID",
+      "RuckusCountryCode",
+      "RuckusChannelWidthType",
+      "RuckusdB",
+      "RuckusAuthStatusType",
+      "RuckusWPACipherType",
       "RuckusMeshRoles",
+      "RuckusAdminStatus",
       "RuckusAuthenticationType",
       "RuckusWLANAuthMethodType",
-      "RuckusChannelWidthType",
-      "RuckusAuthStatusType",
       "RuckusSystemNodeStatus",
-      "RuckusCountryCode",
-      "RuckusUUID",
-      "RuckusAdminStatus",
-      "RuckusSSID",
-      "RuckusRadioMode",
-      "RuckusWPACipherType",
-      "RuckusWLANEncryptionType",
       "RuckusSystemClusterStatus",
-      "RuckusUUIDType",
-      "RuckusdB"
+      "RuckusUUID"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Bits",
       "TimeTicks",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Integer32",
       "Counter64",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "PhysAddress",
+      "TruthValue",
       "DateAndTime",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ruckusCTRLWLANMIB": {
@@ -3692,8 +3692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-CTRL-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:14:54 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:54:48 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RUCKUS-CTRL-MIB"

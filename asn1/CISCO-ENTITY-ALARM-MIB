@@ -13,7 +13,8 @@ IMPORTS
     Gauge32,
     MODULE-IDENTITY,
     NOTIFICATION-TYPE,
-    OBJECT-TYPE                         FROM SNMPv2-SMI
+    OBJECT-TYPE,
+    Unsigned32                         FROM SNMPv2-SMI
     TEXTUAL-CONVENTION,
     AutonomousType,
     DisplayString,
@@ -27,7 +28,6 @@ IMPORTS
     entPhysicalIndex,
     PhysicalIndex                       FROM ENTITY-MIB
     ciscoMgmt                           FROM CISCO-SMI
-    Unsigned32                          FROM CISCO-TC
     ;
 
 ciscoEntityAlarmMIB MODULE-IDENTITY

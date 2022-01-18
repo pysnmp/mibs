@@ -5,12 +5,12 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanEthertype",
-      "VlanId",
-      "SecondaryState",
-      "OperationalState",
       "AdminState",
-      "VlanPriority"
+      "VlanId",
+      "OperationalState",
+      "VlanEthertype",
+      "VlanPriority",
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -23,34 +23,34 @@
       "Dot1agCfmMDLevel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
       "iso",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
       "RowStatus",
-      "TruthValue",
-      "MacAddress",
-      "StorageType",
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "StorageType",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "f3ErpMIB": {
@@ -1605,8 +1605,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-ERP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:00:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:43:06 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-ERP-MIB"

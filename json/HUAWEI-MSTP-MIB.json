@@ -9,8 +9,8 @@
     ],
     "IF-MIB": [
       "InterfaceIndex",
-      "ifIndex",
-      "ifName"
+      "ifName",
+      "ifIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -21,25 +21,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Bits",
-      "IpAddress",
-      "Counter64",
+      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
       "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
+      "IpAddress",
       "OBJECT-TYPE",
       "Integer32",
-      "iso",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "hwMstp": {
@@ -5079,8 +5079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MSTP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:08:08 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:49:50 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-MSTP-MIB"
