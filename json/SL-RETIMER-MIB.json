@@ -8,30 +8,30 @@
       "slService"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "OBJECT-TYPE",
       "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "Counter32",
+      "Integer32",
       "Unsigned32",
       "Counter64",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Integer32",
+      "Bits",
+      "Gauge32",
       "iso",
-      "Gauge32"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "TruthValue"
     ]
   },
@@ -181,7 +181,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-RETIMER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:53:18 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:14:34 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

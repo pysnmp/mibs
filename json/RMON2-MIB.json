@@ -5,53 +5,53 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "matrix",
-      "history",
-      "matrixControlEntry",
-      "filter",
-      "hostControlEntry",
-      "OwnerString",
       "channelEntry",
+      "OwnerString",
+      "matrix",
+      "hostControlEntry",
+      "history",
       "historyControlEntry",
       "filterEntry",
-      "statistics",
+      "etherStatsEntry",
       "hosts",
-      "etherStatsEntry"
+      "filter",
+      "matrixControlEntry",
+      "statistics"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "Integer32",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "mib-2",
       "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "iso",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Integer32",
-      "Bits"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "mib-2",
+      "Bits",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "tokenRing",
       "sourceRoutingStatsEntry",
+      "ringStationControlEntry",
       "tokenRingPStatsEntry",
-      "tokenRingMLStatsEntry",
-      "ringStationControlEntry"
+      "tokenRing",
+      "tokenRingMLStatsEntry"
     ]
   },
   "rmon": {
@@ -5004,7 +5004,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:43:07 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:05:18 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

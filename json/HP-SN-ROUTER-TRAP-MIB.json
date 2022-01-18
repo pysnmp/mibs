@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "HP-SN-OSPF-GROUP-MIB": [
-      "snOspfNbrState",
-      "snOspfNbrIpAddr",
-      "snOspfPacketSrc",
-      "snOspfPacketType",
-      "snOspfLsdbType",
-      "snOspfIfStatusIpAddress",
-      "snOspfVirtNbrArea",
-      "snOspfVirtIfStatusNeighbor",
-      "snOspfVirtNbrState",
-      "snOspfLsdbAreaId",
-      "snOspfConfigErrorType",
-      "snOspfVirtNbrRtrId",
-      "snOspfLsdbLsId",
-      "snOspfIfStatusState",
+      "snOspfLsdbRouterId",
       "snOspfRouterId",
+      "snOspfNbrState",
       "snOspfVirtIfStatusState",
-      "snOspfVirtIfStatusAreaID",
-      "snOspfExtLsdbLimit",
+      "snOspfLsdbType",
+      "snOspfNbrIpAddr",
+      "snOspfLsdbLsId",
+      "snOspfVirtIfStatusNeighbor",
       "snOspfNbrRtrId",
-      "snOspfLsdbRouterId"
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtNbrState",
+      "snOspfExtLsdbLimit",
+      "snOspfLsdbAreaId",
+      "snOspfIfStatusIpAddress",
+      "snOspfConfigErrorType",
+      "snOspfVirtNbrArea",
+      "snOspfIfStatusState",
+      "snOspfVirtNbrRtrId",
+      "snOspfPacketSrc",
+      "snOspfPacketType"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "TRAP-TYPE",
-      "iso"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -451,7 +451,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:50:26 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:11:38 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

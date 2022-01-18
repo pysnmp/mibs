@@ -6,33 +6,33 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
       "Counter32",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "TimeTicks",
       "Counter64"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "aluLicenseManagerMIB": {
@@ -365,7 +365,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LICENSE-MANAGER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:53:25 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:14:37 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

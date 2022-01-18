@@ -8,8 +8,8 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifEntry",
       "ifName",
+      "ifEntry",
       "ifIndex"
     ],
     "ISIS-MIB": [
@@ -21,25 +21,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "experimental",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter32",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "experimental",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwTrill": {
@@ -494,7 +494,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TRILL-CONF-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:49:50 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:11:18 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

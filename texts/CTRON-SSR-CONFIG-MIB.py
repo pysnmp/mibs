@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-SSR-CONFIG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-CONFIG-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 18 14:47:48 2022
+# Produced by pysmi-1.1.8 at Tue Jan 18 15:09:32 2022
 # On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ssrMibs, = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrMibs")
 ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-IpAddress, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType, MibIdentifier, Counter32, iso, Integer32, Bits, ObjectIdentity, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType", "MibIdentifier", "Counter32", "iso", "Integer32", "Bits", "ObjectIdentity", "Counter64", "Gauge32")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+IpAddress, Bits, NotificationType, ObjectIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Unsigned32, iso, Integer32, Gauge32, TimeTicks, ModuleIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "NotificationType", "ObjectIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Unsigned32", "iso", "Integer32", "Gauge32", "TimeTicks", "ModuleIdentity", "Counter64")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 ssrConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230))
 ssrConfigMIB.setRevisions(('2000-07-15 00:00', '2000-02-20 00:00', '1998-08-17 00:00',))
 
@@ -79,4 +79,4 @@ configGroup20 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 230, 3, 2, 2)).setOb
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     configGroup20 = configGroup20.setStatus('current')
 if mibBuilder.loadTexts: configGroup20.setDescription('The collection of objects which are used to represent version 2.0\n             configuration operations in the SmartSwitch Router version.')
-mibBuilder.exportSymbols("CTRON-SSR-CONFIG-MIB", configGroups=configGroups, configCompliance2=configCompliance2, cfgActiveImageBootLocation=cfgActiveImageBootLocation, configGroup20=configGroup20, cfgFileName=cfgFileName, configGroup10=configGroup10, configCompliance=configCompliance, cfgTransferOp=cfgTransferOp, cfgActivateFile=cfgActivateFile, cfgActiveImageVersion=cfgActiveImageVersion, cfgTransferStatus=cfgTransferStatus, configConformance=configConformance, cfgManagerAddress=cfgManagerAddress, cfgGroup=cfgGroup, PYSNMP_MODULE_ID=ssrConfigMIB, cfgLastError=cfgLastError, cfgActivateTransfer=cfgActivateTransfer, configCompliances=configCompliances, cfgLastErrorReason=cfgLastErrorReason, SSRErrorCode=SSRErrorCode, ssrConfigMIB=ssrConfigMIB)
+mibBuilder.exportSymbols("CTRON-SSR-CONFIG-MIB", cfgActiveImageBootLocation=cfgActiveImageBootLocation, cfgFileName=cfgFileName, cfgActiveImageVersion=cfgActiveImageVersion, cfgActivateTransfer=cfgActivateTransfer, configGroups=configGroups, cfgLastErrorReason=cfgLastErrorReason, configGroup10=configGroup10, configCompliances=configCompliances, cfgManagerAddress=cfgManagerAddress, SSRErrorCode=SSRErrorCode, cfgGroup=cfgGroup, configConformance=configConformance, configCompliance2=configCompliance2, cfgActivateFile=cfgActivateFile, ssrConfigMIB=ssrConfigMIB, PYSNMP_MODULE_ID=ssrConfigMIB, configGroup20=configGroup20, cfgLastError=cfgLastError, configCompliance=configCompliance, cfgTransferOp=cfgTransferOp, cfgTransferStatus=cfgTransferStatus)

@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
+      "iso",
+      "Integer32",
+      "Gauge32",
       "enterprises",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "Counter64",
       "OBJECT-TYPE",
-      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "iso",
-      "Integer32"
+      "Counter32",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TruthValue",
-      "DateAndTime"
+      "MacAddress"
     ],
     "UBNT-MIB": [
-      "ubntMIB",
       "ubntUniFi",
+      "ubntMIB",
       "ubntUniFiGroups"
     ]
   },
@@ -1090,7 +1090,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-UniFi-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:55:47 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:16:48 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

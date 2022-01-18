@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpPortDesignatedRoot",
       "dot1dStpMaxAge",
-      "dot1dStpHelloTime",
-      "dot1dStpRootCost",
+      "dot1dStpPortDesignatedCost",
       "dot1dStpForwardDelay",
+      "dot1dStpPortDesignatedRoot",
       "dot1dStpPortDesignatedBridge",
-      "dot1dStpDesignatedRoot",
-      "dot1dStpRootPort",
       "dot1dStpPortState",
-      "dot1dStpPortDesignatedCost"
+      "dot1dStpRootPort",
+      "dot1dStpRootCost",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpHelloTime",
+      "dot1dStpPortDesignatedPort"
     ],
     "IF-MIB": [
-      "ifOutErrors",
       "ifInErrors",
-      "ifOutDiscards"
+      "ifOutDiscards",
+      "ifOutErrors"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -27,27 +27,27 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "TRAP-TYPE",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
       "Unsigned32",
       "iso",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
       "Integer32",
-      "enterprises"
+      "enterprises",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "sigma": {
@@ -4334,7 +4334,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:47:53 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:09:35 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

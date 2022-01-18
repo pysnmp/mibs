@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
       "enterprises",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "asentria": {
@@ -45,7 +45,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/asentria/ASENTRIA-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:43:31 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:05:39 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

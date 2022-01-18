@@ -5,28 +5,28 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "IpAddress",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
       "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "OBJECT-TYPE",
-      "iso"
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "STORMSHIELD-SMI-MIB": [
       "stormshieldMIB",
@@ -413,7 +413,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:55:27 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:16:30 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

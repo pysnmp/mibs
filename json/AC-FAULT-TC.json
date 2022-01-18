@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "IpAddress",
-      "enterprises",
-      "MibIdentifier",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "Counter32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "enterprises",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -157,7 +157,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-FAULT-TC",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:43:38 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:05:44 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

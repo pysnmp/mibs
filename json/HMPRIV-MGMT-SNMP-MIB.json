@@ -18,32 +18,32 @@
       "TimeFilter"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
       "Counter64",
-      "Unsigned32",
+      "IpAddress",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "Bits",
       "Integer32",
-      "IpAddress"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "hmConfiguration": {
@@ -14361,7 +14361,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HMPRIV-MGMT-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:49:03 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:10:38 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVpCrossConnectEntry",
       "atmVcCrossConnectEntry",
-      "atmVclVpi",
+      "atmMIBObjects",
       "atmVclEntry",
+      "atmVpCrossConnectEntry",
       "atmInterfaceConfEntry",
+      "atmVclVpi",
       "atmVclVci",
       "atmVplEntry",
-      "atmVplVpi",
-      "atmMIBObjects"
+      "atmVplVpi"
     ],
     "ATM-TC-MIB": [
+      "AtmInterfaceType",
+      "AtmAddr",
       "AtmSigDescrParamIndex",
       "AtmIlmiNetworkPrefix",
-      "AtmAddr",
-      "AtmInterfaceType",
+      "AtmTrafficDescrParamIndex",
       "AtmVcIdentifier",
-      "AtmVpIdentifier",
-      "AtmTrafficDescrParamIndex"
+      "AtmVpIdentifier"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
       "Integer32",
+      "MODULE-IDENTITY",
       "Bits",
+      "Counter32",
       "IpAddress",
-      "iso",
-      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
       "OBJECT-TYPE",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
   },
@@ -3395,7 +3395,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ATM2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:42:25 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:04:37 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

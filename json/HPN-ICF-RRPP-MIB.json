@@ -5,29 +5,29 @@
       "hpnicfCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
+      "MODULE-IDENTITY",
       "Bits",
       "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "MibIdentifier",
+      "Counter64",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
       "IpAddress",
-      "iso"
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfRrpp": {
@@ -853,7 +853,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RRPP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:50:26 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:11:39 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

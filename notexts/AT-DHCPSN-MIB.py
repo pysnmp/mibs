@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AT-DHCPSN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-DHCPSN-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 18 14:42:59 2022
+# Produced by pysmi-1.1.8 at Tue Jan 18 15:05:06 2022
 # On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Bits, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Unsigned32, Counter32, ObjectIdentity, Integer32, ModuleIdentity, NotificationType, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Unsigned32", "Counter32", "ObjectIdentity", "Integer32", "ModuleIdentity", "NotificationType", "MibIdentifier", "IpAddress")
+Gauge32, NotificationType, ObjectIdentity, Unsigned32, Counter64, ModuleIdentity, iso, Bits, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "ObjectIdentity", "Unsigned32", "Counter64", "ModuleIdentity", "iso", "Bits", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "TimeTicks")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 atDhcpsn = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537))
 atDhcpsn.setRevisions(('2010-09-07 00:00', '2010-06-14 04:45', '2010-02-09 01:30', '2009-12-10 01:30',))
@@ -59,4 +59,4 @@ atArpsecVid = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 4), 
 if mibBuilder.loadTexts: atArpsecVid.setStatus('current')
 atArpsecVioType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("srcIpNotFound", 1), ("badVLAN", 2), ("badPort", 3), ("srcIpNotAllocated", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atArpsecVioType.setStatus('current')
-mibBuilder.exportSymbols("AT-DHCPSN-MIB", atArpsecVid=atArpsecVid, atArpsecClientIP=atArpsecClientIP, atDhcpsnVioType=atDhcpsnVioType, PYSNMP_MODULE_ID=atDhcpsn, atDhcpsnVid=atDhcpsnVid, atDhcpsnEvents=atDhcpsnEvents, atDhcpsnGiaddr=atDhcpsnGiaddr, atArpsecVariablesTable=atArpsecVariablesTable, atDhcpsn=atDhcpsn, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atDhcpsnIfIndex=atDhcpsnIfIndex, atDhcpsnSmac=atDhcpsnSmac, atArpsecTrap=atArpsecTrap, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnSiaddr=atDhcpsnSiaddr, atDhcpsnYiaddr=atDhcpsnYiaddr, atDhcpsnTrap=atDhcpsnTrap, atArpsecSrcMac=atArpsecSrcMac, atDhcpsnChaddr=atDhcpsnChaddr, atDhcpsnOpcode=atDhcpsnOpcode, atArpsecVariablesEntry=atArpsecVariablesEntry, atArpsecVioType=atArpsecVioType, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry)
+mibBuilder.exportSymbols("AT-DHCPSN-MIB", atArpsecVioType=atArpsecVioType, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsnYiaddr=atDhcpsnYiaddr, atArpsecVid=atArpsecVid, atDhcpsn=atDhcpsn, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnEvents=atDhcpsnEvents, atDhcpsnIfIndex=atDhcpsnIfIndex, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atDhcpsnVid=atDhcpsnVid, atDhcpsnSmac=atDhcpsnSmac, atArpsecVariablesTable=atArpsecVariablesTable, atArpsecTrap=atArpsecTrap, atDhcpsnOpcode=atDhcpsnOpcode, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atArpsecClientIP=atArpsecClientIP, atDhcpsnSiaddr=atDhcpsnSiaddr, PYSNMP_MODULE_ID=atDhcpsn, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnTrap=atDhcpsnTrap, atArpsecVariablesEntry=atArpsecVariablesEntry, atDhcpsnVioType=atDhcpsnVioType, atArpsecSrcMac=atArpsecSrcMac, atDhcpsnChaddr=atDhcpsnChaddr)

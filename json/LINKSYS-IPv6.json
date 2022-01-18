@@ -9,19 +9,19 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddressType",
       "InetAddress",
-      "InetAutonomousSystemNumber"
+      "InetAddressType",
+      "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipv6RouterAdvertEntry",
       "ipAddressEntry",
+      "ipv6InterfaceEntry",
       "ipNetToPhysicalEntry",
-      "ipv6InterfaceEntry"
+      "ipv6RouterAdvertEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -30,32 +30,32 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "zeroDotZero",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -2151,7 +2151,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:51:56 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:13:15 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

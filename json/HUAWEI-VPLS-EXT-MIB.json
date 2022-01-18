@@ -3,16 +3,16 @@
     "class": "imports",
     "HUAWEI-L2VPN-MIB": [
       "hwVplsVcNumberMaxNum",
-      "hwL2VpnVcLimitClass",
       "hwVplsVcNumberUpperThreshold",
-      "hwL2VpnVsiVcNumber"
+      "hwL2VpnVsiVcNumber",
+      "hwL2VpnVcLimitClass"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifName"
     ],
     "P-BRIDGE-MIB": [
@@ -27,27 +27,27 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "MODULE-IDENTITY",
-      "Counter64",
+      "Unsigned32",
+      "iso",
       "Integer32",
-      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32"
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DateAndTime",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -4958,7 +4958,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VPLS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:49:50 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:11:18 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

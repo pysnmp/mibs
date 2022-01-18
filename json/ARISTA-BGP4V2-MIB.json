@@ -3,49 +3,49 @@
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
       "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
-      "AristaBgp4V2IdentifierTC",
-      "AristaBgp4V2AddressFamilyIdentifierTC"
+      "AristaBgp4V2AddressFamilyIdentifierTC",
+      "AristaBgp4V2IdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetAddress",
       "InetPortNumber",
+      "InetAutonomousSystemNumber",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
+      "Bits",
       "MibIdentifier",
-      "Integer32"
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "RowPointer",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "aristaBgp4V2": {
@@ -1865,7 +1865,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:43:15 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 15:05:23 2022",
       "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
