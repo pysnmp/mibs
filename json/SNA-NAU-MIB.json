@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "mib-2",
-      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "mib-2",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TimeStamp",
-      "InstancePointer"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "InstancePointer",
+      "RowStatus"
     ]
   },
   "snanauMIB": {
@@ -2578,8 +2578,8 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNA-NAU-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:19 2022",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNA-NAU-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:43 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

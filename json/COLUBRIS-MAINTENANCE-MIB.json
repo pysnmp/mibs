@@ -5,37 +5,37 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-SYSTEM-MIB": [
-      "systemConfigurationVersion",
-      "systemFirmwareRevision"
+      "systemFirmwareRevision",
+      "systemConfigurationVersion"
     ],
     "COLUBRIS-TC": [
       "ColubrisNotificationEnable"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
       "IpAddress",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "Unsigned32",
       "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Gauge32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "colubrisMaintenanceMIB": {
@@ -647,7 +647,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-MAINTENANCE-MIB.my",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:44:03 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:06:50 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

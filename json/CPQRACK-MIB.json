@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "cpqHoVersion",
+      "compaq",
       "cpqHoTrapFlags",
-      "cpqHoOsType",
-      "compaq"
+      "cpqHoVersion",
+      "cpqHoOsType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
       "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Counter64",
+      "iso",
       "Gauge32",
       "TRAP-TYPE",
-      "Counter64",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cpqRackInfo": {
@@ -9875,7 +9875,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQRACK-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:45:20 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:07:54 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

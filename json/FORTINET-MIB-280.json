@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Counter32",
-      "enterprises",
-      "MibIdentifier",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Gauge32",
       "Unsigned32",
-      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
       "TimeTicks",
-      "iso",
-      "Bits"
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "FnBoolState": {
@@ -1164,7 +1164,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-MIB-280",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:43:13 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:06:00 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

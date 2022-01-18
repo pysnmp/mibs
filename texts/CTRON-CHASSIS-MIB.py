@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-CHASSIS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-CHASSIS-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 18 13:42:41 2022
+# Produced by pysmi-1.1.8 at Tue Jan 18 14:05:23 2022
 # On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ctronChassis, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctronChassis")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, TimeTicks, Integer32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, Counter32, NotificationType, Gauge32, Counter64, Bits, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "Integer32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "Counter32", "NotificationType", "Gauge32", "Counter64", "Bits", "iso", "Unsigned32")
+iso, TimeTicks, MibIdentifier, Counter32, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, Unsigned32, NotificationType, ObjectIdentity, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "MibIdentifier", "Counter32", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "Unsigned32", "NotificationType", "ObjectIdentity", "ModuleIdentity", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctChas = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 1, 1))
 ctEnviron = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 1, 2))
@@ -54,4 +54,4 @@ if mibBuilder.loadTexts: ctChasFanModuleNum.setDescription('Denotes the Fan modu
 ctChasFanModuleState = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("infoNotAvailable", 1), ("notInstalled", 2), ("installedAndOperating", 3), ("installedAndNotOperating", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctChasFanModuleState.setStatus('mandatory')
 if mibBuilder.loadTexts: ctChasFanModuleState.setDescription('Denotes the fan modules state.')
-mibBuilder.exportSymbols("CTRON-CHASSIS-MIB", ctChasFanModuleEntry=ctChasFanModuleEntry, ctChas=ctChas, ctChasPowerEntry=ctChasPowerEntry, ctChasPowerSupplyType=ctChasPowerSupplyType, ctChasFanModuleTable=ctChasFanModuleTable, chassisAlarmState=chassisAlarmState, ctEnviron=ctEnviron, ctChasFNB=ctChasFNB, ctChasPowerSupplyRedundancy=ctChasPowerSupplyRedundancy, ctChasPowerSupplyState=ctChasPowerSupplyState, ctChasFanModuleState=ctChasFanModuleState, ctChasPowerTable=ctChasPowerTable, ctChasPowerSupplyNum=ctChasPowerSupplyNum, ctChasAlarmEna=ctChasAlarmEna, ctFanModule=ctFanModule, ctChasFanModuleNum=ctChasFanModuleNum)
+mibBuilder.exportSymbols("CTRON-CHASSIS-MIB", ctChasFanModuleState=ctChasFanModuleState, ctChas=ctChas, ctFanModule=ctFanModule, ctChasFanModuleNum=ctChasFanModuleNum, ctChasPowerSupplyNum=ctChasPowerSupplyNum, ctChasFNB=ctChasFNB, ctChasFanModuleTable=ctChasFanModuleTable, ctChasAlarmEna=ctChasAlarmEna, chassisAlarmState=chassisAlarmState, ctChasPowerSupplyType=ctChasPowerSupplyType, ctChasPowerSupplyState=ctChasPowerSupplyState, ctChasFanModuleEntry=ctChasFanModuleEntry, ctChasPowerEntry=ctChasPowerEntry, ctChasPowerSupplyRedundancy=ctChasPowerSupplyRedundancy, ctEnviron=ctEnviron, ctChasPowerTable=ctChasPowerTable)

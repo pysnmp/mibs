@@ -5,42 +5,42 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "NameString",
-      "PtpId",
+      "Decimal2DigSmall",
       "TraceTxOperMode",
       "TraceMismatchFailMode",
-      "XcvrId",
+      "NameString",
       "XcvrType",
-      "EnabledDisabledEnum",
       "Decimal2Dig",
-      "ChannelsNumber",
-      "Decimal2DigSmall",
-      "Decimal1Dig",
-      "EnabledDisabledNaEnum",
-      "StringMaxl15",
       "TraceMismatchMode",
-      "StringMaxl32"
+      "ChannelsNumber",
+      "StringMaxl15",
+      "XcvrId",
+      "StringMaxl32",
+      "Decimal1Dig",
+      "PtpId",
+      "EnabledDisabledNaEnum",
+      "EnabledDisabledEnum"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "IpAddress",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2228,7 +2228,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:39:27 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:01:52 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

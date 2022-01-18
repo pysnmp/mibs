@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
+      "Integer32",
       "enterprises",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Gauge32",
-      "iso"
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "netPartner": {
@@ -19657,7 +19657,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/imco/IMCO-BIG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:45:46 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:08:33 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

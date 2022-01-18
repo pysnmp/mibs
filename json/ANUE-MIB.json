@@ -2,56 +2,56 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "hcnumTC",
       "CounterBasedGauge64",
+      "hcnumTC",
       "ZeroBasedCounter64"
     ],
     "IF-MIB": [
-      "ifEntry",
-      "ifTable",
       "InterfaceIndex",
+      "ifTable",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
       "MODULE-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "Bits",
-      "MibIdentifier"
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TruthValue",
       "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "TimeStamp"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,7 +13010,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:45:55 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:08:44 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

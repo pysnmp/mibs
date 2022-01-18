@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "iso",
+      "Integer32",
       "Counter64",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "Bits",
+      "iso",
       "Counter32",
-      "MibIdentifier"
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "inbMonarchSystem": {
@@ -517,7 +517,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTINB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:42:46 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:28 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

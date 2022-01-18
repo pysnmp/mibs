@@ -6,32 +6,32 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "transmission",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "mib-2",
-      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "transmission",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "mib-2",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "etherMIB": {
@@ -1235,8 +1235,8 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/EtherLike-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:18 2022",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/EtherLike-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:43 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

@@ -6,43 +6,43 @@
     ],
     "APPN-MIB": [
       "appnPortOperState",
+      "appnIsInS2PNonFmdPius",
+      "appnMIB",
+      "appnLocalTgOperational",
       "appnLsOperState",
+      "appnCompliances",
       "appnObjects",
       "appnIsInS2PNonFmdBytes",
-      "appnIsInP2SNonFmdPius",
-      "appnCompliances",
-      "appnLocalTgOperational",
-      "appnIsInSessUpTime",
       "appnGroups",
-      "appnMIB",
-      "appnIsInP2SFmdPius",
       "appnIsInP2SNonFmdBytes",
       "appnLocalTgCpCpSession",
-      "appnIsInS2PNonFmdPius",
-      "appnIsInS2PFmdBytes",
       "appnIsInS2PFmdPius",
+      "appnIsInS2PFmdBytes",
+      "appnIsInP2SNonFmdPius",
+      "appnIsInSessUpTime",
+      "appnIsInP2SFmdPius",
       "appnIsInP2SFmdBytes"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
       "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -369,7 +369,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPN-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:18 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:30 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

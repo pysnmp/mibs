@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -11,26 +11,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysName",
       "sysLocation",
-      "sysContact",
-      "sysName"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "enterprises",
-      "Gauge32",
+      "Counter64",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Bits",
       "OBJECT-TYPE",
       "iso",
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -8197,7 +8197,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enlogic/ENLOGIC-PDU-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:42:34 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:17 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

@@ -2,43 +2,43 @@
   "imports": {
     "class": "imports",
     "Brocade-REG-MIB": [
-      "fcSwitch",
-      "bcsiModules"
+      "bcsiModules",
+      "fcSwitch"
     ],
     "Brocade-TC": [
-      "SwPortIndex",
+      "SwSensorIndex",
       "FcWwn",
+      "SwPortIndex",
       "SwTrunkMaster",
       "SwNbIndex",
-      "SwDomainIndex",
-      "SwSensorIndex"
+      "SwDomainIndex"
     ],
     "FCMGMT-MIB": [
       "connUnitPortStatEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
       "TimeTicks",
-      "Gauge32",
       "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "swMibModule": {
@@ -5513,7 +5513,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/SW-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:43:04 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:50 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

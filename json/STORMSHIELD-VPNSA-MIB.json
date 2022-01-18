@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "Integer32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "iso",
+      "Gauge32",
       "MibIdentifier",
-      "Gauge32"
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -295,7 +295,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-VPNSA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:50:21 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:13:34 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

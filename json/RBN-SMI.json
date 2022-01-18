@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "enterprises",
+      "iso",
       "Gauge32",
-      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE"
+      "Counter32",
+      "IpAddress",
+      "enterprises",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rbnSMI": {
@@ -95,7 +95,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/RBN-SMI",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:42:44 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:30 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

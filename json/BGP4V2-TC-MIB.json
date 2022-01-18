@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "iso",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "MibIdentifier",
-      "Bits",
-      "mib-2",
+      "Gauge32",
       "IpAddress",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bgp4V2TC": {
@@ -89,8 +89,8 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/BGP4V2-TC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:20 2022",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/BGP4V2-TC-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:50 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

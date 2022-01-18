@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "mibRelease",
       "eventTimeStamp",
       "eventPriority",
+      "mibRelease",
       "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "SelectManualAuto",
-      "OkNotOk",
-      "dvbT",
-      "FaultOK",
+      "PresentNotPresent",
       "MuteOk",
       "WarningOK",
-      "PresentNotPresent",
-      "SFNMFN",
       "Input1Input2",
+      "SelectManualAuto",
       "SelectOnOff",
-      "LocalRemote"
+      "FaultOK",
+      "SFNMFN",
+      "OkNotOk",
+      "LocalRemote",
+      "dvbT"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysName",
       "sysDescr",
-      "sysLocation",
-      "sysName"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
       "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "dvbSingleTransmitter": {
@@ -1590,7 +1590,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:49:41 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:12:49 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

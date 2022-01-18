@@ -6,27 +6,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Bits",
-      "enterprises",
       "TimeTicks",
-      "Counter64"
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TAddress"
     ]
   },
   "audioCodes": {
@@ -11421,7 +11421,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AcBoard",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:38:31 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:00:52 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

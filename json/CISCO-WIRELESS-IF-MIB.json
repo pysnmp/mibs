@@ -5,19 +5,19 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrCwErroredSecond",
-      "CwrCwDegradedMinute",
       "CwrCollectionAction",
-      "WirelessGauge64",
-      "CwrCwDegradedSecond",
-      "CwrRFZeroIndex",
-      "CwrCwErrorFreeSecond",
+      "CwrCwErroredSecond",
       "CwrCwConsecutiveSevErrSecond",
-      "CwrRadioSignalAttribute",
       "CwrCwSeverelyErroredSecond",
-      "CwrCollectionStatus",
+      "CwrCwDegradedSecond",
+      "CwrThreshLimitType",
+      "WirelessGauge64",
+      "CwrCwDegradedMinute",
+      "CwrRadioSignalAttribute",
+      "CwrCwErrorFreeSecond",
       "CwrOscState",
-      "CwrThreshLimitType"
+      "CwrCollectionStatus",
+      "CwrRFZeroIndex"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -26,32 +26,32 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "TimeInterval",
-      "RowStatus",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "ciscoWirelessIfMIB": {
@@ -5487,7 +5487,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-IF-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:41:56 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:37 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

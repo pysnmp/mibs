@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "CISCO-MPLS-TC-EXT-STD-MIB": [
-      "CMplsIccId",
-      "CMplsGlobalId",
       "CMplsLocalId",
-      "CMplsNodeId"
+      "CMplsIccId",
+      "CMplsNodeId",
+      "CMplsGlobalId"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
     ],
     "MPLS-TC-STD-MIB": [
+      "mplsStdMIB",
       "MplsTunnelInstanceIndex",
-      "MplsTunnelIndex",
-      "mplsStdMIB"
+      "MplsTunnelIndex"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelIngressLSRId",
-      "mplsTunnelInstance",
       "mplsTunnelIndex",
-      "mplsTunnelEgressLSRId"
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelInstance"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "zeroDotZero",
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "DisplayString",
+      "TruthValue",
       "StorageType",
-      "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "RowPointer",
+      "RowStatus"
     ]
   },
   "cmplsTeExtStdMIB": {
@@ -657,7 +657,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:42:01 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:43 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

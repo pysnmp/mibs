@@ -13,24 +13,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter64",
       "MibIdentifier",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter32",
-      "iso",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Bits",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "benuRadiusMIB": {
@@ -2552,7 +2552,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-RADIUS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:38:42 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:01:04 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

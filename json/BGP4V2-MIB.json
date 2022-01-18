@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2AddressFamilyIdentifierTC",
       "Bgp4V2IdentifierTC",
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
+      "Bgp4V2AddressFamilyIdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetPortNumber",
+      "InetAddressType",
       "InetAddress",
-      "InetAutonomousSystemNumber"
+      "InetAutonomousSystemNumber",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
       "TimeTicks",
-      "Gauge32",
       "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
       "Unsigned32",
-      "Bits"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "RowPointer"
     ]
   },
   "bgp4V2": {
@@ -980,7 +980,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:43:03 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:50 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

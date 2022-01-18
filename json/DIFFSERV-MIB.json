@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-DSCP-TC": [
-      "Dscp",
-      "DscpOrAny"
+      "DscpOrAny",
+      "Dscp"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber",
+      "InetAddressPrefixLength"
     ],
     "INTEGRATED-SERVICES-MIB": [
       "BurstSize"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "zeroDotZero",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "mib-2",
-      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "zeroDotZero",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "mib-2",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "RowPointer",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "StorageType",
+      "AutonomousType",
       "RowStatus",
-      "AutonomousType"
+      "StorageType"
     ]
   },
   "diffServMib": {
@@ -2955,8 +2955,8 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:19 2022",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DIFFSERV-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:00:51 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

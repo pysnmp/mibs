@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcNameIdOrZero",
-      "fcmInstanceIndex",
       "FcAddressIdOrZero",
+      "fcmInstanceIndex",
+      "FcNameIdOrZero",
       "fcmSwitchIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "mib-2",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
       "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "mib-2",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ],
     "T11-FC-NAME-SERVER-MIB": [
       "T11NsGs4RejectReasonCode"
@@ -807,7 +807,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-RSCN-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:19 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:31 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

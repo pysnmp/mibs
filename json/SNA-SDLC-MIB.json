@@ -3,36 +3,36 @@
     "class": "imports",
     "IF-MIB": [
       "ifAdminStatus",
-      "ifIndex",
-      "ifOperStatus"
+      "ifOperStatus",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
-      "Unsigned32",
+      "Counter64",
       "MibIdentifier",
-      "Bits",
-      "mib-2",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "TimeTicks",
+      "mib-2",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snaDLC": {
@@ -2722,8 +2722,8 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNA-SDLC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:19 2022",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNA-SDLC-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:02:29 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

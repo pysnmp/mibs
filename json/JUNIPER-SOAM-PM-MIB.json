@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMaIndex",
+      "Dot1afCfmIndexIntegerNextFree",
       "dot1agCfmMepIdentifier",
       "dot1agCfmMepEntry",
-      "Dot1agCfmMepIdOrZero",
-      "Dot1afCfmIndexIntegerNextFree",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021VlanIndex",
@@ -15,8 +15,8 @@
       "ieee802dot1mibs"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -28,37 +28,37 @@
       "LldpChassisId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Unsigned32",
       "Counter32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Bits",
       "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "TDomain",
       "TimeInterval",
-      "TAddress",
       "DisplayString",
-      "TruthValue",
       "RowStatus",
-      "MacAddress",
-      "TimeStamp"
+      "DateAndTime",
+      "TDomain",
+      "TAddress",
+      "TimeStamp",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "jnxSoamPmMib": {
@@ -4808,7 +4808,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-SOAM-PM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:46:43 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:09:28 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

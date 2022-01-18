@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevSwFilename",
+      "docsDevEvId",
       "docsDevServerDhcp",
+      "docsDevSwFilename",
       "docsDevSwServer",
       "docsDev",
-      "docsDevServerTime",
       "docsDevEvText",
       "docsDevNotification",
-      "docsDevEvId",
-      "docsDevEvLevel"
+      "docsDevEvLevel",
+      "docsDevServerTime"
     ],
     "DOCS-IF-EXT-MIB": [
-      "docsIfCmtsCmStatusDocsisMode",
+      "docsIfDocsisCapability",
       "docsIfDocsisOperMode",
-      "docsIfDocsisCapability"
+      "docsIfCmtsCmStatusDocsisMode"
     ],
     "DOCS-IF-MIB": [
-      "docsIfCmtsCmStatusModulationType",
       "docsIfDocsisBaseCapability",
+      "docsIfCmtsCmStatusDocsisRegMode",
+      "docsIfCmtsCmStatusModulationType",
       "docsIfCmStatusDocsisOperMode",
       "docsIfCmStatusModulationType",
       "docsIfCmCmtsAddress",
-      "docsIfCmtsCmStatusMacAddress",
-      "docsIfCmtsCmStatusDocsisRegMode"
+      "docsIfCmtsCmStatusMacAddress"
     ],
     "IF-MIB": [
       "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
       "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1720,7 +1720,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-CABLE-DEVICE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:20 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:31 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

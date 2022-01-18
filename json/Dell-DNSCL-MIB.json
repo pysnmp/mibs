@@ -5,53 +5,53 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsType",
-      "DnsQClass",
-      "DnsRespCode",
-      "DnsNameAsIndex",
-      "DnsName",
-      "dns",
-      "DnsClass",
       "DnsTime",
+      "DnsRespCode",
+      "DnsName",
+      "DnsQType",
+      "dns",
       "DnsOpCode",
-      "DnsQType"
+      "DnsType",
+      "DnsNameAsIndex",
+      "DnsQClass",
+      "DnsClass"
     ],
     "Dell-MIB": [
       "rnd"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter64",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
       "Bits",
-      "Counter32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "rlDnsCl": {
@@ -1692,7 +1692,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DNSCL-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:41:35 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:09 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

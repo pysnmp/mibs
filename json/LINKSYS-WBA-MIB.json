@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressIPv6"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -17,24 +17,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "iso",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
       "Unsigned32",
-      "Integer32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -467,7 +467,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-WBA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:46:48 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:09:45 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

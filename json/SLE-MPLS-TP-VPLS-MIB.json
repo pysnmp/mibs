@@ -21,8 +21,8 @@
       "VlanIdOrAnyOrNone"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,25 +32,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "IpAddress",
       "transmission",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Counter64",
       "MibIdentifier",
-      "Integer32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "sleMplsTpVpls": {
@@ -1905,7 +1905,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-VPLS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:40:55 2022",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:03:27 2022",
       "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
