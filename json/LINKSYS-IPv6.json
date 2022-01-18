@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
+      "ipAddressEntry",
       "ipNetToPhysicalEntry",
       "ipv6InterfaceEntry",
-      "ipv6RouterAdvertEntry",
-      "ipAddressEntry"
+      "ipv6RouterAdvertEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "zeroDotZero",
+      "mib-2",
       "OBJECT-IDENTITY",
       "iso",
-      "mib-2",
-      "TimeTicks",
-      "Integer32",
+      "IpAddress",
+      "Bits",
       "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32"
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "zeroDotZero",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TruthValue",
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "TimeInterval"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:11:14 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:46:48 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-IPv6"

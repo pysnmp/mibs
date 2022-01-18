@@ -10,12 +10,12 @@
       "TmnxPortID"
     ],
     "IEEE8021-EVBB-MIB": [
-      "ieee8021BridgeEvbVSIIDType",
       "ieee8021BridgeEvbSbpPortNumber",
-      "ieee8021BridgeEvbVSIVlanId",
-      "ieee8021BridgeEvbVSIMvFormat",
       "ieee8021BridgeEvbVSITypeVersion",
-      "ieee8021BridgeEvbVSIID"
+      "ieee8021BridgeEvbVSIIDType",
+      "ieee8021BridgeEvbVSIID",
+      "ieee8021BridgeEvbVSIMvFormat",
+      "ieee8021BridgeEvbVSIVlanId"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortNumber"
@@ -27,29 +27,29 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "Counter32",
       "Counter64",
+      "TimeTicks",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -544,8 +544,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-EVB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:13:01 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:48:18 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-EVB-MIB"

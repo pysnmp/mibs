@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "EQLAPPLIANCE-MIB": [
+      "eqlApplianceNetworkType",
       "eqlApplianceNetworkID",
-      "eqlApplianceIndex",
-      "eqlApplianceNetworkType"
+      "eqlApplianceIndex"
     ],
     "EQLVOLUME-MIB": [
-      "SiteIndexOrZero",
-      "SiteIndex",
+      "eqliscsiVolumeReplSiteIndex",
       "StatusDisabledDefault",
-      "eqliscsiVolumeReplSiteIndex"
+      "SiteIndexOrZero",
+      "SiteIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "MibIdentifier",
       "Counter32",
-      "Integer32",
-      "enterprises",
-      "IpAddress",
       "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "Bits",
       "OBJECT-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DateAndTime",
       "RowStatus",
       "RowPointer",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -8606,8 +8606,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLNAS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:06:29 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:42:40 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EQLNAS-MIB"

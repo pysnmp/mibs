@@ -8,8 +8,8 @@
       "C3gServiceCapability"
     ],
     "ENTITY-MIB": [
-      "entPhysicalName",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalName"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -22,29 +22,29 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
-      "Gauge32",
-      "MibIdentifier",
       "Integer32",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
       "StorageType",
       "TEXTUAL-CONVENTION"
     ]
@@ -1425,8 +1425,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-CELL-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:05:35 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:41:57 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-WAN-CELL-EXT-MIB"

@@ -11,22 +11,22 @@
       "docsQosServiceFlowId"
     ],
     "ENTITY-MIB": [
-      "entPhysicalAssetID",
-      "entityPhysical2Group",
-      "entPhysicalClass",
-      "entityGeneralGroup",
-      "entityLogical2Group",
       "PhysicalIndexOrZero",
-      "entPhysicalSerialNum",
-      "entityPhysical3Group",
+      "entityLogical2Group",
+      "entityPhysical2Group",
       "entityPhysicalGroup",
       "entityMappingGroup",
+      "entPhysicalClass",
+      "entityPhysical3Group",
+      "entPhysicalSerialNum",
+      "entPhysicalAssetID",
+      "entityGeneralGroup",
       "PhysicalIndex",
       "entPhysicalAlias"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
@@ -46,29 +46,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
-      "Bits",
       "OBJECT-TYPE",
-      "Counter32",
       "Integer32",
       "TimeTicks",
-      "Counter64",
-      "iso",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
-      "TruthValue",
-      "StorageType",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus",
       "TimeStamp",
-      "RowStatus"
+      "AutonomousType"
     ]
   },
   "docsIfMCmtsMib": {
@@ -2953,8 +2953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-M-CMTS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:21 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:19 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-IF-M-CMTS-MIB"

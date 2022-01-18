@@ -6,28 +6,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysContact",
       "sysName",
+      "sysContact",
       "sysLocation",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "enterprises",
+      "iso",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Bits",
+      "Integer32",
+      "enterprises",
       "Unsigned32",
-      "Counter64"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4481,8 +4481,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-TC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:14:33 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:49:35 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RITTAL-CMC-TC-MIB"

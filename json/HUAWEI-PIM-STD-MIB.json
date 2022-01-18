@@ -8,44 +8,44 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
-      "InetVersion",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetVersion"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "mib-2",
       "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
       "MibIdentifier",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "mib-2",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType"
+      "DisplayString",
+      "StorageType",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "hwMcast": {
@@ -6149,8 +6149,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PIM-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 22:08:58 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:44:43 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-PIM-STD-MIB"

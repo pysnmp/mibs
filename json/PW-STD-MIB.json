@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
+      "HCPerfIntervalCount",
       "HCPerfTimeElapsed",
       "HCPerfValidIntervals",
-      "HCPerfIntervalCount",
       "HCPerfCurrentCount"
     ],
     "IANA-PWE3-MIB": [
-      "IANAPwTypeTC",
+      "IANAPwCapabilities",
       "IANAPwPsnTypeTC",
-      "IANAPwCapabilities"
+      "IANAPwTypeTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -20,16 +20,16 @@
       "InetAddressType"
     ],
     "PW-TC-STD-MIB": [
-      "PwIDType",
-      "PwFragSize",
       "PwIndexType",
+      "PwStatus",
+      "PwFragStatus",
       "PwIndexOrZeroType",
       "PwGroupID",
-      "PwFragStatus",
-      "PwAttachmentIdentifierType",
       "PwGenIdType",
+      "PwFragSize",
+      "PwAttachmentIdentifierType",
+      "PwIDType",
       "PwCwStatusTC",
-      "PwStatus",
       "PwOperStatusTC"
     ],
     "PerfHist-TC-MIB": [
@@ -45,29 +45,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
-      "Bits",
       "OBJECT-TYPE",
-      "Counter32",
       "Integer32",
       "TimeTicks",
-      "transmission",
-      "Counter64",
-      "iso",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "transmission",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "pwStdMIB": {
@@ -2307,8 +2307,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PW-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 17 21:59:22 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:37:19 2022",
+      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PW-STD-MIB"

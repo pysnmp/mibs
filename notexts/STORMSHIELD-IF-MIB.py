@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module STORMSHIELD-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-IF-MIB
-# Produced by pysmi-1.1.8 at Mon Jan 17 22:15:29 2022
-# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 18 13:50:19 2022
+# On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Counter32, iso, TimeTicks, Counter64, MibIdentifier, Integer32, NotificationType, Gauge32, ObjectIdentity, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "iso", "TimeTicks", "Counter64", "MibIdentifier", "Integer32", "NotificationType", "Gauge32", "ObjectIdentity", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, Gauge32, MibIdentifier, iso, Unsigned32, IpAddress, ModuleIdentity, Counter32, Integer32, Counter64, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "MibIdentifier", "iso", "Unsigned32", "IpAddress", "ModuleIdentity", "Counter32", "Integer32", "Counter64", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsif = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 4))
 snsif.setRevisions(('2017-02-20 00:00',))
@@ -97,4 +97,4 @@ snsifProtected = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 4, 1, 1, 37), Integ
 if mibBuilder.loadTexts: snsifProtected.setStatus('current')
 snsifDrvName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 4, 1, 1, 38), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsifDrvName.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-IF-MIB", snsifIcmpBytes=snsifIcmpBytes, snsifOutMaxThroughput=snsifOutMaxThroughput, snsifPktTcp=snsifPktTcp, snsifInMaxThroughput=snsifInMaxThroughput, snsifOutTcpBytes=snsifOutTcpBytes, PYSNMP_MODULE_ID=snsif, snsifName=snsifName, snsifPktUdp=snsifPktUdp, snsifOutUdpBytes=snsifOutUdpBytes, snsifOutIcmpBytes=snsifOutIcmpBytes, snsifColor=snsifColor, snsifMask=snsifMask, snsifTotalBytes=snsifTotalBytes, snsifUdpConn=snsifUdpConn, snsifOutCurThroughput=snsifOutCurThroughput, snsifCurThroughput=snsifCurThroughput, snsifPktAccepted=snsifPktAccepted, snsifInTotalBytes=snsifInTotalBytes, snsifTcpBytes=snsifTcpBytes, snsifInCurThroughput=snsifInCurThroughput, snsifMaxThroughput=snsifMaxThroughput, snsifAddr=snsifAddr, snsifProtected=snsifProtected, snsifEntry=snsifEntry, snsifUserName=snsifUserName, snsifOutTotalBytes=snsifOutTotalBytes, snsifUdpBytes=snsifUdpBytes, snsifPktFragmented=snsifPktFragmented, snsifTcpConnCount=snsifTcpConnCount, snsifInUdpBytes=snsifInUdpBytes, snsifInIcmpBytes=snsifInIcmpBytes, snsifDrvName=snsifDrvName, snsifTcpConn=snsifTcpConn, snsif=snsif, snsifTable=snsifTable, snsifUdpConnCount=snsifUdpConnCount, snsifPktBlocked=snsifPktBlocked, snsifType=snsifType, snsifInTcpBytes=snsifInTcpBytes, snsifPktIcmp=snsifPktIcmp, snsifMacThroughput=snsifMacThroughput, snsifIndex=snsifIndex)
+mibBuilder.exportSymbols("STORMSHIELD-IF-MIB", snsifUdpConnCount=snsifUdpConnCount, snsifPktIcmp=snsifPktIcmp, snsifOutTotalBytes=snsifOutTotalBytes, snsifAddr=snsifAddr, snsifOutUdpBytes=snsifOutUdpBytes, snsifMask=snsifMask, snsifTcpConnCount=snsifTcpConnCount, snsifInTcpBytes=snsifInTcpBytes, PYSNMP_MODULE_ID=snsif, snsifIcmpBytes=snsifIcmpBytes, snsif=snsif, snsifColor=snsifColor, snsifUserName=snsifUserName, snsifDrvName=snsifDrvName, snsifInCurThroughput=snsifInCurThroughput, snsifOutIcmpBytes=snsifOutIcmpBytes, snsifOutCurThroughput=snsifOutCurThroughput, snsifInTotalBytes=snsifInTotalBytes, snsifUdpBytes=snsifUdpBytes, snsifMaxThroughput=snsifMaxThroughput, snsifType=snsifType, snsifPktAccepted=snsifPktAccepted, snsifOutTcpBytes=snsifOutTcpBytes, snsifInMaxThroughput=snsifInMaxThroughput, snsifProtected=snsifProtected, snsifOutMaxThroughput=snsifOutMaxThroughput, snsifTable=snsifTable, snsifPktFragmented=snsifPktFragmented, snsifPktBlocked=snsifPktBlocked, snsifMacThroughput=snsifMacThroughput, snsifIndex=snsifIndex, snsifInUdpBytes=snsifInUdpBytes, snsifUdpConn=snsifUdpConn, snsifInIcmpBytes=snsifInIcmpBytes, snsifTotalBytes=snsifTotalBytes, snsifTcpBytes=snsifTcpBytes, snsifName=snsifName, snsifPktUdp=snsifPktUdp, snsifPktTcp=snsifPktTcp, snsifEntry=snsifEntry, snsifCurThroughput=snsifCurThroughput, snsifTcpConn=snsifTcpConn)
