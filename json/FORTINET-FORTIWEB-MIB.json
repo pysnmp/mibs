@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fnSysSerial",
-      "fortinet"
+      "fortinet",
+      "fnSysSerial"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
+      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
+      "Bits",
       "Integer32",
-      "MibIdentifier",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fnFortiWebMib": {
@@ -1491,8 +1491,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIWEB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:06:00 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:06:10 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FORTINET-FORTIWEB-MIB"

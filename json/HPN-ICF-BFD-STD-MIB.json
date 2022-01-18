@@ -8,8 +8,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
+      "InetAddress",
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
@@ -17,26 +17,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Bits",
       "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
       "Integer32",
       "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "hpnicfBfdMIB": {
@@ -825,8 +825,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:07:55 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:09:40 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-BFD-STD-MIB"

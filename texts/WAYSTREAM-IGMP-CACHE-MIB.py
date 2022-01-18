@@ -1,8 +1,8 @@
 #
 # PySNMP MIB module WAYSTREAM-IGMP-CACHE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-IGMP-CACHE-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 18 14:14:23 2022
-# On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 18 14:16:29 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
@@ -10,7 +10,7 @@ NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, TimeTicks, Unsigned32, IpAddress, NotificationType, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, iso, Integer32, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "Unsigned32", "IpAddress", "NotificationType", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "iso", "Integer32", "Bits", "ModuleIdentity")
+TimeTicks, IpAddress, Counter64, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, ModuleIdentity, Gauge32, MibIdentifier, iso, ObjectIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "Counter64", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "ModuleIdentity", "Gauge32", "MibIdentifier", "iso", "ObjectIdentity", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 wsMgmt, = mibBuilder.importSymbols("WAYSTREAM-SMI", "wsMgmt")
 wsIgmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 4, 13))
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: wsIgmpCacheReporter.setDescription('The reporter for wh
 wsIgmpCacheUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 4, 13, 2, 1, 4), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: wsIgmpCacheUpTime.setStatus('current')
 if mibBuilder.loadTexts: wsIgmpCacheUpTime.setDescription('Time elapsed since this entry was created.')
-mibBuilder.exportSymbols("WAYSTREAM-IGMP-CACHE-MIB", wsIgmpCacheUpTime=wsIgmpCacheUpTime, wsIgmpCacheIfIndex=wsIgmpCacheIfIndex, wsIgmp=wsIgmp, wsIgmpCacheAddress=wsIgmpCacheAddress, wsIgmpCacheEntry=wsIgmpCacheEntry, wsIgmpCacheReporter=wsIgmpCacheReporter, PYSNMP_MODULE_ID=wsIgmp, wsIgmpCacheTable=wsIgmpCacheTable)
+mibBuilder.exportSymbols("WAYSTREAM-IGMP-CACHE-MIB", wsIgmp=wsIgmp, wsIgmpCacheUpTime=wsIgmpCacheUpTime, wsIgmpCacheTable=wsIgmpCacheTable, wsIgmpCacheEntry=wsIgmpCacheEntry, wsIgmpCacheReporter=wsIgmpCacheReporter, PYSNMP_MODULE_ID=wsIgmp, wsIgmpCacheIfIndex=wsIgmpCacheIfIndex, wsIgmpCacheAddress=wsIgmpCacheAddress)

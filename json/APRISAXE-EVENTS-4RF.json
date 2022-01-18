@@ -6,17 +6,17 @@
       "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXECardType",
-      "AprisaXESlotNumber",
       "AprisaXEDataStatus",
       "AprisaXEPortNumber",
-      "AprisaXEAlarmType"
+      "AprisaXECardType",
+      "AprisaXEAlarmType",
+      "AprisaXESlotNumber"
     ],
     "COMMON-TC-4RF": [
       "FourRFAlarmEnabled",
       "FourRFAlarmSeverity",
-      "FourRFImageVersion",
       "FourRFHardwareVersion",
+      "FourRFImageVersion",
       "FourRFAlarmStatus",
       "FourRFAlarmPresent"
     ],
@@ -27,29 +27,29 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
       "TimeTicks",
-      "Bits"
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:38 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:36 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "NETWORK-SERVICES-MIB": [
-      "applIndex",
-      "DistinguishedName"
+      "DistinguishedName",
+      "applIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Integer32",
       "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "mib-2",
+      "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "dsaMIB": {
@@ -730,8 +730,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DSA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:31 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:26 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DSA-MIB"

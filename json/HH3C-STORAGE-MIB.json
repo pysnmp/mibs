@@ -2,66 +2,66 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalName",
-      "entPhysicalDescr",
+      "PhysicalIndex",
       "entPhysicalIndex",
-      "PhysicalIndex"
+      "entPhysicalName",
+      "entPhysicalDescr"
     ],
     "HH3C-DISK-MIB": [
       "hh3cDiskPowerOffReason"
     ],
     "HH3C-ENTITY-EXT-MIB": [
-      "hh3cEntityExtCriticalLowerTemperatureThreshold",
-      "hh3cEntityExtShutdownLowerTemperatureThreshold",
-      "hh3cEntityExtPhysicalIndex",
       "hh3cEntityExtOperStatus",
-      "hh3cEntityExtTemperature"
+      "hh3cEntityExtPhysicalIndex",
+      "hh3cEntityExtTemperature",
+      "hh3cEntityExtCriticalLowerTemperatureThreshold",
+      "hh3cEntityExtShutdownLowerTemperatureThreshold"
     ],
     "HH3C-RAID-MIB": [
-      "hh3cRaidUuid",
-      "hh3cRaidName",
       "hh3cRaidHideState",
+      "hh3cRaidName",
+      "hh3cRaidUuid",
       "hh3cRaidRunState"
     ],
     "HH3C-STORAGE-REF-MIB": [
+      "Hh3cStorageEnableState",
+      "Hh3cStorageActionType",
       "Hh3cStorageCapableState",
       "Hh3cStorageLedStateType",
       "Hh3cSoftwareInfoString",
-      "Hh3cWwpnListType",
       "hh3cStorageRef",
-      "Hh3cStorageEnableState",
-      "Hh3cStorageActionType"
+      "Hh3cWwpnListType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter32",
-      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
       "iso",
-      "Gauge32"
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hh3cStorageMIB": {
@@ -1320,8 +1320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-STORAGE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:02:28 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:02:26 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HH3C-STORAGE-MIB"

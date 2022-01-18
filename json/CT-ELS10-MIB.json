@@ -3,21 +3,21 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "dot1dStpPortState",
-      "dot1dStpMaxAge",
-      "dot1dStpHelloTime",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpForwardDelay",
-      "dot1dStpRootPort",
-      "dot1dStpPortDesignatedBridge",
       "dot1dStpRootCost",
-      "dot1dStpPortDesignatedCost",
       "dot1dStpPortDesignatedRoot",
-      "dot1dStpDesignatedRoot"
+      "dot1dStpMaxAge",
+      "dot1dStpForwardDelay",
+      "dot1dStpPortDesignatedPort",
+      "dot1dStpPortDesignatedCost",
+      "dot1dStpHelloTime",
+      "dot1dStpRootPort",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpPortDesignatedBridge"
     ],
     "IF-MIB": [
-      "ifInErrors",
       "ifOutDiscards",
-      "ifOutErrors"
+      "ifOutErrors",
+      "ifInErrors"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -28,25 +28,25 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "Bits",
       "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
+      "MibIdentifier",
+      "iso",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "enterprises"
+      "Counter32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "TRAP-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "PhysAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:28 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:05:38 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CT-ELS10-MIB"

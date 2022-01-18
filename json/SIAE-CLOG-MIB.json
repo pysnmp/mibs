@@ -18,24 +18,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
       "Integer32",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "commandLog": {
@@ -288,8 +288,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-CLOG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:13:11 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:15:15 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SIAE-CLOG-MIB"

@@ -9,31 +9,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
       "Integer32",
-      "Counter64",
+      "Gauge32",
       "TimeTicks",
-      "IpAddress",
       "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "entitySensorMIB": {
@@ -350,9 +350,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ENTITY-SENSOR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:00:26 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ENTITY-SENSOR-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:26 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ENTITY-SENSOR-MIB"

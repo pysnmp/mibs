@@ -3,47 +3,47 @@
     "class": "imports",
     "INET-ADDRESS-MIB": [
       "InetVersion",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "LINKSYS-MIB": [
-      "rndNotifications",
       "rlMacMulticast",
-      "rnd"
+      "rnd",
+      "rndNotifications"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
-      "PortList"
+      "PortList",
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter64",
       "iso",
-      "NOTIFICATION-TYPE",
       "IpAddress",
       "Counter32",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlMacMulticastEnable": {
@@ -2044,8 +2044,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlBrgMulticast-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:09:46 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:11:24 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-rlBrgMulticast-MIB"

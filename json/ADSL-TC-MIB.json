@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "iso",
       "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "IpAddress",
-      "transmission",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "IpAddress",
       "Counter64",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "transmission",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -84,9 +84,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ADSL-TC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:03:28 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-TC-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:26 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADSL-TC-MIB"

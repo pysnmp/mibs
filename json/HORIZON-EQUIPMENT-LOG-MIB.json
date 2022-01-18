@@ -9,27 +9,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "Gauge32",
-      "iso",
       "Counter64",
-      "OBJECT-TYPE",
-      "Counter32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "IpAddress",
-      "Unsigned32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
       "RowStatus",
-      "DateAndTime"
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "horizonEquipmentLogMib": {
@@ -746,8 +746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/HORIZON-EQUIPMENT-LOG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:37 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:49 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HORIZON-EQUIPMENT-LOG-MIB"

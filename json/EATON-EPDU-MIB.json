@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "Counter32",
+      "Bits",
+      "enterprises",
+      "IpAddress",
+      "iso",
       "Integer32",
       "MibIdentifier",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "Counter32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -5048,8 +5048,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-EPDU-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:41 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:54 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EATON-EPDU-MIB"

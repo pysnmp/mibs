@@ -8,32 +8,32 @@
       "MplsL3VpnName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "iso",
       "Gauge32",
+      "TimeTicks",
       "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "mib-2",
-      "Unsigned32"
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "lispMIB": {
@@ -3190,9 +3190,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LISP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 14:04:44 2022",
-      "On host fv-az33-58 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/LISP-MIB",
+      "Produced by pysmi-1.1.8 at Tue Jan 18 13:59:26 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LISP-MIB"
