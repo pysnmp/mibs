@@ -8,29 +8,29 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
       "Unsigned32",
-      "Gauge32"
+      "iso",
+      "Counter32",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -517,9 +517,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DOS-PREVENT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 15:08:43 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:08:46 2022",
+      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-DOS-PREVENT-MIB"
   }

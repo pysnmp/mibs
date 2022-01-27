@@ -11,24 +11,24 @@
       "ciscoMgmt"
     ],
     "CISCO-SUBSCRIBER-IDENTITY-TC-MIB": [
-      "SubscriberProtocolType",
+      "SubscriberVRF",
       "SubscriberDhcpClass",
-      "SubscriberDnis",
-      "SubscriberRemoteId",
-      "SubscriberDomain",
-      "SubscriberLabel",
-      "SubSessionIdentities",
-      "SubscriberMediaType",
+      "SubscriberCircuitId",
       "SubscriberServiceName",
+      "SubSessionIdentity",
       "SubscriberTunnelName",
-      "SubscriberNasPort",
-      "SubscriberPbhk",
+      "SubscriberDomain",
+      "SubscriberMediaType",
+      "SubscriberDnis",
+      "SubSessionIdentities",
+      "SubscriberProtocolType",
       "SubscriberAcctSessionId",
       "SubscriberLocationName",
-      "SubscriberCircuitId",
+      "SubscriberLabel",
       "SubscriberUsername",
-      "SubSessionIdentity",
-      "SubscriberVRF"
+      "SubscriberPbhk",
+      "SubscriberRemoteId",
+      "SubscriberNasPort"
     ],
     "CISCO-SUBSCRIBER-SESSION-TC-MIB": [
       "SubSessionRedundancyMode",
@@ -52,35 +52,35 @@
       "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter32",
+      "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "TimeTicks",
-      "Integer32",
-      "iso",
       "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
       "TruthValue",
       "DateAndTime",
-      "MacAddress",
-      "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "StorageType"
     ]
   },
   "ciscoSubscriberSessionMIB": {
@@ -3209,9 +3209,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SUBSCRIBER-SESSION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 15:08:53 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:08:56 2022",
+      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-SUBSCRIBER-SESSION-MIB"
   }

@@ -1,0 +1,1078 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "veritassoftware": {
+    "name": "veritassoftware",
+    "oid": "1.3.6.1.4.1.1302",
+    "class": "objectidentity"
+  },
+  "backupExecNetWare": {
+    "name": "backupExecNetWare",
+    "oid": "1.3.6.1.4.1.1302.1",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.1302.3",
+    "class": "objectidentity"
+  },
+  "backupexec": {
+    "name": "backupexec",
+    "oid": "1.3.6.1.4.1.1302.3.1",
+    "class": "objectidentity"
+  },
+  "devices": {
+    "name": "devices",
+    "oid": "1.3.6.1.4.1.1302.3.2",
+    "class": "objectidentity"
+  },
+  "trapvars": {
+    "name": "trapvars",
+    "oid": "1.3.6.1.4.1.1302.3.3",
+    "class": "objectidentity"
+  },
+  "beconfig": {
+    "name": "beconfig",
+    "oid": "1.3.6.1.4.1.1302.3.1.1",
+    "class": "objectidentity"
+  },
+  "bejobs": {
+    "name": "bejobs",
+    "oid": "1.3.6.1.4.1.1302.3.1.2",
+    "class": "objectidentity"
+  },
+  "beinfo": {
+    "name": "beinfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.3",
+    "class": "objectidentity"
+  },
+  "bemodules": {
+    "name": "bemodules",
+    "oid": "1.3.6.1.4.1.1302.3.1.4",
+    "class": "objectidentity"
+  },
+  "nonspecifictraps": {
+    "name": "nonspecifictraps",
+    "oid": "1.3.6.1.4.1.1302.3.1.5",
+    "class": "objectidentity"
+  },
+  "loader": {
+    "name": "loader",
+    "oid": "1.3.6.1.4.1.1302.3.2.4",
+    "class": "objectidentity"
+  },
+  "tape": {
+    "name": "tape",
+    "oid": "1.3.6.1.4.1.1302.3.2.5",
+    "class": "objectidentity"
+  },
+  "labs": {
+    "name": "labs",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.1",
+    "class": "objectidentity"
+  },
+  "disasterrecovery": {
+    "name": "disasterrecovery",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.2",
+    "class": "objectidentity"
+  },
+  "openfileoption": {
+    "name": "openfileoption",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.3",
+    "class": "objectidentity"
+  },
+  "pvldevice": {
+    "name": "pvldevice",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.1",
+    "class": "objectidentity"
+  },
+  "pvlmedia": {
+    "name": "pvlmedia",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.2",
+    "class": "objectidentity"
+  },
+  "catalog": {
+    "name": "catalog",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.3",
+    "class": "objectidentity"
+  },
+  "tapealert": {
+    "name": "tapealert",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.4",
+    "class": "objectidentity"
+  },
+  "databasemaint": {
+    "name": "databasemaint",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.5",
+    "class": "objectidentity"
+  },
+  "softwareupdate": {
+    "name": "softwareupdate",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.6",
+    "class": "objectidentity"
+  },
+  "install": {
+    "name": "install",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.7",
+    "class": "objectidentity"
+  },
+  "serverName": {
+    "name": "serverName",
+    "oid": "1.3.6.1.4.1.1302.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "appInfo": {
+    "name": "appInfo",
+    "oid": "1.3.6.1.4.1.1302.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jobName": {
+    "name": "jobName",
+    "oid": "1.3.6.1.4.1.1302.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "operatorName": {
+    "name": "operatorName",
+    "oid": "1.3.6.1.4.1.1302.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "messageText": {
+    "name": "messageText",
+    "oid": "1.3.6.1.4.1.1302.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "additionalText": {
+    "name": "additionalText",
+    "oid": "1.3.6.1.4.1.1302.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "backupExecNTGeneral": {
+    "name": "backupExecNTGeneral",
+    "oid": "1.3.6.1.4.1.1302.3.1.1.9",
+    "class": "objectidentity"
+  },
+  "beNTLoaded": {
+    "name": "beNTLoaded",
+    "oid": "1.3.6.1.4.1.1302.3.1.1.90.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "appInfo"
+      }
+    ]
+  },
+  "beNTUnloaded": {
+    "name": "beNTUnloaded",
+    "oid": "1.3.6.1.4.1.1302.3.1.1.90.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "appInfo"
+      }
+    ]
+  },
+  "beNTSystemError": {
+    "name": "beNTSystemError",
+    "oid": "1.3.6.1.4.1.1302.3.1.1.90.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "beNTGeneralInfo": {
+    "name": "beNTGeneralInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.1.90.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "backupExecNTJobs": {
+    "name": "backupExecNTJobs",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.8",
+    "class": "objectidentity"
+  },
+  "jobFailure": {
+    "name": "jobFailure",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "jobAborted": {
+    "name": "jobAborted",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "operatorName"
+      }
+    ]
+  },
+  "jobSuccess": {
+    "name": "jobSuccess",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "jobSuccessExcept": {
+    "name": "jobSuccessExcept",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "jobStarted": {
+    "name": "jobStarted",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "jobNoData": {
+    "name": "jobNoData",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "jobWarning": {
+    "name": "jobWarning",
+    "oid": "1.3.6.1.4.1.1302.3.1.2.80.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "beName": {
+    "name": "beName",
+    "oid": "1.3.6.1.4.1.1302.3.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "revMajor": {
+    "name": "revMajor",
+    "oid": "1.3.6.1.4.1.1302.3.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "revMinor": {
+    "name": "revMinor",
+    "oid": "1.3.6.1.4.1.1302.3.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "beBuild": {
+    "name": "beBuild",
+    "oid": "1.3.6.1.4.1.1302.3.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "beSerial": {
+    "name": "beSerial",
+    "oid": "1.3.6.1.4.1.1302.3.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "backupExecOptLABS": {
+    "name": "backupExecOptLABS",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "multipleTapesNeeded": {
+    "name": "multipleTapesNeeded",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "retriedAutomatically": {
+    "name": "retriedAutomatically",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "backupExecOptIDR": {
+    "name": "backupExecOptIDR",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.2.1",
+    "class": "objectidentity"
+  },
+  "copyDRFile": {
+    "name": "copyDRFile",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.2.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "fullBackupComplete": {
+    "name": "fullBackupComplete",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.2.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "backupExecOptOFO": {
+    "name": "backupExecOptOFO",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.3.1",
+    "class": "objectidentity"
+  },
+  "ofoFailed": {
+    "name": "ofoFailed",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.3.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "ofoCouldNotInit": {
+    "name": "ofoCouldNotInit",
+    "oid": "1.3.6.1.4.1.1302.3.1.4.3.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "backupExecPVLDevice": {
+    "name": "backupExecPVLDevice",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "pvlDeviceError": {
+    "name": "pvlDeviceError",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "pvlDeviceWarning": {
+    "name": "pvlDeviceWarning",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "pvlDeviceInfo": {
+    "name": "pvlDeviceInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.1.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "pvlDeviceAttn": {
+    "name": "pvlDeviceAttn",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.1.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecPVLMedia": {
+    "name": "backupExecPVLMedia",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "pvlMediaError": {
+    "name": "pvlMediaError",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.2.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "pvlMediaWarning": {
+    "name": "pvlMediaWarning",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.2.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "pvlMediaInfo": {
+    "name": "pvlMediaInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.2.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "pvlMediaAttn": {
+    "name": "pvlMediaAttn",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.2.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecCatalog": {
+    "name": "backupExecCatalog",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.3.1",
+    "class": "objectidentity"
+  },
+  "catalogFailed": {
+    "name": "catalogFailed",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.3.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecTapeAlert": {
+    "name": "backupExecTapeAlert",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.4.1",
+    "class": "objectidentity"
+  },
+  "tapeAlertError": {
+    "name": "tapeAlertError",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.4.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "tapeAlertWarning": {
+    "name": "tapeAlertWarning",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.4.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "tapeAlertInfo": {
+    "name": "tapeAlertInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.4.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecDatabaseMaintenance": {
+    "name": "backupExecDatabaseMaintenance",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.5.1",
+    "class": "objectidentity"
+  },
+  "databaseMaintenanceError": {
+    "name": "databaseMaintenanceError",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.5.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "databaseMaintenanceInfo": {
+    "name": "databaseMaintenanceInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.5.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecSoftwareUpdate": {
+    "name": "backupExecSoftwareUpdate",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.6.1",
+    "class": "objectidentity"
+  },
+  "softwareUpdateError": {
+    "name": "softwareUpdateError",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.6.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "softwareUpdateWarning": {
+    "name": "softwareUpdateWarning",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.6.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "softwareUpdateInfo": {
+    "name": "softwareUpdateInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.6.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecInstall": {
+    "name": "backupExecInstall",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.7.1",
+    "class": "objectidentity"
+  },
+  "installWarning": {
+    "name": "installWarning",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.7.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "installInfo": {
+    "name": "installInfo",
+    "oid": "1.3.6.1.4.1.1302.3.1.5.7.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      }
+    ]
+  },
+  "backupExecNTLoader": {
+    "name": "backupExecNTLoader",
+    "oid": "1.3.6.1.4.1.1302.3.2.4.3",
+    "class": "objectidentity"
+  },
+  "loaderNeedsAttention": {
+    "name": "loaderNeedsAttention",
+    "oid": "1.3.6.1.4.1.1302.3.2.4.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "backupExecNTTapeDrive": {
+    "name": "backupExecNTTapeDrive",
+    "oid": "1.3.6.1.4.1.1302.3.2.5.3",
+    "class": "objectidentity"
+  },
+  "driveNeedsAttention": {
+    "name": "driveNeedsAttention",
+    "oid": "1.3.6.1.4.1.1302.3.2.5.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageText"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "serverName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "jobName"
+      },
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "additionalText"
+      }
+    ]
+  },
+  "messageobject": {
+    "name": "messageobject",
+    "oid": "1.3.6.1.4.1.1302.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "blockingerrormsg": {
+    "name": "blockingerrormsg",
+    "oid": "1.3.6.1.4.1.1302.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageobject"
+      }
+    ]
+  },
+  "errormessage": {
+    "name": "errormessage",
+    "oid": "1.3.6.1.4.1.1302.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageobject"
+      }
+    ]
+  },
+  "blockingmessage": {
+    "name": "blockingmessage",
+    "oid": "1.3.6.1.4.1.1302.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageobject"
+      }
+    ]
+  },
+  "warningmessage": {
+    "name": "warningmessage",
+    "oid": "1.3.6.1.4.1.1302.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageobject"
+      }
+    ]
+  },
+  "informationmessage": {
+    "name": "informationmessage",
+    "oid": "1.3.6.1.4.1.1302.10.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Backup-Exec-MIB",
+        "object": "messageobject"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/Backup-Exec-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:20:12 2022",
+      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+    ],
+    "module": "Backup-Exec-MIB"
+  }
+}

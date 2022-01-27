@@ -1,0 +1,2544 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "veritassoftware": {
+    "name": "veritassoftware",
+    "oid": "1.3.6.1.4.1.1302",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.1302.3",
+    "class": "objectidentity"
+  },
+  "veritasCluster": {
+    "name": "veritasCluster",
+    "oid": "1.3.6.1.4.1.1302.3.8",
+    "class": "moduleidentity"
+  },
+  "clustertraps": {
+    "name": "clustertraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10",
+    "class": "objectidentity"
+  },
+  "clustertrapvars": {
+    "name": "clustertrapvars",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1",
+    "class": "objectidentity"
+  },
+  "clustertrapsGroups": {
+    "name": "clustertrapsGroups",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2",
+    "class": "objectidentity"
+  },
+  "resourcesTraps": {
+    "name": "resourcesTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.1",
+    "class": "objectidentity"
+  },
+  "groupsTraps": {
+    "name": "groupsTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.2",
+    "class": "objectidentity"
+  },
+  "systemsTraps": {
+    "name": "systemsTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.3",
+    "class": "objectidentity"
+  },
+  "vcsHeartbeatTraps": {
+    "name": "vcsHeartbeatTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.4",
+    "class": "objectidentity"
+  },
+  "gcmHeartbeatTraps": {
+    "name": "gcmHeartbeatTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.5",
+    "class": "objectidentity"
+  },
+  "vcsTraps": {
+    "name": "vcsTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.6",
+    "class": "objectidentity"
+  },
+  "gcmSiteTraps": {
+    "name": "gcmSiteTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.7",
+    "class": "objectidentity"
+  },
+  "agentsTraps": {
+    "name": "agentsTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.8",
+    "class": "objectidentity"
+  },
+  "externalTraps": {
+    "name": "externalTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.9",
+    "class": "objectidentity"
+  },
+  "rdcTraps": {
+    "name": "rdcTraps",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10",
+    "class": "objectidentity"
+  },
+  "trapOrigin": {
+    "name": "trapOrigin",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entityType": {
+    "name": "entityType",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entitySubType": {
+    "name": "entitySubType",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entityName": {
+    "name": "entityName",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entityOwner": {
+    "name": "entityOwner",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemName": {
+    "name": "systemName",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "systemLocation": {
+    "name": "systemLocation",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entityState": {
+    "name": "entityState",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entityContainerType": {
+    "name": "entityContainerType",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "entityContainerName": {
+    "name": "entityContainerName",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "peerSystemName": {
+    "name": "peerSystemName",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "peerSystemLocation": {
+    "name": "peerSystemLocation",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "message": {
+    "name": "message",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventTime": {
+    "name": "eventTime",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "severityId": {
+    "name": "severityId",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "information": 0,
+          "warning": 1,
+          "error": 2,
+          "severeError": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "clusterResourceStateUnknownTrap": {
+    "name": "clusterResourceStateUnknownTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterResourceMonitorTimeoutTrap": {
+    "name": "clusterResourceMonitorTimeoutTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterResourceNotGoingOfflineTrap": {
+    "name": "clusterResourceNotGoingOfflineTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterResourceRestartingByAgentTrap": {
+    "name": "clusterResourceRestartingByAgentTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterResourceWentOnlineByItselfTrap": {
+    "name": "clusterResourceWentOnlineByItselfTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterResourceFaultedTrap": {
+    "name": "clusterResourceFaultedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.10.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupOnlineTrap": {
+    "name": "clusterGroupOnlineTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupOfflineTrap": {
+    "name": "clusterGroupOfflineTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupAutoDisabledTrap": {
+    "name": "clusterGroupAutoDisabledTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupFaultedTrap": {
+    "name": "clusterGroupFaultedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupFaultedAndNowhereToFailoverTrap": {
+    "name": "clusterGroupFaultedAndNowhereToFailoverTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupRestartingTrap": {
+    "name": "clusterGroupRestartingTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupInitiatingForSwitchingTrap": {
+    "name": "clusterGroupInitiatingForSwitchingTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupConcurencyViolationTrap": {
+    "name": "clusterGroupConcurencyViolationTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGroupRestInRspnToPerstResGoOnlineTrap": {
+    "name": "clusterGroupRestInRspnToPerstResGoOnlineTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.20.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterFirstSystemUpTrap": {
+    "name": "clusterFirstSystemUpTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemRestartingByHashadowTrap": {
+    "name": "clusterSystemRestartingByHashadowTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemInJeopardyTrap": {
+    "name": "clusterSystemInJeopardyTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemFaultedTrap": {
+    "name": "clusterSystemFaultedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemJoinedClusterTrap": {
+    "name": "clusterSystemJoinedClusterTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemExitedManuallyTrap": {
+    "name": "clusterSystemExitedManuallyTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemUpButNotInClusterTrap": {
+    "name": "clusterSystemUpButNotInClusterTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterSystemUsageExceededThresholdTrap": {
+    "name": "clusterSystemUsageExceededThresholdTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.30.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterGUIUserLoginTrap": {
+    "name": "clusterGUIUserLoginTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.60.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterAgentRestartingTrap": {
+    "name": "clusterAgentRestartingTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.80.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterAgentFaultedTrap": {
+    "name": "clusterAgentFaultedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.80.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCRlinkInconsistentTrap": {
+    "name": "clusterRDCRlinkInconsistentTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCRlinkNotUpToDateTrap": {
+    "name": "clusterRDCRlinkNotUpToDateTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCTakeoverFailedTrap": {
+    "name": "clusterRDCTakeoverFailedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCMigrateFailedTrap": {
+    "name": "clusterRDCMigrateFailedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCTakeoverSuccessTrap": {
+    "name": "clusterRDCTakeoverSuccessTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCMigrateSuccessTrap": {
+    "name": "clusterRDCMigrateSuccessTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCActingSecondaryTrap": {
+    "name": "clusterRDCActingSecondaryTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCResyncFailedTrap": {
+    "name": "clusterRDCResyncFailedTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCResyncSuccessTrap": {
+    "name": "clusterRDCResyncSuccessTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "clusterRDCGroupOfflineTrap": {
+    "name": "clusterRDCGroupOfflineTrap",
+    "oid": "1.3.6.1.4.1.1302.3.8.10.2.100.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "severityId"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "eventTime"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entitySubType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityState"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "trapOrigin"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "systemLocation"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerName"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityContainerType"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "entityOwner"
+      },
+      {
+        "module": "VERITAS-CLUSTER-MIB",
+        "object": "message"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-CLUSTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:20:12 2022",
+      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+    ],
+    "module": "VERITAS-CLUSTER-MIB"
+  }
+}

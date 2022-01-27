@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SYMM-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/SYMM-SMI
-# Produced by pysmi-1.1.8 at Tue Jan 18 15:13:17 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
-# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 27 21:15:13 2022
+# On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner
+# Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("RFC-1212", "ModuleIdentity", "ObjectIdentity")
-Unsigned32, Integer32 = mibBuilder.importSymbols("RFC1155-SMI", "Unsigned32", "Integer32")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibIdentifier, NotificationType, enterprises, TimeTicks, Unsigned32, ModuleIdentity, ObjectIdentity, Integer32, IpAddress, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "enterprises", "TimeTicks", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Integer32", "IpAddress", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("RFC-1212", "ObjectIdentity", "ModuleIdentity")
+Integer32, Unsigned32 = mibBuilder.importSymbols("RFC1155-SMI", "Integer32", "Unsigned32")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, iso, Unsigned32, Gauge32, NotificationType, enterprises, TimeTicks, IpAddress, MibIdentifier, Bits, ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "Unsigned32", "Gauge32", "NotificationType", "enterprises", "TimeTicks", "IpAddress", "MibIdentifier", "Bits", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 symmetricom = ModuleIdentity((1, 3, 6, 1, 4, 1, 9070))
 symmetricom.setRevisions(('2009-06-11 12:00',))
 if mibBuilder.loadTexts: symmetricom.setLastUpdated('200906111200Z')
@@ -115,4 +115,4 @@ if mibBuilder.loadTexts: etcUpgradeServer.setStatus('current')
 etcAlarmString = MibScalar((1, 3, 6, 1, 4, 1, 9070, 1, 2, 3, 1, 5, 1, 6, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 1024))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: etcAlarmString.setStatus('current')
 etcAlarm = NotificationType((1, 3, 6, 1, 4, 1, 9070) + (0,0)).setObjects(("SYMM-SMI", "etcAlarmString"))
-mibBuilder.exportSymbols("SYMM-SMI", products=products, ntpSysRefTime=ntpSysRefTime, ntpSysClock=ntpSysClock, etcModel=etcModel, ntpSysPoll=ntpSysPoll, version=version, gpsHealth=gpsHealth, gpsPosition=gpsPosition, symmCmipManagement=symmCmipManagement, ntpSysSystem=ntpSysSystem, ntpSysRootDispersion=ntpSysRootDispersion, symmTimePictra=symmTimePictra, net=net, symmNetworkManagement=symmNetworkManagement, ntpSysError=ntpSysError, ntpSysProcessor=ntpSysProcessor, nts=nts, tymingFlyPeriod=tymingFlyPeriod, ntpSysPktsReceived=ntpSysPktsReceived, ntpSysLeap=ntpSysLeap, s100=s100, gpsSatlist=gpsSatlist, gpsUTCOffset=gpsUTCOffset, ntpSysStratum=ntpSysStratum, tymingVersion=tymingVersion, gps=gps, symmetricom=symmetricom, PYSNMP_MODULE_ID=symmetricom, tymingTime=tymingTime, etcSerialNbr=etcSerialNbr, ntpSystem=ntpSystem, ntpSysPhase=ntpSysPhase, syncserver=syncserver, symmTTM=symmTTM, etcAlarm=etcAlarm, tymingStatus=tymingStatus, ts2000=ts2000, ntpSysVersion=ntpSysVersion, ntpSysPrecision=ntpSysPrecision, ntpSysRootDelay=ntpSysRootDelay, experiment=experiment, symmBroadband=symmBroadband, ntpSysMode=ntpSysMode, tyming=tyming, dialup=dialup, etc=etc, ntpSysFreq=ntpSysFreq, ntpSysPeer=ntpSysPeer, etcUpgradeServer=etcUpgradeServer, ntpSysNotrust=ntpSysNotrust, xli=xli, gpsMode=gpsMode, tymingSource=tymingSource, ts2100=ts2100, symmSnmpManagement=symmSnmpManagement, etcVersion=etcVersion, etcUpgrade=etcUpgrade, etcAlarmString=etcAlarmString, ntpSysRefID=ntpSysRefID)
+mibBuilder.exportSymbols("SYMM-SMI", gpsUTCOffset=gpsUTCOffset, ntpSysClock=ntpSysClock, gpsHealth=gpsHealth, etcAlarm=etcAlarm, PYSNMP_MODULE_ID=symmetricom, ts2100=ts2100, etcAlarmString=etcAlarmString, ntpSysPeer=ntpSysPeer, tymingFlyPeriod=tymingFlyPeriod, etcVersion=etcVersion, ntpSysPhase=ntpSysPhase, tymingVersion=tymingVersion, gpsSatlist=gpsSatlist, etcModel=etcModel, symmCmipManagement=symmCmipManagement, version=version, tymingTime=tymingTime, symmTTM=symmTTM, net=net, xli=xli, ntpSysPoll=ntpSysPoll, experiment=experiment, ntpSysSystem=ntpSysSystem, syncserver=syncserver, ntpSysStratum=ntpSysStratum, ntpSysRefID=ntpSysRefID, ntpSysPktsReceived=ntpSysPktsReceived, ntpSysFreq=ntpSysFreq, ntpSysMode=ntpSysMode, symmSnmpManagement=symmSnmpManagement, symmBroadband=symmBroadband, etcUpgradeServer=etcUpgradeServer, ntpSysNotrust=ntpSysNotrust, ntpSysPrecision=ntpSysPrecision, gpsPosition=gpsPosition, tymingSource=tymingSource, tymingStatus=tymingStatus, nts=nts, ntpSystem=ntpSystem, s100=s100, etc=etc, ntpSysRootDelay=ntpSysRootDelay, ntpSysRefTime=ntpSysRefTime, ntpSysProcessor=ntpSysProcessor, etcUpgrade=etcUpgrade, ts2000=ts2000, ntpSysVersion=ntpSysVersion, ntpSysRootDispersion=ntpSysRootDispersion, dialup=dialup, ntpSysError=ntpSysError, gps=gps, ntpSysLeap=ntpSysLeap, gpsMode=gpsMode, tyming=tyming, symmetricom=symmetricom, symmNetworkManagement=symmNetworkManagement, products=products, symmTimePictra=symmTimePictra, etcSerialNbr=etcSerialNbr)

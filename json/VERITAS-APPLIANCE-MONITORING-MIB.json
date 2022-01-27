@@ -1,0 +1,511 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "mib-2",
+      "enterprises",
+      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "applianceMonitoringMib": {
+    "name": "applianceMonitoringMib",
+    "oid": "1.3.6.1.4.1.48328.3.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-09-06 00:00",
+        "description": "Changed symc strings to vrts."
+      }
+    ]
+  },
+  "veritassoftware": {
+    "name": "veritassoftware",
+    "oid": "1.3.6.1.4.1.48328",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.48328.3",
+    "class": "objectidentity"
+  },
+  "systems": {
+    "name": "systems",
+    "oid": "1.3.6.1.4.1.48328.3.9.1",
+    "class": "objectidentity"
+  },
+  "software": {
+    "name": "software",
+    "oid": "1.3.6.1.4.1.48328.3.9.2",
+    "class": "objectidentity"
+  },
+  "vrtssystemName": {
+    "name": "vrtssystemName",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vrtsfanTrap": {
+    "name": "vrtsfanTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtspowerTrap": {
+    "name": "vrtspowerTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsfibrechannelTrap": {
+    "name": "vrtsfibrechannelTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtstemperatureTrap": {
+    "name": "vrtstemperatureTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtscpuTrap": {
+    "name": "vrtscpuTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsdiskTrap": {
+    "name": "vrtsdiskTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsraidgroupTrap": {
+    "name": "vrtsraidgroupTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsenclosurefanTrap": {
+    "name": "vrtsenclosurefanTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsenclosurepowerTrap": {
+    "name": "vrtsenclosurepowerTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsenclosuretemperatureTrap": {
+    "name": "vrtsenclosuretemperatureTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsenclosurediskTrap": {
+    "name": "vrtsenclosurediskTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsadapterTrap": {
+    "name": "vrtsadapterTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsfirmwareTrap": {
+    "name": "vrtsfirmwareTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtspciTrap": {
+    "name": "vrtspciTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsnetworkcardTrap": {
+    "name": "vrtsnetworkcardTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsvolumeTrap": {
+    "name": "vrtsvolumeTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsbbuTrap": {
+    "name": "vrtsbbuTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsconnectionTrap": {
+    "name": "vrtsconnectionTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtspartitionTrap": {
+    "name": "vrtspartitionTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsstoragestatusTrap": {
+    "name": "vrtsstoragestatusTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsdimmTrap": {
+    "name": "vrtsdimmTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsiscsiTrap": {
+    "name": "vrtsiscsiTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsethernetTrap": {
+    "name": "vrtsethernetTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsfailedJobsTrap": {
+    "name": "vrtsfailedJobsTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsprocessTrap": {
+    "name": "vrtsprocessTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsdiskSpaceTrap": {
+    "name": "vrtsdiskSpaceTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtssoftwareUpdateSuccessTrap": {
+    "name": "vrtssoftwareUpdateSuccessTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtssoftwareUpdateFailedRollbackSuccessTrap": {
+    "name": "vrtssoftwareUpdateFailedRollbackSuccessTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtssoftwareUpdateFailedRollbackFailedTrap": {
+    "name": "vrtssoftwareUpdateFailedRollbackFailedTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsrollbackSuccessTrap": {
+    "name": "vrtsrollbackSuccessTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsrollbackFailedTrap": {
+    "name": "vrtsrollbackFailedTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsclusterStateTrap": {
+    "name": "vrtsclusterStateTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsdiskPerfTrap": {
+    "name": "vrtsdiskPerfTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtscollectorserviceTrap": {
+    "name": "vrtscollectorserviceTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "vrtsassetTagTrap": {
+    "name": "vrtsassetTagTrap",
+    "oid": "1.3.6.1.4.1.48328.3.9.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-APPLIANCE-MONITORING-MIB",
+        "object": "vrtssystemName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-APPLIANCE-MONITORING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:20:12 2022",
+      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+    ],
+    "module": "VERITAS-APPLIANCE-MONITORING-MIB"
+  }
+}

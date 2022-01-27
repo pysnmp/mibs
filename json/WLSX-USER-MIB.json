@@ -5,47 +5,47 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaHTMode",
+      "ArubaPhyType",
       "ArubaSubAuthenticationMethods",
-      "ArubaEncryptionType",
       "ArubaUserForwardMode",
-      "ArubaAuthenticationMethods",
-      "ArubaPhyType"
+      "ArubaHTMode",
+      "ArubaEncryptionType",
+      "ArubaAuthenticationMethods"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "snmpModules",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
       "Counter64",
+      "snmpModules",
       "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "IpAddress"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TAddress",
-      "StorageType",
       "TDomain",
-      "DisplayString",
-      "TruthValue",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "TimeInterval",
+      "TAddress",
+      "RowStatus",
       "PhysAddress",
-      "RowStatus"
+      "DisplayString",
+      "MacAddress"
     ],
     "WLSX-WLAN-MIB": [
       "wlanESSID"
@@ -862,9 +862,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-USER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 18 15:05:33 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:04:16 2022",
+      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "WLSX-USER-MIB"
   }
