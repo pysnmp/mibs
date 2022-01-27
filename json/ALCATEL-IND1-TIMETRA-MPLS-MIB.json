@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
-      "tmnxSRConfs",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRObjs",
+      "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxVRtrMplsLspID",
+      "TNamedItemOrEmpty",
       "TNamedItem",
       "TmnxOperState",
-      "TmnxActionType",
+      "TmnxVRtrMplsLspID",
       "TmnxAdminState",
-      "TNamedItemOrEmpty"
+      "TmnxActionType"
     ],
     "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
-      "vRtrIfIndex",
-      "vRtrID"
+      "vRtrID",
+      "vRtrIfIndex"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -27,14 +27,14 @@
     ],
     "MPLS-LSR-MIB": [
       "MplsLabel",
-      "MplsLSPID",
-      "mplsXCLspId"
+      "mplsXCLspId",
+      "MplsLSPID"
     ],
     "MPLS-TE-MIB": [
-      "mplsTunnelARHopEntry",
-      "mplsTunnelIndex",
+      "mplsTunnelIngressLSRId",
       "mplsTunnelInstance",
-      "mplsTunnelIngressLSRId"
+      "mplsTunnelIndex",
+      "mplsTunnelARHopEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -42,30 +42,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TestAndIncr",
+      "TimeInterval",
       "RowPointer",
+      "DisplayString",
+      "TimeStamp",
       "RowStatus",
       "TruthValue",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TestAndIncr",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "timetraMplsMIBModule": {
@@ -5170,8 +5170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-MPLS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:16:58 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:43:39 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"

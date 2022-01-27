@@ -5,8 +5,8 @@
       "routingIND1Ripng"
     ],
     "IPV6-TC": [
-      "Ipv6Address",
-      "Ipv6AddressPrefix"
+      "Ipv6AddressPrefix",
+      "Ipv6Address"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -14,24 +14,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Bits"
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1055,8 +1055,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-RIPNG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:16:59 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:43:39 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-RIPNG-MIB"

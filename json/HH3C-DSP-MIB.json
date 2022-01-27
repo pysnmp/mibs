@@ -12,24 +12,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
       "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
+      "Bits",
+      "Counter64",
       "OBJECT-TYPE",
-      "Integer32"
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hh3cDSP": {
@@ -357,8 +357,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DSP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:06:27 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:33:08 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HH3C-DSP-MIB"

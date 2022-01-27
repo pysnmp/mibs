@@ -9,9 +9,9 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetAddressIPv6",
-      "InetAddressType"
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -19,24 +19,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -2584,8 +2584,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-MLD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:17:01 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:43:41 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-MLD-MIB"

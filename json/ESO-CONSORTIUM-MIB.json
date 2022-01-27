@@ -6,27 +6,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "snmpModules",
       "Counter32",
-      "enterprises",
-      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Bits",
-      "Integer32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "enterprises",
+      "Gauge32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "esoConsortiumMIB": {
@@ -80,8 +80,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eso/ESO-CONSORTIUM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:10:00 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:36:18 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ESO-CONSORTIUM-MIB"

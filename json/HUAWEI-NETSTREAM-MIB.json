@@ -5,31 +5,31 @@
       "hwDatacomm"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "BITS",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "hwNetStreamMIB": {
@@ -241,8 +241,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-NETSTREAM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:12:25 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:38:43 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-NETSTREAM-MIB"

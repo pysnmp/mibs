@@ -5,29 +5,29 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
+      "Unsigned32",
+      "Integer32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniNsLookupAgent": {
@@ -55,8 +55,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-NS-Lookup-CONF",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:14:53 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:41:36 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "Juniper-NS-Lookup-CONF"

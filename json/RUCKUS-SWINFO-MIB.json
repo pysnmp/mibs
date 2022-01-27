@@ -10,26 +10,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "Counter64",
       "Counter32",
-      "TimeTicks",
-      "Integer32",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "Gauge32",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruckusSwInfoMIB": {
@@ -168,8 +168,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-SWINFO-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:18:44 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:45:25 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "RUCKUS-SWINFO-MIB"

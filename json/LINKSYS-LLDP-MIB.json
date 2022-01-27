@@ -12,49 +12,49 @@
       "rndErrorSeverity"
     ],
     "LINKSYS-MIB": [
-      "rnd",
-      "rndNotifications"
+      "rndNotifications",
+      "rnd"
     ],
     "LLDP-EXT-MED-MIB": [
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
       "lldpRemLocalPortNum",
-      "lldpRemTimeMark",
       "lldpRemIndex",
-      "LldpPortNumber",
-      "LldpPortList"
+      "LldpPortList",
+      "lldpRemTimeMark",
+      "LldpManAddress",
+      "LldpPortNumber"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Unsigned32",
       "Bits",
       "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "rlLldp": {
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:15:04 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:42:00 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-LLDP-MIB"

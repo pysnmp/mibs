@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "HP-SN-AGENT-MIB": [
-      "snChasFanDescription",
       "snAgentBrdIndex",
-      "snChasPwrSupplyDescription",
-      "snChasPwrSupplyIndex",
+      "snChasFanDescription",
       "snChasFanIndex",
+      "snChasPwrSupplyDescription",
       "snAgGblTrapMessage",
-      "snChasPwrSupplyStatus"
+      "snChasPwrSupplyStatus",
+      "snChasPwrSupplyIndex"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4TrapRealServerIP",
-      "snL4MaxSessionLimit",
-      "snL4TrapRealServerName",
-      "snL4TrapRealServerCurConnections",
+      "snL4TcpSynLimit",
       "snL4TrapRealServerPort",
-      "snL4TcpSynLimit"
+      "snL4TrapRealServerCurConnections",
+      "snL4MaxSessionLimit",
+      "snL4TrapRealServerName"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
-      "snSwViolatorPortNumber",
-      "snSwViolatorMacAddress"
+      "snSwViolatorMacAddress",
+      "snSwViolatorPortNumber"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTrapChasPwrSupply": {
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:13:07 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:40:16 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

@@ -16,20 +16,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "IpAddress",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1939,8 +1939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SFF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:15:29 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:42:18 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "NBS-SFF-MIB"

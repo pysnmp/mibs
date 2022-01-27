@@ -5,49 +5,49 @@
       "giproducts"
     ],
     "BCS-TRAPS-MIB": [
-      "trapPerceivedSeverity",
-      "trapSequenceId",
-      "trapChangedValueOID",
-      "trapAdditionalInfoInteger3",
-      "trapNETrapLastTrapTimeStamp",
-      "trapNetworkElemModelNumber",
-      "trapNetworkElemAlarmStatus",
-      "trapNetworkElemAdminState",
-      "trapNetworkElemAvailStatus",
-      "trapChangedValueDisplayString",
-      "trapText",
-      "trapAdditionalInfoInteger1",
-      "trapAdditionalInfoInteger2",
-      "trapChangedValueInteger",
-      "trapIdentifier",
-      "trapChangedValueIpAddress",
       "trapNetworkElemOperState",
+      "trapPerceivedSeverity",
+      "trapAdditionalInfoInteger1",
+      "trapNetworkElemAvailStatus",
+      "trapChangedObjectId",
       "trapNetworkElemSerialNum",
-      "trapChangedObjectId"
+      "trapAdditionalInfoInteger2",
+      "trapNETrapLastTrapTimeStamp",
+      "trapChangedValueIpAddress",
+      "trapChangedValueInteger",
+      "trapNetworkElemAdminState",
+      "trapText",
+      "trapAdditionalInfoInteger3",
+      "trapChangedValueOID",
+      "trapIdentifier",
+      "trapNetworkElemModelNumber",
+      "trapChangedValueDisplayString",
+      "trapSequenceId",
+      "trapNetworkElemAlarmStatus"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
       "Unsigned32",
       "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "Counter32",
+      "Counter64",
       "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks"
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "apex": {
@@ -26993,8 +26993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/APEX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:04:13 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:31:10 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "APEX-MIB"

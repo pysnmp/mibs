@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
       "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "iso",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "atFilev2": {
@@ -956,8 +956,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-FILEv2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:03:45 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:30:50 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "AT-FILEv2-MIB"

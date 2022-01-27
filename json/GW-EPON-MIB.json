@@ -9,28 +9,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
       "iso",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TruthValue",
-      "DateAndTime",
+      "MacAddress",
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gwEponMib": {
@@ -5827,8 +5827,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gwd/GW-EPON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:11:10 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:37:19 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "GW-EPON-MIB"

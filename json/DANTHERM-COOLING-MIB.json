@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
       "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
       "enterprises",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
       "Integer32",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -6005,8 +6005,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dantherm/DANTHERM-COOLING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:07:00 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:33:35 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DANTHERM-COOLING-MIB"

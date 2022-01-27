@@ -3,8 +3,8 @@
     "class": "imports",
     "FOUNDRY-SN-ROOT-MIB": [
       "snAgentSys",
-      "snStack",
-      "snChassis"
+      "snChassis",
+      "snStack"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -13,35 +13,35 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "iso",
       "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "Counter32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "DisplayString",
-      "TruthValue",
-      "RowStatus"
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "snAgent": {
@@ -7077,8 +7077,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-AGENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:10:21 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:36:36 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "FOUNDRY-SN-AGENT-MIB"

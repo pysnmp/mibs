@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "FnBoolState",
-      "FnSessionProto",
+      "fortinet",
       "FnIndex",
-      "fortinet"
+      "FnBoolState",
+      "FnSessionProto"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -16,20 +16,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Integer32",
-      "MODULE-IDENTITY"
+      "iso",
+      "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -474,8 +474,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIVOICE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:10:32 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:36:47 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "FORTINET-FORTIVOICE-MIB"

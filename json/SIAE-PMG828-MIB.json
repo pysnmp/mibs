@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "SIAE-ALARM-MIB": [
-      "AlarmStatus",
-      "AlarmSeverityCode"
+      "AlarmSeverityCode",
+      "AlarmStatus"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
       "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
       "iso",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "pmG828": {
@@ -712,8 +712,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PMG828-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:19:08 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:45:46 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SIAE-PMG828-MIB"

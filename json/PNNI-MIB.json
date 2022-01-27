@@ -5,38 +5,38 @@
       "AtmTrafficDescrParamIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "enterprises",
-      "Integer32",
-      "zeroDotZero",
       "Counter64",
-      "Counter32",
+      "zeroDotZero",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Counter32",
       "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus",
-      "TruthValue",
-      "TimeStamp"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "pnniMIB": {
@@ -6248,8 +6248,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PNNI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:02:58 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:30:10 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "PNNI-MIB"

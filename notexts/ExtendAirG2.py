@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ExtendAirG2 (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExtendAirG2
-# Produced by pysmi-1.1.8 at Thu Jan 27 21:10:04 2022
-# On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan 27 21:36:21 2022
+# On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 systemConfig, = mibBuilder.importSymbols("ExaltComProducts", "systemConfig")
-BandwidthT, AcmTargetModulationT, AcmBaseModulationT, DiplexerConfigG2T, BuzTimeoutT, ModulationT, AcmPowerBoostEnableT, RadioSourceT, RadioTxPwr11gT, ExaltEnableT, AcmPolicyT = mibBuilder.importSymbols("ExaltComm", "BandwidthT", "AcmTargetModulationT", "AcmBaseModulationT", "DiplexerConfigG2T", "BuzTimeoutT", "ModulationT", "AcmPowerBoostEnableT", "RadioSourceT", "RadioTxPwr11gT", "ExaltEnableT", "AcmPolicyT")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-IpAddress, Gauge32, MibIdentifier, iso, Integer32, Counter64, NotificationType, ObjectIdentity, Counter32, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Gauge32", "MibIdentifier", "iso", "Integer32", "Counter64", "NotificationType", "ObjectIdentity", "Counter32", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity")
+ModulationT, RadioSourceT, AcmPowerBoostEnableT, AcmTargetModulationT, AcmPolicyT, AcmBaseModulationT, DiplexerConfigG2T, RadioTxPwr11gT, BuzTimeoutT, ExaltEnableT, BandwidthT = mibBuilder.importSymbols("ExaltComm", "ModulationT", "RadioSourceT", "AcmPowerBoostEnableT", "AcmTargetModulationT", "AcmPolicyT", "AcmBaseModulationT", "DiplexerConfigG2T", "RadioTxPwr11gT", "BuzTimeoutT", "ExaltEnableT", "BandwidthT")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+ObjectIdentity, Counter32, Gauge32, ModuleIdentity, iso, Bits, Integer32, Unsigned32, TimeTicks, Counter64, MibIdentifier, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Gauge32", "ModuleIdentity", "iso", "Bits", "Integer32", "Unsigned32", "TimeTicks", "Counter64", "MibIdentifier", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 extendAirG2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 1, 57))
 extendAirG2.setRevisions(('2013-04-26 10:21',))
@@ -43,4 +43,4 @@ extendAirG2AcmTargetModulation = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 1,
 if mibBuilder.loadTexts: extendAirG2AcmTargetModulation.setStatus('current')
 extendAirG2AcmPowerBoostMode = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 1, 57, 15), AcmPowerBoostEnableT()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: extendAirG2AcmPowerBoostMode.setStatus('current')
-mibBuilder.exportSymbols("ExtendAirG2", extendAirG2TxPower=extendAirG2TxPower, extendAirG2AcmPolicy=extendAirG2AcmPolicy, extendAirG2Bandwidth=extendAirG2Bandwidth, extendAirG2BuzTimeout=extendAirG2BuzTimeout, extendAirG2Modulation=extendAirG2Modulation, extendAirG2TXfrequency=extendAirG2TXfrequency, extendAirG2AcmPowerBoostMode=extendAirG2AcmPowerBoostMode, extendAirG2AcmTargetModulation=extendAirG2AcmTargetModulation, extendAirG2AcmMode=extendAirG2AcmMode, extendAirG2=extendAirG2, PYSNMP_MODULE_ID=extendAirG2, extendAirG2AcmBaseModulation=extendAirG2AcmBaseModulation, extendAirG2InsertionLoss=extendAirG2InsertionLoss, extendAirG2DiplexerConfiguration=extendAirG2DiplexerConfiguration, extendAirG2RXfrequency=extendAirG2RXfrequency)
+mibBuilder.exportSymbols("ExtendAirG2", extendAirG2AcmPolicy=extendAirG2AcmPolicy, extendAirG2InsertionLoss=extendAirG2InsertionLoss, extendAirG2BuzTimeout=extendAirG2BuzTimeout, extendAirG2AcmTargetModulation=extendAirG2AcmTargetModulation, extendAirG2DiplexerConfiguration=extendAirG2DiplexerConfiguration, extendAirG2Modulation=extendAirG2Modulation, extendAirG2AcmPowerBoostMode=extendAirG2AcmPowerBoostMode, extendAirG2TxPower=extendAirG2TxPower, extendAirG2Bandwidth=extendAirG2Bandwidth, PYSNMP_MODULE_ID=extendAirG2, extendAirG2TXfrequency=extendAirG2TXfrequency, extendAirG2AcmMode=extendAirG2AcmMode, extendAirG2RXfrequency=extendAirG2RXfrequency, extendAirG2=extendAirG2, extendAirG2AcmBaseModulation=extendAirG2AcmBaseModulation)

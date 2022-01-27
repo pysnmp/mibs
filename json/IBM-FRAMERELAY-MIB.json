@@ -5,35 +5,35 @@
       "ifIndex"
     ],
     "RFC1315-MIB": [
-      "frCircuitIfIndex",
-      "frCircuitDlci"
+      "frCircuitDlci",
+      "frCircuitIfIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
       "IpAddress",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
       "Counter64"
     ],
     "SNMPv2-SMI-v1": [
+      "Counter32",
       "Gauge32",
       "Integer32",
-      "IpAddress",
-      "Counter32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -163,8 +163,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-FRAMERELAY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:13:30 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:39:37 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "IBM-FRAMERELAY-MIB"

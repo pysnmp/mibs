@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "enterprises",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
       "Gauge32",
-      "Counter64"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -419,8 +419,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/STE2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:12:32 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:38:49 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "STE2-MIB"

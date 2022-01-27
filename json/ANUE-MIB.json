@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "ZeroBasedCounter64",
       "CounterBasedGauge64",
-      "hcnumTC"
+      "hcnumTC",
+      "ZeroBasedCounter64"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifTable",
-      "ifIndex",
       "ifEntry",
+      "InterfaceIndex",
+      "ifIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
@@ -21,37 +21,37 @@
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "enterprises",
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
       "Counter64",
-      "Integer32"
+      "Integer32",
+      "enterprises",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:13:56 2022",
-      "On host fv-az74-168 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 27 21:40:20 2022",
+      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ANUE-MIB"
