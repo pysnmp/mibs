@@ -21,3 +21,7 @@ updates:
     commit-message:
       prefix: "build(pip): "
       include: "scope"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
