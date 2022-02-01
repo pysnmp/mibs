@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module EKINOPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 27 21:35:44 2022
-# On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  1 21:02:15 2022
+# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks, iso, NotificationType, IpAddress, Bits, Unsigned32, ObjectIdentity, Integer32, Counter64, Counter32, ModuleIdentity, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks", "iso", "NotificationType", "IpAddress", "Bits", "Unsigned32", "ObjectIdentity", "Integer32", "Counter64", "Counter32", "ModuleIdentity", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, TimeTicks, Counter32, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, ObjectIdentity, Gauge32, NotificationType, Unsigned32, ModuleIdentity, MibIdentifier, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "Counter32", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "ObjectIdentity", "Gauge32", "NotificationType", "Unsigned32", "ModuleIdentity", "MibIdentifier", "enterprises")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ekinops = ModuleIdentity((1, 3, 6, 1, 4, 1, 20044))
 ekinops.setRevisions(('2004-08-18 00:00', '2005-04-04 00:00', '2005-06-08 00:00', '2006-01-19 00:00', '2006-10-26 00:00', '2007-05-24 00:00', '2009-03-16 00:00',))
 if mibBuilder.loadTexts: ekinops.setLastUpdated('200903160000Z')
@@ -69,4 +69,4 @@ class EkiLoadPermutMode(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("coldReset", 0), ("warmReset", 1))
 
-mibBuilder.exportSymbols("EKINOPS-MIB", EkiMode=EkiMode, EkiLoadState=EkiLoadState, ekinops=ekinops, EkiApiState=EkiApiState, PYSNMP_MODULE_ID=ekinops, EkiSynchroMode=EkiSynchroMode, EkiMeasureType=EkiMeasureType, EkiLoadPermutMode=EkiLoadPermutMode, EkiLoadGWSW=EkiLoadGWSW, EkiLoadPermutMethod=EkiLoadPermutMethod, EkiProtocol=EkiProtocol, EkiState=EkiState, EkiOnOff=EkiOnOff)
+mibBuilder.exportSymbols("EKINOPS-MIB", EkiLoadPermutMode=EkiLoadPermutMode, EkiSynchroMode=EkiSynchroMode, EkiLoadState=EkiLoadState, EkiOnOff=EkiOnOff, ekinops=ekinops, EkiState=EkiState, PYSNMP_MODULE_ID=ekinops, EkiApiState=EkiApiState, EkiProtocol=EkiProtocol, EkiMeasureType=EkiMeasureType, EkiLoadPermutMethod=EkiLoadPermutMethod, EkiLoadGWSW=EkiLoadGWSW, EkiMode=EkiMode)

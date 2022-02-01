@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "TRAP-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
-      "Gauge32",
-      "enterprises",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits"
+      "TRAP-TYPE",
+      "iso",
+      "enterprises",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -163,8 +163,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ict/ICT-DIGITAL-SERIES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:39:50 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:06:32 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ICT-DIGITAL-SERIES-MIB"

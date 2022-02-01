@@ -14,19 +14,19 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "MibIdentifier",
       "Bits",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -429,8 +429,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-DOT1X-MIB.my",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:37:59 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:04:36 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "COLUBRIS-DEVICE-DOT1X-MIB"

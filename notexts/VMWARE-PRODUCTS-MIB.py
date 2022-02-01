@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-PRODUCTS-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 27 21:46:52 2022
-# On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  1 21:13:50 2022
+# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Unsigned32, Bits, NotificationType, Gauge32, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, Counter64, MibIdentifier, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "Bits", "NotificationType", "Gauge32", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "Counter64", "MibIdentifier", "Counter32", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier, Gauge32, Counter32, ObjectIdentity, IpAddress, iso, TimeTicks, Bits, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier", "Gauge32", "Counter32", "ObjectIdentity", "IpAddress", "iso", "TimeTicks", "Bits", "NotificationType", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwOID, vmwProductSpecific = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwOID", "vmwProductSpecific")
 vmwProducts = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 11))
 vmwProducts.setRevisions(('2018-06-27 00:00', '2017-10-13 00:00', '2017-05-17 00:00', '2015-07-17 00:00', '2014-09-19 00:00', '2011-09-29 00:00', '2007-07-30 00:00',))
@@ -33,4 +33,4 @@ vmwNSXControllerAppliance = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 132))
 vmwHCXManager = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 230))
 vmwHCXGateway = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 31))
 oidESX = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 60, 1))
-mibBuilder.exportSymbols("VMWARE-PRODUCTS-MIB", vmwVC=vmwVC, oidESX=oidESX, vmwVrops=vmwVrops, vmwHCXManager=vmwHCXManager, vmwNSXControllerAppliance=vmwNSXControllerAppliance, vmwNSXEdgeAppliance=vmwNSXEdgeAppliance, vmwManagementAppliance=vmwManagementAppliance, vmwESX=vmwESX, vmwServer=vmwServer, vmwNSXManagerAppliance=vmwNSXManagerAppliance, vmwEmbeddedVirtualCenterAppliance=vmwEmbeddedVirtualCenterAppliance, vmwInfrastructureAppliance=vmwInfrastructureAppliance, vmwVCOps=vmwVCOps, vmwDVS=vmwDVS, vmwGenericAppliance=vmwGenericAppliance, vmwProducts=vmwProducts, vmwHCXGateway=vmwHCXGateway, PYSNMP_MODULE_ID=vmwProducts, vmwNSX=vmwNSX)
+mibBuilder.exportSymbols("VMWARE-PRODUCTS-MIB", vmwVrops=vmwVrops, PYSNMP_MODULE_ID=vmwProducts, vmwNSXEdgeAppliance=vmwNSXEdgeAppliance, vmwDVS=vmwDVS, vmwNSXManagerAppliance=vmwNSXManagerAppliance, vmwInfrastructureAppliance=vmwInfrastructureAppliance, vmwManagementAppliance=vmwManagementAppliance, vmwNSX=vmwNSX, vmwESX=vmwESX, vmwServer=vmwServer, vmwVCOps=vmwVCOps, oidESX=oidESX, vmwHCXManager=vmwHCXManager, vmwHCXGateway=vmwHCXGateway, vmwVC=vmwVC, vmwEmbeddedVirtualCenterAppliance=vmwEmbeddedVirtualCenterAppliance, vmwGenericAppliance=vmwGenericAppliance, vmwProducts=vmwProducts, vmwNSXControllerAppliance=vmwNSXControllerAppliance)

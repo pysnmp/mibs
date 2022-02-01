@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module VLAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/VLAN
-# Produced by pysmi-1.1.8 at Thu Jan 27 21:36:22 2022
-# On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  1 21:02:55 2022
+# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 interface, = mibBuilder.importSymbols("ExaltComProducts", "interface")
 VlanGroupT, VlanStatusT = mibBuilder.importSymbols("ExaltComm", "VlanGroupT", "VlanStatusT")
 ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-IpAddress, NotificationType, ModuleIdentity, Integer32, TimeTicks, Unsigned32, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, Counter32, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "NotificationType", "ModuleIdentity", "Integer32", "TimeTicks", "Unsigned32", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "Counter32", "Bits", "MibIdentifier")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, NotificationType, Bits, Counter32, IpAddress, Counter64, Integer32, MibIdentifier, Gauge32, Unsigned32, iso, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "NotificationType", "Bits", "Counter32", "IpAddress", "Counter64", "Integer32", "MibIdentifier", "Gauge32", "Unsigned32", "iso", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vlan = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3))
 if mibBuilder.loadTexts: vlan.setStatus('current')
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: vlanID.setDescription('This is the list of Vlan ID in c
 commitVlanSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 1000), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 200))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitVlanSettings.setStatus('current')
 if mibBuilder.loadTexts: commitVlanSettings.setDescription('This command allows saving, or resetting Vlan\n                            parameters to factory original. Options are:\n                            save, clear, reset; where clear will abandon\n                            unsaved changes.')
-mibBuilder.exportSymbols("VLAN", vlanInterfaces=vlanInterfaces, vlanDefaultId=vlanDefaultId, vlan=vlan, commitVlanSettings=commitVlanSettings, vlanInterfacesEntry=vlanInterfacesEntry, vlanStatus=vlanStatus, vlanDefaultMgmtId=vlanDefaultMgmtId, vlanID=vlanID)
+mibBuilder.exportSymbols("VLAN", vlanDefaultMgmtId=vlanDefaultMgmtId, commitVlanSettings=commitVlanSettings, vlanInterfaces=vlanInterfaces, vlanID=vlanID, vlanInterfacesEntry=vlanInterfacesEntry, vlanStatus=vlanStatus, vlanDefaultId=vlanDefaultId, vlan=vlan)

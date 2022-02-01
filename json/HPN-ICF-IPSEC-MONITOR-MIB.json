@@ -8,25 +8,25 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "Bits",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2424,8 +2424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:40:16 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:06:59 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-IPSEC-MONITOR-MIB"

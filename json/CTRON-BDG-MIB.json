@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "IRM-OIDS": [
-      "layerMgmt",
-      "bridge"
+      "bridge",
+      "layerMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "Counter64",
       "Integer32",
       "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "iso",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bridgeRev1": {
@@ -1919,8 +1919,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-BDG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:36:16 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:02:47 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CTRON-BDG-MIB"

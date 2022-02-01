@@ -8,50 +8,50 @@
       "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
-      "networkElementEntry",
       "neIndex",
-      "slotIndex",
-      "shelfIndex"
+      "networkElementEntry",
+      "shelfIndex",
+      "slotIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetAccPortIndex",
+      "cmFlowIndex",
       "cmMPFlowIndex",
-      "cmFlowEntry",
-      "cmFlowIndex"
+      "cmEthernetAccPortIndex",
+      "cmFlowEntry"
     ],
     "CM-PERFORMANCE-MIB": [
       "cmFlowHistoryEntry",
       "cmFlowStatsEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Counter64"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "StorageType",
-      "DisplayString",
+      "TruthValue",
       "MacAddress",
-      "RowStatus",
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "StorageType",
+      "DisplayString"
     ]
   },
   "f3BridgeMIB": {
@@ -1479,8 +1479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:30:51 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 20:57:14 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "F3-BRIDGE-MIB"

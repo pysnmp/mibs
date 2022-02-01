@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "Integer32",
       "MibIdentifier",
-      "enterprises",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Counter32",
+      "enterprises",
       "iso",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "Bits",
-      "IpAddress"
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -14616,8 +14616,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dantel/WEBMON-EDGE-MATRIX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:33:33 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:00:00 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "WEBMON-EDGE-MATRIX-MIB"

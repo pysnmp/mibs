@@ -11,31 +11,31 @@
       "dot1qVlanIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
       "Integer32",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DateAndTime",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "dellNetFipSnooping": {
@@ -2120,8 +2120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-FIPSNOOPING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:35:00 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:01:29 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DELL-NETWORKING-FIPSNOOPING-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-HC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-HC-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 27 21:45:45 2022
-# On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  1 21:12:40 2022
+# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Counter64, ModuleIdentity, Integer32, MibIdentifier, ObjectIdentity, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, iso, IpAddress, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter64", "ModuleIdentity", "Integer32", "MibIdentifier", "ObjectIdentity", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "iso", "IpAddress", "Unsigned32", "Gauge32")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
+TimeTicks, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, Gauge32, Unsigned32, IpAddress, MibIdentifier, Counter64, iso, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32", "IpAddress", "MibIdentifier", "Counter64", "iso", "Bits", "NotificationType")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 headerCompression = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 79))
 headerCompression.setRevisions(('2014-10-07 00:00', '2014-03-31 00:00',))
 
@@ -48,4 +48,4 @@ if mibBuilder.loadTexts: headerCompressionTagEnable.setDescription('This object 
 headerCompressionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: headerCompressionRowStatus.setStatus('current')
 if mibBuilder.loadTexts: headerCompressionRowStatus.setDescription('Row Status object of the header compression table.')
-mibBuilder.exportSymbols("SIAE-HC-MIB", PYSNMP_MODULE_ID=headerCompression, headerCompressionIndex=headerCompressionIndex, headerCompressionContextDepth=headerCompressionContextDepth, headerCompressionRowStatus=headerCompressionRowStatus, headerCompressionTable=headerCompressionTable, headerCompression=headerCompression, headerCompressionEntry=headerCompressionEntry, headerCompressionMibVersion=headerCompressionMibVersion, headerCompressionAdminStatus=headerCompressionAdminStatus, headerCompressionTagEnable=headerCompressionTagEnable, headerCompressionParsingMode=headerCompressionParsingMode)
+mibBuilder.exportSymbols("SIAE-HC-MIB", headerCompressionTagEnable=headerCompressionTagEnable, PYSNMP_MODULE_ID=headerCompression, headerCompressionRowStatus=headerCompressionRowStatus, headerCompressionMibVersion=headerCompressionMibVersion, headerCompressionTable=headerCompressionTable, headerCompressionIndex=headerCompressionIndex, headerCompressionAdminStatus=headerCompressionAdminStatus, headerCompressionParsingMode=headerCompressionParsingMode, headerCompressionContextDepth=headerCompressionContextDepth, headerCompressionEntry=headerCompressionEntry, headerCompression=headerCompression)

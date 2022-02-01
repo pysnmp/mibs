@@ -5,37 +5,37 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "SecondaryState",
-      "VlanId",
-      "VlanEthertype",
-      "UsbOperationalMode",
+      "TDMFrequencySourceType",
       "IpVersion",
       "CmTrafficACLPriorityType",
-      "SfpMediaType",
-      "SfpConnectorValue",
-      "EthernetMediaType",
+      "EthernetPortSpeed",
       "TrafficDirection",
       "AfpTagControl",
+      "SfpConnectorValue",
+      "SfpMediaType",
       "CmTrafficAclProtocolType",
-      "F3DisplayString",
-      "CmTrafficAclFilterType",
-      "EthernetPortSpeed",
+      "UsbOperationalMode",
       "OperationalState",
-      "VlanTagType",
-      "CmTrafficAclFilterActionType",
       "PriorityMapMode",
-      "TDMFrequencySourceType",
-      "SfpIdentifierValue",
       "FlowSecState",
-      "SignalDirectionType",
+      "VlanEthertype",
+      "VlanId",
+      "CmTrafficAclFilterType",
+      "EthernetMediaType",
+      "SecondaryState",
       "AdminState",
-      "VlanPriority"
+      "VlanPriority",
+      "CmTrafficAclFilterActionType",
+      "F3DisplayString",
+      "SfpIdentifierValue",
+      "VlanTagType",
+      "SignalDirectionType"
     ],
     "CM-ENTITY-MIB": [
-      "f3UsbHostIndex",
-      "slotIndex",
-      "networkElementEntry",
       "neIndex",
+      "slotIndex",
+      "f3UsbHostIndex",
+      "networkElementEntry",
       "shelfIndex"
     ],
     "ENTITY-MIB": [
@@ -45,10 +45,10 @@
       "f3LagIndex"
     ],
     "F3-SYNC-MIB": [
-      "SquelchControl",
-      "SSMQualityLevel",
       "ClkSignalType",
-      "TimeSource"
+      "TimeSource",
+      "SquelchControl",
+      "SSMQualityLevel"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -57,35 +57,35 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Counter64"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "StorageType",
-      "DisplayString",
-      "MacAddress",
-      "DateAndTime",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "cmFacilityMIB": {
@@ -44825,8 +44825,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-FACILITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:30:51 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 20:57:14 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CM-FACILITY-MIB"

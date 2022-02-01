@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
       "Unsigned32",
+      "iso",
+      "Counter64",
       "Bits",
+      "MibIdentifier",
       "Integer32",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "IpAddress",
-      "Counter64",
+      "TimeTicks",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -434,8 +434,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-RMON",
-      "Produced by pysmi-1.1.8 at Thu Jan 27 21:41:59 2022",
-      "On host fv-az135-463 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  1 21:08:46 2022",
+      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-RMON"
