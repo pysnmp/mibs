@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFFileSize",
-      "FourRFImageVersion",
-      "FourRFImageStatus",
-      "FourRFTimeZone",
-      "FourRFSerialNumber",
-      "FourRFTftpFileName",
       "FourRFProcessResultType",
-      "FourRFWebUserEnabled",
-      "FourRFWebUserGroup",
+      "FourRFTftpFileName",
+      "FourRFTimeZone",
       "FourRFImageType",
-      "FourRFResetType"
+      "FourRFWebUserEnabled",
+      "FourRFImageVersion",
+      "FourRFSerialNumber",
+      "FourRFFileSize",
+      "FourRFImageStatus",
+      "FourRFResetType",
+      "FourRFWebUserGroup"
     ],
     "MIB-4RF": [
       "fourRFModules",
@@ -22,30 +22,30 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "iso",
+      "Bits",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "iso",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
       "Counter32",
-      "Bits"
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:18:01 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:22:45 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "COMMON-4RF"

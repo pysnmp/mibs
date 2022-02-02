@@ -5,35 +5,35 @@
       "dlinkIndustrialCommon"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "IpAddress",
       "Bits",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "dlinkSwSslMIB": {
@@ -697,8 +697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SSL-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:22:15 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:27:21 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-SSL-MIB"

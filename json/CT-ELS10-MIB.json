@@ -4,20 +4,20 @@
     "BRIDGE-MIB": [
       "dot1dStpRootPort",
       "dot1dStpPortDesignatedBridge",
-      "dot1dStpForwardDelay",
-      "dot1dStpMaxAge",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpHelloTime",
       "dot1dStpPortDesignatedCost",
-      "dot1dStpPortDesignatedRoot",
       "dot1dStpRootCost",
+      "dot1dStpMaxAge",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpPortDesignatedPort",
+      "dot1dStpPortDesignatedRoot",
       "dot1dStpPortState",
-      "dot1dStpDesignatedRoot"
+      "dot1dStpForwardDelay",
+      "dot1dStpHelloTime"
     ],
     "IF-MIB": [
-      "ifInErrors",
+      "ifOutErrors",
       "ifOutDiscards",
-      "ifOutErrors"
+      "ifInErrors"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -27,27 +27,27 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "iso",
       "Gauge32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Counter32",
-      "iso",
-      "Bits",
       "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "enterprises",
-      "OBJECT-TYPE"
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "DisplayString"
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "sigma": {
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:23:14 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:28:17 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CT-ELS10-MIB"

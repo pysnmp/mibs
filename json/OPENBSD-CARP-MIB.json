@@ -10,26 +10,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "enterprises",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "enterprises",
       "iso",
-      "MibIdentifier"
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "carpMIBObjects": {
@@ -411,8 +411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-CARP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:28:30 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:33:47 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "OPENBSD-CARP-MIB"

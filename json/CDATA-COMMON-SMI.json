@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "enterprises",
-      "Counter32",
       "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
+      "Counter64",
       "Bits",
-      "iso"
+      "MibIdentifier",
+      "iso",
+      "enterprises",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "vendor": {
@@ -173,8 +173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/CDATA-COMMON-SMI",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:19:43 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:24:33 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CDATA-COMMON-SMI"

@@ -5,49 +5,49 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "Decimal1Dig",
-      "EnabledDisabledEnum",
-      "XcvrSerdesRxAmplitude",
-      "XcvrMode",
-      "NameString",
-      "XcvrType",
-      "StringMaxl128",
       "ChannelsNumber",
       "XcvrSerdesTxEq",
-      "StringMaxl254",
-      "ConnectorTypeDescEnum",
+      "StringMaxl32",
       "XcvrProfileId",
       "XcvrSerdesRxEmphasis",
-      "StringMaxl32",
-      "StringMaxl16",
+      "XcvrMode",
       "PtpId",
-      "XcvrId"
+      "EnabledDisabledEnum",
+      "Decimal1Dig",
+      "ConnectorTypeDescEnum",
+      "StringMaxl128",
+      "XcvrId",
+      "StringMaxl16",
+      "NameString",
+      "XcvrSerdesRxAmplitude",
+      "StringMaxl254",
+      "XcvrType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "MibIdentifier",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "Counter64",
       "Unsigned32",
-      "Gauge32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cienaWsXcvrMIB": {
@@ -2210,8 +2210,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:19:58 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:24:49 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CIENA-WS-XCVR-MIB"

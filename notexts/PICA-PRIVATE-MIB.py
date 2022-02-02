@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PICA-PRIVATE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/picos/PICA-PRIVATE-MIB
-# Produced by pysmi-1.1.8 at Wed Feb  2 18:29:09 2022
-# On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Feb  2 19:34:32 2022
+# On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
 IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
 snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, Unsigned32, snmpModules, IpAddress, Gauge32, MibIdentifier, Counter64, TimeTicks, ObjectIdentity, enterprises, Bits, iso, mib_2, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "Unsigned32", "snmpModules", "IpAddress", "Gauge32", "MibIdentifier", "Counter64", "TimeTicks", "ObjectIdentity", "enterprises", "Bits", "iso", "mib-2", "Counter32")
-TestAndIncr, DisplayString, TextualConvention, TruthValue, AutonomousType, PhysAddress, TimeStamp, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TestAndIncr", "DisplayString", "TextualConvention", "TruthValue", "AutonomousType", "PhysAddress", "TimeStamp", "RowStatus")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, enterprises, Bits, mib_2, Unsigned32, IpAddress, NotificationType, iso, Gauge32, TimeTicks, Counter64, MibIdentifier, snmpModules, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "enterprises", "Bits", "mib-2", "Unsigned32", "IpAddress", "NotificationType", "iso", "Gauge32", "TimeTicks", "Counter64", "MibIdentifier", "snmpModules", "Counter32", "Integer32")
+DisplayString, TextualConvention, TimeStamp, RowStatus, TestAndIncr, AutonomousType, PhysAddress, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeStamp", "RowStatus", "TestAndIncr", "AutonomousType", "PhysAddress", "TruthValue")
 picaPrivateMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 35098))
 picaPrivateMib.setRevisions(('2011-04-28 00:00',))
 if mibBuilder.loadTexts: picaPrivateMib.setLastUpdated('201104280000Z')
@@ -98,4 +98,4 @@ picaCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 35098, 20, 2, 1)).setObject
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     picaCompliance = picaCompliance.setStatus('current')
-mibBuilder.exportSymbols("PICA-PRIVATE-MIB", serialNumber=serialNumber, totalPhyMemory=totalPhyMemory, picaCompliance=picaCompliance, sfpstatusTable=sfpstatusTable, sfpType=sfpType, switchConfigGroup=switchConfigGroup, cpuUsage=cpuUsage, tftpConfigFilePath=tftpConfigFilePath, sfpVoltage=sfpVoltage, picaCompliances=picaCompliances, sfpIndex=sfpIndex, picaGroups=picaGroups, sfpRxPower=sfpRxPower, picaConformance=picaConformance, sfpstatusEntry=sfpstatusEntry, rpsustatusTable=rpsustatusTable, picaBasicGroup=picaBasicGroup, picaConfigGroup=picaConfigGroup, PYSNMP_MODULE_ID=picaPrivateMib, picarpsuGroup=picarpsuGroup, usedPhyMemory=usedPhyMemory, sfpSerialNumber=sfpSerialNumber, rpsustatusEntry=rpsustatusEntry, sfpVendorName=sfpVendorName, hostStatusGroup=hostStatusGroup, rpsuStatus=rpsuStatus, switchChipTemperature=switchChipTemperature, rpsuIndex=rpsuIndex, rpsuPWM=rpsuPWM, picaPrivateMib=picaPrivateMib, rpsuTemprature=rpsuTemprature, sfpTemp=sfpTemp, switchPWM=switchPWM, tftpBatchFilePath=tftpBatchFilePath, sfpBias=sfpBias, rpsuFanSpeed=rpsuFanSpeed, freePhyMemory=freePhyMemory, switchTemperature=switchTemperature, picasfpGroup=picasfpGroup, sfpTxPower=sfpTxPower, cpuTemperature=cpuTemperature, switchFanSpeed=switchFanSpeed)
+mibBuilder.exportSymbols("PICA-PRIVATE-MIB", sfpType=sfpType, rpsustatusEntry=rpsustatusEntry, rpsustatusTable=rpsustatusTable, sfpIndex=sfpIndex, rpsuTemprature=rpsuTemprature, sfpBias=sfpBias, sfpSerialNumber=sfpSerialNumber, picaConfigGroup=picaConfigGroup, serialNumber=serialNumber, hostStatusGroup=hostStatusGroup, rpsuStatus=rpsuStatus, sfpstatusTable=sfpstatusTable, switchConfigGroup=switchConfigGroup, usedPhyMemory=usedPhyMemory, sfpVoltage=sfpVoltage, rpsuIndex=rpsuIndex, PYSNMP_MODULE_ID=picaPrivateMib, switchTemperature=switchTemperature, switchChipTemperature=switchChipTemperature, picarpsuGroup=picarpsuGroup, tftpBatchFilePath=tftpBatchFilePath, cpuUsage=cpuUsage, sfpTxPower=sfpTxPower, rpsuPWM=rpsuPWM, picaGroups=picaGroups, picaConformance=picaConformance, picaBasicGroup=picaBasicGroup, picasfpGroup=picasfpGroup, sfpRxPower=sfpRxPower, totalPhyMemory=totalPhyMemory, picaPrivateMib=picaPrivateMib, switchFanSpeed=switchFanSpeed, sfpstatusEntry=sfpstatusEntry, tftpConfigFilePath=tftpConfigFilePath, freePhyMemory=freePhyMemory, sfpVendorName=sfpVendorName, cpuTemperature=cpuTemperature, sfpTemp=sfpTemp, rpsuFanSpeed=rpsuFanSpeed, switchPWM=switchPWM, picaCompliances=picaCompliances, picaCompliance=picaCompliance)

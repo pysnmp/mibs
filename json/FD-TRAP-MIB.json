@@ -15,26 +15,26 @@
       "uniPortRstpState"
     ],
     "FD-PERFORMANCE-MIB": [
-      "swSniPortTrafficChangeVal",
       "oltTrafficChangeVal",
-      "onuTrafficChangeVal"
+      "onuTrafficChangeVal",
+      "swSniPortTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
-      "swPortLinkState",
-      "sfpPlugStauts"
+      "sfpPlugStauts",
+      "swPortLinkState"
     ],
     "FD-SYSTEM-MIB": [
-      "userPassword",
       "userEntryRowStatus",
-      "nonAuthOnuMac",
-      "loginTimeout",
-      "fanStatusBit",
       "powerStatusBit",
-      "userPermission",
       "ponCardRunningStatus",
+      "userId",
+      "fanStatusBit",
       "userAccessDeviceMap",
-      "userName",
-      "userId"
+      "userPermission",
+      "userPassword",
+      "loginTimeout",
+      "nonAuthOnuMac",
+      "userName"
     ],
     "RMON-MIB": [
       "alarmValue"
@@ -44,24 +44,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32",
       "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
+      "Counter64",
       "Bits",
-      "iso"
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eponTraps": {
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:19:43 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:24:33 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "FD-TRAP-MIB"

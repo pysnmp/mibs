@@ -6,50 +6,50 @@
     ],
     "Dell-BRIDGEMIBOBJECTS-MIB": [
       "VlanList2",
-      "VlanList4",
       "VlanList1",
-      "VlanList3"
+      "VlanList3",
+      "VlanList4"
     ],
     "Dell-MIB": [
-      "Percents",
+      "rnd",
       "VlanPriority",
-      "rnd"
+      "Percents"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "iso",
+      "Unsigned32",
       "Integer32",
       "zeroDotZero",
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
       "Counter32",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "RowPointer",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "InterfaceType": {
@@ -5401,8 +5401,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:22:01 2022",
-      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 19:27:06 2022",
+      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "Dell-POLICY-MIB"
