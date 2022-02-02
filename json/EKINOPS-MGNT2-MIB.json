@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "EKINOPS-MIB": [
-      "EkiApiState",
+      "EkiLoadState",
+      "EkiProtocol",
       "EkiState",
-      "EkiLoadGWSW",
+      "EkiSynchroMode",
+      "EkiLoadPermutMode",
       "EkiLoadPermutMethod",
+      "EkiLoadGWSW",
       "ekinops",
       "EkiOnOff",
-      "EkiProtocol",
-      "EkiLoadPermutMode",
-      "EkiSynchroMode",
-      "EkiLoadState"
+      "EkiApiState"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "IpAddress",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter32",
       "Counter64",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "mgnt2": {
@@ -4639,8 +4639,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MGNT2-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 17:57:09 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:22:51 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "EKINOPS-MGNT2-MIB"

@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "HUAWEI-L2VPN-MIB": [
-      "hwVplsVcNumberUpperThreshold",
       "hwVplsVcNumberMaxNum",
       "hwL2VpnVsiVcNumber",
-      "hwL2VpnVcLimitClass"
+      "hwL2VpnVcLimitClass",
+      "hwVplsVcNumberUpperThreshold"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifName",
       "InterfaceIndexOrZero",
+      "ifName",
       "InterfaceIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Unsigned32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DateAndTime",
-      "TruthValue"
+      "DisplayString"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -4958,8 +4958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VPLS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:00:08 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:25:15 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-VPLS-EXT-MIB"

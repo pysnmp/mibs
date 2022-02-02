@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "IEEE8021-CFM-MIB": [
       "Dot1agCfmMepIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
       "InetAddress",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressPrefixLength"
     ],
     "MPLS-LDP-MIB": [
       "MplsLabel"
@@ -33,78 +33,78 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
       "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Unsigned32",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DateAndTime",
-      "TimeStamp",
-      "RowStatus",
       "DisplayString",
-      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "RowStatus",
+      "TimeStamp"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
-      "timetraSRMIBModules",
+      "tmnxSRConfs",
       "tmnxSRObjs",
-      "tmnxSRConfs"
+      "tmnxSRNotifyPrefix",
+      "timetraSRMIBModules"
     ],
     "TIMETRA-SERV-MIB": [
-      "SdpId",
-      "SdpBindVcType"
+      "SdpBindVcType",
+      "SdpId"
     ],
     "TIMETRA-TC-MG-MIB": [
       "TmnxMobGwId"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxAdminState",
       "TNamedItem",
-      "TmnxVcIdOrNone",
       "TmnxTunnelType",
-      "TmnxTunnelID",
-      "TmnxBgpRouteTarget",
-      "TNamedItemOrEmpty",
-      "TmnxEncapVal",
-      "TmnxPwGlobalIdOrZero",
-      "TmnxEnabledDisabled",
-      "SdpBindId",
-      "TmnxPortID",
-      "TmnxBfdOnLspSessFecType",
-      "TDSCPNameOrEmpty",
-      "TPolicyStatementNameOrEmpty",
-      "TmnxLow32",
-      "TmnxServId",
-      "TmnxEnabledDisabledAdminState",
-      "TmnxSpokeSdpIdOrZero",
-      "TItemDescription",
-      "TmnxMplsTpGlobalID",
-      "TmnxHigh32",
       "TFCName",
       "TmnxStrSapId",
-      "TmnxMplsTpNodeID",
-      "IpAddressPrefixLength",
-      "TmnxIgpInstance",
-      "TmnxVcId",
-      "TmnxVRtrID",
-      "TLNamedItemOrEmpty",
       "TmnxVRtrIDOrZero",
+      "TLNamedItemOrEmpty",
+      "TmnxVcId",
+      "TProfile",
+      "IpAddressPrefixLength",
+      "TDSCPNameOrEmpty",
+      "TmnxBgpRouteTarget",
+      "TmnxEncapVal",
+      "TNamedItemOrEmpty",
       "TmnxVPNRouteDistinguisher",
-      "TProfile"
+      "TmnxMplsTpNodeID",
+      "TmnxHigh32",
+      "TmnxEnabledDisabledAdminState",
+      "SdpBindId",
+      "TmnxTunnelID",
+      "TmnxServId",
+      "TmnxPortID",
+      "TmnxVcIdOrNone",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxEnabledDisabled",
+      "TmnxSpokeSdpIdOrZero",
+      "TmnxVRtrID",
+      "TmnxIgpInstance",
+      "TmnxPwGlobalIdOrZero",
+      "TItemDescription",
+      "TmnxLow32",
+      "TmnxBfdOnLspSessFecType",
+      "TmnxAdminState",
+      "TmnxMplsTpGlobalID"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -27865,8 +27865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-OAM-TEST-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:05:06 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:28:48 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "TIMETRA-OAM-TEST-MIB"

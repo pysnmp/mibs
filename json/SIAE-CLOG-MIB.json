@@ -14,23 +14,23 @@
       "accessControlLoginIpAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Bits",
+      "iso",
       "Counter64",
       "OBJECT-TYPE",
-      "iso",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
@@ -288,8 +288,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-CLOG-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:07:13 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:30:35 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SIAE-CLOG-MIB"

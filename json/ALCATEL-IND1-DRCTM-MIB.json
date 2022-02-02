@@ -10,20 +10,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
       "Bits",
-      "Counter32",
       "Unsigned32",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "iso",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5375,8 +5375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DRCTM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 18:05:06 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:28:49 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DRCTM-MIB"

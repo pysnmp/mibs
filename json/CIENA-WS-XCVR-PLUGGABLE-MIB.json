@@ -5,47 +5,47 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "XcvrSerdesRxEmphasis",
-      "StringMaxl16",
       "XcvrSerdesRxAmplitude",
-      "Decimal2Dig",
-      "XcvrId",
-      "StringMaxl32",
       "ChannelsNumber",
-      "XcvrSerdesTxEq"
+      "XcvrSerdesTxEq",
+      "Decimal2Dig",
+      "XcvrSerdesRxEmphasis",
+      "StringMaxl32",
+      "StringMaxl16",
+      "XcvrId"
     ],
     "CIENA-WS-XCVR-MIB": [
+      "cwsXcvrChannelDiagnosticsEntry",
+      "cwsXcvrVendorIdEntry",
       "cwsXcvrVendorTransmitterEntry",
       "cwsXcvrDeviceIdEntry",
-      "cwsXcvrVendorIdEntry",
-      "cwsXcvrVendorDiagnosticMonitoringEntry",
-      "cwsXcvrChannelDiagnosticsEntry"
+      "cwsXcvrVendorDiagnosticMonitoringEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "Bits",
+      "iso",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter32",
       "IpAddress",
       "OBJECT-IDENTITY",
+      "Bits",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "iso",
-      "Counter64"
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsXcvrPluggableMIB": {
@@ -1366,8 +1366,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-PLUGGABLE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 17:53:52 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:19:58 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CIENA-WS-XCVR-PLUGGABLE-MIB"

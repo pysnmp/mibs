@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePort",
-      "ieee8021BridgeBasePortComponentId"
+      "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePort"
     ],
     "IEEE8021-Q-BRIDGE-MIB": [
-      "ieee8021QBridgePortVlanStatisticsEntry",
-      "ieee8021QBridgeTpFdbEntry"
+      "ieee8021QBridgeTpFdbEntry",
+      "ieee8021QBridgePortVlanStatisticsEntry"
     ],
     "IEEE8021-SPB-MIB": [
+      "ieee8021SpbmTopSrvTableEntry",
       "ieee8021SpbTopIx",
-      "IEEE8021SpbBridgePriority",
-      "ieee8021SpbmTopSrvTableEntry"
+      "IEEE8021SpbBridgePriority"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs"
@@ -22,31 +22,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "IpAddress",
       "Integer32",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ieee8021EcmpMib": {
@@ -489,8 +489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-ECMP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 17:51:11 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:17:35 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-ECMP-MIB"

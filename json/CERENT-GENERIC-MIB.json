@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
+      "cerentGeneric",
       "cerentModules",
-      "cerentRequirements",
-      "cerentGeneric"
+      "cerentRequirements"
     ],
     "CERENT-TC": [
-      "CerentLocation",
+      "CerentAlarmSeverity",
+      "CerentPeriod",
       "CerentMonitorType",
       "CerentPortNumber",
-      "CerentPeriod",
-      "CerentAlarmServiceAffecting",
-      "CerentAlarmSeverity",
+      "CerentNotificationClass",
       "CerentAlarmStatus",
-      "CerentNotificationClass"
+      "CerentLocation",
+      "CerentAlarmServiceAffecting"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
       "TimeTicks",
-      "Bits"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "cerentGenericMibModule": {
@@ -53462,8 +53462,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-GENERIC-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 17:56:33 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:22:30 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CERENT-GENERIC-MIB"

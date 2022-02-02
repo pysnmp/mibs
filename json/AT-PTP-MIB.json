@@ -8,31 +8,31 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
+      "MibIdentifier",
       "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
       "Counter32",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atPtpMIB": {
@@ -2856,8 +2856,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-PTP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 17:52:09 2022",
-      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:18:32 2022",
+      "On host fv-az83-345 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "AT-PTP-MIB"
