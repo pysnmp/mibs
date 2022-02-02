@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-RESOURCES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-RESOURCES-MIB
-# Produced by pysmi-1.1.8 at Tue Feb  1 21:13:50 2022
-# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Feb  2 18:08:18 2022
+# On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, MibIdentifier, Gauge32, Counter32, ObjectIdentity, IpAddress, iso, TimeTicks, Bits, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "MibIdentifier", "Gauge32", "Counter32", "ObjectIdentity", "IpAddress", "iso", "TimeTicks", "Bits", "NotificationType", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Integer32, iso, Bits, IpAddress, Counter32, Gauge32, ObjectIdentity, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Integer32", "iso", "Bits", "IpAddress", "Counter32", "Gauge32", "ObjectIdentity", "Counter64", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwResources, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwResources")
 VmwSubsystemStatus, = mibBuilder.importSymbols("VMWARE-TC-MIB", "VmwSubsystemStatus")
 vmwResourcesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 3, 10))
@@ -59,4 +59,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 vmwResourceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 3, 10, 2, 2, 1)).setObjects(("VMWARE-RESOURCES-MIB", "vmwNumCPUs"), ("VMWARE-RESOURCES-MIB", "vmwMemSize"), ("VMWARE-RESOURCES-MIB", "vmwMemCOS"), ("VMWARE-RESOURCES-MIB", "vmwMemAvail"), ("VMWARE-RESOURCES-MIB", "vmwHostBusAdapterNumber"), ("VMWARE-RESOURCES-MIB", "vmwHbaDeviceName"), ("VMWARE-RESOURCES-MIB", "vmwHbaBusNumber"), ("VMWARE-RESOURCES-MIB", "vmwHbaStatus"), ("VMWARE-RESOURCES-MIB", "vmwHbaModelName"), ("VMWARE-RESOURCES-MIB", "vmwHbaDriverName"), ("VMWARE-RESOURCES-MIB", "vmwHbaPci"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwResourceGroup = vmwResourceGroup.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-RESOURCES-MIB", vmwHbaDeviceName=vmwHbaDeviceName, PYSNMP_MODULE_ID=vmwResourcesMIB, vmwHostBusAdapterTable=vmwHostBusAdapterTable, vmwHbaStatus=vmwHbaStatus, vmwHbaDriverName=vmwHbaDriverName, vmwMemory=vmwMemory, vmwHbaPci=vmwHbaPci, vmwResourceMIBCompliance=vmwResourceMIBCompliance, vmwResourceMIBConformance=vmwResourceMIBConformance, vmwHostBusAdapterNumber=vmwHostBusAdapterNumber, vmwMemAvail=vmwMemAvail, vmwHbaBusNumber=vmwHbaBusNumber, vmwStorage=vmwStorage, vmwHostBusAdapterIndex=vmwHostBusAdapterIndex, vmwCPU=vmwCPU, vmwMemCOS=vmwMemCOS, vmwResourceMIBCompliances=vmwResourceMIBCompliances, vmwHostBusAdapterEntry=vmwHostBusAdapterEntry, vmwResMIBGroups=vmwResMIBGroups, vmwMemSize=vmwMemSize, vmwResourcesMIB=vmwResourcesMIB, vmwResourceGroup=vmwResourceGroup, vmwNumCPUs=vmwNumCPUs, vmwHbaModelName=vmwHbaModelName)
+mibBuilder.exportSymbols("VMWARE-RESOURCES-MIB", vmwHostBusAdapterTable=vmwHostBusAdapterTable, vmwHostBusAdapterEntry=vmwHostBusAdapterEntry, vmwResourceMIBCompliance=vmwResourceMIBCompliance, vmwResourceGroup=vmwResourceGroup, vmwNumCPUs=vmwNumCPUs, vmwCPU=vmwCPU, vmwStorage=vmwStorage, vmwResourcesMIB=vmwResourcesMIB, vmwResMIBGroups=vmwResMIBGroups, vmwResourceMIBConformance=vmwResourceMIBConformance, vmwHbaModelName=vmwHbaModelName, PYSNMP_MODULE_ID=vmwResourcesMIB, vmwMemCOS=vmwMemCOS, vmwHbaDriverName=vmwHbaDriverName, vmwMemAvail=vmwMemAvail, vmwHostBusAdapterIndex=vmwHostBusAdapterIndex, vmwHbaBusNumber=vmwHbaBusNumber, vmwHostBusAdapterNumber=vmwHostBusAdapterNumber, vmwHbaStatus=vmwHbaStatus, vmwMemory=vmwMemory, vmwHbaPci=vmwHbaPci, vmwResourceMIBCompliances=vmwResourceMIBCompliances, vmwHbaDeviceName=vmwHbaDeviceName, vmwMemSize=vmwMemSize)

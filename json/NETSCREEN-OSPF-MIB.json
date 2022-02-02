@@ -5,32 +5,32 @@
       "netscreenVR"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "mib-2",
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "mib-2",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nsOspf": {
@@ -2506,8 +2506,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-OSPF-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:12:34 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:07:05 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "NETSCREEN-OSPF-MIB"

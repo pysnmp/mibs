@@ -18,9 +18,9 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -33,37 +33,37 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-GROUP",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Unsigned32",
       "iso",
+      "NOTIFICATION-GROUP",
+      "OBJECT-TYPE",
       "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
       "Gauge32",
+      "Unsigned32",
       "Counter64",
-      "mib-2"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeStamp",
       "RowStatus",
+      "MacAddress",
       "StorageType",
-      "TimeInterval"
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:05:20 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:00:06 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "NQA-MIB"

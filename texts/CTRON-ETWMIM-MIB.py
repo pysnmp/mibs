@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-ETWMIM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ETWMIM-MIB
-# Produced by pysmi-1.1.8 at Tue Feb  1 21:02:43 2022
-# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Feb  2 17:57:34 2022
+# On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 ctPModuleETWMIM, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPModuleETWMIM")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, IpAddress, iso, ObjectIdentity, Counter32, Gauge32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, TimeTicks, MibIdentifier, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "iso", "ObjectIdentity", "Counter32", "Gauge32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "TimeTicks", "MibIdentifier", "Bits")
+Integer32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, Unsigned32, MibIdentifier, TimeTicks, ObjectIdentity, iso, ModuleIdentity, Counter64, NotificationType, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "Unsigned32", "MibIdentifier", "TimeTicks", "ObjectIdentity", "iso", "ModuleIdentity", "Counter64", "NotificationType", "IpAddress")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 etwDbExist = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("exists", 1), ("no-exists", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: etwDbExist.setStatus('mandatory')
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: etwEpimLink.setDescription('This object will indicate w
 etwClearNvramOnBoot = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 4, 1, 9), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: etwClearNvramOnBoot.setStatus('mandatory')
 if mibBuilder.loadTexts: etwClearNvramOnBoot.setDescription('When set to a 1, the system will clear all persistant\n                         objects, except for the download objects,  from nvram \n                         on the next system boot')
-mibBuilder.exportSymbols("CTRON-ETWMIM-MIB", etwEpimLink=etwEpimLink, etwDbExist=etwDbExist, etwEpimEnabled=etwEpimEnabled, etwEpimType=etwEpimType, etwDbEnabled=etwDbEnabled, etwDbFracToggle=etwDbFracToggle, etwClearNvramOnBoot=etwClearNvramOnBoot, etwFWRev=etwFWRev, etwHWRev=etwHWRev)
+mibBuilder.exportSymbols("CTRON-ETWMIM-MIB", etwHWRev=etwHWRev, etwDbExist=etwDbExist, etwEpimEnabled=etwEpimEnabled, etwDbEnabled=etwDbEnabled, etwClearNvramOnBoot=etwClearNvramOnBoot, etwDbFracToggle=etwDbFracToggle, etwEpimType=etwEpimType, etwEpimLink=etwEpimLink, etwFWRev=etwFWRev)

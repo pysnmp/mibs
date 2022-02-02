@@ -8,12 +8,12 @@
       "DscpOrAny"
     ],
     "DOCS-IF3-MIB": [
-      "ChId",
-      "ChSetId",
-      "ChannelList",
-      "AttrAggrRuleMask",
       "AttributeMask",
-      "Dsid"
+      "ChId",
+      "AttrAggrRuleMask",
+      "ChannelList",
+      "Dsid",
+      "ChSetId"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
@@ -23,42 +23,42 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
+      "InetPortNumber",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
       "Counter64",
       "iso",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "MacAddress",
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "StorageType",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 20:56:31 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:51:29 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DOCS-QOS3-MIB"

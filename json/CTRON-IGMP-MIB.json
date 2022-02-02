@@ -11,34 +11,34 @@
       "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
       "Integer32",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
       "iso",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
       "OBJECT-TYPE",
+      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
-      "Counter32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ctIGMP": {
@@ -1571,8 +1571,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-IGMP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:02:47 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:57:39 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CTRON-IGMP-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-SFPS-TAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-TAP-MIB
-# Produced by pysmi-1.1.8 at Tue Feb  1 21:02:38 2022
-# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Feb  2 17:57:30 2022
+# On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-sfpsTapStats, sfpsCallTap, sfpsTap = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsTapStats", "sfpsCallTap", "sfpsTap")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, ObjectIdentity, NotificationType, iso, Counter32, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, Gauge32, Bits, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "NotificationType", "iso", "Counter32", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "Gauge32", "Bits", "MibIdentifier", "Integer32")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+sfpsTapStats, sfpsTap, sfpsCallTap = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsTapStats", "sfpsTap", "sfpsCallTap")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, Counter64, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, ModuleIdentity, TimeTicks, ObjectIdentity, Integer32, Unsigned32, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "Integer32", "Unsigned32", "iso", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 sfpsCallTapVerb = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 1, 11, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("call-tap", 2), ("call-untap", 3), ("vlan-tap", 4), ("vlan-untap", 5)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: sfpsCallTapVerb.setStatus('mandatory')
@@ -66,4 +66,4 @@ sfpsTapStatsErrorCnt = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 1, 13, 5), I
 if mibBuilder.loadTexts: sfpsTapStatsErrorCnt.setStatus('mandatory')
 sfpsTapStatsStaleEntCnt = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 1, 13, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sfpsTapStatsStaleEntCnt.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-SFPS-TAP-MIB", sfpsCallTapArgDirection=sfpsCallTapArgDirection, sfpsTapSwitchStatus=sfpsTapSwitchStatus, sfpsTapResponseStatus=sfpsTapResponseStatus, sfpsTapDirection=sfpsTapDirection, sfpsTapSwitchType=sfpsTapSwitchType, sfpsCallTapProbePort=sfpsCallTapProbePort, sfpsTapStatsUntapRespCnt=sfpsTapStatsUntapRespCnt, sfpsCallTapVerb=sfpsCallTapVerb, sfpsCallTapHeaderValue=sfpsCallTapHeaderValue, sfpsTapEntry=sfpsTapEntry, sfpsTapStatsStaleEntCnt=sfpsTapStatsStaleEntCnt, sfpsTapTable=sfpsTapTable, sfpsTapStatsUntapReqCnt=sfpsTapStatsUntapReqCnt, sfpsCallTapProbeSwitch=sfpsCallTapProbeSwitch, sfpsTapDirectRouteMAC=sfpsTapDirectRouteMAC, sfpsTapStatsTapRespCnt=sfpsTapStatsTapRespCnt, sfpsTapRetries=sfpsTapRetries, sfpsTapProbeSwitchMac=sfpsTapProbeSwitchMac, sfpsCallTapHeaderType=sfpsCallTapHeaderType, sfpsTapStatsErrorCnt=sfpsTapStatsErrorCnt, sfpsTapStatsTapReqCnt=sfpsTapStatsTapReqCnt, sfpsCallTapHeaderLength=sfpsCallTapHeaderLength, sfpsTapHeaderDASA=sfpsTapHeaderDASA, sfpsTapSwitchState=sfpsTapSwitchState, sfpsTapProbePort=sfpsTapProbePort, sfpsTapRSPPort=sfpsTapRSPPort, sfpsTapRQPort=sfpsTapRQPort)
+mibBuilder.exportSymbols("CTRON-SFPS-TAP-MIB", sfpsTapHeaderDASA=sfpsTapHeaderDASA, sfpsCallTapHeaderLength=sfpsCallTapHeaderLength, sfpsTapStatsTapRespCnt=sfpsTapStatsTapRespCnt, sfpsCallTapProbePort=sfpsCallTapProbePort, sfpsCallTapHeaderType=sfpsCallTapHeaderType, sfpsTapSwitchState=sfpsTapSwitchState, sfpsCallTapHeaderValue=sfpsCallTapHeaderValue, sfpsTapDirection=sfpsTapDirection, sfpsTapSwitchStatus=sfpsTapSwitchStatus, sfpsTapSwitchType=sfpsTapSwitchType, sfpsTapProbePort=sfpsTapProbePort, sfpsTapStatsUntapRespCnt=sfpsTapStatsUntapRespCnt, sfpsTapRQPort=sfpsTapRQPort, sfpsTapStatsErrorCnt=sfpsTapStatsErrorCnt, sfpsTapTable=sfpsTapTable, sfpsTapEntry=sfpsTapEntry, sfpsCallTapArgDirection=sfpsCallTapArgDirection, sfpsTapRSPPort=sfpsTapRSPPort, sfpsCallTapProbeSwitch=sfpsCallTapProbeSwitch, sfpsTapProbeSwitchMac=sfpsTapProbeSwitchMac, sfpsTapStatsUntapReqCnt=sfpsTapStatsUntapReqCnt, sfpsTapStatsStaleEntCnt=sfpsTapStatsStaleEntCnt, sfpsTapDirectRouteMAC=sfpsTapDirectRouteMAC, sfpsTapRetries=sfpsTapRetries, sfpsTapResponseStatus=sfpsTapResponseStatus, sfpsTapStatsTapReqCnt=sfpsTapStatsTapReqCnt, sfpsCallTapVerb=sfpsCallTapVerb)

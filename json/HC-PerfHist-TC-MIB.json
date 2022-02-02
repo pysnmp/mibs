@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
       "Integer32",
-      "IpAddress",
       "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
       "Bits",
       "Counter32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "mib-2",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hcPerfHistTCMIB": {
@@ -136,8 +136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HC-PerfHist-TC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 20:56:46 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:51:44 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HC-PerfHist-TC-MIB"

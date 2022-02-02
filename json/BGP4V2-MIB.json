@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
+      "Bgp4V2AddressFamilyIdentifierTC",
       "Bgp4V2IdentifierTC",
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
-      "Bgp4V2AddressFamilyIdentifierTC"
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAutonomousSystemNumber",
       "InetAddress",
+      "InetAutonomousSystemNumber",
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
       "Gauge32",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
       "mib-2",
-      "Integer32"
+      "MibIdentifier",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "DisplayString",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "RowPointer",
+      "TimeStamp"
     ]
   },
   "bgp4V2": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:03:08 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:57:59 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "BGP4V2-MIB"

@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INTEGRATED-SERVICES-MIB": [
-      "intSrvFlowStatus",
       "BurstSize",
       "MessageSize",
+      "intSrvFlowStatus",
       "Port",
       "Protocol",
-      "QosService",
+      "BitRate",
       "SessionType",
-      "SessionNumber",
-      "BitRate"
+      "QosService",
+      "SessionNumber"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
       "Bits",
-      "MODULE-IDENTITY",
-      "mib-2",
+      "IpAddress",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "mib-2",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
+      "TimeInterval",
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
       "RowStatus",
-      "TimeInterval"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsvp": {
@@ -2976,8 +2976,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RSVP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 20:56:32 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:51:30 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "RSVP-MIB"

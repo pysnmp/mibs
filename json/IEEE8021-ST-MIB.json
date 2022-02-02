@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBaseComponentId",
-      "ieee8021BridgeBasePort"
+      "ieee8021BridgeBasePort",
+      "ieee8021BridgeBaseComponentId"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs"
@@ -14,25 +14,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "Bits",
       "Gauge32",
       "MibIdentifier",
       "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
       "TimeTicks",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Counter64"
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ieee8021STMib": {
@@ -632,8 +632,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-ST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 20:56:13 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:51:11 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-ST-MIB"

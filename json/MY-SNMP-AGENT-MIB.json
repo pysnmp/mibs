@@ -5,38 +5,38 @@
       "myMgmt"
     ],
     "MY-TC": [
-      "MyTrapType",
-      "ConfigStatus"
+      "ConfigStatus",
+      "MyTrapType"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
+      "Gauge32",
       "Counter32",
       "Integer32",
+      "Bits",
       "Counter64",
-      "Gauge32",
-      "TimeTicks"
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "mySnmpAgentMIB": {
@@ -445,8 +445,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-SNMP-AGENT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:12:25 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:06:55 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "MY-SNMP-AGENT-MIB"

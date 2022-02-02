@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.8 at Tue Feb  1 21:13:03 2022
-# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Feb  2 18:07:33 2022
+# On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, Integer32, IpAddress, NotificationType, ObjectIdentity, Counter32, MibIdentifier, Bits, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "Integer32", "IpAddress", "NotificationType", "ObjectIdentity", "Counter32", "MibIdentifier", "Bits", "TimeTicks", "ModuleIdentity")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, MibIdentifier, NotificationType, Unsigned32, TimeTicks, Bits, iso, ObjectIdentity, IpAddress, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "NotificationType", "Unsigned32", "TimeTicks", "Bits", "iso", "ObjectIdentity", "IpAddress", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Gauge32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: snsClone.setDescription("Firewall licence 'clone' token
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
 if mibBuilder.loadTexts: snsHADialup.setDescription("Firewall licence 'HA-dialup' token")
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsClone=snsClone, snsNbEther=snsNbEther, snsProductProperty=snsProductProperty, snsSystemName=snsSystemName, snsNbLoopback=snsNbLoopback, snsNbDialup=snsNbDialup, snsModel=snsModel, snsHADialup=snsHADialup, snsNbVlan=snsNbVlan, snsSerialNumber=snsSerialNumber, snsSystemLanguage=snsSystemLanguage, snsWatchdog=snsWatchdog, PYSNMP_MODULE_ID=snsProductProperty, snsNbPPTP=snsNbPPTP, snsNbSerial=snsNbSerial, snsLed=snsLed, snsVersion=snsVersion)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbLoopback=snsNbLoopback, snsClone=snsClone, snsProductProperty=snsProductProperty, snsSystemName=snsSystemName, snsVersion=snsVersion, snsSerialNumber=snsSerialNumber, snsNbEther=snsNbEther, snsNbSerial=snsNbSerial, snsSystemLanguage=snsSystemLanguage, snsNbVlan=snsNbVlan, snsNbPPTP=snsNbPPTP, snsLed=snsLed, snsHADialup=snsHADialup, PYSNMP_MODULE_ID=snsProductProperty, snsNbDialup=snsNbDialup, snsWatchdog=snsWatchdog, snsModel=snsModel)

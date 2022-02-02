@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "ADVA-FSPR7-MIB": [
-      "entityEqptShelfNo",
-      "entityEqptSlotNo",
-      "entityFacilityPortNo",
-      "entityEqptClassName",
       "entityFacilityShelfNo",
-      "entityEqptExtNo",
+      "entityEqptShelfNo",
       "entityFacilitySlotNo",
-      "entityFacilityExtNo",
+      "entityEqptSlotNo",
+      "entityEqptClassName",
       "entityFacilityClassName",
+      "entityFacilityPortNo",
+      "entityFacilityExtNo",
+      "entityEqptExtNo",
       "entityEqptPortNo"
     ],
     "ADVA-FSPR7-TC-MIB": [
       "FspR7RlsAction",
+      "FspR7RlsActionCaps",
       "FspR7RequestErrorType",
-      "FspR7RequestErrorTypeAes",
-      "FspR7Unsigned32Caps",
       "FspR7SnmpHexString",
-      "FspR7RlsActionCaps"
+      "FspR7RequestErrorTypeAes",
+      "FspR7Unsigned32Caps"
     ],
     "ADVA-MIB": [
+      "EntityIndex",
       "entityIndex",
-      "fspR7",
-      "EntityIndex"
+      "fspR7"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Counter32",
       "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Bits"
+      "Integer32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "moduleEncryptionMIB": {
@@ -2700,8 +2700,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 20:57:14 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:52:11 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ADVA-FSPR7-MODULE-ENCRYPTION-MIB"

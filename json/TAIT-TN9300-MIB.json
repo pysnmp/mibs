@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -11,51 +11,51 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "IpAddress",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "DateAndTime",
       "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ],
     "TAIT-COMMON-MIB": [
-      "taitProducts",
-      "taitModules"
+      "taitModules",
+      "taitProducts"
     ],
     "TAIT-TN9300-TC": [
-      "ChannelState",
-      "SipLineIncomingType",
-      "UnitStatusMessageId",
-      "LicenseValidity",
-      "DipLineState",
-      "SipLineRegistrationType",
-      "NodeState",
-      "EventSeverity",
-      "RemoteNodeSyncState",
-      "RemoteNodeState",
-      "SipLineState",
-      "Mpt1327ChannelState",
-      "SipCallSpeechVotingPriority",
-      "NgwLinkState",
       "NodeRequestedState",
+      "NodeState",
+      "SipLineState",
+      "LicenseValidity",
       "UnitAuthentication",
+      "EventSeverity",
+      "UnitStatusMessageId",
+      "DipLineState",
+      "NetworkCheckState",
+      "ChannelState",
+      "SipLineRegistrationType",
+      "RemoteNodeSyncState",
       "Mpt1327LinkState",
-      "NetworkCheckState"
+      "SipCallSpeechVotingPriority",
+      "RemoteNodeState",
+      "NgwLinkState",
+      "Mpt1327ChannelState",
+      "SipLineIncomingType"
     ]
   },
   "tn9300MibModule": {
@@ -5258,8 +5258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:13:09 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:07:39 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "TAIT-TN9300-MIB"

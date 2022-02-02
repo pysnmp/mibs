@@ -1,0 +1,532 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "VERITAS-REG": [
+      "products"
+    ],
+    "VERITAS-TC": [
+      "Uint64ReadOnly",
+      "Utf8StringShort",
+      "Utf8StringLong"
+    ]
+  },
+  "veritascc": {
+    "name": "veritascc",
+    "oid": "1.3.6.1.4.1.1302.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1902-10-24 16:30",
+        "description": "Conversion of CC MIB to SMI v2."
+      },
+      {
+        "revision": "1904-01-08 21:30",
+        "description": "Fixed a few errors found with very strict compiler."
+      }
+    ]
+  },
+  "ccTrapDefinitionsBranch": {
+    "name": "ccTrapDefinitionsBranch",
+    "oid": "1.3.6.1.4.1.1302.3.12.10",
+    "class": "objectidentity"
+  },
+  "ccTrapVarsGroup": {
+    "name": "ccTrapVarsGroup",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.100",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertRecipients"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertSummary"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertDescription"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "policyName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "objectType"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "collectorName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccHost"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sourceId"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccObject"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sampleData"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertSeverity"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccTrapVarsBranch": {
+    "name": "ccTrapVarsBranch",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alertRecipients": {
+    "name": "alertRecipients",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertSummary": {
+    "name": "alertSummary",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertDescription": {
+    "name": "alertDescription",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringLong",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "policyName": {
+    "name": "policyName",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "objectType": {
+    "name": "objectType",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "collectorName": {
+    "name": "collectorName",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccHost": {
+    "name": "ccHost",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sourceId": {
+    "name": "sourceId",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccObject": {
+    "name": "ccObject",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sampleData": {
+    "name": "sampleData",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccAlertSeverity": {
+    "name": "ccAlertSeverity",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccAlertTime": {
+    "name": "ccAlertTime",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8StringShort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccTrapGroup": {
+    "name": "ccTrapGroup",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.200",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccCritical"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccError"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccWarning"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccInformational"
+      }
+    ],
+    "status": "current"
+  },
+  "ccTrapBranch": {
+    "name": "ccTrapBranch",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.2",
+    "class": "objectidentity"
+  },
+  "ccTrapBranchPrefix": {
+    "name": "ccTrapBranchPrefix",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ccCritical": {
+    "name": "ccCritical",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertRecipients"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertSummary"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertDescription"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "policyName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "objectType"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "collectorName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccHost"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sourceId"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccObject"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sampleData"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertSeverity"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccError": {
+    "name": "ccError",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertRecipients"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertSummary"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertDescription"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "policyName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "objectType"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "collectorName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccHost"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sourceId"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccObject"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sampleData"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertSeverity"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccWarning": {
+    "name": "ccWarning",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertRecipients"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertSummary"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertDescription"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "policyName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "objectType"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "collectorName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccHost"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sourceId"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccObject"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sampleData"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertSeverity"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "ccInformational": {
+    "name": "ccInformational",
+    "oid": "1.3.6.1.4.1.1302.3.12.10.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertRecipients"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertSummary"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "alertDescription"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "policyName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "objectType"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "collectorName"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccHost"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sourceId"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccObject"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "sampleData"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertSeverity"
+      },
+      {
+        "module": "VERITAS-COMMAND-CENTRAL-MIB",
+        "object": "ccAlertTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-COMMAND-CENTRAL-MIB.mib",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:08:09 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+    ],
+    "module": "VERITAS-COMMAND-CENTRAL-MIB"
+  }
+}

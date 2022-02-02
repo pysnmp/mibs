@@ -5,32 +5,32 @@
       "benuWAG"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4",
-      "InetAddress",
       "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
-      "Counter64",
+      "Bits",
+      "iso",
       "MibIdentifier",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "mib-2",
       "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "mib-2",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1582,8 +1582,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-IPPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 20:58:00 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:52:56 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "BENU-IPPOOL-MIB"

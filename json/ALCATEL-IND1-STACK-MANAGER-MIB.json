@@ -13,25 +13,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "Gauge32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
       "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "iso",
-      "MODULE-IDENTITY"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "alcatelIND1StackMgrMIB": {
@@ -1076,8 +1076,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-STACK-MANAGER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:10:30 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:05:06 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-STACK-MANAGER-MIB"

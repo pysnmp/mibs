@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
       "Bits",
+      "IpAddress",
       "Counter32",
-      "TimeTicks"
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -875,8 +875,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:14:07 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:08:36 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "UBQS-SYSTEM-MIB"

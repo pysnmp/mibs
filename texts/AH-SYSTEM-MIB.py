@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AH-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Tue Feb  1 20:56:51 2022
-# On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Feb  2 17:51:49 2022
+# On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
 ahProduct, = mibBuilder.importSymbols("AH-SMI-MIB", "ahProduct")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, Counter32, Unsigned32, ObjectIdentity, Integer32, MibIdentifier, Gauge32, ModuleIdentity, NotificationType, IpAddress, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "Counter32", "Unsigned32", "ObjectIdentity", "Integer32", "MibIdentifier", "Gauge32", "ModuleIdentity", "NotificationType", "IpAddress", "Bits", "Counter64")
+Gauge32, MibIdentifier, IpAddress, Integer32, ObjectIdentity, NotificationType, Bits, iso, TimeTicks, Counter32, Counter64, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "IpAddress", "Integer32", "ObjectIdentity", "NotificationType", "Bits", "iso", "TimeTicks", "Counter32", "Counter64", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ahSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928, 1, 2))
 if mibBuilder.loadTexts: ahSystem.setLastUpdated('201608310000Z')
@@ -53,4 +53,4 @@ if mibBuilder.loadTexts: ahEnvirmentFan.setDescription('aerohive envirment fan s
 ahFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ahFirmwareVersion.setStatus('current')
 if mibBuilder.loadTexts: ahFirmwareVersion.setDescription('aerohive platform fireware version')
-mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahSystem=ahSystem, PYSNMP_MODULE_ID=ahSystem, ahEnvirmentFan=ahEnvirmentFan, ahCpuUtilization=ahCpuUtilization, ahClientCount=ahClientCount, ahEnvirmentTemp=ahEnvirmentTemp, ahFirmwareVersion=ahFirmwareVersion, ahSystemDescription=ahSystemDescription, ahHwVersion=ahHwVersion, ahSystemSerial=ahSystemSerial, ahSystemName=ahSystemName, ahUpTime=ahUpTime, ahMemUtilization=ahMemUtilization, ahDeviceMode=ahDeviceMode)
+mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahSystem=ahSystem, ahSystemSerial=ahSystemSerial, ahClientCount=ahClientCount, ahUpTime=ahUpTime, ahSystemName=ahSystemName, ahHwVersion=ahHwVersion, ahMemUtilization=ahMemUtilization, ahEnvirmentFan=ahEnvirmentFan, ahSystemDescription=ahSystemDescription, PYSNMP_MODULE_ID=ahSystem, ahCpuUtilization=ahCpuUtilization, ahEnvirmentTemp=ahEnvirmentTemp, ahDeviceMode=ahDeviceMode, ahFirmwareVersion=ahFirmwareVersion)

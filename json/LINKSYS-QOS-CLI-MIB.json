@@ -5,43 +5,43 @@
       "InterfaceIndex"
     ],
     "LINKSYS-MIB": [
-      "rnd",
-      "Percents"
+      "Percents",
+      "rnd"
     ],
     "LINKSYS-POLICY-MIB": [
       "StatisticsClearActionType",
       "StatisticsDPType"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
+      "iso",
+      "Bits",
       "Gauge32",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlQosCliMib": {
@@ -5107,8 +5107,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-QOS-CLI-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:08:46 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 18:03:27 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-QOS-CLI-MIB"

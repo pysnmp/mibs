@@ -17,31 +17,31 @@
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "Counter32",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
       "iso",
+      "BITS",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
       "MibIdentifier",
-      "IpAddress",
       "Gauge32",
       "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "BITS",
+      "Unsigned32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleV2QoS": {
@@ -13931,8 +13931,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  1 21:00:39 2022",
-      "On host fv-az121-510 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Feb  2 17:55:39 2022",
+      "On host fv-az121-846 platform Linux version 5.11.0-1027-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SLEV2-QOS-MIB"
