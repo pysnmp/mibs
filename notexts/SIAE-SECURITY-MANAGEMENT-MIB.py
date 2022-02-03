@@ -1,8 +1,8 @@
 #
 # PySNMP MIB module SIAE-SECURITY-MANAGEMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SECURITY-MANAGEMENT-MIB
-# Produced by pysmi-1.1.8 at Wed Feb  2 19:35:56 2022
-# On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Feb  3 21:14:02 2022
+# On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
@@ -10,7 +10,7 @@ NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, iso, TimeTicks, Integer32, NotificationType, Counter32, Unsigned32, ModuleIdentity, ObjectIdentity, Bits, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "TimeTicks", "Integer32", "NotificationType", "Counter32", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Bits", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
+Unsigned32, Gauge32, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, iso, Bits, Counter32, MibIdentifier, Counter64, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "iso", "Bits", "Counter32", "MibIdentifier", "Counter64", "ObjectIdentity", "NotificationType")
 DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 securityManagement = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 82))
 securityManagement.setRevisions(('2014-04-17 00:00',))
@@ -34,4 +34,4 @@ serviceOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 5), 
 if mibBuilder.loadTexts: serviceOperStatus.setStatus('current')
 serviceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: serviceRowStatus.setStatus('current')
-mibBuilder.exportSymbols("SIAE-SECURITY-MANAGEMENT-MIB", PYSNMP_MODULE_ID=securityManagement, serviceOperStatus=serviceOperStatus, serviceAdminStatus=serviceAdminStatus, servicesTable=servicesTable, serviceName=serviceName, serviceProtocolVersion=serviceProtocolVersion, securityManagement=securityManagement, serviceEntry=serviceEntry, serviceRowStatus=serviceRowStatus, securityManagementMibVersion=securityManagementMibVersion, serviceIndex=serviceIndex)
+mibBuilder.exportSymbols("SIAE-SECURITY-MANAGEMENT-MIB", serviceOperStatus=serviceOperStatus, serviceEntry=serviceEntry, serviceName=serviceName, serviceRowStatus=serviceRowStatus, servicesTable=servicesTable, serviceIndex=serviceIndex, securityManagement=securityManagement, serviceProtocolVersion=serviceProtocolVersion, PYSNMP_MODULE_ID=securityManagement, securityManagementMibVersion=securityManagementMibVersion, serviceAdminStatus=serviceAdminStatus)

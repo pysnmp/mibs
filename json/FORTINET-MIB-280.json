@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "IpAddress",
       "Integer32",
       "iso",
-      "TimeTicks",
-      "Unsigned32",
-      "enterprises",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY"
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1164,8 +1164,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-MIB-280",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:28:44 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:05:11 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "FORTINET-MIB-280"

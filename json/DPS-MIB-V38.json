@@ -13,26 +13,26 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "Counter32",
       "enterprises",
-      "MibIdentifier"
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dpsInc": {
@@ -1730,8 +1730,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-MIB-V38",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:27:24 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:32 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DPS-MIB-V38"

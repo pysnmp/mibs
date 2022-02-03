@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetAddressIPv6"
     ],
     "LINKSYS-MIB": [
       "rlRadius",
-      "rnd",
-      "rlAAAEap"
+      "rlAAAEap",
+      "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
       "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
       "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "Integer32",
-      "iso"
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus",
       "TruthValue",
       "DisplayString",
       "DateAndTime",
-      "RowStatus",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlAAA": {
@@ -4705,8 +4705,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-AAA",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:32:37 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:09:53 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-AAA"

@@ -9,30 +9,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "iso",
       "MODULE-IDENTITY",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "Unsigned32",
       "Bits",
-      "Gauge32"
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisDeviceWdsMIB": {
@@ -1953,8 +1953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-WDS-MIB.my",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:29:38 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:06:16 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "COLUBRIS-DEVICE-WDS-MIB"

@@ -5,30 +5,30 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
+      "Unsigned32",
+      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
-      "Bits"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "rlSsl": {
@@ -681,8 +681,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-SSL",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:27:06 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:11 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "Dell-SSL"

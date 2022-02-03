@@ -14,35 +14,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "BITS",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "mib-2",
+      "MODULE-IDENTITY",
+      "Counter64",
       "Counter32",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "BITS",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "mib-2"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "AutonomousType",
       "TestAndIncr",
       "TimeStamp",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "AutonomousType"
     ]
   },
   "dasanAccessMib": {
@@ -1770,8 +1770,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ACCESS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:26:25 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:02:20 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DASAN-ACCESS-MIB"

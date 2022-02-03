@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "enterprises",
       "TimeTicks",
+      "MibIdentifier",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gamatronicLTD": {
@@ -12128,8 +12128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gamatronic/GAMATRONIC-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:28:51 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:05:18 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "GAMATRONIC-MIB"

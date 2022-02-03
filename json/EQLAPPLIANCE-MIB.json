@@ -9,8 +9,8 @@
       "eqlMemberIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeEntry",
-      "eqliscsiVolumeTargetIscsiName"
+      "eqliscsiVolumeTargetIscsiName",
+      "eqliscsiVolumeEntry"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -20,33 +20,33 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "Counter64",
-      "Bits",
-      "iso",
       "Gauge32",
+      "enterprises",
+      "Integer32",
+      "IpAddress",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
-      "enterprises",
-      "OBJECT-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "RowStatus",
-      "TruthValue"
+      "DateAndTime",
+      "TruthValue",
+      "RowPointer"
     ]
   },
   "eqlApplianceModule": {
@@ -6066,8 +6066,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLAPPLIANCE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:28:11 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:04:29 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "EQLAPPLIANCE-MIB"

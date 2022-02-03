@@ -6,34 +6,34 @@
       "OBJECT-IDENTITY"
     ],
     "RFC1155-SMI": [
-      "Integer32",
-      "Unsigned32"
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "Integer32",
-      "TRAP-TYPE",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
       "TimeTicks",
-      "enterprises"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "symmetricom": {
@@ -828,8 +828,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/SYMM-SMI",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:32:50 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:10:05 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SYMM-SMI"

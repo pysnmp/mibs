@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module F3-SHG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SHG-MIB
-# Produced by pysmi-1.1.8 at Wed Feb  2 19:22:55 2022
-# On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Feb  3 20:57:58 2022
+# On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
 fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 neIndex, = mibBuilder.importSymbols("CM-ENTITY-MIB", "neIndex")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-IpAddress, ModuleIdentity, Counter32, Integer32, iso, Bits, MibIdentifier, ObjectIdentity, Gauge32, TimeTicks, Counter64, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Counter32", "Integer32", "iso", "Bits", "MibIdentifier", "ObjectIdentity", "Gauge32", "TimeTicks", "Counter64", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, RowStatus, StorageType, DisplayString, VariablePointer = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "StorageType", "DisplayString", "VariablePointer")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Unsigned32, Gauge32, NotificationType, iso, ObjectIdentity, IpAddress, Bits, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, MibIdentifier, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "NotificationType", "iso", "ObjectIdentity", "IpAddress", "Bits", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "MibIdentifier", "Counter64")
+DisplayString, StorageType, TextualConvention, RowStatus, VariablePointer = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "StorageType", "TextualConvention", "RowStatus", "VariablePointer")
 f3SHGMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27))
 f3SHGMIB.setRevisions(('2012-12-04 00:00',))
 if mibBuilder.loadTexts: f3SHGMIB.setLastUpdated('201212040000Z')
@@ -71,4 +71,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 f3ShgMemberFlowPointGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 27, 2, 2, 4)).setObjects(("F3-SHG-MIB", "f3ShgMemberFlowPoint"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     f3ShgMemberFlowPointGroup = f3ShgMemberFlowPointGroup.setStatus('current')
-mibBuilder.exportSymbols("F3-SHG-MIB", f3ShgMemberFlowGroup=f3ShgMemberFlowGroup, f3ShgConfigObjects=f3ShgConfigObjects, f3ShgCompliances=f3ShgCompliances, f3ShgConformance=f3ShgConformance, f3ShgMemberFlowTable=f3ShgMemberFlowTable, f3ShgAlias=f3ShgAlias, f3ShgMemberPortRowStatus=f3ShgMemberPortRowStatus, f3ShgGroups=f3ShgGroups, PYSNMP_MODULE_ID=f3SHGMIB, f3SHGMIB=f3SHGMIB, f3ShgMemberFlowPoint=f3ShgMemberFlowPoint, f3ShgTable=f3ShgTable, f3ShgMemberFlowPointGroup=f3ShgMemberFlowPointGroup, f3ShgMemberFlowEntry=f3ShgMemberFlowEntry, f3ShgMemberPortGroup=f3ShgMemberPortGroup, f3ShgStorageType=f3ShgStorageType, f3ShgMemberPortEntry=f3ShgMemberPortEntry, f3ShgGroup=f3ShgGroup, f3ShgCompliance=f3ShgCompliance, f3ShgIndex=f3ShgIndex, f3ShgMemberFlowPointEntry=f3ShgMemberFlowPointEntry, f3ShgMemberPortStorageType=f3ShgMemberPortStorageType, f3ShgMemberFlow=f3ShgMemberFlow, f3ShgEntry=f3ShgEntry, f3ShgRowStatus=f3ShgRowStatus, f3ShgMemberFlowPointTable=f3ShgMemberFlowPointTable, f3ShgMemberPortTable=f3ShgMemberPortTable, f3ShgMemberPort=f3ShgMemberPort)
+mibBuilder.exportSymbols("F3-SHG-MIB", f3ShgMemberPort=f3ShgMemberPort, f3ShgMemberPortTable=f3ShgMemberPortTable, f3ShgGroups=f3ShgGroups, f3ShgMemberFlowGroup=f3ShgMemberFlowGroup, f3ShgMemberPortRowStatus=f3ShgMemberPortRowStatus, f3ShgTable=f3ShgTable, f3ShgIndex=f3ShgIndex, PYSNMP_MODULE_ID=f3SHGMIB, f3ShgRowStatus=f3ShgRowStatus, f3ShgConformance=f3ShgConformance, f3ShgMemberFlowPointEntry=f3ShgMemberFlowPointEntry, f3ShgGroup=f3ShgGroup, f3ShgMemberFlowPointTable=f3ShgMemberFlowPointTable, f3ShgMemberFlowPoint=f3ShgMemberFlowPoint, f3SHGMIB=f3SHGMIB, f3ShgCompliances=f3ShgCompliances, f3ShgMemberPortGroup=f3ShgMemberPortGroup, f3ShgAlias=f3ShgAlias, f3ShgConfigObjects=f3ShgConfigObjects, f3ShgMemberPortStorageType=f3ShgMemberPortStorageType, f3ShgCompliance=f3ShgCompliance, f3ShgMemberFlow=f3ShgMemberFlow, f3ShgEntry=f3ShgEntry, f3ShgMemberFlowEntry=f3ShgMemberFlowEntry, f3ShgMemberPortEntry=f3ShgMemberPortEntry, f3ShgMemberFlowTable=f3ShgMemberFlowTable, f3ShgMemberFlowPointGroup=f3ShgMemberFlowPointGroup, f3ShgStorageType=f3ShgStorageType)

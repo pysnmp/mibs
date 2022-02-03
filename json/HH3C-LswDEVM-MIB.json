@@ -14,24 +14,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Counter32",
       "iso",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "Gauge32",
+      "Unsigned32",
+      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cLswdevMMib": {
@@ -850,8 +850,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-DEVM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:25:24 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:01:06 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HH3C-LswDEVM-MIB"

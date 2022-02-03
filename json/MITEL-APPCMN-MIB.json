@@ -5,35 +5,35 @@
       "ItuPerceivedSeverity"
     ],
     "MITEL-MIB": [
-      "mitelConfGroups",
-      "mitelPropApplications",
       "mitelConfCompliances",
-      "mitelIdentification"
+      "mitelIdentification",
+      "mitelPropApplications",
+      "mitelConfGroups"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
       "TimeTicks",
       "IpAddress",
-      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mitelAppCommon": {
@@ -235,8 +235,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-APPCMN-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:32:54 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:10:09 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "MITEL-APPCMN-MIB"

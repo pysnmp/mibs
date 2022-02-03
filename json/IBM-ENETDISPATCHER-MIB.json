@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Counter32",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "iso",
-      "TRAP-TYPE"
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-SMI-v1": [
-      "Gauge32",
       "IpAddress",
       "Counter32",
+      "enterprises",
       "Integer32",
-      "enterprises"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1505,8 +1505,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-ENETDISPATCHER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Feb  2 19:31:11 2022",
-      "On host fv-az33-564 platform Linux version 5.11.0-1027-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  3 21:08:11 2022",
+      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "IBM-ENETDISPATCHER-MIB"
