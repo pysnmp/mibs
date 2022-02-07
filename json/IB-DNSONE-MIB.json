@@ -10,25 +10,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
       "NOTIFICATION-TYPE",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "enterprises",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ibDnsModule": {
@@ -353,8 +353,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-DNSONE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:52:44 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:15:03 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "IB-DNSONE-MIB"

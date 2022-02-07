@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "iso",
       "enterprises",
       "Gauge32",
-      "Counter64",
-      "Bits",
       "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
       "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "PositiveInteger": {
@@ -937,8 +937,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/POSEIDON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:51:39 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:14:10 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "POSEIDON-MIB"

@@ -4,16 +4,16 @@
     "ALARM-MIB": [
       "alarmListName",
       "alarmActiveDateAndTime",
-      "alarmActiveIndex",
-      "alarmModelIndex"
+      "alarmModelIndex",
+      "alarmActiveIndex"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
       "IANAItuEventType",
       "IANAItuProbableCause"
     ],
     "ITU-ALARM-TC-MIB": [
-      "ItuPerceivedSeverity",
-      "ItuTrendIndication"
+      "ItuTrendIndication",
+      "ItuPerceivedSeverity"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -22,32 +22,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "mib-2",
+      "OBJECT-TYPE",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Gauge32",
       "Integer32",
+      "IpAddress",
+      "Bits",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "AutonomousType",
+      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ituAlarmMIB": {
@@ -539,8 +539,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ITU-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:43:51 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:06:44 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ITU-ALARM-MIB"

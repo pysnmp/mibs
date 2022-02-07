@@ -12,39 +12,39 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressIPv4",
-      "InetAddressIPv6",
-      "InetAddressType"
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
+      "Unsigned32",
       "iso",
-      "Bits",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
       "Counter64",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "MibIdentifier",
       "IpAddress",
-      "Unsigned32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowPointer",
-      "StorageType",
-      "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
+      "StorageType",
+      "TruthValue"
     ]
   },
   "hh3cMplsLsr": {
@@ -1986,8 +1986,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MPLS-LSR-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:46:39 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:09:24 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HH3C-MPLS-LSR-MIB"

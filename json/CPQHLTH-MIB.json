@@ -7,8 +7,8 @@
       "compaq"
     ],
     "CPQSINFO-MIB": [
-      "cpqSiMemModuleSize",
-      "cpqSiServerSystemId"
+      "cpqSiServerSystemId",
+      "cpqSiMemModuleSize"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -18,22 +18,22 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
+      "TRAP-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "enterprises",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TRAP-TYPE",
       "iso",
-      "Counter64"
+      "enterprises",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -6809,8 +6809,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQHLTH-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:52:16 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:14:25 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CPQHLTH-MIB"

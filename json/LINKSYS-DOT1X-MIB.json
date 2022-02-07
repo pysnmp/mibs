@@ -6,16 +6,16 @@
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthSessionStatsEntry",
-      "PaeControlledPortStatus",
-      "dot1xPaePortNumber"
+      "dot1xPaePortNumber",
+      "PaeControlledPortStatus"
     ],
     "LINKSYS-MIB": [
       "rnd"
     ],
     "Q-BRIDGE-MIB": [
+      "PortList",
       "dot1qFdbId",
-      "VlanIndex",
-      "PortList"
+      "VlanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,24 +25,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "MODULE-IDENTITY",
+      "iso",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
       "TimeTicks",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
@@ -1399,8 +1399,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:53:47 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:16:14 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-DOT1X-MIB"

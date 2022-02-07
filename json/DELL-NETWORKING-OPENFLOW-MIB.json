@@ -16,32 +16,32 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "MODULE-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "MacAddress",
       "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dellNetOpenFlow": {
@@ -1670,8 +1670,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-OPENFLOW-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:19 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:10:58 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DELL-NETWORKING-OPENFLOW-MIB"

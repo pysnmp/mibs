@@ -10,31 +10,31 @@
       "cienaCesConfig"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
       "TimeTicks",
-      "Counter32",
-      "iso",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "MacAddress",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "cienaCesExtLagMIB": {
@@ -903,8 +903,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-EXT-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:46:05 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:08:49 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CIENA-CES-EXT-LAG-MIB"

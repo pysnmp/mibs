@@ -6,46 +6,46 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MPLS-LDP-MIB": [
       "MplsLdpIdentifier",
       "MplsLsrIdentifier"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
       "TimeTicks",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "iso",
-      "Counter64"
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "TimeStamp",
       "RowStatus",
-      "TestAndIncr",
+      "TruthValue",
+      "TimeStamp",
       "TimeInterval",
+      "TestAndIncr",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-FILTER-MIB": [
-      "TFilterLogId",
-      "TFilterID"
+      "TFilterID",
+      "TFilterLogId"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
@@ -54,30 +54,30 @@
       "tmnxSRObjs"
     ],
     "TIMETRA-SERV-MIB": [
-      "TdmOptionsSigPkts",
-      "ServType",
+      "TdmOptionsCasTrunkFraming",
       "SdpId",
-      "TdmOptionsCasTrunkFraming"
+      "ServType",
+      "TdmOptionsSigPkts"
     ],
     "TIMETRA-TC-MIB": [
-      "TNamedItemOrEmpty",
-      "TNamedItem",
+      "TmnxVcId",
       "TPolicyStatementNameOrEmpty",
-      "TmnxLdpFECType",
-      "TmnxAdminState",
+      "TmnxEnabledDisabled",
+      "TNamedItem",
       "TmnxOperState",
+      "TmnxVcType",
       "TmnxVRtrMplsLspID",
       "TmnxAddressAndPrefixAddress",
-      "TmnxAddressAndPrefixType",
-      "TmnxVcId",
-      "TmnxEnabledDisabled",
-      "TmnxAddressAndPrefixPrefix",
       "TmnxServId",
-      "TmnxVcType"
+      "TmnxAdminState",
+      "TNamedItemOrEmpty",
+      "TmnxLdpFECType",
+      "TmnxAddressAndPrefixType",
+      "TmnxAddressAndPrefixPrefix"
     ],
     "TIMETRA-VRTR-MIB": [
-      "vRtrLdpStatus",
-      "vRtrID"
+      "vRtrID",
+      "vRtrLdpStatus"
     ]
   },
   "timetraLdpMIBModule": {
@@ -21377,8 +21377,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:55:23 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:18:00 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "TIMETRA-LDP-MIB"

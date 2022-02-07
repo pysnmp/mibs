@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApDot11RadioChannelNumber",
-      "cLApName",
-      "cLApDot11RadioMACAddress",
-      "cLApRogueMode",
-      "cLApIfSmtDot11Bssid",
-      "cLApRogueApMacAddress",
       "cLApRogueDetectedChannel",
-      "cLApDot11IfType"
+      "cLApDot11IfType",
+      "cLApDot11RadioChannelNumber",
+      "cLApRogueApMacAddress",
+      "cLApDot11RadioMACAddress",
+      "cLApIfSmtDot11Bssid",
+      "cLApRogueMode",
+      "cLApName"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
@@ -21,33 +21,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Integer32",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "IpAddress",
-      "Gauge32"
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "StorageType",
-      "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "ciscoLwappRogueMIB": {
@@ -2521,8 +2521,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:42 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:11:23 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-ROGUE-MIB"

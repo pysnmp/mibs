@@ -5,8 +5,8 @@
       "ciscoExperiment"
     ],
     "DIFFSERV-MIB": [
-      "IndexInteger",
-      "IndexIntegerNextFree"
+      "IndexIntegerNextFree",
+      "IndexInteger"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -19,43 +19,43 @@
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsPathIndexOrZero",
-      "MplsLabel"
+      "MplsLabel",
+      "MplsPathIndexOrZero"
     ],
     "MPLS-TE-STD-MIB": [
       "mplsTunnelIngressLSRId",
-      "mplsTunnelEgressLSRId",
       "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId",
       "mplsTunnelIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
       "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Bits",
       "MODULE-IDENTITY",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
       "IpAddress",
-      "Gauge32"
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString",
       "StorageType",
+      "TruthValue",
       "TimeStamp",
-      "RowStatus",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "cmplsTeP2mpStdMIB": {
@@ -1348,8 +1348,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:43 2022",
-      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:11:24 2022",
+      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
