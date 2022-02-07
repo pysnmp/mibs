@@ -5,15 +5,15 @@
       "Counter32SinceReset"
     ],
     "CISCO-IETF-MEGACO-MIB": [
-      "cmedTerminationsEntry",
-      "cmedGatewayLinkId",
-      "cmedGatewayStatsEntry",
       "cmedGatewayConfigEntry",
-      "cmedGatewayId"
+      "cmedGatewayLinkId",
+      "cmedGatewayId",
+      "cmedGatewayStatsEntry",
+      "cmedTerminationsEntry"
     ],
     "CISCO-MEDIA-GATEWAY-MIB": [
-      "CCallControlProfileIndex",
-      "CCallControlProfileIndexOrZero"
+      "CCallControlProfileIndexOrZero",
+      "CCallControlProfileIndex"
     ],
     "CISCO-MGC-MIB": [
       "CMgcGroupIndex"
@@ -28,39 +28,39 @@
       "CvcSpeechCoderRate"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "iso",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
       "Counter64",
       "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
+      "TimeStamp",
       "RowStatus",
-      "TimeStamp"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoMegacoExtMIB": {
@@ -5193,8 +5193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEGACO-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:11:21 2022",
-      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:03 2022",
+      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-MEGACO-EXT-MIB"

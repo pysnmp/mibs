@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-SMI": [
-      "netscreenVpn",
-      "netscreenVpnMibModule"
+      "netscreenVpnMibModule",
+      "netscreenVpn"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Counter32",
       "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Bits",
-      "Unsigned32",
-      "TimeTicks"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "netscreenVpnPhasetwoMibModule": {
@@ -275,8 +275,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-VPN-PHASETWO-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:19:26 2022",
-      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:22:47 2022",
+      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "NETSCREEN-VPN-PHASETWO-MIB"

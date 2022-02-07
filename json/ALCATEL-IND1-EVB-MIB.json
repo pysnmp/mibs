@@ -5,16 +5,16 @@
       "softentIND1EvbMib"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
+      "TmnxPortID",
       "TmnxServId",
-      "TmnxEncapVal",
-      "TmnxPortID"
+      "TmnxEncapVal"
     ],
     "IEEE8021-EVBB-MIB": [
-      "ieee8021BridgeEvbVSIMvFormat",
-      "ieee8021BridgeEvbSbpPortNumber",
       "ieee8021BridgeEvbVSIID",
       "ieee8021BridgeEvbVSIIDType",
+      "ieee8021BridgeEvbVSIMvFormat",
       "ieee8021BridgeEvbVSITypeVersion",
+      "ieee8021BridgeEvbSbpPortNumber",
       "ieee8021BridgeEvbVSIVlanId"
     ],
     "IEEE8021-TC-MIB": [
@@ -27,30 +27,30 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "iso",
       "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Bits",
-      "iso"
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "alcatelIND1EVBMIB": {
@@ -544,8 +544,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-EVB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:17:59 2022",
-      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:20:45 2022",
+      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-EVB-MIB"

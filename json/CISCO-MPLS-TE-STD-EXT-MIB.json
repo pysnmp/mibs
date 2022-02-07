@@ -5,43 +5,43 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelInstance",
-      "mplsTunnelOperStatus",
-      "mplsTunnelARHopListIndex",
-      "mplsTunnelEgressLSRId",
       "mplsTunnelIngressLSRId",
-      "mplsTunnelAdminStatus",
+      "mplsTunnelOperStatus",
+      "mplsTunnelEgressLSRId",
       "mplsTunnelIndex",
-      "mplsTunnelName"
+      "mplsTunnelAdminStatus",
+      "mplsTunnelInstance",
+      "mplsTunnelName",
+      "mplsTunnelARHopListIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
       "Counter64",
       "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmplsTeStdExtMIB": {
@@ -1499,8 +1499,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MPLS-TE-STD-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:11:24 2022",
-      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:05 2022",
+      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-MPLS-TE-STD-EXT-MIB"

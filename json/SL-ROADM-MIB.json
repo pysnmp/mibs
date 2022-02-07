@@ -8,31 +8,31 @@
       "slService"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "TimeTicks",
       "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
       "Counter64",
       "IpAddress",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "TimeTicks",
       "Counter32",
-      "Gauge32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "slROADM": {
@@ -372,8 +372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ROADM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:17:49 2022",
-      "On host fv-az42-619 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 16:20:29 2022",
+      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SL-ROADM-MIB"
