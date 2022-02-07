@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-TC-MIB": [
+      "CItpTcPointCode",
+      "CItpTcCLLI",
+      "CItpTcDisplayPC",
+      "CItpTcNetworkIndicator",
       "CItpTcRouteTableName",
       "CItpTcLinksetId",
-      "CItpTcNetworkName",
-      "CItpTcLinkSLC",
-      "CItpTcDisplayPC",
-      "CItpTcPointCode",
-      "CItpTcPointCodeType",
-      "CItpTcNetworkIndicator",
       "CItpTcServiceIndicator",
       "CItpTcAclId",
+      "CItpTcNetworkName",
+      "CItpTcLinkSLC",
+      "CItpTcPointCodeType",
+      "CItpTcInstanceNumber",
       "CItpTcLinkType",
-      "CItpTcQos",
-      "CItpTcCLLI",
-      "CItpTcInstanceNumber"
+      "CItpTcQos"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -37,27 +37,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Gauge32",
       "Integer32",
-      "Counter64",
+      "iso",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress"
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "ciscoGspMIB": {
@@ -5476,8 +5476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:36 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:45 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-ITP-GSP-MIB"

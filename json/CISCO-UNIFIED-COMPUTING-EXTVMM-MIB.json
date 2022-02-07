@@ -5,48 +5,48 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
+      "CiscoNetworkAddress",
       "CiscoInetAddressMask",
       "TimeIntervalSec",
-      "CiscoNetworkAddress",
-      "Unsigned64"
+      "Unsigned64",
+      "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "CucsManagedObjectDn"
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsExtvmmNetworkSetsFsmTaskItem",
-      "CucsExtvmmKeyStoreFsmCurrentFsm",
-      "CucsExtvmmKeyStoreFsmStageName",
-      "CucsExtvmmNetworkSetConfigQualifier",
-      "CucsFsmFlags",
-      "CucsExtvmmNetworkSetsFsmCurrentFsm",
       "CucsExtvmmSwitchDelTaskFsmTaskItem",
-      "CucsExtvmmVcVersion",
-      "CucsFsmCompletion",
-      "CucsExtvmmMasterExtKeyFsmStageName",
-      "CucsPolicyPolicyOwner",
-      "CucsExtvmmKeyStoreFsmTaskItem",
-      "CucsCommFilePathProtocol",
-      "CucsExtvmmMasterExtKeyFsmTaskItem",
-      "CucsExtvmmSwitchDelTaskFsmStageName",
-      "CucsExtvmmProviderFsmCurrentFsm",
-      "CucsFsmFsmStageStatus",
-      "CucsExtvmmProviderFsmTaskItem",
-      "CucsExtvmmRefOperState",
       "CucsExtvmmEpFsmTaskItem",
-      "CucsExtvmmProviderFsmStageName",
-      "CucsExtvmmFabricNetworkType",
+      "CucsExtvmmMasterExtKeyFsmCurrentFsm",
+      "CucsExtvmmVcVersion",
+      "CucsFsmFsmStageStatus",
+      "CucsExtvmmNetworkSetConfigQualifier",
       "CucsExtvmmSwitchDelTaskFsmCurrentFsm",
       "CucsExtvmmEpFsmCurrentFsm",
-      "CucsExtvmmMasterExtKeyFsmCurrentFsm",
-      "CucsExtvmmNetworkSetsFsmStageName",
+      "CucsExtvmmSwitchDelTaskFsmStageName",
+      "CucsFsmFlags",
+      "CucsExtvmmProviderFsmCurrentFsm",
+      "CucsPolicyPolicyOwner",
+      "CucsExtvmmMasterExtKeyFsmStageName",
+      "CucsExtvmmNetworkSetsFsmTaskItem",
       "CucsExtvmmEpFsmStageName",
+      "CucsExtvmmKeyStoreFsmTaskItem",
+      "CucsExtvmmFabricNetworkType",
+      "CucsCommFilePathProtocol",
+      "CucsExtvmmMasterExtKeyFsmTaskItem",
+      "CucsExtvmmKeyStoreFsmCurrentFsm",
+      "CucsExtvmmRefOperState",
+      "CucsExtvmmProviderFsmStageName",
+      "CucsExtvmmVnicType",
       "CucsExtvmmProviderVendorType",
+      "CucsExtvmmKeyStoreFsmStageName",
+      "CucsExtvmmNetworkSetsFsmStageName",
+      "CucsExtvmmProviderFsmTaskItem",
       "CucsConditionRemoteInvRslt",
-      "CucsExtvmmVnicType"
+      "CucsFsmCompletion",
+      "CucsExtvmmNetworkSetsFsmCurrentFsm"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -60,30 +60,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "Counter64",
       "Integer32",
+      "iso",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress"
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowPointer",
-      "DisplayString",
+      "DateAndTime",
       "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
-      "TimeInterval",
-      "DateAndTime"
+      "RowPointer",
+      "TimeInterval"
     ]
   },
   "cucsExtvmmObjects": {
@@ -5447,8 +5447,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTVMM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:34 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:44 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-EXTVMM-MIB"

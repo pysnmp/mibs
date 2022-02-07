@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "iso",
-      "Integer32",
-      "TimeTicks",
+      "Counter64",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
       "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "mib-2"
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -267,8 +267,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/INET-ADDRESS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 20:57:44 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:43:59 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "INET-ADDRESS-MIB"

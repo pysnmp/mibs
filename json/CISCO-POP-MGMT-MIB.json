@@ -5,8 +5,8 @@
       "ciscoExperiment"
     ],
     "DS1-MIB": [
-      "dsx1LineStatus",
-      "dsx1LineIndex"
+      "dsx1LineIndex",
+      "dsx1LineStatus"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -17,26 +17,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
-      "Bits",
       "Integer32",
-      "Gauge32",
-      "Counter64",
+      "iso",
       "Counter32",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoPopMgmtMIB": {
@@ -2546,8 +2546,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-POP-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:30 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:40 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-POP-MGMT-MIB"

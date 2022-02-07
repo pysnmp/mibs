@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVclVci",
       "atmInterfaceConfEntry",
-      "atmVclVpi"
+      "atmVclVpi",
+      "atmVclVci"
     ],
     "CISCO-IETF-ATM2-PVCTRAP-MIB": [
-      "atmIntfPvcFailures",
-      "atmIntfCurrentlyFailingPVcls"
+      "atmIntfCurrentlyFailingPVcls",
+      "atmIntfPvcFailures"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -22,25 +22,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Gauge32",
       "Integer32",
-      "Counter64",
+      "iso",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress"
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoAtmPvcTrapExtnMIB": {
@@ -4034,8 +4034,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-PVCTRAP-EXTN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:30 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:40 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-ATM-PVCTRAP-EXTN-MIB"

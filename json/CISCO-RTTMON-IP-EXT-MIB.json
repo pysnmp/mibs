@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-RTTMON-MIB": [
-      "rttMonLpdGrpStatsEntry",
-      "rttMonEchoAdminEntry",
-      "rttMonEchoPathAdminEntry",
-      "rttMonCtrlAdminEntry",
       "rttMonCtrlAdminIndex",
+      "rttMonEchoAdminEntry",
+      "rttMonHistoryCollectionEntry",
+      "rttMonLpdGrpStatsEntry",
       "rttMonStatsCollectEntry",
       "rttMonCtrlOperEntry",
-      "rttMonHistoryCollectionEntry"
+      "rttMonEchoPathAdminEntry",
+      "rttMonCtrlAdminEntry"
     ],
     "CISCO-RTTMON-TC-MIB": [
       "CipslaPercentileVar"
@@ -33,20 +33,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
       "Integer32",
-      "Gauge32",
-      "Counter64",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
       "Unsigned32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1003,8 +1003,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-IP-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:03:32 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:48:42 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-RTTMON-IP-EXT-MIB"

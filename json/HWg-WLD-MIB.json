@@ -9,21 +9,21 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Bits",
-      "TRAP-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
       "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "Integer32",
+      "TRAP-TYPE",
       "iso",
+      "Counter32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "enterprises",
       "Gauge32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -373,8 +373,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/HWg-WLD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:07:13 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:51:39 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HWg-WLD-MIB"

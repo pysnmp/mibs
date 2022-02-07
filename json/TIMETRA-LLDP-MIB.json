@@ -8,13 +8,13 @@
       "ifIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisIdSubtype",
-      "LldpManAddrIfSubtype",
-      "LldpChassisId",
-      "LldpPortId",
       "LldpSystemCapabilitiesMap",
+      "LldpPortIdSubtype",
+      "LldpManAddrIfSubtype",
       "LldpManAddress",
-      "LldpPortIdSubtype"
+      "LldpPortId",
+      "LldpChassisId",
+      "LldpChassisIdSubtype"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32",
@@ -24,41 +24,41 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "IpAddress",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
-      "tmnxSRObjs",
+      "tmnxSRConfs",
       "tmnxSRNotifyPrefix",
-      "tmnxSRConfs"
+      "tmnxSRObjs"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxEnabledDisabled",
-      "TmnxEnabledDisabledAdminState"
+      "TmnxEnabledDisabledAdminState",
+      "TmnxEnabledDisabled"
     ]
   },
   "tmnxLldpMIBModule": {
@@ -1599,8 +1599,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:11:53 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:55:23 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "TIMETRA-LLDP-MIB"

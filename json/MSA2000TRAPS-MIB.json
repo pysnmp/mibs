@@ -1,0 +1,148 @@
+{
+  "imports": {
+    "class": "imports",
+    "FCMGMT-MIB": [
+      "connUnitEventType",
+      "connUnitEventId",
+      "connUnitEventDescr"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "enterprises",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "iso",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "nm": {
+    "name": "nm",
+    "oid": "1.3.6.1.4.1.11.2",
+    "class": "objectidentity"
+  },
+  "hpMSA": {
+    "name": "hpMSA",
+    "oid": "1.3.6.1.4.1.11.2.51",
+    "class": "objectidentity"
+  },
+  "mibName": {
+    "name": "mibName",
+    "oid": "1.3.6.1.4.1.11.2.51.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "msaEventInfoTrap": {
+    "name": "msaEventInfoTrap",
+    "oid": "1.3.6.1.4.1.11.2.510.3001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventId"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventType"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventDescr"
+      }
+    ]
+  },
+  "msaEventWarningTrap": {
+    "name": "msaEventWarningTrap",
+    "oid": "1.3.6.1.4.1.11.2.510.3002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventId"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventType"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventDescr"
+      }
+    ]
+  },
+  "msaEventErrorTrap": {
+    "name": "msaEventErrorTrap",
+    "oid": "1.3.6.1.4.1.11.2.510.3003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventId"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventType"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventDescr"
+      }
+    ]
+  },
+  "msaEventCriticalTrap": {
+    "name": "msaEventCriticalTrap",
+    "oid": "1.3.6.1.4.1.11.2.510.3004",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventId"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventType"
+      },
+      {
+        "module": "FCMGMT-MIB",
+        "object": "connUnitEventDescr"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/MSA2000TRAPS-MIB",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:52:17 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+    ],
+    "module": "MSA2000TRAPS-MIB"
+  }
+}

@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlLdapLoginAccessName",
+      "eqlLdapLoginAccessType",
       "eqlGroupId",
-      "eqlStorageGroupAdminAccountName",
-      "eqlStorageGroupAdminAccountIndex",
       "UTFString",
-      "eqlLdapLoginAccessType"
+      "eqlStorageGroupAdminAccountName",
+      "eqlLdapLoginAccessName",
+      "eqlStorageGroupAdminAccountIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "enterprises",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "TimeTicks"
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DateAndTime",
       "TruthValue",
-      "RowPointer"
+      "RowPointer",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "eqlStoragePoolModule": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLSTORAGEPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 21:04:29 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:49:27 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "EQLSTORAGEPOOL-MIB"

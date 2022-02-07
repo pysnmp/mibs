@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
-      "AristaBgp4V2AddressFamilyIdentifierTC",
       "AristaBgp4V2IdentifierTC",
-      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC"
+      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
+      "AristaBgp4V2AddressFamilyIdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
+      "InetPortNumber",
       "InetAddressType",
-      "InetPortNumber"
+      "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,27 +25,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "iso",
       "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "TimeTicks",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "TruthValue",
       "DisplayString",
-      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TimeStamp",
+      "RowPointer"
     ]
   },
   "aristaBgp4V2": {
@@ -1865,8 +1865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  3 20:58:41 2022",
-      "On host fv-az36-616 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  7 15:44:43 2022",
+      "On host fv-az77-513 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ARISTA-BGP4V2-MIB"
