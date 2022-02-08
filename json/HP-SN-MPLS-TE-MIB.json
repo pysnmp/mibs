@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsTunnelIndex",
-      "MplsPathIndex",
-      "MplsTunnelInstanceIndex",
-      "MplsTunnelAffinity",
-      "MplsPathIndexOrZero",
-      "MplsLsrIdentifier",
-      "MplsBitRate",
       "mplsMIB",
+      "MplsPathIndexOrZero",
+      "MplsPathIndex",
+      "MplsBitRate",
+      "MplsTunnelInstanceIndex",
+      "MplsLsrIdentifier",
+      "MplsBurstSize",
+      "MplsTunnelIndex",
       "MplsLSPID",
-      "MplsBurstSize"
+      "MplsTunnelAffinity"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -20,38 +20,38 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
+      "iso",
       "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "Gauge32",
-      "iso"
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "RowStatus",
-      "RowPointer",
-      "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowPointer"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:34:18 2022",
-      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 23:18:21 2022",
+      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"

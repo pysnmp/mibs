@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "EQLAPPLIANCE-MIB": [
-      "eqlApplianceNetworkID",
       "eqlApplianceNetworkType",
+      "eqlApplianceNetworkID",
       "eqlApplianceIndex"
     ],
     "EQLVOLUME-MIB": [
+      "SiteIndex",
       "eqliscsiVolumeReplSiteIndex",
       "StatusDisabledDefault",
-      "SiteIndex",
       "SiteIndexOrZero"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -25,28 +25,28 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "enterprises",
-      "Integer32",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Bits",
       "TimeTicks",
-      "Counter64"
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
-      "RowPointer",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "RowPointer",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "eqlNASModule": {
@@ -8606,8 +8606,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLNAS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:31:21 2022",
-      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 23:15:35 2022",
+      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "EQLNAS-MIB"

@@ -5,10 +5,10 @@
       "f10Experiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
+      "InetAddressType",
       "InetPortNumber",
       "InetAddress",
-      "InetAddressType",
+      "InetAutonomousSystemNumber",
       "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -20,29 +20,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "mib-2",
-      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
       "Counter32",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
       "Unsigned32",
-      "MibIdentifier"
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "RowStatus",
       "DisplayString",
-      "RowPointer"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "RowPointer",
+      "TruthValue",
+      "StorageType"
     ]
   },
   "f10BgpM2": {
@@ -4298,8 +4298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-BGP4-V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:30:17 2022",
-      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 23:14:36 2022",
+      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "FORCE10-BGP4-V2-MIB"

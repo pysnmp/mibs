@@ -9,47 +9,47 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressType"
     ],
     "ISIS-MIB": [
-      "isisISAdjEntry",
-      "isisSysInstance",
-      "isisManAreaAddrExistState",
-      "isisSysL2State",
-      "SNPAAddress",
       "isisISAdjState",
-      "isisSysL1State",
-      "SystemID"
+      "isisManAreaAddrExistState",
+      "SNPAAddress",
+      "SystemID",
+      "isisSysInstance",
+      "isisISAdjEntry",
+      "isisSysL2State",
+      "isisSysL1State"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "Bits",
       "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
       "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "DisplayString",
-      "TruthValue",
-      "RowStatus",
       "TimeStamp",
-      "TimeInterval"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "timetraIsisMIBModule": {
@@ -5754,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-ISIS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:37:18 2022",
-      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 23:21:10 2022",
+      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-ISIS-MIB"

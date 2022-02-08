@@ -5,31 +5,31 @@
       "aggrL1Entry"
     ],
     "SIAE-RADIO-SYSTEM-MIB": [
-      "linkSettingsEntry",
-      "linkStatusEntry"
+      "linkStatusEntry",
+      "linkSettingsEntry"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "TimeTicks",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
       "IpAddress",
-      "Counter32"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -205,8 +205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-HITLESS-AGGRL1-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:39:06 2022",
-      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 23:22:50 2022",
+      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SIAE-HITLESS-AGGRL1-MIB"

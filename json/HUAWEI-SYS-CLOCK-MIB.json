@@ -6,32 +6,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "TimeStamp",
-      "DateAndTime",
-      "RowStatus"
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "hwSysClockMIB": {
@@ -153,8 +153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SYS-CLOCK-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:33:28 2022",
-      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 23:17:32 2022",
+      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-SYS-CLOCK-MIB"
