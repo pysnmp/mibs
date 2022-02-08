@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
+      "Integer32",
       "MODULE-IDENTITY",
       "Gauge32",
       "Counter64",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
       "enterprises",
-      "Integer32",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
       "DateAndTime"
     ]
   },
@@ -2959,8 +2959,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raritan/RemoteKVMDevice-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:21:57 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:14:17 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "RemoteKVMDevice-MIB"

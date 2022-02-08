@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.8 at Mon Feb  7 16:23:14 2022
-# On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:15:34 2022
+# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, TimeTicks, iso, Gauge32, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, NotificationType, Bits, MibIdentifier, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "iso", "Gauge32", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "NotificationType", "Bits", "MibIdentifier", "ModuleIdentity", "Unsigned32")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, Bits, Unsigned32, NotificationType, ModuleIdentity, Counter32, iso, TimeTicks, Gauge32, ObjectIdentity, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "Bits", "Unsigned32", "NotificationType", "ModuleIdentity", "Counter32", "iso", "TimeTicks", "Gauge32", "ObjectIdentity", "Integer32", "MibIdentifier")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -46,4 +46,4 @@ snsClone = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 14), Integer32()).setMaxAcc
 if mibBuilder.loadTexts: snsClone.setStatus('current')
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsSystemLanguage=snsSystemLanguage, snsNbLoopback=snsNbLoopback, snsModel=snsModel, snsNbPPTP=snsNbPPTP, snsNbSerial=snsNbSerial, snsLed=snsLed, snsNbDialup=snsNbDialup, snsWatchdog=snsWatchdog, snsHADialup=snsHADialup, snsVersion=snsVersion, PYSNMP_MODULE_ID=snsProductProperty, snsSystemName=snsSystemName, snsSerialNumber=snsSerialNumber, snsClone=snsClone, snsProductProperty=snsProductProperty, snsNbEther=snsNbEther, snsNbVlan=snsNbVlan)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbDialup=snsNbDialup, snsLed=snsLed, PYSNMP_MODULE_ID=snsProductProperty, snsNbSerial=snsNbSerial, snsWatchdog=snsWatchdog, snsSystemLanguage=snsSystemLanguage, snsSystemName=snsSystemName, snsNbEther=snsNbEther, snsHADialup=snsHADialup, snsClone=snsClone, snsNbLoopback=snsNbLoopback, snsModel=snsModel, snsSerialNumber=snsSerialNumber, snsVersion=snsVersion, snsNbPPTP=snsNbPPTP, snsProductProperty=snsProductProperty, snsNbVlan=snsNbVlan)

@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "enterprises",
       "TimeTicks",
-      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Bits",
-      "IpAddress",
       "Gauge32",
-      "iso",
+      "Counter64",
+      "Counter32",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -1352,8 +1352,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/efficientip/EIP-DNSBLAST-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:33 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:37 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "EIP-DNSBLAST-MIB"

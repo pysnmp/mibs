@@ -8,47 +8,47 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlAvailabilityStatus",
-      "MwlOnOffSwitch",
-      "MwlRegionSettings",
-      "MwlBonding",
       "MwlVpnClientProtocol",
-      "MwlAlarmState",
+      "MwlVpnConnectivityStatus",
+      "MwlRegionSettings",
       "MwlOperationalState",
       "MwlEnableDisableOption",
-      "MwlControllerHwType",
-      "MwlVpnConnectivityStatus"
+      "MwlAlarmState",
+      "MwlOnOffSwitch",
+      "MwlBonding",
+      "MwlAvailabilityStatus",
+      "MwlControllerHwType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
+      "Bits",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "enterprises",
-      "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TimeInterval",
+      "DateAndTime",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TimeStamp"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "mwConfigController": {
@@ -1629,8 +1629,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-CONTROLLER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:13:38 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:08:31 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "MERU-CONFIG-CONTROLLER-MIB"

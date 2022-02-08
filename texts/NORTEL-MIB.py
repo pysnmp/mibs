@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NORTEL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/NORTEL-MIB
-# Produced by pysmi-1.1.8 at Mon Feb  7 16:19:48 2022
-# On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:12:13 2022
+# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, NotificationType, Integer32, enterprises, iso, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, TimeTicks, MibIdentifier, Counter64, ObjectIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "NotificationType", "Integer32", "enterprises", "iso", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "TimeTicks", "MibIdentifier", "Counter64", "ObjectIdentity", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+IpAddress, Counter32, Integer32, ObjectIdentity, MibIdentifier, TimeTicks, Unsigned32, Bits, Gauge32, Counter64, enterprises, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "Integer32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Unsigned32", "Bits", "Gauge32", "Counter64", "enterprises", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nortel = ModuleIdentity((1, 3, 6, 1, 4, 1, 562))
 if mibBuilder.loadTexts: nortel.setLastUpdated('200305010000Z')
 if mibBuilder.loadTexts: nortel.setOrganization('Northern Telecom Ltd.')
@@ -18,4 +18,4 @@ if mibBuilder.loadTexts: nortel.setContactInfo('   7035 Ridge Road\n            
 if mibBuilder.loadTexts: nortel.setDescription('The Nortel Networks top-level MIB definition.')
 nortelGenericMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 29))
 opterametro = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 68))
-mibBuilder.exportSymbols("NORTEL-MIB", nortel=nortel, opterametro=opterametro, nortelGenericMIBs=nortelGenericMIBs, PYSNMP_MODULE_ID=nortel)
+mibBuilder.exportSymbols("NORTEL-MIB", PYSNMP_MODULE_ID=nortel, nortel=nortel, opterametro=opterametro, nortelGenericMIBs=nortelGenericMIBs)

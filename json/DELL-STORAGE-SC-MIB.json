@@ -5,35 +5,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Bits",
+      "enterprises",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "enterprises",
-      "Bits",
-      "Counter32",
-      "Unsigned32"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "storageCenterModule": {
@@ -5554,8 +5554,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-STORAGE-SC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:11:51 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:06:57 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DELL-STORAGE-SC-MIB"

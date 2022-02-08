@@ -8,18 +8,18 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcNameId",
-      "DomainIdOrZero",
       "FcPortTxTypes",
-      "VsanIndex",
+      "FcPortTypes",
+      "FcNameId",
       "FcPortModuleTypes",
-      "FcAddressId",
-      "FcPortTypes"
+      "VsanIndex",
+      "DomainIdOrZero",
+      "FcAddressId"
     ],
     "CISCO-TC": [
       "TimeIntervalSec",
-      "ListIndex",
-      "ListIndexOrZero"
+      "ListIndexOrZero",
+      "ListIndex"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
@@ -31,33 +31,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "OBJECT-TYPE",
       "IpAddress",
       "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Bits"
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus",
+      "DisplayString",
       "TestAndIncr",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ciscoFcsMIB": {
@@ -1878,8 +1878,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:06 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:24 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-FCS-MIB"

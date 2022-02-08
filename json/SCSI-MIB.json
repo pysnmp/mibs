@@ -6,34 +6,34 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "mib-2",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "Bits",
       "IpAddress",
-      "Gauge32",
-      "Integer32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "Counter64",
+      "mib-2",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "AutonomousType",
       "TruthValue",
-      "DisplayString",
       "RowStatus",
-      "RowPointer"
+      "RowPointer",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "scsiModule": {
@@ -2832,8 +2832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/SCSI-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:13:02 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:59 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SCSI-MIB"

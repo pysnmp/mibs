@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAutonomousSystemNumber",
-      "InetAddress",
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipv6RouterAdvertEntry",
+      "ipAddressEntry",
       "ipv6InterfaceEntry",
-      "ipNetToPhysicalEntry",
-      "ipAddressEntry"
+      "ipNetToPhysicalEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "zeroDotZero",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
       "Bits",
+      "TimeTicks",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "zeroDotZero",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:19:04 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:11:35 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-IPv6"

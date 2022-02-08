@@ -11,24 +11,24 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "Bits",
-      "iso",
       "OBJECT-TYPE",
-      "Counter32"
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -655,8 +655,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lenovo/LENOVO-ENV-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:18:46 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:11:19 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "LENOVO-ENV-MIB"

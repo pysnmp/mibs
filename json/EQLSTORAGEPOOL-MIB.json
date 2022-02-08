@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlStorageGroupAdminAccountName",
-      "eqlLdapLoginAccessName",
-      "eqlStorageGroupAdminAccountIndex",
       "eqlLdapLoginAccessType",
+      "eqlGroupId",
+      "eqlStorageGroupAdminAccountName",
       "UTFString",
-      "eqlGroupId"
+      "eqlLdapLoginAccessName",
+      "eqlStorageGroupAdminAccountIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "Bits",
       "IpAddress",
-      "Gauge32",
-      "Integer32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
       "TimeTicks",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString",
-      "RowStatus",
       "DateAndTime",
-      "RowPointer"
+      "TruthValue",
+      "RowPointer",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "eqlStoragePoolModule": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLSTORAGEPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:13:02 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:59 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "EQLSTORAGEPOOL-MIB"

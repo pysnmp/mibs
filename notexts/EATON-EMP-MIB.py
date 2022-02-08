@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module EATON-EMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-EMP-MIB
-# Produced by pysmi-1.1.8 at Mon Feb  7 16:12:19 2022
-# On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:07:22 2022
+# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 xupsEnvironment, = mibBuilder.importSymbols("EATON-OIDS", "xupsEnvironment")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, Integer32, NotificationType, Counter32, Gauge32, Unsigned32, TimeTicks, Counter64, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "NotificationType", "Counter32", "Gauge32", "Unsigned32", "TimeTicks", "Counter64", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "Bits")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+NotificationType, IpAddress, Counter64, MibIdentifier, Gauge32, ObjectIdentity, iso, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, Integer32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Counter64", "MibIdentifier", "Gauge32", "ObjectIdentity", "iso", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "Integer32", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 eatonEMPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 534, 1, 6, 0))
 eatonEMPMIB.setRevisions(('2007-03-12 00:00',))
@@ -53,4 +53,4 @@ eatonEMPSimpleCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     eatonEMPSimpleCompliance = eatonEMPSimpleCompliance.setStatus('current')
-mibBuilder.exportSymbols("EATON-EMP-MIB", xupsEnvRemoteHumidityLowerLimit=xupsEnvRemoteHumidityLowerLimit, PYSNMP_MODULE_ID=eatonEMPMIB, xupsEnvRemoteTemp=xupsEnvRemoteTemp, xupsEnvNumContacts=xupsEnvNumContacts, eatonEMPConformance=eatonEMPConformance, eatonEMPGroup=eatonEMPGroup, eatonEMPTableGroup=eatonEMPTableGroup, xupsContactIndex=xupsContactIndex, xupsContactDescr=xupsContactDescr, xupsEnvRemoteTempUpperLimit=xupsEnvRemoteTempUpperLimit, xupsEnvRemoteHumidity=xupsEnvRemoteHumidity, xupsContactState=xupsContactState, xupsContactsTableEntry=xupsContactsTableEntry, eatonEMPSimpleCompliance=eatonEMPSimpleCompliance, xupsContactSenseTable=xupsContactSenseTable, xupsContactType=xupsContactType, xupsEnvRemoteTempLowerLimit=xupsEnvRemoteTempLowerLimit, xupsEnvRemoteHumidityUpperLimit=xupsEnvRemoteHumidityUpperLimit, eatonEMPMIB=eatonEMPMIB)
+mibBuilder.exportSymbols("EATON-EMP-MIB", xupsEnvRemoteTempUpperLimit=xupsEnvRemoteTempUpperLimit, xupsEnvNumContacts=xupsEnvNumContacts, xupsContactsTableEntry=xupsContactsTableEntry, PYSNMP_MODULE_ID=eatonEMPMIB, xupsContactType=xupsContactType, xupsEnvRemoteHumidity=xupsEnvRemoteHumidity, xupsEnvRemoteHumidityUpperLimit=xupsEnvRemoteHumidityUpperLimit, eatonEMPMIB=eatonEMPMIB, eatonEMPTableGroup=eatonEMPTableGroup, xupsEnvRemoteTemp=xupsEnvRemoteTemp, xupsEnvRemoteTempLowerLimit=xupsEnvRemoteTempLowerLimit, eatonEMPConformance=eatonEMPConformance, eatonEMPSimpleCompliance=eatonEMPSimpleCompliance, xupsEnvRemoteHumidityLowerLimit=xupsEnvRemoteHumidityLowerLimit, xupsContactIndex=xupsContactIndex, xupsContactSenseTable=xupsContactSenseTable, eatonEMPGroup=eatonEMPGroup, xupsContactState=xupsContactState, xupsContactDescr=xupsContactDescr)

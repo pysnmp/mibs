@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SFA-INFO (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ddn/SFA-INFO
-# Produced by pysmi-1.1.8 at Mon Feb  7 16:11:27 2022
-# On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:06:37 2022
+# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, IpAddress, iso, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter64, Gauge32, MibIdentifier, enterprises, Counter32, NotificationType, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "iso", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter64", "Gauge32", "MibIdentifier", "enterprises", "Counter32", "NotificationType", "Bits", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, ObjectIdentity, IpAddress, Gauge32, Counter32, enterprises, NotificationType, MibIdentifier, iso, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "ObjectIdentity", "IpAddress", "Gauge32", "Counter32", "enterprises", "NotificationType", "MibIdentifier", "iso", "Bits", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 datadirect = MibIdentifier((1, 3, 6, 1, 4, 1, 6894))
 unit = MibIdentifier((1, 3, 6, 1, 4, 1, 6894, 2))
 eventLog = MibIdentifier((1, 3, 6, 1, 4, 1, 6894, 2, 10))
@@ -152,4 +152,4 @@ if mibBuilder.loadTexts: eventLogLevel.setDescription('This object identifies th
 eventLogDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 6894, 2, 10, 3, 1, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eventLogDescr.setStatus('mandatory')
 if mibBuilder.loadTexts: eventLogDescr.setDescription('This object identifies the textual description of\n                          the event.')
-mibBuilder.exportSymbols("SFA-INFO", eventLogLevel=eventLogLevel, powerNumber=powerNumber, poolNumber=poolNumber, eventLogTrapLevel=eventLogTrapLevel, fanStatus=fanStatus, poolType=poolType, fanIndex=fanIndex, poolId=poolId, powerIndex=powerIndex, tempIndex=tempIndex, tempStatus=tempStatus, fanEntry=fanEntry, unit=unit, physicalDiskEntry=physicalDiskEntry, physDiskWWN=physDiskWWN, fanEncPos=fanEncPos, eventLogTable=eventLogTable, physDiskPoolId=physDiskPoolId, fanEncId=fanEncId, powerTable=powerTable, eventLogEntry=eventLogEntry, tempTable=tempTable, powerEncPos=powerEncPos, poolEntry=poolEntry, physDiskIndex=physDiskIndex, eventLogDescr=eventLogDescr, eventLogIndex=eventLogIndex, physicalDiskTable=physicalDiskTable, systemName=systemName, tempEncId=tempEncId, tempEncPos=tempEncPos, physDiskEnc=physDiskEnc, fanNumber=fanNumber, DisplayString=DisplayString, poolTable=poolTable, physDiskSlot=physDiskSlot, physDiskState=physDiskState, eventLog=eventLog, fanTable=fanTable, powerEncId=powerEncId, eventLogNumEntries=eventLogNumEntries, datadirect=datadirect, powerEntry=powerEntry, powerStatus=powerStatus, tempEntry=tempEntry, poolIndex=poolIndex, physDiskId=physDiskId, tempNumber=tempNumber, poolNumDisks=poolNumDisks)
+mibBuilder.exportSymbols("SFA-INFO", tempStatus=tempStatus, physDiskSlot=physDiskSlot, poolEntry=poolEntry, eventLogLevel=eventLogLevel, poolIndex=poolIndex, eventLogTable=eventLogTable, poolNumDisks=poolNumDisks, datadirect=datadirect, tempTable=tempTable, tempIndex=tempIndex, eventLogNumEntries=eventLogNumEntries, fanEncPos=fanEncPos, physDiskState=physDiskState, powerEncId=powerEncId, eventLogTrapLevel=eventLogTrapLevel, fanStatus=fanStatus, physDiskPoolId=physDiskPoolId, fanIndex=fanIndex, unit=unit, poolNumber=poolNumber, eventLogEntry=eventLogEntry, physDiskWWN=physDiskWWN, fanNumber=fanNumber, eventLogDescr=eventLogDescr, tempEncId=tempEncId, eventLog=eventLog, powerTable=powerTable, systemName=systemName, DisplayString=DisplayString, poolType=poolType, powerIndex=powerIndex, poolTable=poolTable, tempEntry=tempEntry, powerEntry=powerEntry, fanTable=fanTable, fanEntry=fanEntry, powerEncPos=powerEncPos, physicalDiskEntry=physicalDiskEntry, tempEncPos=tempEncPos, tempNumber=tempNumber, powerNumber=powerNumber, powerStatus=powerStatus, physDiskIndex=physDiskIndex, physDiskId=physDiskId, fanEncId=fanEncId, physicalDiskTable=physicalDiskTable, physDiskEnc=physDiskEnc, poolId=poolId, eventLogIndex=eventLogIndex)

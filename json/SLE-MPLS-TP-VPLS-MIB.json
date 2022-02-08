@@ -28,29 +28,29 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "transmission",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Bits",
       "Counter32",
-      "Bits"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "transmission",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleMplsTpVpls": {
@@ -1905,8 +1905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-VPLS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:11:01 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:06:20 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "SLE-MPLS-TP-VPLS-MIB"

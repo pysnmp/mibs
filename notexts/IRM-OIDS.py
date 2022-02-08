@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Mon Feb  7 16:12:57 2022
-# On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:07:55 2022
+# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibIdentifier, Gauge32, iso, TimeTicks, NotificationType, Bits, ObjectIdentity, ModuleIdentity, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Gauge32", "iso", "TimeTicks", "NotificationType", "Bits", "ObjectIdentity", "ModuleIdentity", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Integer32")
+MibIdentifier, ModuleIdentity, Counter32, Unsigned32, Bits, ObjectIdentity, IpAddress, NotificationType, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "Counter32", "Unsigned32", "Bits", "ObjectIdentity", "IpAddress", "NotificationType", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", commonRev1=commonRev1, nb30Rev1=nb30Rev1, sysRouters=sysRouters, repeater=repeater, repeaterRev2=repeaterRev2, backplaneProtocol=backplaneProtocol, router=router, subsystem=subsystem, product=product, sysRepeaters=sysRepeaters, commsDevice=commsDevice, sysBridges=sysBridges, repeaterRev1=repeaterRev1, subSysDevice=subSysDevice, common=common, sysOtherType=sysOtherType, sysChassis=sysChassis, subSysMMAC=subSysMMAC, layerMgmt=layerMgmt, ups=ups, bridge=bridge, dl=dl, sysOIDs=sysOIDs, sysIntDev=sysIntDev)
+mibBuilder.exportSymbols("IRM-OIDS", subsystem=subsystem, sysOIDs=sysOIDs, repeaterRev1=repeaterRev1, common=common, product=product, layerMgmt=layerMgmt, repeater=repeater, repeaterRev2=repeaterRev2, sysIntDev=sysIntDev, subSysMMAC=subSysMMAC, sysChassis=sysChassis, commonRev1=commonRev1, bridge=bridge, router=router, sysBridges=sysBridges, subSysDevice=subSysDevice, backplaneProtocol=backplaneProtocol, sysRepeaters=sysRepeaters, nb30Rev1=nb30Rev1, sysRouters=sysRouters, ups=ups, commsDevice=commsDevice, dl=dl, sysOtherType=sysOtherType)

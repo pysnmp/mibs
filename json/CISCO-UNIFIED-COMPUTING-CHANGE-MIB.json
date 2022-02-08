@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
       "CiscoInetAddressMask",
+      "TimeIntervalSec",
       "CiscoAlarmSeverity",
-      "Unsigned64",
-      "TimeIntervalSec"
+      "CiscoNetworkAddress",
+      "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
       "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn",
       "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
@@ -32,30 +32,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "IpAddress",
       "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Bits",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Bits"
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TimeInterval",
-      "DisplayString",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TimeStamp",
       "MacAddress",
+      "DisplayString",
+      "RowPointer",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval"
     ]
   },
   "cucsChangeObjects": {
@@ -209,8 +209,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CHANGE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:05 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:23 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CHANGE-MIB"

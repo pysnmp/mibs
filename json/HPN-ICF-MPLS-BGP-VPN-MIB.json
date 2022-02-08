@@ -15,33 +15,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "TimeTicks",
+      "Gauge32",
       "Unsigned32",
       "iso",
-      "Counter32",
       "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "experimental",
       "OBJECT-IDENTITY",
-      "Integer32",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "experimental",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "DisplayString",
       "StorageType",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "TimeStamp"
     ]
   },
@@ -758,8 +758,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MPLS-BGP-VPN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:17:16 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:10:06 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-MPLS-BGP-VPN-MIB"

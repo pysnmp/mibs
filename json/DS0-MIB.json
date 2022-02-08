@@ -3,34 +3,34 @@
     "class": "imports",
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "transmission",
-      "OBJECT-TYPE",
-      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
       "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "MibIdentifier",
-      "Bits",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "transmission",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -318,8 +318,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DS0-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:06:55 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:02:52 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DS0-MIB"

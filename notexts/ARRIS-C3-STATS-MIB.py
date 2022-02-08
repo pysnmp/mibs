@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ARRIS-C3-STATS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-STATS-MIB
-# Produced by pysmi-1.1.8 at Mon Feb  7 16:07:51 2022
-# On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:03:45 2022
+# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 docsIfCmtsServiceEntry, = mibBuilder.importSymbols("DOCS-IF-MIB", "docsIfCmtsServiceEntry")
 ifIndex, InterfaceIndexOrZero = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndexOrZero")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, enterprises, Integer32, Bits, TimeTicks, IpAddress, Gauge32, MibIdentifier, ModuleIdentity, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "enterprises", "Integer32", "Bits", "TimeTicks", "IpAddress", "Gauge32", "MibIdentifier", "ModuleIdentity", "Counter64", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, enterprises, ModuleIdentity, NotificationType, ObjectIdentity, Counter32, Gauge32, Integer32, MibIdentifier, Unsigned32, Bits, iso, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "enterprises", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Counter32", "Gauge32", "Integer32", "MibIdentifier", "Unsigned32", "Bits", "iso", "Counter64", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cmtsC3StatsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 1))
 if mibBuilder.loadTexts: cmtsC3StatsMIB.setLastUpdated('200308200000Z')
 if mibBuilder.loadTexts: cmtsC3StatsMIB.setOrganization('Arris International')
@@ -53,4 +53,4 @@ cdxCmtsServiceUpBWExcessReqs = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 
 if mibBuilder.loadTexts: cdxCmtsServiceUpBWExcessReqs.setStatus('current')
 cdxCmtsServiceDownBWExcessPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 1, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cdxCmtsServiceDownBWExcessPkts.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-STATS-MIB", dcxUsStatsRngAborted=dcxUsStatsRngAborted, cmtsC3StatsMIB=cmtsC3StatsMIB, dcxUpstreamStatsObjects=dcxUpstreamStatsObjects, dcxCmtsServiceOutOctets=dcxCmtsServiceOutOctets, dcxCmtsServiceStatsObjects=dcxCmtsServiceStatsObjects, dcxUsStatsRegComplete=dcxUsStatsRegComplete, dcxCmtsServiceOutPackets=dcxCmtsServiceOutPackets, PYSNMP_MODULE_ID=cmtsC3StatsMIB, dcxUsStatsOther=dcxUsStatsOther, dcxCmtsServiceTable=dcxCmtsServiceTable, dcxUsStatsAccessDenied=dcxUsStatsAccessDenied, dcxUsStatsRanging=dcxUsStatsRanging, dcxUpstreamStatsEntry=dcxUpstreamStatsEntry, dcxCmtsServiceEntry=dcxCmtsServiceEntry, dcxUpstreamStatsTable=dcxUpstreamStatsTable, dcxUsStatsIpComplete=dcxUsStatsIpComplete, cdxCmtsServiceUpBWExcessReqs=cdxCmtsServiceUpBWExcessReqs, dcxUsStatsRngComplete=dcxUsStatsRngComplete, cdxCmtsServiceDownBWExcessPkts=cdxCmtsServiceDownBWExcessPkts, dcxUsStatsIfIndex=dcxUsStatsIfIndex)
+mibBuilder.exportSymbols("ARRIS-C3-STATS-MIB", dcxCmtsServiceEntry=dcxCmtsServiceEntry, dcxUsStatsAccessDenied=dcxUsStatsAccessDenied, dcxCmtsServiceStatsObjects=dcxCmtsServiceStatsObjects, dcxUpstreamStatsObjects=dcxUpstreamStatsObjects, dcxUsStatsRegComplete=dcxUsStatsRegComplete, dcxUsStatsRngComplete=dcxUsStatsRngComplete, cmtsC3StatsMIB=cmtsC3StatsMIB, dcxCmtsServiceOutPackets=dcxCmtsServiceOutPackets, dcxCmtsServiceTable=dcxCmtsServiceTable, dcxUsStatsRanging=dcxUsStatsRanging, dcxUsStatsRngAborted=dcxUsStatsRngAborted, dcxUpstreamStatsTable=dcxUpstreamStatsTable, PYSNMP_MODULE_ID=cmtsC3StatsMIB, dcxUsStatsIpComplete=dcxUsStatsIpComplete, dcxUsStatsOther=dcxUsStatsOther, dcxUpstreamStatsEntry=dcxUpstreamStatsEntry, cdxCmtsServiceUpBWExcessReqs=cdxCmtsServiceUpBWExcessReqs, cdxCmtsServiceDownBWExcessPkts=cdxCmtsServiceDownBWExcessPkts, dcxUsStatsIfIndex=dcxUsStatsIfIndex, dcxCmtsServiceOutOctets=dcxCmtsServiceOutOctets)

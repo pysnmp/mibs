@@ -7,20 +7,20 @@
       "cdpCacheIfIndex"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
-      "CiscoNetworkProtocol"
+      "CiscoNetworkProtocol",
+      "CiscoNetworkAddress"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
       "rndNotifications",
       "switch001"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -35,26 +35,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
       "OBJECT-TYPE",
-      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Bits"
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rlCdp": {
@@ -1589,8 +1589,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-CDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:02 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:20 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-CDP-MIB"

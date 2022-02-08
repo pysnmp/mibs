@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "ONEACCESS-GLOBAL-REG": [
-      "oacMIBModules",
-      "oacExpIMSystem"
+      "oacExpIMSystem",
+      "oacMIBModules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
       "MibIdentifier",
       "Unsigned32",
+      "TimeTicks",
       "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "oacSysMIBModule": {
@@ -675,8 +675,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oneaccess/ONEACCESS-SYS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:20:02 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:12:27 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ONEACCESS-SYS-MIB"

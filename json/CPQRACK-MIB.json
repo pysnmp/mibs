@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "compaq",
-      "cpqHoOsType",
       "cpqHoVersion",
-      "cpqHoTrapFlags"
+      "compaq",
+      "cpqHoTrapFlags",
+      "cpqHoOsType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -16,20 +16,20 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
       "iso",
-      "TRAP-TYPE"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -9875,8 +9875,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQRACK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:17:16 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:10:06 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CPQRACK-MIB"

@@ -5,16 +5,16 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaDot1dState",
-      "ArubaEnableValue",
-      "ArubaPortMode",
-      "ArubaPortType",
-      "ArubaPortDuplex",
-      "ArubaOperStateValue",
-      "ArubaIfType",
       "ArubaVlanValidRange",
       "ArubaPoeState",
-      "ArubaPortSpeed"
+      "ArubaEnableValue",
+      "ArubaOperStateValue",
+      "ArubaIfType",
+      "ArubaPortSpeed",
+      "ArubaDot1dState",
+      "ArubaPortMode",
+      "ArubaPortDuplex",
+      "ArubaPortType"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -25,34 +25,34 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "TimeTicks",
+      "snmpModules",
       "Counter64",
-      "Bits",
-      "IpAddress",
-      "MibIdentifier",
       "Gauge32",
       "Integer32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "snmpModules",
+      "Bits",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "TAddress",
-      "PhysAddress",
-      "TDomain",
       "TestAndIncr",
-      "RowStatus",
       "MacAddress",
-      "DisplayString",
+      "TDomain",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "StorageType",
-      "TruthValue"
+      "TruthValue",
+      "PhysAddress",
+      "TAddress",
+      "RowStatus"
     ]
   },
   "wlsxIfExtMIB": {
@@ -1143,8 +1143,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-IFEXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:07:56 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:03:50 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "WLSX-IFEXT-MIB"

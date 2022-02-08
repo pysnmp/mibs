@@ -5,29 +5,29 @@
       "isilon"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "IpAddress",
       "Bits",
-      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
       "Gauge32",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Counter32",
-      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "isilonTraps": {
@@ -5265,8 +5265,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emc/ISILON-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  7 16:12:49 2022",
-      "On host fv-az135-36 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:47 2022",
+      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ISILON-TRAP-MIB"
