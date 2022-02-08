@@ -9,39 +9,39 @@
       "ArubaESIServerMode"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
       "TimeTicks",
-      "Unsigned32"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TimeInterval",
+      "StorageType",
+      "TAddress",
+      "PhysAddress",
+      "TruthValue",
+      "TDomain",
       "TestAndIncr",
       "MacAddress",
-      "TDomain",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "StorageType",
-      "TruthValue",
-      "PhysAddress",
-      "TAddress",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "wlsxESIMIB": {
@@ -230,8 +230,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-ESI-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:03:50 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:26:49 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "WLSX-ESI-MIB"

@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-RTTMON-MIB": [
-      "rttMonStatsCollectEntry",
-      "rttMonHistoryCollectionEntry",
-      "rttMonLpdGrpStatsEntry",
       "rttMonEchoPathAdminEntry",
-      "rttMonCtrlAdminIndex",
+      "rttMonStatsCollectEntry",
       "rttMonCtrlAdminEntry",
-      "rttMonCtrlOperEntry",
-      "rttMonEchoAdminEntry"
+      "rttMonHistoryCollectionEntry",
+      "rttMonCtrlAdminIndex",
+      "rttMonLpdGrpStatsEntry",
+      "rttMonEchoAdminEntry",
+      "rttMonCtrlOperEntry"
     ],
     "CISCO-RTTMON-TC-MIB": [
       "CipslaPercentileVar"
@@ -21,36 +21,36 @@
       "DscpOrAny"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IPV6-FLOW-LABEL-MIB": [
       "IPv6FlowLabelOrAny"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "TimeTicks",
-      "Counter32",
+      "Counter64",
       "Bits",
       "iso",
-      "Integer32",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "Counter32",
       "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoRttMonIPExtMIB": {
@@ -1003,8 +1003,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-IP-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:07:22 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:30:36 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CISCO-RTTMON-IP-EXT-MIB"

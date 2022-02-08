@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
-      "HCPerfValidIntervals",
-      "HCPerfTotalCount",
-      "HCPerfIntervalCount",
-      "HCPerfTimeElapsed",
       "HCPerfCurrentCount",
+      "HCPerfInvalidIntervals",
+      "HCPerfTimeElapsed",
+      "HCPerfIntervalCount",
+      "HCPerfValidIntervals",
       "HCPerfIntervalThreshold",
-      "HCPerfInvalidIntervals"
+      "HCPerfTotalCount"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,32 +18,32 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
       "iso",
-      "mib-2",
-      "MibIdentifier"
+      "TimeTicks",
+      "Gauge32",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "RowStatus",
+      "PhysAddress",
+      "TruthValue"
     ]
   },
   "gBondMIB": {
@@ -1723,8 +1723,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/GBOND-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:02:52 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:25:50 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "GBOND-MIB"

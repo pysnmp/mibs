@@ -3,48 +3,48 @@
     "class": "imports",
     "ADVA-MIB": [
       "neEventLogTimeStamp",
-      "TrapAlarmSeverity",
-      "fspR7",
       "neEventLogIdentityTranslation",
-      "ServiceImpairment"
+      "TrapAlarmSeverity",
+      "ServiceImpairment",
+      "fspR7"
     ],
     "FspR7-LAYER2-MIB": [
-      "flowEntityIndexFlow",
-      "flowEntityIndexEth"
+      "flowEntityIndexEth",
+      "flowEntityIndexFlow"
     ],
     "IEEE8021-CFM-MIB": [
+      "dot1agCfmMaIndex",
       "dot1agCfmMdIndex",
-      "dot1agCfmMepIdentifier",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMepIdentifier"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
       "MibIdentifier",
-      "iso"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "cfmExtensionMIB": {
@@ -762,8 +762,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-CFM-EXTENSION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:03:30 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:26:29 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "ADVA-FSPR7-CFM-EXTENSION-MIB"

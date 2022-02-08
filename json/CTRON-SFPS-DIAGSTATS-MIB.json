@@ -3,33 +3,33 @@
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
       "sfpsFloodCountersReset",
-      "sfpsFloodCounters",
       "sfpsResetNVRAM",
+      "sfpsFloodCounters",
       "sfpsIsolatedSwitch"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "Bits",
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "iso"
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "SfpsAddress": {
@@ -319,8 +319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-DIAGSTATS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:08:04 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:31:27 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "CTRON-SFPS-DIAGSTATS-MIB"

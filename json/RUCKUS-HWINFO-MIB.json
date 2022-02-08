@@ -5,29 +5,29 @@
       "ruckusCommonHwInfoModule"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Gauge32",
       "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
       "Integer32",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "Unsigned32"
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruckusHwInfoMIB": {
@@ -137,8 +137,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-HWINFO-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:14:50 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:38:47 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "RUCKUS-HWINFO-MIB"

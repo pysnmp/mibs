@@ -11,45 +11,45 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Bits",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
       "iso",
-      "mib-2",
-      "MibIdentifier"
+      "TimeTicks",
+      "Gauge32",
+      "mib-2"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "AutonomousType",
       "StorageType",
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "RowStatus",
+      "TruthValue"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpiIndex",
-      "T11FcSpType",
-      "T11FcRoutingControl",
-      "T11FcSpPrecedence",
-      "T11FcSpLifetimeLeft",
       "T11FcSpSecurityProtocolId",
       "T11FcSpLifetimeLeftUnits",
+      "T11FcSpPrecedence",
+      "T11FcSpTransforms",
+      "T11FcSpLifetimeLeft",
       "T11FcSaDirection",
-      "T11FcSpTransforms"
+      "T11FcSpiIndex",
+      "T11FcRoutingControl",
+      "T11FcSpType"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:02:51 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:25:49 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

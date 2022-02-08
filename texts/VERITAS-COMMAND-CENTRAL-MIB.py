@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module VERITAS-COMMAND-CENTRAL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-COMMAND-CENTRAL-MIB.mib
-# Produced by pysmi-1.1.8 at Tue Feb  8 22:16:10 2022
-# On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Feb  8 22:39:57 2022
+# On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner
 # Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-iso, ObjectIdentity, Gauge32, Integer32, Unsigned32, NotificationType, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Counter64, Counter32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ObjectIdentity", "Gauge32", "Integer32", "Unsigned32", "NotificationType", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Counter64", "Counter32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ObjectIdentity, Unsigned32, Bits, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, Counter64, iso, Counter32, ModuleIdentity, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "Bits", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "Counter64", "iso", "Counter32", "ModuleIdentity", "TimeTicks", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 products, = mibBuilder.importSymbols("VERITAS-REG", "products")
-Utf8StringLong, Utf8StringShort, Uint64ReadOnly = mibBuilder.importSymbols("VERITAS-TC", "Utf8StringLong", "Utf8StringShort", "Uint64ReadOnly")
+Utf8StringShort, Uint64ReadOnly, Utf8StringLong = mibBuilder.importSymbols("VERITAS-TC", "Utf8StringShort", "Uint64ReadOnly", "Utf8StringLong")
 veritascc = ModuleIdentity((1, 3, 6, 1, 4, 1, 1302, 3, 12))
 veritascc.setRevisions(('1902-10-24 16:30', '1904-01-08 21:30',))
 
@@ -86,4 +86,4 @@ if mibBuilder.loadTexts: ccWarning.setDescription('A Warning alert trap from Com
 ccInformational = NotificationType((1, 3, 6, 1, 4, 1, 1302, 3, 12, 10, 2, 0, 4)).setObjects(("VERITAS-COMMAND-CENTRAL-MIB", "alertRecipients"), ("VERITAS-COMMAND-CENTRAL-MIB", "alertSummary"), ("VERITAS-COMMAND-CENTRAL-MIB", "alertDescription"), ("VERITAS-COMMAND-CENTRAL-MIB", "policyName"), ("VERITAS-COMMAND-CENTRAL-MIB", "objectType"), ("VERITAS-COMMAND-CENTRAL-MIB", "collectorName"), ("VERITAS-COMMAND-CENTRAL-MIB", "ccHost"), ("VERITAS-COMMAND-CENTRAL-MIB", "sourceId"), ("VERITAS-COMMAND-CENTRAL-MIB", "ccObject"), ("VERITAS-COMMAND-CENTRAL-MIB", "sampleData"), ("VERITAS-COMMAND-CENTRAL-MIB", "ccAlertSeverity"), ("VERITAS-COMMAND-CENTRAL-MIB", "ccAlertTime"))
 if mibBuilder.loadTexts: ccInformational.setStatus('current')
 if mibBuilder.loadTexts: ccInformational.setDescription('An Informational alert trap from Command Central.')
-mibBuilder.exportSymbols("VERITAS-COMMAND-CENTRAL-MIB", alertRecipients=alertRecipients, ccTrapDefinitionsBranch=ccTrapDefinitionsBranch, alertSummary=alertSummary, ccWarning=ccWarning, ccError=ccError, ccTrapVarsBranch=ccTrapVarsBranch, collectorName=collectorName, veritascc=veritascc, ccTrapBranchPrefix=ccTrapBranchPrefix, ccCritical=ccCritical, ccTrapBranch=ccTrapBranch, ccTrapGroup=ccTrapGroup, ccTrapVarsGroup=ccTrapVarsGroup, alertDescription=alertDescription, sampleData=sampleData, ccInformational=ccInformational, ccObject=ccObject, objectType=objectType, sourceId=sourceId, PYSNMP_MODULE_ID=veritascc, ccAlertTime=ccAlertTime, policyName=policyName, ccAlertSeverity=ccAlertSeverity, ccHost=ccHost)
+mibBuilder.exportSymbols("VERITAS-COMMAND-CENTRAL-MIB", collectorName=collectorName, alertRecipients=alertRecipients, veritascc=veritascc, PYSNMP_MODULE_ID=veritascc, ccWarning=ccWarning, ccTrapVarsGroup=ccTrapVarsGroup, sampleData=sampleData, sourceId=sourceId, ccAlertTime=ccAlertTime, ccInformational=ccInformational, ccTrapVarsBranch=ccTrapVarsBranch, alertDescription=alertDescription, alertSummary=alertSummary, policyName=policyName, ccObject=ccObject, objectType=objectType, ccError=ccError, ccTrapGroup=ccTrapGroup, ccHost=ccHost, ccAlertSeverity=ccAlertSeverity, ccTrapBranchPrefix=ccTrapBranchPrefix, ccCritical=ccCritical, ccTrapBranch=ccTrapBranch, ccTrapDefinitionsBranch=ccTrapDefinitionsBranch)

@@ -8,17 +8,17 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvId",
-      "docsDevEvLastTime",
       "docsDevEvLevel",
-      "docsDevEvText"
+      "docsDevEvText",
+      "docsDevEvId",
+      "docsDevEvLastTime"
     ],
     "DOCS-IF-MIB": [
       "DocsisUpstreamType",
-      "DocsisQosVersion",
-      "TenthdBmV",
       "TenthdB",
-      "DocsEqualizerData"
+      "DocsEqualizerData",
+      "DocsisQosVersion",
+      "TenthdBmV"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -26,8 +26,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -36,37 +36,37 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Integer32",
+      "Counter64",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Integer32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "Counter32",
       "iso",
-      "MibIdentifier"
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
-      "MacAddress",
       "DisplayString",
-      "TruthValue",
+      "DateAndTime",
+      "MacAddress",
+      "StorageType",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 22:02:52 2022",
-      "On host fv-az126-754 platform Linux version 5.11.0-1028-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Feb  8 22:25:50 2022",
+      "On host fv-az36-646 platform Linux version 5.11.0-1028-azure by user runner",
       "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
     ],
     "module": "DOCS-IF3-MIB"
