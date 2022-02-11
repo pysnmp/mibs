@@ -8,8 +8,8 @@
       "hwGtlItemName"
     ],
     "HUAWEI-IMA-MIB": [
-      "ImaFrameLength",
-      "ImaGroupState"
+      "ImaGroupState",
+      "ImaFrameLength"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -21,31 +21,31 @@
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "iso",
       "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Bits",
-      "Unsigned32"
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime"
     ]
   },
@@ -19872,9 +19872,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PORT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:17:32 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:42:05 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-PORT-MIB"
   }

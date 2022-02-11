@@ -5,25 +5,25 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "AgentPortMask",
-      "fastPath"
+      "fastPath",
+      "AgentPortMask"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanId",
       "dot1qVlanIndex",
       "dot1qFdbId",
-      "VlanId",
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
@@ -31,29 +31,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
       "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Unsigned32"
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime",
       "PhysAddress",
-      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "fastPathSwitching": {
@@ -15375,9 +15375,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:15:06 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:39:31 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"
   }

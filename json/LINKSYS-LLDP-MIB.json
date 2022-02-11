@@ -8,8 +8,8 @@
       "AddressFamilyNumbers"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "LINKSYS-MIB": [
       "rndNotifications",
@@ -19,42 +19,42 @@
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpPortNumber",
-      "lldpRemIndex",
-      "lldpRemTimeMark",
-      "lldpRemLocalPortNum",
+      "LldpPortList",
       "LldpManAddress",
-      "LldpPortList"
+      "lldpRemIndex",
+      "LldpPortNumber",
+      "lldpRemLocalPortNum",
+      "lldpRemTimeMark"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "IpAddress",
+      "iso",
       "MODULE-IDENTITY",
       "Counter32",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Integer32",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "rlLldp": {
@@ -768,9 +768,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:19:42 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:44:17 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-LLDP-MIB"
   }

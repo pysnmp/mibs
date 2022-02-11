@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsPktDispatchStats",
+      "sfpsSwitchSfpsPacket",
       "sfpsCSPPacket",
-      "sfpsSwitchSfpsPacket"
+      "sfpsPktDispatchStats"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "iso",
-      "OBJECT-TYPE",
       "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
       "IpAddress",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "SfpsSwitchInstance": {
@@ -915,9 +915,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-PKTMGR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:15:38 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:40:06 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "CTRON-SFPS-PKTMGR-MIB"
   }

@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TRAP-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Gauge32",
-      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
       "IpAddress",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "enterprises",
       "MibIdentifier",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "UPS-MIB": [
-      "NonNegativeInteger",
-      "PositiveInteger"
+      "PositiveInteger",
+      "NonNegativeInteger"
     ]
   },
   "ats": {
@@ -2060,9 +2060,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ats/ATS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:11:34 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:35:40 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "ATS-MIB"
   }

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IFOTEC-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ifotec/IFOTEC-SMI
-# Produced by pysmi-1.1.8 at Tue Feb  8 23:18:30 2022
-# On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner
-# Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Fri Feb 11 19:43:06 2022
+# On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner
+# Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ModuleIdentity, Counter64, MibIdentifier, Bits, ObjectIdentity, Gauge32, IpAddress, Counter32, TimeTicks, Unsigned32, NotificationType, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ModuleIdentity", "Counter64", "MibIdentifier", "Bits", "ObjectIdentity", "Gauge32", "IpAddress", "Counter32", "TimeTicks", "Unsigned32", "NotificationType", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, IpAddress, NotificationType, Unsigned32, ModuleIdentity, Bits, Integer32, Counter64, MibIdentifier, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, iso, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "NotificationType", "Unsigned32", "ModuleIdentity", "Bits", "Integer32", "Counter64", "MibIdentifier", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "iso", "enterprises")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ifotec = ModuleIdentity((1, 3, 6, 1, 4, 1, 21362))
 if mibBuilder.loadTexts: ifotec.setLastUpdated('202007280000Z')
 if mibBuilder.loadTexts: ifotec.setOrganization('IFOTEC')
@@ -93,4 +93,4 @@ ifoTempHighThldWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 21362, 101, 2, 1, 1, 
 if mibBuilder.loadTexts: ifoTempHighThldWarning.setStatus('current')
 ifotecModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 21362, 102))
 if mibBuilder.loadTexts: ifotecModules.setStatus('current')
-mibBuilder.exportSymbols("IFOTEC-SMI", ifoTemperatureEntry=ifoTemperatureEntry, ifoSysTable=ifoSysTable, ifoSysUpTime=ifoSysUpTime, ifotecGeneral=ifotecGeneral, ifoSysProductIndex=ifoSysProductIndex, ifoTempLowThldWarning=ifoTempLowThldWarning, ifoTempLowThldAlarm=ifoTempLowThldAlarm, ifoSysFamilly=ifoSysFamilly, IfotecDataStatus=IfotecDataStatus, ifoSysEntry=ifoSysEntry, ifoTempDescr=ifoTempDescr, ifoSysContact=ifoSysContact, ifoSysBootloader=ifoSysBootloader, ifoTemperatureTable=ifoTemperatureTable, ifoSysDateCode=ifoSysDateCode, ifoSysRef=ifoSysRef, ifoSysORIfoSysIndex=ifoSysORIfoSysIndex, ifoTempName=ifoTempName, ifoSysFirmware=ifoSysFirmware, ifotec=ifotec, ifoSysMibEntry=ifoSysMibEntry, ifoTempValue=ifoTempValue, ifoSysDescr=ifoSysDescr, ifoSysMibTable=ifoSysMibTable, ifoSysLocation=ifoSysLocation, ifotecTemperatures=ifotecTemperatures, ifoSysIndex=ifoSysIndex, ifoSysORIndex=ifoSysORIndex, ifoTempHighThldWarning=ifoTempHighThldWarning, ifoSysSerialNumber=ifoSysSerialNumber, ifoSysORID=ifoSysORID, ifoTempAlarmStatus=ifoTempAlarmStatus, ifotecSystem=ifotecSystem, ifoSysORDescr=ifoSysORDescr, ifotecModules=ifotecModules, ifoSysInfo=ifoSysInfo, ifoTempHighThldAlarm=ifoTempHighThldAlarm, ifoTempIfoSysIndex=ifoTempIfoSysIndex, PYSNMP_MODULE_ID=ifotec, ifoTempIndex=ifoTempIndex)
+mibBuilder.exportSymbols("IFOTEC-SMI", ifotec=ifotec, ifoSysFirmware=ifoSysFirmware, ifoTempDescr=ifoTempDescr, ifoTempLowThldAlarm=ifoTempLowThldAlarm, ifoTemperatureTable=ifoTemperatureTable, ifotecModules=ifotecModules, ifoSysIndex=ifoSysIndex, ifoSysMibTable=ifoSysMibTable, ifoSysTable=ifoSysTable, ifotecTemperatures=ifotecTemperatures, ifotecSystem=ifotecSystem, ifoSysInfo=ifoSysInfo, ifoSysContact=ifoSysContact, ifoSysORID=ifoSysORID, ifoSysEntry=ifoSysEntry, ifoTempIndex=ifoTempIndex, ifoTempHighThldAlarm=ifoTempHighThldAlarm, ifoSysProductIndex=ifoSysProductIndex, ifoSysSerialNumber=ifoSysSerialNumber, ifoTempIfoSysIndex=ifoTempIfoSysIndex, ifoTempName=ifoTempName, ifoSysRef=ifoSysRef, ifoTempLowThldWarning=ifoTempLowThldWarning, ifoSysLocation=ifoSysLocation, ifoSysORIfoSysIndex=ifoSysORIfoSysIndex, IfotecDataStatus=IfotecDataStatus, ifoSysDateCode=ifoSysDateCode, ifoTempValue=ifoTempValue, ifoSysDescr=ifoSysDescr, ifoSysMibEntry=ifoSysMibEntry, ifoSysFamilly=ifoSysFamilly, PYSNMP_MODULE_ID=ifotec, ifoTemperatureEntry=ifoTemperatureEntry, ifoSysORIndex=ifoSysORIndex, ifoSysORDescr=ifoSysORDescr, ifoTempHighThldWarning=ifoTempHighThldWarning, ifoTempAlarmStatus=ifoTempAlarmStatus, ifotecGeneral=ifotecGeneral, ifoSysUpTime=ifoSysUpTime, ifoSysBootloader=ifoSysBootloader)

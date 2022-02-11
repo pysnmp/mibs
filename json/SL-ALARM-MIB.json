@@ -5,39 +5,39 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
+      "PerfTotalCount",
       "PerfIntervalCount",
-      "PerfCurrentCount",
-      "PerfTotalCount"
+      "PerfCurrentCount"
     ],
     "SL-MAIN-MIB": [
       "slMain"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
       "IpAddress",
+      "Gauge32",
       "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
       "iso",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "TimeStamp",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "slAlarmMib": {
@@ -434,9 +434,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:21:03 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:45:42 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "SL-ALARM-MIB"
   }

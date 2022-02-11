@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Bits",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "iso",
       "Counter64",
       "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -167,9 +167,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:23:49 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:48:37 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "VMWARE-SYSTEM-MIB"
   }

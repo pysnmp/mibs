@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
       "Integer32",
-      "Bits"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -96,9 +96,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/SYSLOG",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:15:45 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:40:13 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "SYSLOG"
   }

@@ -5,37 +5,37 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "CiscoAlarmSeverity",
+      "Unsigned64",
       "CiscoInetAddressMask",
       "TimeIntervalSec",
-      "Unsigned64",
-      "CiscoNetworkAddress",
-      "CiscoAlarmSeverity"
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsExtpolEpFsmTaskItem",
-      "CucsExtpolProviderFsmTaskItem",
-      "CucsFsmFsmStageStatus",
-      "CucsExtpolProviderFsmStageName",
-      "CucsExtpolConnType",
-      "CucsExtpolSuspendState",
-      "CucsExtpolConnectorOperState",
       "CucsExtpolEpFsmStageName",
-      "CucsExtpolState",
-      "CucsExtpolRegistryFsmTaskItem",
-      "CucsExtpolAppCapability",
-      "CucsExtpolConnProtocol",
-      "CucsFsmCompletion",
-      "CucsExtpolRegistryFsmStageName",
-      "CucsConditionRemoteInvRslt",
-      "CucsFsmFlags",
+      "CucsFsmFsmStageStatus",
       "CucsExtpolEpFsmCurrentFsm",
+      "CucsExtpolRegistryFsmStageName",
+      "CucsExtpolEpFsmTaskItem",
+      "CucsConditionRemoteInvRslt",
+      "CucsExtpolConnProtocol",
+      "CucsExtpolRegistryFsmTaskItem",
+      "CucsExtpolProviderFsmStageName",
+      "CucsExtpolConnectorOperState",
+      "CucsExtpolConnType",
       "CucsExtpolProviderFsmCurrentFsm",
-      "CucsExtpolRegistryFsmCurrentFsm"
+      "CucsExtpolState",
+      "CucsFsmCompletion",
+      "CucsExtpolAppCapability",
+      "CucsFsmFlags",
+      "CucsExtpolRegistryFsmCurrentFsm",
+      "CucsExtpolSuspendState",
+      "CucsExtpolProviderFsmTaskItem"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -45,34 +45,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
-      "iso",
-      "Integer32",
       "Counter64",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "iso",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TimeStamp",
       "RowPointer",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TimeInterval",
+      "TimeStamp"
     ]
   },
   "cucsExtpolObjects": {
@@ -3041,9 +3041,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTPOL-MIB",
-      "Produced by pysmi-1.1.8 at Tue Feb  8 23:14:49 2022",
-      "On host fv-az42-507 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Fri Feb 11 19:39:14 2022",
+      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
+      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-EXTPOL-MIB"
   }
