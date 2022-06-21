@@ -7,7 +7,7 @@ license = "BSD-2-Clause"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pysnmp-pysmi = "^1.1.8"
+pysnmp-pysmi = "^1.1.10"
 
 
 [tool.poetry.dev-dependencies]
