@@ -12,37 +12,37 @@
       "InetAddress"
     ],
     "SFLOW-MIB": [
-      "sFlowCpEntry",
-      "sFlowFsEntry"
+      "sFlowFsEntry",
+      "sFlowCpEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1PortMirrorMonitoringMIB": {
@@ -1652,8 +1652,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:13:54 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:40:20 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-PORT-MIRRORING-MONITORING-MIB"

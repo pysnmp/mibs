@@ -6,28 +6,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
-      "iso",
-      "IpAddress",
+      "TimeTicks",
+      "Counter64",
       "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter64",
+      "Counter32",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "VMWARE-ROOT-MIB": [
-      "vmwOID",
-      "vmwProductSpecific"
+      "vmwProductSpecific",
+      "vmwOID"
     ]
   },
   "vmwProducts": {
@@ -153,8 +153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:16:44 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:43:26 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "VMWARE-PRODUCTS-MIB"

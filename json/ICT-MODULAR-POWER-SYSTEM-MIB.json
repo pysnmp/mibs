@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Counter32",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "TimeTicks",
       "iso",
-      "enterprises",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
       "TRAP-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "enterprises",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -540,8 +540,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ict/ICT-MODULAR-POWER-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:11:06 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:36:42 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ICT-MODULAR-POWER-SYSTEM-MIB"

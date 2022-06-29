@@ -5,15 +5,15 @@
       "switch001"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-COMMUNITY-MIB": [
       "snmpTargetAddrExtEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpAdminString",
-      "SnmpEngineID"
+      "SnmpEngineID",
+      "SnmpAdminString"
     ],
     "SNMP-USER-BASED-SM-MIB": [
       "usmNoPrivProtocol",
@@ -25,28 +25,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
       "iso",
-      "OBJECT-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "IpAddress",
-      "Counter64"
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "AutonomousType",
       "RowStatus",
-      "AutonomousType"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "rlSNMP": {
@@ -1274,8 +1274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:07:11 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:32:16 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-SNMP-MIB"

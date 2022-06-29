@@ -5,45 +5,45 @@
       "entPhysicalIndex"
     ],
     "HH3C-STORAGE-REF-MIB": [
-      "Hh3cRaidIDType",
-      "hh3cStorageRef",
-      "Hh3cWwpnListType",
-      "Hh3cStorageActionType",
       "Hh3cSessionIDType",
-      "Hh3cLvIDType",
+      "Hh3cRaidIDType",
+      "Hh3cWwpnListType",
+      "Hh3cStorageLedStateType",
       "Hh3cStorageEnableState",
-      "Hh3cStorageLedStateType"
+      "Hh3cLvIDType",
+      "hh3cStorageRef",
+      "Hh3cStorageActionType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "Counter64",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Unsigned32",
+      "iso",
+      "TimeTicks",
       "Bits",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "hh3cLogicVolume": {
@@ -1153,8 +1153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LOGIC-VOLUME-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:05:15 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:30:14 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HH3C-LOGIC-VOLUME-MIB"

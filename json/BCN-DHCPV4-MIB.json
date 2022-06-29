@@ -8,30 +8,30 @@
       "BcnAlarmSeverity"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
+      "IpAddress",
       "Integer32",
+      "Bits",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "bcnDhcpv4MIB": {
@@ -747,8 +747,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-DHCPV4-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:04:02 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:28:54 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "BCN-DHCPV4-MIB"

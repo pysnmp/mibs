@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32",
       "Counter32",
-      "Bits",
       "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
       "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlEnv": {
@@ -364,8 +364,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-HWENVIROMENT",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:12:22 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:38:38 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-HWENVIROMENT"

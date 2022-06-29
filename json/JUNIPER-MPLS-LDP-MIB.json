@@ -5,21 +5,21 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
     ],
     "MPLS-TC-STD-MIB": [
+      "MplsLabelDistributionMethod",
       "MplsRetentionMode",
+      "MplsLabel",
       "MplsLspType",
       "MplsLsrIdentifier",
-      "MplsLdpIdentifier",
       "MplsLdpLabelType",
-      "MplsLabelDistributionMethod",
-      "MplsLabel"
+      "MplsLdpIdentifier"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -27,30 +27,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "Counter32",
       "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TimeInterval",
       "StorageType",
       "RowPointer",
-      "RowStatus",
-      "TimeInterval",
-      "TruthValue",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "jnxMplsLdpMIB": {
@@ -2014,8 +2014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:12:19 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:38:22 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-MPLS-LDP-MIB"

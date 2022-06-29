@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ARRIS-C3-TFTPD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-TFTPD-MIB
-# Produced by pysmi-1.1.8 at Wed Jun 29 13:03:28 2022
-# On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Jun 29 13:28:16 2022
+# On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner
 # Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, TimeTicks, ModuleIdentity, ObjectIdentity, IpAddress, Integer32, Bits, iso, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "IpAddress", "Integer32", "Bits", "iso", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "Counter32")
+Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, MibIdentifier, Integer32, Counter32, TimeTicks, iso, ObjectIdentity, Unsigned32, IpAddress, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "MibIdentifier", "Integer32", "Counter32", "TimeTicks", "iso", "ObjectIdentity", "Unsigned32", "IpAddress", "Counter64", "ModuleIdentity")
 TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
 cmtsC3TFTPDMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 9))
 if mibBuilder.loadTexts: cmtsC3TFTPDMIB.setLastUpdated('200403300000Z')
@@ -54,4 +54,4 @@ if mibBuilder.loadTexts: dcxTFTPDWriteRequestsFailed.setDescription('Number of T
 dcxTFTPDWriteBytes = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 9, 1, 12), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dcxTFTPDWriteBytes.setStatus('current')
 if mibBuilder.loadTexts: dcxTFTPDWriteBytes.setDescription('Number of bytes successfully transferred by the TFTP server on write requests.  This includes only completely transferred files.')
-mibBuilder.exportSymbols("ARRIS-C3-TFTPD-MIB", dcxTFTPDWriteRequestsDropped=dcxTFTPDWriteRequestsDropped, dcxTFTPDReadRequestsDropped=dcxTFTPDReadRequestsDropped, dcxTFTPDIpVerification=dcxTFTPDIpVerification, cmtsC3TFTPDMIB=cmtsC3TFTPDMIB, dcxTFTPDWriteRequestsFailed=dcxTFTPDWriteRequestsFailed, dcxTFTPDReadRequests=dcxTFTPDReadRequests, dcxTFTPDServerState=dcxTFTPDServerState, dcxTFTPDReadBytes=dcxTFTPDReadBytes, dcxTFTPDWriteRequests=dcxTFTPDWriteRequests, PYSNMP_MODULE_ID=cmtsC3TFTPDMIB, dcxTFTPDObjects=dcxTFTPDObjects, dcxTFTPDCurrentDirectory=dcxTFTPDCurrentDirectory, dcxTFTPDWriteBytes=dcxTFTPDWriteBytes, dcxTFTPDReadRequestsFailed=dcxTFTPDReadRequestsFailed, dcxTFTPDClearCache=dcxTFTPDClearCache)
+mibBuilder.exportSymbols("ARRIS-C3-TFTPD-MIB", dcxTFTPDClearCache=dcxTFTPDClearCache, dcxTFTPDCurrentDirectory=dcxTFTPDCurrentDirectory, dcxTFTPDWriteBytes=dcxTFTPDWriteBytes, PYSNMP_MODULE_ID=cmtsC3TFTPDMIB, dcxTFTPDReadRequests=dcxTFTPDReadRequests, dcxTFTPDReadRequestsDropped=dcxTFTPDReadRequestsDropped, dcxTFTPDObjects=dcxTFTPDObjects, dcxTFTPDWriteRequestsDropped=dcxTFTPDWriteRequestsDropped, dcxTFTPDServerState=dcxTFTPDServerState, dcxTFTPDReadRequestsFailed=dcxTFTPDReadRequestsFailed, dcxTFTPDWriteRequestsFailed=dcxTFTPDWriteRequestsFailed, cmtsC3TFTPDMIB=cmtsC3TFTPDMIB, dcxTFTPDReadBytes=dcxTFTPDReadBytes, dcxTFTPDWriteRequests=dcxTFTPDWriteRequests, dcxTFTPDIpVerification=dcxTFTPDIpVerification)

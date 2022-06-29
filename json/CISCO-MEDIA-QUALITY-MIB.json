@@ -9,12 +9,12 @@
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
       "CvcGUid",
-      "CvcCallReferenceIdOrZero",
-      "CvcCoderTypeRate"
+      "CvcCoderTypeRate",
+      "CvcCallReferenceIdOrZero"
     ],
     "DIAL-CONTROL-MIB": [
-      "callActiveIndex",
-      "callActiveSetupTime"
+      "callActiveSetupTime",
+      "callActiveIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,24 +25,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -3656,8 +3656,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEDIA-QUALITY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:07:13 2022",
-      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:32:18 2022",
+      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCO-MEDIA-QUALITY-MIB"
