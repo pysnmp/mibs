@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WHISP-GLOBAL-REG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-GLOBAL-REG-MIB
-# Produced by pysmi-1.1.8 at Wed Jun 29 13:29:01 2022
-# On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Jun 29 15:02:50 2022
+# On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner
 # Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, NotificationType, Gauge32, Integer32, ObjectIdentity, Counter32, Bits, iso, Counter64, MibIdentifier, Unsigned32, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "NotificationType", "Gauge32", "Integer32", "ObjectIdentity", "Counter32", "Bits", "iso", "Counter64", "MibIdentifier", "Unsigned32", "TimeTicks", "IpAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+enterprises, iso, Unsigned32, TimeTicks, NotificationType, ModuleIdentity, Counter64, ObjectIdentity, IpAddress, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "iso", "Unsigned32", "TimeTicks", "NotificationType", "ModuleIdentity", "Counter64", "ObjectIdentity", "IpAddress", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 whispGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 161, 19, 1, 1, 1))
 if mibBuilder.loadTexts: whispGlobalRegModule.setLastUpdated('200304100000Z')
@@ -34,4 +34,4 @@ canopySnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 250))
 ucos = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 250, 256))
 prizmSnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 1250))
 prizm = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 1000))
-mibBuilder.exportSymbols("WHISP-GLOBAL-REG-MIB", prizmSnmpAgent=prizmSnmpAgent, whispBox=whispBox, whispCMM=whispCMM, whispGeneric=whispGeneric, whispGlobalRegModule=whispGlobalRegModule, whispPlvModem=whispPlvModem, ucos=ucos, whispAps=whispAps, whispRoot=whispRoot, whispReg=whispReg, whispPlvGateway=whispPlvGateway, whispModules=whispModules, canopySnmpAgent=canopySnmpAgent, whispSm=whispSm, whispCMM4=whispCMM4, whispPlvRepeater=whispPlvRepeater, PYSNMP_MODULE_ID=whispGlobalRegModule, mot=mot, prizm=prizm, whispPlv=whispPlv, whispProducts=whispProducts, whispPlvBridge=whispPlvBridge)
+mibBuilder.exportSymbols("WHISP-GLOBAL-REG-MIB", whispGlobalRegModule=whispGlobalRegModule, whispPlvRepeater=whispPlvRepeater, whispCMM=whispCMM, whispPlvModem=whispPlvModem, prizmSnmpAgent=prizmSnmpAgent, whispProducts=whispProducts, whispPlvBridge=whispPlvBridge, whispModules=whispModules, whispPlv=whispPlv, mot=mot, whispPlvGateway=whispPlvGateway, whispSm=whispSm, whispAps=whispAps, prizm=prizm, ucos=ucos, whispGeneric=whispGeneric, whispCMM4=whispCMM4, whispBox=whispBox, canopySnmpAgent=canopySnmpAgent, PYSNMP_MODULE_ID=whispGlobalRegModule, whispRoot=whispRoot, whispReg=whispReg)

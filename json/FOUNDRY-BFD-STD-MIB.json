@@ -5,38 +5,38 @@
       "bfd"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
       "Gauge32",
-      "Counter64"
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "StorageType",
-      "RowStatus"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "bfdMIB": {
@@ -965,8 +965,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:33:36 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:08:07 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "FOUNDRY-BFD-STD-MIB"

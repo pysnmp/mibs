@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "LINKSYS-IP": [
-      "rip2Spec",
       "ipSpec",
-      "ipRipFilter",
-      "rlIpRoutingProtPreference",
-      "ipRedundancy",
       "rlOspf",
-      "ipRouteLeaking"
+      "ipRouteLeaking",
+      "rlIpRoutingProtPreference",
+      "ipRipFilter",
+      "ipRedundancy",
+      "rip2Spec"
     ],
     "OSPF-MIB": [
-      "ospfIfEntry",
-      "ospfVirtIfEntry",
+      "RouterID",
       "AreaID",
-      "RouterID"
+      "ospfVirtIfEntry",
+      "ospfIfEntry"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "Bits",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "rlIpRouter": {
@@ -2215,8 +2215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IpRouter",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:38:38 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:12:12 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-IpRouter"

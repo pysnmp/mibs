@@ -5,25 +5,25 @@
       "brocadeAgentCapability"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
+      "Counter64",
       "iso",
-      "Unsigned32",
-      "Counter32",
       "Gauge32",
-      "Counter64"
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-LLDP-CAPABILITY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:33:36 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:08:07 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "BROCADE-LLDP-CAPABILITY-MIB"

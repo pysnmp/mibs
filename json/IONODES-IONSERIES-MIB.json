@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter64",
-      "enterprises",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
       "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "AnalogVideoSignalLockState": {
@@ -774,8 +774,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ionodes/IONODES-IONSERIES-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:37:07 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:11:09 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "IONODES-IONSERIES-MIB"

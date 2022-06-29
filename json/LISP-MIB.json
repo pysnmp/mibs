@@ -13,25 +13,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
-      "mib-2",
-      "Integer32",
-      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "mib-2",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TimeStamp",
       "TEXTUAL-CONVENTION"
     ]
@@ -3191,8 +3191,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/LISP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:27:20 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:00:47 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LISP-MIB"

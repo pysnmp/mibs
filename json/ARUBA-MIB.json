@@ -3,26 +3,26 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "snmpModules",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "Integer32",
       "Counter64",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
       "Gauge32",
-      "Bits"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1103,8 +1103,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/ARUBA-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:28:19 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:02:05 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ARUBA-MIB"

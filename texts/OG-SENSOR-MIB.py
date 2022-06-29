@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OG-SENSOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SENSOR-MIB
-# Produced by pysmi-1.1.8 at Wed Jun 29 13:39:47 2022
-# On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Jun 29 15:13:37 2022
+# On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner
 # Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
 ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter64, ObjectIdentity, Integer32, IpAddress, Bits, Gauge32, ModuleIdentity, Counter32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "Integer32", "IpAddress", "Bits", "Gauge32", "ModuleIdentity", "Counter32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType", "TimeTicks")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter64, MibIdentifier, ModuleIdentity, IpAddress, Integer32, TimeTicks, iso, Gauge32, Bits, NotificationType, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "ModuleIdentity", "IpAddress", "Integer32", "TimeTicks", "iso", "Gauge32", "Bits", "NotificationType", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ogSensorMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 13))
 ogSensorMib.setRevisions(('2013-08-11 00:00', '2010-03-22 11:27', '2008-11-27 11:40',))
@@ -65,4 +65,4 @@ ogsensNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 13, 3
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ogsensNotificationsGroup = ogsensNotificationsGroup.setStatus('current')
 if mibBuilder.loadTexts: ogsensNotificationsGroup.setDescription('A collection of notification(s) for sensor system.')
-mibBuilder.exportSymbols("OG-SENSOR-MIB", ogsensStatusTable=ogsensStatusTable, ogSensorMib=ogSensorMib, ogsensEventOccurred=ogsensEventOccurred, ogSensorMibGroup=ogSensorMibGroup, ogsensStatus=ogsensStatus, ogsensStatusValue=ogsensStatusValue, ogsensStatusName=ogsensStatusName, ogSensorMibCompliance=ogSensorMibCompliance, ogSensorMibObjects=ogSensorMibObjects, ogsensStatusEntry=ogsensStatusEntry, ogsensNotificationsGroup=ogsensNotificationsGroup, ogsensStatusIndex=ogsensStatusIndex, ogsensStatusType=ogsensStatusType, PYSNMP_MODULE_ID=ogSensorMib, ogSensorMibNotificationPrefix=ogSensorMibNotificationPrefix, ogSensorMibConformance=ogSensorMibConformance, ogSensorMibGroups=ogSensorMibGroups, ogsensMibNotifications=ogsensMibNotifications, ogSensorMibCompliances=ogSensorMibCompliances, ogsensStatusDevType=ogsensStatusDevType)
+mibBuilder.exportSymbols("OG-SENSOR-MIB", ogsensMibNotifications=ogsensMibNotifications, ogsensStatusTable=ogsensStatusTable, ogsensStatusIndex=ogsensStatusIndex, ogsensStatusType=ogsensStatusType, ogsensStatus=ogsensStatus, ogSensorMibGroup=ogSensorMibGroup, ogsensStatusDevType=ogsensStatusDevType, ogsensStatusName=ogsensStatusName, ogSensorMibNotificationPrefix=ogSensorMibNotificationPrefix, ogsensStatusValue=ogsensStatusValue, ogsensEventOccurred=ogsensEventOccurred, ogSensorMib=ogSensorMib, ogSensorMibCompliances=ogSensorMibCompliances, ogsensNotificationsGroup=ogsensNotificationsGroup, ogsensStatusEntry=ogsensStatusEntry, ogSensorMibCompliance=ogSensorMibCompliance, ogSensorMibObjects=ogSensorMibObjects, ogSensorMibConformance=ogSensorMibConformance, ogSensorMibGroups=ogSensorMibGroups, PYSNMP_MODULE_ID=ogSensorMib)

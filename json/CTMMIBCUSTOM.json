@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
       "enterprises",
-      "Bits"
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "TRAP-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lastmilegear": {
@@ -750,8 +750,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ctm/CTMMIBCUSTOM",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:30:23 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:04:24 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CTMMIBCUSTOM"

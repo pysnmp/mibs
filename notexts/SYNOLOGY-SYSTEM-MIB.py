@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Wed Jun 29 13:42:42 2022
-# On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Jun 29 15:16:27 2022
+# On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner
 # Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Integer32, Bits, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, enterprises, Gauge32, NotificationType, ModuleIdentity, TimeTicks, Unsigned32, MibIdentifier, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "enterprises", "Gauge32", "NotificationType", "ModuleIdentity", "TimeTicks", "Unsigned32", "MibIdentifier", "Counter64")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Gauge32, Integer32, Counter64, MibIdentifier, Counter32, NotificationType, iso, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, TimeTicks, ObjectIdentity, ModuleIdentity, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Integer32", "Counter64", "MibIdentifier", "Counter32", "NotificationType", "iso", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "enterprises")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 synoSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 1))
 synoSystem.setRevisions(('2013-09-11 00:00',))
@@ -46,4 +46,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 systemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 1, 6, 2, 1)).setObjects(("SYNOLOGY-SYSTEM-MIB", "systemStatus"), ("SYNOLOGY-SYSTEM-MIB", "temperature"), ("SYNOLOGY-SYSTEM-MIB", "powerStatus"), ("SYNOLOGY-SYSTEM-MIB", "systemFanStatus"), ("SYNOLOGY-SYSTEM-MIB", "cpuFanStatus"), ("SYNOLOGY-SYSTEM-MIB", "modelName"), ("SYNOLOGY-SYSTEM-MIB", "serialNumber"), ("SYNOLOGY-SYSTEM-MIB", "version"), ("SYNOLOGY-SYSTEM-MIB", "upgradeAvailable"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     systemGroup = systemGroup.setStatus('current')
-mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", powerStatus=powerStatus, upgradeAvailable=upgradeAvailable, serialNumber=serialNumber, systemGroup=systemGroup, systemFanStatus=systemFanStatus, synology=synology, dsmInfo=dsmInfo, systemGroups=systemGroups, PYSNMP_MODULE_ID=synoSystem, systemConformance=systemConformance, synoSystem=synoSystem, version=version, cpuFanStatus=cpuFanStatus, modelName=modelName, systemCompliances=systemCompliances, temperature=temperature, systemCompliance=systemCompliance, systemStatus=systemStatus, fan=fan)
+mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", temperature=temperature, dsmInfo=dsmInfo, modelName=modelName, serialNumber=serialNumber, systemCompliances=systemCompliances, version=version, synoSystem=synoSystem, powerStatus=powerStatus, cpuFanStatus=cpuFanStatus, systemConformance=systemConformance, systemCompliance=systemCompliance, systemGroups=systemGroups, systemStatus=systemStatus, upgradeAvailable=upgradeAvailable, fan=fan, systemGroup=systemGroup, synology=synology, systemFanStatus=systemFanStatus, PYSNMP_MODULE_ID=synoSystem)

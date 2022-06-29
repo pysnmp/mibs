@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "MibIdentifier",
-      "TimeTicks",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "corero": {
@@ -57,8 +57,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/corero/CORERO-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:30:18 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:04:18 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CORERO-MIB"

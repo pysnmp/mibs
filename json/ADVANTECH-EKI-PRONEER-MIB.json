@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
       "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "Counter32",
       "enterprises",
-      "IpAddress"
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "advantech": {
@@ -19660,8 +19660,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/advantech/ADVANTECH-EKI-PRONEER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:27:37 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:01:06 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ADVANTECH-EKI-PRONEER-MIB"

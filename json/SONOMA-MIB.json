@@ -6,20 +6,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "iso",
+      "IpAddress",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "Integer32",
-      "Counter32",
-      "Bits",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
@@ -4758,8 +4758,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/endrun/SONOMA-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:33:02 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:07:25 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "SONOMA-MIB"

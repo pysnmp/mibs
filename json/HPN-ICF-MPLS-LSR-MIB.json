@@ -12,8 +12,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
       "InetAddressType",
+      "InetAddressIPv4",
       "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
@@ -22,28 +22,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
       "Bits",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "RowPointer",
+      "RowStatus",
+      "StorageType",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "StorageType",
       "TruthValue"
     ]
   },
@@ -1986,8 +1986,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MPLS-LSR-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:37:07 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:10:54 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-MPLS-LSR-MIB"

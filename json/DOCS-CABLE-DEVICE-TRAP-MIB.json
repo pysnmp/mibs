@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvText",
-      "docsDevEvId",
+      "docsDevSwServer",
       "docsDevNotification",
       "docsDev",
-      "docsDevSwFilename",
       "docsDevEvLevel",
-      "docsDevSwServer",
       "docsDevServerDhcp",
-      "docsDevServerTime"
+      "docsDevEvId",
+      "docsDevServerTime",
+      "docsDevSwFilename",
+      "docsDevEvText"
     ],
     "DOCS-IF-EXT-MIB": [
       "docsIfDocsisCapability",
@@ -18,13 +18,13 @@
       "docsIfDocsisOperMode"
     ],
     "DOCS-IF-MIB": [
-      "docsIfCmStatusDocsisOperMode",
+      "docsIfDocsisBaseCapability",
       "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmCmtsAddress",
       "docsIfCmtsCmStatusModulationType",
       "docsIfCmStatusModulationType",
-      "docsIfDocsisBaseCapability",
       "docsIfCmtsCmStatusDocsisRegMode",
-      "docsIfCmCmtsAddress"
+      "docsIfCmStatusDocsisOperMode"
     ],
     "IF-MIB": [
       "ifPhysAddress"
@@ -35,20 +35,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Bits",
       "OBJECT-TYPE",
       "Counter64",
       "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
       "Integer32",
+      "TimeTicks",
       "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1720,8 +1720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-CABLE-DEVICE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 13:27:21 2022",
-      "On host fv-az128-12 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Jun 29 15:00:47 2022",
+      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-TRAP-MIB"
