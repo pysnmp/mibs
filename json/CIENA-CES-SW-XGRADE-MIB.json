@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalSeverity",
-      "cienaGlobalMacAddress"
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
       "cienaCesConfig",
@@ -14,20 +14,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter64",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Integer32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -196,9 +196,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-SW-XGRADE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:36:45 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:04:42 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CIENA-CES-SW-XGRADE-MIB"
   }

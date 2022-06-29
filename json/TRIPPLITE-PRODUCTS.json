@@ -10,27 +10,27 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "Unsigned32",
+      "enterprises",
       "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
       "TimeTicks",
-      "Bits",
-      "iso",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Integer32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE"
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "DisplayString",
       "TimeStamp"
     ],
     "TRIPPLITE": [
@@ -15558,9 +15558,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/poweralert/TRIPPLITE-PRODUCTS",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:46:13 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:14:20 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "TRIPPLITE-PRODUCTS"
   }

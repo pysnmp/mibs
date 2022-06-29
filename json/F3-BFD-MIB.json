@@ -5,23 +5,23 @@
       "fsp150cm"
     ],
     "BFD-STD-MIB": [
-      "bfdSessIndex",
-      "bfdSessEntry"
+      "bfdSessEntry",
+      "bfdSessIndex"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
       "AdminState",
       "SecondaryState",
       "OperationalState",
-      "VlanPriority"
+      "VlanPriority",
+      "VlanId"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
-      "f3L3TrafficBgpPeerEntry",
-      "f3VrfEntry",
       "f3L3TrafficOspfInterfaceEntry",
+      "f3VrfEntry",
+      "f3L3TrafficBgpPeerEntry",
       "f3L3TrafficIPInterfaceEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "IpAddress",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
       "Gauge32",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
       "Integer32",
-      "TimeTicks",
-      "Bits",
-      "iso"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
       "VariablePointer",
-      "DisplayString"
+      "RowStatus",
+      "StorageType"
     ]
   },
   "f3BfdMIB": {
@@ -808,9 +808,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:35:16 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:03:12 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "F3-BFD-MIB"
   }

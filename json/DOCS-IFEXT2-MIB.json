@@ -6,37 +6,37 @@
     ],
     "DOCS-IF-MIB": [
       "TenthdB",
-      "TenthdBmV",
-      "docsIfCmtsCmStatusIndex"
+      "docsIfCmtsCmStatusIndex",
+      "TenthdBmV"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
       "Bits",
-      "IpAddress"
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "docsIfExt2Mib": {
@@ -667,9 +667,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IFEXT2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:34:33 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:02:32 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "DOCS-IFEXT2-MIB"
   }

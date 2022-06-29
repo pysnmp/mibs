@@ -5,9 +5,9 @@
       "AtmAddr"
     ],
     "BGP4-MIB": [
-      "bgpPeerState",
+      "bgpPeerLastError",
       "bgpPeerRemoteAddr",
-      "bgpPeerLastError"
+      "bgpPeerState"
     ],
     "DIFFSERV-MIB": [
       "IndexInteger"
@@ -27,16 +27,16 @@
       "ifOperStatus"
     ],
     "IGMP-MIB": [
-      "igmpInterfaceIfIndex",
-      "igmpCacheAddress",
       "igmpCacheIfIndex",
-      "igmpInterfaceQuerier"
+      "igmpInterfaceIfIndex",
+      "igmpInterfaceQuerier",
+      "igmpCacheAddress"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
+      "InetPortNumber",
       "InetAddress",
       "InetAddressType",
-      "InetPortNumber",
       "InetAutonomousSystemNumber"
     ],
     "IP-MIB": [
@@ -56,41 +56,41 @@
       "mldInterfaceIfIndex"
     ],
     "IPV6-TC": [
-      "Ipv6Address",
       "Ipv6AddressIfIdentifier",
       "Ipv6AddressPrefix",
-      "Ipv6IfIndexOrZero",
-      "Ipv6IfIndex"
+      "Ipv6IfIndex",
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero"
     ],
     "LLDP-MIB": [
-      "LldpSystemCapabilitiesMap",
-      "lldpRemEntry",
+      "LldpPortId",
       "LldpManAddress",
-      "LldpPortIdSubtype",
+      "lldpRemEntry",
+      "LldpSystemCapabilitiesMap",
       "AddressFamilyNumbers",
-      "LldpPortId"
+      "LldpPortIdSubtype"
     ],
     "MPLS-TC-STD-MIB": [
       "MplsLdpIdentifier",
-      "MplsExtendedTunnelId",
-      "MplsLSPID",
-      "MplsLabel",
       "MplsTunnelIndex",
-      "MplsTunnelInstanceIndex"
+      "MplsTunnelInstanceIndex",
+      "MplsLabel",
+      "MplsExtendedTunnelId",
+      "MplsLSPID"
     ],
     "MSDP-MIB": [
-      "msdpPeerFsmEstablishedTransitions",
       "msdpPeerEntry",
-      "msdpSACacheEntry",
-      "msdpPeerState"
+      "msdpPeerFsmEstablishedTransitions",
+      "msdpPeerState",
+      "msdpSACacheEntry"
     ],
     "RADIUS-DYNAUTH-SERVER-MIB": [
       "radiusDynAuthClientEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpSecurityModel",
+      "SnmpAdminString",
       "SnmpSecurityLevel",
-      "SnmpAdminString"
+      "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -98,34 +98,34 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Counter32",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
+      "Counter64",
+      "Gauge32",
       "enterprises",
+      "MODULE-IDENTITY",
       "iso",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
+      "StorageType",
       "TimeStamp",
       "RowPointer",
-      "DisplayString",
+      "DateAndTime",
       "TimeInterval",
-      "RowStatus",
-      "StorageType",
       "PhysAddress",
-      "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -145635,9 +145635,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:45:09 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:13:14 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "RAPID-CITY"
   }

@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteHumidityLowerLimit",
-      "xupsContactDescr",
-      "xupsEnvRemoteTempUpperLimit",
-      "xupsEnvRemoteTemp",
       "xupsContactType",
-      "xupsEnvRemoteTempLowerLimit",
-      "xupsContactState",
-      "xupsEnvRemoteHumidityUpperLimit",
       "xupsContactIndex",
-      "xupsEnvRemoteHumidity"
+      "xupsEnvRemoteTemp",
+      "xupsEnvRemoteHumidity",
+      "xupsContactState",
+      "xupsContactDescr",
+      "xupsEnvRemoteTempLowerLimit",
+      "xupsEnvRemoteTempUpperLimit",
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsEnvRemoteHumidityUpperLimit"
     ],
     "EATON-OIDS": [
-      "eaton",
-      "xupsEnvironment"
+      "xupsEnvironment",
+      "eaton"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
       "Gauge32",
       "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
       "TimeTicks",
+      "iso",
       "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -5135,9 +5135,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:39:26 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:07:25 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "XUPS-MIB"
   }

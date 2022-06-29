@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module GUDEADS-ETS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gude/GUDEADS-ETS-MIB
-# Produced by pysmi-1.1.8 at Fri Feb 11 19:41:00 2022
-# On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner
-# Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Wed Jun 29 13:08:59 2022
+# On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner
+# Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, Unsigned32, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter64, MibIdentifier, Counter32, enterprises, ModuleIdentity, Gauge32, iso, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter64", "MibIdentifier", "Counter32", "enterprises", "ModuleIdentity", "Gauge32", "iso", "ObjectIdentity", "IpAddress")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Gauge32, ObjectIdentity, IpAddress, iso, Unsigned32, Integer32, NotificationType, MibIdentifier, Counter32, enterprises, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Gauge32", "ObjectIdentity", "IpAddress", "iso", "Unsigned32", "Integer32", "NotificationType", "MibIdentifier", "Counter32", "enterprises", "Counter64", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 gudeads = ModuleIdentity((1, 3, 6, 1, 4, 1, 28507))
 gudeads.setRevisions(('2007-05-23 12:44',))
@@ -77,4 +77,4 @@ etsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 28507, 4, 3, 1, 2)).
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     etsNotificationGroup = etsNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: etsNotificationGroup.setDescription('')
-mibBuilder.exportSymbols("GUDEADS-ETS-MIB", PYSNMP_MODULE_ID=gudeads, etsPrimPowAvail=etsPrimPowAvail, etsGroups=etsGroups, etsPrimaryPowerChangeEvt=etsPrimaryPowerChangeEvt, etsConf=etsConf, etsPowerSelect=etsPowerSelect, etsTrapIPEntry=etsTrapIPEntry, etsTrapCtrl=etsTrapCtrl, etsPowerSelectEvt=etsPowerSelectEvt, etsTrapIPPort=etsTrapIPPort, etsSecPowAvail=etsSecPowAvail, etsObjects=etsObjects, etsBasicGroup=etsBasicGroup, etsTrapIPTable=etsTrapIPTable, etsTrapIPIndex=etsTrapIPIndex, etsSNMPaccess=etsSNMPaccess, etsSecondaryPowerChangeEvt=etsSecondaryPowerChangeEvt, gudeads=gudeads, etsManualSelectEvt=etsManualSelectEvt, etsTrapIPAddr=etsTrapIPAddr, etsCompls=etsCompls, etsNotificationGroup=etsNotificationGroup, gadsETS=gadsETS, etsEvents=etsEvents, etsSecManualSelect=etsSecManualSelect)
+mibBuilder.exportSymbols("GUDEADS-ETS-MIB", etsTrapIPPort=etsTrapIPPort, etsPrimaryPowerChangeEvt=etsPrimaryPowerChangeEvt, etsPowerSelectEvt=etsPowerSelectEvt, etsTrapIPAddr=etsTrapIPAddr, etsCompls=etsCompls, etsSecPowAvail=etsSecPowAvail, etsSecManualSelect=etsSecManualSelect, etsSecondaryPowerChangeEvt=etsSecondaryPowerChangeEvt, etsPrimPowAvail=etsPrimPowAvail, PYSNMP_MODULE_ID=gudeads, etsTrapIPIndex=etsTrapIPIndex, etsPowerSelect=etsPowerSelect, etsTrapIPEntry=etsTrapIPEntry, etsSNMPaccess=etsSNMPaccess, etsGroups=etsGroups, etsNotificationGroup=etsNotificationGroup, etsConf=etsConf, etsManualSelectEvt=etsManualSelectEvt, etsTrapIPTable=etsTrapIPTable, gadsETS=gadsETS, etsTrapCtrl=etsTrapCtrl, etsEvents=etsEvents, etsObjects=etsObjects, gudeads=gudeads, etsBasicGroup=etsBasicGroup)

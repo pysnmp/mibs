@@ -5,13 +5,13 @@
       "entPhysicalIndex"
     ],
     "HH3C-STORAGE-REF-MIB": [
+      "Hh3cRaidIDType",
+      "hh3cStorageRef",
+      "Hh3cWwpnListType",
       "Hh3cStorageActionType",
       "Hh3cSessionIDType",
-      "Hh3cRaidIDType",
-      "Hh3cWwpnListType",
-      "Hh3cStorageEnableState",
-      "hh3cStorageRef",
       "Hh3cLvIDType",
+      "Hh3cStorageEnableState",
       "Hh3cStorageLedStateType"
     ],
     "INET-ADDRESS-MIB": [
@@ -19,31 +19,31 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "OBJECT-TYPE",
       "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "Counter64",
       "Gauge32",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
       "MODULE-IDENTITY",
-      "iso"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hh3cLogicVolume": {
@@ -1153,9 +1153,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LOGIC-VOLUME-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:37:18 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:05:15 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HH3C-LOGIC-VOLUME-MIB"
   }

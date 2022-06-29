@@ -5,13 +5,13 @@
       "SlbUrlString"
     ],
     "CISCO-SLB-HEALTH-MON-MIB": [
-      "CiscoProbeHealthMonState",
-      "cslbxProbeName"
+      "cslbxProbeName",
+      "CiscoProbeHealthMonState"
     ],
     "CISCO-SLB-MIB": [
       "SlbServerString",
-      "slbServerFarmName",
       "SlbRealServerState",
+      "slbServerFarmName",
       "slbEntity"
     ],
     "CISCO-SMI": [
@@ -21,40 +21,40 @@
       "CiscoHTTPResponseStatusCode"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetPortNumber",
       "InetAddress",
-      "InetPortNumber"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
       "TimeTicks",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
       "iso",
-      "Counter32"
+      "Integer32",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "DateAndTime",
       "StorageType"
     ]
   },
@@ -2213,9 +2213,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-SLB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:39:13 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:07:14 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCO-ENHANCED-SLB-MIB"
   }

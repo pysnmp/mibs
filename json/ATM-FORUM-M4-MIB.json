@@ -5,72 +5,72 @@
       "atmForum"
     ],
     "ATM-MIB": [
-      "atmVpCrossConnectHighVpi",
-      "atmVclVci",
-      "atmVpCrossConnectLowVpi",
-      "atmVcCrossConnectLowVpi",
-      "atmVcCrossConnectHighIfIndex",
-      "atmVcCrossConnectLowVci",
-      "atmVplEntry",
-      "atmVcCrossConnectEntry",
       "atmVpCrossConnectHighIfIndex",
-      "atmVclEntry",
-      "atmVpCrossConnectIndex",
-      "atmVpCrossConnectLowIfIndex",
-      "atmVpCrossConnectEntry",
-      "atmVcCrossConnectLowIfIndex",
-      "atmVplVpi",
-      "atmVclVpi",
-      "atmVcCrossConnectHighVci",
+      "atmVcCrossConnectLowVci",
       "atmVcCrossConnectIndex",
-      "atmVcCrossConnectHighVpi"
+      "atmVclVpi",
+      "atmVpCrossConnectLowIfIndex",
+      "atmVcCrossConnectLowVpi",
+      "atmVpCrossConnectHighVpi",
+      "atmVcCrossConnectHighVpi",
+      "atmVplVpi",
+      "atmVcCrossConnectHighIfIndex",
+      "atmVpCrossConnectIndex",
+      "atmVpCrossConnectEntry",
+      "atmVcCrossConnectEntry",
+      "atmVpCrossConnectLowVpi",
+      "atmVplEntry",
+      "atmVcCrossConnectLowIfIndex",
+      "atmVcCrossConnectHighVci",
+      "atmVclVci",
+      "atmVclEntry"
     ],
     "ENTITY-MIB": [
       "entPhysicalClass",
-      "entPhysicalParentRelPos",
       "entPhysicalIndex",
+      "entPhysicalParentRelPos",
       "entPhysicalContainedIn"
     ],
     "HOST-RESOURCES-MIB": [
-      "hrSWInstalledIndex",
-      "hrSWInstalledName"
+      "hrSWInstalledName",
+      "hrSWInstalledIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "OwnerString"
+      "OwnerString",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
       "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DateAndTime",
-      "AutonomousType",
       "TruthValue",
       "TimeInterval",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TestAndIncr",
+      "RowPointer",
+      "TimeStamp",
+      "DateAndTime",
+      "AutonomousType",
+      "DisplayString"
     ]
   },
   "atmfM4MIB": {
@@ -4481,9 +4481,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-M4-MIB",
-      "Produced by pysmi-1.1.8 at Fri Feb 11 19:34:06 2022",
-      "On host fv-az83-653 platform Linux version 5.11.0-1028-azure by user runner",
-      "Using Python version 3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Jun 29 13:02:05 2022",
+      "On host fv-az90-294 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ATM-FORUM-M4-MIB"
   }
