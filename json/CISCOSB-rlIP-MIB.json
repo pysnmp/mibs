@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
-      "InetAddressType",
-      "InetZoneIndex",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetVersion",
+      "InetZoneIndex",
+      "InetAddressType"
     ],
     "IP-MIB": [
       "IpAddressStatusTC",
       "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "zeroDotZero",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "IpAddress",
-      "mib-2",
       "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "Integer32",
+      "zeroDotZero",
       "iso",
-      "TimeTicks",
       "Bits",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "StorageType",
-      "RowPointer",
       "DisplayString",
+      "TruthValue",
+      "StorageType",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
       "RowStatus",
-      "TestAndIncr"
+      "RowPointer"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:21:01 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:07 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

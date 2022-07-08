@@ -8,30 +8,30 @@
       "juniMibs"
     ],
     "Juniper-TC": [
+      "JuniName",
       "JuniEnable",
-      "JuniSetMap",
-      "JuniName"
+      "JuniSetMap"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Gauge32",
       "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
       "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -957,8 +957,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-IP-PROFILE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:24:46 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:31:25 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "Juniper-IP-PROFILE-MIB"

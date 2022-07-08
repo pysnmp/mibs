@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Bits",
-      "iso",
-      "Integer32",
-      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "rlBrgMacSwitch": {
@@ -222,8 +222,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-BRGMACSWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:20:31 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:24:47 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "Dell-BRGMACSWITCH-MIB"

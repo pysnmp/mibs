@@ -3,33 +3,33 @@
     "class": "imports",
     "FORTINET-CORE-MIB": [
       "FnBoolState",
-      "FnIndex",
       "FnSessionProto",
-      "fortinet"
+      "fortinet",
+      "FnIndex"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
       "Counter64",
-      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
       "iso",
+      "Bits",
+      "OBJECT-TYPE",
       "Counter32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1342,8 +1342,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIMAIL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:22:03 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:26:34 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "FORTINET-FORTIMAIL-MIB"

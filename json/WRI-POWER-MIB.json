@@ -6,20 +6,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "IpAddress",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
       "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "enterprises",
       "Counter64"
     ],
     "SNMPv2-TC": [
@@ -27,8 +27,8 @@
       "DisplayString"
     ],
     "WRI-SMI": [
-      "wri",
-      "wriProducts"
+      "wriProducts",
+      "wri"
     ]
   },
   "msppPower": {
@@ -382,8 +382,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-POWER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:21:58 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:26:25 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "WRI-POWER-MIB"

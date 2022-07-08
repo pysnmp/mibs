@@ -9,20 +9,20 @@
       "bfdSessIndex"
     ],
     "CM-COMMON-MIB": [
-      "OperationalState",
-      "SecondaryState",
-      "VlanPriority",
       "VlanId",
+      "OperationalState",
+      "VlanPriority",
+      "SecondaryState",
       "AdminState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
-      "f3L3TrafficIPInterfaceEntry",
+      "f3VrfEntry",
       "f3L3TrafficOspfInterfaceEntry",
-      "f3L3TrafficBgpPeerEntry",
-      "f3VrfEntry"
+      "f3L3TrafficIPInterfaceEntry",
+      "f3L3TrafficBgpPeerEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -31,32 +31,32 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-TYPE",
       "IpAddress",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "StorageType",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "VariablePointer",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:17:15 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:20:39 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "F3-BFD-MIB"

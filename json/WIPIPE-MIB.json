@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Integer32",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "enterprises",
       "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -867,8 +867,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cradlepoint/WIPIPE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:19:13 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:23:00 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "WIPIPE-MIB"

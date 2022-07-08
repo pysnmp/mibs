@@ -3,37 +3,37 @@
     "class": "imports",
     "DLINKSW-AAA-COMMON-MIB": [
       "DAaaPrivilegeLevel",
-      "DAaaMethodPriority",
       "DAaaSessionType",
       "DAaaMethodName",
+      "DAaaMethodListName",
       "dAaaMIBObjects",
-      "DAaaMethodListName"
+      "DAaaMethodPriority"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Unsigned32",
+      "MibIdentifier",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "Bits",
       "Gauge32",
       "OBJECT-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dlinkSwAaaAccountingMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-AAA-ACCOUNTING-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:20:44 2022",
-      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:03 2022",
+      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-AAA-ACCOUNTING-MIB"
