@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Bits",
+      "Unsigned32",
       "Counter64",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
       "Gauge32",
-      "iso"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "MacAddr": {
@@ -723,8 +723,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPSWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:04:11 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:23:31 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HPSWITCH-MIB"

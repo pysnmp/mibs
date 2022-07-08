@@ -11,8 +11,8 @@
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
-      "PortList"
+      "PortList",
+      "VlanIdOrNone"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,28 +23,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
+      "Counter64",
+      "Counter32",
       "Bits",
-      "Counter64"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
       "RowStatus",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DateAndTime",
+      "TruthValue"
     ]
   },
   "dlinkSwSurveillanceVlanMIB": {
@@ -1062,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SURVEILLANCE-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:01:33 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:20:44 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-SURVEILLANCE-VLAN-MIB"

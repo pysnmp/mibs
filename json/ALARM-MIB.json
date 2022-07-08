@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -13,31 +13,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Opaque",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
       "Bits",
-      "mib-2"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "mib-2",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "MibIdentifier",
+      "zeroDotZero",
+      "iso",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DateAndTime",
+      "RowStatus",
       "DisplayString",
       "RowPointer",
       "TEXTUAL-CONVENTION"
@@ -1348,8 +1348,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:57:23 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:16:35 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ALARM-MIB"

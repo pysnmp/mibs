@@ -6,29 +6,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
       "iso",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
       "Counter32",
+      "MibIdentifier",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Counter64"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "TIMETRA-TC-MIB": [
-      "timetraTCMIBModule",
+      "TNamedItemOrEmpty",
       "TNamedItem",
-      "TNamedItemOrEmpty"
+      "timetraTCMIBModule"
     ]
   },
   "timetraTCMGMIBModule": {
@@ -1731,8 +1731,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-TC-MG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:07:02 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:26:17 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "TIMETRA-TC-MG-MIB"

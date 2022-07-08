@@ -3,35 +3,35 @@
     "class": "imports",
     "CDATA-COMMON-SMI": [
       "epon",
+      "mediaConverter",
       "eoc",
       "switch",
-      "gpon",
-      "mediaConverter"
+      "gpon"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
       "Counter32",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "Bits",
       "iso",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "eponMIB": {
@@ -3345,8 +3345,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/CDATA-EPON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:59:05 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:18:20 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CDATA-EPON-MIB"

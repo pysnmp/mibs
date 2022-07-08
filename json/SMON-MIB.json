@@ -9,36 +9,36 @@
       "OwnerString"
     ],
     "RMON2-MIB": [
-      "DataSource",
       "probeConfig",
       "LastCreateTime",
+      "DataSource",
       "rmonConformance"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "iso",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "switchRMON": {
@@ -1252,8 +1252,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:57:22 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:16:34 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "SMON-MIB"

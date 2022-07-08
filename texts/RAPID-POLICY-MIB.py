@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RAPID-POLICY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-POLICY-MIB
-# Produced by pysmi-1.1.8 at Fri Jul  8 08:06:22 2022
-# On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jul  8 08:25:37 2022
+# On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner
 # Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, enterprises, Gauge32, MibIdentifier, Counter64, IpAddress, Counter32, ObjectIdentity, iso, Integer32, Unsigned32, ModuleIdentity, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "enterprises", "Gauge32", "MibIdentifier", "Counter64", "IpAddress", "Counter32", "ObjectIdentity", "iso", "Integer32", "Unsigned32", "ModuleIdentity", "TimeTicks", "Bits")
-DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
+Counter32, iso, Bits, Integer32, Gauge32, MibIdentifier, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, Counter64, IpAddress, NotificationType, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "Bits", "Integer32", "Gauge32", "MibIdentifier", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "Counter64", "IpAddress", "NotificationType", "TimeTicks", "ModuleIdentity")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 rsPolicyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 4))
 rsPolicyMIB.setRevisions(('2001-05-21 12:00', '2002-11-01 12:00',))
 
@@ -102,4 +102,4 @@ if mibBuilder.loadTexts: rsPolicySingleCntrNum.setDescription('Total number of s
 rsPolicyLogging = MibTableColumn((1, 3, 6, 1, 4, 1, 4355, 4, 2, 2, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rsPolicyLogging.setStatus('current')
 if mibBuilder.loadTexts: rsPolicyLogging.setDescription('Indicates whether if the logging of this policy has been enabled. ')
-mibBuilder.exportSymbols("RAPID-POLICY-MIB", rsPolicyPackets=rsPolicyPackets, rsPolicyTable=rsPolicyTable, rsPolicyID=rsPolicyID, rsPolicySingleCntrNum=rsPolicySingleCntrNum, rsPolicyToTunnelPolicyID=rsPolicyToTunnelPolicyID, rsPolicyIpsecAuthErr=rsPolicyIpsecAuthErr, rsPolicyToTunnelNum=rsPolicyToTunnelNum, rsPolicyIpsecReplayErr=rsPolicyIpsecReplayErr, rsPolicyOtherDisc=rsPolicyOtherDisc, rsPolicyEntry=rsPolicyEntry, rsPolicyName=rsPolicyName, PYSNMP_MODULE_ID=rsPolicyMIB, rsPolicyTableNum=rsPolicyTableNum, rsPolicyActiveStreams=rsPolicyActiveStreams, rsPolicyToTunnelTunnelID=rsPolicyToTunnelTunnelID, rsPolicyToTunnelEntry=rsPolicyToTunnelEntry, rsPolicyBytes=rsPolicyBytes, rsPolicyIpsecPadErr=rsPolicyIpsecPadErr, rsPolicyLogging=rsPolicyLogging, rsPolicyToTunnelTable=rsPolicyToTunnelTable, rsPolicyStatistics=rsPolicyStatistics, rsPolicyDisc=rsPolicyDisc, rsPolicyIpsecPolicyErr=rsPolicyIpsecPolicyErr, rsPolicyIpsecDisc=rsPolicyIpsecDisc, rsPolicyMIB=rsPolicyMIB, rsPolicyNumTunl=rsPolicyNumTunl, rsPolicyToTunnel=rsPolicyToTunnel, rsPolicyFwDisc=rsPolicyFwDisc, rsPolicyIpsecDecryptErr=rsPolicyIpsecDecryptErr)
+mibBuilder.exportSymbols("RAPID-POLICY-MIB", rsPolicyNumTunl=rsPolicyNumTunl, PYSNMP_MODULE_ID=rsPolicyMIB, rsPolicyMIB=rsPolicyMIB, rsPolicyToTunnelEntry=rsPolicyToTunnelEntry, rsPolicySingleCntrNum=rsPolicySingleCntrNum, rsPolicyIpsecAuthErr=rsPolicyIpsecAuthErr, rsPolicyToTunnelTable=rsPolicyToTunnelTable, rsPolicyLogging=rsPolicyLogging, rsPolicyName=rsPolicyName, rsPolicyActiveStreams=rsPolicyActiveStreams, rsPolicyTable=rsPolicyTable, rsPolicyStatistics=rsPolicyStatistics, rsPolicyPackets=rsPolicyPackets, rsPolicyOtherDisc=rsPolicyOtherDisc, rsPolicyFwDisc=rsPolicyFwDisc, rsPolicyEntry=rsPolicyEntry, rsPolicyTableNum=rsPolicyTableNum, rsPolicyToTunnelTunnelID=rsPolicyToTunnelTunnelID, rsPolicyToTunnel=rsPolicyToTunnel, rsPolicyDisc=rsPolicyDisc, rsPolicyID=rsPolicyID, rsPolicyIpsecDecryptErr=rsPolicyIpsecDecryptErr, rsPolicyIpsecReplayErr=rsPolicyIpsecReplayErr, rsPolicyIpsecPadErr=rsPolicyIpsecPadErr, rsPolicyBytes=rsPolicyBytes, rsPolicyIpsecDisc=rsPolicyIpsecDisc, rsPolicyIpsecPolicyErr=rsPolicyIpsecPolicyErr, rsPolicyToTunnelNum=rsPolicyToTunnelNum, rsPolicyToTunnelPolicyID=rsPolicyToTunnelPolicyID)

@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "RUCKUS-ROOT-MIB": [
       "ruckusSZSystemModule"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "Counter64",
       "Integer32",
+      "TimeTicks",
       "MibIdentifier",
-      "Bits",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ruckusSZSystemMIB": {
@@ -192,8 +192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-SZ-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:08:14 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:27:27 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "RUCKUS-SZ-SYSTEM-MIB"

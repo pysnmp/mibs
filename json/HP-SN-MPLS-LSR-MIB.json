@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsBurstSize",
+      "mplsMIB",
+      "MplsLSPID",
+      "MplsInitialCreationSource",
       "MplsLabel",
       "MplsBitRate",
-      "mplsMIB",
-      "MplsInitialCreationSource",
-      "MplsLSPID"
+      "MplsBurstSize"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -16,43 +16,43 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter32",
       "TimeTicks",
+      "Integer32",
       "iso",
       "IpAddress",
-      "Unsigned32",
-      "Counter64"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowPointer",
       "RowStatus",
-      "TruthValue",
-      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "mplsLsrMIB": {
@@ -1832,8 +1832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:04:11 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:23:31 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HP-SN-MPLS-LSR-MIB"

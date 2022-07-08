@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module S5-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-ROOT-MIB
-# Produced by pysmi-1.1.8 at Fri Jul  8 08:06:15 2022
-# On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jul  8 08:25:31 2022
+# On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner
 # Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, ModuleIdentity, Counter32, TimeTicks, Unsigned32, Gauge32, iso, Bits, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "ModuleIdentity", "Counter32", "TimeTicks", "Unsigned32", "Gauge32", "iso", "Bits", "Integer32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Gauge32, NotificationType, Integer32, Bits, Counter32, Counter64, ModuleIdentity, iso, TimeTicks, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "Integer32", "Bits", "Counter32", "Counter64", "ModuleIdentity", "iso", "TimeTicks", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 series5000, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "series5000")
 s5RootMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 0))
 s5RootMib.setRevisions(('2004-07-20 00:00',))
@@ -41,4 +41,4 @@ s5AtmTop = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 14))
 s5IfExt = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 15))
 bnLogMsg = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 16))
 s5Tcs = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 17))
-mibBuilder.exportSymbols("S5-ROOT-MIB", s5Eth=s5Eth, s5EnMsTop=s5EnMsTop, s5TokTrap=s5TokTrap, s5EnTop=s5EnTop, s5ComTrap=s5ComTrap, remoteLoginTrap=remoteLoginTrap, s5Tok=s5Tok, s5Agent=s5Agent, s5Tcs=s5Tcs, s5reg=s5reg, bnLogMsg=bnLogMsg, s5Fddi=s5Fddi, s5TrTop=s5TrTop, stpChangeTrap=stpChangeTrap, s5EcellTrap=s5EcellTrap, s5IfExt=s5IfExt, s5AtmTop=s5AtmTop, PYSNMP_MODULE_ID=s5RootMib, s5EthTrap=s5EthTrap, s5Traps=s5Traps, s5RootMib=s5RootMib, s5Chassis=s5Chassis, s5ChaTrap=s5ChaTrap, s5FddTrap=s5FddTrap, atmTraps=atmTraps, s5FdTop=s5FdTop, s5Com=s5Com)
+mibBuilder.exportSymbols("S5-ROOT-MIB", s5FdTop=s5FdTop, s5EcellTrap=s5EcellTrap, s5IfExt=s5IfExt, s5ComTrap=s5ComTrap, s5Traps=s5Traps, s5EthTrap=s5EthTrap, stpChangeTrap=stpChangeTrap, s5Agent=s5Agent, PYSNMP_MODULE_ID=s5RootMib, atmTraps=atmTraps, s5Fddi=s5Fddi, s5AtmTop=s5AtmTop, s5RootMib=s5RootMib, s5Eth=s5Eth, s5ChaTrap=s5ChaTrap, s5TrTop=s5TrTop, s5EnMsTop=s5EnMsTop, s5TokTrap=s5TokTrap, s5reg=s5reg, s5EnTop=s5EnTop, s5Tok=s5Tok, bnLogMsg=bnLogMsg, s5Tcs=s5Tcs, s5Chassis=s5Chassis, s5Com=s5Com, remoteLoginTrap=remoteLoginTrap, s5FddTrap=s5FddTrap)

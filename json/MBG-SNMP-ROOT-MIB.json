@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "Integer32",
-      "Unsigned32",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
       "Counter64",
-      "Gauge32",
-      "Bits",
+      "Unsigned32",
+      "enterprises",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32"
+      "Gauge32",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mbgSnmpRoot": {
@@ -60,8 +60,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:05:44 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:01 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "MBG-SNMP-ROOT-MIB"

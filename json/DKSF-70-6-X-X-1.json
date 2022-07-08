@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "enterprises",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "uniPingServerSolutionV3": {
@@ -2206,8 +2206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netping/DKSF-70-6-X-X-1",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:06:05 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:21 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "DKSF-70-6-X-X-1"

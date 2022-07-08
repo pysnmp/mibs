@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
       "TRAP-TYPE",
       "Integer32",
-      "IpAddress",
       "enterprises",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -7461,8 +7461,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/ROOMALERT26W-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:58:35 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:17:49 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ROOMALERT26W-MIB"

@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
       "Bits",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Counter64",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlJumboFrames": {
@@ -79,8 +79,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-JUMBOFRAMES-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:05:44 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:00 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-JUMBOFRAMES-MIB"

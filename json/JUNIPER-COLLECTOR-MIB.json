@@ -9,37 +9,37 @@
       "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "JUNIPER-SMI": [
-      "jnxMibs",
-      "jnxCollectorNotifications"
+      "jnxCollectorNotifications",
+      "jnxMibs"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "iso",
+      "Unsigned32",
       "Gauge32",
-      "Counter32"
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "jnxCollectorMIB": {
@@ -1207,8 +1207,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-COLLECTOR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:05:28 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:24:46 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-COLLECTOR-MIB"

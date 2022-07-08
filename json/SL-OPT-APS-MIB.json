@@ -16,32 +16,32 @@
       "sitelight"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Opaque",
-      "Bits",
-      "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Integer32",
-      "Gauge32",
-      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "slOptApsMib": {
@@ -612,8 +612,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-OPT-APS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:07:00 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:26:15 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "SL-OPT-APS-MIB"

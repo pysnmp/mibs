@@ -8,50 +8,50 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpPortId",
-      "LldpChassisId",
-      "LldpChassisIdSubtype",
       "LldpManAddress",
-      "LldpPortIdSubtype"
+      "LldpPortId",
+      "LldpPortIdSubtype",
+      "LldpChassisIdSubtype",
+      "LldpChassisId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
-      "MibIdentifier",
       "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "Bits",
       "Counter64",
-      "Gauge32"
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "RowStatus",
-      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "DisplayString",
-      "MacAddress"
+      "TruthValue"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportDomain",
-      "TransportAddress"
+      "TransportAddress",
+      "TransportDomain"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:57:04 2022",
-      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:16:17 2022",
+      "On host fv-az206-808 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "IEEE802171-CFM-MIB"
