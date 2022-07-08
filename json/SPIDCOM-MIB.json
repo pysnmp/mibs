@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
       "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "Bits",
-      "enterprises",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "IpAddress"
+      "Counter32",
+      "TimeTicks",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -35,8 +35,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPIDCOM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:21:57 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:50:54 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "SPIDCOM-MIB"

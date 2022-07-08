@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifIndex",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
+      "iso",
       "MibIdentifier",
-      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "IpAddress",
-      "enterprises",
       "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso"
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
@@ -3079,8 +3079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IMA-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:19:57 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:49:03 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "IMA-MIB"

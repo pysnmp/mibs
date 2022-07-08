@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "FORCE10-SMI": [
-      "f10Products",
-      "f10Modules"
+      "f10Modules",
+      "f10Products"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -284,8 +284,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:24:47 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:53:23 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "F10-PRODUCTS-MIB"

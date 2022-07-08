@@ -8,9 +8,9 @@
       "SyslogSeverity"
     ],
     "CISCO-TC": [
-      "EntPhysicalIndexOrZero",
+      "CiscoURLString",
       "CiscoVrfName",
-      "CiscoURLString"
+      "EntPhysicalIndexOrZero"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -23,36 +23,36 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "Integer32",
-      "iso",
+      "MibIdentifier",
       "Bits",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
       "Counter32",
       "OBJECT-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "StorageType",
-      "TimeStamp",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoCallHomeMIB": {
@@ -5710,8 +5710,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALLHOME-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:02 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:53:41 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCO-CALLHOME-MIB"

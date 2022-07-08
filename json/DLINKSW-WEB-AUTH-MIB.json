@@ -5,47 +5,47 @@
       "dlinkIndustrialCommon"
     ],
     "DLINKSW-NETWORK-ACCESS-MIB": [
+      "dnaSessionClientAddress",
       "dnaSessionClientMacAddress",
-      "dnaSessionAuthVlan",
-      "dnaSessionAuthUserName",
       "dnaSessionClientAddrType",
-      "dnaSessionClientAddress"
+      "dnaSessionAuthVlan",
+      "dnaSessionAuthUserName"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
       "IpAddress",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Counter32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso"
+      "Gauge32",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwWebAuthMIB": {
@@ -500,8 +500,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-WEB-AUTH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:03 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:53:37 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-WEB-AUTH-MIB"

@@ -5,28 +5,28 @@
       "jnxLsysSpPolicywcnt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
       "Gauge32",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
       "MODULE-IDENTITY",
       "Counter32",
+      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
-      "iso"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "jnxLsysSpPolicywcntMIB": {
@@ -246,8 +246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-LSYSSP-POLICYWCNT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:31:26 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:58:46 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-LSYSSP-POLICYWCNT-MIB"

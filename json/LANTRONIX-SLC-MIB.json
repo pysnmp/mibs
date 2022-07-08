@@ -8,29 +8,29 @@
       "products"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "iso",
-      "MibIdentifier",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Counter64",
-      "Integer32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "slc": {
@@ -11961,8 +11961,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lantronix/LANTRONIX-SLC-MIB.mib",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:31:17 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:58:23 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LANTRONIX-SLC-MIB"

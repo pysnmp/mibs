@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlGroupId",
-      "UTFString"
+      "UTFString",
+      "eqlGroupId"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLRAID-MIB": [
-      "eqlRAIDDeviceLUNIndex",
-      "eqlRAIDDeviceUUID"
+      "eqlRAIDDeviceUUID",
+      "eqlRAIDDeviceLUNIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiLocalMemberId",
-      "eqliscsiVolumeIndex"
+      "eqliscsiVolumeIndex",
+      "eqliscsiLocalMemberId"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -30,30 +30,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Opaque",
-      "Counter32",
-      "OBJECT-TYPE",
       "Integer32",
-      "enterprises",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "Opaque",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "RowPointer",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:58 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:54:28 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

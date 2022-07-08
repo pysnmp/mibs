@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "enterprises",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32",
-      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
       "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY"
+      "enterprises",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ekinops": {
@@ -247,8 +247,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:25:34 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:54:06 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "EKINOPS-MIB"

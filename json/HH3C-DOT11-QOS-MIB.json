@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "HH3C-DOT11-REF-MIB": [
-      "Hh3cDot11ObjectIDType",
       "hh3cDot11",
       "Hh3cDot11RadioElementIndex",
+      "Hh3cDot11QosAcType",
       "Hh3cDot11RadioScopeType",
-      "Hh3cDot11QosAcType"
+      "Hh3cDot11ObjectIDType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -14,24 +14,24 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Integer32",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "hh3cDot11QoS": {
@@ -640,8 +640,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:22:52 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:51:44 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HH3C-DOT11-QOS-MIB"

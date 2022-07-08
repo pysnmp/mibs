@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-OSPF-MIB": [
+      "nsOspfRouterId",
+      "nsOspfNbrIpAddr",
+      "nsOspfVirtNbrState",
+      "nsOspfNbrAddressLessIndex",
+      "nsOspfVirtNbrRtrId",
       "nsOspfExtLsdbLimit",
       "nsOspfVirtIfAreaId",
+      "nsOspfAddressLessIf",
+      "nsOspfLsdbAreaId",
+      "nsOspfVirtIfState",
+      "nsOspfNbrState",
+      "nsOspf",
       "nsOspfIfIpAddress",
       "nsOspfVirtIfNeighbor",
-      "nsOspfLsdbAreaId",
-      "nsOspfLsdbType",
-      "nsOspfNbrRtrId",
-      "nsOspfNbrAddressLessIndex",
       "nsOspfVirtNbrArea",
-      "nsOspfVirtNbrRtrId",
-      "nsOspfNbrIpAddr",
-      "nsOspfLsdbRouterId",
-      "nsOspfRouterId",
-      "nsOspf",
-      "nsOspfAddressLessIf",
-      "nsOspfVirtNbrState",
-      "nsOspfNbrState",
+      "nsOspfNbrRtrId",
+      "nsOspfLsdbType",
       "nsOspfLsdbLsid",
-      "nsOspfIfState",
-      "nsOspfVirtIfState"
+      "nsOspfLsdbRouterId",
+      "nsOspfIfState"
     ],
     "NETSCREEN-TRAP-MIB": [
-      "netscreenTrapDesc",
-      "netscreenTrapType"
+      "netscreenTrapType",
+      "netscreenTrapDesc"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
+      "Counter32",
       "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks"
+      "Bits",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nsOspfTrap": {
@@ -778,8 +778,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-OSPF-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:35:23 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:01:58 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "NETSCREEN-OSPF-TRAP-MIB"

@@ -5,31 +5,31 @@
       "CounterBasedGauge64"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
+      "Unsigned32",
       "Counter64",
-      "Opaque",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
       "IpAddress",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Opaque",
+      "Counter32",
+      "MibIdentifier",
       "Gauge32",
-      "Unsigned32"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ucdavis": {
@@ -2149,8 +2149,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:32:16 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:59:22 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "UCD-SNMP-MIB"

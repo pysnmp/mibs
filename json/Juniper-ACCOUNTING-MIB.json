@@ -3,8 +3,8 @@
     "class": "imports",
     "ACCOUNTING-CONTROL-MIB": [
       "acctngSelectionEntry",
-      "acctngSelectionIndex",
-      "acctngFileEntry"
+      "acctngFileEntry",
+      "acctngSelectionIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -16,40 +16,40 @@
       "JuniPolicyAttachmentType"
     ],
     "Juniper-TC": [
-      "JuniAcctngAdminType",
+      "JuniInterfaceLocation",
       "JuniEnable",
       "JuniInterfaceDescrFormat",
-      "JuniInterfaceLocation",
-      "JuniAcctngOperType"
+      "JuniAcctngOperType",
+      "JuniAcctngAdminType"
     ],
     "Juniper-UNI-IF-MIB": [
       "juniIfType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
       "MODULE-IDENTITY",
       "Counter32",
+      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
-      "iso"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "juniAcctngMIB": {
@@ -1645,8 +1645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ACCOUNTING-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:31:25 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:58:45 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "Juniper-ACCOUNTING-MIB"

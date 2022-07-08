@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
       "Integer32",
-      "iso",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
       "TimeTicks",
-      "IpAddress"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SWITCH-TC": [
       "EnableVar"
@@ -204,8 +204,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/ROSMGMT-MEMORY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:34:30 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:01:21 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ROSMGMT-MEMORY-MIB"

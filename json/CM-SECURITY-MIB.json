@@ -18,34 +18,34 @@
       "usmUserEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "Gauge32",
-      "MibIdentifier",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Counter64",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32"
+      "iso",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
+      "DateAndTime",
       "RowStatus",
-      "DisplayString",
-      "VariablePointer",
+      "StorageType",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "VariablePointer",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "cmSecurityMIB": {
@@ -3341,8 +3341,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:20:38 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:49:42 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CM-SECURITY-MIB"

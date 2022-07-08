@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
+      "chAlarmVarSlot",
       "chAlarmVarInteger",
       "chAlarmVarPort",
-      "chAlarmVarString",
-      "chAlarmVarSlot"
+      "chAlarmVarString"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
       "F10MfgDate",
+      "F10HundredthdB",
       "F10ChassisType",
-      "F10ProcessorModuleType",
       "F10SwDate",
-      "F10MSeriesPortType",
-      "F10HundredthdB"
+      "F10ProcessorModuleType",
+      "F10MSeriesPortType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
+      "OBJECT-TYPE",
       "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "iso",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DateAndTime",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
-      "MacAddress"
+      "RowStatus"
     ]
   },
   "f10MSerChassisMib": {
@@ -2282,8 +2282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-M-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:24:47 2022",
-      "On host fv-az130-744 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:53:23 2022",
+      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "F10-M-SERIES-CHASSIS-MIB"
