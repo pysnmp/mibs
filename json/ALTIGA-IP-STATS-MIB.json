@@ -9,29 +9,29 @@
       "alStatsIp"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "TimeTicks",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
       "Counter32",
-      "Counter64",
+      "iso",
       "Unsigned32",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "altigaIpStatsMibModule": {
@@ -156,8 +156,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-IP-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:37:26 2022",
-      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:01:30 2022",
+      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ALTIGA-IP-STATS-MIB"

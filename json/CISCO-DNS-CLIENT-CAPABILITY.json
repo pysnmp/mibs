@@ -5,29 +5,29 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "AGENT-CAPABILITIES",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "TimeTicks",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
       "Counter32",
-      "Counter64",
-      "Unsigned32",
+      "iso",
       "IpAddress",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Bits"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDNSClientCapability": {
@@ -55,8 +55,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DNS-CLIENT-CAPABILITY",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:37:25 2022",
-      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:01:29 2022",
+      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCO-DNS-CLIENT-CAPABILITY"

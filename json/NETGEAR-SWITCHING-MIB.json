@@ -5,52 +5,52 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "NETGEAR-REF-MIB": [
-      "ng7000managedswitch",
-      "AgentPortMask"
+      "AgentPortMask",
+      "ng7000managedswitch"
     ],
     "Q-BRIDGE-MIB": [
       "dot1qFdbId",
-      "VlanId",
+      "VlanIndex",
       "dot1qVlanIndex",
-      "VlanIndex"
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Counter64",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "Counter32",
-      "IpAddress",
-      "TimeTicks",
+      "Integer32",
       "iso",
       "Unsigned32",
-      "Gauge32"
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "PhysAddress"
+      "TruthValue",
+      "DateAndTime",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fastPathSwitching": {
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:41:41 2022",
-      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:06:04 2022",
+      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"

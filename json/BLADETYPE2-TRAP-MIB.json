@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "vrrpCurCfgVirtRtrIndx",
+      "ipCurCfgGwIndex",
+      "vrrpCurCfgIfIndx",
       "vrrpCurCfgIfPasswd",
       "vrrpCurCfgVirtRtrAddr",
-      "vrrpCurCfgIfIndx",
-      "ipCurCfgGwIndex",
-      "ipCurCfgGwAddr"
+      "ipCurCfgGwAddr",
+      "vrrpCurCfgVirtRtrIndx"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
-      "agSlotNumber",
       "agRackId",
+      "agSlotNumber",
       "agChassis"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
+      "sysContact",
       "sysLocation",
-      "sysContact"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter32",
       "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "TRAP-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
       "iso"
     ],
     "SNMPv2-TC": [
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:54 2022",
-      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:04:11 2022",
+      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressIPv6",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "LINKSYS-DHCPv6": [
       "rlDhcpv6Relay"
@@ -14,26 +14,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Bits",
       "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Integer32",
-      "Counter64"
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress",
-      "TruthValue",
       "DisplayString"
     ]
   },
@@ -266,8 +266,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCPv6-RELAY",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:41:21 2022",
-      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:05:44 2022",
+      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-DHCPv6-RELAY"

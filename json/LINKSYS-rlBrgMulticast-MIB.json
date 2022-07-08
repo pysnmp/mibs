@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressType",
       "InetVersion",
-      "InetAddressType"
+      "InetAddress"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
       "rndErrorDesc",
@@ -24,26 +24,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "Unsigned32",
       "Gauge32",
-      "MibIdentifier",
-      "Integer32",
-      "iso",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
       "IpAddress",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "rlMacMulticastEnable": {
@@ -2044,8 +2044,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlBrgMulticast-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 07:41:21 2022",
-      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 08:05:44 2022",
+      "On host fv-az121-197 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-rlBrgMulticast-MIB"
