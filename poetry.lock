@@ -110,7 +110,7 @@ virtualenv = ">=20.0.8"
 
 [[package]]
 name = "pysnmp-pysmi"
-version = "1.1.8"
+version = "1.1.10"
 description = ""
 category = "main"
 optional = false
@@ -196,7 +196,7 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "c1a32a20a390454f852526d0c4637f4df4f950bb240cbced9f3df666d1b83360"
+content-hash = "a05c0194fc1143a38c6bbaa0e0fd921a4e66f6ff0b9f41dc5b2554a02f749b7a"
 
 [metadata.files]
 certifi = [
@@ -244,8 +244,8 @@ pre-commit = [
     {file = "pre_commit-2.19.0.tar.gz", hash = "sha256:4233a1e38621c87d9dda9808c6606d7e7ba0e087cd56d3fe03202a01d2919615"},
 ]
 pysnmp-pysmi = [
-    {file = "pysnmp-pysmi-1.1.8.tar.gz", hash = "sha256:23898cc2e4f9736d306192dab28fe8c6f9042c5fb9524ab9837840046f952094"},
-    {file = "pysnmp_pysmi-1.1.8-py3-none-any.whl", hash = "sha256:9da5891c16c00cb8c7482c372f73e4fcd6941aaa56c74565df8d4dae87f30117"},
+    {file = "pysnmp-pysmi-1.1.10.tar.gz", hash = "sha256:0149c5772e6151f6286f546058da3e1203771d46c9b8b53b568bf1c44267506f"},
+    {file = "pysnmp_pysmi-1.1.10-py3-none-any.whl", hash = "sha256:6526b2bda6ca5f01f1c0ac2c8ff01cb34e0eec3c9fe887decd86dc78121ce52c"},
 ]
 pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d4db7c7aef085872ef65a8fd7d6d09a14ae91f691dec3e87ee5ee0539d516f53"},
