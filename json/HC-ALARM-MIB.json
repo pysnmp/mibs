@@ -5,35 +5,35 @@
       "CounterBasedGauge64"
     ],
     "RMON-MIB": [
+      "rmonEventGroup",
       "OwnerString",
-      "rmon",
-      "rmonEventGroup"
+      "rmon"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
       "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "Integer32",
       "Counter32",
-      "Integer32"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "DisplayString",
       "VariablePointer",
-      "StorageType",
       "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
@@ -633,8 +633,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/HC-ALARM.MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:49:02 2022",
-      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:12:00 2022",
+      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HC-ALARM-MIB"

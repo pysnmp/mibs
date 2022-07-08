@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "org",
       "TimeTicks",
       "Counter32",
+      "Counter64",
+      "org",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lldpV2TcMIB": {
@@ -224,8 +224,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-TC-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:48:45 2022",
-      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:11:40 2022",
+      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "LLDP-V2-TC-MIB"

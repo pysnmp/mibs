@@ -10,46 +10,46 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "mib-2",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
       "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "mib-2",
+      "Integer32",
       "Counter32",
-      "iso"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
       "StorageType",
+      "DisplayString",
       "AutonomousType",
       "RowStatus",
       "TEXTUAL-CONVENTION",
       "TimeStamp"
     ],
     "T11-FC-SP-TC-MIB": [
+      "T11FcSaDirection",
+      "T11FcRoutingControl",
       "T11FcSpiIndex",
       "T11FcSpLifetimeLeftUnits",
       "T11FcSpPrecedence",
-      "T11FcSpSecurityProtocolId",
-      "T11FcSpType",
-      "T11FcSaDirection",
       "T11FcSpLifetimeLeft",
+      "T11FcSpType",
       "T11FcSpTransforms",
-      "T11FcRoutingControl"
+      "T11FcSpSecurityProtocolId"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:49:02 2022",
-      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:12:01 2022",
+      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

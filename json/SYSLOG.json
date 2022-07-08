@@ -5,32 +5,32 @@
       "radioConfig"
     ],
     "ExaltComm": [
-      "SyslogFilterSelectT",
-      "SyslogEnableT"
+      "SyslogEnableT",
+      "SyslogFilterSelectT"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "Integer32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Bits",
       "TimeTicks",
-      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "Integer32",
-      "IpAddress"
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "advSystemConfig": {
@@ -96,8 +96,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/SYSLOG",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:54:40 2022",
-      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:18:49 2022",
+      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "SYSLOG"

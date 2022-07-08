@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsServiceCenter",
-      "sfpsBlockSourceOnly",
-      "sfpsATalkAMRVLANControl",
-      "sfpsBlockSourceAPI",
-      "sfpsDHCPServerVLAN",
-      "sfpsBlockSourcePort",
-      "sfpsCSPControl",
-      "sfpsBlockSourceExclude",
       "sfpsCPResources",
+      "sfpsBlockSource",
+      "sfpsCSPControl",
+      "sfpsServiceCenter",
+      "sfpsATalkAMRVLANControl",
+      "sfpsBlockSourceOnly",
+      "sfpsBlockSourceExclude",
+      "sfpsBlockSourcePort",
+      "sfpsBlockSourceAPI",
       "sfpsBlockSourceStats",
-      "sfpsBlockSource"
+      "sfpsDHCPServerVLAN"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
       "Counter64",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "iso",
-      "TimeTicks"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1811,8 +1811,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:54:32 2022",
-      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:18:40 2022",
+      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CTRON-SFPS-BASE-MIB"

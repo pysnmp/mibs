@@ -9,19 +9,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
       "Counter32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -201,8 +201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-TCS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 08:59:40 2022",
-      "On host fv-az42-349 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 09:25:19 2022",
+      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "S5-TCS-MIB"
