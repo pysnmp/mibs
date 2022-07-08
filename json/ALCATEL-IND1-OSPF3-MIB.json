@@ -9,8 +9,8 @@
       "Ipv6IfIndexOrZero"
     ],
     "OSPFV3-MIB": [
-      "ospfv3AreaEntry",
-      "ospfv3IfEntry"
+      "ospfv3IfEntry",
+      "ospfv3AreaEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -18,20 +18,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter32",
-      "Gauge32",
       "TimeTicks",
       "iso",
-      "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Unsigned32",
-      "Bits",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -736,8 +736,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-OSPF3-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:14:09 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:42:35 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-OSPF3-MIB"

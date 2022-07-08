@@ -5,48 +5,48 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaEncryptionMethods",
-      "ArubaEnableValue",
-      "ArubaPhyType",
       "ArubaActiveState",
-      "ArubaAuthenticationMethods",
       "ArubaRogueApType",
-      "ArubaFrameType"
+      "ArubaPhyType",
+      "ArubaFrameType",
+      "ArubaEnableValue",
+      "ArubaAuthenticationMethods",
+      "ArubaEncryptionMethods"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "iso",
       "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32",
+      "Bits",
       "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "snmpModules"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
-      "RowStatus",
-      "PhysAddress",
-      "TestAndIncr",
-      "TimeInterval",
       "MacAddress",
-      "DisplayString",
-      "TAddress",
+      "TDomain",
       "TEXTUAL-CONVENTION",
-      "TDomain"
+      "DisplayString",
+      "RowStatus",
+      "TAddress",
+      "PhysAddress",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "TimeInterval"
     ]
   },
   "wlsxMobilityMIB": {
@@ -892,8 +892,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MOBILITY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:02:05 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:33:58 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "WLSX-MOBILITY-MIB"

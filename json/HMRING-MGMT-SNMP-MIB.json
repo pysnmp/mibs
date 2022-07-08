@@ -1,0 +1,1825 @@
+{
+  "imports": {
+    "class": "imports",
+    "HMPRIV-MGMT-SNMP-MIB": [
+      "hmConfiguration"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hmRingRedundancy": {
+    "name": "hmRingRedundancy",
+    "oid": "1.3.6.1.4.1.248.14.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-18 12:00",
+        "description": "Update for Multi HIPER Ring"
+      },
+      {
+        "revision": "2007-09-13 12:00",
+        "description": "First release in SMIv2"
+      }
+    ]
+  },
+  "hmRingRedTable": {
+    "name": "hmRingRedTable",
+    "oid": "1.3.6.1.4.1.248.14.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmRingRedEntry": {
+    "name": "hmRingRedEntry",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingRedPrimGroupID",
+        "implied": 0
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingRedPrimIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmRingRedPrimGroupID": {
+    "name": "hmRingRedPrimGroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedPrimIfIndex": {
+    "name": "hmRingRedPrimIfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedPrimIfOpState": {
+    "name": "hmRingRedPrimIfOpState",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-available": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedRedGroupID": {
+    "name": "hmRingRedRedGroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingRedRedIfIndex": {
+    "name": "hmRingRedRedIfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingRedRedIfOpState": {
+    "name": "hmRingRedRedIfOpState",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-available": 1,
+          "active": 2,
+          "inactive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedOperState": {
+    "name": "hmRingRedOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "underCreation": 1,
+          "rmActive": 2,
+          "rmInactive": 3,
+          "rs": 4,
+          "disable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedMode": {
+    "name": "hmRingRedMode",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 2,
+          "rm": 3,
+          "rs": 4,
+          "disable": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingRedConfigOperState": {
+    "name": "hmRingRedConfigOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "rmConfigError": 2,
+          "ringConfigError": 3,
+          "anotherRM": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedRecoveryDelay": {
+    "name": "hmRingRedRecoveryDelay",
+    "oid": "1.3.6.1.4.1.248.14.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay500": 1,
+          "delay300": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "delay500",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCouplingTable": {
+    "name": "hmRingCouplingTable",
+    "oid": "1.3.6.1.4.1.248.14.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmRingCouplingEntry": {
+    "name": "hmRingCouplingEntry",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingCplInterconnGroupID",
+        "implied": 0
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingCplInterconnIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmRingCplInterconnGroupID": {
+    "name": "hmRingCplInterconnGroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplInterconnIfIndex": {
+    "name": "hmRingCplInterconnIfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplInterconnIfOpState": {
+    "name": "hmRingCplInterconnIfOpState",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-connected": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplControlGroupID": {
+    "name": "hmRingCplControlGroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplControlIfIndex": {
+    "name": "hmRingCplControlIfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplControlIfOpState": {
+    "name": "hmRingCplControlIfOpState",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-connected": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplControlMode": {
+    "name": "hmRingCplControlMode",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outband": 1,
+          "inband": 2,
+          "unknown": 3,
+          "local": 4,
+          "disable": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplPartnerIpAddr": {
+    "name": "hmRingCplPartnerIpAddr",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplPartnerInterconnGroupID": {
+    "name": "hmRingCplPartnerInterconnGroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplPartnerInterconnIfIndex": {
+    "name": "hmRingCplPartnerInterconnIfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplPartnerInterconnIfOpState": {
+    "name": "hmRingCplPartnerInterconnIfOpState",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "not-connected": 1,
+          "active": 2,
+          "standby": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplOperState": {
+    "name": "hmRingCplOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "underCreation": 1,
+          "slave": 2,
+          "master": 3,
+          "local": 4,
+          "disable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplMode": {
+    "name": "hmRingCplMode",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slaveOff": 1,
+          "slaveOn": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplRowStatus": {
+    "name": "hmRingCplRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmRingCplConfigOperState": {
+    "name": "hmRingCplConfigOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "slaveCouplingLinkError": 2,
+          "slaveControlLinkError": 3,
+          "masterControlLinkError": 4,
+          "twoSlaves": 5,
+          "localPartnerLinkError": 6,
+          "localInvalidCouplingPort": 7,
+          "couplingPortNotAvailable": 8,
+          "controlPortNotAvailable": 9,
+          "partnerPortNotAvailable": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplCouplingLinks": {
+    "name": "hmRingCplCouplingLinks",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basicRedundancy": 1,
+          "extendedRedundancy": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplExtendedDiag": {
+    "name": "hmRingCplExtendedDiag",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "basicRedundancyInactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingCplNetCoupling": {
+    "name": "hmRingCplNetCoupling",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ringCoupling": 1,
+          "netCoupling": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRingCplConfigSource": {
+    "name": "hmRingCplConfigSource",
+    "oid": "1.3.6.1.4.1.248.14.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dipSwitch": 1,
+          "management": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpTable": {
+    "name": "hmMrpTable",
+    "oid": "1.3.6.1.4.1.248.14.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmMrpEntry": {
+    "name": "hmMrpEntry",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmMrpDomainID",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "hmMrpDomainID": {
+    "name": "hmMrpDomainID",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmMrpRingport1GroupID": {
+    "name": "hmMrpRingport1GroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpRingport1IfIndex": {
+    "name": "hmMrpRingport1IfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpRingport1OperState": {
+    "name": "hmMrpRingport1OperState",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocked": 2,
+          "forwarding": 3,
+          "not-connected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpRingport2GroupID": {
+    "name": "hmMrpRingport2GroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpRingport2IfIndex": {
+    "name": "hmMrpRingport2IfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpRingport2OperState": {
+    "name": "hmMrpRingport2OperState",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocked": 2,
+          "forwarding": 3,
+          "not-connected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpVlanID": {
+    "name": "hmMrpVlanID",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpExpectedRole": {
+    "name": "hmMrpExpectedRole",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "manager": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpMRCLinkDownInterval": {
+    "name": "hmMrpMRCLinkDownInterval",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRCLinkUpInterval": {
+    "name": "hmMrpMRCLinkUpInterval",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRCLinkChangeCount": {
+    "name": "hmMrpMRCLinkChangeCount",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRCBlockedSupported": {
+    "name": "hmMrpMRCBlockedSupported",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMPriority": {
+    "name": "hmMrpMRMPriority",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpMRMTopologyChangeInterval": {
+    "name": "hmMrpMRMTopologyChangeInterval",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMTopologyChangeRepeatCount": {
+    "name": "hmMrpMRMTopologyChangeRepeatCount",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMShortTestInterval": {
+    "name": "hmMrpMRMShortTestInterval",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMDefaultTestInterval": {
+    "name": "hmMrpMRMDefaultTestInterval",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMTestMonitoringCount": {
+    "name": "hmMrpMRMTestMonitoringCount",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMNonBlockingMRCSupported": {
+    "name": "hmMrpMRMNonBlockingMRCSupported",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMTestMonitoringExtendedCount": {
+    "name": "hmMrpMRMTestMonitoringExtendedCount",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMReactOnLinkChange": {
+    "name": "hmMrpMRMReactOnLinkChange",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpMRMCheckMediaRedundancy": {
+    "name": "hmMrpMRMCheckMediaRedundancy",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMRealRoleState": {
+    "name": "hmMrpMRMRealRoleState",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "manager": 2,
+          "undefined": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpMRMRealRingState": {
+    "name": "hmMrpMRMRealRingState",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "closed": 2,
+          "undefined": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpRowStatus": {
+    "name": "hmMrpRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmMrpRedOperState": {
+    "name": "hmMrpRedOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redGuaranteed": 1,
+          "redNotGuaranteed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpConfigOperState": {
+    "name": "hmMrpConfigOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "ringportLinkError": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMrpDomainName": {
+    "name": "hmMrpDomainName",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMrpMRMRecoveryDelay": {
+    "name": "hmMrpMRMRecoveryDelay",
+    "oid": "1.3.6.1.4.1.248.14.5.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay500": 1,
+          "delay200": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcTable": {
+    "name": "hmRpcTable",
+    "oid": "1.3.6.1.4.1.248.14.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmRpcEntry": {
+    "name": "hmRpcEntry",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRpcRingProtocol",
+        "implied": 0
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRpcRingID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmRpcRingProtocol": {
+    "name": "hmRpcRingProtocol",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fastHiperRing": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingID": {
+    "name": "hmRpcRingID",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingName": {
+    "name": "hmRpcRingName",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingport1GroupID": {
+    "name": "hmRpcRingport1GroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingport1IfIndex": {
+    "name": "hmRpcRingport1IfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingport1OperState": {
+    "name": "hmRpcRingport1OperState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocked": 2,
+          "forwarding": 3,
+          "not-connected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRpcRingport2GroupID": {
+    "name": "hmRpcRingport2GroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingport2IfIndex": {
+    "name": "hmRpcRingport2IfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRingport2OperState": {
+    "name": "hmRpcRingport2OperState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocked": 2,
+          "forwarding": 3,
+          "not-connected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRpcVlanID": {
+    "name": "hmRpcVlanID",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcAdminState": {
+    "name": "hmRpcAdminState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "manager": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcOperState": {
+    "name": "hmRpcOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "manager": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRpcRingOperState": {
+    "name": "hmRpcRingOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "open": 2,
+          "closed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRpcRedundancyOperState": {
+    "name": "hmRpcRedundancyOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redGuaranteed": 1,
+          "redNotGuaranteed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRpcConfigOperState": {
+    "name": "hmRpcConfigOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "ringportLinkError": 2,
+          "singleSideReceive": 3,
+          "multipleRM": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRpcRowStatus": {
+    "name": "hmRpcRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmRpcNodes": {
+    "name": "hmRpcNodes",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRpcRoundTripDelay": {
+    "name": "hmRpcRoundTripDelay",
+    "oid": "1.3.6.1.4.1.248.14.5.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMultiHiperRing": {
+    "name": "hmMultiHiperRing",
+    "oid": "1.3.6.1.4.1.248.14.5.5",
+    "class": "objectidentity"
+  },
+  "hmSrmMaxInstances": {
+    "name": "hmSrmMaxInstances",
+    "oid": "1.3.6.1.4.1.248.14.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSrmTable": {
+    "name": "hmSrmTable",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmSrmEntry": {
+    "name": "hmSrmEntry",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmSrmRingID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmSrmRingID": {
+    "name": "hmSrmRingID",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmRingProtocol": {
+    "name": "hmSrmRingProtocol",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standardMRP": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmRingName": {
+    "name": "hmSrmRingName",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmRingport1GroupID": {
+    "name": "hmSrmRingport1GroupID",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmRingport1IfIndex": {
+    "name": "hmSrmRingport1IfIndex",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmRingport1OperState": {
+    "name": "hmSrmRingport1OperState",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocked": 2,
+          "forwarding": 3,
+          "not-connected": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSrmVlanID": {
+    "name": "hmSrmVlanID",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4042
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmAdminState": {
+    "name": "hmSrmAdminState",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manager": 1,
+          "redundantManager": 2,
+          "singleManager": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmOperState": {
+    "name": "hmSrmOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manager": 1,
+          "redundantManager": 2,
+          "singleManager": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSrmRingOperState": {
+    "name": "hmSrmRingOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "open": 2,
+          "closed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSrmRedundancyOperState": {
+    "name": "hmSrmRedundancyOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "redGuaranteed": 1,
+          "redNotGuaranteed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSrmConfigOperState": {
+    "name": "hmSrmConfigOperState",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "ringportLinkError": 2,
+          "multipleSRM": 3,
+          "noPartnerManager": 4,
+          "concurrentVLAN": 5,
+          "concurrentPort": 6,
+          "concurrentRedundancy": 7,
+          "trunkMember": 8,
+          "sharedVLAN": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSrmRowStatus": {
+    "name": "hmSrmRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmSrmNodes": {
+    "name": "hmSrmNodes",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmMRPDomainID": {
+    "name": "hmSrmMRPDomainID",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSrmPartnerMAC": {
+    "name": "hmSrmPartnerMAC",
+    "oid": "1.3.6.1.4.1.248.14.5.5.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRingRedundancyEvent": {
+    "name": "hmRingRedundancyEvent",
+    "oid": "1.3.6.1.4.1.248.14.5.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hmRingRedReconfig": {
+    "name": "hmRingRedReconfig",
+    "oid": "1.3.6.1.4.1.248.14.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingRedOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "hmRingCplReconfig": {
+    "name": "hmRingCplReconfig",
+    "oid": "1.3.6.1.4.1.248.14.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingCplInterconnIfOpState"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingCplPartnerInterconnIfOpState"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingCplPartnerIpAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "hmRingRedConfigChanged": {
+    "name": "hmRingRedConfigChanged",
+    "oid": "1.3.6.1.4.1.248.14.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRingRedConfigOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "hmMrpReconfig": {
+    "name": "hmMrpReconfig",
+    "oid": "1.3.6.1.4.1.248.14.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmMrpDomainID"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmMrpMRMRealRingState"
+      }
+    ],
+    "status": "current"
+  },
+  "hmRpcReconfig": {
+    "name": "hmRpcReconfig",
+    "oid": "1.3.6.1.4.1.248.14.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRpcRingProtocol"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRpcRingID"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmRpcRingOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "hmSrmReconfig": {
+    "name": "hmSrmReconfig",
+    "oid": "1.3.6.1.4.1.248.14.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmSrmRingID"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmSrmRingProtocol"
+      },
+      {
+        "module": "HMRING-MGMT-SNMP-MIB",
+        "object": "hmSrmRingOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmRingRed.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "HMRING-MGMT-SNMP-MIB"
+  }
+}

@@ -1,0 +1,1634 @@
+{
+  "imports": {
+    "class": "imports",
+    "HIRSCHMANN-MMP4-BASICL2-MIB": [
+      "hmPlatform4"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue"
+    ]
+  },
+  "hmPlatform4QOS": {
+    "name": "hmPlatform4QOS",
+    "oid": "1.3.6.1.4.1.248.15.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-18 12:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "hmAgentQOSACL": {
+    "name": "hmAgentQOSACL",
+    "oid": "1.3.6.1.4.1.248.15.3.2",
+    "class": "objectidentity"
+  },
+  "hmAgentQOSCOS": {
+    "name": "hmAgentQOSCOS",
+    "oid": "1.3.6.1.4.1.248.15.3.3",
+    "class": "objectidentity"
+  },
+  "EtypeValue": {
+    "name": "EtypeValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1536,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "PercentByFives": {
+    "name": "PercentByFives",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 15,
+            "max": 15
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 25,
+            "max": 25
+          },
+          {
+            "min": 30,
+            "max": 30
+          },
+          {
+            "min": 35,
+            "max": 35
+          },
+          {
+            "min": 40,
+            "max": 40
+          },
+          {
+            "min": 45,
+            "max": 45
+          },
+          {
+            "min": 50,
+            "max": 50
+          },
+          {
+            "min": 55,
+            "max": 55
+          },
+          {
+            "min": 60,
+            "max": 60
+          },
+          {
+            "min": 65,
+            "max": 65
+          },
+          {
+            "min": 70,
+            "max": 70
+          },
+          {
+            "min": 75,
+            "max": 75
+          },
+          {
+            "min": 80,
+            "max": 80
+          },
+          {
+            "min": 85,
+            "max": 85
+          },
+          {
+            "min": 90,
+            "max": 90
+          },
+          {
+            "min": 95,
+            "max": 95
+          },
+          {
+            "min": 100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Sixteenths": {
+    "name": "Sixteenths",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "aclTable": {
+    "name": "aclTable",
+    "oid": "1.3.6.1.4.1.248.15.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclEntry": {
+    "name": "aclEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclIndex": {
+    "name": "aclIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclStatus": {
+    "name": "aclStatus",
+    "oid": "1.3.6.1.4.1.248.15.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclIfTable": {
+    "name": "aclIfTable",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclIfEntry": {
+    "name": "aclIfEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIfDirection",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIfSequence",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIfAclType",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIfAclId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclIfIndex": {
+    "name": "aclIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclIfDirection": {
+    "name": "aclIfDirection",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclIfSequence": {
+    "name": "aclIfSequence",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclIfAclType": {
+    "name": "aclIfAclType",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mac": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclIfAclId": {
+    "name": "aclIfAclId",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclIfStatus": {
+    "name": "aclIfStatus",
+    "oid": "1.3.6.1.4.1.248.15.3.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleTable": {
+    "name": "aclRuleTable",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclRuleEntry": {
+    "name": "aclRuleEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclRuleIndex": {
+    "name": "aclRuleIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclRuleAction": {
+    "name": "aclRuleAction",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleProtocol": {
+    "name": "aclRuleProtocol",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleSrcIpAddress": {
+    "name": "aclRuleSrcIpAddress",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleSrcIpMask": {
+    "name": "aclRuleSrcIpMask",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleSrcL4Port": {
+    "name": "aclRuleSrcL4Port",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleSrcL4PortRangeStart": {
+    "name": "aclRuleSrcL4PortRangeStart",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleSrcL4PortRangeEnd": {
+    "name": "aclRuleSrcL4PortRangeEnd",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleDestIpAddress": {
+    "name": "aclRuleDestIpAddress",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleDestIpMask": {
+    "name": "aclRuleDestIpMask",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleDestL4Port": {
+    "name": "aclRuleDestL4Port",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleDestL4PortRangeStart": {
+    "name": "aclRuleDestL4PortRangeStart",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleDestL4PortRangeEnd": {
+    "name": "aclRuleDestL4PortRangeEnd",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleIPDSCP": {
+    "name": "aclRuleIPDSCP",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleIpPrecedence": {
+    "name": "aclRuleIpPrecedence",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleIpTosBits": {
+    "name": "aclRuleIpTosBits",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleIpTosMask": {
+    "name": "aclRuleIpTosMask",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleStatus": {
+    "name": "aclRuleStatus",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleAssignQueueId": {
+    "name": "aclRuleAssignQueueId",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleRedirectIntf": {
+    "name": "aclRuleRedirectIntf",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclRuleMatchEvery": {
+    "name": "aclRuleMatchEvery",
+    "oid": "1.3.6.1.4.1.248.15.3.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacIndexNextFree": {
+    "name": "aclMacIndexNextFree",
+    "oid": "1.3.6.1.4.1.248.15.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aclMacTable": {
+    "name": "aclMacTable",
+    "oid": "1.3.6.1.4.1.248.15.3.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclMacEntry": {
+    "name": "aclMacEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclMacIndex": {
+    "name": "aclMacIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclMacName": {
+    "name": "aclMacName",
+    "oid": "1.3.6.1.4.1.248.15.3.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacStatus": {
+    "name": "aclMacStatus",
+    "oid": "1.3.6.1.4.1.248.15.3.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleTable": {
+    "name": "aclMacRuleTable",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclMacRuleEntry": {
+    "name": "aclMacRuleEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclMacIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "aclMacRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aclMacRuleIndex": {
+    "name": "aclMacRuleIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aclMacRuleAction": {
+    "name": "aclMacRuleAction",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleCos": {
+    "name": "aclMacRuleCos",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleCos2": {
+    "name": "aclMacRuleCos2",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleDestMacAddr": {
+    "name": "aclMacRuleDestMacAddr",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleDestMacMask": {
+    "name": "aclMacRuleDestMacMask",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleEtypeKey": {
+    "name": "aclMacRuleEtypeKey",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "custom": 1,
+          "appletalk": 2,
+          "arp": 3,
+          "ibmsna": 4,
+          "ipv4": 5,
+          "ipv6": 6,
+          "ipx": 7,
+          "mplsmcast": 8,
+          "mplsucast": 9,
+          "netbios": 10,
+          "novell": 11,
+          "pppoe": 12,
+          "rarp": 13
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleEtypeValue": {
+    "name": "aclMacRuleEtypeValue",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EtypeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleSrcMacAddr": {
+    "name": "aclMacRuleSrcMacAddr",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleSrcMacMask": {
+    "name": "aclMacRuleSrcMacMask",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleVlanId": {
+    "name": "aclMacRuleVlanId",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleVlanIdRangeStart": {
+    "name": "aclMacRuleVlanIdRangeStart",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleVlanIdRangeEnd": {
+    "name": "aclMacRuleVlanIdRangeEnd",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleVlanId2": {
+    "name": "aclMacRuleVlanId2",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleVlanId2RangeStart": {
+    "name": "aclMacRuleVlanId2RangeStart",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleVlanId2RangeEnd": {
+    "name": "aclMacRuleVlanId2RangeEnd",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleStatus": {
+    "name": "aclMacRuleStatus",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleAssignQueueId": {
+    "name": "aclMacRuleAssignQueueId",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleRedirectIntf": {
+    "name": "aclMacRuleRedirectIntf",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "aclMacRuleMatchEvery": {
+    "name": "aclMacRuleMatchEvery",
+    "oid": "1.3.6.1.4.1.248.15.3.2.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentCosMapCfgGroup": {
+    "name": "hmAgentCosMapCfgGroup",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1",
+    "class": "objectidentity"
+  },
+  "hmAgentCosMapIpPrecTable": {
+    "name": "hmAgentCosMapIpPrecTable",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIpPrecEntry": {
+    "name": "hmAgentCosMapIpPrecEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosMapIpPrecIntfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosMapIpPrecValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentCosMapIpPrecIntfIndex": {
+    "name": "hmAgentCosMapIpPrecIntfIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIpPrecValue": {
+    "name": "hmAgentCosMapIpPrecValue",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIpPrecTrafficClass": {
+    "name": "hmAgentCosMapIpPrecTrafficClass",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosMapIpDscpTable": {
+    "name": "hmAgentCosMapIpDscpTable",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIpDscpEntry": {
+    "name": "hmAgentCosMapIpDscpEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosMapIpDscpIntfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosMapIpDscpValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentCosMapIpDscpIntfIndex": {
+    "name": "hmAgentCosMapIpDscpIntfIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIpDscpValue": {
+    "name": "hmAgentCosMapIpDscpValue",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIpDscpTrafficClass": {
+    "name": "hmAgentCosMapIpDscpTrafficClass",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosMapIntfTrustTable": {
+    "name": "hmAgentCosMapIntfTrustTable",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIntfTrustEntry": {
+    "name": "hmAgentCosMapIntfTrustEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosMapIntfTrustIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentCosMapIntfTrustIntfIndex": {
+    "name": "hmAgentCosMapIntfTrustIntfIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosMapIntfTrustMode": {
+    "name": "hmAgentCosMapIntfTrustMode",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "untrusted": 1,
+          "trustDot1p": 2,
+          "trustIpPrecedence": 3,
+          "trustIpDscp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosMapUntrustedTrafficClass": {
+    "name": "hmAgentCosMapUntrustedTrafficClass",
+    "oid": "1.3.6.1.4.1.248.15.3.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCosQueueCfgGroup": {
+    "name": "hmAgentCosQueueCfgGroup",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2",
+    "class": "objectidentity"
+  },
+  "hmAgentCosQueueNumQueuesPerPort": {
+    "name": "hmAgentCosQueueNumQueuesPerPort",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCosQueueNumDropPrecedenceLevels": {
+    "name": "hmAgentCosQueueNumDropPrecedenceLevels",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCosQueueControlTable": {
+    "name": "hmAgentCosQueueControlTable",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosQueueControlEntry": {
+    "name": "hmAgentCosQueueControlEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosQueueIntfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentCosQueueIntfIndex": {
+    "name": "hmAgentCosQueueIntfIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosQueueIntfShapingRate": {
+    "name": "hmAgentCosQueueIntfShapingRate",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueMgmtTypeIntf": {
+    "name": "hmAgentCosQueueMgmtTypeIntf",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "taildrop": 1,
+          "wred": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "taildrop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueWredDecayExponent": {
+    "name": "hmAgentCosQueueWredDecayExponent",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueDefaultsRestore": {
+    "name": "hmAgentCosQueueDefaultsRestore",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueTable": {
+    "name": "hmAgentCosQueueTable",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosQueueEntry": {
+    "name": "hmAgentCosQueueEntry",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosQueueIntfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-QOS-MIB",
+        "object": "hmAgentCosQueueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentCosQueueIndex": {
+    "name": "hmAgentCosQueueIndex",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentCosQueueSchedulerType": {
+    "name": "hmAgentCosQueueSchedulerType",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "weighted": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "weighted",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueMinBandwidth": {
+    "name": "hmAgentCosQueueMinBandwidth",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueMaxBandwidth": {
+    "name": "hmAgentCosQueueMaxBandwidth",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCosQueueMgmtType": {
+    "name": "hmAgentCosQueueMgmtType",
+    "oid": "1.3.6.1.4.1.248.15.3.3.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "taildrop": 1,
+          "wred": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "taildrop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4Qos.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "HIRSCHMANN-MMP4-QOS-MIB"
+  }
+}

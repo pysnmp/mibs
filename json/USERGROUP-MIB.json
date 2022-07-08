@@ -1,0 +1,864 @@
+{
+  "imports": {
+    "class": "imports",
+    "HMPRIV-MGMT-SNMP-MIB": [
+      "hmConfiguration"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TEXTUAL-CONVENTION",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "hmUserGroup": {
+    "name": "hmUserGroup",
+    "oid": "1.3.6.1.4.1.248.14.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-13 12:00",
+        "description": "First release in SMIv2"
+      }
+    ]
+  },
+  "MemberID": {
+    "name": "MemberID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hmUserGroupTable": {
+    "name": "hmUserGroupTable",
+    "oid": "1.3.6.1.4.1.248.14.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmUserGroupEntry": {
+    "name": "hmUserGroupEntry",
+    "oid": "1.3.6.1.4.1.248.14.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmUserGroupID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmUserGroupID": {
+    "name": "hmUserGroupID",
+    "oid": "1.3.6.1.4.1.248.14.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmUserGroupDescription": {
+    "name": "hmUserGroupDescription",
+    "oid": "1.3.6.1.4.1.248.14.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmUserGroupRestricted": {
+    "name": "hmUserGroupRestricted",
+    "oid": "1.3.6.1.4.1.248.14.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmUserGroupSecAction": {
+    "name": "hmUserGroupSecAction",
+    "oid": "1.3.6.1.4.1.248.14.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "trapOnly": 2,
+          "portDisable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmUserGroupMemberTable": {
+    "name": "hmUserGroupMemberTable",
+    "oid": "1.3.6.1.4.1.248.14.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmUserGroupMemberEntry": {
+    "name": "hmUserGroupMemberEntry",
+    "oid": "1.3.6.1.4.1.248.14.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmUserGroupMemberGroupID",
+        "implied": 0
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmUserGroupMemberUserID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmUserGroupMemberGroupID": {
+    "name": "hmUserGroupMemberGroupID",
+    "oid": "1.3.6.1.4.1.248.14.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmUserGroupMemberUserID": {
+    "name": "hmUserGroupMemberUserID",
+    "oid": "1.3.6.1.4.1.248.14.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MemberID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmUserTable": {
+    "name": "hmUserTable",
+    "oid": "1.3.6.1.4.1.248.14.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmUserEntry": {
+    "name": "hmUserEntry",
+    "oid": "1.3.6.1.4.1.248.14.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmUserID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmUserID": {
+    "name": "hmUserID",
+    "oid": "1.3.6.1.4.1.248.14.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MemberID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmUserRestricted": {
+    "name": "hmUserRestricted",
+    "oid": "1.3.6.1.4.1.248.14.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecurityTable": {
+    "name": "hmPortSecurityTable",
+    "oid": "1.3.6.1.4.1.248.14.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecurityEntry": {
+    "name": "hmPortSecurityEntry",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecSlotID",
+        "implied": 0
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortSecSlotID": {
+    "name": "hmPortSecSlotID",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPortSecPortID": {
+    "name": "hmPortSecPortID",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPortSecPermission": {
+    "name": "hmPortSecPermission",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "group": 2,
+          "known": 3,
+          "world": 4,
+          "uplink": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecAllowedUserID": {
+    "name": "hmPortSecAllowedUserID",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MemberID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecAllowedGroupIDs": {
+    "name": "hmPortSecAllowedGroupIDs",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 128,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecConnectedUserID": {
+    "name": "hmPortSecConnectedUserID",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MemberID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPortSecAction": {
+    "name": "hmPortSecAction",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "trapOnly": 2,
+          "portDisable": 3,
+          "autoDisable": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecAutoReconfigure": {
+    "name": "hmPortSecAutoReconfigure",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecPortStatus": {
+    "name": "hmPortSecPortStatus",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "enabledWithWrongAddr": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPortSecAllowedUserIPID": {
+    "name": "hmPortSecAllowedUserIPID",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecDynamicLimit": {
+    "name": "hmPortSecDynamicLimit",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecDynamicCount": {
+    "name": "hmPortSecDynamicCount",
+    "oid": "1.3.6.1.4.1.248.14.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmUserGroupSecurityAction": {
+    "name": "hmUserGroupSecurityAction",
+    "oid": "1.3.6.1.4.1.248.14.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "trapOnly": 2,
+          "portDisable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmUserGroupPortSecurityMode": {
+    "name": "hmUserGroupPortSecurityMode",
+    "oid": "1.3.6.1.4.1.248.14.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macAddressBased": 1,
+          "ipAddressBased": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecExtendedGroup": {
+    "name": "hmPortSecExtendedGroup",
+    "oid": "1.3.6.1.4.1.248.14.3.10",
+    "class": "objectidentity"
+  },
+  "hmPortSecExtendedTable": {
+    "name": "hmPortSecExtendedTable",
+    "oid": "1.3.6.1.4.1.248.14.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecExtendedEntry": {
+    "name": "hmPortSecExtendedEntry",
+    "oid": "1.3.6.1.4.1.248.14.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecExtSlotID",
+        "implied": 0
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecExtPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortSecExtSlotID": {
+    "name": "hmPortSecExtSlotID",
+    "oid": "1.3.6.1.4.1.248.14.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecExtPortID": {
+    "name": "hmPortSecExtPortID",
+    "oid": "1.3.6.1.4.1.248.14.3.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecExtAction": {
+    "name": "hmPortSecExtAction",
+    "oid": "1.3.6.1.4.1.248.14.3.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "trapOnly": 2,
+          "portDisable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecExtPortStatus": {
+    "name": "hmPortSecExtPortStatus",
+    "oid": "1.3.6.1.4.1.248.14.3.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "enabledWithWrongAddr": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPortSecMultipleAdressesTable": {
+    "name": "hmPortSecMultipleAdressesTable",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecMultipleAdressesEntry": {
+    "name": "hmPortSecMultipleAdressesEntry",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecMASlotID",
+        "implied": 0
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecMAPortID",
+        "implied": 0
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecMAExtendedIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortSecMASlotID": {
+    "name": "hmPortSecMASlotID",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecMAPortID": {
+    "name": "hmPortSecMAPortID",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecMAExtendedIndex": {
+    "name": "hmPortSecMAExtendedIndex",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortSecMAAllowedUserIDs": {
+    "name": "hmPortSecMAAllowedUserIDs",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MemberID",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecMAAllowedUserIPIDs": {
+    "name": "hmPortSecMAAllowedUserIPIDs",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortSecMAAllowedUserIDMask": {
+    "name": "hmPortSecMAAllowedUserIDMask",
+    "oid": "1.3.6.1.4.1.248.14.3.10.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 48,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmUserGroupEvent": {
+    "name": "hmUserGroupEvent",
+    "oid": "1.3.6.1.4.1.248.14.3.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hmNewUserTrap": {
+    "name": "hmNewUserTrap",
+    "oid": "1.3.6.1.4.1.248.14.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecConnectedUserID"
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortSecurityTrap": {
+    "name": "hmPortSecurityTrap",
+    "oid": "1.3.6.1.4.1.248.14.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecPermission"
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecAction"
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecConnectedUserID"
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecAllowedUserID"
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecAllowedUserIPID"
+      },
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecAllowedGroupIDs"
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortSecConfigErrorTrap": {
+    "name": "hmPortSecConfigErrorTrap",
+    "oid": "1.3.6.1.4.1.248.14.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "USERGROUP-MIB",
+        "object": "hmPortSecConnectedUserID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/usrgrp.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "USERGROUP-MIB"
+  }
+}

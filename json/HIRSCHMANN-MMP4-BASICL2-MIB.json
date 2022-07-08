@@ -1,0 +1,6250 @@
+{
+  "imports": {
+    "class": "imports",
+    "HMPRIV-MGMT-SNMP-MIB": [
+      "hirschmann",
+      "HmAgentLogSeverity"
+    ],
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "IEEE8021-PAE-MIB": [
+      "dot1xPaePortNumber"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "dot1qVlanIndex",
+      "VlanIndex",
+      "dot1qFdbId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue"
+    ]
+  },
+  "hmPlatform4BasicL2": {
+    "name": "hmPlatform4BasicL2",
+    "oid": "1.3.6.1.4.1.248.15.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-11-22 12:00",
+        "description": "Update for SW Release 01.0.01"
+      },
+      {
+        "revision": "2005-08-18 12:00",
+        "description": "Update for SW Release 01.0.00"
+      },
+      {
+        "revision": "2004-07-02 00:00",
+        "description": "first release"
+      }
+    ]
+  },
+  "hmPlatform4": {
+    "name": "hmPlatform4",
+    "oid": "1.3.6.1.4.1.248.15",
+    "class": "objectidentity"
+  },
+  "HmAgentPortMask": {
+    "name": "HmAgentPortMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "BridgeId": {
+    "name": "BridgeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HmAgentDot1xPortControlMode": {
+    "name": "HmAgentDot1xPortControlMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceUnauthorized": 1,
+          "auto": 2,
+          "forceAuthorized": 3,
+          "macBased": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HmAgentDot1xSessionTerminationAction": {
+    "name": "HmAgentDot1xSessionTerminationAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "reauthenticate": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hmAgentInfoGroup": {
+    "name": "hmAgentInfoGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.1",
+    "class": "objectidentity"
+  },
+  "hmAgentTrapLogGroup": {
+    "name": "hmAgentTrapLogGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2",
+    "class": "objectidentity"
+  },
+  "hmAgentTrapLogTotal": {
+    "name": "hmAgentTrapLogTotal",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentTrapLogTotalSinceLastViewed": {
+    "name": "hmAgentTrapLogTotalSinceLastViewed",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "hmAgentTrapLogTable": {
+    "name": "hmAgentTrapLogTable",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentTrapLogEntry": {
+    "name": "hmAgentTrapLogEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentTrapLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentTrapLogIndex": {
+    "name": "hmAgentTrapLogIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentTrapLogSystemTime": {
+    "name": "hmAgentTrapLogSystemTime",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentTrapLogTrap": {
+    "name": "hmAgentTrapLogTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentConfigGroup": {
+    "name": "hmAgentConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2",
+    "class": "objectidentity"
+  },
+  "hmAgentCLIConfigGroup": {
+    "name": "hmAgentCLIConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1",
+    "class": "objectidentity"
+  },
+  "hmAgentLoginSessionTable": {
+    "name": "hmAgentLoginSessionTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentLoginSessionEntry": {
+    "name": "hmAgentLoginSessionEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentLoginSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentLoginSessionIndex": {
+    "name": "hmAgentLoginSessionIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLoginSessionUserName": {
+    "name": "hmAgentLoginSessionUserName",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLoginSessionIPAddress": {
+    "name": "hmAgentLoginSessionIPAddress",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLoginSessionConnectionType": {
+    "name": "hmAgentLoginSessionConnectionType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serial": 1,
+          "telnet": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLoginSessionIdleTime": {
+    "name": "hmAgentLoginSessionIdleTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLoginSessionSessionTime": {
+    "name": "hmAgentLoginSessionSessionTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLoginSessionStatus": {
+    "name": "hmAgentLoginSessionStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLogging": {
+    "name": "hmAgentLogging",
+    "oid": "1.3.6.1.4.1.248.15.14",
+    "class": "objectidentity"
+  },
+  "hmAgentLogConfigGroup": {
+    "name": "hmAgentLogConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.14.1",
+    "class": "objectidentity"
+  },
+  "hmAgentLogSysLogConfigGroup": {
+    "name": "hmAgentLogSysLogConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4",
+    "class": "objectidentity"
+  },
+  "hmAgentLogSyslogAdminStatus": {
+    "name": "hmAgentLogSyslogAdminStatus",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLogSyslogHostTable": {
+    "name": "hmAgentLogSyslogHostTable",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentLogSyslogHostEntry": {
+    "name": "hmAgentLogSyslogHostEntry",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentLogHostTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentLogHostTableIndex": {
+    "name": "hmAgentLogHostTableIndex",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentLogHostTableIpAddress": {
+    "name": "hmAgentLogHostTableIpAddress",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentLogHostTablePort": {
+    "name": "hmAgentLogHostTablePort",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 514,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentLogHostTableSeverityFilter": {
+    "name": "hmAgentLogHostTableSeverityFilter",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentLogSeverity",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "critical",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentLogHostTableRowStatus": {
+    "name": "hmAgentLogHostTableRowStatus",
+    "oid": "1.3.6.1.4.1.248.15.14.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentTelnetConfigGroup": {
+    "name": "hmAgentTelnetConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "hmAgentTelnetLoginTimeout": {
+    "name": "hmAgentTelnetLoginTimeout",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTelnetMaxSessions": {
+    "name": "hmAgentTelnetMaxSessions",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTelnetAllowNewMode": {
+    "name": "hmAgentTelnetAllowNewMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserConfigGroup": {
+    "name": "hmAgentUserConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "hmAgentUserConfigCreate": {
+    "name": "hmAgentUserConfigCreate",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserConfigTable": {
+    "name": "hmAgentUserConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentUserConfigEntry": {
+    "name": "hmAgentUserConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentUserIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentUserIndex": {
+    "name": "hmAgentUserIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentUserName": {
+    "name": "hmAgentUserName",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserPassword": {
+    "name": "hmAgentUserPassword",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserAccessMode": {
+    "name": "hmAgentUserAccessMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read": 1,
+          "write": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserStatus": {
+    "name": "hmAgentUserStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserAuthenticationType": {
+    "name": "hmAgentUserAuthenticationType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "hmacmd5": 2,
+          "hmacsha": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserEncryptionType": {
+    "name": "hmAgentUserEncryptionType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "des": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserEncryptionPassword": {
+    "name": "hmAgentUserEncryptionPassword",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentUserDefaultPwdActive": {
+    "name": "hmAgentUserDefaultPwdActive",
+    "oid": "1.3.6.1.4.1.248.15.1.2.1.3.248",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagConfigGroup": {
+    "name": "hmAgentLagConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2",
+    "class": "objectidentity"
+  },
+  "hmAgentLagConfigCreate": {
+    "name": "hmAgentLagConfigCreate",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryConfigTable": {
+    "name": "hmAgentLagSummaryConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentLagSummaryConfigEntry": {
+    "name": "hmAgentLagSummaryConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentLagSummaryLagIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentLagSummaryLagIndex": {
+    "name": "hmAgentLagSummaryLagIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagSummaryName": {
+    "name": "hmAgentLagSummaryName",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryFlushTimer": {
+    "name": "hmAgentLagSummaryFlushTimer",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hmAgentLagSummaryLinkTrap": {
+    "name": "hmAgentLagSummaryLinkTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryAdminMode": {
+    "name": "hmAgentLagSummaryAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryStpMode": {
+    "name": "hmAgentLagSummaryStpMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 3,
+          "on": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryAddPort": {
+    "name": "hmAgentLagSummaryAddPort",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryDeletePort": {
+    "name": "hmAgentLagSummaryDeletePort",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryStatus": {
+    "name": "hmAgentLagSummaryStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLagSummaryType": {
+    "name": "hmAgentLagSummaryType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagDetailedConfigTable": {
+    "name": "hmAgentLagDetailedConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentLagDetailedConfigEntry": {
+    "name": "hmAgentLagDetailedConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentLagDetailedLagIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentLagDetailedIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentLagDetailedLagIndex": {
+    "name": "hmAgentLagDetailedLagIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagDetailedIfIndex": {
+    "name": "hmAgentLagDetailedIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagDetailedPortSpeed": {
+    "name": "hmAgentLagDetailedPortSpeed",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagDetailedPortStatus": {
+    "name": "hmAgentLagDetailedPortStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentLagConfigStaticCapability": {
+    "name": "hmAgentLagConfigStaticCapability",
+    "oid": "1.3.6.1.4.1.248.15.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSpanningTreeConfigGroup": {
+    "name": "hmAgentSpanningTreeConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.7",
+    "class": "objectidentity"
+  },
+  "hmAgentSpanningTreeMode": {
+    "name": "hmAgentSpanningTreeMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchConfigGroup": {
+    "name": "hmAgentSwitchConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchAddressAgingTimeoutTable": {
+    "name": "hmAgentSwitchAddressAgingTimeoutTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchAddressAgingTimeoutEntry": {
+    "name": "hmAgentSwitchAddressAgingTimeoutEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qFdbId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchAddressAgingTimeout": {
+    "name": "hmAgentSwitchAddressAgingTimeout",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchBroadcastControlMode": {
+    "name": "hmAgentSwitchBroadcastControlMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchDot3FlowControlMode": {
+    "name": "hmAgentSwitchDot3FlowControlMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringTable": {
+    "name": "hmAgentSwitchStaticMacFilteringTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringEntry": {
+    "name": "hmAgentSwitchStaticMacFilteringEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchStaticMacFilteringVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchStaticMacFilteringAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringVlanId": {
+    "name": "hmAgentSwitchStaticMacFilteringVlanId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringAddress": {
+    "name": "hmAgentSwitchStaticMacFilteringAddress",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringSourcePortMask": {
+    "name": "hmAgentSwitchStaticMacFilteringSourcePortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringDestPortMask": {
+    "name": "hmAgentSwitchStaticMacFilteringDestPortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchStaticMacFilteringStatus": {
+    "name": "hmAgentSwitchStaticMacFilteringStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentSwitchIGMPSnoopingGroup": {
+    "name": "hmAgentSwitchIGMPSnoopingGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchIGMPSnoopingAdminMode": {
+    "name": "hmAgentSwitchIGMPSnoopingAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIGMPSnoopingGroupMembershipInterval": {
+    "name": "hmAgentSwitchIGMPSnoopingGroupMembershipInterval",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIGMPSnoopingMaxResponseTime": {
+    "name": "hmAgentSwitchIGMPSnoopingMaxResponseTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3598
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIGMPSnoopingMRPExpirationTime": {
+    "name": "hmAgentSwitchIGMPSnoopingMRPExpirationTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 260,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIGMPSnoopingPortMask": {
+    "name": "hmAgentSwitchIGMPSnoopingPortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIGMPSnoopingMulticastControlFramesProcessed": {
+    "name": "hmAgentSwitchIGMPSnoopingMulticastControlFramesProcessed",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBGroup": {
+    "name": "hmAgentSwitchMFDBGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchMFDBTable": {
+    "name": "hmAgentSwitchMFDBTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBEntry": {
+    "name": "hmAgentSwitchMFDBEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchMFDBVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchMFDBMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchMFDBProtocolType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBVlanId": {
+    "name": "hmAgentSwitchMFDBVlanId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBMacAddress": {
+    "name": "hmAgentSwitchMFDBMacAddress",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBProtocolType": {
+    "name": "hmAgentSwitchMFDBProtocolType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "gmrp": 2,
+          "igmp": 3,
+          "msd": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBType": {
+    "name": "hmAgentSwitchMFDBType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBDescription": {
+    "name": "hmAgentSwitchMFDBDescription",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBForwardingPortMask": {
+    "name": "hmAgentSwitchMFDBForwardingPortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBFilteringPortMask": {
+    "name": "hmAgentSwitchMFDBFilteringPortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBSummaryTable": {
+    "name": "hmAgentSwitchMFDBSummaryTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBSummaryEntry": {
+    "name": "hmAgentSwitchMFDBSummaryEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchMFDBSummaryVlanId",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchMFDBSummaryMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBSummaryVlanId": {
+    "name": "hmAgentSwitchMFDBSummaryVlanId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBSummaryMacAddress": {
+    "name": "hmAgentSwitchMFDBSummaryMacAddress",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBSummaryForwardingPortMask": {
+    "name": "hmAgentSwitchMFDBSummaryForwardingPortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBMaxTableEntries": {
+    "name": "hmAgentSwitchMFDBMaxTableEntries",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBMostEntriesUsed": {
+    "name": "hmAgentSwitchMFDBMostEntriesUsed",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchMFDBCurrentEntries": {
+    "name": "hmAgentSwitchMFDBCurrentEntries",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchDVlanTagGroup": {
+    "name": "hmAgentSwitchDVlanTagGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.8",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchDVlanTagEthertype": {
+    "name": "hmAgentSwitchDVlanTagEthertype",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferConfigGroup": {
+    "name": "hmAgentTransferConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9",
+    "class": "objectidentity"
+  },
+  "hmAgentTransferUploadGroup": {
+    "name": "hmAgentTransferUploadGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1",
+    "class": "objectidentity"
+  },
+  "hmAgentTransferUploadMode": {
+    "name": "hmAgentTransferUploadMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "xmodem": 2,
+          "ymodem": 3,
+          "zmodem": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferUploadServerIP": {
+    "name": "hmAgentTransferUploadServerIP",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferUploadPath": {
+    "name": "hmAgentTransferUploadPath",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferUploadFilename": {
+    "name": "hmAgentTransferUploadFilename",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferUploadDataType": {
+    "name": "hmAgentTransferUploadDataType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config": 2,
+          "errorlog": 3,
+          "messagelog": 4,
+          "traplog": 5,
+          "clibanner": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferUploadStart": {
+    "name": "hmAgentTransferUploadStart",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferUploadStatus": {
+    "name": "hmAgentTransferUploadStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "transferStarting": 2,
+          "errorStarting": 3,
+          "wrongFileType": 4,
+          "updatingConfig": 5,
+          "invalidConfigFile": 6,
+          "writingToFlash": 7,
+          "failureWritingToFlash": 8,
+          "checkingCRC": 9,
+          "failedCRC": 10,
+          "unknownDirection": 11,
+          "transferSuccessful": 12,
+          "transferFailed": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadGroup": {
+    "name": "hmAgentTransferDownloadGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2",
+    "class": "objectidentity"
+  },
+  "hmAgentTransferDownloadMode": {
+    "name": "hmAgentTransferDownloadMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "xmodem": 2,
+          "ymodem": 3,
+          "zmodem": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadServerIP": {
+    "name": "hmAgentTransferDownloadServerIP",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadPath": {
+    "name": "hmAgentTransferDownloadPath",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadFilename": {
+    "name": "hmAgentTransferDownloadFilename",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadDataType": {
+    "name": "hmAgentTransferDownloadDataType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "code": 2,
+          "config": 3,
+          "sshkey-rsa1": 4,
+          "sshkey-rsa2": 5,
+          "sshkey-dsa": 6,
+          "sslpem-root": 7,
+          "sslpem-server": 8,
+          "sslpem-dhweak": 9,
+          "sslpem-dhstrong": 10,
+          "clibanner": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadStart": {
+    "name": "hmAgentTransferDownloadStart",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentTransferDownloadStatus": {
+    "name": "hmAgentTransferDownloadStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "transferStarting": 2,
+          "errorStarting": 3,
+          "wrongFileType": 4,
+          "updatingConfig": 5,
+          "invalidConfigFile": 6,
+          "writingToFlash": 7,
+          "failureWritingToFlash": 8,
+          "checkingCRC": 9,
+          "failedCRC": 10,
+          "unknownDirection": 11,
+          "transferSuccessful": 12,
+          "transferFailed": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortMirroringGroup": {
+    "name": "hmAgentPortMirroringGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10",
+    "class": "objectidentity"
+  },
+  "hmAgentMirroredPortIfIndex": {
+    "name": "hmAgentMirroredPortIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hmAgentProbePortIfIndex": {
+    "name": "hmAgentProbePortIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hmAgentPortMirroringMode": {
+    "name": "hmAgentPortMirroringMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "delete": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hmAgentPortMirrorTable": {
+    "name": "hmAgentPortMirrorTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentPortMirrorEntry": {
+    "name": "hmAgentPortMirrorEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentPortMirrorSessionNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentPortMirrorSessionNum": {
+    "name": "hmAgentPortMirrorSessionNum",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentPortMirrorDestinationPort": {
+    "name": "hmAgentPortMirrorDestinationPort",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortMirrorSourcePortMask": {
+    "name": "hmAgentPortMirrorSourcePortMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortMirrorIngressMask": {
+    "name": "hmAgentPortMirrorIngressMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1.248",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortMirrorEgressMask": {
+    "name": "hmAgentPortMirrorEgressMask",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1.249",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentPortMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortMirrorAdminMode": {
+    "name": "hmAgentPortMirrorAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2,
+          "delete": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot3adAggPortTable": {
+    "name": "hmAgentDot3adAggPortTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentDot3adAggPortEntry": {
+    "name": "hmAgentDot3adAggPortEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentDot3adAggPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentDot3adAggPort": {
+    "name": "hmAgentDot3adAggPort",
+    "oid": "1.3.6.1.4.1.248.15.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot3adAggPortLACPMode": {
+    "name": "hmAgentDot3adAggPortLACPMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortConfigTable": {
+    "name": "hmAgentPortConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentPortConfigEntry": {
+    "name": "hmAgentPortConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentPortDot1dBasePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentPortDot1dBasePort": {
+    "name": "hmAgentPortDot1dBasePort",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortIfIndex": {
+    "name": "hmAgentPortIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortIanaType": {
+    "name": "hmAgentPortIanaType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortSTPMode": {
+    "name": "hmAgentPortSTPMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "fast": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortSTPState": {
+    "name": "hmAgentPortSTPState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 1,
+          "listening": 2,
+          "learning": 3,
+          "forwarding": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortAdminMode": {
+    "name": "hmAgentPortAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortPhysicalMode": {
+    "name": "hmAgentPortPhysicalMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-negotiate": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-100fx": 6,
+          "full-100fx": 7,
+          "full-1000sx": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hmAgentPortPhysicalStatus": {
+    "name": "hmAgentPortPhysicalStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-negotiate": 1,
+          "half-10": 2,
+          "full-10": 3,
+          "half-100": 4,
+          "full-100": 5,
+          "half-100fx": 6,
+          "full-100fx": 7,
+          "full-1000sx": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "hmAgentPortLinkTrapMode": {
+    "name": "hmAgentPortLinkTrapMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortClearStats": {
+    "name": "hmAgentPortClearStats",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortDefaultType": {
+    "name": "hmAgentPortDefaultType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortType": {
+    "name": "hmAgentPortType",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortAutoNegAdminStatus": {
+    "name": "hmAgentPortAutoNegAdminStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortDot3FlowControlMode": {
+    "name": "hmAgentPortDot3FlowControlMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortDVlanTagMode": {
+    "name": "hmAgentPortDVlanTagMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "core": 1,
+          "normal": 2,
+          "access": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "normal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortDVlanTagEthertype": {
+    "name": "hmAgentPortDVlanTagEthertype",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33024,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortDVlanTagCustomerId": {
+    "name": "hmAgentPortDVlanTagCustomerId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortMaxFrameSizeLimit": {
+    "name": "hmAgentPortMaxFrameSizeLimit",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortMaxFrameSize": {
+    "name": "hmAgentPortMaxFrameSize",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanMode": {
+    "name": "hmAgentPortVoiceVlanMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vlanid": 2,
+          "dot1p": 3,
+          "vlanidanddot1p": 4,
+          "untagged": 5,
+          "disable": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanID": {
+    "name": "hmAgentPortVoiceVlanID",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4093
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanPriority": {
+    "name": "hmAgentPortVoiceVlanPriority",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          },
+          {
+            "min": 255,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanDataPriorityMode": {
+    "name": "hmAgentPortVoiceVlanDataPriorityMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trust": 1,
+          "untrust": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanOperationalStatus": {
+    "name": "hmAgentPortVoiceVlanOperationalStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanDSCP": {
+    "name": "hmAgentPortVoiceVlanDSCP",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentPortVoiceVlanAuthMode": {
+    "name": "hmAgentPortVoiceVlanAuthMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.13.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolConfigGroup": {
+    "name": "hmAgentProtocolConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14",
+    "class": "objectidentity"
+  },
+  "hmAgentProtocolGroupCreate": {
+    "name": "hmAgentProtocolGroupCreate",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupTable": {
+    "name": "hmAgentProtocolGroupTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupEntry": {
+    "name": "hmAgentProtocolGroupEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentProtocolGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentProtocolGroupId": {
+    "name": "hmAgentProtocolGroupId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupName": {
+    "name": "hmAgentProtocolGroupName",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupVlanId": {
+    "name": "hmAgentProtocolGroupVlanId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupProtocolIP": {
+    "name": "hmAgentProtocolGroupProtocolIP",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupProtocolARP": {
+    "name": "hmAgentProtocolGroupProtocolARP",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupProtocolIPX": {
+    "name": "hmAgentProtocolGroupProtocolIPX",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupStatus": {
+    "name": "hmAgentProtocolGroupStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupPortTable": {
+    "name": "hmAgentProtocolGroupPortTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupPortEntry": {
+    "name": "hmAgentProtocolGroupPortEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentProtocolGroupId",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentProtocolGroupPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentProtocolGroupPortIfIndex": {
+    "name": "hmAgentProtocolGroupPortIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentProtocolGroupPortStatus": {
+    "name": "hmAgentProtocolGroupPortStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.14.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentStpSwitchConfigGroup": {
+    "name": "hmAgentStpSwitchConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15",
+    "class": "objectidentity"
+  },
+  "hmAgentStpConfigDigestKey": {
+    "name": "hmAgentStpConfigDigestKey",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpConfigFormatSelector": {
+    "name": "hmAgentStpConfigFormatSelector",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpConfigName": {
+    "name": "hmAgentStpConfigName",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpConfigRevision": {
+    "name": "hmAgentStpConfigRevision",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpForceVersion": {
+    "name": "hmAgentStpForceVersion",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1d": 1,
+          "dot1w": 2,
+          "dot1s": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dot1w",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpAdminMode": {
+    "name": "hmAgentStpAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpBpduGuardMode": {
+    "name": "hmAgentStpBpduGuardMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpBpduFilterDefault": {
+    "name": "hmAgentStpBpduFilterDefault",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpPortTable": {
+    "name": "hmAgentStpPortTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentStpPortEntry": {
+    "name": "hmAgentStpPortEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentStpPortState": {
+    "name": "hmAgentStpPortState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpPortStatsMstpBpduRx": {
+    "name": "hmAgentStpPortStatsMstpBpduRx",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortStatsMstpBpduTx": {
+    "name": "hmAgentStpPortStatsMstpBpduTx",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortStatsRstpBpduRx": {
+    "name": "hmAgentStpPortStatsRstpBpduRx",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortStatsRstpBpduTx": {
+    "name": "hmAgentStpPortStatsRstpBpduTx",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortStatsStpBpduRx": {
+    "name": "hmAgentStpPortStatsStpBpduRx",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortStatsStpBpduTx": {
+    "name": "hmAgentStpPortStatsStpBpduTx",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortUpTime": {
+    "name": "hmAgentStpPortUpTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpPortMigrationCheck": {
+    "name": "hmAgentStpPortMigrationCheck",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpPortHelloTime": {
+    "name": "hmAgentStpPortHelloTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstConfigGroup": {
+    "name": "hmAgentStpCstConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8",
+    "class": "objectidentity"
+  },
+  "hmAgentStpCstHelloTime": {
+    "name": "hmAgentStpCstHelloTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstMaxAge": {
+    "name": "hmAgentStpCstMaxAge",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstRegionalRootId": {
+    "name": "hmAgentStpCstRegionalRootId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstRegionalRootPathCost": {
+    "name": "hmAgentStpCstRegionalRootPathCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstRootFwdDelay": {
+    "name": "hmAgentStpCstRootFwdDelay",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeFwdDelay": {
+    "name": "hmAgentStpCstBridgeFwdDelay",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeHelloTime": {
+    "name": "hmAgentStpCstBridgeHelloTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeHoldTime": {
+    "name": "hmAgentStpCstBridgeHoldTime",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeMaxAge": {
+    "name": "hmAgentStpCstBridgeMaxAge",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeDesignatedRoot": {
+    "name": "hmAgentStpCstBridgeDesignatedRoot",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BridgeId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgePriority": {
+    "name": "hmAgentStpCstBridgePriority",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeTimeSinceTopologyChange": {
+    "name": "hmAgentStpCstBridgeTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeTopChanges": {
+    "name": "hmAgentStpCstBridgeTopChanges",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeRootCost": {
+    "name": "hmAgentStpCstBridgeRootCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeRootPort": {
+    "name": "hmAgentStpCstBridgeRootPort",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeMaxHops": {
+    "name": "hmAgentStpCstBridgeMaxHops",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstBridgeHoldCount": {
+    "name": "hmAgentStpCstBridgeHoldCount",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.8.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortTable": {
+    "name": "hmAgentStpCstPortTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentStpCstPortEntry": {
+    "name": "hmAgentStpCstPortEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentStpCstPortOperEdge": {
+    "name": "hmAgentStpCstPortOperEdge",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortOperPointToPoint": {
+    "name": "hmAgentStpCstPortOperPointToPoint",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortTopologyChangeAck": {
+    "name": "hmAgentStpCstPortTopologyChangeAck",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortEdge": {
+    "name": "hmAgentStpCstPortEdge",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortForwardingState": {
+    "name": "hmAgentStpCstPortForwardingState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "learning": 2,
+          "forwarding": 3,
+          "disabled": 4,
+          "manualFwd": 5,
+          "notParticipate": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortId": {
+    "name": "hmAgentStpCstPortId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortPathCost": {
+    "name": "hmAgentStpCstPortPathCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortPriority": {
+    "name": "hmAgentStpCstPortPriority",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstDesignatedBridgeId": {
+    "name": "hmAgentStpCstDesignatedBridgeId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstDesignatedCost": {
+    "name": "hmAgentStpCstDesignatedCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstDesignatedPortId": {
+    "name": "hmAgentStpCstDesignatedPortId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstExtPortPathCost": {
+    "name": "hmAgentStpCstExtPortPathCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortAutoEdge": {
+    "name": "hmAgentStpCstPortAutoEdge",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortRole": {
+    "name": "hmAgentStpCstPortRole",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "root": 1,
+          "alternate": 2,
+          "designated": 3,
+          "backup": 4,
+          "master": 5,
+          "disabled": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortDisputed": {
+    "name": "hmAgentStpCstPortDisputed",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortBpduGuardEffect": {
+    "name": "hmAgentStpCstPortBpduGuardEffect",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpCstPortBpduFilter": {
+    "name": "hmAgentStpCstPortBpduFilter",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortBpduFlood": {
+    "name": "hmAgentStpCstPortBpduFlood",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortRootGuard": {
+    "name": "hmAgentStpCstPortRootGuard",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortTCNGuard": {
+    "name": "hmAgentStpCstPortTCNGuard",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpCstPortLoopGuard": {
+    "name": "hmAgentStpCstPortLoopGuard",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpMstTable": {
+    "name": "hmAgentStpMstTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentStpMstEntry": {
+    "name": "hmAgentStpMstEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentStpMstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentStpMstId": {
+    "name": "hmAgentStpMstId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstBridgePriority": {
+    "name": "hmAgentStpMstBridgePriority",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 61440
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpMstBridgeIdentifier": {
+    "name": "hmAgentStpMstBridgeIdentifier",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstDesignatedRootId": {
+    "name": "hmAgentStpMstDesignatedRootId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstRootPathCost": {
+    "name": "hmAgentStpMstRootPathCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstRootPortId": {
+    "name": "hmAgentStpMstRootPortId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstTimeSinceTopologyChange": {
+    "name": "hmAgentStpMstTimeSinceTopologyChange",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstTopologyChangeCount": {
+    "name": "hmAgentStpMstTopologyChangeCount",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstTopologyChangeParm": {
+    "name": "hmAgentStpMstTopologyChangeParm",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstRowStatus": {
+    "name": "hmAgentStpMstRowStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentStpMstPortTable": {
+    "name": "hmAgentStpMstPortTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentStpMstPortEntry": {
+    "name": "hmAgentStpMstPortEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentStpMstId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentStpMstPortForwardingState": {
+    "name": "hmAgentStpMstPortForwardingState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "learning": 2,
+          "forwarding": 3,
+          "disabled": 4,
+          "manualFwd": 5,
+          "notParticipate": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortId": {
+    "name": "hmAgentStpMstPortId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortPathCost": {
+    "name": "hmAgentStpMstPortPathCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpMstPortPriority": {
+    "name": "hmAgentStpMstPortPriority",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentStpMstDesignatedBridgeId": {
+    "name": "hmAgentStpMstDesignatedBridgeId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstDesignatedCost": {
+    "name": "hmAgentStpMstDesignatedCost",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstDesignatedPortId": {
+    "name": "hmAgentStpMstDesignatedPortId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortRole": {
+    "name": "hmAgentStpMstPortRole",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "root": 1,
+          "alternate": 2,
+          "designated": 3,
+          "backup": 4,
+          "master": 5,
+          "disabled": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortDisputed": {
+    "name": "hmAgentStpMstPortDisputed",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortLoopInconsistentState": {
+    "name": "hmAgentStpMstPortLoopInconsistentState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortTransitionsIntoLoopInconsistentState": {
+    "name": "hmAgentStpMstPortTransitionsIntoLoopInconsistentState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstPortTransitionsOutOfLoopInconsistentState": {
+    "name": "hmAgentStpMstPortTransitionsOutOfLoopInconsistentState",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstReceivedBridgeId": {
+    "name": "hmAgentStpMstReceivedBridgeId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstReceivedRPC": {
+    "name": "hmAgentStpMstReceivedRPC",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstReceivedPortId": {
+    "name": "hmAgentStpMstReceivedPortId",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentStpMstVlanTable": {
+    "name": "hmAgentStpMstVlanTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentStpMstVlanEntry": {
+    "name": "hmAgentStpMstVlanEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentStpMstId",
+        "implied": 0
+      },
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentStpMstVlanRowStatus": {
+    "name": "hmAgentStpMstVlanRowStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.2.15.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentClassOfServiceGroup": {
+    "name": "hmAgentClassOfServiceGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.17",
+    "class": "objectidentity"
+  },
+  "hmAgentClassOfServicePortTable": {
+    "name": "hmAgentClassOfServicePortTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentClassOfServicePortEntry": {
+    "name": "hmAgentClassOfServicePortEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentClassOfServicePortPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentClassOfServicePortPriority": {
+    "name": "hmAgentClassOfServicePortPriority",
+    "oid": "1.3.6.1.4.1.248.15.1.2.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentClassOfServicePortClass": {
+    "name": "hmAgentClassOfServicePortClass",
+    "oid": "1.3.6.1.4.1.248.15.1.2.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSystemGroup": {
+    "name": "hmAgentSystemGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.3",
+    "class": "objectidentity"
+  },
+  "hmAgentSaveConfig": {
+    "name": "hmAgentSaveConfig",
+    "oid": "1.3.6.1.4.1.248.15.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearConfig": {
+    "name": "hmAgentClearConfig",
+    "oid": "1.3.6.1.4.1.248.15.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearLags": {
+    "name": "hmAgentClearLags",
+    "oid": "1.3.6.1.4.1.248.15.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearLoginSessions": {
+    "name": "hmAgentClearLoginSessions",
+    "oid": "1.3.6.1.4.1.248.15.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearPasswords": {
+    "name": "hmAgentClearPasswords",
+    "oid": "1.3.6.1.4.1.248.15.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearPortStats": {
+    "name": "hmAgentClearPortStats",
+    "oid": "1.3.6.1.4.1.248.15.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearSwitchStats": {
+    "name": "hmAgentClearSwitchStats",
+    "oid": "1.3.6.1.4.1.248.15.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearTrapLog": {
+    "name": "hmAgentClearTrapLog",
+    "oid": "1.3.6.1.4.1.248.15.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentClearVlan": {
+    "name": "hmAgentClearVlan",
+    "oid": "1.3.6.1.4.1.248.15.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentResetSystem": {
+    "name": "hmAgentResetSystem",
+    "oid": "1.3.6.1.4.1.248.15.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSaveConfigStatus": {
+    "name": "hmAgentSaveConfigStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInitiated": 1,
+          "savingInProcess": 2,
+          "savingComplete": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCableTesterGroup": {
+    "name": "hmAgentCableTesterGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.4",
+    "class": "objectidentity"
+  },
+  "hmAgentCableTesterStatus": {
+    "name": "hmAgentCableTesterStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "success": 2,
+          "failure": 3,
+          "uninitialized": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "uninitialized",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCableTesterIfIndex": {
+    "name": "hmAgentCableTesterIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCableTesterCableStatus": {
+    "name": "hmAgentCableTesterCableStatus",
+    "oid": "1.3.6.1.4.1.248.15.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "open": 2,
+          "short": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCableTesterMinimumCableLength": {
+    "name": "hmAgentCableTesterMinimumCableLength",
+    "oid": "1.3.6.1.4.1.248.15.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCableTesterMaximumCableLength": {
+    "name": "hmAgentCableTesterMaximumCableLength",
+    "oid": "1.3.6.1.4.1.248.15.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentCableTesterCableFailureLocation": {
+    "name": "hmAgentCableTesterCableFailureLocation",
+    "oid": "1.3.6.1.4.1.248.15.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentMgmtSecurity": {
+    "name": "hmAgentMgmtSecurity",
+    "oid": "1.3.6.1.4.1.248.15.11",
+    "class": "objectidentity"
+  },
+  "hmAgentSSHConfigGroup": {
+    "name": "hmAgentSSHConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.11.2",
+    "class": "objectidentity"
+  },
+  "hmAgentSSHAdminMode": {
+    "name": "hmAgentSSHAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSSHProtocolLevel": {
+    "name": "hmAgentSSHProtocolLevel",
+    "oid": "1.3.6.1.4.1.248.15.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ssh10": 1,
+          "ssh20": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSSHSessionsCount": {
+    "name": "hmAgentSSHSessionsCount",
+    "oid": "1.3.6.1.4.1.248.15.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSSHMaxSessionsCount": {
+    "name": "hmAgentSSHMaxSessionsCount",
+    "oid": "1.3.6.1.4.1.248.15.11.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSSHSessionTimeout": {
+    "name": "hmAgentSSHSessionTimeout",
+    "oid": "1.3.6.1.4.1.248.15.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRadius": {
+    "name": "hmRadius",
+    "oid": "1.3.6.1.4.1.248.15.8",
+    "class": "objectidentity"
+  },
+  "hmAgentRadiusConfigGroup": {
+    "name": "hmAgentRadiusConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.8.1",
+    "class": "objectidentity"
+  },
+  "hmAgentRadiusMaxTransmit": {
+    "name": "hmAgentRadiusMaxTransmit",
+    "oid": "1.3.6.1.4.1.248.15.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusTimeout": {
+    "name": "hmAgentRadiusTimeout",
+    "oid": "1.3.6.1.4.1.248.15.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingMode": {
+    "name": "hmAgentRadiusAccountingMode",
+    "oid": "1.3.6.1.4.1.248.15.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusStatsClear": {
+    "name": "hmAgentRadiusStatsClear",
+    "oid": "1.3.6.1.4.1.248.15.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingIndexNextValid": {
+    "name": "hmAgentRadiusAccountingIndexNextValid",
+    "oid": "1.3.6.1.4.1.248.15.8.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingConfigTable": {
+    "name": "hmAgentRadiusAccountingConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingConfigEntry": {
+    "name": "hmAgentRadiusAccountingConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentRadiusAccountingServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingServerIndex": {
+    "name": "hmAgentRadiusAccountingServerIndex",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingServerAddress": {
+    "name": "hmAgentRadiusAccountingServerAddress",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingPort": {
+    "name": "hmAgentRadiusAccountingPort",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1813,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingSecret": {
+    "name": "hmAgentRadiusAccountingSecret",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusAccountingStatus": {
+    "name": "hmAgentRadiusAccountingStatus",
+    "oid": "1.3.6.1.4.1.248.15.8.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentRadiusServerIndexNextValid": {
+    "name": "hmAgentRadiusServerIndexNextValid",
+    "oid": "1.3.6.1.4.1.248.15.8.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRadiusServerConfigTable": {
+    "name": "hmAgentRadiusServerConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRadiusServerConfigEntry": {
+    "name": "hmAgentRadiusServerConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentRadiusServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentRadiusServerIndex": {
+    "name": "hmAgentRadiusServerIndex",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRadiusServerAddress": {
+    "name": "hmAgentRadiusServerAddress",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentRadiusServerPort": {
+    "name": "hmAgentRadiusServerPort",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1812,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusServerSecret": {
+    "name": "hmAgentRadiusServerSecret",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusServerPrimaryMode": {
+    "name": "hmAgentRadiusServerPrimaryMode",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusServerCurrentMode": {
+    "name": "hmAgentRadiusServerCurrentMode",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRadiusServerMsgAuth": {
+    "name": "hmAgentRadiusServerMsgAuth",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRadiusServerStatus": {
+    "name": "hmAgentRadiusServerStatus",
+    "oid": "1.3.6.1.4.1.248.15.8.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmPlatform4OutboundTelnetPrivate": {
+    "name": "hmPlatform4OutboundTelnetPrivate",
+    "oid": "1.3.6.1.4.1.248.15.19",
+    "class": "objectidentity"
+  },
+  "hmAgentOutboundTelnetGroup": {
+    "name": "hmAgentOutboundTelnetGroup",
+    "oid": "1.3.6.1.4.1.248.15.19.1",
+    "class": "objectidentity"
+  },
+  "hmAgentOutboundTelnetAdminMode": {
+    "name": "hmAgentOutboundTelnetAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.19.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOutboundTelnetMaxNoOfSessions": {
+    "name": "hmAgentOutboundTelnetMaxNoOfSessions",
+    "oid": "1.3.6.1.4.1.248.15.19.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOutboundTelnetTimeout": {
+    "name": "hmAgentOutboundTelnetTimeout",
+    "oid": "1.3.6.1.4.1.248.15.19.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchVoiceVLANGroup": {
+    "name": "hmAgentSwitchVoiceVLANGroup",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.25",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchVoiceVLANAdminMode": {
+    "name": "hmAgentSwitchVoiceVLANAdminMode",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchVoiceVlanDeviceTable": {
+    "name": "hmAgentSwitchVoiceVlanDeviceTable",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.25.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchVoiceVlanDeviceEntry": {
+    "name": "hmAgentSwitchVoiceVlanDeviceEntry",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.25.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchVoiceVlanInterfaceNum",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentSwitchVoiceVlanDeviceMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchVoiceVlanInterfaceNum": {
+    "name": "hmAgentSwitchVoiceVlanInterfaceNum",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.25.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchVoiceVlanDeviceMacAddress": {
+    "name": "hmAgentSwitchVoiceVlanDeviceMacAddress",
+    "oid": "1.3.6.1.4.1.248.15.1.2.8.25.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xAdvanced": {
+    "name": "hmAgentDot1xAdvanced",
+    "oid": "1.3.6.1.4.1.248.15.36",
+    "class": "objectidentity"
+  },
+  "hmAgentDot1xEnhancementConfigGroup": {
+    "name": "hmAgentDot1xEnhancementConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.36.1",
+    "class": "objectidentity"
+  },
+  "hmAgentDot1xRadiusVlanAssignment": {
+    "name": "hmAgentDot1xRadiusVlanAssignment",
+    "oid": "1.3.6.1.4.1.248.15.36.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xDynamicVlanCreationMode": {
+    "name": "hmAgentDot1xDynamicVlanCreationMode",
+    "oid": "1.3.6.1.4.1.248.15.36.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xSafeVlanMode": {
+    "name": "hmAgentDot1xSafeVlanMode",
+    "oid": "1.3.6.1.4.1.248.15.36.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xPortConfigGroup": {
+    "name": "hmAgentDot1xPortConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.36.2",
+    "class": "objectidentity"
+  },
+  "hmAgentDot1xPortConfigTable": {
+    "name": "hmAgentDot1xPortConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentDot1xPortConfigEntry": {
+    "name": "hmAgentDot1xPortConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentDot1xPortControlMode": {
+    "name": "hmAgentDot1xPortControlMode",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentDot1xPortControlMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xGuestVlanId": {
+    "name": "hmAgentDot1xGuestVlanId",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xGuestVlanPeriod": {
+    "name": "hmAgentDot1xGuestVlanPeriod",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 90,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xUnauthenticatedVlan": {
+    "name": "hmAgentDot1xUnauthenticatedVlan",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xMaxUsers": {
+    "name": "hmAgentDot1xMaxUsers",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xPortVlanAssigned": {
+    "name": "hmAgentDot1xPortVlanAssigned",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xPortVlanAssignedReason": {
+    "name": "hmAgentDot1xPortVlanAssignedReason",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "radius": 2,
+          "unauthenticatedVlan": 3,
+          "guestVlan": 4,
+          "voiceVlan": 5,
+          "notAssigned": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xPortSessionTimeout": {
+    "name": "hmAgentDot1xPortSessionTimeout",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xPortTerminationAction": {
+    "name": "hmAgentDot1xPortTerminationAction",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentDot1xSessionTerminationAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xPortMABenabled": {
+    "name": "hmAgentDot1xPortMABenabled",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentDot1xPortMABenabledOperational": {
+    "name": "hmAgentDot1xPortMABenabledOperational",
+    "oid": "1.3.6.1.4.1.248.15.36.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientConfigGroup": {
+    "name": "hmAgentDot1xClientConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.36.3",
+    "class": "objectidentity"
+  },
+  "hmAgentDot1xClientConfigTable": {
+    "name": "hmAgentDot1xClientConfigTable",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentDot1xClientConfigEntry": {
+    "name": "hmAgentDot1xClientConfigEntry",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentDot1xClientMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentDot1xClientMacAddress": {
+    "name": "hmAgentDot1xClientMacAddress",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xLogicalPort": {
+    "name": "hmAgentDot1xLogicalPort",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xInterface": {
+    "name": "hmAgentDot1xInterface",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientAuthPAEstate": {
+    "name": "hmAgentDot1xClientAuthPAEstate",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "disconnected": 2,
+          "connecting": 3,
+          "authenticating": 4,
+          "authenticated": 5,
+          "aborting": 6,
+          "held": 7,
+          "forceAuth": 8,
+          "forceUnauth": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientBackendState": {
+    "name": "hmAgentDot1xClientBackendState",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2,
+          "success": 3,
+          "fail": 4,
+          "timeout": 5,
+          "idle": 6,
+          "initialize": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientUserName": {
+    "name": "hmAgentDot1xClientUserName",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientSessionTime": {
+    "name": "hmAgentDot1xClientSessionTime",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientFilterID": {
+    "name": "hmAgentDot1xClientFilterID",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientVlanAssigned": {
+    "name": "hmAgentDot1xClientVlanAssigned",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientVlanAssignedReason": {
+    "name": "hmAgentDot1xClientVlanAssignedReason",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "radius": 2,
+          "unauthenticatedVlan": 3,
+          "guestVlan": 4,
+          "voiceVlan": 5,
+          "invalid": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientSessionTimeout": {
+    "name": "hmAgentDot1xClientSessionTimeout",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentDot1xClientTerminationAction": {
+    "name": "hmAgentDot1xClientTerminationAction",
+    "oid": "1.3.6.1.4.1.248.15.36.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmAgentDot1xSessionTerminationAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPlatform4SwitchingTraps": {
+    "name": "hmPlatform4SwitchingTraps",
+    "oid": "1.3.6.1.4.1.248.15.1.50",
+    "class": "objectidentity"
+  },
+  "multipleUsersTrap": {
+    "name": "multipleUsersTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "broadcastStormStartTrap": {
+    "name": "broadcastStormStartTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.2",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "broadcastStormEndTrap": {
+    "name": "broadcastStormEndTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.3",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "linkFailureTrap": {
+    "name": "linkFailureTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.4",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "vlanRequestFailureTrap": {
+    "name": "vlanRequestFailureTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "vlanDeleteLastTrap": {
+    "name": "vlanDeleteLastTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanDefaultCfgFailureTrap": {
+    "name": "vlanDefaultCfgFailureTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vlanRestoreFailureTrap": {
+    "name": "vlanRestoreFailureTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "Q-BRIDGE-MIB",
+        "object": "dot1qVlanIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fanFailureTrap": {
+    "name": "fanFailureTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.9",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "stpInstanceNewRootTrap": {
+    "name": "stpInstanceNewRootTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentStpMstId"
+      }
+    ],
+    "status": "current"
+  },
+  "stpInstanceTopologyChangeTrap": {
+    "name": "stpInstanceTopologyChangeTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HIRSCHMANN-MMP4-BASICL2-MIB",
+        "object": "hmAgentStpMstId"
+      }
+    ],
+    "status": "current"
+  },
+  "powerSupplyStatusChangeTrap": {
+    "name": "powerSupplyStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.12",
+    "class": "notificationtype",
+    "status": "obsolete"
+  },
+  "failedUserLoginTrap": {
+    "name": "failedUserLoginTrap",
+    "oid": "1.3.6.1.4.1.248.15.1.50.13",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "dot1xTraps": {
+    "name": "dot1xTraps",
+    "oid": "1.3.6.1.4.1.248.15.36.4",
+    "class": "objectidentity"
+  },
+  "dot1xPortStatusAuthorized": {
+    "name": "dot1xPortStatusAuthorized",
+    "oid": "1.3.6.1.4.1.248.15.36.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dot1xPortStatusUnauthorized": {
+    "name": "dot1xPortStatusUnauthorized",
+    "oid": "1.3.6.1.4.1.248.15.36.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IEEE8021-PAE-MIB",
+        "object": "dot1xPaePortNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "HIRSCHMANN-MMP4-BASICL2-MIB"
+  }
+}

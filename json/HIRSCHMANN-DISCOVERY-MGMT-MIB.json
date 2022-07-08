@@ -1,0 +1,283 @@
+{
+  "imports": {
+    "class": "imports",
+    "HIRSCHMANN-MGMT-MIB": [
+      "hmManagement"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hmMgmtDiscoveryGroup": {
+    "name": "hmMgmtDiscoveryGroup",
+    "oid": "1.3.6.1.4.1.248.16.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-07-07 12:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "hmMgmtDiscoveryStatusGroup": {
+    "name": "hmMgmtDiscoveryStatusGroup",
+    "oid": "1.3.6.1.4.1.248.16.100.1",
+    "class": "objectidentity"
+  },
+  "hmMgmtDiscoveryCfgGroup": {
+    "name": "hmMgmtDiscoveryCfgGroup",
+    "oid": "1.3.6.1.4.1.248.16.100.2",
+    "class": "objectidentity"
+  },
+  "hmMgmtDiscMode": {
+    "name": "hmMgmtDiscMode",
+    "oid": "1.3.6.1.4.1.248.16.100.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read-write": 1,
+          "read-only": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMgmtDiscMacAddr": {
+    "name": "hmMgmtDiscMacAddr",
+    "oid": "1.3.6.1.4.1.248.16.100.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMgmtDiscIpIntfType": {
+    "name": "hmMgmtDiscIpIntfType",
+    "oid": "1.3.6.1.4.1.248.16.100.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopback-intf": 1,
+          "router-intf": 2,
+          "mgmt-intf": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMgmtDiscSwVersion": {
+    "name": "hmMgmtDiscSwVersion",
+    "oid": "1.3.6.1.4.1.248.16.100.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMgmtDiscProductDescr": {
+    "name": "hmMgmtDiscProductDescr",
+    "oid": "1.3.6.1.4.1.248.16.100.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgUUID": {
+    "name": "hmMgmtDiscCfgUUID",
+    "oid": "1.3.6.1.4.1.248.16.100.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgProto": {
+    "name": "hmMgmtDiscCfgProto",
+    "oid": "1.3.6.1.4.1.248.16.100.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bootp": 2,
+          "dhcp": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgIPAddrType": {
+    "name": "hmMgmtDiscCfgIPAddrType",
+    "oid": "1.3.6.1.4.1.248.16.100.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgIPAddr": {
+    "name": "hmMgmtDiscCfgIPAddr",
+    "oid": "1.3.6.1.4.1.248.16.100.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgPrefLen": {
+    "name": "hmMgmtDiscCfgPrefLen",
+    "oid": "1.3.6.1.4.1.248.16.100.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgGwIPAddrType": {
+    "name": "hmMgmtDiscCfgGwIPAddrType",
+    "oid": "1.3.6.1.4.1.248.16.100.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgGwIPAddr": {
+    "name": "hmMgmtDiscCfgGwIPAddr",
+    "oid": "1.3.6.1.4.1.248.16.100.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgAction": {
+    "name": "hmMgmtDiscCfgAction",
+    "oid": "1.3.6.1.4.1.248.16.100.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activate": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMgmtDiscCfgBlinking": {
+    "name": "hmMgmtDiscCfgBlinking",
+    "oid": "1.3.6.1.4.1.248.16.100.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HIRSCHMANN-DISCOVERY-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "HIRSCHMANN-DISCOVERY-MGMT-MIB"
+  }
+}

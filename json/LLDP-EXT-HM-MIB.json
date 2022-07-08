@@ -1,0 +1,1190 @@
+{
+  "imports": {
+    "class": "imports",
+    "LLDP-MIB": [
+      "lldpLocPortNum",
+      "lldpExtensions",
+      "lldpPortConfigEntry",
+      "lldpRemTimeMark",
+      "lldpRemLocalPortNum",
+      "lldpRemIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "lldpXHmMIB": {
+    "name": "lldpXHmMIB",
+    "oid": "1.0.8802.1.1.2.1.5.32867",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-09-12 12:00",
+        "description": "Part of Hirschmann LLDP device information extension"
+      }
+    ]
+  },
+  "lldpXHmObjects": {
+    "name": "lldpXHmObjects",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1",
+    "class": "objectidentity"
+  },
+  "lldpXHmConfig": {
+    "name": "lldpXHmConfig",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXHmLocalData": {
+    "name": "lldpXHmLocalData",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXHmRemoteData": {
+    "name": "lldpXHmRemoteData",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3",
+    "class": "objectidentity"
+  },
+  "LldpXHmLocGMRPServiceReqSyntax": {
+    "name": "LldpXHmLocGMRPServiceReqSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwardAll": 1,
+          "forwardUnregistered": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmLocIGMPVersionSyntax": {
+    "name": "LldpXHmLocIGMPVersionSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "iGMPv1": 0,
+        "iGMPv2": 1,
+        "iGMPv3": 2
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmLocPortSecModeSyntax": {
+    "name": "LldpXHmLocPortSecModeSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "forceAuthorized": 2,
+          "forceUnauthorized": 3,
+          "automatic": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmLocPTPSupportSyntax": {
+    "name": "LldpXHmLocPTPSupportSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "swsupport": 0,
+        "ptpv1capable": 1,
+        "ptpv2capable": 2,
+        "ptptccapable": 3
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmLocPTPStatusSyntax": {
+    "name": "LldpXHmLocPTPStatusSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ptpv1enabled": 0,
+        "ptpv2enabled": 1
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmLocPTPv2DataTransferSyntax": {
+    "name": "LldpXHmLocPTPv2DataTransferSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptp2Ieee8023": 1,
+          "ptp2UdpIpv4": 2,
+          "ptp2UdpIpv6": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmLocPTPv2DelayMechanismSyntax": {
+    "name": "LldpXHmLocPTPv2DelayMechanismSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p2p": 1,
+          "e2e": 2,
+          "disabled": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemGMRPServiceReqSyntax": {
+    "name": "LldpXHmRemGMRPServiceReqSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwardAll": 1,
+          "forwardUnregistered": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemPTPv2DataTransferSyntax": {
+    "name": "LldpXHmRemPTPv2DataTransferSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptp2Ieee8023": 1,
+          "ptp2UdpIpv4": 2,
+          "ptp2UdpIpv6": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemPTPv2DelayMechanismSyntax": {
+    "name": "LldpXHmRemPTPv2DelayMechanismSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p2p": 1,
+          "e2e": 2,
+          "disabled": 3,
+          "notApplicable": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemPTPSupportSyntax": {
+    "name": "LldpXHmRemPTPSupportSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "swsupport": 0,
+        "ptpv1capable": 1,
+        "ptpv2capable": 2,
+        "ptptccapable": 3
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemPTPStatusSyntax": {
+    "name": "LldpXHmRemPTPStatusSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ptpv1enabled": 0,
+        "ptpv2enabled": 1
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemPortSecModeSyntax": {
+    "name": "LldpXHmRemPortSecModeSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "forceAuthorized": 2,
+          "forceUnauthorized": 3,
+          "automatic": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXHmRemIGMPVersionSyntax": {
+    "name": "LldpXHmRemIGMPVersionSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "iGMPv1": 0,
+        "iGMPv2": 1,
+        "iGMPv3": 2
+      }
+    },
+    "status": "current"
+  },
+  "lldpXHmConfigGMRPTable": {
+    "name": "lldpXHmConfigGMRPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmConfigGMRPEntry": {
+    "name": "lldpXHmConfigGMRPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXHmConfigGMRPEntry",
+      "module": "LLDP-EXT-HM-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXHmConfigGMRPTxEnable": {
+    "name": "lldpXHmConfigGMRPTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXHmConfigIGMPTable": {
+    "name": "lldpXHmConfigIGMPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmConfigIGMPEntry": {
+    "name": "lldpXHmConfigIGMPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXHmConfigIGMPEntry",
+      "module": "LLDP-EXT-HM-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXHmConfigIGMPTxEnable": {
+    "name": "lldpXHmConfigIGMPTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXHmConfigPortSecTable": {
+    "name": "lldpXHmConfigPortSecTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmConfigPortSecEntry": {
+    "name": "lldpXHmConfigPortSecEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXHmConfigPortSecEntry",
+      "module": "LLDP-EXT-HM-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXHmConfigPortSecTxEnable": {
+    "name": "lldpXHmConfigPortSecTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXHmConfigPTPTable": {
+    "name": "lldpXHmConfigPTPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmConfigPTPEntry": {
+    "name": "lldpXHmConfigPTPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXHmConfigPTPEntry",
+      "module": "LLDP-EXT-HM-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXHmConfigPTPTxEnable": {
+    "name": "lldpXHmConfigPTPTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXHmLocGMRPTable": {
+    "name": "lldpXHmLocGMRPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmLocGMRPEntry": {
+    "name": "lldpXHmLocGMRPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmLocGMRPSupport": {
+    "name": "lldpXHmLocGMRPSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocGMRPStatus": {
+    "name": "lldpXHmLocGMRPStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocGMRPServiceReq": {
+    "name": "lldpXHmLocGMRPServiceReq",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocGMRPServiceReqSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocIGMPTable": {
+    "name": "lldpXHmLocIGMPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmLocIGMPEntry": {
+    "name": "lldpXHmLocIGMPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmLocIGMPSupport": {
+    "name": "lldpXHmLocIGMPSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocIGMPStatus": {
+    "name": "lldpXHmLocIGMPStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocIGMPVersion": {
+    "name": "lldpXHmLocIGMPVersion",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocIGMPVersionSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPortSecTable": {
+    "name": "lldpXHmLocPortSecTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmLocPortSecEntry": {
+    "name": "lldpXHmLocPortSecEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmLocPortSecSupport": {
+    "name": "lldpXHmLocPortSecSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPortSecStatus": {
+    "name": "lldpXHmLocPortSecStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPortSecMode": {
+    "name": "lldpXHmLocPortSecMode",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocPortSecModeSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPTable": {
+    "name": "lldpXHmLocPTPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmLocPTPEntry": {
+    "name": "lldpXHmLocPTPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmLocPTPSupport": {
+    "name": "lldpXHmLocPTPSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocPTPSupportSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPStatus": {
+    "name": "lldpXHmLocPTPStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocPTPStatusSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPSyncInterval": {
+    "name": "lldpXHmLocPTPSyncInterval",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPv2AnnounceInterval": {
+    "name": "lldpXHmLocPTPv2AnnounceInterval",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPv2DataTransfer": {
+    "name": "lldpXHmLocPTPv2DataTransfer",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocPTPv2DataTransferSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPv2DelayMechanism": {
+    "name": "lldpXHmLocPTPv2DelayMechanism",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmLocPTPv2DelayMechanismSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPClockValues": {
+    "name": "lldpXHmLocPTPClockValues",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "slave": 0,
+        "master": 1,
+        "transparent": 2,
+        "boundary": 3,
+        "grandmaster": 4,
+        "multidomain": 5,
+        "simplemode": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPv2SubdomainNumber": {
+    "name": "lldpXHmLocPTPv2SubdomainNumber",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmLocPTPv1SubdomainName": {
+    "name": "lldpXHmLocPTPv1SubdomainName",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemGMRPTable": {
+    "name": "lldpXHmRemGMRPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmRemGMRPEntry": {
+    "name": "lldpXHmRemGMRPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmRemGMRPSupport": {
+    "name": "lldpXHmRemGMRPSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemGMRPStatus": {
+    "name": "lldpXHmRemGMRPStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemGMRPServiceReq": {
+    "name": "lldpXHmRemGMRPServiceReq",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemGMRPServiceReqSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemIGMPTable": {
+    "name": "lldpXHmRemIGMPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmRemIGMPEntry": {
+    "name": "lldpXHmRemIGMPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmRemIGMPSupport": {
+    "name": "lldpXHmRemIGMPSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemIGMPStatus": {
+    "name": "lldpXHmRemIGMPStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemIGMPVersion": {
+    "name": "lldpXHmRemIGMPVersion",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemIGMPVersionSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPortSecTable": {
+    "name": "lldpXHmRemPortSecTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmRemPortSecEntry": {
+    "name": "lldpXHmRemPortSecEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmRemPortSecSupport": {
+    "name": "lldpXHmRemPortSecSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPortSecStatus": {
+    "name": "lldpXHmRemPortSecStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPortSecMode": {
+    "name": "lldpXHmRemPortSecMode",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemPortSecModeSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPTable": {
+    "name": "lldpXHmRemPTPTable",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXHmRemPTPEntry": {
+    "name": "lldpXHmRemPTPEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXHmRemPTPSupport": {
+    "name": "lldpXHmRemPTPSupport",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemPTPSupportSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPStatus": {
+    "name": "lldpXHmRemPTPStatus",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemPTPStatusSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPSyncInterval": {
+    "name": "lldpXHmRemPTPSyncInterval",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPv2AnnounceInterval": {
+    "name": "lldpXHmRemPTPv2AnnounceInterval",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPv2DataTransfer": {
+    "name": "lldpXHmRemPTPv2DataTransfer",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemPTPv2DataTransferSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPv2DelayMechanism": {
+    "name": "lldpXHmRemPTPv2DelayMechanism",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXHmRemPTPv2DelayMechanismSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPClockValues": {
+    "name": "lldpXHmRemPTPClockValues",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "slave": 0,
+        "master": 1,
+        "transparent": 2,
+        "boundary": 3,
+        "grandmaster": 4,
+        "multidomain": 5,
+        "simplemode": 6
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPv2SubdomainNumber": {
+    "name": "lldpXHmRemPTPv2SubdomainNumber",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXHmRemPTPv1SubdomainName": {
+    "name": "lldpXHmRemPTPv1SubdomainName",
+    "oid": "1.0.8802.1.1.2.1.5.32867.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_hm.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "LLDP-EXT-HM-MIB"
+  }
+}

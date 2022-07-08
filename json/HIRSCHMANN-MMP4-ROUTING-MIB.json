@@ -1,0 +1,2871 @@
+{
+  "imports": {
+    "class": "imports",
+    "HIRSCHMANN-MMP4-BASICL2-MIB": [
+      "hmPlatform4"
+    ],
+    "OSPF-MIB": [
+      "ospfVirtIfEntry",
+      "ospfIfEntry"
+    ],
+    "RIPv2-MIB": [
+      "rip2IfConfEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue"
+    ]
+  },
+  "hmPlatform4Routing": {
+    "name": "hmPlatform4Routing",
+    "oid": "1.3.6.1.4.1.248.15.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-18 12:00",
+        "description": "Revisions made for new release."
+      },
+      {
+        "revision": "2003-04-02 17:00",
+        "description": "Updated for release"
+      }
+    ]
+  },
+  "hmAgentSwitchArpGroup": {
+    "name": "hmAgentSwitchArpGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.1",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchArpAgeoutTime": {
+    "name": "hmAgentSwitchArpAgeoutTime",
+    "oid": "1.3.6.1.4.1.248.15.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 21600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchArpResponseTime": {
+    "name": "hmAgentSwitchArpResponseTime",
+    "oid": "1.3.6.1.4.1.248.15.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchArpMaxRetries": {
+    "name": "hmAgentSwitchArpMaxRetries",
+    "oid": "1.3.6.1.4.1.248.15.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchArpCacheSize": {
+    "name": "hmAgentSwitchArpCacheSize",
+    "oid": "1.3.6.1.4.1.248.15.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchArpDynamicRenew": {
+    "name": "hmAgentSwitchArpDynamicRenew",
+    "oid": "1.3.6.1.4.1.248.15.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchArpTotalEntryCountCurrent": {
+    "name": "hmAgentSwitchArpTotalEntryCountCurrent",
+    "oid": "1.3.6.1.4.1.248.15.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpTotalEntryCountPeak": {
+    "name": "hmAgentSwitchArpTotalEntryCountPeak",
+    "oid": "1.3.6.1.4.1.248.15.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpStaticEntryCountCurrent": {
+    "name": "hmAgentSwitchArpStaticEntryCountCurrent",
+    "oid": "1.3.6.1.4.1.248.15.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpStaticEntryCountMax": {
+    "name": "hmAgentSwitchArpStaticEntryCountMax",
+    "oid": "1.3.6.1.4.1.248.15.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpTable": {
+    "name": "hmAgentSwitchArpTable",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchArpEntry": {
+    "name": "hmAgentSwitchArpEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchArpIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchArpAge": {
+    "name": "hmAgentSwitchArpAge",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpIpAddress": {
+    "name": "hmAgentSwitchArpIpAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpMacAddress": {
+    "name": "hmAgentSwitchArpMacAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentSwitchArpInterface": {
+    "name": "hmAgentSwitchArpInterface",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpType": {
+    "name": "hmAgentSwitchArpType",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "gateway": 2,
+          "static": 3,
+          "dynamic": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchArpStatus": {
+    "name": "hmAgentSwitchArpStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchArpSparseLearn": {
+    "name": "hmAgentSwitchArpSparseLearn",
+    "oid": "1.3.6.1.4.1.248.15.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpGroup": {
+    "name": "hmAgentSwitchIpGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.2",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchIpRoutingMode": {
+    "name": "hmAgentSwitchIpRoutingMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpVRRPMode": {
+    "name": "hmAgentSwitchIpVRRPMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceTable": {
+    "name": "hmAgentSwitchIpInterfaceTable",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceEntry": {
+    "name": "hmAgentSwitchIpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceIfIndex": {
+    "name": "hmAgentSwitchIpInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceIpAddress": {
+    "name": "hmAgentSwitchIpInterfaceIpAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceNetMask": {
+    "name": "hmAgentSwitchIpInterfaceNetMask",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceClearIp": {
+    "name": "hmAgentSwitchIpInterfaceClearIp",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceRoutingMode": {
+    "name": "hmAgentSwitchIpInterfaceRoutingMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceProxyARPMode": {
+    "name": "hmAgentSwitchIpInterfaceProxyARPMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceMtuValue": {
+    "name": "hmAgentSwitchIpInterfaceMtuValue",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 68,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceSlotNum": {
+    "name": "hmAgentSwitchIpInterfaceSlotNum",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfacePortNum": {
+    "name": "hmAgentSwitchIpInterfacePortNum",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpInterfaceNetdirectedBCMode": {
+    "name": "hmAgentSwitchIpInterfaceNetdirectedBCMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryTable": {
+    "name": "hmAgentSwitchIpRouterDiscoveryTable",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryEntry": {
+    "name": "hmAgentSwitchIpRouterDiscoveryEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpRouterDiscoveryIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryIfIndex": {
+    "name": "hmAgentSwitchIpRouterDiscoveryIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryAdvertiseMode": {
+    "name": "hmAgentSwitchIpRouterDiscoveryAdvertiseMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryMaxAdvertisementInterval": {
+    "name": "hmAgentSwitchIpRouterDiscoveryMaxAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryMinAdvertisementInterval": {
+    "name": "hmAgentSwitchIpRouterDiscoveryMinAdvertisementInterval",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 450,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryAdvertisementLifetime": {
+    "name": "hmAgentSwitchIpRouterDiscoveryAdvertisementLifetime",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryPreferenceLevel": {
+    "name": "hmAgentSwitchIpRouterDiscoveryPreferenceLevel",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouterDiscoveryAdvertisementAddress": {
+    "name": "hmAgentSwitchIpRouterDiscoveryAdvertisementAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "E0000001",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpVlanTable": {
+    "name": "hmAgentSwitchIpVlanTable",
+    "oid": "1.3.6.1.4.1.248.15.2.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpVlanEntry": {
+    "name": "hmAgentSwitchIpVlanEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchIpVlanId": {
+    "name": "hmAgentSwitchIpVlanId",
+    "oid": "1.3.6.1.4.1.248.15.2.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpVlanIfIndex": {
+    "name": "hmAgentSwitchIpVlanIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpVlanRoutingStatus": {
+    "name": "hmAgentSwitchIpVlanRoutingStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentSwitchSecondaryAddressTable": {
+    "name": "hmAgentSwitchSecondaryAddressTable",
+    "oid": "1.3.6.1.4.1.248.15.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchSecondaryAddressEntry": {
+    "name": "hmAgentSwitchSecondaryAddressEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpInterfaceIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchSecondaryIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchSecondaryIpAddress": {
+    "name": "hmAgentSwitchSecondaryIpAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchSecondaryNetMask": {
+    "name": "hmAgentSwitchSecondaryNetMask",
+    "oid": "1.3.6.1.4.1.248.15.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentSwitchSecondaryStatus": {
+    "name": "hmAgentSwitchSecondaryStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRoutePreferenceTable": {
+    "name": "hmAgentSwitchIpRoutePreferenceTable",
+    "oid": "1.3.6.1.4.1.248.15.2.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRoutePreferenceEntry": {
+    "name": "hmAgentSwitchIpRoutePreferenceEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpRoutePreferenceSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchIpRoutePreferenceSource": {
+    "name": "hmAgentSwitchIpRoutePreferenceSource",
+    "oid": "1.3.6.1.4.1.248.15.2.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "static": 2,
+          "ospf-intra": 3,
+          "ospf-inter": 4,
+          "ospf-ext-t1": 5,
+          "ospf-ext-t2": 6,
+          "rip": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRoutePreferenceValue": {
+    "name": "hmAgentSwitchIpRoutePreferenceValue",
+    "oid": "1.3.6.1.4.1.248.15.2.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticTable": {
+    "name": "hmAgentSwitchIpRouteStaticTable",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticEntry": {
+    "name": "hmAgentSwitchIpRouteStaticEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpRouteStaticDestination",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpRouteStaticDestinationMask",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentSwitchIpRouteStaticNextHop",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticDestination": {
+    "name": "hmAgentSwitchIpRouteStaticDestination",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticDestinationMask": {
+    "name": "hmAgentSwitchIpRouteStaticDestinationMask",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticNextHop": {
+    "name": "hmAgentSwitchIpRouteStaticNextHop",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticPreference": {
+    "name": "hmAgentSwitchIpRouteStaticPreference",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticStatus": {
+    "name": "hmAgentSwitchIpRouteStaticStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpRouteStaticTrackId": {
+    "name": "hmAgentSwitchIpRouteStaticTrackId",
+    "oid": "1.3.6.1.4.1.248.15.2.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpVlanSingleMacMode": {
+    "name": "hmAgentSwitchIpVlanSingleMacMode",
+    "oid": "1.3.6.1.4.1.248.15.2.2.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpTableSizesGroup": {
+    "name": "hmAgentSwitchIpTableSizesGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101",
+    "class": "objectidentity"
+  },
+  "hmAgentSwitchIpTableSizeArp": {
+    "name": "hmAgentSwitchIpTableSizeArp",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpTableSizeUCRoutes": {
+    "name": "hmAgentSwitchIpTableSizeUCRoutes",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpTableSizeMCRoutes": {
+    "name": "hmAgentSwitchIpTableSizeMCRoutes",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSwitchIpCurrentTableSizeArp": {
+    "name": "hmAgentSwitchIpCurrentTableSizeArp",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpCurrentTableSizeUCRoutes": {
+    "name": "hmAgentSwitchIpCurrentTableSizeUCRoutes",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentSwitchIpCurrentTableSizeMCRoutes": {
+    "name": "hmAgentSwitchIpCurrentTableSizeMCRoutes",
+    "oid": "1.3.6.1.4.1.248.15.2.2.101.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRouterRipConfigGroup": {
+    "name": "hmAgentRouterRipConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.3",
+    "class": "objectidentity"
+  },
+  "hmAgentRouterRipAdminState": {
+    "name": "hmAgentRouterRipAdminState",
+    "oid": "1.3.6.1.4.1.248.15.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterRipSplitHorizonMode": {
+    "name": "hmAgentRouterRipSplitHorizonMode",
+    "oid": "1.3.6.1.4.1.248.15.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "simple": 2,
+          "poisonReverse": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "simple",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterRipAutoSummaryMode": {
+    "name": "hmAgentRouterRipAutoSummaryMode",
+    "oid": "1.3.6.1.4.1.248.15.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterRipHostRoutesAcceptMode": {
+    "name": "hmAgentRouterRipHostRoutesAcceptMode",
+    "oid": "1.3.6.1.4.1.248.15.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterRipDefaultMetric": {
+    "name": "hmAgentRouterRipDefaultMetric",
+    "oid": "1.3.6.1.4.1.248.15.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterRipDefaultMetricConfigured": {
+    "name": "hmAgentRouterRipDefaultMetricConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterRipDefaultInfoOriginate": {
+    "name": "hmAgentRouterRipDefaultInfoOriginate",
+    "oid": "1.3.6.1.4.1.248.15.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistTable": {
+    "name": "hmAgentRipRouteRedistTable",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistEntry": {
+    "name": "hmAgentRipRouteRedistEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentRipRouteRedistSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistSource": {
+    "name": "hmAgentRipRouteRedistSource",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "static": 2,
+          "ospf": 3,
+          "bgp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMode": {
+    "name": "hmAgentRipRouteRedistMode",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMetric": {
+    "name": "hmAgentRipRouteRedistMetric",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMetricConfigured": {
+    "name": "hmAgentRipRouteRedistMetricConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMatchInternal": {
+    "name": "hmAgentRipRouteRedistMatchInternal",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "not-applicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMatchExternal1": {
+    "name": "hmAgentRipRouteRedistMatchExternal1",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "not-applicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMatchExternal2": {
+    "name": "hmAgentRipRouteRedistMatchExternal2",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "not-applicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMatchNSSAExternal1": {
+    "name": "hmAgentRipRouteRedistMatchNSSAExternal1",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "not-applicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistMatchNSSAExternal2": {
+    "name": "hmAgentRipRouteRedistMatchNSSAExternal2",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2,
+          "not-applicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistDistList": {
+    "name": "hmAgentRipRouteRedistDistList",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 199
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRipRouteRedistDistListConfigured": {
+    "name": "hmAgentRipRouteRedistDistListConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.3.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2IfConfTable": {
+    "name": "hmAgentRip2IfConfTable",
+    "oid": "1.3.6.1.4.1.248.15.2.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRip2IfConfEntry": {
+    "name": "hmAgentRip2IfConfEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hmAgentRip2IfConfEntry",
+      "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+      "object": "rip2IfConfEntry"
+    },
+    "status": "current"
+  },
+  "hmAgentRip2IfConfAuthKeyId": {
+    "name": "hmAgentRip2IfConfAuthKeyId",
+    "oid": "1.3.6.1.4.1.248.15.2.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceTable": {
+    "name": "hmAgentRip2InterfaceTable",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceEntry": {
+    "name": "hmAgentRip2InterfaceEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentRip2InterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceIfIndex": {
+    "name": "hmAgentRip2InterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceAuthType": {
+    "name": "hmAgentRip2InterfaceAuthType",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAuthentication": 1,
+          "simplePassword": 2,
+          "md5": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceAuthKey": {
+    "name": "hmAgentRip2InterfaceAuthKey",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceAuthKeyId": {
+    "name": "hmAgentRip2InterfaceAuthKeyId",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceSendVersion": {
+    "name": "hmAgentRip2InterfaceSendVersion",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doNotSend": 1,
+          "ripVersion1": 2,
+          "rip1Compatible": 3,
+          "ripVersion2": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceReceiveVersion": {
+    "name": "hmAgentRip2InterfaceReceiveVersion",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rip1": 1,
+          "rip2": 2,
+          "rip1OrRip2": 3,
+          "doNotReceive": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2InterfaceAdminState": {
+    "name": "hmAgentRip2InterfaceAdminState",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRip2RcvBadPackets": {
+    "name": "hmAgentRip2RcvBadPackets",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRip2RcvBadRoutes": {
+    "name": "hmAgentRip2RcvBadRoutes",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRip2SentUpdates": {
+    "name": "hmAgentRip2SentUpdates",
+    "oid": "1.3.6.1.4.1.248.15.2.3.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentRouterRipUpdateTimerInterval": {
+    "name": "hmAgentRouterRipUpdateTimerInterval",
+    "oid": "1.3.6.1.4.1.248.15.2.3.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterOspfConfigGroup": {
+    "name": "hmAgentRouterOspfConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.4",
+    "class": "objectidentity"
+  },
+  "hmAgentOspfDefaultMetric": {
+    "name": "hmAgentOspfDefaultMetric",
+    "oid": "1.3.6.1.4.1.248.15.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfDefaultMetricConfigured": {
+    "name": "hmAgentOspfDefaultMetricConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfDefaultInfoOriginate": {
+    "name": "hmAgentOspfDefaultInfoOriginate",
+    "oid": "1.3.6.1.4.1.248.15.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfDefaultInfoOriginateAlways": {
+    "name": "hmAgentOspfDefaultInfoOriginateAlways",
+    "oid": "1.3.6.1.4.1.248.15.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfDefaultInfoOriginateMetric": {
+    "name": "hmAgentOspfDefaultInfoOriginateMetric",
+    "oid": "1.3.6.1.4.1.248.15.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfDefaultInfoOriginateMetricConfigured": {
+    "name": "hmAgentOspfDefaultInfoOriginateMetricConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfDefaultInfoOriginateMetricType": {
+    "name": "hmAgentOspfDefaultInfoOriginateMetricType",
+    "oid": "1.3.6.1.4.1.248.15.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "externalType1": 1,
+          "externalType2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistTable": {
+    "name": "hmAgentOspfRouteRedistTable",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistEntry": {
+    "name": "hmAgentOspfRouteRedistEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmAgentOspfRouteRedistSource",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistSource": {
+    "name": "hmAgentOspfRouteRedistSource",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connected": 1,
+          "static": 2,
+          "rip": 3,
+          "bgp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistMode": {
+    "name": "hmAgentOspfRouteRedistMode",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistMetric": {
+    "name": "hmAgentOspfRouteRedistMetric",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistMetricConfigured": {
+    "name": "hmAgentOspfRouteRedistMetricConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistMetricType": {
+    "name": "hmAgentOspfRouteRedistMetricType",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "externalType1": 1,
+          "externalType2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "externalType2",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistTag": {
+    "name": "hmAgentOspfRouteRedistTag",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistSubnets": {
+    "name": "hmAgentOspfRouteRedistSubnets",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistDistList": {
+    "name": "hmAgentOspfRouteRedistDistList",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 199
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfRouteRedistDistListConfigured": {
+    "name": "hmAgentOspfRouteRedistDistListConfigured",
+    "oid": "1.3.6.1.4.1.248.15.2.4.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfIfTable": {
+    "name": "hmAgentOspfIfTable",
+    "oid": "1.3.6.1.4.1.248.15.2.4.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentOspfIfEntry": {
+    "name": "hmAgentOspfIfEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.4.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hmAgentOspfIfEntry",
+      "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+      "object": "ospfIfEntry"
+    },
+    "status": "current"
+  },
+  "hmAgentOspfIfAuthKeyId": {
+    "name": "hmAgentOspfIfAuthKeyId",
+    "oid": "1.3.6.1.4.1.248.15.2.4.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentOspfIfIpMtuIgnoreFlag": {
+    "name": "hmAgentOspfIfIpMtuIgnoreFlag",
+    "oid": "1.3.6.1.4.1.248.15.2.4.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentOspfVirtIfTable": {
+    "name": "hmAgentOspfVirtIfTable",
+    "oid": "1.3.6.1.4.1.248.15.2.4.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAgentOspfVirtIfEntry": {
+    "name": "hmAgentOspfVirtIfEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.4.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "hmAgentOspfVirtIfEntry",
+      "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+      "object": "ospfVirtIfEntry"
+    },
+    "status": "current"
+  },
+  "hmAgentOspfVirtIfAuthKeyId": {
+    "name": "hmAgentOspfVirtIfAuthKeyId",
+    "oid": "1.3.6.1.4.1.248.15.2.4.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmAgentRouterOspfRFC1583CompatibilityMode": {
+    "name": "hmAgentRouterOspfRFC1583CompatibilityMode",
+    "oid": "1.3.6.1.4.1.248.15.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSnmpTrapFlagsConfigGroupLayer3": {
+    "name": "hmAgentSnmpTrapFlagsConfigGroupLayer3",
+    "oid": "1.3.6.1.4.1.248.15.2.5",
+    "class": "objectidentity"
+  },
+  "hmAgentSnmpVRRPNewMasterTrapFlag": {
+    "name": "hmAgentSnmpVRRPNewMasterTrapFlag",
+    "oid": "1.3.6.1.4.1.248.15.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentSnmpVRRPAuthFailureTrapFlag": {
+    "name": "hmAgentSnmpVRRPAuthFailureTrapFlag",
+    "oid": "1.3.6.1.4.1.248.15.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentECMPGroup": {
+    "name": "hmAgentECMPGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.7",
+    "class": "objectidentity"
+  },
+  "hmAgentECMPOspfMaxPaths": {
+    "name": "hmAgentECMPOspfMaxPaths",
+    "oid": "1.3.6.1.4.1.248.15.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentRouterVrrpConfigGroup": {
+    "name": "hmAgentRouterVrrpConfigGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.8",
+    "class": "objectidentity"
+  },
+  "hmAgentRouterVrrpAdminState": {
+    "name": "hmAgentRouterVrrpAdminState",
+    "oid": "1.3.6.1.4.1.248.15.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtGroup": {
+    "name": "hmVrrpExtGroup",
+    "oid": "1.3.6.1.4.1.248.15.2.9",
+    "class": "objectidentity"
+  },
+  "hmVrrpTrackingTable": {
+    "name": "hmVrrpTrackingTable",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpTrackingEntry": {
+    "name": "hmVrrpTrackingEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmVrrpTrackIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmVrrpTrackVrid",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmVrrpTrackId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmVrrpTrackIfIndex": {
+    "name": "hmVrrpTrackIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpTrackVrid": {
+    "name": "hmVrrpTrackVrid",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpTrackId": {
+    "name": "hmVrrpTrackId",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpTrackDecrement": {
+    "name": "hmVrrpTrackDecrement",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 253
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpTrackOperStatus": {
+    "name": "hmVrrpTrackOperStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpTrackRowStatus": {
+    "name": "hmVrrpTrackRowStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmVrrpExtTable": {
+    "name": "hmVrrpExtTable",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpExtEntry": {
+    "name": "hmVrrpExtEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmVrrpExtIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmVrrpExtVrid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmVrrpExtIfIndex": {
+    "name": "hmVrrpExtIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpExtVrid": {
+    "name": "hmVrrpExtVrid",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpExtDomainId": {
+    "name": "hmVrrpExtDomainId",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtDomainRole": {
+    "name": "hmVrrpExtDomainRole",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "member": 2,
+          "supervisor": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtDomainStatus": {
+    "name": "hmVrrpExtDomainStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "noSupervisor": 2,
+          "supervisorDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpExtAdvertAddress": {
+    "name": "hmVrrpExtAdvertAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtAdvertTimer": {
+    "name": "hmVrrpExtAdvertTimer",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 255000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtOperPriority": {
+    "name": "hmVrrpExtOperPriority",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpExtNotifyAddress": {
+    "name": "hmVrrpExtNotifyAddress",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtNotifyLinkdown": {
+    "name": "hmVrrpExtNotifyLinkdown",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpExtPreemptionDelay": {
+    "name": "hmVrrpExtPreemptionDelay",
+    "oid": "1.3.6.1.4.1.248.15.2.9.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpDomainTable": {
+    "name": "hmVrrpDomainTable",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpDomainEntry": {
+    "name": "hmVrrpDomainEntry",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HIRSCHMANN-MMP4-ROUTING-MIB",
+        "object": "hmVrrpDomainId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmVrrpDomainId": {
+    "name": "hmVrrpDomainId",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmVrrpDomainMemberSendAdv": {
+    "name": "hmVrrpDomainMemberSendAdv",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmVrrpDomainStatus": {
+    "name": "hmVrrpDomainStatus",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 1,
+          "noSupervisor": 2,
+          "supervisorDown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpDomainSupervisorIfIndex": {
+    "name": "hmVrrpDomainSupervisorIfIndex",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpDomainSupervisorVrid": {
+    "name": "hmVrrpDomainSupervisorVrid",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpDomainOperPriority": {
+    "name": "hmVrrpDomainOperPriority",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmVrrpDomainSupervisorOperState": {
+    "name": "hmVrrpDomainSupervisorOperState",
+    "oid": "1.3.6.1.4.1.248.15.2.9.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initialize": 1,
+          "backup": 2,
+          "master": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4Routing.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "HIRSCHMANN-MMP4-ROUTING-MIB"
+  }
+}

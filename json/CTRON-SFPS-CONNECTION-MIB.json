@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsConnectionAPI",
+      "sfpsConnectionQueryAPI",
       "sfpsSwitchConnections",
-      "sfpsConnectionStats",
+      "sfpsConnectionConfigAPI",
+      "sfpsConnectionAPI",
+      "sfpsCNXPacketStats",
       "sfpsConnectionLookupAPI",
       "sfpsConnectionTestAPI",
-      "sfpsConnectionQueryAPI",
-      "sfpsConnectionConfigAPI",
-      "sfpsCNXPacketStats"
+      "sfpsConnectionStats"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
       "iso",
       "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "Bits",
       "TimeTicks",
       "Unsigned32",
-      "Gauge32",
-      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1595,8 +1595,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-CONNECTION-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:07:42 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:38:03 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CTRON-SFPS-CONNECTION-MIB"

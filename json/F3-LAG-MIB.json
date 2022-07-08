@@ -8,9 +8,9 @@
       "CmPmBinAction"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
+      "slotIndex",
       "shelfIndex",
-      "slotIndex"
+      "neIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -21,29 +21,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Counter32",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "TruthValue",
-      "StorageType",
+      "VariablePointer",
       "DisplayString",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ]
   },
   "f3LagMIB": {
@@ -920,8 +920,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:01:38 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:33:39 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "F3-LAG-MIB"

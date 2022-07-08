@@ -5,56 +5,56 @@
       "dot3OamLoopbackStatus"
     ],
     "FOUNDRY-SN-AGENT-MIB": [
+      "snAgentBrdModuleStatus",
+      "snChasPwrSupplyDescription",
       "fdryLicenseType",
       "snAgGblTrapMessage",
-      "snChasUnitIndex",
-      "snAgentBrdModuleStatus",
-      "snChasFanDescription",
-      "snAgentBrdIndex",
-      "snChasPwrSupplyStatus",
-      "snChasPwrSupplyDescription",
       "snChasPwrSupplyIndex",
-      "snChasFanIndex"
+      "snChasFanIndex",
+      "snChasPwrSupplyStatus",
+      "snAgentBrdIndex",
+      "snChasFanDescription",
+      "snChasUnitIndex"
     ],
     "FOUNDRY-SN-OSPF-GROUP-MIB": [
-      "snOspfVirtIfStatusNeighbor",
-      "snOspfLsdbType",
-      "snOspfVirtNbrState",
-      "snOspfPacketType",
-      "snOspfLsdbAreaId",
-      "snOspfLsdbLsId",
-      "snOspfLsdbRouterId",
-      "snOspfIfStatusIpAddress",
-      "snOspfVirtIfStatusState",
-      "snOspfVirtNbrRtrId",
-      "snOspfConfigErrorType",
-      "snOspfNbrState",
-      "snOspfExtLsdbLimit",
-      "snOspfVirtNbrArea",
-      "snOspfPacketSrc",
       "snOspfIfStatusState",
       "snOspfNbrRtrId",
-      "snOspfVirtIfStatusAreaID",
+      "snOspfRouterId",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfLsdbAreaId",
+      "snOspfVirtNbrArea",
+      "snOspfLsdbType",
+      "snOspfExtLsdbLimit",
       "snOspfNbrIpAddr",
-      "snOspfRouterId"
+      "snOspfPacketType",
+      "snOspfVirtNbrState",
+      "snOspfConfigErrorType",
+      "snOspfPacketSrc",
+      "snOspfIfStatusIpAddress",
+      "snOspfLsdbRouterId",
+      "snOspfNbrState",
+      "snOspfLsdbLsId",
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtIfStatusState",
+      "snOspfVirtNbrRtrId"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "foundry"
     ],
     "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
+      "snL4TrapRealServerName",
+      "snL4LinkVirtualInterface",
+      "snL4TcpSynLimit",
+      "snL4MaxSessionLimit",
       "snL4TrapRealServerIP",
       "snL4TrapRealServerCurConnections",
-      "snL4MaxSessionLimit",
-      "snL4TcpSynLimit",
-      "snL4TrapLinkName",
       "snL4TrapRealServerPort",
-      "snL4LinkVirtualInterface",
-      "snL4TrapRealServerName"
+      "snL4TrapLinkName"
     ],
     "FOUNDRY-SN-SWITCH-GROUP-MIB": [
-      "snSwViolatorMacAddress",
+      "snSwViolatorPortNumber",
       "snVLanByPortCfgVLanId",
-      "snSwViolatorPortNumber"
+      "snSwViolatorMacAddress"
     ],
     "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
       "wgPnPStatus"
@@ -68,24 +68,24 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter32"
+      "IpAddress",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3166,8 +3166,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:08:07 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:38:21 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "FOUNDRY-SN-NOTIFICATION-MIB"

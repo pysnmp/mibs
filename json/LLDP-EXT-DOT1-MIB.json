@@ -1,0 +1,898 @@
+{
+  "imports": {
+    "class": "imports",
+    "LLDP-MIB": [
+      "lldpLocPortNum",
+      "lldpExtensions",
+      "lldpPortConfigEntry",
+      "lldpRemTimeMark",
+      "lldpRemLocalPortNum",
+      "lldpRemIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "lldpXdot1MIB": {
+    "name": "lldpXdot1MIB",
+    "oid": "1.0.8802.1.1.2.1.5.32962",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-06-25 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2004 initial version."
+      }
+    ]
+  },
+  "lldpXdot1Objects": {
+    "name": "lldpXdot1Objects",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1Config": {
+    "name": "lldpXdot1Config",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1LocalData": {
+    "name": "lldpXdot1LocalData",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXdot1RemoteData": {
+    "name": "lldpXdot1RemoteData",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3",
+    "class": "objectidentity"
+  },
+  "lldpXdot1ConfigPortVlanTable": {
+    "name": "lldpXdot1ConfigPortVlanTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1ConfigPortVlanEntry": {
+    "name": "lldpXdot1ConfigPortVlanEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXdot1ConfigPortVlanEntry",
+      "module": "LLDP-EXT-DOT1-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXdot1ConfigPortVlanTxEnable": {
+    "name": "lldpXdot1ConfigPortVlanTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXdot1ConfigVlanNameTable": {
+    "name": "lldpXdot1ConfigVlanNameTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1ConfigVlanNameTxEnable": {
+    "name": "lldpXdot1ConfigVlanNameTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXdot1ConfigProtoVlanTable": {
+    "name": "lldpXdot1ConfigProtoVlanTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1ConfigProtoVlanTxEnable": {
+    "name": "lldpXdot1ConfigProtoVlanTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXdot1ConfigProtocolTable": {
+    "name": "lldpXdot1ConfigProtocolTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1ConfigProtocolTxEnable": {
+    "name": "lldpXdot1ConfigProtocolTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXdot1LocTable": {
+    "name": "lldpXdot1LocTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocEntry": {
+    "name": "lldpXdot1LocEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1LocPortVlanId": {
+    "name": "lldpXdot1LocPortVlanId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1LocProtoVlanTable": {
+    "name": "lldpXdot1LocProtoVlanTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocProtoVlanEntry": {
+    "name": "lldpXdot1LocProtoVlanEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocProtoVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1ConfigProtoVlanEntry": {
+    "name": "lldpXdot1ConfigProtoVlanEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXdot1ConfigProtoVlanEntry",
+      "module": "LLDP-EXT-DOT1-MIB",
+      "object": "lldpXdot1LocProtoVlanEntry"
+    },
+    "status": "current"
+  },
+  "lldpXdot1LocProtoVlanId": {
+    "name": "lldpXdot1LocProtoVlanId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocProtoVlanSupported": {
+    "name": "lldpXdot1LocProtoVlanSupported",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1LocProtoVlanEnabled": {
+    "name": "lldpXdot1LocProtoVlanEnabled",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1LocVlanNameTable": {
+    "name": "lldpXdot1LocVlanNameTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocVlanNameEntry": {
+    "name": "lldpXdot1LocVlanNameEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1ConfigVlanNameEntry": {
+    "name": "lldpXdot1ConfigVlanNameEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXdot1ConfigVlanNameEntry",
+      "module": "LLDP-EXT-DOT1-MIB",
+      "object": "lldpXdot1LocVlanNameEntry"
+    },
+    "status": "current"
+  },
+  "lldpXdot1LocVlanId": {
+    "name": "lldpXdot1LocVlanId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocVlanName": {
+    "name": "lldpXdot1LocVlanName",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1LocProtocolTable": {
+    "name": "lldpXdot1LocProtocolTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocProtocolEntry": {
+    "name": "lldpXdot1LocProtocolEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1ConfigProtocolEntry": {
+    "name": "lldpXdot1ConfigProtocolEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXdot1ConfigProtocolEntry",
+      "module": "LLDP-EXT-DOT1-MIB",
+      "object": "lldpXdot1LocProtocolEntry"
+    },
+    "status": "current"
+  },
+  "lldpXdot1LocProtocolIndex": {
+    "name": "lldpXdot1LocProtocolIndex",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1LocProtocolId": {
+    "name": "lldpXdot1LocProtocolId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1RemTable": {
+    "name": "lldpXdot1RemTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemEntry": {
+    "name": "lldpXdot1RemEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1RemPortVlanId": {
+    "name": "lldpXdot1RemPortVlanId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1RemProtoVlanTable": {
+    "name": "lldpXdot1RemProtoVlanTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemProtoVlanEntry": {
+    "name": "lldpXdot1RemProtoVlanEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemProtoVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1RemProtoVlanId": {
+    "name": "lldpXdot1RemProtoVlanId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemProtoVlanSupported": {
+    "name": "lldpXdot1RemProtoVlanSupported",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1RemProtoVlanEnabled": {
+    "name": "lldpXdot1RemProtoVlanEnabled",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1RemVlanNameTable": {
+    "name": "lldpXdot1RemVlanNameTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemVlanNameEntry": {
+    "name": "lldpXdot1RemVlanNameEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1RemVlanId": {
+    "name": "lldpXdot1RemVlanId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemVlanName": {
+    "name": "lldpXdot1RemVlanName",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1RemProtocolTable": {
+    "name": "lldpXdot1RemProtocolTable",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemProtocolEntry": {
+    "name": "lldpXdot1RemProtocolEntry",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1RemProtocolIndex": {
+    "name": "lldpXdot1RemProtocolIndex",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXdot1RemProtocolId": {
+    "name": "lldpXdot1RemProtocolId",
+    "oid": "1.0.8802.1.1.2.1.5.32962.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXdot1Conformance": {
+    "name": "lldpXdot1Conformance",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2",
+    "class": "objectidentity"
+  },
+  "lldpXdot1Compliances": {
+    "name": "lldpXdot1Compliances",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2.1",
+    "class": "objectidentity"
+  },
+  "lldpXdot1Groups": {
+    "name": "lldpXdot1Groups",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2.2",
+    "class": "objectidentity"
+  },
+  "lldpXdot1Compliance": {
+    "name": "lldpXdot1Compliance",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpXdot1ConfigGroup",
+        "module": "LLDP-EXT-DOT1-MIB"
+      },
+      {
+        "object": "lldpXdot1LocSysGroup",
+        "module": "LLDP-EXT-DOT1-MIB"
+      },
+      {
+        "object": "lldpXdot1RemSysGroup",
+        "module": "LLDP-EXT-DOT1-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1ConfigGroup": {
+    "name": "lldpXdot1ConfigGroup",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1ConfigPortVlanTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1ConfigVlanNameTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1ConfigProtoVlanTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1ConfigProtocolTxEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1LocSysGroup": {
+    "name": "lldpXdot1LocSysGroup",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocPortVlanId"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocProtoVlanSupported"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocProtoVlanEnabled"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocVlanName"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1LocProtocolId"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXdot1RemSysGroup": {
+    "name": "lldpXdot1RemSysGroup",
+    "oid": "1.0.8802.1.1.2.1.5.32962.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemPortVlanId"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemProtoVlanSupported"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemProtoVlanEnabled"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemVlanName"
+      },
+      {
+        "module": "LLDP-EXT-DOT1-MIB",
+        "object": "lldpXdot1RemProtocolId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_dot1.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "LLDP-EXT-DOT1-MIB"
+  }
+}

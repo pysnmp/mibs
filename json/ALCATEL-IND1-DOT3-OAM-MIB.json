@@ -5,48 +5,48 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEntry",
-      "dot3OamEventLogWindowLo",
-      "dot3OamStatsEntry",
-      "dot3OamEventLogThresholdHi",
       "dot3OamEventLogTimestamp",
-      "dot3OamEventLogWindowHi",
-      "dot3OamEventLogRunningTotal",
-      "dot3OamEventLogOui",
       "dot3OamLoopbackEntry",
-      "dot3OamEventLogThresholdLo",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEntry",
       "dot3OamEventLogLocation",
+      "dot3OamEventLogThresholdLo",
+      "dot3OamEventLogThresholdHi",
       "dot3OamEventLogValue",
       "dot3OamEventLogEventTotal",
-      "dot3OamEventLogType"
+      "dot3OamEventLogOui",
+      "dot3OamEventLogType",
+      "dot3OamEventLogWindowHi",
+      "dot3OamStatsEntry",
+      "dot3OamEventLogWindowLo"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter32",
-      "Counter64",
       "TimeTicks",
       "iso",
       "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "Integer32",
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:14:11 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:42:36 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

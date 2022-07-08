@@ -8,7 +8,8 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -17,33 +18,36 @@
     "RMON2-MIB": [
       "TimeFilter"
     ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "iso",
       "Gauge32",
-      "enterprises",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
       "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32"
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "hmConfiguration": {
@@ -70,8 +74,50 @@
       {
         "revision": "2012-09-04 12:00",
         "description": "Update for platform version 07.1.04: hmGmrpUnknownMode added"
+      },
+      {
+        "revision": "2012-11-01 12:00",
+        "description": "Update for platform version 8.0: hmNetPTP2TCProfile and hmNetPTP2TCPowerTLVCheck added"
+      },
+      {
+        "revision": "2012-11-02 12:00",
+        "description": "Update for platform version 8.0: hmRelayIfaceDhcpRelayAdminState and hmRelayIfaceDhcpRelayOperState added"
+      },
+      {
+        "revision": "2012-11-07 12:00",
+        "description": "Update for platform version 8.0: hmIfaceExtAcceptableFrameTypes added"
+      },
+      {
+        "revision": "2012-11-12 12:00",
+        "description": "Update for platform version 8.0: IEC61850 related objects hmIEC61850ConfigGroup and hmIEC61850StatisticsGroup added"
+      },
+      {
+        "revision": "2012-11-26 12:00",
+        "description": "Update for platform version 8.0: hmConfigurationSignature added"
+      },
+      {
+        "revision": "2013-01-17 12:00",
+        "description": "new variable hmSysModAdminState added; value 2 (none) added for hmSysModType MIB"
       }
     ]
+  },
+  "HmLargeDisplayString": {
+    "name": "HmLargeDisplayString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "displayhint": "2048a",
+    "status": "current"
   },
   "HmAgentLogSeverity": {
     "name": "HmAgentLogSeverity",
@@ -194,6 +240,23 @@
     },
     "status": "current"
   },
+  "PTPSubdomainName": {
+    "name": "PTPSubdomainName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
   "BridgeIdOrNull": {
     "name": "BridgeIdOrNull",
     "class": "textualconvention",
@@ -290,6 +353,11 @@
     "oid": "1.3.6.1.4.1.248.14.10.23",
     "class": "objectidentity"
   },
+  "eagleone": {
+    "name": "eagleone",
+    "oid": "1.3.6.1.4.1.248.14.10.24",
+    "class": "objectidentity"
+  },
   "ms20": {
     "name": "ms20",
     "oid": "1.3.6.1.4.1.248.14.10.30",
@@ -383,6 +451,11 @@
   "eem1": {
     "name": "eem1",
     "oid": "1.3.6.1.4.1.248.14.10.200",
+    "class": "objectidentity"
+  },
+  "gecko": {
+    "name": "gecko",
+    "oid": "1.3.6.1.4.1.248.14.10.300",
     "class": "objectidentity"
   },
   "hmSystemTable": {
@@ -486,6 +559,12 @@
           "eagle20-mm-sc-lh-sc": 547,
           "rr-epl-tx-tx": 550,
           "rr-epl-tx-mm-sc": 551,
+          "eagleone-tx-tx": 560,
+          "eagleone-tx-mm": 561,
+          "eagleone-mm-tx": 562,
+          "eagleone-mm-mm": 563,
+          "eagleone-tx-sm": 564,
+          "eagleone-sm-tx": 565,
           "ms20-0800": 600,
           "ms20-2400": 601,
           "ms30-0802": 620,
@@ -562,7 +641,8 @@
           "mach104-16tx-poep-2x": 1107,
           "mach104-16tx-poep-2x-r": 1108,
           "mach104-16tx-poep-2x-e": 1109,
-          "eem1": 1200
+          "eem1": 1200,
+          "gecko-4tx-tx": 1300
         }
       }
     },
@@ -726,11 +806,11 @@
           "mach4002-48G": 75,
           "mach4002-48G-3X": 76,
           "ruggedswitch": 90,
-          "railswitchrugged": 100,
           "mach100": 110,
           "mach100ge": 130,
           "mach1000ge": 131,
-          "eem1": 200
+          "eem1": 200,
+          "gecko": 300
         }
       }
     },
@@ -982,6 +1062,7 @@
       "constraints": {
         "enumeration": {
           "unknown": 1,
+          "none": 2,
           "m-fast-8tp-rj": 100,
           "m-fast-8mm-mt": 101,
           "m-fast-2mm-sc": 102,
@@ -1150,6 +1231,30 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmSysModAdminState": {
+    "name": "hmSysModAdminState",
+    "oid": "1.3.6.1.4.1.248.14.1.1.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "hmInterfaceTable": {
@@ -1760,6 +1865,79 @@
     "default": {
       "default": {
         "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmIfaceAcceptableFrameTypes": {
+    "name": "hmIfaceAcceptableFrameTypes",
+    "oid": "1.3.6.1.4.1.248.14.1.1.11.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitOnlyVlanTagged": 2,
+          "admitOnlyUntagged": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hmInterfaceExtTable": {
+    "name": "hmInterfaceExtTable",
+    "oid": "1.3.6.1.4.1.248.14.1.1.100",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmInterfaceExtEntry": {
+    "name": "hmInterfaceExtEntry",
+    "oid": "1.3.6.1.4.1.248.14.1.1.100.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmIfaceExtAcceptableFrameTypes": {
+    "name": "hmIfaceExtAcceptableFrameTypes",
+    "oid": "1.3.6.1.4.1.248.14.1.1.100.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admitAll": 1,
+          "admitOnlyVlanTagged": 2,
+          "admitOnlyUntagged": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "admitAll",
         "format": "enum"
       }
     },
@@ -2816,6 +2994,83 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "hmLEDMarGroup": {
+    "name": "hmLEDMarGroup",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4",
+    "class": "objectidentity"
+  },
+  "hmLEDMarPowerSupply": {
+    "name": "hmLEDMarPowerSupply",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LEDState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmLEDMarStandby": {
+    "name": "hmLEDMarStandby",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LEDState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmLEDMarRedundancyManager": {
+    "name": "hmLEDMarRedundancyManager",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LEDState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmLEDMarFault": {
+    "name": "hmLEDMarFault",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LEDState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmLEDMarRelay1": {
+    "name": "hmLEDMarRelay1",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LEDState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmLEDMarRelay2": {
+    "name": "hmLEDMarRelay2",
+    "oid": "1.3.6.1.4.1.248.14.1.1.35.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LEDState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "hmDIPSwitchGroup": {
     "name": "hmDIPSwitchGroup",
     "oid": "1.3.6.1.4.1.248.14.1.1.36",
@@ -2898,6 +3153,42 @@
     "class": "objecttype",
     "syntax": {
       "type": "DIPSwitchState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmDIPSwitchAdminState": {
+    "name": "hmDIPSwitchAdminState",
+    "oid": "1.3.6.1.4.1.248.14.1.1.36.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmDIPSwitchConflict": {
+    "name": "hmDIPSwitchConflict",
+    "oid": "1.3.6.1.4.1.248.14.1.1.36.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -3135,7 +3426,8 @@
         "enumeration": {
           "size1522": 1522,
           "size1552": 1552,
-          "size1632": 1632
+          "size1632": 1632,
+          "size9022": 9022
         }
       }
     },
@@ -3548,6 +3840,30 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "hmSysSelftestSysMon": {
+    "name": "hmSysSelftestSysMon",
+    "oid": "1.3.6.1.4.1.248.14.1.1.41.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmSysOEMGroup": {
     "name": "hmSysOEMGroup",
     "oid": "1.3.6.1.4.1.248.14.1.1.42",
@@ -3649,6 +3965,66 @@
       }
     },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSysConsoleServiceShellAdminState": {
+    "name": "hmSysConsoleServiceShellAdminState",
+    "oid": "1.3.6.1.4.1.248.14.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSysHttpsCertFingerPrintType": {
+    "name": "hmSysHttpsCertFingerPrintType",
+    "oid": "1.3.6.1.4.1.248.14.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sha1": 1,
+          "sha256": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sha256",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmSysHttpsCertFingerPrint": {
+    "name": "hmSysHttpsCertFingerPrint",
+    "oid": "1.3.6.1.4.1.248.14.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "hmPSTable": {
@@ -5761,6 +6137,47 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "hmNetMacACDGroup": {
+    "name": "hmNetMacACDGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.3.13",
+    "class": "objectidentity"
+  },
+  "hmNetMacACDStatus": {
+    "name": "hmNetMacACDStatus",
+    "oid": "1.3.6.1.4.1.248.14.2.3.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmNetMacACDConflictAddress": {
+    "name": "hmNetMacACDConflictAddress",
+    "oid": "1.3.6.1.4.1.248.14.2.3.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "hmNetHiDiscoveryGroup": {
     "name": "hmNetHiDiscoveryGroup",
     "oid": "1.3.6.1.4.1.248.14.2.3.20",
@@ -5813,6 +6230,23 @@
       }
     },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmNetHiDiscoveryProtocol": {
+    "name": "hmNetHiDiscoveryProtocol",
+    "oid": "1.3.6.1.4.1.248.14.2.3.20.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "v1": 1,
+        "v2": 2
+      }
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "hmNetSNTPGroup": {
@@ -6044,7 +6478,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2147483647
+            "max": 2000
           }
         ]
       }
@@ -6638,16 +7072,8 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "PTPSubdomainName",
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -7980,6 +8406,44 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "hmNetPTP2TCProfile": {
+    "name": "hmNetPTP2TCProfile",
+    "oid": "1.3.6.1.4.1.248.14.2.3.42.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user-defined": 1,
+          "default-e2e": 2,
+          "default-p2p": 3,
+          "power": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmNetPTP2TCPowerTLVCheck": {
+    "name": "hmNetPTP2TCPowerTLVCheck",
+    "oid": "1.3.6.1.4.1.248.14.2.3.42.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmNetPTP2TCPortTable": {
     "name": "hmNetPTP2TCPortTable",
     "oid": "1.3.6.1.4.1.248.14.2.3.42.2",
@@ -8204,7 +8668,7 @@
     },
     "default": {
       "default": {
-        "value": "enable",
+        "value": "disable",
         "format": "enum"
       }
     },
@@ -8288,6 +8752,30 @@
   "hmNetSNMPv3EncryptionReadOnlyStatus": {
     "name": "hmNetSNMPv3EncryptionReadOnlyStatus",
     "oid": "1.3.6.1.4.1.248.14.2.3.50.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmNetSNMPSynchronizeV3V1Status": {
+    "name": "hmNetSNMPSynchronizeV3V1Status",
+    "oid": "1.3.6.1.4.1.248.14.2.3.50.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -8601,6 +9089,30 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "hmRMASrvHttps": {
+    "name": "hmRMASrvHttps",
+    "oid": "1.3.6.1.4.1.248.14.2.3.70.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmFSTable": {
     "name": "hmFSTable",
     "oid": "1.3.6.1.4.1.248.14.2.4",
@@ -8838,6 +9350,26 @@
           "ok": 1,
           "notInSync": 2
         }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmConfigurationSignature": {
+    "name": "hmConfigurationSignature",
+    "oid": "1.3.6.1.4.1.248.14.2.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
       }
     },
     "maxaccess": "read-only",
@@ -10616,7 +11148,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "hmRelayDHCPServer2IpAddr": {
     "name": "hmRelayDHCPServer2IpAddr",
@@ -10628,7 +11160,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "hmRelayDHCPServer3IpAddr": {
     "name": "hmRelayDHCPServer3IpAddr",
@@ -10640,7 +11172,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "hmRelayDHCPServer4IpAddr": {
     "name": "hmRelayDHCPServer4IpAddr",
@@ -10652,7 +11184,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "obsolete"
   },
   "hmRelayInterfaceTable": {
     "name": "hmRelayInterfaceTable",
@@ -10780,6 +11312,140 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRelayIfaceDhcpRelayAdminState": {
+    "name": "hmRelayIfaceDhcpRelayAdminState",
+    "oid": "1.3.6.1.4.1.248.14.2.11.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmRelayIfaceDhcpRelayOperState": {
+    "name": "hmRelayIfaceDhcpRelayOperState",
+    "oid": "1.3.6.1.4.1.248.14.2.11.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "relay": 2,
+          "server": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmRelayServerAddrTable": {
+    "name": "hmRelayServerAddrTable",
+    "oid": "1.3.6.1.4.1.248.14.2.11.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmRelayServerAddrEntry": {
+    "name": "hmRelayServerAddrEntry",
+    "oid": "1.3.6.1.4.1.248.14.2.11.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmRelayServerAddrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmRelayServerAddrIndex": {
+    "name": "hmRelayServerAddrIndex",
+    "oid": "1.3.6.1.4.1.248.14.2.11.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmRelayServerAddr": {
+    "name": "hmRelayServerAddr",
+    "oid": "1.3.6.1.4.1.248.14.2.11.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmRelayServerInterface": {
+    "name": "hmRelayServerInterface",
+    "oid": "1.3.6.1.4.1.248.14.2.11.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmRelayServerRowStatus": {
+    "name": "hmRelayServerRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.2.11.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
     "status": "current"
   },
   "hmRelayBCPktInCnt": {
@@ -10945,7 +11611,8 @@
           "moduleRemoval": 7,
           "acaRemoval": 8,
           "fanFailure": 9,
-          "acaNotInSync": 10
+          "acaNotInSync": 10,
+          "sRedNotGuaranteed": 11
         }
       }
     },
@@ -11361,6 +12028,30 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "hmSigConSenseSRedNotGuaranteed": {
+    "name": "hmSigConSenseSRedNotGuaranteed",
+    "oid": "1.3.6.1.4.1.248.14.2.12.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmSigConLinkTable": {
     "name": "hmSigConLinkTable",
     "oid": "1.3.6.1.4.1.248.14.2.12.2",
@@ -11514,7 +12205,8 @@
           "moduleRemoval": 7,
           "acaRemoval": 8,
           "fanFailure": 9,
-          "acaNotInSync": 10
+          "acaNotInSync": 10,
+          "sRedNotGuaranteed": 11
         }
       }
     },
@@ -11890,6 +12582,30 @@
   "hmDevMonSenseACANotInSync": {
     "name": "hmDevMonSenseACANotInSync",
     "oid": "1.3.6.1.4.1.248.14.2.12.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "ignore": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ignore",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmDevMonSenseSRedNotGuaranteed": {
+    "name": "hmDevMonSenseSRedNotGuaranteed",
+    "oid": "1.3.6.1.4.1.248.14.2.12.3.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -12635,6 +13351,38 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "hmPOEPortMaxConsumptionPower": {
+    "name": "hmPOEPortMaxConsumptionPower",
+    "oid": "1.3.6.1.4.1.248.14.2.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPOEPortPowerLimit": {
+    "name": "hmPOEPortPowerLimit",
+    "oid": "1.3.6.1.4.1.248.14.2.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmPOEModuleTable": {
     "name": "hmPOEModuleTable",
     "oid": "1.3.6.1.4.1.248.14.2.14.3",
@@ -13063,6 +13811,16 @@
     "oid": "1.3.6.1.4.1.248.14.2.16.4",
     "class": "objectidentity"
   },
+  "hmIEC61850ConfigGroup": {
+    "name": "hmIEC61850ConfigGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.16.5",
+    "class": "objectidentity"
+  },
+  "hmIEC61850StatisticsGroup": {
+    "name": "hmIEC61850StatisticsGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.16.6",
+    "class": "objectidentity"
+  },
   "hmPNIOAdminStatus": {
     "name": "hmPNIOAdminStatus",
     "oid": "1.3.6.1.4.1.248.14.2.16.1.1",
@@ -13278,6 +14036,29 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "hmPNIONumActiveApplicationRelations": {
+    "name": "hmPNIONumActiveApplicationRelations",
+    "oid": "1.3.6.1.4.1.248.14.2.16.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPNIOMgmtSEEErrorIDGroup": {
+    "name": "hmPNIOMgmtSEEErrorIDGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.16.1.100",
+    "class": "objectidentity"
+  },
+  "hmPNIOApplicationRelationActive": {
+    "name": "hmPNIOApplicationRelationActive",
+    "oid": "1.3.6.1.4.1.248.14.2.16.1.100.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "hmEtherNetIPAdminStatus": {
     "name": "hmEtherNetIPAdminStatus",
     "oid": "1.3.6.1.4.1.248.14.2.16.3.1",
@@ -13450,6 +14231,74 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "hmIEC61850MMSServerAdminStatus": {
+    "name": "hmIEC61850MMSServerAdminStatus",
+    "oid": "1.3.6.1.4.1.248.14.2.16.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmIEC61850MMSServerWriteAccessStatus": {
+    "name": "hmIEC61850MMSServerWriteAccessStatus",
+    "oid": "1.3.6.1.4.1.248.14.2.16.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmIEC61850MMSServerTechnicalKey": {
+    "name": "hmIEC61850MMSServerTechnicalKey",
+    "oid": "1.3.6.1.4.1.248.14.2.16.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmAgentLoginGroup": {
     "name": "hmAgentLoginGroup",
     "oid": "1.3.6.1.4.1.248.14.2.17",
@@ -13461,7 +14310,7 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
+      "type": "HmLargeDisplayString",
       "class": "type",
       "constraints": {
         "size": [
@@ -13470,6 +14319,74 @@
             "max": 255
           }
         ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentLoginBannerAdminStatus": {
+    "name": "hmAgentLoginBannerAdminStatus",
+    "oid": "1.3.6.1.4.1.248.14.2.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCliBannerText": {
+    "name": "hmAgentCliBannerText",
+    "oid": "1.3.6.1.4.1.248.14.2.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HmLargeDisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAgentCliBannerAdminStatus": {
+    "name": "hmAgentCliBannerAdminStatus",
+    "oid": "1.3.6.1.4.1.248.14.2.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -13568,13 +14485,14 @@
       "constraints": {
         "enumeration": {
           "port-disable": 1,
-          "trap-only": 2
+          "trap-only": 2,
+          "auto-disable": 3
         }
       }
     },
     "default": {
       "default": {
-        "value": "port-disable",
+        "value": "auto-disable",
         "format": "enum"
       }
     },
@@ -13586,8 +14504,8 @@
     "oid": "1.3.6.1.4.1.248.14.2.18.3",
     "class": "objectidentity"
   },
-  "hmPortMonitorConditionTable": {
-    "name": "hmPortMonitorConditionTable",
+  "hmPortMonitorConditionIntfTable": {
+    "name": "hmPortMonitorConditionIntfTable",
     "oid": "1.3.6.1.4.1.248.14.2.18.3.1",
     "nodetype": "table",
     "class": "objecttype",
@@ -13645,6 +14563,42 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "hmPortMonitorConditionOverloadDetectionMode": {
+    "name": "hmPortMonitorConditionOverloadDetectionMode",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortMonitorConditionSpeedDuplexMode": {
+    "name": "hmPortMonitorConditionSpeedDuplexMode",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "hmPortMonitorConditionField": {
     "name": "hmPortMonitorConditionField",
     "oid": "1.3.6.1.4.1.248.14.2.18.3.1.1.3",
@@ -13656,7 +14610,9 @@
       "bits": {
         "none": 0,
         "link-flap": 1,
-        "crcFragments": 2
+        "crcFragments": 2,
+        "overload-detection": 3,
+        "speed-duplex": 4
       }
     },
     "maxaccess": "read-only",
@@ -13868,6 +14824,583 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionGroup": {
+    "name": "hmPortMonitorConditionOverloadDetectionGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4",
+    "class": "objectidentity"
+  },
+  "hmPortMonitorConditionOverloadDetectionInterval": {
+    "name": "hmPortMonitorConditionOverloadDetectionInterval",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionIntfTable": {
+    "name": "hmPortMonitorConditionOverloadDetectionIntfTable",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionIntfEntry": {
+    "name": "hmPortMonitorConditionOverloadDetectionIntfEntry",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionTrafficType": {
+    "name": "hmPortMonitorConditionOverloadDetectionTrafficType",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "bc": 2,
+          "bc-mc": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionThresholdType": {
+    "name": "hmPortMonitorConditionOverloadDetectionThresholdType",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pps": 1,
+          "kbps": 2,
+          "link-capacity": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pps",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionLowerThresholdValue": {
+    "name": "hmPortMonitorConditionOverloadDetectionLowerThresholdValue",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortMonitorConditionOverloadDetectionUpperThresholdValue": {
+    "name": "hmPortMonitorConditionOverloadDetectionUpperThresholdValue",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmPortMonitorConditionSpeedDuplexGroup": {
+    "name": "hmPortMonitorConditionSpeedDuplexGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.5",
+    "class": "objectidentity"
+  },
+  "hmPortMonitorConditionSpeedDuplexTable": {
+    "name": "hmPortMonitorConditionSpeedDuplexTable",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmPortMonitorConditionSpeedDuplexEntry": {
+    "name": "hmPortMonitorConditionSpeedDuplexEntry",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmPortMonitorConditionSpeedDuplexValue": {
+    "name": "hmPortMonitorConditionSpeedDuplexValue",
+    "oid": "1.3.6.1.4.1.248.14.2.18.3.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "hdx-10": 0,
+        "fdx-10": 1,
+        "hdx-100": 2,
+        "fdx-100": 3,
+        "hdx-1000": 4,
+        "fdx-1000": 5,
+        "fdx-10000": 6
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "hdx-10": 0,
+          "fdx-10": 1,
+          "hdx-100": 2,
+          "fdx-100": 3,
+          "hdx-1000": 4,
+          "fdx-1000": 5,
+          "fdx-10000": 6
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAutoDisGroup": {
+    "name": "hmAutoDisGroup",
+    "oid": "1.3.6.1.4.1.248.14.2.19",
+    "class": "objectidentity"
+  },
+  "hmAutoDisIntfTable": {
+    "name": "hmAutoDisIntfTable",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAutoDisIntfEntry": {
+    "name": "hmAutoDisIntfEntry",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAutoDisIntfRemainingTime": {
+    "name": "hmAutoDisIntfRemainingTime",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAutoDisIntfComponentName": {
+    "name": "hmAutoDisIntfComponentName",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAutoDisIntfErrorReason": {
+    "name": "hmAutoDisIntfErrorReason",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "link-flap": 1,
+          "crc-error": 2,
+          "overload-detection": 3,
+          "speed-duplex": 4,
+          "port-security": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAutoDisIntfTimer": {
+    "name": "hmAutoDisIntfTimer",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 30,
+            "max": 2147483
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAutoDisIntfReset": {
+    "name": "hmAutoDisIntfReset",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmAutoDisIntfOperState": {
+    "name": "hmAutoDisIntfOperState",
+    "oid": "1.3.6.1.4.1.248.14.2.19.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "inactive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmAutoDisReasonTable": {
+    "name": "hmAutoDisReasonTable",
+    "oid": "1.3.6.1.4.1.248.14.2.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAutoDisReasonEntry": {
+    "name": "hmAutoDisReasonEntry",
+    "oid": "1.3.6.1.4.1.248.14.2.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmAutoDisReasons",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmAutoDisReasons": {
+    "name": "hmAutoDisReasons",
+    "oid": "1.3.6.1.4.1.248.14.2.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link-flap": 1,
+          "crc-error": 2,
+          "overload-detection": 3,
+          "speed-duplex": 4,
+          "port-security": 5
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmAutoDisReasonOperation": {
+    "name": "hmAutoDisReasonOperation",
+    "oid": "1.3.6.1.4.1.248.14.2.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMACNotificationGroup": {
+    "name": "hmMACNotificationGroup",
+    "oid": "1.3.6.1.4.1.248.14.17",
+    "class": "objectidentity"
+  },
+  "hmMACNotifyMibObjects": {
+    "name": "hmMACNotifyMibObjects",
+    "oid": "1.3.6.1.4.1.248.14.17.1",
+    "class": "objectidentity"
+  },
+  "hmMACNotifyInterfaceMibObjects": {
+    "name": "hmMACNotifyInterfaceMibObjects",
+    "oid": "1.3.6.1.4.1.248.14.17.2",
+    "class": "objectidentity"
+  },
+  "hmMACNotifyAdminState": {
+    "name": "hmMACNotifyAdminState",
+    "oid": "1.3.6.1.4.1.248.14.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMACNotifyInterval": {
+    "name": "hmMACNotifyInterval",
+    "oid": "1.3.6.1.4.1.248.14.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMACNotifyInterfaceTable": {
+    "name": "hmMACNotifyInterfaceTable",
+    "oid": "1.3.6.1.4.1.248.14.17.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmMACNotifyInterfaceEntry": {
+    "name": "hmMACNotifyInterfaceEntry",
+    "oid": "1.3.6.1.4.1.248.14.17.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmMACNotifyInterfaceAdminState": {
+    "name": "hmMACNotifyInterfaceAdminState",
+    "oid": "1.3.6.1.4.1.248.14.17.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmMACNotifyInterfaceMACAddr": {
+    "name": "hmMACNotifyInterfaceMACAddr",
+    "oid": "1.3.6.1.4.1.248.14.17.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMACNotifyInterfaceMACStatus": {
+    "name": "hmMACNotifyInterfaceMACStatus",
+    "oid": "1.3.6.1.4.1.248.14.17.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "added": 2,
+          "removed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmMACNotifyInterfaceMode": {
+    "name": "hmMACNotifyInterfaceMode",
+    "oid": "1.3.6.1.4.1.248.14.17.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "remove": 2,
+          "addAndRemove": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "addAndRemove",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "hmChassisEvent": {
@@ -14358,11 +15891,67 @@
     ],
     "status": "current"
   },
+  "hmMACNotificationTrap": {
+    "name": "hmMACNotificationTrap",
+    "oid": "1.3.6.1.4.1.248.14.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmMACNotifyInterfaceMACAddr"
+      },
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmMACNotifyInterfaceMACStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hmPOEPortMaxConfiguredPowerLimitExceeded": {
+    "name": "hmPOEPortMaxConfiguredPowerLimitExceeded",
+    "oid": "1.3.6.1.4.1.248.14.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmPOEPortIndex"
+      },
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmPOEPortMaxConsumptionPower"
+      },
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmPOEPortPowerLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "hmNetMacACDNotification": {
+    "name": "hmNetMacACDNotification",
+    "oid": "1.3.6.1.4.1.248.14.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HMPRIV-MGMT-SNMP-MIB",
+        "object": "hmNetMacACDConflictAddress"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HMPRIV-MGMT-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:09:04 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmpriv.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "HMPRIV-MGMT-SNMP-MIB"

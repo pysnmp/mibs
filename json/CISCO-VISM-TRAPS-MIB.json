@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "BASIS-GENERIC-MIB": [
-      "moduleTrapAlarmSeverity",
       "functionModuleType",
+      "moduleTrapAlarmSeverity",
       "moduleSlotNumber"
     ],
     "BASIS-MIB": [
       "basis"
     ],
     "BASIS-SHELF-MIB": [
-      "shelfNodeName",
-      "shelfNum"
+      "shelfNum",
+      "shelfNodeName"
     ],
     "CISCO-VISM-ATM-TRUNK-MIB": [
+      "vismAal2CidState",
       "vismAal2CidLcn",
       "vismAal2CidFailReason",
       "vismAal2CidNum",
-      "vismAal2CidState",
       "vismAal2CidAdminState"
     ],
     "CISCO-VISM-CAC-MIB": [
@@ -25,18 +25,18 @@
       "vismChanNum"
     ],
     "CISCO-VISM-CAS-MIB": [
-      "vismCasFileName",
       "vismCasVariantState",
+      "vismCasFileName",
       "vismCasVariantName"
     ],
     "CISCO-VISM-CONN-MIB": [
-      "vismCnfChanNum",
-      "vismChanStatusBitMap",
-      "vismChanActivityState",
       "vismChanRowStatus",
-      "vismChanPortNum",
+      "vismChanStatusBitMap",
       "vismChanLockingState",
-      "vismChanReroute"
+      "vismChanReroute",
+      "vismCnfChanNum",
+      "vismChanPortNum",
+      "vismChanActivityState"
     ],
     "CISCO-VISM-DSX0-MIB": [
       "vismFreeDs0Count"
@@ -45,63 +45,63 @@
       "vismHdlcChanNum"
     ],
     "CISCO-VISM-MODULE-MIB": [
-      "vismAppliedTemplate",
-      "vismCPUUtilization",
-      "vismFreeDs0Threshold",
-      "vismCPUUtilizationThreshold",
-      "vismMode",
-      "vismConfigChangeTypeBitMap",
-      "vismIpAddress",
-      "vismFeatureBitMap",
       "vismTrapIntIndex1",
-      "vismTrapIntIndex2",
+      "vismAal2SubcellMuxing",
+      "vismCPUUtilization",
+      "vismIpAddress",
       "vismTrapStrIndex1",
       "vismMemoryUtilization",
-      "vismAal2SubcellMuxing",
-      "vismMemoryUtilizationThreshold"
+      "vismMemoryUtilizationThreshold",
+      "vismConfigChangeTypeBitMap",
+      "vismMode",
+      "vismAppliedTemplate",
+      "vismTrapIntIndex2",
+      "vismFeatureBitMap",
+      "vismCPUUtilizationThreshold",
+      "vismFreeDs0Threshold"
     ],
     "CISCO-VISM-PORT-MIB": [
-      "vismPortDs0ConfigBitMap",
-      "vismPortType",
       "vismPortState",
-      "vismPortNum"
+      "vismPortNum",
+      "vismPortType",
+      "vismPortDs0ConfigBitMap"
     ],
     "CISCO-VISM-SESSION-MIB": [
-      "vismSessionSetState",
-      "vismSessionSetNum",
-      "vismRudpSessionState",
       "vismSessionGrpNum",
-      "vismSessionGrpState",
-      "vismRudpSessionNum"
+      "vismRudpSessionNum",
+      "vismSessionSetState",
+      "vismRudpSessionState",
+      "vismSessionSetNum",
+      "vismSessionGrpState"
     ],
     "CISCO-VOICE-CAS-MODULE-MIB": [
       "cvcmCasTemplateName"
     ],
     "CISCO-WAN-ANNOUNCEMENT-MIB": [
+      "cwAnnFileStatus",
       "cwAnnFileCodec",
-      "cwAnnFileName",
-      "cwAnnFileStatus"
+      "cwAnnFileName"
     ],
     "CISCO-WAN-LAPD-TRUNK-MIB": [
-      "vismLapdDlcSapi",
       "vismLapdIndex",
-      "vismLapdDlcIndex",
-      "vismLapdDlcTei",
       "vismLapdDlcLinkState",
-      "vismLapdTrunkState"
+      "vismLapdTrunkState",
+      "vismLapdDlcTei",
+      "vismLapdDlcSapi",
+      "vismLapdDlcIndex"
     ],
     "CISCO-WAN-MG-MIB": [
-      "mgDnsResolutionType",
       "mgcAssociationState",
-      "mgcResolutionIpAddress",
-      "mgEndpointChannelMap",
+      "mgEndpointState",
       "mgcResolutionCommState",
       "mgDomainName",
-      "mgcResolutionName",
       "mgAdministrativeState",
+      "mgEndpointChannelMap",
+      "mgcResolutionIpAddress",
+      "mgcResolutionName",
       "mgEndpointLineNumber",
-      "mgEndpointState",
-      "mgcName"
+      "mgcName",
+      "mgDnsResolutionType"
     ],
     "CISCO-WAN-MGC-REDUN-MIB": [
       "mgcRedundancyGrpActState"
@@ -110,26 +110,26 @@
       "persistentXgcpEventName"
     ],
     "CISCO-WAN-RTP-CONN-MIB": [
-      "vismRtpConnAlarmState",
       "vismRtpLcn",
+      "vismRtpConnAlarmState",
       "vismRtpFailReason"
     ],
     "CISCO-WAN-SRCP-MIB": [
-      "srcpPeerGrpTimeSinceHeartbeat",
-      "srcpPeerTimeSinceHeartbeat"
+      "srcpPeerTimeSinceHeartbeat",
+      "srcpPeerGrpTimeSinceHeartbeat"
     ],
     "CISCO-WAN-VISM-TONE-PLAN-MIB": [
       "tonePlanVersionNumber",
-      "tonePlanFileName",
-      "vismFrequency2",
-      "vismEventCode",
       "vismFrequency1",
-      "tonePlanRegionName"
+      "vismEventCode",
+      "tonePlanRegionName",
+      "vismFrequency2",
+      "tonePlanFileName"
     ],
     "GENERICOBJECT-MIB": [
-      "genericLineNum",
       "genericTimeStamp",
-      "genericLineType"
+      "genericLineType",
+      "genericLineNum"
     ],
     "INT-SERV-MIB": [
       "intSrvFlowStatus"
@@ -144,25 +144,25 @@
       "lastSequenceNumber"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "Counter32",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "iso",
       "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5478,8 +5478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-TRAPS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:06:45 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:37:28 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "CISCO-VISM-TRAPS-MIB"

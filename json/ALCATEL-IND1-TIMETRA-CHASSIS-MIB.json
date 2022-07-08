@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRObjs",
+      "timetraSRMIBModules",
       "tmnxSRNotifyPrefix",
-      "tmnxSRConfs",
-      "timetraSRMIBModules"
+      "tmnxSRObjs",
+      "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxPortID",
-      "TNamedItem",
-      "TItemDescription",
       "TmnxActionType",
-      "TmnxOperState",
+      "TmnxPortID",
       "TmnxAdminState",
-      "TNamedItemOrEmpty"
+      "TNamedItemOrEmpty",
+      "TItemDescription",
+      "TmnxOperState",
+      "TNamedItem"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,31 +25,31 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter32",
-      "Gauge32",
       "TimeTicks",
       "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Bits",
+      "Integer32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString",
       "RowStatus",
+      "TimeStamp",
       "TimeInterval",
+      "MacAddress",
+      "RowPointer",
+      "TruthValue",
       "DateAndTime",
-      "RowPointer"
+      "DisplayString"
     ]
   },
   "tmnxChassisMIBModule": {
@@ -8570,8 +8570,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:14:07 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:42:33 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-CHASSIS-MIB"

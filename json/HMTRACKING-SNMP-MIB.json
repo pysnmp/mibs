@@ -1,0 +1,590 @@
+{
+  "imports": {
+    "class": "imports",
+    "HMPRIV-MGMT-SNMP-MIB": [
+      "hmConfiguration"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hmTracking": {
+    "name": "hmTracking",
+    "oid": "1.3.6.1.4.1.248.14.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-13 12:00",
+        "description": "First release in SMIv2"
+      }
+    ]
+  },
+  "hmTrackingGroup": {
+    "name": "hmTrackingGroup",
+    "oid": "1.3.6.1.4.1.248.14.15.1",
+    "class": "objectidentity"
+  },
+  "hmTrackingTable": {
+    "name": "hmTrackingTable",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmTrackingEntry": {
+    "name": "hmTrackingEntry",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmTrackId": {
+    "name": "hmTrackId",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmTrackRowStatus": {
+    "name": "hmTrackRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notReady",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmTrackType": {
+    "name": "hmTrackType",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "interface": 2,
+          "ping": 3,
+          "logical": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "undefined",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackState": {
+    "name": "hmTrackState",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmTrackNumberOfChanges": {
+    "name": "hmTrackNumberOfChanges",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmTrackTimeSinceLastChange": {
+    "name": "hmTrackTimeSinceLastChange",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmTrackIfNumber": {
+    "name": "hmTrackIfNumber",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackIfLinkUpDelay": {
+    "name": "hmTrackIfLinkUpDelay",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackIfLinkDownDelay": {
+    "name": "hmTrackIfLinkDownDelay",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingIpAddress": {
+    "name": "hmTrackPingIpAddress",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingInterval": {
+    "name": "hmTrackPingInterval",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingMiss": {
+    "name": "hmTrackPingMiss",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingSuccess": {
+    "name": "hmTrackPingSuccess",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingTimeout": {
+    "name": "hmTrackPingTimeout",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingTTL": {
+    "name": "hmTrackPingTTL",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackPingBestRouteIfNumber": {
+    "name": "hmTrackPingBestRouteIfNumber",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmTrackLogicalOperator": {
+    "name": "hmTrackLogicalOperator",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "and": 1,
+          "or": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "or",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackSendStateChangeTrap": {
+    "name": "hmTrackSendStateChangeTrap",
+    "oid": "1.3.6.1.4.1.248.14.15.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hmTrackingApplicationTable": {
+    "name": "hmTrackingApplicationTable",
+    "oid": "1.3.6.1.4.1.248.14.15.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmTrackingApplicationEntry": {
+    "name": "hmTrackingApplicationEntry",
+    "oid": "1.3.6.1.4.1.248.14.15.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackId",
+        "implied": 0
+      },
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackAppId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmTrackAppId": {
+    "name": "hmTrackAppId",
+    "oid": "1.3.6.1.4.1.248.14.15.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmTrackAppName": {
+    "name": "hmTrackAppName",
+    "oid": "1.3.6.1.4.1.248.14.15.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hmTrackLogicalInstanceTable": {
+    "name": "hmTrackLogicalInstanceTable",
+    "oid": "1.3.6.1.4.1.248.14.15.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmTrackLogicalInstanceEntry": {
+    "name": "hmTrackLogicalInstanceEntry",
+    "oid": "1.3.6.1.4.1.248.14.15.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackId",
+        "implied": 0
+      },
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackLogicalInstanceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hmTrackLogicalInstanceId": {
+    "name": "hmTrackLogicalInstanceId",
+    "oid": "1.3.6.1.4.1.248.14.15.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hmTrackLogicInstRowStatus": {
+    "name": "hmTrackLogicInstRowStatus",
+    "oid": "1.3.6.1.4.1.248.14.15.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "notReady",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hmTrackEvent": {
+    "name": "hmTrackEvent",
+    "oid": "1.3.6.1.4.1.248.14.15.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hmTrackStatusChangeEvent": {
+    "name": "hmTrackStatusChangeEvent",
+    "oid": "1.3.6.1.4.1.248.14.15.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackId"
+      },
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackRowStatus"
+      },
+      {
+        "module": "HMTRACKING-SNMP-MIB",
+        "object": "hmTrackState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmtracking.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "HMTRACKING-SNMP-MIB"
+  }
+}

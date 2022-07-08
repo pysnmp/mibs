@@ -1,0 +1,654 @@
+{
+  "imports": {
+    "class": "imports",
+    "LLDP-MIB": [
+      "lldpLocPortNum",
+      "lldpExtensions",
+      "lldpPortConfigEntry",
+      "lldpRemTimeMark",
+      "lldpRemLocalPortNum",
+      "lldpRemIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "lldpXPnoMIB": {
+    "name": "lldpXPnoMIB",
+    "oid": "1.0.8802.1.1.2.1.5.3791",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-03-09 00:00",
+        "description": "MRRT status added"
+      },
+      {
+        "revision": "2006-02-28 00:00",
+        "description": " added MRP UUID information, port status values and naming of tables changed "
+      },
+      {
+        "revision": "2005-08-31 00:00",
+        "description": "added RT port status"
+      },
+      {
+        "revision": "2005-05-30 00:00",
+        "description": "initial version"
+      }
+    ]
+  },
+  "lldpXPnoObjects": {
+    "name": "lldpXPnoObjects",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1",
+    "class": "objectidentity"
+  },
+  "lldpXPnoConfig": {
+    "name": "lldpXPnoConfig",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXPnoLocalData": {
+    "name": "lldpXPnoLocalData",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXPnoRemoteData": {
+    "name": "lldpXPnoRemoteData",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3",
+    "class": "objectidentity"
+  },
+  "lldpXPnoConfigTable": {
+    "name": "lldpXPnoConfigTable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXPnoConfigEntry": {
+    "name": "lldpXPnoConfigEntry",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXPnoConfigEntry",
+      "module": "LLDP-EXT-PNO-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXPnoConfigSPDTxEnable": {
+    "name": "lldpXPnoConfigSPDTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXPnoConfigPortStatusTxEnable": {
+    "name": "lldpXPnoConfigPortStatusTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXPnoConfigAliasTxEnable": {
+    "name": "lldpXPnoConfigAliasTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXPnoConfigMrpTxEnable": {
+    "name": "lldpXPnoConfigMrpTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXPnoLocTable": {
+    "name": "lldpXPnoLocTable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXPnoLocEntry": {
+    "name": "lldpXPnoLocEntry",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXPnoLocLPDValue": {
+    "name": "lldpXPnoLocLPDValue",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortTxDValue": {
+    "name": "lldpXPnoLocPortTxDValue",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortRxDValue": {
+    "name": "lldpXPnoLocPortRxDValue",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortStatusRT2": {
+    "name": "lldpXPnoLocPortStatusRT2",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "configured": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortStatusRT3": {
+    "name": "lldpXPnoLocPortStatusRT3",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "configured": 1,
+          "up": 2,
+          "down": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortNoS": {
+    "name": "lldpXPnoLocPortNoS",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortMrpUuId": {
+    "name": "lldpXPnoLocPortMrpUuId",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoLocPortMrrtStatus": {
+    "name": "lldpXPnoLocPortMrrtStatus",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "configured": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemTable": {
+    "name": "lldpXPnoRemTable",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXPnoRemEntry": {
+    "name": "lldpXPnoRemEntry",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXPnoRemLPDValue": {
+    "name": "lldpXPnoRemLPDValue",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortTxDValue": {
+    "name": "lldpXPnoRemPortTxDValue",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortRxDValue": {
+    "name": "lldpXPnoRemPortRxDValue",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "ns",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortStatusRT2": {
+    "name": "lldpXPnoRemPortStatusRT2",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "configured": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortStatusRT3": {
+    "name": "lldpXPnoRemPortStatusRT3",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "configured": 1,
+          "up": 2,
+          "down": 3,
+          "running": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortNoS": {
+    "name": "lldpXPnoRemPortNoS",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortMrpUuId": {
+    "name": "lldpXPnoRemPortMrpUuId",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoRemPortMrrtStatus": {
+    "name": "lldpXPnoRemPortMrrtStatus",
+    "oid": "1.0.8802.1.1.2.1.5.3791.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "configured": 1,
+          "up": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXPnoConformance": {
+    "name": "lldpXPnoConformance",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2",
+    "class": "objectidentity"
+  },
+  "lldpXPnoCompliances": {
+    "name": "lldpXPnoCompliances",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.1",
+    "class": "objectidentity"
+  },
+  "lldpXPnoGroups": {
+    "name": "lldpXPnoGroups",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.2",
+    "class": "objectidentity"
+  },
+  "lldpXPnoCompliance": {
+    "name": "lldpXPnoCompliance",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpXPnoConfigGroup",
+        "module": "LLDP-EXT-PNO-MIB"
+      },
+      {
+        "object": "lldpXPnoLocGroup",
+        "module": "LLDP-EXT-PNO-MIB"
+      },
+      {
+        "object": "lldpXPnoRemGroup",
+        "module": "LLDP-EXT-PNO-MIB"
+      },
+      {
+        "object": "lldpXPnoMRPGroup",
+        "module": "LLDP-EXT-PNO-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXPnoConfigGroup": {
+    "name": "lldpXPnoConfigGroup",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoConfigSPDTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoConfigPortStatusTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoConfigAliasTxEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXPnoLocGroup": {
+    "name": "lldpXPnoLocGroup",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocLPDValue"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortTxDValue"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortRxDValue"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortStatusRT2"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortStatusRT3"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortNoS"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXPnoRemGroup": {
+    "name": "lldpXPnoRemGroup",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemLPDValue"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortTxDValue"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortRxDValue"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortStatusRT2"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortStatusRT3"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortNoS"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXPnoMRPGroup": {
+    "name": "lldpXPnoMRPGroup",
+    "oid": "1.0.8802.1.1.2.1.5.3791.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoConfigMrpTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortMrpUuId"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoLocPortMrrtStatus"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortMrpUuId"
+      },
+      {
+        "module": "LLDP-EXT-PNO-MIB",
+        "object": "lldpXPnoRemPortMrrtStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_pno.mib",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:39:04 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
+      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+    ],
+    "module": "LLDP-EXT-PNO-MIB"
+  }
+}

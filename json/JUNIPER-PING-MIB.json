@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingResultsSentProbes",
       "pingResultsProbeResponses",
-      "pingResultsRttSumOfSquares",
-      "OperationResponseStatus",
-      "pingCtlTargetAddress",
-      "pingResultsAverageRtt",
-      "pingResultsIpTargetAddress",
-      "pingResultsMinRtt",
       "pingResultsMaxRtt",
-      "pingResultsLastGoodProbe",
-      "pingCtlTargetAddressType",
-      "pingProbeHistoryEntry",
-      "pingResultsIpTargetAddressType",
+      "pingResultsRttSumOfSquares",
       "pingResultsOperStatus",
-      "pingResultsEntry"
+      "pingResultsSentProbes",
+      "pingProbeHistoryEntry",
+      "pingResultsMinRtt",
+      "pingResultsEntry",
+      "pingResultsIpTargetAddress",
+      "OperationResponseStatus",
+      "pingResultsLastGoodProbe",
+      "pingResultsIpTargetAddressType",
+      "pingResultsAverageRtt",
+      "pingCtlTargetAddress",
+      "pingCtlTargetAddressType"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -25,37 +25,37 @@
       "InetPortNumber"
     ],
     "JUNIPER-SMI": [
-      "jnxMibs",
-      "jnxPingNotifications"
+      "jnxPingNotifications",
+      "jnxMibs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
       "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
       "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TruthValue",
-      "DisplayString",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "jnxPingMIB": {
@@ -1957,8 +1957,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PING-MIB",
-      "Produced by pysmi-1.1.8 at Wed Jun 29 15:12:15 2022",
-      "On host fv-az180-114 platform Linux version 5.13.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jul  8 07:41:08 2022",
+      "On host fv-az190-632 platform Linux version 5.13.0-1031-azure by user runner",
       "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-PING-MIB"
