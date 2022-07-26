@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
       "PerfIntervalCount",
@@ -15,29 +15,29 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
       "Counter32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Bits"
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "RowStatus",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -281,8 +281,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ALS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:32:41 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:48:21 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SL-ALS-MIB"

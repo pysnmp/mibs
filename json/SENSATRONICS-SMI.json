@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "iso",
+      "TimeTicks",
       "MibIdentifier",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
       "Bits",
-      "IpAddress",
-      "Counter64",
       "Integer32",
-      "TimeTicks"
+      "iso",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "sensatronics": {
@@ -89,8 +89,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sensatronics/SENSATRONICS-SMI",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:34:06 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:51:07 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SENSATRONICS-SMI"

@@ -12,32 +12,32 @@
       "s5Chassis"
     ],
     "S5-TCS-MIB": [
-      "AttId",
-      "LocChan"
+      "LocChan",
+      "AttId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Unsigned32",
       "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Bits",
+      "Counter64",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -2517,8 +2517,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:32:08 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:47:38 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "S5-CHASSIS-MIB"

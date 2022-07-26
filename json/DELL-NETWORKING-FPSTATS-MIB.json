@@ -11,28 +11,28 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Integer32",
-      "Counter32",
       "iso",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
       "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dellNetFpStatsMib": {
@@ -3568,8 +3568,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-FPSTATS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:26:38 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:37:46 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "DELL-NETWORKING-FPSTATS-MIB"

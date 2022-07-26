@@ -15,30 +15,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
+      "Counter64",
       "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "Unsigned32",
       "iso",
-      "Counter64"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwTelnetMIB": {
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-TELNET-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:26:51 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:06 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-TELNET-MIB"

@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-DSCP-TC": [
-      "DscpOrAny",
-      "Dscp"
+      "Dscp",
+      "DscpOrAny"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "INTEGRATED-SERVICES-MIB": [
       "BurstSize"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "mib-2",
-      "zeroDotZero",
-      "Counter64",
       "Integer32",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64",
       "MibIdentifier",
+      "zeroDotZero",
+      "mib-2",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
       "Bits",
-      "iso",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "StorageType",
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
+      "AutonomousType",
       "RowStatus",
-      "AutonomousType"
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "diffServMib": {
@@ -2956,8 +2956,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:22:29 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:36 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "DIFFSERV-MIB"

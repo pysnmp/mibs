@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "iso",
       "TimeTicks",
       "enterprises",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
+      "Counter64",
       "Integer32",
+      "Counter32",
       "IpAddress",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "sub10Systems": {
@@ -12561,8 +12561,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sub10/SUB10SYSTEMS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:34:35 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:51:47 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SUB10SYSTEMS-MIB"

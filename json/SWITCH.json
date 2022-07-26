@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -19,38 +19,38 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Counter32",
+      "Bits",
+      "TimeTicks",
       "enterprises",
-      "Integer32",
-      "iso",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
       "MibIdentifier",
-      "Bits"
+      "MODULE-IDENTITY",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "AutonomousType",
-      "TestAndIncr",
+      "RowStatus",
       "PhysAddress",
-      "TruthValue",
       "DateAndTime",
-      "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "TruthValue",
+      "MacAddress",
+      "TestAndIncr",
+      "DisplayString"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:28:31 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:40:57 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SWITCH"

@@ -8,8 +8,8 @@
       "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "shelfIndex",
+      "neIndex",
       "slotIndex"
     ],
     "CM-FACILITY-MIB": [
@@ -17,38 +17,38 @@
       "cmEthernetAccPortEntry"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmEthernetNetPortStatsEntry",
-      "cmEthernetNetPortHistoryEntry",
+      "cmEthernetAccPortHistoryEntry",
       "cmEthernetAccPortStatsEntry",
-      "cmEthernetAccPortHistoryEntry"
+      "cmEthernetNetPortHistoryEntry",
+      "cmEthernetNetPortStatsEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "OBJECT-TYPE",
       "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
       "Counter64",
-      "Counter32"
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "VariablePointer",
       "DisplayString",
+      "DateAndTime",
       "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
     ]
   },
   "f3POPMMib": {
@@ -1085,8 +1085,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-POPM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:23:11 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:32:30 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "F3-POPM-MIB"

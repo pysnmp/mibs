@@ -5,23 +5,23 @@
       "local"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
       "Bits",
       "Integer32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "iso",
+      "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
@@ -97,8 +97,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/OLD-CISCO-CPU-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:10 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:02 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "OLD-CISCO-CPU-MIB"

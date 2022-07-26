@@ -3,53 +3,53 @@
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
       "VlanList3",
-      "VlanList4",
       "VlanList1",
-      "VlanList2"
+      "VlanList2",
+      "VlanList4"
     ],
     "CISCOSB-MIB": [
-      "VlanPriority",
       "switch001",
+      "VlanPriority",
       "Percents"
     ],
     "DIFF-SERV-MIB": [
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "zeroDotZero",
-      "Counter64",
       "Bits",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "IpAddress",
-      "iso",
-      "TimeTicks"
+      "zeroDotZero",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:10 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:02 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

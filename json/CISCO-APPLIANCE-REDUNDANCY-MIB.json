@@ -12,32 +12,32 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
       "Bits",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "IpAddress",
-      "iso",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "TimeInterval",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeInterval",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "ciscoApplianceRedundancyMIB": {
@@ -629,8 +629,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-APPLIANCE-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:05 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:37:57 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-APPLIANCE-REDUNDANCY-MIB"

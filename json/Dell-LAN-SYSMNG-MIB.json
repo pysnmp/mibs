@@ -5,32 +5,32 @@
       "dellLanCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "TRAP-TYPE",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Bits",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "iso",
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dellLanSystemMng": {
@@ -600,8 +600,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-LAN-SYSMNG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:26:38 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:37:46 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "Dell-LAN-SYSMNG-MIB"

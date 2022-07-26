@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "enterprises",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "enterprises",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
       "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Bits",
       "OBJECT-TYPE",
-      "Counter32",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-SMI-v1": [
       "IpAddress"
@@ -187,8 +187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-TN3270E-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:30:26 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:43:38 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "IBM-TN3270E-MIB"

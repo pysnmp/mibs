@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePortComponentId",
-      "ieee8021BridgeBasePort"
+      "ieee8021BridgeBasePort",
+      "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortType",
       "IEEE8021PriorityValue",
       "IEEE8021PbbComponentIdentifierOrZero",
-      "ieee802dot1mibs",
-      "IEEE8021PortAcceptableFrameTypes",
       "IEEE8021BridgePortNumberOrZero",
-      "IEEE8021BridgePortType"
+      "IEEE8021PortAcceptableFrameTypes",
+      "ieee802dot1mibs"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
       "iso",
       "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ieee8021PbMib": {
@@ -1062,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:22:09 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:12 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "IEEE8021-PB-MIB"

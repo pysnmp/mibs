@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "HP-SN-AGENT-MIB": [
-      "snChasFanIndex",
-      "snAgGblTrapMessage",
-      "snChasPwrSupplyStatus",
-      "snChasPwrSupplyDescription",
-      "snChasPwrSupplyIndex",
       "snAgentBrdIndex",
-      "snChasFanDescription"
+      "snChasFanDescription",
+      "snChasPwrSupplyStatus",
+      "snAgGblTrapMessage",
+      "snChasFanIndex",
+      "snChasPwrSupplyIndex",
+      "snChasPwrSupplyDescription"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4TcpSynLimit",
-      "snL4TrapRealServerIP",
-      "snL4MaxSessionLimit",
       "snL4TrapRealServerName",
+      "snL4TrapRealServerPort",
       "snL4TrapRealServerCurConnections",
-      "snL4TrapRealServerPort"
+      "snL4MaxSessionLimit",
+      "snL4TrapRealServerIP"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
@@ -30,25 +30,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
       "Unsigned32",
-      "IpAddress"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snTrapChasPwrSupply": {
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:29:48 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:44:24 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
       "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "UCD-SNMP-MIB": [
       "ucdavis"
@@ -117,8 +117,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-DEMO-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:46 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:47:11 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "UCD-DEMO-MIB"

@@ -12,24 +12,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
       "Unsigned32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hpnicfVoiceInterface": {
@@ -290,8 +290,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-VOICE-IF-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:29:50 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:44:26 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-VOICE-IF-MIB"

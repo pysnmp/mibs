@@ -8,18 +8,18 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcPortTypes",
       "FcClassOfServices",
-      "FcPortTxTypes",
-      "FcIfServiceStateType",
       "FcPortModuleTypes",
-      "FcIfSpeed",
+      "FcPortTxTypes",
+      "FcNameId",
       "FcAddressId",
-      "FcNameId"
+      "FcPortTypes",
+      "FcIfSpeed",
+      "FcIfServiceStateType"
     ],
     "CISCO-TC": [
-      "CiscoMilliSeconds",
-      "MicroSeconds"
+      "MicroSeconds",
+      "CiscoMilliSeconds"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
@@ -38,25 +38,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
       "Bits",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "IpAddress",
-      "iso",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -7307,8 +7307,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-FE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:07 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:37:59 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-FC-FE-MIB"

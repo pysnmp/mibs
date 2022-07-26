@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "CISCOSB-MIB": [
-      "rlRadius",
+      "switch001",
       "rlAAAEap",
-      "switch001"
+      "rlRadius"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
       "Bits",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "IpAddress",
-      "iso",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "TimeStamp",
+      "DateAndTime"
     ]
   },
   "rlAAA": {
@@ -4957,8 +4957,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-AAA",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:06 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:37:58 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-AAA"

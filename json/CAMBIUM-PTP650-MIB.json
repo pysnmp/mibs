@@ -11,25 +11,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "enterprises",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
+      "Integer32",
       "Counter32",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
+      "enterprises",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cambium": {
@@ -9249,8 +9249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/CAMBIUM-PTP650-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:24:11 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:33:53 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CAMBIUM-PTP650-MIB"

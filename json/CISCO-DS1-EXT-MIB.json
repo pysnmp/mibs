@@ -5,55 +5,55 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "ConfigIterator",
-      "BulkConfigResult"
+      "BulkConfigResult",
+      "ConfigIterator"
     ],
     "DS1-MIB": [
+      "dsx1TotalEntry",
+      "dsx1IntervalEntry",
+      "dsx1ConfigEntry",
       "dsx1CurrentEntry",
       "dsx1FarEndIntervalEntry",
-      "dsx1IntervalEntry",
       "dsx1FarEndTotalEntry",
-      "dsx1FarEndCurrentEntry",
-      "dsx1TotalEntry",
-      "dsx1ConfigEntry"
+      "dsx1FarEndCurrentEntry"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
-      "PerfTotalCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfTotalCount"
     ],
     "RMON-MIB": [
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
       "IpAddress",
-      "iso",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:10 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:03 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

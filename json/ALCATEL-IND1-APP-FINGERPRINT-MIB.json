@@ -8,39 +8,39 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
       "IpAddress",
-      "Bits",
+      "OBJECT-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "alcatelIND1AppFPMIB": {
@@ -977,8 +977,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-APP-FINGERPRINT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:32:40 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:48:38 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-APP-FINGERPRINT-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "BridgeId",
-      "Timeout"
+      "Timeout",
+      "BridgeId"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortNumber",
@@ -11,30 +11,30 @@
       "ieee802dot1mibs"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
       "iso",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ieee8021SpanningTreeMib": {
@@ -929,8 +929,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPANNING-TREE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:22:09 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:12 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "IEEE8021-SPANNING-TREE-MIB"

@@ -4,35 +4,35 @@
     "DLINKSW-AAA-COMMON-MIB": [
       "DAaaMethodName",
       "DAaaSessionType",
-      "DAaaMethodPriority",
+      "dAaaMIBObjects",
       "DAaaMethodListName",
-      "dAaaMIBObjects"
+      "DAaaMethodPriority"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
+      "Counter64",
       "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "iso",
-      "Counter64"
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwAaaAuthenticationMIB": {
@@ -291,8 +291,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-AAA-AUTH-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:26:51 2022",
-      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:06 2022",
+      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-AAA-AUTH-MIB"
