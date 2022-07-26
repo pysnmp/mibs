@@ -5,24 +5,24 @@
       "austron"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "IpAddress",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
       "Unsigned32",
-      "iso"
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -18316,8 +18316,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/SSU2000-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:24 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:51:52 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SSU2000-MIB"

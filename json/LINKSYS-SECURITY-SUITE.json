@@ -7,8 +7,8 @@
       "InterfaceIndexOrZero"
     ],
     "LINKSYS-MIB": [
-      "Percents",
-      "rnd"
+      "rnd",
+      "Percents"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -18,27 +18,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Counter64",
       "Counter32",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
       "IpAddress",
-      "Gauge32"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "RowPointer",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rlSecuritySuiteMib": {
@@ -729,8 +729,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SECURITY-SUITE",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:20 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:51:49 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-SECURITY-SUITE"

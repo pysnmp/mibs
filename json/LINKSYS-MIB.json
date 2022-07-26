@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "Counter32",
+      "enterprises",
       "Bits",
       "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Counter32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "enterprises",
-      "Gauge32"
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "Percents": {
@@ -735,8 +735,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:20 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:51:49 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-MIB"

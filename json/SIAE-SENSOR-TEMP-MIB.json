@@ -9,28 +9,28 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
       "Unsigned32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "Bits"
+      "iso",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sensorTemp": {
@@ -401,8 +401,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SENSOR-TEMP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:49:08 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:56:06 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SIAE-SENSOR-TEMP-MIB"

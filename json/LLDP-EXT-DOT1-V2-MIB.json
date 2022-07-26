@@ -8,13 +8,13 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2Extensions",
-      "lldpV2PortConfigEntry",
-      "lldpV2LocPortIfIndex",
-      "lldpV2RemTimeMark",
-      "lldpV2RemLocalDestMACAddress",
+      "lldpV2RemLocalIfIndex",
       "lldpV2RemIndex",
-      "lldpV2RemLocalIfIndex"
+      "lldpV2RemLocalDestMACAddress",
+      "lldpV2RemTimeMark",
+      "lldpV2PortConfigEntry",
+      "lldpV2Extensions",
+      "lldpV2LocPortIfIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -24,29 +24,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
-      "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
       "Counter32",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lldpV2Xdot1MIB": {
@@ -4342,7 +4342,7 @@
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-V2-MIB",
       "Produced by pysmi-1.1.8 at Tue Jul 26 16:37:28 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-V2-MIB"

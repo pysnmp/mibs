@@ -3,9 +3,9 @@
     "class": "imports",
     "CISCO-QOS-PIB-MIB": [
       "QosLayer2Cos",
+      "QosInterfaceQueueType",
       "Dscp",
-      "Percent",
-      "QosInterfaceQueueType"
+      "Percent"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -14,8 +14,8 @@
       "cseFlowDataEntry"
     ],
     "CISCO-TC": [
-      "CiscoIpProtocol",
-      "CiscoPortList"
+      "CiscoPortList",
+      "CiscoIpProtocol"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -28,9 +28,9 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -41,28 +41,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "Unsigned32",
       "Integer32",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
       "Gauge32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "DateAndTime",
       "DisplayString",
       "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCatOSAclQosMIB": {
@@ -7537,8 +7537,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CATOS-ACL-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:42:15 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:43:40 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-CATOS-ACL-QOS-MIB"

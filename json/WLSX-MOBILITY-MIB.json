@@ -5,48 +5,48 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaEncryptionMethods",
-      "ArubaAuthenticationMethods",
-      "ArubaPhyType",
-      "ArubaRogueApType",
       "ArubaEnableValue",
       "ArubaFrameType",
-      "ArubaActiveState"
+      "ArubaAuthenticationMethods",
+      "ArubaEncryptionMethods",
+      "ArubaPhyType",
+      "ArubaActiveState",
+      "ArubaRogueApType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
       "TimeTicks",
-      "MibIdentifier",
-      "Bits",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
       "snmpModules"
     ],
     "SNMPv2-TC": [
-      "TAddress",
-      "StorageType",
-      "PhysAddress",
-      "TestAndIncr",
-      "TruthValue",
       "TDomain",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
+      "TAddress",
+      "TruthValue",
+      "RowStatus",
+      "PhysAddress",
+      "StorageType",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TimeInterval"
+      "TestAndIncr"
     ]
   },
   "wlsxMobilityMIB": {
@@ -892,8 +892,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MOBILITY-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:38:44 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:38:59 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "WLSX-MOBILITY-MIB"

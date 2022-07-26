@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HH3C-FC-TC-MIB": [
-      "Hh3cFcDmState",
+      "Hh3cFcAddressId",
       "Hh3cFcDomainIdOrZero",
-      "Hh3cFcNameId",
+      "Hh3cFcNameIdOrZero",
       "Hh3cFcDomainId",
+      "Hh3cFcDomainIdList",
       "Hh3cFcDomainPriority",
       "Hh3cFcVsanIndex",
-      "Hh3cFcDomainIdList",
-      "Hh3cFcAddressId",
-      "Hh3cFcNameIdOrZero"
+      "Hh3cFcNameId",
+      "Hh3cFcDmState"
     ],
     "HH3C-OID-MIB": [
       "hh3cCommon"
@@ -26,26 +26,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
+      "Integer32",
       "Bits",
-      "MibIdentifier",
-      "Counter32",
       "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
+      "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "hh3cSan": {
@@ -924,8 +924,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-VSAN-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:40:19 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:41:12 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HH3C-VSAN-MIB"

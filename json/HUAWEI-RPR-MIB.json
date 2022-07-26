@@ -5,49 +5,49 @@
       "hwDatacomm"
     ],
     "IEEE-802DOT17-RPR-MIB": [
-      "rprTopoImageRinglet0Hops",
-      "rprTopoImageRinglet1Hops",
       "rprIfCurrentStatus",
-      "rprIfRingOperModes",
       "rprTopoImageMacAddress",
-      "rprIfIndex",
-      "rprSpanIfIndex",
-      "rprTopoImageStatus",
-      "rprIfWrapConfig",
-      "rprSpanTotalRingletReservedRate",
+      "rprTopoImageStationIfIndex",
+      "RprSpan",
+      "rprSpanId",
+      "rprTopoImageRinglet1Hops",
+      "rprTopoImageEastProtectionStatus",
       "rprTopoImageIfIndex",
       "rprTopoImageWestProtectionStatus",
-      "RprSpan",
-      "rprTopoImageEastProtectionStatus",
-      "rprSpanId",
-      "rprTopoImageStationIfIndex"
+      "rprTopoImageStatus",
+      "rprTopoImageRinglet0Hops",
+      "rprIfWrapConfig",
+      "rprSpanTotalRingletReservedRate",
+      "rprIfRingOperModes",
+      "rprIfIndex",
+      "rprSpanIfIndex"
     ],
     "IF-MIB": [
-      "ifName",
       "ifPhysAddress",
       "InterfaceIndex",
+      "ifName",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
       "Integer32",
+      "Counter64",
       "Unsigned32",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
       "iso",
       "Bits",
-      "Counter32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -618,8 +618,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:44:40 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:47:45 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-RPR-MIB"

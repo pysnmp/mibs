@@ -5,29 +5,29 @@
       "jnxMacNotificationRoot"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
+      "Integer32",
       "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Integer32",
+      "OBJECT-TYPE",
       "IpAddress",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "jnxMacNotificationMIB": {
@@ -300,8 +300,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-EX-MAC-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:08 2022",
-      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:51:09 2022",
+      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-EX-MAC-NOTIFICATION-MIB"
