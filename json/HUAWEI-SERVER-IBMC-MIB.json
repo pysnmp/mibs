@@ -5,32 +5,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Opaque",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Opaque",
+      "enterprises",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "StorageType",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "huawei": {
@@ -74852,9 +74852,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SERVER-IBMC-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:21:18 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:29:40 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-SERVER-IBMC-MIB"
   }

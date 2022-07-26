@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -24,33 +24,33 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "mib-2",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
       "Counter64",
-      "enterprises",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "mib-2",
       "OBJECT-IDENTITY",
-      "iso"
+      "OBJECT-TYPE",
+      "Counter32",
+      "enterprises",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "DateAndTime",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "MacAddress",
-      "DisplayString",
       "AutonomousType",
+      "TestAndIncr",
       "PhysAddress",
-      "TimeStamp"
+      "TruthValue",
+      "DateAndTime",
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,9 +93201,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:19:57 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:28:31 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SWITCH"
   }

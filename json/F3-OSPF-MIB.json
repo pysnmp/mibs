@@ -5,44 +5,44 @@
       "fsp150cm"
     ],
     "CM-IP-MIB": [
-      "ipManagementTunnelEntry",
-      "cmIpInterfaceEntry"
+      "cmIpInterfaceEntry",
+      "ipManagementTunnelEntry"
     ],
     "OSPF-MIB": [
-      "RouterID",
-      "AreaID",
-      "ospfNbrEntry",
-      "DesignatedRouterPriority",
       "OspfAuthenticationType",
-      "HelloRange"
+      "AreaID",
+      "RouterID",
+      "ospfNbrEntry",
+      "HelloRange",
+      "DesignatedRouterPriority"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter64",
-      "Gauge32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "StorageType"
+      "StorageType",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "f3OspfMIB": {
@@ -1115,9 +1115,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-OSPF-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:12:47 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:23:10 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "F3-OSPF-MIB"
   }

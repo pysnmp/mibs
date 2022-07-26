@@ -11,14 +11,14 @@
       "IEEE8021PriorityValue"
     ],
     "LLDP-EXT-DOT1-V2-MIB": [
-      "LldpXdot1dcbxTrafficClassBandwidthValue",
-      "LldpXdot1dcbxTrafficSelectionAlgorithm",
-      "lldpXdot1dcbxAdminApplicationPriorityAESelector",
-      "LldpXdot1dcbxAppProtocol",
-      "LldpXdot1dcbxAppSelector",
-      "LldpXdot1dcbxTrafficClassValue",
       "LldpXdot1dcbxSupportedCapacity",
-      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol"
+      "LldpXdot1dcbxTrafficClassValue",
+      "lldpXdot1dcbxAdminApplicationPriorityAESelector",
+      "LldpXdot1dcbxAppSelector",
+      "LldpXdot1dcbxAppProtocol",
+      "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
+      "LldpXdot1dcbxTrafficClassBandwidthValue"
     ],
     "LLDP-V2-MIB": [
       "lldpV2LocPortIfIndex"
@@ -32,25 +32,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "iso",
+      "Unsigned32",
       "Integer32",
-      "Gauge32",
-      "Bits",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
       "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1372,9 +1372,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DCBX-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:26:11 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:32:40 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-DCBX-MIB"
   }

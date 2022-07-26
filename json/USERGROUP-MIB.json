@@ -5,29 +5,29 @@
       "hmConfiguration"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "TEXTUAL-CONVENTION",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "Counter64",
       "Unsigned32",
-      "MibIdentifier"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmUserGroup": {
@@ -855,9 +855,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/usrgrp.mib",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:20:25 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:28:55 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "USERGROUP-MIB"
   }

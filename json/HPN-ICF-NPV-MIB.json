@@ -5,38 +5,38 @@
       "HpnicfFcVsanIndex"
     ],
     "HPN-ICF-VSAN-MIB": [
-      "hpnicfSan",
-      "hpnicfVsanIndex"
+      "hpnicfVsanIndex",
+      "hpnicfSan"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "TimeTicks",
+      "Counter32",
       "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "hpnicfNpv": {
@@ -201,9 +201,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NPV-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:22:33 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:29:50 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-NPV-MIB"
   }

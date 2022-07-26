@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "CISCOSB-MIB": [
-      "switch001",
-      "rlIfInterfaces"
+      "rlIfInterfaces",
+      "switch001"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
       "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "swInterfaces": {
@@ -1841,9 +1841,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlInterfaces",
-      "Produced by pysmi-1.1.8 at Fri Jul  8 09:17:41 2022",
-      "On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner",
-      "Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Jul 26 15:27:05 2022",
+      "On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-rlInterfaces"
   }

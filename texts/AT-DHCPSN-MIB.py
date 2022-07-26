@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-DHCPSN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-DHCPSN-MIB
-# Produced by pysmi-1.1.8 at Fri Jul  8 09:12:44 2022
-# On host fv-az445-316 platform Linux version 5.13.0-1031-azure by user runner
-# Using Python version 3.10.5 (main, Jun  7 2022, 06:49:50) [GCC 9.4.0]
+# Produced by pysmi-1.1.8 at Tue Jul 26 15:23:05 2022
+# On host fv-az196-550 platform Linux version 5.15.0-1014-azure by user runner
+# Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, TimeTicks, MibIdentifier, Bits, IpAddress, Integer32, iso, Gauge32, ModuleIdentity, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "MibIdentifier", "Bits", "IpAddress", "Integer32", "iso", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, ModuleIdentity, Counter64, MibIdentifier, Gauge32, iso, Integer32, Counter32, IpAddress, Bits, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "ModuleIdentity", "Counter64", "MibIdentifier", "Gauge32", "iso", "Integer32", "Counter32", "IpAddress", "Bits", "TimeTicks", "Unsigned32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atDhcpsn = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537))
 atDhcpsn.setRevisions(('2010-09-07 00:00', '2010-06-14 04:45', '2010-02-09 01:30', '2009-12-10 01:30',))
 
@@ -85,4 +85,4 @@ if mibBuilder.loadTexts: atArpsecVid.setDescription('VLAN ID of the port that th
 atArpsecVioType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("srcIpNotFound", 1), ("badVLAN", 2), ("badPort", 3), ("srcIpNotAllocated", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atArpsecVioType.setStatus('current')
 if mibBuilder.loadTexts: atArpsecVioType.setDescription('The reason that the trap was generated. srcIpNotFound(1) indicates\n                that the Sender IP address of the ARP packet was not found in the\n                DHCP Snooping database. badVLAN(2) indicates that the VLAN of the\n                DHCP Snooping binding entry associated with the Sender IP address\n                of the ARP packet does not match the VLAN that the ARP packet was\n                received on. badPort(3) indicates that the port of the DHCP\n                Snooping binding entry associated with the Sender IP address of the\n                ARP packet does not match the port that the ARP packet was received\n                on. srcIpNotAllocated(4) indicates that the CHADDR of the DHCP\n                Snooping binding entry associated with the Sender IP address of\n                the ARP packet does not match the Source MAC and/or the ARP source\n                MAC of the ARP packet.')
-mibBuilder.exportSymbols("AT-DHCPSN-MIB", atArpsecVariablesTable=atArpsecVariablesTable, atDhcpsn=atDhcpsn, atArpsecSrcMac=atArpsecSrcMac, atDhcpsnVioType=atDhcpsnVioType, atArpsecTrap=atArpsecTrap, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsnSiaddr=atDhcpsnSiaddr, atDhcpsnIfIndex=atDhcpsnIfIndex, atArpsecVid=atArpsecVid, atDhcpsnVariablesTable=atDhcpsnVariablesTable, PYSNMP_MODULE_ID=atDhcpsn, atDhcpsnVid=atDhcpsnVid, atDhcpsnTrap=atDhcpsnTrap, atArpsecClientIP=atArpsecClientIP, atDhcpsnYiaddr=atDhcpsnYiaddr, atDhcpsnEvents=atDhcpsnEvents, atArpsecVioType=atArpsecVioType, atArpsecVariablesEntry=atArpsecVariablesEntry, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnChaddr=atDhcpsnChaddr, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atDhcpsnSmac=atDhcpsnSmac, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnOpcode=atDhcpsnOpcode)
+mibBuilder.exportSymbols("AT-DHCPSN-MIB", atDhcpsnVid=atDhcpsnVid, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnVioType=atDhcpsnVioType, atDhcpsnEvents=atDhcpsnEvents, atDhcpsnSiaddr=atDhcpsnSiaddr, atArpsecSrcMac=atArpsecSrcMac, atArpsecVioType=atArpsecVioType, atDhcpsn=atDhcpsn, atDhcpsnOpcode=atDhcpsnOpcode, atDhcpsnYiaddr=atDhcpsnYiaddr, atArpsecVariablesTable=atArpsecVariablesTable, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atArpsecVariablesEntry=atArpsecVariablesEntry, atDhcpsnChaddr=atDhcpsnChaddr, atArpsecTrap=atArpsecTrap, atDhcpsnSmac=atDhcpsnSmac, atDhcpsnTrap=atDhcpsnTrap, atArpsecClientIP=atArpsecClientIP, atDhcpsnCiaddr=atDhcpsnCiaddr, atArpsecVid=atArpsecVid, PYSNMP_MODULE_ID=atDhcpsn, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsnIfIndex=atDhcpsnIfIndex)
