@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalDescr",
-      "PhysicalIndex"
+      "PhysicalIndex",
+      "entPhysicalDescr"
     ],
     "HOST-RESOURCES-MIB": [
       "KBytes"
@@ -15,35 +15,35 @@
       "juniMibs"
     ],
     "Juniper-TC": [
-      "JuniEnable",
-      "JuniTimeFilter"
+      "JuniTimeFilter",
+      "JuniEnable"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "Counter64",
       "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniSystemMIB": {
@@ -4730,8 +4730,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-System-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:46:05 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:21:29 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "Juniper-System-MIB"

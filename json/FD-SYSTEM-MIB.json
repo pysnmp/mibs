@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "EPON-EOC-MIB": [
-      "DeviceStatus",
       "LedStatus",
-      "DeviceOperation",
+      "DeviceStatus",
+      "DeviceType",
       "epon",
-      "DeviceType"
+      "DeviceOperation"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
       "Gauge32",
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "systemInfo": {
@@ -2219,8 +2219,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:34:10 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:11:08 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "FD-SYSTEM-MIB"

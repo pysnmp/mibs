@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "BFD-TC-STD-MIB": [
-      "BfdCtrlSourcePortNumberTC",
+      "BfdMultiplierTC",
       "BfdIntervalTC",
       "BfdSessIndexTC",
       "BfdCtrlDestPortNumberTC",
-      "BfdMultiplierTC"
+      "BfdCtrlSourcePortNumberTC"
     ],
     "DIFFSERV-DSCP-TC": [
       "IndexIntegerNextFree"
@@ -15,8 +15,8 @@
       "IANAbfdDiagTC",
       "IANAbfdSessOperModeTC",
       "IANAbfdSessAuthenticationTypeTC",
-      "IANAbfdSessTypeTC",
       "IANAbfdSessStateTC",
+      "IANAbfdSessTypeTC",
       "IANAbfdSessAuthenticationKeyTC"
     ],
     "IF-MIB": [
@@ -28,34 +28,34 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "mib-2",
-      "Unsigned32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Bits",
       "TimeTicks",
-      "iso"
+      "IpAddress",
+      "mib-2",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "TimeStamp",
+      "DisplayString",
       "StorageType",
       "TruthValue",
-      "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bfdMIB": {
@@ -1498,8 +1498,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:36 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:08:50 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "BFD-STD-MIB"

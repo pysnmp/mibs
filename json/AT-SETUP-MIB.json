@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
       "Integer32",
-      "iso"
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "setup": {
@@ -574,8 +574,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SETUP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:32:26 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:09:36 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "AT-SETUP-MIB"

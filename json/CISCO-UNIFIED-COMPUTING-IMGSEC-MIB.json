@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
-      "Unsigned64",
-      "TimeIntervalSec",
       "CiscoInetAddressMask",
-      "CiscoNetworkAddress"
+      "CiscoAlarmSeverity",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
       "CucsManagedObjectDn",
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
@@ -21,8 +21,8 @@
       "CucsImgsecKeyType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,30 +32,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Gauge32",
       "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "TimeTicks"
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "RowPointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DisplayString",
       "TimeStamp",
-      "DateAndTime"
+      "MacAddress"
     ]
   },
   "cucsImgsecObjects": {
@@ -268,8 +268,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IMGSEC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:04 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:14:40 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-IMGSEC-MIB"

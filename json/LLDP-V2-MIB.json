@@ -9,51 +9,51 @@
       "InterfaceIndex"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2ChassisIdSubtype",
-      "LldpV2ManAddrIfSubtype",
-      "LldpV2SystemCapabilitiesMap",
-      "LldpV2PortId",
+      "ieee802dot1mibs",
       "LldpV2PortIdSubtype",
-      "LldpV2ManAddress",
-      "LldpV2DestAddressTableIndex",
       "LldpV2ChassisId",
-      "ieee802dot1mibs"
+      "LldpV2SystemCapabilitiesMap",
+      "LldpV2ChassisIdSubtype",
+      "LldpV2DestAddressTableIndex",
+      "LldpV2ManAddrIfSubtype",
+      "LldpV2PortId",
+      "LldpV2ManAddress"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Counter32",
       "Bits",
+      "IpAddress",
       "MibIdentifier",
+      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "TimeStamp",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:12 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:08:28 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "LLDP-V2-MIB"

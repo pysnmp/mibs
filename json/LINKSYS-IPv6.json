@@ -5,12 +5,12 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength",
       "InetAddressType",
       "InetAddress"
     ],
@@ -18,10 +18,10 @@
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipv6RouterAdvertEntry",
-      "ipAddressEntry",
       "ipv6InterfaceEntry",
-      "ipNetToPhysicalEntry"
+      "ipNetToPhysicalEntry",
+      "ipv6RouterAdvertEntry",
+      "ipAddressEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -30,33 +30,33 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Integer32",
       "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "mib-2",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
       "zeroDotZero",
-      "IpAddress"
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "mib-2",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TruthValue",
-      "RowStatus"
+      "TimeInterval"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:46:36 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:21:26 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-IPv6"

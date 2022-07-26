@@ -15,33 +15,33 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "enterprises",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Bits",
       "TimeTicks",
-      "iso"
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "enterprises",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "MacAddress",
+      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mefUniEvcMib": {
@@ -2689,8 +2689,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MEF-UNI-EVC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:36 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:08:50 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "MEF-UNI-EVC-MIB"

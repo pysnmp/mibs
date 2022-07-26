@@ -5,8 +5,8 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "AgentPortMask",
-      "fastPath"
+      "fastPath",
+      "AgentPortMask"
     ],
     "IANAifType-MIB": [
       "IANAifType"
@@ -23,34 +23,34 @@
     "Q-BRIDGE-MIB": [
       "VlanId",
       "dot1qFdbId",
-      "VlanIndex",
-      "dot1qVlanIndex"
+      "dot1qVlanIndex",
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
       "MibIdentifier",
-      "Counter64",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
+      "Counter64",
+      "Bits",
       "Unsigned32",
-      "Gauge32",
+      "Counter32",
+      "IpAddress",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
+      "MacAddress",
+      "TruthValue",
       "DateAndTime",
       "RowStatus",
       "TEXTUAL-CONVENTION"
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:38:29 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:14:57 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

@@ -14,33 +14,33 @@
       "ProgDataType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "IpAddress",
       "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "enterprises",
-      "Counter64",
+      "Unsigned32",
       "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "Integer32",
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "AutonomousType",
+      "TruthValue",
+      "DateAndTime",
       "RowPointer"
     ]
   },
@@ -2905,8 +2905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/scte/SCTE-HMS-MPEG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:31:19 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:08:35 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SCTE-HMS-MPEG-MIB"

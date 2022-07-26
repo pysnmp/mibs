@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsBitRate",
-      "MplsPathIndexOrZero",
-      "MplsTunnelInstanceIndex",
-      "MplsPathIndex",
       "MplsLSPID",
-      "MplsBurstSize",
-      "MplsLsrIdentifier",
       "MplsTunnelAffinity",
+      "MplsPathIndexOrZero",
+      "mplsMIB",
+      "MplsTunnelInstanceIndex",
+      "MplsBurstSize",
       "MplsTunnelIndex",
-      "mplsMIB"
+      "MplsLsrIdentifier",
+      "MplsBitRate",
+      "MplsPathIndex"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -25,33 +25,33 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "Bits",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
       "Counter64",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "TruthValue",
       "RowPointer",
-      "StorageType",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:44:25 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:19:43 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"

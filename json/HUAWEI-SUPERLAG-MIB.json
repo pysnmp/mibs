@@ -5,32 +5,32 @@
       "huaweiMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits",
       "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "OBJECT-TYPE",
       "Integer32",
-      "iso",
+      "Counter64",
+      "Counter32",
+      "Bits",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
       "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "hwSuperLagMIB": {
@@ -801,8 +801,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SUPERLAG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:42:25 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:18:23 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-SUPERLAG-MIB"

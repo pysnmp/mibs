@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-SMI": [
-      "netscreenSettingMibModule",
-      "netscreenSetting"
+      "netscreenSetting",
+      "netscreenSettingMibModule"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "Bits",
       "TimeTicks",
-      "Unsigned32"
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "netscreenSetDnsMibModule": {
@@ -127,8 +127,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-SET-DNS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:51:09 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:25:34 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "NETSCREEN-SET-DNS-MIB"

@@ -11,31 +11,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "Integer32",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
       "Counter64",
-      "iso"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeStamp"
+      "TruthValue",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "sensorMIB": {
@@ -559,8 +559,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-SENSOR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:34:05 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:11:01 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "OCCAM-SENSOR-MIB"

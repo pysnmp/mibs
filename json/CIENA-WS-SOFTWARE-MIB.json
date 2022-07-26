@@ -5,35 +5,35 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "StringMaxl256",
-      "StringMaxl64",
       "StringMaxl128",
-      "StringMaxl32"
+      "StringMaxl32",
+      "StringMaxl64",
+      "StringMaxl256"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Counter64",
       "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Integer32",
       "OBJECT-TYPE",
-      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Bits",
-      "iso"
+      "Counter64",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1412,8 +1412,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-SOFTWARE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 15:34:37 2022",
-      "On host fv-az299-344 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:11:29 2022",
+      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CIENA-WS-SOFTWARE-MIB"
