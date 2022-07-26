@@ -8,33 +8,33 @@
       "slMain"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "transmission",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Counter64",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
       "iso",
       "TimeTicks",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "transmission",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
       "Counter32",
-      "Bits"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "slSecuMib": {
@@ -356,8 +356,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SECU-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:23:16 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:47:36 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "SL-SECU-MIB"

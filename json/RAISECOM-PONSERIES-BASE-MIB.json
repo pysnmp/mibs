@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "IpAddress",
-      "Counter32",
+      "MODULE-IDENTITY",
       "iso",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Integer32",
+      "Counter32",
+      "TimeTicks",
       "Counter64",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "raisecomPonCommon": {
@@ -242,8 +242,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-PONSERIES-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:24:44 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:48:34 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "RAISECOM-PONSERIES-BASE-MIB"

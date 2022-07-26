@@ -3,9 +3,9 @@
     "class": "imports",
     "ENTITY-MIB": [
       "entPhysicalIndex",
+      "entPhysicalContainedIn",
       "entPhysicalName",
-      "entPhysicalClass",
-      "entPhysicalContainedIn"
+      "entPhysicalClass"
     ],
     "HUAWEI-FLASH-MAN-MIB": [
       "hwStorageSpace",
@@ -16,43 +16,43 @@
       "hwDatacomm"
     ],
     "HUAWEI-SECURITY-STAT-MIB": [
-      "hwSecStatTrapSlot",
-      "hwSecStatTrapCPU"
+      "hwSecStatTrapCPU",
+      "hwSecStatTrapSlot"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
       "IANAItuEventType",
       "IANAItuProbableCause"
     ],
     "IF-MIB": [
-      "ifName",
       "ifOperStatus",
       "ifIndex",
-      "ifDescr",
-      "ifAdminStatus"
+      "ifName",
+      "ifAdminStatus",
+      "ifDescr"
     ],
     "ITU-ALARM-TC-MIB": [
       "ItuPerceivedSeverity"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter32",
-      "Counter64",
       "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
       "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "iso",
-      "MODULE-IDENTITY"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4120,8 +4120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BASE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:18:22 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:44:39 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-BASE-TRAP-MIB"

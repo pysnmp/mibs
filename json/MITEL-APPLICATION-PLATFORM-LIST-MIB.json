@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Bits",
+      "Counter64",
       "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "iso",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mitelIdApplicationPlatforms": {
@@ -105,8 +105,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-APPLICATION-PLATFORM-LIST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:21:51 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:27 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "MITEL-APPLICATION-PLATFORM-LIST-MIB"

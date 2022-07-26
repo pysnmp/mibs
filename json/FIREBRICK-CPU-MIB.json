@@ -9,25 +9,25 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
+      "enterprises",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -149,8 +149,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/firebrick/FIREBRICK-CPU-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:16:09 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:43:16 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "FIREBRICK-CPU-MIB"

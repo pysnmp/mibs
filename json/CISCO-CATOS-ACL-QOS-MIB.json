@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCO-QOS-PIB-MIB": [
-      "QosInterfaceQueueType",
-      "Percent",
+      "QosLayer2Cos",
       "Dscp",
-      "QosLayer2Cos"
+      "Percent",
+      "QosInterfaceQueueType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -28,41 +28,41 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressType",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "IpAddress",
+      "Counter32",
+      "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "iso"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "MacAddress"
+      "DateAndTime",
+      "TruthValue"
     ]
   },
   "ciscoCatOSAclQosMIB": {
@@ -7537,8 +7537,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CATOS-ACL-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:14:39 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:42:15 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-CATOS-ACL-QOS-MIB"

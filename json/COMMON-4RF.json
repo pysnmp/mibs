@@ -3,16 +3,16 @@
     "class": "imports",
     "COMMON-TC-4RF": [
       "FourRFProcessResultType",
-      "FourRFTftpFileName",
-      "FourRFWebUserEnabled",
-      "FourRFImageVersion",
-      "FourRFFileSize",
       "FourRFResetType",
+      "FourRFWebUserEnabled",
+      "FourRFTftpFileName",
       "FourRFSerialNumber",
-      "FourRFImageStatus",
-      "FourRFWebUserGroup",
       "FourRFImageType",
-      "FourRFTimeZone"
+      "FourRFTimeZone",
+      "FourRFImageVersion",
+      "FourRFImageStatus",
+      "FourRFFileSize",
+      "FourRFWebUserGroup"
     ],
     "MIB-4RF": [
       "fourRFModules",
@@ -22,30 +22,30 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "iso",
-      "Bits",
+      "Unsigned32",
       "IpAddress",
+      "Bits",
       "Counter64",
+      "Counter32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:09:00 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:37:52 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "COMMON-4RF"

@@ -5,44 +5,44 @@
       "entPhysicalIndex"
     ],
     "HH3C-STORAGE-REF-MIB": [
-      "Hh3cStorageActionType",
-      "Hh3cWwpnListType",
       "Hh3cRaidIDType",
-      "hh3cStorageRef",
+      "Hh3cStorageActionType",
       "Hh3cStorageEnableState",
+      "hh3cStorageRef",
       "Hh3cSessionIDType",
+      "Hh3cLvIDType",
       "Hh3cStorageLedStateType",
-      "Hh3cLvIDType"
+      "Hh3cWwpnListType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Bits",
       "iso",
-      "Gauge32",
-      "IpAddress",
+      "Bits",
+      "MibIdentifier",
       "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
       "OBJECT-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
       "RowStatus"
     ]
   },
@@ -1153,8 +1153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LOGIC-VOLUME-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:12:11 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:40:20 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "HH3C-LOGIC-VOLUME-MIB"

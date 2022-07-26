@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ADTRAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-MIB
-# Produced by pysmi-1.1.8 at Tue Jul 26 16:09:05 2022
-# On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jul 26 16:37:55 2022
+# On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, enterprises, Integer32, iso, Counter64, TimeTicks, Counter32, NotificationType, ObjectIdentity, Unsigned32, Gauge32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "Integer32", "iso", "Counter64", "TimeTicks", "Counter32", "NotificationType", "ObjectIdentity", "Unsigned32", "Gauge32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity")
-TextualConvention, DisplayString, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "PhysAddress")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+MibIdentifier, Integer32, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Bits, TimeTicks, Counter32, IpAddress, Gauge32, NotificationType, ModuleIdentity, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Bits", "TimeTicks", "Counter32", "IpAddress", "Gauge32", "NotificationType", "ModuleIdentity", "iso", "Unsigned32")
+TextualConvention, PhysAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "PhysAddress", "DisplayString")
 adtran = ModuleIdentity((1, 3, 6, 1, 4, 1, 664))
 if mibBuilder.loadTexts: adtran.setLastUpdated('0208090000Z')
 if mibBuilder.loadTexts: adtran.setOrganization('ADTRAN, Inc.')
@@ -71,4 +71,4 @@ adCNDGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 99, 2, 2)).setObjects(("ADTRAN-
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     adCNDGroup = adCNDGroup.setStatus('current')
 if mibBuilder.loadTexts: adCNDGroup.setDescription('Variables supported by CND products only.')
-mibBuilder.exportSymbols("ADTRAN-MIB", adProdSwVersion=adProdSwVersion, adProdTransType=adProdTransType, adCompliances=adCompliances, adMIBGroups=adMIBGroups, adProdPhysAddress=adProdPhysAddress, adCompliance=adCompliance, adProducts=adProducts, adAgentCapShared=adAgentCapShared, adIdentity=adIdentity, adConformance=adConformance, adShared=adShared, adBaseGroup=adBaseGroup, adProdProductID=adProdProductID, adAgentCapModule=adAgentCapModule, adAdmin=adAdmin, adProdSerialNumber=adProdSerialNumber, adComplianceShared=adComplianceShared, adProdRevision=adProdRevision, PYSNMP_MODULE_ID=adtran, adProdPartNumber=adProdPartNumber, adAgentCapProduct=adAgentCapProduct, adCNDGroup=adCNDGroup, adProdCLEIcode=adProdCLEIcode, adProductInfo=adProductInfo, adtran=adtran, adProdName=adProdName, adIdentityShared=adIdentityShared, adMgmt=adMgmt, adPerform=adPerform)
+mibBuilder.exportSymbols("ADTRAN-MIB", adProdPartNumber=adProdPartNumber, adAdmin=adAdmin, adProdSerialNumber=adProdSerialNumber, adAgentCapModule=adAgentCapModule, adIdentityShared=adIdentityShared, adMgmt=adMgmt, adPerform=adPerform, adShared=adShared, adProdName=adProdName, adProdTransType=adProdTransType, adProductInfo=adProductInfo, adAgentCapProduct=adAgentCapProduct, adProdSwVersion=adProdSwVersion, adtran=adtran, adIdentity=adIdentity, adCompliance=adCompliance, adProducts=adProducts, adAgentCapShared=adAgentCapShared, adMIBGroups=adMIBGroups, adProdRevision=adProdRevision, adCompliances=adCompliances, adConformance=adConformance, adCNDGroup=adCNDGroup, adBaseGroup=adBaseGroup, adProdCLEIcode=adProdCLEIcode, adComplianceShared=adComplianceShared, PYSNMP_MODULE_ID=adtran, adProdProductID=adProdProductID, adProdPhysAddress=adProdPhysAddress)

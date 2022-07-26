@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
       "Counter32",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "OBJECT-TYPE",
       "TRAP-TYPE",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -550,8 +550,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/imco/IMCO-LS110-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:19:53 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:45:15 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "IMCO-LS110-MIB"

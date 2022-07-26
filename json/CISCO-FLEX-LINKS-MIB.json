@@ -15,32 +15,32 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "IpAddress",
-      "Integer32",
-      "MibIdentifier",
+      "Counter32",
       "Unsigned32",
-      "Counter64",
-      "iso"
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "StorageType"
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoFlexLinksMIB": {
@@ -508,8 +508,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLEX-LINKS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:14:40 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:42:16 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCO-FLEX-LINKS-MIB"

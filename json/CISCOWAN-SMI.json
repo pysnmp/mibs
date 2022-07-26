@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "MibIdentifier",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
       "Integer32",
-      "Gauge32",
+      "iso",
+      "Unsigned32",
       "enterprises",
-      "Counter64"
+      "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -57,8 +57,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/CISCOWAN-SMI",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:08:51 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:37:47 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "CISCOWAN-SMI"

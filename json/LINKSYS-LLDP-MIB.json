@@ -8,8 +8,8 @@
       "AddressFamilyNumbers"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "LINKSYS-MIB": [
       "rnd",
@@ -19,41 +19,41 @@
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "lldpRemTimeMark",
-      "LldpManAddress",
-      "lldpRemIndex",
-      "LldpPortNumber",
       "lldpRemLocalPortNum",
-      "LldpPortList"
+      "LldpPortNumber",
+      "LldpManAddress",
+      "lldpRemTimeMark",
+      "LldpPortList",
+      "lldpRemIndex"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Integer32",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:21:26 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:20 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-LLDP-MIB"

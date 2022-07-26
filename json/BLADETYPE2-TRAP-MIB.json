@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
+      "vrrpCurCfgVirtRtrIndx",
+      "vrrpCurCfgVirtRtrAddr",
       "ipCurCfgGwIndex",
       "vrrpCurCfgIfPasswd",
       "vrrpCurCfgIfIndx",
-      "ipCurCfgGwAddr",
-      "vrrpCurCfgVirtRtrIndx",
-      "vrrpCurCfgVirtRtrAddr"
+      "ipCurCfgGwAddr"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
@@ -26,29 +26,29 @@
     ],
     "SNMPv2-MIB": [
       "sysLocation",
-      "sysContact",
-      "sysName"
+      "sysName",
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
-      "TRAP-TYPE",
-      "Counter32",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
+      "TRAP-TYPE",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bt2Traps": {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:19:44 2022",
-      "On host fv-az377-45 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jul 26 16:44:52 2022",
+      "On host fv-az119-924 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"
