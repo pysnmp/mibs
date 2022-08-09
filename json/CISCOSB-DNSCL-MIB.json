@@ -8,50 +8,50 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsQClass",
-      "DnsQType",
-      "DnsName",
       "DnsClass",
       "DnsNameAsIndex",
+      "dns",
+      "DnsName",
+      "DnsTime",
+      "DnsQType",
       "DnsType",
       "DnsOpCode",
-      "DnsTime",
-      "dns",
-      "DnsRespCode"
+      "DnsRespCode",
+      "DnsQClass"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
+      "Gauge32",
       "TimeTicks",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
       "IpAddress",
       "OBJECT-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Bits",
-      "Gauge32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlDnsCl": {
@@ -1692,9 +1692,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-DNSCL-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:43:35 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:12:35 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-DNSCL-MIB"
   }

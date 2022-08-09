@@ -5,47 +5,47 @@
       "hpnicfCommon"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "RADIUS-ACC-CLIENT-MIB": [
+      "radiusAccClientServerPortNumber",
       "radiusAccServerAddress",
-      "radiusAccServerIndex",
-      "radiusAccClientServerPortNumber"
+      "radiusAccServerIndex"
     ],
     "RADIUS-AUTH-CLIENT-MIB": [
-      "radiusAuthServerIndex",
       "radiusAuthClientServerPortNumber",
-      "radiusAuthServerAddress"
+      "radiusAuthServerAddress",
+      "radiusAuthServerIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfRadius": {
@@ -1952,9 +1952,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RADIUS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:49:44 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:17:26 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-RADIUS-MIB"
   }

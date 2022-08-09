@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "OMNITRON-TC-MIB": [
-      "OstPortSingleIndex",
+      "omnitron",
       "OstFloatValue",
-      "omnitron"
+      "OstPortSingleIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -552,9 +552,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-POE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:52:46 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:20:14 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "OMNITRON-POE-MIB"
   }

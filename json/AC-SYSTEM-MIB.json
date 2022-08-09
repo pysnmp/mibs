@@ -16,33 +16,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "enterprises",
+      "Counter64",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "enterprises",
       "IpAddress",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "iso",
-      "Integer32"
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TAddress",
-      "DateAndTime",
       "RowPointer",
-      "RowStatus",
-      "DisplayString"
+      "TAddress",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "acSystem": {
@@ -13686,9 +13686,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:39:15 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:08:44 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "AC-SYSTEM-MIB"
   }

@@ -11,29 +11,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
       "Integer32",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisQOS": {
@@ -257,9 +257,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-QOS-MIB.my",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:46:54 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:15:26 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "COLUBRIS-QOS-MIB"
   }

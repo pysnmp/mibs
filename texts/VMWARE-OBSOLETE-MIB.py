@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module VMWARE-OBSOLETE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-OBSOLETE-MIB
-# Produced by pysmi-1.1.8 at Tue Jul 26 16:57:22 2022
-# On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner
-# Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]
+# Produced by pysmi-1.1.8 at Tue Aug  9 15:24:20 2022
+# On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner
+# Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, Bits, Counter64, Counter32, TimeTicks, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, NotificationType, iso, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "Counter64", "Counter32", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "NotificationType", "iso", "Unsigned32", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, Unsigned32, MibIdentifier, IpAddress, NotificationType, Bits, ObjectIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "Unsigned32", "MibIdentifier", "IpAddress", "NotificationType", "Bits", "ObjectIdentity", "Counter64", "TimeTicks", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwESX, = mibBuilder.importSymbols("VMWARE-PRODUCTS-MIB", "vmwESX")
-vmwMemory, vmwCPU = mibBuilder.importSymbols("VMWARE-RESOURCES-MIB", "vmwMemory", "vmwCPU")
+vmwCPU, vmwMemory = mibBuilder.importSymbols("VMWARE-RESOURCES-MIB", "vmwCPU", "vmwMemory")
 vmwNotifications, vmwTraps, vmwResources, vmwObsolete = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwNotifications", "vmwTraps", "vmwResources", "vmwObsolete")
-vmwVmID, vmwVmConfigFilePath = mibBuilder.importSymbols("VMWARE-VMINFO-MIB", "vmwVmID", "vmwVmConfigFilePath")
+vmwVmConfigFilePath, vmwVmID = mibBuilder.importSymbols("VMWARE-VMINFO-MIB", "vmwVmConfigFilePath", "vmwVmID")
 vmwObsoleteMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 800, 1))
 vmwObsoleteMIB.setRevisions(('2008-10-15 11:59',))
 
@@ -187,4 +187,4 @@ vmwOldVCNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 800, 1, 2
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwOldVCNotificationGroup = vmwOldVCNotificationGroup.setStatus('obsolete')
 if mibBuilder.loadTexts: vmwOldVCNotificationGroup.setDescription('Group of objects describing notifications (traps).')
-mibBuilder.exportSymbols("VMWARE-OBSOLETE-MIB", vmwNetName=vmwNetName, vmwNetShares=vmwNetShares, vmPoweredOn=vmPoweredOn, vmkLoaded=vmkLoaded, PYSNMP_MODULE_ID=vmwObsoleteMIB, vmwMemVMID=vmwMemVMID, vmwMemConfigured=vmwMemConfigured, vmwNetVMID=vmwNetVMID, vpxdOldStatus=vpxdOldStatus, vmSuspended=vmSuspended, vmwHbaVMID=vmwHbaVMID, vpxdTrapType=vpxdTrapType, vmwCpuShares=vmwCpuShares, vmwNetTable=vmwNetTable, vpxdHostName=vpxdHostName, vpxdTrap=vpxdTrap, vmwMemUtil=vmwMemUtil, vmwMemShares=vmwMemShares, vmwNetIfAddr=vmwNetIfAddr, vmwObsoleteMIBCompliances=vmwObsoleteMIBCompliances, vmwHBAEntry=vmwHBAEntry, vmwNumReads=vmwNumReads, vpxdVMName=vpxdVMName, vmwNetHCKbTx=vmwNetHCKbTx, vmwCpuUtil=vmwCpuUtil, vmwNetEntry=vmwNetEntry, vmwHBATable=vmwHBATable, vmwMemEntry=vmwMemEntry, vmwHbaIdx=vmwHbaIdx, vmwCpuEntry=vmwCpuEntry, vmwKbRead=vmwKbRead, vmwObsoleteObsoleteMIBCompliance=vmwObsoleteObsoleteMIBCompliance, vmPoweredOff=vmPoweredOff, vmwNetKbTx=vmwNetKbTx, vmHBLost=vmHBLost, vmwCpuTable=vmwCpuTable, vmwKbWritten=vmwKbWritten, vmwNetPktsRx=vmwNetPktsRx, vmwNumWrites=vmwNumWrites, vmwNetHCPktsTx=vmwNetHCPktsTx, vmHBDetected=vmHBDetected, vmwCpuVMID=vmwCpuVMID, vpxdNewStatus=vpxdNewStatus, vmwNetHCPktsRx=vmwNetHCPktsRx, vmwObsoleteGroup=vmwObsoleteGroup, vmwDiskShares=vmwDiskShares, vmwObsoleteMIB=vmwObsoleteMIB, vmwNetKbRx=vmwNetKbRx, vpxdObjValue=vpxdObjValue, vmwMemTable=vmwMemTable, vmwObsoleteMIBConformance=vmwObsoleteMIBConformance, vmwNetPktsTx=vmwNetPktsTx, vmwNetHCKbRx=vmwNetHCKbRx, vmwObsMIBGroups=vmwObsMIBGroups, vmwHbaName=vmwHbaName, vmwNetIdx=vmwNetIdx, vmwOldVCNotificationGroup=vmwOldVCNotificationGroup)
+mibBuilder.exportSymbols("VMWARE-OBSOLETE-MIB", vmwCpuVMID=vmwCpuVMID, vmwKbRead=vmwKbRead, vmwHbaIdx=vmwHbaIdx, vmwMemEntry=vmwMemEntry, vmwNetEntry=vmwNetEntry, vmwHBATable=vmwHBATable, vmwMemTable=vmwMemTable, vmwNetShares=vmwNetShares, vmwNetKbRx=vmwNetKbRx, vmwNetKbTx=vmwNetKbTx, vmwNetPktsRx=vmwNetPktsRx, vmwMemUtil=vmwMemUtil, vmHBLost=vmHBLost, vmwCpuShares=vmwCpuShares, vpxdObjValue=vpxdObjValue, vmSuspended=vmSuspended, vmwObsoleteMIBCompliances=vmwObsoleteMIBCompliances, PYSNMP_MODULE_ID=vmwObsoleteMIB, vmwNetIdx=vmwNetIdx, vpxdVMName=vpxdVMName, vmwNetHCKbTx=vmwNetHCKbTx, vmwNumReads=vmwNumReads, vmwHBAEntry=vmwHBAEntry, vmkLoaded=vmkLoaded, vmwCpuEntry=vmwCpuEntry, vmwObsMIBGroups=vmwObsMIBGroups, vmwMemConfigured=vmwMemConfigured, vmwNetName=vmwNetName, vmwNetHCKbRx=vmwNetHCKbRx, vmwNetPktsTx=vmwNetPktsTx, vpxdOldStatus=vpxdOldStatus, vpxdHostName=vpxdHostName, vmwNetIfAddr=vmwNetIfAddr, vpxdTrap=vpxdTrap, vmPoweredOn=vmPoweredOn, vmwNetHCPktsRx=vmwNetHCPktsRx, vmwMemShares=vmwMemShares, vmwMemVMID=vmwMemVMID, vmwObsoleteGroup=vmwObsoleteGroup, vmPoweredOff=vmPoweredOff, vmwNumWrites=vmwNumWrites, vpxdNewStatus=vpxdNewStatus, vmwObsoleteMIBConformance=vmwObsoleteMIBConformance, vmwHbaName=vmwHbaName, vmwCpuUtil=vmwCpuUtil, vmHBDetected=vmHBDetected, vmwObsoleteMIB=vmwObsoleteMIB, vmwNetVMID=vmwNetVMID, vmwNetHCPktsTx=vmwNetHCPktsTx, vmwOldVCNotificationGroup=vmwOldVCNotificationGroup, vmwCpuTable=vmwCpuTable, vmwDiskShares=vmwDiskShares, vmwKbWritten=vmwKbWritten, vpxdTrapType=vpxdTrapType, vmwObsoleteObsoleteMIBCompliance=vmwObsoleteObsoleteMIBCompliance, vmwNetTable=vmwNetTable, vmwHbaVMID=vmwHbaVMID)

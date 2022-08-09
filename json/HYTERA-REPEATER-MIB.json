@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "private",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
       "iso",
+      "private",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
       "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "enterprises",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "Counter32",
-      "Gauge32"
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3136,9 +3136,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hytera/HYTERA-REPEATER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:47:54 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:16:18 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HYTERA-REPEATER-MIB"
   }

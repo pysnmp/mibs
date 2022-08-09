@@ -1,0 +1,4955 @@
+LENOVO-MGR-MIB
+
+DEFINITIONS ::= BEGIN
+
+IMPORTS
+    DisplayString
+        FROM SNMPv2-TC
+    OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE, Integer32
+        FROM SNMPv2-SMI
+    MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+         FROM SNMPv2-CONF
+    enterprises
+        FROM SNMPv2-SMI;
+
+lenovoMgrMib MODULE-IDENTITY
+        LAST-UPDATED "201702090000Z"
+        ORGANIZATION "Lenovo."
+        CONTACT-INFO "Lenovo Support"
+
+        DESCRIPTION "Lenovo management event trap MIB
+                    Copyright (c) 2015- Lenovo All Rights Reserved."
+        REVISION    "201702090000Z"
+        DESCRIPTION "Lenovo management event trap MIB"
+        ::= { lenovoManager 200 }
+
+lenovoManager           OBJECT IDENTIFIER ::= { enterprises 19046 }
+mgrSNMPv2Notifications  OBJECT IDENTIFIER ::= { lenovoMgrMib 0 }
+mgrObjects              OBJECT IDENTIFIER ::= { lenovoMgrMib 1 }
+mgrConformance          OBJECT IDENTIFIER ::= { lenovoMgrMib 2 }
+
+-- Objects
+mgrTrapFullyQualifiedDomainName OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The fully qualified domain name: the hostname and the domain name."
+    ::= { mgrObjects 1 }
+
+mgrTrapSystemName OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The system name, component name and slot location."
+    ::= { mgrObjects 2 }
+
+mgrTrapDateTime OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Timestamp of Local Date and Time when alert was generated"
+    ::= { mgrObjects 3 }
+
+mgrTrapAppId OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+    "Lenovo Event Manager"
+    ::= { mgrObjects 4 }
+
+mgrTrapTxtId OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Host name or IP address of Lenovo Event Manager server that generated the trap"
+   ::= { mgrObjects 5 }
+
+mgrTrapSysContact OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "User configured system contact ID"
+   ::= { mgrObjects 6 }
+
+mgrTrapSysLocation OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "User configured system location information"
+   ::= { mgrObjects 7 }
+
+mgrTrapID OBJECT-TYPE
+    SYNTAX  Integer32 (1..65535)
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Trap ID"
+    ::= { mgrObjects 8 }
+
+mgrTrapSeverity OBJECT-TYPE
+    SYNTAX  INTEGER {
+         informationalOnlyAlert(100),
+         warning(300),
+         minor(400),
+         major(500),
+         criticalAlert(600)
+    }
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Alert Severity Value
+           - Informational Only Alert(100)
+           - Warning (300)
+           - Minor (400)
+           - Major(500)
+           - Critical Alert(600)"
+    ::= { mgrObjects 9 }
+
+mgrTrapEvtID OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Event identifier - character or 4 or 8 byte hexadecimal string"
+    ::= { mgrObjects 10 }
+
+mgrTrapMsgID OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Message identifier"
+    ::= { mgrObjects 11 }
+
+mgrTrapMsgText OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Alert Message Text - English only"
+    ::= { mgrObjects 12 }
+
+mgrTrapEventClass OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The class identifier associated with the event that caused the trap
+         - One of SYSTEM, AUDIT, COOLING, POWER, DISKS, MEMORY,
+           PROCESSORS, SYSTEM, TEST, ADAPTOR, EXPANSION,
+           IOMODULE, or BLADE"
+    ::= { mgrObjects 13 }
+
+mgrTrapUserid OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The user ID associated with the event if the event is
+         internal and event class is Audit"
+    ::= { mgrObjects 14 }
+
+mgrTrapService OBJECT-TYPE
+    SYNTAX  Integer32
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Serviceability indicator:
+         - 000 - Unknown
+         - 100 - None
+         - 200 - Service Center
+         - 300 - Customer"
+    ::= { mgrObjects 15 }
+
+mgrTrapUuid OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The UUID of the system that generated the event"
+    ::= { mgrObjects 16 }
+
+mgrTrapSN OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The serial number of the system that generated the event"
+    ::= { mgrObjects 17 }
+
+mgrTrapMtm OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The model type of the system that generated the event"
+    ::= { mgrObjects 18 }
+
+mgrTrapSrcLoc OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The source location of the system that generated the event.
+         This field is English text describing the location; e.g. Slot#xx."
+    ::= { mgrObjects 19 }
+
+mgrTrapSrcName OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The hostname or display name of the managed endpoint that
+         that generated the event."
+    ::= { mgrObjects 20 }
+
+mgrTrapSrcIP OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "The IP address of the managed endpoint from which the
+         generated event was received."
+    ::= { mgrObjects 21 }
+
+mgrTrapFailFRUs OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "A comma separated list of the failing FRU UUIDs,
+         if applicable."
+    ::= { mgrObjects 22 }
+
+mgrTrapFailSNs OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "A comma separated list of the failing FRU serial numbers,
+         if applicable."
+    ::= { mgrObjects 23 }
+
+mgrTrapCommonEvtID OBJECT-TYPE
+    SYNTAX  DisplayString
+    MAX-ACCESS read-only
+    STATUS  current
+    DESCRIPTION
+        "Common Event identifier - character or 4 or 8 byte hexadecimal string"
+    ::= { mgrObjects 24 }
+
+-- Notifications
+-- **************************************************************************
+-- Configuration Pattern configuration related traps
+-- **************************************************************************
+mgrTrapCPConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Configuration Pattern Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 1 }
+
+mgrTrapCPConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Configuration Pattern System Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 2 }
+
+-- **************************************************************************
+-- Configuration Pattern task related traps
+-- **************************************************************************
+mgrTrapCPTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Configuration Pattern Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 3 }
+
+mgrTrapCPTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Configuration Pattern System Alert: Task."
+    ::= { mgrSNMPv2Notifications 4 }
+
+-- **************************************************************************
+-- Security configuration related traps
+-- **************************************************************************
+mgrTrapSEConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Security Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 5 }
+
+mgrTrapSEConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Security System Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 6 }
+
+-- **************************************************************************
+-- Security task related traps
+-- **************************************************************************
+mgrTrapSETaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Security Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 7 }
+
+mgrTrapSETaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Security System Alert: Task."
+    ::= { mgrSNMPv2Notifications 8 }
+
+-- **************************************************************************
+-- Remote Login related Traps
+-- **************************************************************************
+mgrTrapSERemoteLoginN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Remote Login."
+    ::= { mgrSNMPv2Notifications 9 }
+
+-- **************************************************************************
+-- Service and Support configuration related traps
+-- **************************************************************************
+mgrTrapSSConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Service and Support Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 10 }
+
+mgrTrapSSConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Service and Support System Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 11 }
+
+-- **************************************************************************
+-- Service and Support task related traps
+-- **************************************************************************
+mgrTrapSSTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Service and Support Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 12 }
+
+mgrTrapSSTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Service and Support System Alert: Task."
+    ::= { mgrSNMPv2Notifications 13 }
+
+-- **************************************************************************
+-- Monitor and Event configuration related traps
+-- **************************************************************************
+mgrTrapMEConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Monitor and Event Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 14 }
+
+mgrTrapMEConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Monitor and Event System Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 15 }
+
+-- **************************************************************************
+-- Monitor and Event task related traps
+-- **************************************************************************
+mgrTrapMETaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Monitor and Event Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 16 }
+
+mgrTrapMETaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Monitor and Event System Alert: Task."
+    ::= { mgrSNMPv2Notifications 17 }
+
+mgrTrapMELogFullA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Monitor and Event System Alert: Log 100% full."
+    ::= { mgrSNMPv2Notifications 18 }
+
+mgrTrapMELogSysA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Monitor and Event System Alert: Log 80% full."
+    ::= { mgrSNMPv2Notifications 19 }
+
+
+-- **************************************************************************
+-- FlexCat configuration related traps
+-- **************************************************************************
+mgrTrapFCConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "FlexCat Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 20 }
+
+mgrTrapFCConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "FlexCat System Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 21 }
+
+-- **************************************************************************
+-- FlexCat task related traps
+-- **************************************************************************
+mgrTrapFCTaskN NOTIFICATION-TYPE
+    OBJECTS  { mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "FlexCat Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 22 }
+
+mgrTrapFCTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "FlexCat System Alert: Task."
+    ::= { mgrSNMPv2Notifications 23 }
+
+-- **************************************************************************
+-- Discovery task related traps
+-- **************************************************************************
+mgrTrapDITaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Discovery Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 25 }
+
+mgrTrapDITaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Discovery System Alert: Task."
+    ::= { mgrSNMPv2Notifications 26 }
+
+-- **************************************************************************
+-- Updates  task related traps
+-- **************************************************************************
+mgrTrapUPTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Updates Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 27 }
+
+mgrTrapUPTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Updates System Alert: Task."
+    ::= { mgrSNMPv2Notifications 28 }
+    
+-- **************************************************************************
+-- Data Management  task related traps
+-- **************************************************************************
+mgrTrapDMTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Data Management Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 29 }
+
+mgrTrapDMTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Data Management System Alert: Task."
+    ::= { mgrSNMPv2Notifications 30 }
+
+-- **************************************************************************
+-- Remote control task related traps
+-- **************************************************************************
+mgrTrapRCTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Remote Control Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 31 }
+
+mgrTrapRCTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Remote Control System Alert: Task."
+    ::= { mgrSNMPv2Notifications 32 }
+
+-- **************************************************************************
+-- LXCC Configuration Pattern configuration related traps
+-- **************************************************************************
+mgrTrapMPConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Configuration Pattern Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 33 }
+
+mgrTrapMPConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Configuration Pattern Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 34 }
+
+-- **************************************************************************
+-- LXCC Configuration Pattern task related traps
+-- **************************************************************************
+mgrTrapMPTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Configuration Pattern Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 35 }
+
+mgrTrapMPTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Configuration Pattern System Alert: Task."
+    ::= { mgrSNMPv2Notifications 36 }
+
+-- **************************************************************************
+-- LXCC Infrastructure configuration related traps
+-- **************************************************************************
+mgrTrapMIConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Infrastructure Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 37 }
+
+mgrTrapMIConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Infrastructure Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 38 }
+
+-- **************************************************************************
+-- LXCC Infrastructure task related traps
+-- **************************************************************************
+mgrTrapMITaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Infrastructure Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 39 }
+
+mgrTrapMITaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Infrastructure System Alert: Task."
+    ::= { mgrSNMPv2Notifications 40 }
+
+-- **************************************************************************
+-- LXCC Adapter configuration related traps
+-- **************************************************************************
+mgrTrapMXConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Adapter Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 41 }
+
+mgrTrapMXConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Adapter Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 42 }
+
+-- **************************************************************************
+-- LXCC Adapter task related traps
+-- **************************************************************************
+mgrTrapMXTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Infrastructure Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 43 }
+
+mgrTrapMXTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Infrastructure System Alert: Task."
+    ::= { mgrSNMPv2Notifications 44 }
+    
+-- **************************************************************************
+-- LXCC Console configuration related traps
+-- **************************************************************************
+mgrTrapMCConfigN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Console Non-Critical Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 45 }
+
+mgrTrapMCConfigA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Console Alert: Configuration change."
+    ::= { mgrSNMPv2Notifications 46 }
+
+-- **************************************************************************
+-- LXCC Console task related traps
+-- **************************************************************************
+mgrTrapMCTaskN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Console Non-Critical System Alert: Task."
+    ::= { mgrSNMPv2Notifications 47 }
+
+mgrTrapMCTaskA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LXCC Console System Alert: Task."
+    ::= { mgrSNMPv2Notifications 48 }
+
+-- **************************************************************************
+-- Default application traps
+-- **************************************************************************
+mgrTrapSysN NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical System Alert: Refer to the event identifier for the specific condition."
+    ::= { mgrSNMPv2Notifications 98 }
+
+mgrTrapSysA NOTIFICATION-TYPE
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Refer to the event identifier for the specific condition."
+    ::= { mgrSNMPv2Notifications 99 }
+
+-- **************************************************************************
+-- CMM/IMM hardware related traps
+-- **************************************************************************
+mgrTrapLdrToS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: OS Loader Timeout."
+    ::= { mgrSNMPv2Notifications 100 }
+
+mgrTrapNwChangeS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Network change notification."
+    ::= { mgrSNMPv2Notifications 101 }
+
+mgrTrapOsToS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: OS Timeout value exceeded."
+    ::= { mgrSNMPv2Notifications 102 }
+
+mgrTrapPowerN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Power."
+    ::= { mgrSNMPv2Notifications 103 }
+
+mgrTrapRLogin NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Remote Login."
+    ::= { mgrSNMPv2Notifications 104 }
+
+mgrTrapSysLogS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: System Log 75% full."
+    ::= { mgrSNMPv2Notifications 105 }
+
+mgrTrapBootSSystem NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Alert: System Boot Failure."
+    ::= { mgrSNMPv2Notifications 106 }
+
+mgrTrapCPUC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: CPU Error."
+    ::= { mgrSNMPv2Notifications 107 }
+
+mgrTrapCPUN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: CPU Error."
+    ::= { mgrSNMPv2Notifications 108 }
+
+mgrTrapFanC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Single Fan failure."
+    ::= { mgrSNMPv2Notifications 109 }
+
+mgrTrapFanN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Fan Error."
+    ::= { mgrSNMPv2Notifications 110 }
+
+mgrTrapHardwareC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Other Failure - refer to Message ID for specific condition."
+    ::= { mgrSNMPv2Notifications 111 }
+
+mgrTrapHardwareN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Warning - refer to Message ID for specific condition."
+    ::= { mgrSNMPv2Notifications 112 }
+
+mgrTrapHdC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Hard disk drive failure."
+    ::= { mgrSNMPv2Notifications 113 }
+
+mgrTrapIhcC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Incompatible hardware configuration."
+    ::= { mgrSNMPv2Notifications 114 }
+
+mgrTrapMemoryC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Memory Error."
+    ::= { mgrSNMPv2Notifications 115 }
+
+mgrTrapMemoryN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Memory Error."
+    ::= { mgrSNMPv2Notifications 116 }
+
+mgrTrapPFAS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Predictive Failure Analysis(PFA) information."
+    ::= { mgrSNMPv2Notifications 117 }
+
+mgrTrapPoffS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Power Off."
+    ::= { mgrSNMPv2Notifications 118 }
+
+mgrTrapPonS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Power On."
+    ::= { mgrSNMPv2Notifications 119 }
+
+mgrTrapPowerC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Power failure."
+    ::= { mgrSNMPv2Notifications 120 }
+
+mgrTrapRdpsC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Redundant Power Supply failure."
+    ::= { mgrSNMPv2Notifications 121 }
+
+mgrTrapRdpsN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Redundant Power Supply failure."
+    ::= { mgrSNMPv2Notifications 122 }
+
+mgrTrapTempC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Temperature threshold exceeded."
+    ::= { mgrSNMPv2Notifications 123 }
+
+mgrTrapTempN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Temperature threshold exceeded."
+    ::= { mgrSNMPv2Notifications 124 }
+
+mgrTrapVoltC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Voltage threshold exceeded."
+    ::= { mgrSNMPv2Notifications 125 }
+
+mgrTrapVoltN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Voltage threshold exceeded."
+    ::= { mgrSNMPv2Notifications 126 }
+
+mgrTrapBladeC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Blade."
+    ::= { mgrSNMPv2Notifications 127 }
+
+mgrTrapBladeN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Blade."
+    ::= { mgrSNMPv2Notifications 128 }
+
+mgrTrapBladeS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Blade."
+    ::= { mgrSNMPv2Notifications 129 }
+
+mgrTrapChassisC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: Chassis Module."
+    ::= { mgrSNMPv2Notifications 130 }
+
+mgrTrapChassisN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Chassis Module."
+    ::= { mgrSNMPv2Notifications 131 }
+
+mgrTrapChassisS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Chassis Module."
+    ::= { mgrSNMPv2Notifications 132 }
+
+mgrTrapIOC NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Critical Alert: I/O Module."
+    ::= { mgrSNMPv2Notifications 133 }
+
+mgrTrapION NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: I/O Module."
+    ::= { mgrSNMPv2Notifications 134 }
+
+mgrTrapIOS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: I/O Module."
+    ::= { mgrSNMPv2Notifications 135 }
+
+mgrTrapSysInvS NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Inventory."
+    ::= { mgrSNMPv2Notifications 136 }
+
+mgrTrapLogFullN NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Non-Critical Alert: Event Log 100% Full."
+    ::= { mgrSNMPv2Notifications 137 }
+
+-- **************************************************************************
+-- IOM related traps
+-- **************************************************************************
+ -- **************************************************************************
+-- SAL traps
+-- **************************************************************************
+mgrTrapAuditLogMsg NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "An audit log trap was received"
+    ::= { mgrSNMPv2Notifications 200 }
+    
+mgrTrapAuditLogCleared NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "All audit logs are cleared by user"
+    ::= { mgrSNMPv2Notifications 201 }
+    
+mgrTrapAuditLogFullAlert NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Audit logs nearly full"
+    ::= { mgrSNMPv2Notifications 202 }
+    
+mgrTrapAuditLogWrapAround NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Audit logs have wrapped"
+    ::= { mgrSNMPv2Notifications 203 }
+
+ -- **************************************************************************
+-- Default IOM trap
+-- **************************************************************************
+mgrTrapSwAppA NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "System Alert: Refer to the event identifier for the specific condition"
+    ::= { mgrSNMPv2Notifications 204 }
+    
+mgrTrapColdStart NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "ColdStart:The SNMP entity,supporting a notification originator application, is reinitializing itself and that its configuration may have been altered"
+    ::= { mgrSNMPv2Notifications 205 }
+
+mgrTrapWarmStart NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "WarmStart: The SNMP entity,supporting a notification originator application, is reinitializing itself and that its configuration is not altered"
+    ::= { mgrSNMPv2Notifications 206 }
+
+mgrTrapLinkDown NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LinkDown: A failure in one of the communication links."
+    ::= { mgrSNMPv2Notifications 207 }
+
+mgrTrapLinkUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The communication link is up"
+    ::= { mgrSNMPv2Notifications 208 }
+
+mgrTrapAuthenticationFailure NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "AuthenticationFailure: The sending protocol entity is the addressee of a protocol message that is not properly authenticated"
+    ::= { mgrSNMPv2Notifications 209 }
+
+mgrTrapEgpNeighborLoss NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "An EGP neighbor  for whom the sending protocol entity was an EGP peer has been marked down and the peer relationship no longer obtains"
+    ::= { mgrSNMPv2Notifications 210 }
+
+mgrTrapNewRoot NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "NewRoot: The sending agent has become the new root of the Spanning Tree."
+    ::= { mgrSNMPv2Notifications 211 }
+
+mgrTrapTopologyChange NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "TopologyChange: Is sent by a bridge when any of its configured ports change from the Learning state to the Forwarding state, or from the Forwarding state to the Blocking state"
+    ::= { mgrSNMPv2Notifications 212 }
+
+mgrTrapAltSwDefGwUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The indicated gateway is up"
+    ::= { mgrSNMPv2Notifications 213 }
+
+mgrTrapAltSwDefGwDown NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The indicated gateway is down"
+    ::= { mgrSNMPv2Notifications 214 }
+
+mgrTrapAltSwDefGwInService NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Default Gateway is in service."
+    ::= { mgrSNMPv2Notifications 215 }
+
+mgrTrapAltSwDefGwNotInService NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Default Gateway is not in service."
+    ::= { mgrSNMPv2Notifications 216 }
+
+mgrTrapAltSwVrrpNewMaster NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A VRRP routing device changed state to master"
+    ::= { mgrSNMPv2Notifications 217 }
+
+mgrTrapAltSwVrrpNewBackup NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A VRRP routing device changed state to backup"
+    ::= { mgrSNMPv2Notifications 218 }
+
+mgrTrapAltSwVrrpAuthFailure NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A VRRP routing device authentication failed."
+    ::= { mgrSNMPv2Notifications 219 }
+
+mgrTrapAltSwLoginFailure NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A user login failed"
+    ::= { mgrSNMPv2Notifications 220 }
+
+mgrTrapAltSwTempExceedThreshold NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The actual temperature reading is above the warning temperature threshold."
+    ::= { mgrSNMPv2Notifications 221 }
+
+mgrTrapAltSwValidLogin NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A user logged in to a device"
+    ::= { mgrSNMPv2Notifications 222 }
+
+mgrTrapAltSwApplyComplete NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new configuration has been applied."
+    ::= { mgrSNMPv2Notifications 223 }
+
+mgrTrapAltSwSaveComplete NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new configuration has been saved."
+    ::= { mgrSNMPv2Notifications 224 }
+
+mgrTrapAltSwFwDownloadSucess NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The firmware has been downloaded successfully."
+    ::= { mgrSNMPv2Notifications 225 }
+
+mgrTrapAltSwFwDownloadFailure NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The firmware download failed."
+    ::= { mgrSNMPv2Notifications 226 }
+
+mgrTrapAltSwStgNewRoot NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "NewRoot: The sending agent has become the new root of the Spanning Tree"
+    ::= { mgrSNMPv2Notifications 227 }
+
+mgrTrapAltSwCistNewRoot NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "NewRoot: The sending agent has become CIST - common and internal spanning tree New Root"
+    ::= { mgrSNMPv2Notifications 228 }
+
+mgrTrapAltSwStgTopologyChanged NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "There was a STG topology change."
+    ::= { mgrSNMPv2Notifications 229 }
+
+mgrTrapAltSwCistTopologyChanged NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "TopologyChange: CIST - common and internal spanning tree Topology Changed"
+    ::= { mgrSNMPv2Notifications 230 }
+
+mgrTrapAltSwHotlinksMasterUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The Master interface is active"
+    ::= { mgrSNMPv2Notifications 231 }
+
+mgrTrapAltSwHotlinksMasterDn NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The Master interface is not active"
+    ::= { mgrSNMPv2Notifications 232 }
+
+mgrTrapAltSwHotlinksBackupUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The Backup interface is active"
+    ::= { mgrSNMPv2Notifications 233 }
+
+mgrTrapAltSwHotlinksBackupDn NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The Backup interface is not active"
+    ::= { mgrSNMPv2Notifications 234 }
+
+mgrTrapAltSwHotlinksNone NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "There are no active interfaces at device"
+    ::= { mgrSNMPv2Notifications 235 }
+
+mgrTrapAltSwNtpNotServer NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "No Primary or secondary Network Time Protocol (NTP) server can not be contacted"
+    ::= { mgrSNMPv2Notifications 236 }
+
+mgrTrapAltSwNtpUpdateClock NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Received Network Time Protocol (NTP) update"
+    ::= { mgrSNMPv2Notifications 237 }
+
+mgrTrapAltSwValidLogout NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A user logged out of a device"
+    ::= { mgrSNMPv2Notifications 238 }
+
+mgrTrapAltSwStgBlockingState NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Port state is changed to blocking state"
+    ::= { mgrSNMPv2Notifications 239 }
+
+mgrTrapAltSwECMPGatewayUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "ECMP gateway is up"
+    ::= { mgrSNMPv2Notifications 240 }
+
+mgrTrapAltSwECMPGatewayDown NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "ECMP gateway is down"
+    ::= { mgrSNMPv2Notifications 241 }
+
+mgrTrapAltSwLACPPortBlocked NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LACP is operationally down and traffic is blocked on the port"
+    ::= { mgrSNMPv2Notifications 242 }
+
+mgrTrapAltSwLACPPortUnblocked NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "LACP is operationally up and traffic is no longer blocked on the port"
+    ::= { mgrSNMPv2Notifications 243 }
+
+mgrTrapAltVMGroupVMotion NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A virtual machine has moved from a port to another."
+    ::= { mgrSNMPv2Notifications 244 }
+
+mgrTrapAltVMGroupVMOnline NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "An advance provisioned virtual machine has came online."
+    ::= { mgrSNMPv2Notifications 245 }
+
+mgrTrapAltVMGroupVMVlanChange NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A virtual machine has entered into a vlan, or changed the vlan."
+    ::= { mgrSNMPv2Notifications 246 }
+
+mgrTrapAltSwTempReturnThreshold NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The switch temperature has returned below maximum safety limits."
+    ::= { mgrSNMPv2Notifications 247 }
+
+mgrTrapAltSwStackSwitchAttached NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new switch has attached to the stack."
+    ::= { mgrSNMPv2Notifications 248 }
+
+mgrTrapAltSwStackSwitchDettached NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A switch has detached from the stack."
+    ::= { mgrSNMPv2Notifications 249 }
+
+mgrTrapAltSwStackBackupPresent NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new backup switch for a stack has been set."
+    ::= { mgrSNMPv2Notifications 250 }
+
+mgrTrapAltSwStackBackupGone NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The backup switch has been made unavailable."
+    ::= { mgrSNMPv2Notifications 251 }
+
+mgrTrapAltSwStackMasterAfterInit NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The switch has become master after init."
+    ::= { mgrSNMPv2Notifications 252 }
+
+mgrTrapAltSwStackMasterFromBackup NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The switch in a stack has become master from backup."
+    ::= { mgrSNMPv2Notifications 253 }
+
+mgrTrapAltSwStackDuplicateJoinAttempt NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new switch with duplicate UUID/bay has tried to join the stack."
+    ::= { mgrSNMPv2Notifications 254 }
+
+mgrTrapAltSwStackLinkUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A stack link is up."
+    ::= { mgrSNMPv2Notifications 255 }
+
+mgrTrapAltSwStackLinkDown NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A stack link is down"
+    ::= { mgrSNMPv2Notifications 256 }
+
+mgrTrapAltSwStackXferError NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The transfer between the master and a member has terminated with error."
+    ::= { mgrSNMPv2Notifications 257 }
+
+mgrTrapAltSwStackXferSuccess NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The transfer between the master and a member has terminated with no error."
+    ::= { mgrSNMPv2Notifications 258 }
+
+mgrTrapAltSwStackSwitchTypeMismatch NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new switch of different type has attempted to join the stack."
+    ::= { mgrSNMPv2Notifications 259 }
+
+mgrTrapAltSwStackImageSlotMismatch NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The slot of the boot image of a newly attached switch does not match that of the master."
+    ::= { mgrSNMPv2Notifications 260 }
+
+mgrTrapAltSwStackImageVersMismatch NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The version of the boot image of a newly attached switch does not match that of the master."
+    ::= { mgrSNMPv2Notifications 261 }
+
+mgrTrapAltSwStackChassisTypeMismatch NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new switch in a chassis of different and incompatible type has attempted to join the stack."
+    ::= { mgrSNMPv2Notifications 262 }
+
+mgrTrapAltSwStackBcsBayMismatch NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A new switch in a BCS chassis in bay with different and incompatible port mapping has attempted to joint the stack."
+    ::= { mgrSNMPv2Notifications 263 }
+
+mgrTrapAltSwStackBootCfgMismatch NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The booted config of a newly attached switch does not match that of the master."
+    ::= { mgrSNMPv2Notifications 264 }
+
+mgrTrapAltSwStackNvramMasterJoin NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A switch which was configured as a master in NVRAM has attached to the stack."
+    ::= { mgrSNMPv2Notifications 265 }
+
+mgrTrapAltSwStackForceDetach NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The master has sent a FORCE DETACH message to a member."
+    ::= { mgrSNMPv2Notifications 266 }
+
+mgrTrapAltSwLFDPortErrdisabled NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A port is error-disabled due to excessive link flaps."
+    ::= { mgrSNMPv2Notifications 267 }
+
+mgrTrapAltSwVlagInstanceUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "vLAG instance is up."
+    ::= { mgrSNMPv2Notifications 268 }
+
+mgrTrapAltSwVlagInstanceRemoteUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "vLAG is down but remote instance is up."
+    ::= { mgrSNMPv2Notifications 269 }
+
+mgrTrapAltSwVlagInstanceLocalUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "vLAG is down but local instance is up."
+    ::= { mgrSNMPv2Notifications 270 }
+
+mgrTrapAltSwVlagInstanceDown NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "vLAG instance is down."
+    ::= { mgrSNMPv2Notifications 271 }
+
+mgrTrapAltSwVlagIslUp NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The connection between vLAG switches is up."
+    ::= { mgrSNMPv2Notifications 272 }
+
+mgrTrapVmCheckSpoofedvm NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "A spoofed VM MAC was found."
+    ::= { mgrSNMPv2Notifications 273 }
+
+mgrTrapAltSwVlagIslDown NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The connection between vLAG switches is down."
+    ::= { mgrSNMPv2Notifications 274 }
+
+mgrTrapSwOflowConnectControllerFailure NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The connection to openflow controller is broken."
+    ::= { mgrSNMPv2Notifications 275 }
+
+mgrTrapSwOflowConnectControllerSuccess NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The connection to openflow controller is successful"
+    ::= { mgrSNMPv2Notifications 276 }
+
+mgrTrapSwOflowEmergencyState NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The openflow switch moving to emergency state"
+    ::= { mgrSNMPv2Notifications 277 }
+
+mgrTrapSwOflowNoEmergencyState NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The openflow switch came out of emergency state"
+    ::= { mgrSNMPv2Notifications 278 }
+
+mgrTrapSwOflowSwitchOflowMode NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The device is working in openflow switch mode"
+    ::= { mgrSNMPv2Notifications 279 }
+
+mgrTrapSwOflowSwitcNormalMode NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The device is in normal mode"
+    ::= { mgrSNMPv2Notifications 280 }
+
+mgrTrapSwOflowSwitcFlowtableClr NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The flow table entries cleared from the device table"
+    ::= { mgrSNMPv2Notifications 281 }
+
+mgrTrapSwOflowSwitcStatsClr NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Openflow statistics being cleared from the device"
+    ::= { mgrSNMPv2Notifications 282 }
+
+mgrTrapSwOflowFlowtableEntryUnavail NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The device unable to add flow entry in openflow due to unavailablility of system resources."
+    ::= { mgrSNMPv2Notifications 283 }
+
+mgrTrapSwOflowFlowtableLimit NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The device reached its configured flow limit"
+    ::= { mgrSNMPv2Notifications 284 }
+
+mgrTrapSwOflowPortDownController NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The port operationally down by openflow controller"
+    ::= { mgrSNMPv2Notifications 285 }
+
+mgrTrapSwOflowPortUpController NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The port operationally up by openflow controller"
+    ::= { mgrSNMPv2Notifications 286 }
+
+mgrTrapSwOflowVersionNegotiationError NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The device unable to connect to controller Openflow due to bad versions, or negotiation failure"
+    ::= { mgrSNMPv2Notifications 287 }
+
+mgrTrapAltSwDefAdminDisable NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "Default admin account has been disabled."
+    ::= { mgrSNMPv2Notifications 288 }
+
+mgrTrapAltSwAcntStrngPswdNotMet NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "The configured password does not match strong password complexity."
+    ::= { mgrSNMPv2Notifications 289 }
+
+mgrTrapAltSwAcntLocked NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "An account has been locked."
+    ::= { mgrSNMPv2Notifications 290 }
+
+mgrTrapAltSwAcntUnlocked NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "An account has been unlocked."
+    ::= { mgrSNMPv2Notifications 291 }
+
+mgrTrapAltSwSNMPBlockIPTrap NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "When SNMP requests are blocked, a trap will be sent showing the blocked up."
+    ::= { mgrSNMPv2Notifications 292 }
+
+mgrTrapAltARPtablefull NOTIFICATION-TYPE
+     OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapCommonEvtID }
+    STATUS  current
+    DESCRIPTION
+        "ARP Table is full"
+    ::= { mgrSNMPv2Notifications 293 }
+
+ -- **************************************************************************
+-- Compliance statements
+-- **************************************************************************
+mgrCompliances OBJECT IDENTIFIER ::= { mgrConformance 1 }
+mgrGroups      OBJECT IDENTIFIER ::= { mgrConformance 2 }
+
+mgrCompliance  MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+        "The compliance statement for the lenovoMgrMib."
+    MODULE  -- this module
+    MANDATORY-GROUPS { mgrRequiredObjectsGroup,
+                       mgrRequiredNotificationsGroup }
+    ::= { mgrCompliances 1 }
+
+-- MIB groupings
+mgrRequiredObjectsGroup OBJECT-GROUP
+    OBJECTS { mgrTrapFullyQualifiedDomainName,
+              mgrTrapSystemName,
+              mgrTrapDateTime,
+              mgrTrapAppId,
+              mgrTrapTxtId,
+              mgrTrapSysContact,
+              mgrTrapSysLocation,
+              mgrTrapID,
+              mgrTrapMsgID,
+              mgrTrapSeverity,
+              mgrTrapEvtID,
+              mgrTrapMsgText,
+              mgrTrapEventClass,
+              mgrTrapUserid,
+              mgrTrapService,
+              mgrTrapUuid,
+              mgrTrapSN,
+              mgrTrapMtm,
+              mgrTrapSrcLoc,
+              mgrTrapSrcName,
+              mgrTrapSrcIP,
+              mgrTrapFailFRUs,
+              mgrTrapFailSNs,
+              mgrTrapCommonEvtID }
+    STATUS current
+    DESCRIPTION
+        "This group defines those MIB objects that MUST
+         be implemented by a compliant implementation."
+    ::= { mgrGroups 1 }
+
+mgrRequiredNotificationsGroup NOTIFICATION-GROUP
+     NOTIFICATIONS { mgrTrapCPConfigN,
+                    mgrTrapCPConfigA,
+                    mgrTrapCPTaskN,
+                    mgrTrapCPTaskA,
+                    mgrTrapSEConfigN,
+                    mgrTrapSEConfigA,
+                    mgrTrapSETaskN,
+                    mgrTrapSETaskA,
+                    mgrTrapSERemoteLoginN,
+                    mgrTrapSSConfigN,
+                    mgrTrapSSConfigA,
+                    mgrTrapSSTaskN,
+                    mgrTrapSSTaskA,
+                    mgrTrapMEConfigN,
+                    mgrTrapMEConfigA,
+                    mgrTrapMETaskN,
+                    mgrTrapMETaskA,
+                    mgrTrapMELogFullA,
+                    mgrTrapMELogSysA,
+                    mgrTrapFCConfigN,
+                    mgrTrapFCConfigA,
+                    mgrTrapFCTaskN,
+                    mgrTrapFCTaskA,
+                    mgrTrapDITaskN,
+                    mgrTrapDITaskA,
+                    mgrTrapUPTaskN,
+                    mgrTrapUPTaskA,
+                    mgrTrapDMTaskN,
+                    mgrTrapDMTaskA,
+                    mgrTrapRCTaskN,
+                    mgrTrapRCTaskA,
+                    mgrTrapMCTaskN,
+                    mgrTrapMCTaskA,
+                    mgrTrapMCConfigN,
+                    mgrTrapMCConfigA,
+                    mgrTrapMITaskN,
+                    mgrTrapMITaskA,
+                    mgrTrapMIConfigN,
+                    mgrTrapMIConfigA,
+                    mgrTrapMXTaskN,
+                    mgrTrapMXTaskA,
+                    mgrTrapMXConfigN,
+                    mgrTrapMXConfigA,
+                    mgrTrapMPTaskN,
+                    mgrTrapMPTaskA,
+                    mgrTrapMPConfigN,
+                    mgrTrapMPConfigA,
+                    mgrTrapSysN,
+                    mgrTrapSysA,
+                    mgrTrapLdrToS,
+                    mgrTrapNwChangeS,
+                    mgrTrapOsToS,
+                    mgrTrapPowerN,
+                    mgrTrapRLogin,
+                    mgrTrapSysLogS,
+                    mgrTrapBootSSystem,
+                    mgrTrapCPUC,
+                    mgrTrapCPUN,
+                    mgrTrapFanC,
+                    mgrTrapFanN,
+                    mgrTrapHardwareC,
+                    mgrTrapHardwareN,
+                    mgrTrapHdC,
+                    mgrTrapIhcC,
+                    mgrTrapMemoryC,
+                    mgrTrapMemoryN,
+                    mgrTrapPFAS,
+                    mgrTrapPoffS,
+                    mgrTrapPonS,
+                    mgrTrapPowerC,
+                    mgrTrapRdpsC,
+                    mgrTrapRdpsN,
+                    mgrTrapTempC,
+                    mgrTrapTempN,
+                    mgrTrapVoltC,
+                    mgrTrapVoltN,
+                    mgrTrapBladeC,
+                    mgrTrapBladeN,
+                    mgrTrapBladeS,
+                    mgrTrapChassisC,
+                    mgrTrapChassisN,
+                    mgrTrapChassisS,
+                    mgrTrapIOC,
+                    mgrTrapION,
+                    mgrTrapIOS,
+                    mgrTrapSysInvS,
+                    mgrTrapLogFullN,
+                    mgrTrapSwAppA, 
+                    mgrTrapAuditLogMsg,
+                    mgrTrapAuditLogCleared,
+                    mgrTrapAuditLogFullAlert,
+                    mgrTrapAuditLogWrapAround,
+                    mgrTrapColdStart,
+                    mgrTrapWarmStart,
+                    mgrTrapLinkDown,
+                    mgrTrapLinkUp,
+                    mgrTrapAuthenticationFailure,
+                    mgrTrapEgpNeighborLoss,
+                    mgrTrapNewRoot,
+                    mgrTrapTopologyChange,
+                    mgrTrapAltSwDefGwUp,
+                    mgrTrapAltSwDefGwDown,
+                    mgrTrapAltSwDefGwInService,
+                    mgrTrapAltSwDefGwNotInService,
+                    mgrTrapAltSwVrrpNewMaster,
+                    mgrTrapAltSwVrrpNewBackup,
+                    mgrTrapAltSwVrrpAuthFailure,
+                    mgrTrapAltSwLoginFailure,
+                    mgrTrapAltSwTempExceedThreshold,
+                    mgrTrapAltSwValidLogin,
+                    mgrTrapAltSwApplyComplete,
+                    mgrTrapAltSwSaveComplete,
+                    mgrTrapAltSwFwDownloadSucess,
+                    mgrTrapAltSwFwDownloadFailure,
+                    mgrTrapAltSwStgNewRoot,
+                    mgrTrapAltSwCistNewRoot,
+                    mgrTrapAltSwStgTopologyChanged,
+                    mgrTrapAltSwCistTopologyChanged,
+                    mgrTrapAltSwHotlinksMasterUp,
+                    mgrTrapAltSwHotlinksMasterDn,
+                    mgrTrapAltSwHotlinksBackupUp,
+                    mgrTrapAltSwHotlinksBackupDn,
+                    mgrTrapAltSwHotlinksNone,
+                    mgrTrapAltSwNtpNotServer,
+                    mgrTrapAltSwNtpUpdateClock,
+                    mgrTrapAltSwValidLogout,
+                    mgrTrapAltSwStgBlockingState,
+                    mgrTrapAltSwECMPGatewayUp,
+                    mgrTrapAltSwECMPGatewayDown,
+                    mgrTrapAltSwLACPPortBlocked,
+                    mgrTrapAltSwLACPPortUnblocked,
+                    mgrTrapAltVMGroupVMotion,
+                    mgrTrapAltVMGroupVMOnline,
+                    mgrTrapAltVMGroupVMVlanChange,
+                    mgrTrapAltSwTempReturnThreshold,
+                    mgrTrapAltSwStackSwitchAttached,
+                    mgrTrapAltSwStackSwitchDettached,
+                    mgrTrapAltSwStackBackupPresent,
+                    mgrTrapAltSwStackBackupGone,
+                    mgrTrapAltSwStackMasterAfterInit,
+                    mgrTrapAltSwStackMasterFromBackup,
+                    mgrTrapAltSwStackDuplicateJoinAttempt,
+                    mgrTrapAltSwStackLinkUp,
+                    mgrTrapAltSwStackLinkDown,
+                    mgrTrapAltSwStackXferError,
+                    mgrTrapAltSwStackXferSuccess,
+                    mgrTrapAltSwStackSwitchTypeMismatch,
+                    mgrTrapAltSwStackImageSlotMismatch,
+                    mgrTrapAltSwStackImageVersMismatch,
+                    mgrTrapAltSwStackChassisTypeMismatch,
+                    mgrTrapAltSwStackBcsBayMismatch,
+                    mgrTrapAltSwStackBootCfgMismatch,
+                    mgrTrapAltSwStackNvramMasterJoin,
+                    mgrTrapAltSwStackForceDetach,
+                    mgrTrapAltSwLFDPortErrdisabled,
+                    mgrTrapAltSwVlagInstanceUp,
+                    mgrTrapAltSwVlagInstanceRemoteUp,
+                    mgrTrapAltSwVlagInstanceLocalUp,
+                    mgrTrapAltSwVlagInstanceDown,
+                    mgrTrapAltSwVlagIslUp,
+                    mgrTrapVmCheckSpoofedvm,
+                    mgrTrapAltSwVlagIslDown,
+                    mgrTrapSwOflowConnectControllerFailure,
+                    mgrTrapSwOflowConnectControllerSuccess,
+                    mgrTrapSwOflowEmergencyState,
+                    mgrTrapSwOflowNoEmergencyState,
+                    mgrTrapSwOflowSwitchOflowMode,
+                    mgrTrapSwOflowSwitcNormalMode,
+                    mgrTrapSwOflowSwitcFlowtableClr,
+                    mgrTrapSwOflowSwitcStatsClr,
+                    mgrTrapSwOflowFlowtableEntryUnavail,
+                    mgrTrapSwOflowFlowtableLimit,
+                    mgrTrapSwOflowPortDownController,
+                    mgrTrapSwOflowPortUpController,
+                    mgrTrapSwOflowVersionNegotiationError,
+                    mgrTrapAltSwDefAdminDisable,
+                    mgrTrapAltSwAcntStrngPswdNotMet,
+                    mgrTrapAltSwAcntLocked,
+                    mgrTrapAltSwAcntUnlocked,
+                    mgrTrapAltSwSNMPBlockIPTrap,
+                    mgrTrapAltARPtablefull }
+    STATUS current
+    DESCRIPTION
+        "This group defines those notifications that MUST
+         be implemented by a compliant implementation."
+    ::= { mgrGroups 2 }
+
+END

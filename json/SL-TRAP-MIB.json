@@ -5,42 +5,42 @@
       "tftpStatus"
     ],
     "SL-ALARM-MIB": [
-      "slAlarmActive",
       "slAlarmSeverity",
       "slAlarmServiceAffect",
       "slAlarmType",
+      "slAlarmActive",
       "slAlarmIfIndex"
     ],
     "SL-EDFA-MIB": [
       "edfaIfIndex",
-      "edfaStatus",
-      "edfaOperControlMode"
+      "edfaOperControlMode",
+      "edfaStatus"
     ],
     "SL-EVENT-MIB": [
-      "slGenEventType",
-      "slEventIfIndex",
-      "slEventVal",
       "slEventType",
-      "slGenEventUser",
       "slEventInventoryType",
-      "slEventInventorySerial",
+      "slGenEventIfIndex",
+      "slGenEventUser",
+      "slEventInventoryPartnum",
+      "slEventIfIndex",
       "slGenEventVal",
       "slEventInventoryIfIndex",
+      "slEventInventorySerial",
       "slEventInventoryAction",
-      "slEventInventoryPartnum",
       "slEventUser",
-      "slGenEventIfIndex"
+      "slEventVal",
+      "slGenEventType"
     ],
     "SL-NE-MIB": [
       "packetlight"
     ],
     "SL-OPT-APS-MIB": [
-      "optApsConfigUserWorkingIndex",
-      "optApsConfigActiveConnectionRx"
+      "optApsConfigActiveConnectionRx",
+      "optApsConfigUserWorkingIndex"
     ],
     "SL-TESTS-MIB": [
-      "slTestsIfLoopType",
       "slTestsIfLoopIfIndex",
+      "slTestsIfLoopType",
       "slTestsTrapsLoopbackActive"
     ],
     "SNMPv2-CONF": [
@@ -48,20 +48,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "Integer32",
+      "MibIdentifier",
+      "Counter32",
       "Bits",
-      "IpAddress",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -246,9 +246,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:53:18 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:20:47 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "SL-TRAP-MIB"
   }

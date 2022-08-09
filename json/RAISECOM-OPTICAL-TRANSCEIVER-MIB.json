@@ -11,29 +11,29 @@
       "raisecomNotificationLocation"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "Unsigned32",
       "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "Integer32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SWITCH-TC": [
       "ClearVar"
@@ -3185,9 +3185,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-OPTICAL-TRANSCEIVER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:54:51 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:22:08 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "RAISECOM-OPTICAL-TRANSCEIVER-MIB"
   }

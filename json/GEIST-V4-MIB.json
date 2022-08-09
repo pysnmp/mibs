@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "enterprises",
       "iso",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "enterprises",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Integer32"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2594,9 +2594,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/geist/GEIST-V4-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:45:42 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:14:30 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "GEIST-V4-MIB"
   }

@@ -5,44 +5,44 @@
       "f10Experiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetPortNumber",
-      "InetAddressType",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetPortNumber",
+      "InetAutonomousSystemNumber",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "mib-2",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "iso",
       "Bits",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
       "MibIdentifier",
+      "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
+      "TEXTUAL-CONVENTION",
       "StorageType",
+      "RowPointer",
       "RowStatus",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "f10BgpM2": {
@@ -4298,9 +4298,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-BGP4-V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jul 26 16:43:26 2022",
-      "On host fv-az292-185 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.5 (main, Jul 11 2022, 14:35:34) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:12:27 2022",
+      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "FORCE10-BGP4-V2-MIB"
   }
