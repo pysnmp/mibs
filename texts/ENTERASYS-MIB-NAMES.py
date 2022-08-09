@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ENTERASYS-MIB-NAMES (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/ENTERASYS-MIB-NAMES
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:42:16 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:08:20 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, enterprises, TimeTicks, MibIdentifier, Bits, Integer32, ModuleIdentity, Gauge32, Counter64, ObjectIdentity, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "enterprises", "TimeTicks", "MibIdentifier", "Bits", "Integer32", "ModuleIdentity", "Gauge32", "Counter64", "ObjectIdentity", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, Counter64, Gauge32, IpAddress, MibIdentifier, Integer32, Bits, NotificationType, enterprises, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "Gauge32", "IpAddress", "MibIdentifier", "Integer32", "Bits", "NotificationType", "enterprises", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 etsysModuleName = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 1))
 etsysModuleName.setRevisions(('2003-11-06 15:15', '2003-10-23 17:19', '2002-06-14 16:02', '2002-06-14 14:02', '2000-11-13 21:21', '2000-10-05 13:00', '2000-04-07 00:00', '2000-03-21 00:00',))
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: etsysConformName.setDescription('Obsolete')
 etsysConformOID = ObjectIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 3, 2))
 if mibBuilder.loadTexts: etsysConformOID.setStatus('obsolete')
 if mibBuilder.loadTexts: etsysConformOID.setDescription('Obsolete')
-mibBuilder.exportSymbols("ENTERASYS-MIB-NAMES", etsysModuleName=etsysModuleName, etsysMibs=etsysMibs, etsysConformName=etsysConformName, etsysAgentCaps=etsysAgentCaps, etsysConformance=etsysConformance, etsysX509Pki=etsysX509Pki, etsysConformOID=etsysConformOID, etsysModules=etsysModules, etsysOids=etsysOids, enterasys=enterasys, etsysNamesMib=etsysNamesMib, PYSNMP_MODULE_ID=etsysModuleName)
+mibBuilder.exportSymbols("ENTERASYS-MIB-NAMES", etsysX509Pki=etsysX509Pki, etsysConformName=etsysConformName, PYSNMP_MODULE_ID=etsysModuleName, etsysModuleName=etsysModuleName, etsysConformOID=etsysConformOID, enterasys=enterasys, etsysModules=etsysModules, etsysNamesMib=etsysNamesMib, etsysAgentCaps=etsysAgentCaps, etsysMibs=etsysMibs, etsysOids=etsysOids, etsysConformance=etsysConformance)

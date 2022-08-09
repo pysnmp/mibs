@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "DLSW-MIB": [
-      "LFSize",
+      "TAddress",
       "dlswTConnOperEntry",
-      "MacAddressNC",
       "dlswTConnConfigEntry",
       "dlswTConnTcpConfigEntry",
-      "TAddress"
+      "MacAddressNC",
+      "LFSize"
     ],
     "HH3C-OID-MIB": [
       "hh3cCommon"
@@ -24,25 +24,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
+      "iso",
       "Bits",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
       "Integer32",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "iso"
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cDlswExt": {
@@ -2207,8 +2207,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SNA-DLSW-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:39:03 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:05:34 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HH3C-SNA-DLSW-EXT-MIB"

@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Bits",
-      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "enterprises",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "iso",
-      "enterprises",
-      "Unsigned32",
       "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TRAP-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks"
+      "Unsigned32",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "veeam": {
@@ -1254,8 +1254,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veeam/VEEAM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:53:15 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:16:19 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "VEEAM-MIB"

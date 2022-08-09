@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndex"
     ],
     "RADLAN-MIB": [
       "rnd"
@@ -14,26 +14,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "Integer32",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowStatus"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1353,8 +1353,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-rndApplications",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:50:54 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:14:36 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "RADLAN-rndApplications"

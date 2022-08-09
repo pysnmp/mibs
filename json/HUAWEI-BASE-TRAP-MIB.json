@@ -2,57 +2,57 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalContainedIn",
       "entPhysicalName",
-      "entPhysicalClass",
-      "entPhysicalIndex"
+      "entPhysicalContainedIn",
+      "entPhysicalIndex",
+      "entPhysicalClass"
     ],
     "HUAWEI-FLASH-MAN-MIB": [
       "hwStorageName",
-      "hwStorageSpace",
-      "hwStorageSpaceFree"
+      "hwStorageSpaceFree",
+      "hwStorageSpace"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "HUAWEI-SECURITY-STAT-MIB": [
-      "hwSecStatTrapCPU",
-      "hwSecStatTrapSlot"
+      "hwSecStatTrapSlot",
+      "hwSecStatTrapCPU"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
       "IANAItuEventType",
       "IANAItuProbableCause"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifName",
+      "ifDescr",
       "ifAdminStatus",
       "ifOperStatus",
-      "ifDescr"
+      "ifName",
+      "ifIndex"
     ],
     "ITU-ALARM-TC-MIB": [
       "ItuPerceivedSeverity"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Bits",
       "Integer32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
+      "IpAddress",
       "Counter32",
-      "Gauge32",
+      "MibIdentifier",
+      "iso",
       "Unsigned32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4120,8 +4120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BASE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:44:54 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:10:21 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-BASE-TRAP-MIB"

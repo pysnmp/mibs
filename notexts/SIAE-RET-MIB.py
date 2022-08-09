@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-RET-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-RET-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:52:13 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:15:22 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, NotificationType, ObjectIdentity, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, Counter64, TimeTicks, Unsigned32, iso, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "ObjectIdentity", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "Counter64", "TimeTicks", "Unsigned32", "iso", "IpAddress", "ModuleIdentity")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
+Unsigned32, Bits, NotificationType, MibIdentifier, IpAddress, Gauge32, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, TimeTicks, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "NotificationType", "MibIdentifier", "IpAddress", "Gauge32", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "TimeTicks", "ObjectIdentity", "Integer32")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 remElement = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 70))
 remElement.setRevisions(('2014-06-23 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
 if mibBuilder.loadTexts: remElement.setLastUpdated('201406230000Z')
@@ -34,4 +34,4 @@ remoteElementRadioBranchId = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 70, 2
 if mibBuilder.loadTexts: remoteElementRadioBranchId.setStatus('current')
 remoteElementRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 70, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: remoteElementRowStatus.setStatus('current')
-mibBuilder.exportSymbols("SIAE-RET-MIB", remElement=remElement, remoteElementGosipAddress=remoteElementGosipAddress, remoteElementEntry=remoteElementEntry, remoteElementMibVersion=remoteElementMibVersion, remoteElementType=remoteElementType, remoteElementIpAddress=remoteElementIpAddress, remoteElementTable=remoteElementTable, remoteElementLabel=remoteElementLabel, remoteElementRadioBranchId=remoteElementRadioBranchId, PYSNMP_MODULE_ID=remElement, remoteElementRowStatus=remoteElementRowStatus)
+mibBuilder.exportSymbols("SIAE-RET-MIB", remElement=remElement, remoteElementMibVersion=remoteElementMibVersion, remoteElementTable=remoteElementTable, remoteElementEntry=remoteElementEntry, PYSNMP_MODULE_ID=remElement, remoteElementLabel=remoteElementLabel, remoteElementRadioBranchId=remoteElementRadioBranchId, remoteElementGosipAddress=remoteElementGosipAddress, remoteElementIpAddress=remoteElementIpAddress, remoteElementType=remoteElementType, remoteElementRowStatus=remoteElementRowStatus)

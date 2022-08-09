@@ -11,14 +11,14 @@
       "IEEE8021PriorityValue"
     ],
     "LLDP-EXT-DOT1-V2-MIB": [
-      "LldpXdot1dcbxAppProtocol",
+      "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "LldpXdot1dcbxTrafficClassBandwidthValue",
       "lldpXdot1dcbxAdminApplicationPriorityAESelector",
+      "LldpXdot1dcbxTrafficClassValue",
+      "LldpXdot1dcbxAppSelector",
       "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
       "LldpXdot1dcbxSupportedCapacity",
-      "LldpXdot1dcbxTrafficSelectionAlgorithm",
-      "LldpXdot1dcbxAppSelector",
-      "LldpXdot1dcbxTrafficClassBandwidthValue",
-      "LldpXdot1dcbxTrafficClassValue"
+      "LldpXdot1dcbxAppProtocol"
     ],
     "LLDP-V2-MIB": [
       "lldpV2LocPortIfIndex"
@@ -28,30 +28,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "Integer32",
       "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MibIdentifier"
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DcbxMIB": {
@@ -1372,8 +1372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DCBX-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:50:00 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:13:39 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-DCBX-MIB"

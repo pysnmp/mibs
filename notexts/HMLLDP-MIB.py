@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HMLLDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmLLDP.mib
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:44:02 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:09:31 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 hmConfiguration, = mibBuilder.importSymbols("HMPRIV-MGMT-SNMP-MIB", "hmConfiguration")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, ModuleIdentity, Gauge32, Counter32, Integer32, TimeTicks, iso, ObjectIdentity, NotificationType, Unsigned32, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "ModuleIdentity", "Gauge32", "Counter32", "Integer32", "TimeTicks", "iso", "ObjectIdentity", "NotificationType", "Unsigned32", "Counter64", "IpAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, NotificationType, Gauge32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, ObjectIdentity, TimeTicks, Counter32, Bits, MibIdentifier, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "Gauge32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "ObjectIdentity", "TimeTicks", "Counter32", "Bits", "MibIdentifier", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hmLLDP = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 7))
 hmLLDP.setRevisions(('2004-11-22 00:00',))
@@ -52,4 +52,4 @@ hmLLDPStatsIfaceHirmaEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 
 if mibBuilder.loadTexts: hmLLDPStatsIfaceHirmaEntryCount.setStatus('current')
 hmLLDPStatsIfaceFDBEntryCount = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 7, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hmLLDPStatsIfaceFDBEntryCount.setStatus('current')
-mibBuilder.exportSymbols("HMLLDP-MIB", hmLLDPStatsIfTable=hmLLDPStatsIfTable, hmLLDPInterfaceTable=hmLLDPInterfaceTable, hmLLDPIfaceMaxNeighbors=hmLLDPIfaceMaxNeighbors, hmLLDPConfig=hmLLDPConfig, hmLLDPIfaceID=hmLLDPIfaceID, hmLLDPStatsIfaceFDBEntryCount=hmLLDPStatsIfaceFDBEntryCount, hmLLDPStatsIfaceTotalEntryCount=hmLLDPStatsIfaceTotalEntryCount, hmLLDPStatsIfaceID=hmLLDPStatsIfaceID, hmLLDP=hmLLDP, hmLLDPStatsIfaceHirmaEntryCount=hmLLDPStatsIfaceHirmaEntryCount, hmLLDPStatistics=hmLLDPStatistics, hmLLDPAdminStatus=hmLLDPAdminStatus, hmLLDPIfEntry=hmLLDPIfEntry, hmLLDPIfaceHirmaMode=hmLLDPIfaceHirmaMode, hmLLDPStatsIfEntry=hmLLDPStatsIfEntry, PYSNMP_MODULE_ID=hmLLDP, hmLLDPStatsIfaceTotalFDBEntryCount=hmLLDPStatsIfaceTotalFDBEntryCount, hmLLDPIfaceGroupID=hmLLDPIfaceGroupID, hmLLDPStatsIfaceIEEEEntryCount=hmLLDPStatsIfaceIEEEEntryCount, hmLLDPStatsIfaceGroupID=hmLLDPStatsIfaceGroupID, hmLLDPIfaceFDBMode=hmLLDPIfaceFDBMode)
+mibBuilder.exportSymbols("HMLLDP-MIB", hmLLDPIfaceHirmaMode=hmLLDPIfaceHirmaMode, PYSNMP_MODULE_ID=hmLLDP, hmLLDPStatsIfaceTotalFDBEntryCount=hmLLDPStatsIfaceTotalFDBEntryCount, hmLLDPStatsIfTable=hmLLDPStatsIfTable, hmLLDPStatsIfaceIEEEEntryCount=hmLLDPStatsIfaceIEEEEntryCount, hmLLDPStatsIfaceID=hmLLDPStatsIfaceID, hmLLDPConfig=hmLLDPConfig, hmLLDP=hmLLDP, hmLLDPIfEntry=hmLLDPIfEntry, hmLLDPStatsIfaceTotalEntryCount=hmLLDPStatsIfaceTotalEntryCount, hmLLDPStatsIfEntry=hmLLDPStatsIfEntry, hmLLDPAdminStatus=hmLLDPAdminStatus, hmLLDPIfaceGroupID=hmLLDPIfaceGroupID, hmLLDPStatsIfaceGroupID=hmLLDPStatsIfaceGroupID, hmLLDPIfaceMaxNeighbors=hmLLDPIfaceMaxNeighbors, hmLLDPIfaceID=hmLLDPIfaceID, hmLLDPIfaceFDBMode=hmLLDPIfaceFDBMode, hmLLDPStatsIfaceHirmaEntryCount=hmLLDPStatsIfaceHirmaEntryCount, hmLLDPInterfaceTable=hmLLDPInterfaceTable, hmLLDPStatsIfaceFDBEntryCount=hmLLDPStatsIfaceFDBEntryCount, hmLLDPStatistics=hmLLDPStatistics)

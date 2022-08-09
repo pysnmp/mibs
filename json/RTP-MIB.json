@@ -5,36 +5,36 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
       "Bits",
+      "Integer32",
+      "mib-2",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "mib-2",
       "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter32",
+      "Unsigned32",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TestAndIncr",
+      "TDomain",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TDomain",
+      "TruthValue",
       "DisplayString",
       "TAddress",
-      "TruthValue"
+      "TestAndIncr",
+      "RowStatus"
     ],
     "SYSAPPL-MIB": [
       "Utf8String"
@@ -1005,8 +1005,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RTP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:35:53 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:02:41 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "RTP-MIB"

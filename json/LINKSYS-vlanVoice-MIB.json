@@ -14,31 +14,31 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "iso",
-      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "MacAddress",
+      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress"
     ]
   },
   "vlanVoice": {
@@ -712,8 +712,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-vlanVoice-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:48:14 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:12:16 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-vlanVoice-MIB"

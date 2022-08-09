@@ -9,28 +9,28 @@
       "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Bits",
       "Integer32",
-      "Counter32",
-      "iso",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
       "Unsigned32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -269,8 +269,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-USERVLAN-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:44:55 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:10:22 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-BRAS-USERVLAN-MIB"

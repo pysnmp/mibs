@@ -13,25 +13,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "iso",
-      "IpAddress",
-      "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "sfp": {
@@ -935,8 +935,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SFP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:52:17 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:15:25 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "SIAE-SFP-MIB"

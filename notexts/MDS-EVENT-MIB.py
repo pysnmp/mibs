@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MDS-EVENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-EVENT-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:43:11 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:09:10 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 mdsLogging, = mibBuilder.importSymbols("MDS-ORBIT-SMI-MIB", "mdsLogging")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Bits, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, iso, MibIdentifier, Integer32, ObjectIdentity, IpAddress, Counter32, ModuleIdentity, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "iso", "MibIdentifier", "Integer32", "ObjectIdentity", "IpAddress", "Counter32", "ModuleIdentity", "NotificationType", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+iso, Unsigned32, IpAddress, Gauge32, MibIdentifier, Bits, ObjectIdentity, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "IpAddress", "Gauge32", "MibIdentifier", "Bits", "ObjectIdentity", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "NotificationType", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mdsEventMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 10, 4, 1))
 mdsEventMIB.setRevisions(('2018-05-16 00:00', '2013-04-22 00:00',))
 if mibBuilder.loadTexts: mdsEventMIB.setLastUpdated('201805160000Z')
@@ -40,4 +40,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mdsEventVariablesCeeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4130, 10, 4, 1, 3, 2, 2)).setObjects(("MDS-EVENT-MIB", "mdsEventName"), ("MDS-EVENT-MIB", "mdsEventInfoInCee"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mdsEventVariablesCeeGroup = mdsEventVariablesCeeGroup.setStatus('current')
-mibBuilder.exportSymbols("MDS-EVENT-MIB", mdsEventVariables=mdsEventVariables, traps0=traps0, traps=traps, mdsEventName=mdsEventName, mdsEventInfoInCee=mdsEventInfoInCee, mdsEventMIBCompliance=mdsEventMIBCompliance, mdsEventMIBCompliances=mdsEventMIBCompliances, mdsEvent=mdsEvent, mdsEventNotificationsGroup=mdsEventNotificationsGroup, mdsEventMIB=mdsEventMIB, mdsEventMIBConformance=mdsEventMIBConformance, mdsEventVariablesCeeGroup=mdsEventVariablesCeeGroup, mdsEventMIBGroups=mdsEventMIBGroups, mdsEventMIBNotifications=mdsEventMIBNotifications, mdsEventMIBObjects=mdsEventMIBObjects, PYSNMP_MODULE_ID=mdsEventMIB)
+mibBuilder.exportSymbols("MDS-EVENT-MIB", mdsEventVariablesCeeGroup=mdsEventVariablesCeeGroup, PYSNMP_MODULE_ID=mdsEventMIB, mdsEventMIBNotifications=mdsEventMIBNotifications, mdsEvent=mdsEvent, mdsEventMIBGroups=mdsEventMIBGroups, mdsEventMIBCompliance=mdsEventMIBCompliance, mdsEventMIBObjects=mdsEventMIBObjects, mdsEventName=mdsEventName, mdsEventMIB=mdsEventMIB, mdsEventMIBConformance=mdsEventMIBConformance, mdsEventMIBCompliances=mdsEventMIBCompliances, mdsEventVariables=mdsEventVariables, mdsEventNotificationsGroup=mdsEventNotificationsGroup, traps0=traps0, traps=traps, mdsEventInfoInCee=mdsEventInfoInCee)

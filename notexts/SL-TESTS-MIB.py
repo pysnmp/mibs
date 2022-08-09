@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-TESTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TESTS-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:49:45 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:13:39 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfIntervalCount, PerfTotalCount, PerfCurrentCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfTotalCount", "PerfCurrentCount")
+PerfIntervalCount, PerfCurrentCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount", "PerfTotalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter64, TimeTicks, iso, NotificationType, Gauge32, MibIdentifier, ObjectIdentity, Bits, Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "iso", "NotificationType", "Gauge32", "MibIdentifier", "ObjectIdentity", "Bits", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "Unsigned32")
-TimeStamp, RowStatus, DisplayString, DateAndTime, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "RowStatus", "DisplayString", "DateAndTime", "TextualConvention", "TruthValue")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, iso, Counter64, Unsigned32, IpAddress, Integer32, MibIdentifier, NotificationType, TimeTicks, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "iso", "Counter64", "Unsigned32", "IpAddress", "Integer32", "MibIdentifier", "NotificationType", "TimeTicks", "Gauge32", "ObjectIdentity")
+RowStatus, DateAndTime, TimeStamp, TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TimeStamp", "TruthValue", "DisplayString", "TextualConvention")
 slTests = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13))
 if mibBuilder.loadTexts: slTests.setLastUpdated('200101180000Z')
 if mibBuilder.loadTexts: slTests.setOrganization('PacketLight Networks Ltd.')
@@ -46,4 +46,4 @@ slTestsTrapsLoopbackTableChanged = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 
 if mibBuilder.loadTexts: slTestsTrapsLoopbackTableChanged.setStatus('current')
 slTestsTrapsLoopbackTableChanged0 = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 0, 2)).setObjects(("SL-TESTS-MIB", "slTestsIfLoopIfIndex"), ("SL-TESTS-MIB", "slTestsIfLoopType"), ("SL-TESTS-MIB", "slTestsTrapsLoopbackActive"))
 if mibBuilder.loadTexts: slTestsTrapsLoopbackTableChanged0.setStatus('current')
-mibBuilder.exportSymbols("SL-TESTS-MIB", slTestsIfLoopMode=slTestsIfLoopMode, slTests=slTests, slTestsTrapsLoopbackTableChanged0=slTestsTrapsLoopbackTableChanged0, slTestsTrapsLoopbackActive=slTestsTrapsLoopbackActive, slTestsIfLoopIfIndex=slTestsIfLoopIfIndex, slTestsIfLoopResult=slTestsIfLoopResult, slTestsTraps=slTestsTraps, slTestsIfLoopDuration=slTestsIfLoopDuration, PYSNMP_MODULE_ID=slTests, slTestsTrapsLoopbackTableChanged=slTestsTrapsLoopbackTableChanged, slTestsIfLoopTable=slTestsIfLoopTable, slTestsIfLoopErrors=slTestsIfLoopErrors, slTestsIfLoop=slTestsIfLoop, slTestsIfLoopType=slTestsIfLoopType, slTestsIfLoopEntry=slTestsIfLoopEntry, slTestsTraps0=slTestsTraps0, slTestsIfLoopStatus=slTestsIfLoopStatus, slTestsIfLoopPassedSeconds=slTestsIfLoopPassedSeconds)
+mibBuilder.exportSymbols("SL-TESTS-MIB", slTestsTrapsLoopbackActive=slTestsTrapsLoopbackActive, slTestsTrapsLoopbackTableChanged0=slTestsTrapsLoopbackTableChanged0, slTestsIfLoopStatus=slTestsIfLoopStatus, slTestsIfLoopTable=slTestsIfLoopTable, slTestsIfLoopType=slTestsIfLoopType, slTestsTrapsLoopbackTableChanged=slTestsTrapsLoopbackTableChanged, slTestsTraps=slTestsTraps, slTestsTraps0=slTestsTraps0, slTestsIfLoopErrors=slTestsIfLoopErrors, slTestsIfLoopResult=slTestsIfLoopResult, PYSNMP_MODULE_ID=slTests, slTestsIfLoopMode=slTestsIfLoopMode, slTestsIfLoopPassedSeconds=slTestsIfLoopPassedSeconds, slTestsIfLoopEntry=slTestsIfLoopEntry, slTests=slTests, slTestsIfLoopIfIndex=slTestsIfLoopIfIndex, slTestsIfLoopDuration=slTestsIfLoopDuration, slTestsIfLoop=slTestsIfLoop)

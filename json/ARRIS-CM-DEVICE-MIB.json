@@ -5,29 +5,29 @@
       "arrisProdIdCM"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "IpAddress",
       "OBJECT-TYPE",
       "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "arrisCmDevMib": {
@@ -186,8 +186,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-CM-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:36:59 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:03:46 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "ARRIS-CM-DEVICE-MIB"

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingCtlTestName",
+      "pingCtlOwnerIndex",
       "pingCtlEntry",
-      "pingCtlOwnerIndex"
+      "pingCtlTestName"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -14,29 +14,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "mib-2",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Bits",
       "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "iso",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
       "Unsigned32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "RowStatus",
-      "TimeStamp",
       "DisplayString",
-      "Unsigned32"
+      "Unsigned32",
+      "TimeStamp",
+      "RowStatus"
     ]
   },
   "hwDismanPing": {
@@ -1162,8 +1162,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DISMAN-PING-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:44:55 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:10:22 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-DISMAN-PING-MIB"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-MANOP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-MANOP-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:52:13 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:15:22 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, NotificationType, ObjectIdentity, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, TimeTicks, IpAddress, Unsigned32, iso, Integer32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "ObjectIdentity", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "TimeTicks", "IpAddress", "Unsigned32", "iso", "Integer32", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Unsigned32, Bits, NotificationType, MibIdentifier, IpAddress, Gauge32, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, TimeTicks, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "NotificationType", "MibIdentifier", "IpAddress", "Gauge32", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "TimeTicks", "ObjectIdentity", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 manualOperation = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 71))
 manualOperation.setRevisions(('2014-03-17 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
 if mibBuilder.loadTexts: manualOperation.setLastUpdated('201403170000Z')
@@ -42,4 +42,4 @@ manualOpActiveSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 4), Al
 if mibBuilder.loadTexts: manualOpActiveSeverityCode.setStatus('current')
 manualOpTimeOut = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 71, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 172800)).clone(2)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: manualOpTimeOut.setStatus('current')
-mibBuilder.exportSymbols("SIAE-MANOP-MIB", PYSNMP_MODULE_ID=manualOperation, manualOpTrap=manualOpTrap, manualOperation=manualOperation, manualOpActiveSeverityCode=manualOpActiveSeverityCode, manualOpValueType=manualOpValueType, manualOpMibVersion=manualOpMibVersion, manualOpRecord=manualOpRecord, manualOpActive=manualOpActive, manualOpId=manualOpId, manualOpTable=manualOpTable, manualOpIntegerVal=manualOpIntegerVal, manualOpTimeOut=manualOpTimeOut, manualOpEventTime=manualOpEventTime, manualOpObjectId=manualOpObjectId, manualOpOidVal=manualOpOidVal)
+mibBuilder.exportSymbols("SIAE-MANOP-MIB", manualOperation=manualOperation, manualOpMibVersion=manualOpMibVersion, manualOpActive=manualOpActive, manualOpEventTime=manualOpEventTime, manualOpTable=manualOpTable, manualOpRecord=manualOpRecord, manualOpObjectId=manualOpObjectId, PYSNMP_MODULE_ID=manualOperation, manualOpOidVal=manualOpOidVal, manualOpId=manualOpId, manualOpActiveSeverityCode=manualOpActiveSeverityCode, manualOpTrap=manualOpTrap, manualOpTimeOut=manualOpTimeOut, manualOpIntegerVal=manualOpIntegerVal, manualOpValueType=manualOpValueType)

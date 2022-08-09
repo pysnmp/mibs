@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "iso",
       "MibIdentifier",
-      "enterprises",
+      "Unsigned32",
       "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "enterprises",
       "Integer32",
       "Counter32",
-      "Gauge32",
-      "Counter64",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
@@ -720,8 +720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/algcom/ALGPOWER-v2",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:36:33 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:03:18 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "ALGPOWER-v2-MIB"

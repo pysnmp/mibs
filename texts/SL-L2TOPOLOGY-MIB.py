@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-L2TOPOLOGY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-L2TOPOLOGY-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:49:47 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:13:40 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfCurrentCount, PerfIntervalCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfIntervalCount", "PerfTotalCount")
+PerfIntervalCount, PerfCurrentCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount", "PerfTotalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, IpAddress, Counter32, Unsigned32, ModuleIdentity, iso, TimeTicks, Counter64, NotificationType, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "IpAddress", "Counter32", "Unsigned32", "ModuleIdentity", "iso", "TimeTicks", "Counter64", "NotificationType", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32")
-PhysAddress, TruthValue, TextualConvention, RowStatus, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TruthValue", "TextualConvention", "RowStatus", "DisplayString", "TimeStamp")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+NotificationType, TimeTicks, Gauge32, ObjectIdentity, Bits, IpAddress, Integer32, iso, ModuleIdentity, Unsigned32, Counter64, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "TimeTicks", "Gauge32", "ObjectIdentity", "Bits", "IpAddress", "Integer32", "iso", "ModuleIdentity", "Unsigned32", "Counter64", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, TimeStamp, TruthValue, DisplayString, RowStatus, PhysAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "TruthValue", "DisplayString", "RowStatus", "PhysAddress")
 slL2Topology = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 10))
 if mibBuilder.loadTexts: slL2Topology.setLastUpdated('200008280000Z')
 if mibBuilder.loadTexts: slL2Topology.setOrganization('PacketLight Networks Ltd.')
@@ -60,4 +60,4 @@ if mibBuilder.loadTexts: topologyL2ChangeTrapEnable.setDescription('Indicates wh
 topologyL2LinkChange = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 10, 2, 3))
 if mibBuilder.loadTexts: topologyL2LinkChange.setStatus('current')
 if mibBuilder.loadTexts: topologyL2LinkChange.setDescription('A topologyL2LinkChange trap is sent when the\n\t\tcontent of an instance TopologyL2LinkEntry is changed.')
-mibBuilder.exportSymbols("SL-L2TOPOLOGY-MIB", topologyL2LinkChange=topologyL2LinkChange, topologyL2LinkRemoteTid=topologyL2LinkRemoteTid, topologyL2LastChange=topologyL2LastChange, topologyL2Links=topologyL2Links, topologyL2LinkRemoteMac=topologyL2LinkRemoteMac, topologyL2ChangeTrapEnable=topologyL2ChangeTrapEnable, topologyL2LinkLocalIp=topologyL2LinkLocalIp, topologyL2LinkRemotePort=topologyL2LinkRemotePort, topologyL2Traps=topologyL2Traps, topologyL2LinkLocalTid=topologyL2LinkLocalTid, topologyL2LinkEntry=topologyL2LinkEntry, topologyL2LinkLocalPort=topologyL2LinkLocalPort, topologyL2LinkTable=topologyL2LinkTable, topologyL2LinkRemoteIp=topologyL2LinkRemoteIp, slL2Topology=slL2Topology, PYSNMP_MODULE_ID=slL2Topology, topologyL2LinkLocalMac=topologyL2LinkLocalMac)
+mibBuilder.exportSymbols("SL-L2TOPOLOGY-MIB", topologyL2LinkLocalIp=topologyL2LinkLocalIp, topologyL2Traps=topologyL2Traps, topologyL2LinkRemotePort=topologyL2LinkRemotePort, topologyL2LinkLocalMac=topologyL2LinkLocalMac, topologyL2LinkRemoteTid=topologyL2LinkRemoteTid, topologyL2LinkEntry=topologyL2LinkEntry, topologyL2LinkLocalPort=topologyL2LinkLocalPort, topologyL2LinkRemoteIp=topologyL2LinkRemoteIp, topologyL2LinkChange=topologyL2LinkChange, PYSNMP_MODULE_ID=slL2Topology, topologyL2LinkLocalTid=topologyL2LinkLocalTid, topologyL2LinkRemoteMac=topologyL2LinkRemoteMac, slL2Topology=slL2Topology, topologyL2ChangeTrapEnable=topologyL2ChangeTrapEnable, topologyL2LastChange=topologyL2LastChange, topologyL2LinkTable=topologyL2LinkTable, topologyL2Links=topologyL2Links)

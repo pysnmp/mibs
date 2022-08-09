@@ -11,34 +11,34 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysDescr",
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MibIdentifier",
-      "TimeTicks"
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeStackable": {
@@ -546,8 +546,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:42:42 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:08:45 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "EXTREME-STACKING-MIB"

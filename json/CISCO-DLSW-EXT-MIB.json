@@ -11,42 +11,42 @@
       "SAPType"
     ],
     "DLSW-MIB": [
-      "dlswTConnConfigEntry",
       "TAddress",
       "dlswCircuitEntry",
-      "dlswTConnConfigIndex",
-      "LFSize",
-      "MacAddressNC",
       "dlswTConnOperState",
+      "dlswTConnTcpConfigEntry",
       "dlswCircuitState",
-      "dlswTConnOperEntry",
+      "dlswTConnConfigEntry",
+      "MacAddressNC",
       "dlswIfEntry",
+      "dlswTConnConfigIndex",
+      "dlswTConnOperEntry",
       "DlcType",
-      "dlswTConnTcpConfigEntry"
+      "LFSize"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "iso",
       "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "IpAddress",
       "Bits",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -1927,8 +1927,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DLSW-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:12 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:07:31 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "CISCO-DLSW-EXT-MIB"

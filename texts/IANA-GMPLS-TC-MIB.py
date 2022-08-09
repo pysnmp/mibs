@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IANA-GMPLS-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-GMPLS-TC-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:35:22 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:02:11 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, NotificationType, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, mib_2, ObjectIdentity, ModuleIdentity, iso, Counter64, Bits, MibIdentifier, Unsigned32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "mib-2", "ObjectIdentity", "ModuleIdentity", "iso", "Counter64", "Bits", "MibIdentifier", "Unsigned32", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TimeTicks, Unsigned32, Counter64, iso, Gauge32, ObjectIdentity, ModuleIdentity, NotificationType, Bits, mib_2, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "Counter64", "iso", "Gauge32", "ObjectIdentity", "ModuleIdentity", "NotificationType", "Bits", "mib-2", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ianaGmpls = ModuleIdentity((1, 3, 6, 1, 2, 1, 152))
 ianaGmpls.setRevisions(('2007-02-27 00:00',))
 
@@ -47,4 +47,4 @@ class IANAGmplsAdminStatusInformationTC(TextualConvention, Bits):
     status = 'current'
     namedValues = NamedValues(("reflect", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("reserved25", 25), ("reserved26", 26), ("reserved27", 27), ("reserved28", 28), ("testing", 29), ("administrativelyDown", 30), ("deleteInProgress", 31))
 
-mibBuilder.exportSymbols("IANA-GMPLS-TC-MIB", IANAGmplsSwitchingTypeTC=IANAGmplsSwitchingTypeTC, ianaGmpls=ianaGmpls, IANAGmplsLSPEncodingTypeTC=IANAGmplsLSPEncodingTypeTC, IANAGmplsAdminStatusInformationTC=IANAGmplsAdminStatusInformationTC, PYSNMP_MODULE_ID=ianaGmpls, IANAGmplsGeneralizedPidTC=IANAGmplsGeneralizedPidTC)
+mibBuilder.exportSymbols("IANA-GMPLS-TC-MIB", ianaGmpls=ianaGmpls, IANAGmplsAdminStatusInformationTC=IANAGmplsAdminStatusInformationTC, IANAGmplsLSPEncodingTypeTC=IANAGmplsLSPEncodingTypeTC, PYSNMP_MODULE_ID=ianaGmpls, IANAGmplsSwitchingTypeTC=IANAGmplsSwitchingTypeTC, IANAGmplsGeneralizedPidTC=IANAGmplsGeneralizedPidTC)

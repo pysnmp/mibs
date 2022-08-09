@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "enterprises",
       "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
       "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "enterprises",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
@@ -2411,8 +2411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacarta/InterSeptor-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:46:44 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:11:24 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "InterSeptor-MIB"

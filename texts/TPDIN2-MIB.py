@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TPDIN2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tycon/TPDIN2-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:52:58 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:16:06 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter64, Integer32, Counter32, Gauge32, iso, ModuleIdentity, NotificationType, IpAddress, enterprises, Bits, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "Integer32", "Counter32", "Gauge32", "iso", "ModuleIdentity", "NotificationType", "IpAddress", "enterprises", "Bits", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, TimeTicks, Counter64, IpAddress, ObjectIdentity, Unsigned32, NotificationType, ModuleIdentity, Bits, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "TimeTicks", "Counter64", "IpAddress", "ObjectIdentity", "Unsigned32", "NotificationType", "ModuleIdentity", "Bits", "iso", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tpdin2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 45621, 2))
 if mibBuilder.loadTexts: tpdin2.setLastUpdated('201703031251Z')
 if mibBuilder.loadTexts: tpdin2.setOrganization('Tycon Systems')
@@ -76,4 +76,4 @@ if mibBuilder.loadTexts: temperature1.setDescription('External Temp')
 temperature2 = MibScalar((1, 3, 6, 1, 4, 1, 45621, 2, 2, 14), Tenths()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: temperature2.setStatus('current')
 if mibBuilder.loadTexts: temperature2.setDescription('Internal Temp')
-mibBuilder.exportSymbols("TPDIN2-MIB", name=name, temperature1=temperature1, voltage1=voltage1, relay3=relay3, temperature2=temperature2, tpdin2=tpdin2, current3=current3, current1=current1, current4=current4, relay1=relay1, version=version, PYSNMP_MODULE_ID=tpdin2, Tenths=Tenths, product=product, voltage4=voltage4, voltage2=voltage2, tycon=tycon, monitor=monitor, relay2=relay2, builddate=builddate, relay4=relay4, current2=current2, voltage3=voltage3)
+mibBuilder.exportSymbols("TPDIN2-MIB", voltage4=voltage4, temperature2=temperature2, builddate=builddate, version=version, name=name, voltage3=voltage3, voltage1=voltage1, current1=current1, Tenths=Tenths, monitor=monitor, voltage2=voltage2, relay3=relay3, relay1=relay1, relay4=relay4, tycon=tycon, relay2=relay2, current4=current4, tpdin2=tpdin2, PYSNMP_MODULE_ID=tpdin2, product=product, current2=current2, current3=current3, temperature1=temperature1)

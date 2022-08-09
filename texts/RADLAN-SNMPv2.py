@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module RADLAN-SNMPv2 (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-SNMPv2
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:50:51 2022
-# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 16:14:33 2022
+# On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Counter64, Counter32, MibIdentifier, ObjectIdentity, TimeTicks, Gauge32, ModuleIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "Counter32", "MibIdentifier", "ObjectIdentity", "TimeTicks", "Gauge32", "ModuleIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "Unsigned32", "iso")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Bits, ObjectIdentity, Counter32, Unsigned32, Gauge32, IpAddress, TimeTicks, MibIdentifier, iso, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ObjectIdentity", "Counter32", "Unsigned32", "Gauge32", "IpAddress", "TimeTicks", "MibIdentifier", "iso", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class TruthValue(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
@@ -25,4 +25,4 @@ class RowPointer(TextualConvention, ObjectIdentifier):
     description = 'Represents a pointer to a conceptual row.  The value is the\n         name of the instance of the first accessible columnar object\n         in the conceptual row.\n         For example, ifIndex.3 would point to the 3rd row in the\n         ifTable (note that if ifIndex were not-accessible, then\n         ifDescr.3 would be used instead).'
     status = 'current'
 
-mibBuilder.exportSymbols("RADLAN-SNMPv2", RowPointer=RowPointer, RowStatus=RowStatus, TruthValue=TruthValue)
+mibBuilder.exportSymbols("RADLAN-SNMPv2", RowStatus=RowStatus, RowPointer=RowPointer, TruthValue=TruthValue)

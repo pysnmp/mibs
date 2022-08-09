@@ -5,52 +5,52 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
+      "ifIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "NETGEAR-REF-MIB": [
       "AgentPortMask",
       "ng7000managedswitch"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
       "dot1qFdbId",
       "VlanId",
-      "dot1qVlanIndex"
+      "dot1qVlanIndex",
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
-      "iso",
-      "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "iso",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "MacAddress"
+      "MacAddress",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "fastPathSwitching": {
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:48:45 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:12:40 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"

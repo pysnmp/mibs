@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "GLOBAL-REG": [
-      "orion",
-      "modules"
+      "modules",
+      "orion"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "iso",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
       "enterprises",
-      "Integer32"
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4453,8 +4453,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/ORION-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:10 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:07:18 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "ORION-BASE-MIB"

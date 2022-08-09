@@ -5,9 +5,9 @@
       "hwDatacomm"
     ],
     "HUAWEI-VPLS-EXT-MIB": [
-      "HWEnableValue",
       "HWL2VpnVcEncapsType",
-      "HWL2VpnStateChangeReason"
+      "HWL2VpnStateChangeReason",
+      "HWEnableValue"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -16,35 +16,35 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "BITS",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "Counter32",
-      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "BITS",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hwL2VpnPwe3TnlExt": {
@@ -431,8 +431,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PWE3-TNL-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:44:54 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:10:22 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-PWE3-TNL-MIB"

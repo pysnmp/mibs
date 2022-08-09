@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "IRM-OIDS": [
-      "commonRev1",
-      "ups",
-      "subSysMMAC",
       "subSysDevice",
-      "dl"
+      "commonRev1",
+      "subSysMMAC",
+      "dl",
+      "ups"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
       "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
       "Counter32",
-      "OBJECT-TYPE"
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1517,8 +1517,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:42:20 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:08:24 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "CTRON-COMMON-MIB"

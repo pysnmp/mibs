@@ -12,30 +12,30 @@
       "ColubrisNotificationEnable"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Bits",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "iso",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "colubrisDeviceEventMIB": {
@@ -923,8 +923,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-EVENT-MIB.my",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:44:11 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:09:40 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "COLUBRIS-DEVICE-EVENT-MIB"

@@ -10,25 +10,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "MibIdentifier",
+      "Counter32",
+      "IpAddress",
       "iso",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "jnxSyslog": {
@@ -371,8 +371,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-SYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:47:55 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:12:00 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-SYSLOG-MIB"

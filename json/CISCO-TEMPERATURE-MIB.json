@@ -5,25 +5,25 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "iso",
       "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "IpAddress",
+      "Bits",
       "Integer32",
       "OBJECT-TYPE",
       "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -178,8 +178,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TEMPERATURE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:17 2022",
-      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 16:07:36 2022",
+      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "CISCO-TEMPERATURE-MIB"
