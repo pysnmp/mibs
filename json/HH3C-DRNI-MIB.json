@@ -8,38 +8,38 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "iso",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
-      "Counter64"
+      "iso"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "hh3cDrni": {
@@ -802,8 +802,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DRNI-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:10:30 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:39:04 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HH3C-DRNI-MIB"

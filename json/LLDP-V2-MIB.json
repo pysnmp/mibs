@@ -9,15 +9,15 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2PortId",
       "LldpV2SystemCapabilitiesMap",
-      "ieee802dot1mibs",
-      "LldpV2ManAddrIfSubtype",
       "LldpV2DestAddressTableIndex",
-      "LldpV2ChassisIdSubtype",
-      "LldpV2ManAddress",
+      "LldpV2PortId",
       "LldpV2PortIdSubtype",
-      "LldpV2ChassisId"
+      "ieee802dot1mibs",
+      "LldpV2ChassisId",
+      "LldpV2ManAddress",
+      "LldpV2ManAddrIfSubtype",
+      "LldpV2ChassisIdSubtype"
     ],
     "RMON2-MIB": [
       "TimeFilter",
@@ -32,28 +32,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Counter32",
       "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
       "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "IpAddress",
       "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "RowStatus",
       "TruthValue",
-      "TimeStamp"
+      "RowStatus",
+      "TimeStamp",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:07:03 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:35:36 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "LLDP-V2-MIB"

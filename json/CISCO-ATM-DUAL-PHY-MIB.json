@@ -8,8 +8,8 @@
       "InterfaceIndexOrZero"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -17,25 +17,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
-      "iso",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
       "IpAddress",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
       "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoAtmDualPhyMIB": {
@@ -328,8 +328,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-DUAL-PHY-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:12:40 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:17 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "CISCO-ATM-DUAL-PHY-MIB"

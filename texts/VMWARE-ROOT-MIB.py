@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ROOT-MIB
-# Produced by pysmi-1.1.8 at Tue Aug  9 15:24:20 2022
-# On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Aug  9 15:53:31 2022
+# On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner
 # Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, MibIdentifier, IpAddress, NotificationType, Bits, enterprises, ObjectIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "MibIdentifier", "IpAddress", "NotificationType", "Bits", "enterprises", "ObjectIdentity", "Counter64", "TimeTicks", "Gauge32")
+enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, MibIdentifier, ObjectIdentity, Gauge32, ModuleIdentity, NotificationType, Unsigned32, IpAddress, iso, Counter32, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "MibIdentifier", "ObjectIdentity", "Gauge32", "ModuleIdentity", "NotificationType", "Unsigned32", "IpAddress", "iso", "Counter32", "TimeTicks", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmware = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876))
 vmware.setRevisions(('2018-08-30 00:00', '2017-10-30 00:00', '2017-06-07 00:00', '2016-11-03 00:00', '2016-01-02 20:00', '2010-04-02 00:00', '2007-07-30 00:00',))
@@ -80,4 +80,4 @@ if mibBuilder.loadTexts: vmwDocumentation.setDescription('Used in product docume
 vmwObsolete = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 800))
 if mibBuilder.loadTexts: vmwObsolete.setStatus('current')
 if mibBuilder.loadTexts: vmwObsolete.setDescription('Conformance, meta SMI oids for Obsolete smi assignements done under this arc.')
-mibBuilder.exportSymbols("VMWARE-ROOT-MIB", vmwPerAppTunnel=vmwPerAppTunnel, vmwHCX=vmwHCX, vmwSRM=vmwSRM, vmwLdap=vmwLdap, vmwVmon=vmwVmon, vmwVirtMachines=vmwVirtMachines, vmwExperimental=vmwExperimental, PYSNMP_MODULE_ID=vmware, vmwNSXsys=vmwNSXsys, vmwObsolete=vmwObsolete, vmwareAgentCapabilities=vmwareAgentCapabilities, vmwVCHA=vmwVCHA, vmware=vmware, vmwDocumentation=vmwDocumentation, vmwNetworkInsight=vmwNetworkInsight, vmwSystem=vmwSystem, vmwOID=vmwOID, vmwNotifications=vmwNotifications, vmwProductSpecific=vmwProductSpecific, vmwTraps=vmwTraps, vmwNsxManager=vmwNsxManager, vmwResources=vmwResources)
+mibBuilder.exportSymbols("VMWARE-ROOT-MIB", vmwOID=vmwOID, vmwNSXsys=vmwNSXsys, vmwVmon=vmwVmon, vmwTraps=vmwTraps, vmwObsolete=vmwObsolete, vmwNsxManager=vmwNsxManager, vmwResources=vmwResources, vmwLdap=vmwLdap, vmwareAgentCapabilities=vmwareAgentCapabilities, vmwProductSpecific=vmwProductSpecific, vmwHCX=vmwHCX, vmwPerAppTunnel=vmwPerAppTunnel, vmwNetworkInsight=vmwNetworkInsight, vmware=vmware, vmwNotifications=vmwNotifications, vmwVirtMachines=vmwVirtMachines, vmwExperimental=vmwExperimental, vmwSystem=vmwSystem, PYSNMP_MODULE_ID=vmware, vmwDocumentation=vmwDocumentation, vmwSRM=vmwSRM, vmwVCHA=vmwVCHA)

@@ -5,17 +5,17 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-DOCS-IF-MIB": [
-      "cwdIfHeMacEntry",
-      "cwdIfHeSuStatusUpChanIfIndex",
       "cwdIfHeSuStatusMacAddress",
       "cwdIfHeSuStatusDownChanIfIndex",
-      "cwdIfHeServiceEntry",
-      "cwdIfHeSuStatusServiceId",
-      "cwdIfHeSuStatusIndex",
       "cwdIfQosProfileEntry",
-      "cwdIfHeSuStatusIpAddress",
+      "cwdIfHeSuStatusServiceId",
+      "cwdIfHeServiceEntry",
+      "cwdIfHeSuStatusEntry",
+      "cwdIfHeSuStatusUpChanIfIndex",
       "cwdIfQosProfIndex",
-      "cwdIfHeSuStatusEntry"
+      "cwdIfHeSuStatusIndex",
+      "cwdIfHeMacEntry",
+      "cwdIfHeSuStatusIpAddress"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -26,29 +26,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
-      "iso",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "Counter32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
       "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
-      "TimeStamp",
       "TruthValue",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress",
+      "RowStatus",
+      "TimeStamp",
+      "TimeInterval",
+      "DisplayString"
     ]
   },
   "ciscoWirelessDocsExtMIB": {
@@ -1717,8 +1717,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-DOCS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:12:38 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:15 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "CISCO-WIRELESS-DOCS-EXT-MIB"

@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "AXIS-ROOT-MIB": [
-      "axis",
-      "products"
+      "products",
+      "axis"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
       "Unsigned32",
-      "iso",
-      "Counter32",
-      "Gauge32",
+      "TimeTicks",
       "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-TYPE"
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -929,8 +929,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/axis/AXIS-VIDEO-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:08:51 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:37:22 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "AXIS-VIDEO-MIB"

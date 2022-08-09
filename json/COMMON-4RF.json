@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
+      "FourRFProcessResultType",
+      "FourRFFileSize",
+      "FourRFTimeZone",
+      "FourRFSerialNumber",
       "FourRFWebUserEnabled",
       "FourRFImageType",
-      "FourRFImageStatus",
-      "FourRFTimeZone",
       "FourRFWebUserGroup",
-      "FourRFProcessResultType",
-      "FourRFSerialNumber",
-      "FourRFFileSize",
-      "FourRFImageVersion",
       "FourRFResetType",
-      "FourRFTftpFileName"
+      "FourRFImageStatus",
+      "FourRFTftpFileName",
+      "FourRFImageVersion"
     ],
     "MIB-4RF": [
       "fourRFGeneric",
@@ -22,30 +22,30 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Integer32",
-      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
       "iso",
       "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:07:32 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:36:05 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "COMMON-4RF"

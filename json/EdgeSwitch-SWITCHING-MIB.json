@@ -5,16 +5,16 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "fastPath",
-      "AgentPortMask"
+      "AgentPortMask",
+      "fastPath"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -22,37 +22,37 @@
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
-      "VlanIndex",
       "dot1qVlanIndex",
-      "dot1qFdbId"
+      "dot1qFdbId",
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
       "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "iso",
+      "Counter64",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "RowStatus",
-      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "PhysAddress",
       "TruthValue"
     ]
   },
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:13:01 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:40 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
       "MibIdentifier",
-      "Counter32"
+      "Bits",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "STORMSHIELD-SMI-MIB": [
       "stormshieldMIB"
@@ -295,8 +295,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-VPNSA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:23:30 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:52:40 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "STORMSHIELD-VPNSA-MIB"

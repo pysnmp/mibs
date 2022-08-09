@@ -12,30 +12,30 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "dlinkSwErrDisableMIB": {
@@ -540,8 +540,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-ERROR-DISABLE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:12:44 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:41:23 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-ERROR-DISABLE-MIB"

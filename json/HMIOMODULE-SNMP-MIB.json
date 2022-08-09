@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "HMPRIV-MGMT-SNMP-MIB": [
-      "hmChassis",
-      "hmChassisEvent"
+      "hmChassisEvent",
+      "hmChassis"
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "IpAddress",
       "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Integer32"
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -687,8 +687,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HMIOMODULE-SNMP-MIB.mib",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:15:22 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:44:07 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "HMIOMODULE-SNMP-MIB"

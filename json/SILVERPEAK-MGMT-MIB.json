@@ -6,30 +6,30 @@
       "silverpeakMgmt"
     ],
     "SILVERPEAK-TC": [
-      "SilverpeakSeqNum",
+      "SilverpeakYesNo",
       "SilverpeakAlarmSeverity",
-      "SilverpeakYesNo"
+      "SilverpeakSeqNum"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
       "Integer32",
-      "Unsigned32",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -498,8 +498,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/silverpeak/SILVERPEAK-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:23:11 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:52:20 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "SILVERPEAK-MGMT-MIB"

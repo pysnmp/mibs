@@ -2,71 +2,71 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-FILTER-MIB": [
-      "TFilterLogId",
-      "TFilterID"
+      "TFilterID",
+      "TFilterLogId"
     ],
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "timetraSRMIBModules",
-      "tmnxSRConfs",
       "tmnxSRNotifyPrefix",
+      "tmnxSRConfs",
+      "timetraSRMIBModules",
       "tmnxSRObjs"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
-      "SdpId",
       "ServType",
-      "TdmOptionsCasTrunkFraming",
-      "TdmOptionsSigPkts"
+      "SdpId",
+      "TdmOptionsSigPkts",
+      "TdmOptionsCasTrunkFraming"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxVcType",
-      "TPolicyStatementNameOrEmpty",
-      "TmnxOperState",
       "TmnxServId",
-      "TmnxAdminState",
+      "TmnxOperState",
+      "TNamedItemOrEmpty",
+      "TmnxVcType",
       "TmnxVRtrMplsLspID",
-      "TmnxVcId",
-      "TNamedItemOrEmpty"
+      "TmnxAdminState",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxVcId"
     ],
     "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
-      "vRtrLdpStatus",
-      "vRtrID"
+      "vRtrID",
+      "vRtrLdpStatus"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "MPLS-LDP-MIB": [
-      "MplsLdpIdentifier",
-      "MplsLsrIdentifier"
+      "MplsLsrIdentifier",
+      "MplsLdpIdentifier"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "Integer32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
+      "Bits",
       "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "DisplayString",
-      "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TestAndIncr",
-      "TimeStamp"
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "timetraLdpMIBModule": {
@@ -9122,8 +9122,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:20:53 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:49:58 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-LDP-MIB"

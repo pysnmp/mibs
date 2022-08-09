@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevServerDhcp",
       "docsDevSwServer",
-      "docsDevServerTime",
       "docsDevEvLevel",
-      "docsDevEvId",
+      "docsDevServerTime",
       "docsDevEvText",
-      "docsDevSwFilename"
+      "docsDevServerDhcp",
+      "docsDevSwFilename",
+      "docsDevEvId"
     ],
     "DOCS-IF-MIB": [
       "docsIfCmStatusDocsisOperMode",
-      "docsIfCmStatusModulationType",
-      "docsIfCmtsCmStatusDocsisRegMode",
       "docsIfCmtsCmStatusModulationType",
-      "docsIfDocsisBaseCapability",
       "docsIfCmCmtsAddress",
+      "docsIfDocsisBaseCapability",
+      "docsIfCmtsCmStatusDocsisRegMode",
+      "docsIfCmStatusModulationType",
       "docsIfCmtsCmStatusMacAddress"
     ],
     "IF-MIB": [
@@ -28,25 +28,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter64",
-      "iso",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "mib-2",
-      "MODULE-IDENTITY",
       "Integer32",
-      "Gauge32"
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsDevNotifMIB": {
@@ -1485,8 +1485,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 15:07:23 2022",
-      "On host fv-az445-955 platform Linux version 5.15.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Aug  9 15:35:55 2022",
+      "On host fv-az135-436 platform Linux version 5.15.0-1014-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
     ],
     "module": "DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB"
