@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
+      "enterprises",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
       "Counter32",
       "Gauge32",
       "Counter64",
+      "Bits",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "enterprises",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -255,9 +255,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-OIDS",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 16:07:43 2022",
-      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:16:53 2022",
+      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "EATON-OIDS"
   }

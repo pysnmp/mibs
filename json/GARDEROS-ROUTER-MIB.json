@@ -1,0 +1,1514 @@
+{
+  "imports": {
+    "class": "imports",
+    "GARDEROS-SMI-MIB": [
+      "garderos"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "DisplayString"
+    ]
+  },
+  "router": {
+    "name": "router",
+    "oid": "1.3.6.1.4.1.16108.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-03-10 10:18",
+        "description": "Router"
+      }
+    ]
+  },
+  "RouterType": {
+    "name": "RouterType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "grs": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RouterComponent": {
+    "name": "RouterComponent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netd": 1,
+          "radius": 2,
+          "www": 3,
+          "ppp": 4,
+          "configd": 5,
+          "snmpd": 6,
+          "system": 7,
+          "ntpd": 8,
+          "sshd": 9,
+          "telnetd": 10,
+          "console": 11,
+          "cli": 12,
+          "dhcpd": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RouterSeverity": {
+    "name": "RouterSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "debug": 0,
+          "info": 1,
+          "error": 2,
+          "panic": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RouterSyslogSeverity": {
+    "name": "RouterSyslogSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "routerMIB": {
+    "name": "routerMIB",
+    "oid": "1.3.6.1.4.1.16108.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerNotifications": {
+    "name": "routerNotifications",
+    "oid": "1.3.6.1.4.1.16108.3.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerObjects": {
+    "name": "routerObjects",
+    "oid": "1.3.6.1.4.1.16108.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerInformation": {
+    "name": "routerInformation",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerTrap": {
+    "name": "routerTrap",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerTables": {
+    "name": "routerTables",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerDhcpIpv4Tables": {
+    "name": "routerDhcpIpv4Tables",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerLqeTables": {
+    "name": "routerLqeTables",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerWwanTables": {
+    "name": "routerWwanTables",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerDslTables": {
+    "name": "routerDslTables",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerConformance": {
+    "name": "routerConformance",
+    "oid": "1.3.6.1.4.1.16108.3.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerGroups": {
+    "name": "routerGroups",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerCompliances": {
+    "name": "routerCompliances",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "routerModuleCompliance": {
+    "name": "routerModuleCompliance",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "routerNotificationGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      },
+      {
+        "object": "routerInformationGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      },
+      {
+        "object": "routerDhcpIpv4SubnetGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      },
+      {
+        "object": "routerLqeResultGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      },
+      {
+        "object": "routerWwanModemGeneralGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      },
+      {
+        "object": "routerDslModemGeneralGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      },
+      {
+        "object": "routerTrapObjectGroup",
+        "module": "GARDEROS-ROUTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "routerInformationGroup": {
+    "name": "routerInformationGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerName"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerVersion"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerConfigAge"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerConfigType"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerConfigServer"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerKernel"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerSystemMac"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTemperature"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerSerial"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerSecureBoot"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerStartupConfigHash"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "routerName": {
+    "name": "routerName",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerVersion": {
+    "name": "routerVersion",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerConfigAge": {
+    "name": "routerConfigAge",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerConfigType": {
+    "name": "routerConfigType",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerConfigServer": {
+    "name": "routerConfigServer",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerKernel": {
+    "name": "routerKernel",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerSystemMac": {
+    "name": "routerSystemMac",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTemperature": {
+    "name": "routerTemperature",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerSerial": {
+    "name": "routerSerial",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerSecureBoot": {
+    "name": "routerSecureBoot",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerStartupConfigHash": {
+    "name": "routerStartupConfigHash",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDescription": {
+    "name": "routerDescription",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerNotificationGroup": {
+    "name": "routerNotificationGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "routerNotification": {
+    "name": "routerNotification",
+    "oid": "1.3.6.1.4.1.16108.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerName"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapSeverity"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapComponent"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapType"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapDescription"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapErrorCode"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapErrorDescription"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapSyslogSeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "routerTrapObjectGroup": {
+    "name": "routerTrapObjectGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapSeverity"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapType"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapComponent"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapDescription"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapErrorCode"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapErrorDescription"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerTrapSyslogSeverity"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerName"
+      }
+    ],
+    "status": "current"
+  },
+  "routerTrapSeverity": {
+    "name": "routerTrapSeverity",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTrapComponent": {
+    "name": "routerTrapComponent",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterComponent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTrapType": {
+    "name": "routerTrapType",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTrapDescription": {
+    "name": "routerTrapDescription",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTrapErrorCode": {
+    "name": "routerTrapErrorCode",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTrapErrorDescription": {
+    "name": "routerTrapErrorDescription",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerTrapSyslogSeverity": {
+    "name": "routerTrapSyslogSeverity",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterSyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetTable": {
+    "name": "routerDhcpIpv4SubnetTable",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetEntry": {
+    "name": "routerDhcpIpv4SubnetEntry",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDhcpIpv4SubnetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetGroup": {
+    "name": "routerDhcpIpv4SubnetGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.1011",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDhcpIpv4SubnetId"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDhcpIpv4SubnetTotalLeases"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDhcpIpv4SubnetFreeLeases"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDhcpIpv4SubnetUsedLeases"
+      }
+    ],
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetId": {
+    "name": "routerDhcpIpv4SubnetId",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetTotalLeases": {
+    "name": "routerDhcpIpv4SubnetTotalLeases",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetFreeLeases": {
+    "name": "routerDhcpIpv4SubnetFreeLeases",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetUsedLeases": {
+    "name": "routerDhcpIpv4SubnetUsedLeases",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDhcpIpv4SubnetIndex": {
+    "name": "routerDhcpIpv4SubnetIndex",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.10.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerLqeResultTable": {
+    "name": "routerLqeResultTable",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerLqeResultEntry": {
+    "name": "routerLqeResultEntry",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerLqeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "routerLqeResultGroup": {
+    "name": "routerLqeResultGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.1021",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerLqeResultName"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerLqeResultAlgorithm"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerLqeResultInterface"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerLqeResultLqi"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerLqeResultLastLqi"
+      }
+    ],
+    "status": "current"
+  },
+  "routerLqeResultName": {
+    "name": "routerLqeResultName",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerLqeResultAlgorithm": {
+    "name": "routerLqeResultAlgorithm",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerLqeResultInterface": {
+    "name": "routerLqeResultInterface",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerLqeResultLqi": {
+    "name": "routerLqeResultLqi",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerLqeResultLastLqi": {
+    "name": "routerLqeResultLastLqi",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerLqeIndex": {
+    "name": "routerLqeIndex",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.20.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerWwanModemGeneralTable": {
+    "name": "routerWwanModemGeneralTable",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerWwanModemGeneralEntry": {
+    "name": "routerWwanModemGeneralEntry",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "routerWwanModemGeneralGroup": {
+    "name": "routerWwanModemGeneralGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.1101",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanModemName"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanModemModel"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanSupportedTech"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanDialInNumber"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanApn"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanImsi"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanSimId"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanPinState"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanNetworkTech"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanCurrentTech"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanUseTech"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanBand"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanLinkQuality"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanLinkRefSigRecQuality"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanLinkRefSigRecPower"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanLinkSigIntNoiseRatio"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanLinkEcIo"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanOperatorName"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanOperatorId"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanCellIdDec"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerWwanCellIdHex"
+      }
+    ],
+    "status": "current"
+  },
+  "routerWwanModemName": {
+    "name": "routerWwanModemName",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanModemModel": {
+    "name": "routerWwanModemModel",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanSupportedTech": {
+    "name": "routerWwanSupportedTech",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanDialInNumber": {
+    "name": "routerWwanDialInNumber",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanApn": {
+    "name": "routerWwanApn",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanImsi": {
+    "name": "routerWwanImsi",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanSimId": {
+    "name": "routerWwanSimId",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanPinState": {
+    "name": "routerWwanPinState",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanNetworkTech": {
+    "name": "routerWwanNetworkTech",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanCurrentTech": {
+    "name": "routerWwanCurrentTech",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanUseTech": {
+    "name": "routerWwanUseTech",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanBand": {
+    "name": "routerWwanBand",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanLinkQuality": {
+    "name": "routerWwanLinkQuality",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanLinkRefSigRecQuality": {
+    "name": "routerWwanLinkRefSigRecQuality",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanLinkRefSigRecPower": {
+    "name": "routerWwanLinkRefSigRecPower",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanLinkSigIntNoiseRatio": {
+    "name": "routerWwanLinkSigIntNoiseRatio",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanLinkEcIo": {
+    "name": "routerWwanLinkEcIo",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanOperatorName": {
+    "name": "routerWwanOperatorName",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanOperatorId": {
+    "name": "routerWwanOperatorId",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanCellIdDec": {
+    "name": "routerWwanCellIdDec",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanCellIdHex": {
+    "name": "routerWwanCellIdHex",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerWwanIndex": {
+    "name": "routerWwanIndex",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.100.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerDslModemGeneralTable": {
+    "name": "routerDslModemGeneralTable",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "routerDslModemGeneralEntry": {
+    "name": "routerDslModemGeneralEntry",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "routerDslModemGeneralGroup": {
+    "name": "routerDslModemGeneralGroup",
+    "oid": "1.3.6.1.4.1.16108.3.1.2.1.1201",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemName"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemModel"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemSupportedTech"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemFirmware"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemStatus"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemMode"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslModemWanService"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslDslamVendor"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslUptime"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslDownRate"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslUpRate"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslDownSigNoiseRatio"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslUpSigNoiseRatio"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslDownAttenuation"
+      },
+      {
+        "module": "GARDEROS-ROUTER-MIB",
+        "object": "routerDslUpAttenuation"
+      }
+    ],
+    "status": "current"
+  },
+  "routerDslModemName": {
+    "name": "routerDslModemName",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslModemModel": {
+    "name": "routerDslModemModel",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslModemSupportedTech": {
+    "name": "routerDslModemSupportedTech",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslModemFirmware": {
+    "name": "routerDslModemFirmware",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslModemStatus": {
+    "name": "routerDslModemStatus",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslModemMode": {
+    "name": "routerDslModemMode",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslModemWanService": {
+    "name": "routerDslModemWanService",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslDslamVendor": {
+    "name": "routerDslDslamVendor",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslUptime": {
+    "name": "routerDslUptime",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslDownRate": {
+    "name": "routerDslDownRate",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslUpRate": {
+    "name": "routerDslUpRate",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslDownSigNoiseRatio": {
+    "name": "routerDslDownSigNoiseRatio",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslUpSigNoiseRatio": {
+    "name": "routerDslUpSigNoiseRatio",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslDownAttenuation": {
+    "name": "routerDslDownAttenuation",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslUpAttenuation": {
+    "name": "routerDslUpAttenuation",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "routerDslIndex": {
+    "name": "routerDslIndex",
+    "oid": "1.3.6.1.4.1.16108.3.1.1.1000.200.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/garderos/GARDEROS-ROUTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:18:45 2022",
+      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+    ],
+    "module": "GARDEROS-ROUTER-MIB"
+  }
+}

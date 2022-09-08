@@ -6,43 +6,43 @@
     ],
     "ARUBA-TC": [
       "ArubaCardType",
-      "ArubaSwitchRole",
-      "ArubaActiveState"
+      "ArubaActiveState",
+      "ArubaSwitchRole"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "snmpModules",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "Counter64",
-      "Integer32",
       "Gauge32",
       "Unsigned32",
-      "iso",
-      "Counter32",
-      "snmpModules",
-      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TAddress",
-      "RowStatus",
-      "TestAndIncr",
-      "TDomain",
-      "PhysAddress",
       "TEXTUAL-CONVENTION",
       "StorageType",
-      "TimeInterval",
-      "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "MacAddress"
+      "TimeInterval",
+      "TAddress",
+      "PhysAddress",
+      "MacAddress",
+      "TestAndIncr",
+      "TDomain",
+      "DisplayString"
     ]
   },
   "wlsxSystemExtMIB": {
@@ -1671,9 +1671,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SYSTEMEXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Aug  9 16:03:47 2022",
-      "On host fv-az208-754 platform Linux version 5.15.0-1014-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  2 2022, 15:19:40) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:11:23 2022",
+      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "WLSX-SYSTEMEXT-MIB"
   }
