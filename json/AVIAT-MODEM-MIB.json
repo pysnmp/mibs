@@ -9,29 +9,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "iso",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "TimeTicks"
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ],
     "STXN-GLOBALREGISTER-MIB": [
       "aviatModules"
@@ -720,8 +720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-MODEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:47:39 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:11:20 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "AVIAT-MODEM-MIB"

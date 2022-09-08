@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HALON-SP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/halon/HALON-SP-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:53:26 2022
-# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 10:17:52 2022
+# On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier, Bits, NotificationType, ObjectIdentity, Gauge32, Counter64, Unsigned32, ModuleIdentity, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier", "Bits", "NotificationType", "ObjectIdentity", "Gauge32", "Counter64", "Unsigned32", "ModuleIdentity", "Counter32", "iso")
+iso, TimeTicks, ModuleIdentity, Gauge32, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, enterprises, Integer32, Unsigned32, ObjectIdentity, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "ModuleIdentity", "Gauge32", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "enterprises", "Integer32", "Unsigned32", "ObjectIdentity", "Counter32", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 halonSecuritySP = ModuleIdentity((1, 3, 6, 1, 4, 1, 33234, 1, 1))
 halonSecuritySP.setRevisions(('2013-02-07 11:32',))
@@ -59,4 +59,4 @@ if mibBuilder.loadTexts: statCreated.setDescription('Unix timestamp when created
 statUpdated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: statUpdated.setStatus('current')
 if mibBuilder.loadTexts: statUpdated.setDescription('Unix timestamp when last updated')
-mibBuilder.exportSymbols("HALON-SP-MIB", statKey1Index=statKey1Index, statTable=statTable, PYSNMP_MODULE_ID=halonSecuritySP, halonSecuritySP=halonSecuritySP, statEntry=statEntry, statKey3Index=statKey3Index, statCreated=statCreated, halonSecurityProducts=halonSecurityProducts, configurationRevision=configurationRevision, halonSecuritySPObjects=halonSecuritySPObjects, quarantinedMessages=quarantinedMessages, mailQueueLength=mailQueueLength, statKey2Index=statKey2Index, statUpdated=statUpdated, halonSecurity=halonSecurity, serialNumber=serialNumber, statCount=statCount)
+mibBuilder.exportSymbols("HALON-SP-MIB", statCount=statCount, mailQueueLength=mailQueueLength, statEntry=statEntry, configurationRevision=configurationRevision, PYSNMP_MODULE_ID=halonSecuritySP, quarantinedMessages=quarantinedMessages, halonSecuritySPObjects=halonSecuritySPObjects, halonSecuritySP=halonSecuritySP, statUpdated=statUpdated, statKey2Index=statKey2Index, statCreated=statCreated, serialNumber=serialNumber, halonSecurityProducts=halonSecurityProducts, statKey1Index=statKey1Index, halonSecurity=halonSecurity, statKey3Index=statKey3Index, statTable=statTable)

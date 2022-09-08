@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module RADLAN-LLDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-LLDP-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:59:26 2022
-# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 10:24:24 2022
+# On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
 TruthValue, = mibBuilder.importSymbols("RADLAN-SNMPv2", "TruthValue")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, Unsigned32, MibIdentifier, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, ModuleIdentity, TimeTicks, IpAddress, iso, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "MibIdentifier", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "ModuleIdentity", "TimeTicks", "IpAddress", "iso", "Gauge32", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+iso, Gauge32, Counter32, IpAddress, Integer32, ModuleIdentity, Counter64, MibIdentifier, ObjectIdentity, Unsigned32, TimeTicks, NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "Counter32", "IpAddress", "Integer32", "ModuleIdentity", "Counter64", "MibIdentifier", "ObjectIdentity", "Unsigned32", "TimeTicks", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rlLldp = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 110))
 rlLldp.setRevisions(('2005-06-20 00:00',))
 
@@ -25,4 +25,4 @@ if mibBuilder.loadTexts: rlLldp.setDescription('This private MIB module adds MIB
 rlLldpEnabled = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1), TruthValue()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlLldpEnabled.setStatus('current')
 if mibBuilder.loadTexts: rlLldpEnabled.setDescription("Setting this variable to 'true' will globally enable the LLDP feature\n             (both transmit and receive functionalities). Setting this variable\n             to 'false' will globally disable the LLDP feature. Thus, the\n             administratively desired status of a local port is determined by\n             both this variable and the MIB lldpPortConfigAdminStatus.")
-mibBuilder.exportSymbols("RADLAN-LLDP-MIB", PYSNMP_MODULE_ID=rlLldp, rlLldpEnabled=rlLldpEnabled, rlLldp=rlLldp)
+mibBuilder.exportSymbols("RADLAN-LLDP-MIB", PYSNMP_MODULE_ID=rlLldp, rlLldp=rlLldp, rlLldpEnabled=rlLldpEnabled)

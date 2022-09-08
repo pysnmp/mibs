@@ -5,48 +5,48 @@
       "ciscoMgmt"
     ],
     "CISCO-UNIFIED-COMPUTING-FAULT-MIB": [
-      "cucsFaultType",
-      "cucsFaultSeverity",
-      "cucsFaultAffectedObjectDn",
-      "cucsFaultCode",
       "cucsFaultOccur",
+      "cucsFaultAffectedObjectDn",
+      "cucsFaultSeverity",
+      "cucsFaultDescription",
+      "cucsFaultCreationTime",
       "cucsFaultAffectedObjectId",
       "cucsFaultProbableCause",
       "cucsFaultLastModificationTime",
-      "cucsFaultDescription",
-      "cucsFaultCreationTime"
+      "cucsFaultType",
+      "cucsFaultCode"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIBObjects",
       "ciscoUnifiedComputingMIB"
     ],
     "CISCO-UNIFIED-COMPUTING-NOTIFS-MIB": [
-      "cucsFaultClearNotif",
-      "cucsFaultActiveNotif"
+      "cucsFaultActiveNotif",
+      "cucsFaultClearNotif"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Counter32",
       "IpAddress",
       "OBJECT-TYPE",
-      "Integer32",
       "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "iso",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoUnifiedComputingMIBConform": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFORM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:51:19 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:15:22 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CONFORM-MIB"

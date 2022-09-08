@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Bits",
-      "Integer32"
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -55,8 +55,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DEBUGCAPABILITIES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:56:56 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:21:41 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-DEBUGCAPABILITIES-MIB"

@@ -7,32 +7,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "Gauge32",
-      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "Opaque",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "Counter32",
       "Integer32",
-      "Opaque",
       "IpAddress",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE"
+      "enterprises"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "arrayNetworks": {
@@ -3855,8 +3855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arraynetworks/CA-SNMP-MIB8",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:47:17 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:10:56 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CA-SNMP-MIB8"

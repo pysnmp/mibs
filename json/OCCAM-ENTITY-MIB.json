@@ -8,40 +8,40 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "enterprises",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
       "MODULE-IDENTITY",
+      "Gauge32",
       "IpAddress",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TDomain",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "AutonomousType",
-      "RowPointer",
-      "TruthValue",
       "TimeStamp",
-      "DisplayString",
       "TAddress",
-      "MacAddress"
+      "AutonomousType",
+      "MacAddress",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "PhysAddress",
+      "DateAndTime",
+      "TDomain",
+      "TruthValue"
     ]
   },
   "entityMIB": {
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:48:17 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:11:53 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "OCCAM-ENTITY-MIB"

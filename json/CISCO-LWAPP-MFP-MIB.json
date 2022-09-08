@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApSysMacAddress",
-      "cLApName",
+      "cLApIfSmtDot11Bssid",
       "cLApDot11IfSlotId",
-      "cLApIfSmtDot11Bssid"
+      "cLApSysMacAddress",
+      "cLApName"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLMfpVersion",
-      "CLMfpEventType",
       "CLTimeBaseStatus",
-      "CLEventFrames"
+      "CLMfpEventType",
+      "CLEventFrames",
+      "CLMfpVersion"
     ],
     "CISCO-LWAPP-WLAN-MIB": [
       "cLWlanIndex"
@@ -24,31 +24,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Counter32",
       "IpAddress",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
       "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "ciscoLwappMfpMIB": {
@@ -1029,8 +1029,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MFP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:51:20 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:15:22 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-LWAPP-MFP-MIB"

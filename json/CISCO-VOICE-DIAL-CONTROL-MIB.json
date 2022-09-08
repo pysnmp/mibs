@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "CISCO-DIAL-CONTROL-MIB": [
-      "cCallHistoryCallOrigin",
-      "cCallHistoryIndex"
+      "cCallHistoryIndex",
+      "cCallHistoryCallOrigin"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
-      "CvcCoderTypeRate",
-      "CvcSpeechCoderRate",
-      "cvCommonDcCallHistoryCoderTypeRate",
-      "CvcCallReferenceIdOrZero",
       "CvcInBandSignaling",
       "CvcGUid",
-      "CvcFaxTransmitRate"
+      "CvcFaxTransmitRate",
+      "CvcCallReferenceIdOrZero",
+      "cvCommonDcCallHistoryCoderTypeRate",
+      "CvcSpeechCoderRate",
+      "CvcCoderTypeRate"
     ],
     "CISCO-VOICE-DNIS-MIB": [
       "DnisMapname"
     ],
     "DIAL-CONTROL-MIB": [
-      "callActiveIndex",
-      "callActivePeerId",
-      "callActiveSetupTime",
       "AbsoluteCounter32",
+      "callActiveSetupTime",
+      "callActivePeerId",
+      "callActiveIndex",
       "callActivePeerAddress"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -43,33 +43,33 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Counter32",
       "IpAddress",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TruthValue",
       "DateAndTime",
+      "PhysAddress",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ciscoVoiceDialControlMIB": {
@@ -8939,8 +8939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VOICE-DIAL-CONTROL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:51:20 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:15:22 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-VOICE-DIAL-CONTROL-MIB"

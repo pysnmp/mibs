@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WATCHGUARD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/WATCHGUARD-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:57:49 2022
-# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 10:22:31 2022
+# On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, IpAddress, Unsigned32, TimeTicks, ObjectIdentity, ModuleIdentity, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, MibIdentifier, NotificationType, Integer32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "Unsigned32", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "MibIdentifier", "NotificationType", "Integer32", "enterprises")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Integer32, ModuleIdentity, ObjectIdentity, Counter32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, IpAddress, Counter64, Gauge32, MibIdentifier, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "ModuleIdentity", "ObjectIdentity", "Counter32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "IpAddress", "Counter64", "Gauge32", "MibIdentifier", "Bits", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 watchguard = MibIdentifier((1, 3, 6, 1, 4, 1, 3097))
 wgProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1))
 fbXSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4))
@@ -30,4 +30,4 @@ fbX6500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 13))
 fbX8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 14))
 fbX8500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 15))
 fbX8500e_F = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 16)).setLabel("fbX8500e-F")
-mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX8500e_F=fbX8500e_F, fbX5000=fbX5000, fbX2500=fbX2500, watchguard=watchguard, fbX6000=fbX6000, fbX5500e=fbX5500e, fbX1250e=fbX1250e, fbX8500e=fbX8500e, wgProducts=wgProducts, fbX1000=fbX1000, fbX550e=fbX550e, fbX750e_4=fbX750e_4, fbX1250e_4=fbX1250e_4, fbX700=fbX700, fbX8000=fbX8000, fbXSeries=fbXSeries, fbX500=fbX500, fbX6500e=fbX6500e, fbX750e=fbX750e)
+mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX750e=fbX750e, fbX8000=fbX8000, fbX1250e_4=fbX1250e_4, fbX500=fbX500, fbX6000=fbX6000, fbX5500e=fbX5500e, fbX6500e=fbX6500e, fbX1000=fbX1000, fbX1250e=fbX1250e, fbX750e_4=fbX750e_4, fbX5000=fbX5000, fbXSeries=fbXSeries, wgProducts=wgProducts, watchguard=watchguard, fbX8500e_F=fbX8500e_F, fbX8500e=fbX8500e, fbX550e=fbX550e, fbX700=fbX700, fbX2500=fbX2500)

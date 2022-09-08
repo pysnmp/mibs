@@ -6,41 +6,41 @@
     ],
     "OSPF-MIB": [
       "ospfIfEntry",
-      "ospfVirtNbrEntry",
-      "ospfAreaEntry",
       "ospfNbrEntry",
-      "ospfVirtIfEntry",
-      "ospfExtLsdbEntry",
       "ospfAreaAggregateEntry",
-      "ospfAreaId"
+      "ospfVirtIfEntry",
+      "ospfAreaEntry",
+      "ospfAreaId",
+      "ospfVirtNbrEntry",
+      "ospfExtLsdbEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "iso",
-      "Counter32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Unsigned32"
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
@@ -3103,8 +3103,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-OSPF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:58:37 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:23:19 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-OSPF-MIB"

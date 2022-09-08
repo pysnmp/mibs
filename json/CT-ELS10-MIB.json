@@ -3,16 +3,16 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "dot1dStpPortDesignatedCost",
-      "dot1dStpPortDesignatedBridge",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpForwardDelay",
-      "dot1dStpRootPort",
+      "dot1dStpRootCost",
       "dot1dStpPortState",
       "dot1dStpDesignatedRoot",
-      "dot1dStpPortDesignatedRoot",
+      "dot1dStpRootPort",
+      "dot1dStpForwardDelay",
+      "dot1dStpHelloTime",
+      "dot1dStpPortDesignatedBridge",
+      "dot1dStpPortDesignatedPort",
       "dot1dStpMaxAge",
-      "dot1dStpRootCost",
-      "dot1dStpHelloTime"
+      "dot1dStpPortDesignatedRoot"
     ],
     "IF-MIB": [
       "ifOutErrors",
@@ -27,26 +27,26 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "Integer32",
+      "TRAP-TYPE",
+      "Counter64",
       "IpAddress",
       "Counter32",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "TRAP-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "enterprises",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "PhysAddress"
     ]
   },
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:52:18 2022",
-      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:16:31 2022",
+      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CT-ELS10-MIB"
