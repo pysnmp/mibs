@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-CIMOM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-CIMOM-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:30:38 2022
-# On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 10:01:44 2022
+# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, Unsigned32, IpAddress, Counter64, MibIdentifier, Counter32, TimeTicks, Gauge32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "Unsigned32", "IpAddress", "Counter64", "MibIdentifier", "Counter32", "TimeTicks", "Gauge32", "Bits", "iso")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, ModuleIdentity, Bits, NotificationType, ObjectIdentity, Unsigned32, IpAddress, MibIdentifier, Gauge32, Counter64, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "Bits", "NotificationType", "ObjectIdentity", "Unsigned32", "IpAddress", "MibIdentifier", "Gauge32", "Counter64", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwEnvIndicationTime, = mibBuilder.importSymbols("VMWARE-ENV-MIB", "vmwEnvIndicationTime")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
@@ -39,4 +39,4 @@ vmwCimOmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 90, 2,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwCimOmNotificationGroup = vmwCimOmNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwCimOmNotificationGroup.setDescription('Notifications related to CIM Object Manager subsystem.')
-mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOm=vmwCimOm, vmwCimOmMIBGroups=vmwCimOmMIBGroups, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance)
+mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmMIBConformance=vmwCimOmMIBConformance, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOm=vmwCimOm, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOmMIBGroups=vmwCimOmMIBGroups)

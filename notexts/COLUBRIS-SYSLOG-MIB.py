@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module COLUBRIS-SYSLOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SYSLOG-MIB.my
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:19:52 2022
-# On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 09:53:47 2022
+# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
 ColubrisNotificationEnable, = mibBuilder.importSymbols("COLUBRIS-TC", "ColubrisNotificationEnable")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Integer32, ModuleIdentity, NotificationType, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, IpAddress, MibIdentifier, TimeTicks, Counter64, iso, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "NotificationType", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "IpAddress", "MibIdentifier", "TimeTicks", "Counter64", "iso", "Unsigned32", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Unsigned32, IpAddress, MibIdentifier, ObjectIdentity, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, iso, TimeTicks, Integer32, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "IpAddress", "MibIdentifier", "ObjectIdentity", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "iso", "TimeTicks", "Integer32", "ModuleIdentity", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubrisSyslogMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 3))
 if mibBuilder.loadTexts: colubrisSyslogMIB.setLastUpdated('200402100000Z')
 if mibBuilder.loadTexts: colubrisSyslogMIB.setOrganization('Colubris Networks, Inc.')
@@ -61,4 +61,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 colubrisSyslogNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 8744, 5, 3, 3, 2, 2)).setObjects(("COLUBRIS-SYSLOG-MIB", "syslogSeverityNotification"), ("COLUBRIS-SYSLOG-MIB", "syslogRegExMatchNotification"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisSyslogNotificationGroup = colubrisSyslogNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("COLUBRIS-SYSLOG-MIB", syslogConfig=syslogConfig, syslogRegExMatchNotificationEnabled=syslogRegExMatchNotificationEnabled, syslogSeverityLevel=syslogSeverityLevel, syslogMsgNumber=syslogMsgNumber, syslogTrapSeverityLevel=syslogTrapSeverityLevel, colubrisSyslogMIBObjects=colubrisSyslogMIBObjects, colubrisSyslogNotificationGroup=colubrisSyslogNotificationGroup, colubrisSyslogMIBCompliances=colubrisSyslogMIBCompliances, syslogMsgFacility=syslogMsgFacility, syslogMsgText=syslogMsgText, colubrisSyslogMIBNotifications=colubrisSyslogMIBNotifications, syslogRegExMatchNotification=syslogRegExMatchNotification, SyslogSeverity=SyslogSeverity, PYSNMP_MODULE_ID=colubrisSyslogMIB, syslogSeverityNotification=syslogSeverityNotification, syslogSeverityNotificationEnabled=syslogSeverityNotificationEnabled, colubrisSyslogMIBNotificationPrefix=colubrisSyslogMIBNotificationPrefix, colubrisSyslogMIB=colubrisSyslogMIB, colubrisSyslogMIBConformance=colubrisSyslogMIBConformance, syslogMsgSeverity=syslogMsgSeverity, colubrisSyslogMIBGroups=colubrisSyslogMIBGroups, colubrisSyslogMIBCompliance=colubrisSyslogMIBCompliance, colubrisSyslogMIBGroup=colubrisSyslogMIBGroup, syslogMessageRegEx=syslogMessageRegEx, syslogMessage=syslogMessage)
+mibBuilder.exportSymbols("COLUBRIS-SYSLOG-MIB", syslogConfig=syslogConfig, colubrisSyslogNotificationGroup=colubrisSyslogNotificationGroup, syslogSeverityLevel=syslogSeverityLevel, colubrisSyslogMIBGroup=colubrisSyslogMIBGroup, syslogTrapSeverityLevel=syslogTrapSeverityLevel, syslogMsgFacility=syslogMsgFacility, syslogRegExMatchNotification=syslogRegExMatchNotification, syslogRegExMatchNotificationEnabled=syslogRegExMatchNotificationEnabled, syslogSeverityNotificationEnabled=syslogSeverityNotificationEnabled, colubrisSyslogMIBConformance=colubrisSyslogMIBConformance, colubrisSyslogMIBCompliances=colubrisSyslogMIBCompliances, syslogMsgSeverity=syslogMsgSeverity, syslogSeverityNotification=syslogSeverityNotification, colubrisSyslogMIBNotifications=colubrisSyslogMIBNotifications, syslogMessageRegEx=syslogMessageRegEx, colubrisSyslogMIBObjects=colubrisSyslogMIBObjects, syslogMessage=syslogMessage, colubrisSyslogMIBNotificationPrefix=colubrisSyslogMIBNotificationPrefix, colubrisSyslogMIBCompliance=colubrisSyslogMIBCompliance, SyslogSeverity=SyslogSeverity, colubrisSyslogMIBGroups=colubrisSyslogMIBGroups, syslogMsgNumber=syslogMsgNumber, colubrisSyslogMIB=colubrisSyslogMIB, syslogMsgText=syslogMsgText, PYSNMP_MODULE_ID=colubrisSyslogMIB)

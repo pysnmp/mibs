@@ -5,33 +5,33 @@
       "hpnicfCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter32"
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hpnicfPos": {
@@ -893,8 +893,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-PPP-OVER-SONET-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:22:15 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:55:23 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-PPP-OVER-SONET-MIB"

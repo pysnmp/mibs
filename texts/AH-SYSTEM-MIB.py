@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AH-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:10:25 2022
-# On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 09:46:40 2022
+# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
 ahProduct, = mibBuilder.importSymbols("AH-SMI-MIB", "ahProduct")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter64, Integer32, Gauge32, Unsigned32, MibIdentifier, Counter32, NotificationType, Bits, TimeTicks, ModuleIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Integer32", "Gauge32", "Unsigned32", "MibIdentifier", "Counter32", "NotificationType", "Bits", "TimeTicks", "ModuleIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+ModuleIdentity, Bits, iso, ObjectIdentity, Integer32, Unsigned32, IpAddress, Counter32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "iso", "ObjectIdentity", "Integer32", "Unsigned32", "IpAddress", "Counter32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType", "TimeTicks", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ahSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928, 1, 2))
 if mibBuilder.loadTexts: ahSystem.setLastUpdated('201608310000Z')
@@ -53,4 +53,4 @@ if mibBuilder.loadTexts: ahEnvirmentFan.setDescription('aerohive envirment fan s
 ahFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ahFirmwareVersion.setStatus('current')
 if mibBuilder.loadTexts: ahFirmwareVersion.setDescription('aerohive platform fireware version')
-mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahSystemName=ahSystemName, ahSystemSerial=ahSystemSerial, ahFirmwareVersion=ahFirmwareVersion, ahUpTime=ahUpTime, ahSystem=ahSystem, ahEnvirmentFan=ahEnvirmentFan, PYSNMP_MODULE_ID=ahSystem, ahEnvirmentTemp=ahEnvirmentTemp, ahHwVersion=ahHwVersion, ahMemUtilization=ahMemUtilization, ahSystemDescription=ahSystemDescription, ahClientCount=ahClientCount, ahCpuUtilization=ahCpuUtilization, ahDeviceMode=ahDeviceMode)
+mibBuilder.exportSymbols("AH-SYSTEM-MIB", PYSNMP_MODULE_ID=ahSystem, ahClientCount=ahClientCount, ahEnvirmentFan=ahEnvirmentFan, ahDeviceMode=ahDeviceMode, ahHwVersion=ahHwVersion, ahMemUtilization=ahMemUtilization, ahSystemSerial=ahSystemSerial, ahCpuUtilization=ahCpuUtilization, ahFirmwareVersion=ahFirmwareVersion, ahSystem=ahSystem, ahEnvirmentTemp=ahEnvirmentTemp, ahSystemDescription=ahSystemDescription, ahUpTime=ahUpTime, ahSystemName=ahSystemName)

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HIPATH-WIRELESS-SMI": [
-      "hiPathWirelessMgmt",
-      "hiPathWirelessModules"
+      "hiPathWirelessModules",
+      "hiPathWirelessMgmt"
     ],
     "IEEE802dot11-MIB": [
       "WEPKeytype"
@@ -16,32 +16,32 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "TimeTicks",
+      "iso",
+      "Bits",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
       "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
+      "TimeTicks",
       "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits"
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "hiPathWirelessControllerMib": {
@@ -20120,8 +20120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ewc/HIPATH-WIRELESS-HWC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:17:55 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:52:24 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HIPATH-WIRELESS-HWC-MIB"

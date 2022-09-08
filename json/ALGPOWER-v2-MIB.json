@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "IpAddress",
-      "iso",
+      "Integer32",
       "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "enterprises",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Bits",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -720,8 +720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/algcom/ALGPOWER-v2",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:10:47 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:46:57 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ALGPOWER-v2-MIB"

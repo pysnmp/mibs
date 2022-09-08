@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:12:09 2022
-# On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 09:47:57 2022
+# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-iso, ModuleIdentity, ObjectIdentity, Unsigned32, Counter64, Integer32, NotificationType, Bits, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "Counter64", "Integer32", "NotificationType", "Bits", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "MibIdentifier")
-DisplayString, DateAndTime, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TruthValue", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, ObjectIdentity, Integer32, Bits, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, iso, Unsigned32, Gauge32, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "Integer32", "Bits", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "iso", "Unsigned32", "Gauge32", "IpAddress", "MibIdentifier")
+DisplayString, TruthValue, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "DateAndTime")
 bcnLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6, 1))
 bcnLicenseMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnLicenseMIB.setLastUpdated('201011301200Z')
@@ -66,4 +66,4 @@ bcnLicenseStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnLicenseStatusCompliance = bcnLicenseStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseObjects=bcnLicenseObjects, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseConformance=bcnLicenseConformance, bcnLicense=bcnLicense, bcnLicenseTable=bcnLicenseTable, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseValid=bcnLicenseValid, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseType=bcnLicenseType, bcnLicenseDescription=bcnLicenseDescription)
+mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseType=bcnLicenseType, bcnLicenseGracePeriod=bcnLicenseGracePeriod, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseValid=bcnLicenseValid, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseTable=bcnLicenseTable, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicense=bcnLicense, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif)

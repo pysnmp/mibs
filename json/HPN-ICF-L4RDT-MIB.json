@@ -6,31 +6,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Counter64",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "MacAddress",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "hpnicfL4Redirect": {
@@ -328,8 +328,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-L4RDT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:22:15 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:55:23 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-L4RDT-MIB"

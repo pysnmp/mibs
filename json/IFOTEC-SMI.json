@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "enterprises",
       "iso",
-      "Counter64",
       "Bits",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter32",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
@@ -486,8 +486,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ifotec/IFOTEC-SMI",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:22:23 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:55:37 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "IFOTEC-SMI"

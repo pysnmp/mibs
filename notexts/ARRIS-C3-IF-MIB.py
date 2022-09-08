@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARRIS-C3-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-IF-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  8 09:11:17 2022
-# On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  8 09:47:18 2022
+# On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner
 # Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 ifEntry, = mibBuilder.importSymbols("IF-MIB", "ifEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-IpAddress, enterprises, MibIdentifier, ModuleIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, Counter64, Counter32, iso, ObjectIdentity, TimeTicks, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "enterprises", "MibIdentifier", "ModuleIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "Counter64", "Counter32", "iso", "ObjectIdentity", "TimeTicks", "Gauge32", "Unsigned32")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+IpAddress, enterprises, Unsigned32, Bits, MibIdentifier, Integer32, NotificationType, ModuleIdentity, Counter32, Gauge32, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "enterprises", "Unsigned32", "Bits", "MibIdentifier", "Integer32", "NotificationType", "ModuleIdentity", "Counter32", "Gauge32", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 cmtsC3IfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 12))
 if mibBuilder.loadTexts: cmtsC3IfMIB.setLastUpdated('200308200000Z')
@@ -33,4 +33,4 @@ dcxIfOutputBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 12, 1, 1, 
 if mibBuilder.loadTexts: dcxIfOutputBitRate.setStatus('current')
 dcxIfOutputPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 12, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dcxIfOutputPacketRate.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-IF-MIB", PYSNMP_MODULE_ID=cmtsC3IfMIB, dcxIfObjects=dcxIfObjects, dcxIfEntry=dcxIfEntry, dcxIfInputBitRate=dcxIfInputBitRate, dcxIfOutputPacketRate=dcxIfOutputPacketRate, dcxIfLoadInterval=dcxIfLoadInterval, cmtsC3IfMIB=cmtsC3IfMIB, dcxIfTable=dcxIfTable, dcxIfOutputBitRate=dcxIfOutputBitRate, dcxIfInputPacketRate=dcxIfInputPacketRate)
+mibBuilder.exportSymbols("ARRIS-C3-IF-MIB", dcxIfLoadInterval=dcxIfLoadInterval, dcxIfTable=dcxIfTable, dcxIfObjects=dcxIfObjects, PYSNMP_MODULE_ID=cmtsC3IfMIB, dcxIfOutputBitRate=dcxIfOutputBitRate, dcxIfEntry=dcxIfEntry, dcxIfOutputPacketRate=dcxIfOutputPacketRate, cmtsC3IfMIB=cmtsC3IfMIB, dcxIfInputPacketRate=dcxIfInputPacketRate, dcxIfInputBitRate=dcxIfInputBitRate)

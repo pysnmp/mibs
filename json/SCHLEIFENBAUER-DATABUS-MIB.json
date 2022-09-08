@@ -5,29 +5,29 @@
       "schleifenbauerMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
       "MibIdentifier",
-      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "schleifenbauerDatabusMIB": {
@@ -3338,8 +3338,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/schleifenbauer/SCHLEIFENBAUER-DATABUS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:28:49 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:00:18 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "SCHLEIFENBAUER-DATABUS-MIB"

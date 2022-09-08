@@ -5,24 +5,24 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-PTP-MIB": [
-      "cwsPtpDiagnosticsEntry",
-      "cwsPtpTransmitterEntry"
+      "cwsPtpTransmitterEntry",
+      "cwsPtpDiagnosticsEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "StringMaxl32",
-      "RecoverLinkDispersionType",
-      "TxPowerLvl",
-      "PtpId",
       "ChannelsNumber",
       "ModemChannel",
+      "StringSci",
+      "WlSpacing",
+      "PtpId",
       "LineSysEnum",
-      "Decimal1Dig",
+      "RecoverLinkDispersionType",
       "ModemFrequency",
       "Decimal2Dig",
-      "OnOffEnum",
+      "TxPowerLvl",
       "EnabledDisabledEnum",
-      "WlSpacing",
-      "StringSci"
+      "StringMaxl32",
+      "OnOffEnum",
+      "Decimal1Dig"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -30,25 +30,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "IpAddress",
-      "MibIdentifier"
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsPtpModemMIB": {
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:13:08 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:48:43 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CIENA-WS-PTP-MODEM-MIB"

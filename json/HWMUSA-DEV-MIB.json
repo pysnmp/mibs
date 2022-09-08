@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "HUAWEI-DEVICE-MIB": [
-      "hwFrameIndex",
-      "hwSlotIndex"
+      "hwSlotIndex",
+      "hwFrameIndex"
     ],
     "HUAWEI-MIB": [
       "hwProducts"
     ],
     "HUAWEI-TC-MIB": [
-      "HWPCBType",
-      "HWFrameType"
+      "HWFrameType",
+      "HWPCBType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "RowStatus"
     ]
   },
   "musa": {
@@ -1022,8 +1022,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HWMUSA-DEV-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:20:51 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:54:32 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HWMUSA-DEV-MIB"

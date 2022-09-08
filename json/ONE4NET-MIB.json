@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "enterprises",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
       "Gauge32",
-      "Bits",
-      "OBJECT-TYPE"
+      "iso",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "one4net": {
@@ -41,8 +41,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/kemp/ONE4NET-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:23:08 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:56:04 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ONE4NET-MIB"

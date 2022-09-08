@@ -12,20 +12,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Gauge32",
       "iso",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Integer32",
-      "Counter32",
       "Bits",
-      "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -706,8 +706,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-AESCOMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:12:35 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:48:17 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "E5-111-AESCOMMON-MIB"

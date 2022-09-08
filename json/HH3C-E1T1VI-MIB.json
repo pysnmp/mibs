@@ -13,20 +13,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter64",
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "iso",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
       "Bits",
+      "Gauge32",
+      "Integer32",
       "TimeTicks",
       "IpAddress",
-      "iso"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -209,8 +209,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-E1T1VI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:13:53 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:49:17 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HH3C-E1T1VI-MIB"

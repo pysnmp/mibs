@@ -11,26 +11,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks",
       "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
       "Unsigned32",
       "enterprises",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ],
     "TAIT-COMMON-MIB": [
@@ -38,24 +38,24 @@
       "taitModules"
     ],
     "TAIT-TN9300-TC": [
-      "Mpt1327ChannelState",
-      "RemoteNodeState",
-      "DipLineState",
       "NgwLinkState",
-      "SipCallSpeechVotingPriority",
-      "LicenseValidity",
-      "NodeRequestedState",
-      "SipLineState",
-      "NetworkCheckState",
-      "UnitAuthentication",
-      "Mpt1327LinkState",
-      "SipLineIncomingType",
-      "RemoteNodeSyncState",
+      "SipLineRegistrationType",
       "ChannelState",
+      "RemoteNodeSyncState",
+      "Mpt1327ChannelState",
+      "SipCallSpeechVotingPriority",
+      "NetworkCheckState",
+      "SipLineState",
+      "UnitAuthentication",
+      "RemoteNodeState",
+      "SipLineIncomingType",
+      "Mpt1327LinkState",
+      "NodeState",
+      "DipLineState",
       "EventSeverity",
       "UnitStatusMessageId",
-      "SipLineRegistrationType",
-      "NodeState"
+      "NodeRequestedState",
+      "LicenseValidity"
     ]
   },
   "tn9300MibModule": {
@@ -5258,8 +5258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:29:44 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 10:01:01 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "TAIT-TN9300-MIB"

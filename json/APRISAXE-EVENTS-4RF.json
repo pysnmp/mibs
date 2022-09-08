@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEEvents",
-      "aprisaXEObjects"
+      "aprisaXEObjects",
+      "aprisaXEEvents"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXECardType",
-      "AprisaXEPortNumber",
-      "AprisaXESlotNumber",
       "AprisaXEAlarmType",
-      "AprisaXEDataStatus"
+      "AprisaXEDataStatus",
+      "AprisaXECardType",
+      "AprisaXESlotNumber",
+      "AprisaXEPortNumber"
     ],
     "COMMON-TC-4RF": [
-      "FourRFAlarmEnabled",
       "FourRFAlarmSeverity",
       "FourRFAlarmStatus",
       "FourRFImageVersion",
+      "FourRFAlarmPresent",
       "FourRFHardwareVersion",
-      "FourRFAlarmPresent"
+      "FourRFAlarmEnabled"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,25 +27,25 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "iso",
-      "Gauge32",
       "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "iso",
       "Bits",
-      "Counter64"
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:10:11 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:46:29 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

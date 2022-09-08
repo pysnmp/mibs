@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "HP-SN-ROOT-MIB": [
-      "snGblRt",
       "snRip",
-      "snDvmrp",
-      "snFsrp",
       "snPim",
+      "snFsrp",
+      "snLoopbackIf",
+      "snDvmrp",
       "snIp",
-      "snLoopbackIf"
+      "snGblRt"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -18,24 +18,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "iso",
       "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32"
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "DisplayString": {
@@ -6244,8 +6244,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:22:13 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:55:22 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HP-SN-IP-MIB"

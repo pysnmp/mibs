@@ -8,30 +8,30 @@
       "ColubrisSSID"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "Counter32",
+      "Integer32",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisVscMIB": {
@@ -283,8 +283,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-VSC-MIB.my",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 09:19:56 2022",
-      "On host fv-az447-161 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  8 09:53:49 2022",
+      "On host fv-az173-382 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "COLUBRIS-VSC-MIB"
