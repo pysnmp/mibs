@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "RUCKUS-ROOT-MIB": [
       "ruckusZDSystemModule"
     ],
     "RUCKUS-TC-MIB": [
+      "RuckusNameString",
+      "RuckusSSID",
       "RuckusdB",
       "RuckusCountryCode",
-      "RuckusSSID",
-      "RuckusNameString",
-      "RuckusAdminStatus",
-      "RuckusRadioMode"
+      "RuckusRadioMode",
+      "RuckusAdminStatus"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
       "Counter32",
-      "Integer32"
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "ruckusZDSystemMIB": {
@@ -2748,8 +2748,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:09:38 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:16:15 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "RUCKUS-ZD-SYSTEM-MIB"

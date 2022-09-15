@@ -12,31 +12,31 @@
       "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Bits",
-      "iso",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter64",
       "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dasanDslMIB": {
@@ -5314,8 +5314,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-DSL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:01:47 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:31 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "DASAN-DSL-MIB"

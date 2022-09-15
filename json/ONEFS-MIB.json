@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "OBJECT-TYPE",
       "TimeTicks",
-      "MibIdentifier",
-      "enterprises",
-      "Gauge32",
-      "Bits",
-      "snmpModules",
-      "iso",
       "Counter32",
+      "Gauge32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "snmpModules",
+      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "IpAddress",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -54,8 +54,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emc/ONEFS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:15 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:05:34 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ONEFS-MIB"

@@ -7,8 +7,8 @@
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -19,29 +19,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
       "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
       "enterprises",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
-      "RowStatus",
-      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cTapMIB": {
@@ -1412,8 +1412,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:02:50 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:04:48 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-TAP-MIB"

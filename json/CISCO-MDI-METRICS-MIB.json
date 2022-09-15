@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-FLOW-MONITOR-MIB": [
-      "cfmFlowMonitorId",
       "cfmFlowMetricsIntNumber",
-      "cfmFlowId"
+      "cfmFlowId",
+      "cfmFlowMonitorId"
     ],
     "CISCO-FLOW-MONITOR-TC-MIB": [
-      "FlowMetricPrecision",
       "FlowBitRateUnits",
       "FlowCfgRateType",
+      "FlowMetricPrecision",
       "FlowMetricScale",
       "FlowMetricValue"
     ],
@@ -28,25 +28,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
+      "MibIdentifier",
       "IpAddress",
-      "Bits",
-      "iso",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
       "Counter64",
       "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "Unsigned32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "ciscoMdiMetricsMIB": {
@@ -653,8 +653,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MDI-METRICS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:02:45 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:04:44 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-MDI-METRICS-MIB"

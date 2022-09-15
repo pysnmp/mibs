@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-CAR-MIB": [
-      "RateLimitAction",
       "RateLimitType",
-      "PacketSource"
+      "PacketSource",
+      "RateLimitAction"
     ],
     "FOUNDRY-SN-SWITCH-GROUP-MIB": [
       "snSwitch"
@@ -14,24 +14,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Gauge32",
+      "Counter64",
       "Integer32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
       "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snVLanCAR": {
@@ -286,8 +286,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-VLAN-CAR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:51 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:06:21 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "FOUNDRY-VLAN-CAR-MIB"

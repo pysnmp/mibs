@@ -6,18 +6,18 @@
       "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxIkeHashAlgo",
-      "JnxIkeNegoMode",
-      "JnxRemotePeerType",
-      "JnxIkePeerType",
-      "JnxIkePeerRole",
-      "JnxEncapMode",
-      "JnxDiffHellmanGrp",
-      "JnxEncryptAlgo",
+      "JnxIkeAuthMethod",
       "JnxKeyType",
-      "JnxSAType",
+      "JnxIkeHashAlgo",
+      "JnxIkePeerType",
+      "JnxEncapMode",
+      "JnxEncryptAlgo",
+      "JnxDiffHellmanGrp",
+      "JnxIkeNegoMode",
       "JnxAuthAlgo",
-      "JnxIkeAuthMethod"
+      "JnxRemotePeerType",
+      "JnxIkePeerRole",
+      "JnxSAType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -26,29 +26,29 @@
       "jnxSpSvcSetName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Bits"
+      "TimeTicks",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval"
     ]
   },
   "jnxIpSecMonitorMIB": {
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:06:46 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:12:05 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

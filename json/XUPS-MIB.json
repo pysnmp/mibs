@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteHumidity",
-      "xupsEnvRemoteTempLowerLimit",
-      "xupsContactDescr",
-      "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactType",
-      "xupsEnvRemoteTempUpperLimit",
-      "xupsEnvRemoteHumidityLowerLimit",
       "xupsContactIndex",
+      "xupsContactDescr",
+      "xupsEnvRemoteHumidityLowerLimit",
       "xupsContactState",
-      "xupsEnvRemoteTemp"
+      "xupsEnvRemoteHumidityUpperLimit",
+      "xupsEnvRemoteTempUpperLimit",
+      "xupsEnvRemoteTemp",
+      "xupsContactType",
+      "xupsEnvRemoteTempLowerLimit",
+      "xupsEnvRemoteHumidity"
     ],
     "EATON-OIDS": [
       "eaton",
       "xupsEnvironment"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
       "Gauge32",
       "Counter32",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:02:54 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:05:02 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "XUPS-MIB"

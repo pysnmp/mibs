@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList4",
-      "VlanList1",
+      "VlanList3",
       "VlanList2",
-      "VlanList3"
+      "VlanList1",
+      "VlanList4"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
       "rndErrorDesc",
       "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
+      "rndNotifications",
       "switch001",
-      "rlMacMulticast",
-      "rndNotifications"
+      "rlMacMulticast"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
@@ -35,27 +35,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
       "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
+      "OBJECT-TYPE",
       "iso",
+      "Bits",
       "Counter64",
-      "Counter32",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "rlIpv6Fhs": {
@@ -8432,8 +8432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPV6FHS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:02:46 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:04:44 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-IPV6FHS-MIB"

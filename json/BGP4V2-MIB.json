@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2IdentifierTC",
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
       "Bgp4V2AddressFamilyIdentifierTC",
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
+      "Bgp4V2IdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAutonomousSystemNumber",
       "InetPortNumber",
-      "InetAddress",
       "InetAddressType",
       "InetAddressPrefixLength"
     ],
@@ -20,33 +20,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Gauge32",
+      "mib-2",
       "Integer32",
       "Counter64",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
       "TimeTicks",
-      "Bits",
-      "mib-2",
-      "MODULE-IDENTITY",
       "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "RowPointer",
-      "TimeStamp",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "bgp4V2": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:51 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:06:21 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "BGP4V2-MIB"

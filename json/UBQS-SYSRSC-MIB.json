@@ -7,23 +7,23 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "TimeTicks",
-      "MibIdentifier",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
       "iso",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
-      "IpAddress"
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ],
     "UBQS-SYSTEM-MIB": [
@@ -365,8 +365,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-SYSRSC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:10:50 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:18:13 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "UBQS-SYSRSC-MIB"

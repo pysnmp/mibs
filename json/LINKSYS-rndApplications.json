@@ -3,8 +3,8 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -14,30 +14,30 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "MibIdentifier",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
       "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Counter64",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rndApplications": {
@@ -1675,8 +1675,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rndApplications",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:07:00 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:11:58 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-rndApplications"

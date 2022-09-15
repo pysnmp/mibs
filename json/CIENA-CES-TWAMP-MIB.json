@@ -5,28 +5,28 @@
       "cienaCesConfig"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Counter64",
-      "IpAddress",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaCesTwampMIB": {
@@ -390,8 +390,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-TWAMP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:00:19 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:01:32 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CIENA-CES-TWAMP-MIB"

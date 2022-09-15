@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpRootPort",
-      "dot1dStpRootCost",
-      "dot1dStpHelloTime",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpPortDesignatedRoot",
-      "dot1dStpPortDesignatedCost",
-      "dot1dStpPortDesignatedBridge",
       "dot1dStpMaxAge",
+      "dot1dStpRootPort",
+      "dot1dStpHelloTime",
       "dot1dStpForwardDelay",
+      "dot1dStpPortDesignatedCost",
+      "dot1dStpPortDesignatedPort",
       "dot1dStpPortState",
-      "dot1dStpDesignatedRoot"
+      "dot1dStpPortDesignatedRoot",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpPortDesignatedBridge",
+      "dot1dStpRootCost"
     ],
     "IF-MIB": [
-      "ifOutErrors",
+      "ifInErrors",
       "ifOutDiscards",
-      "ifInErrors"
+      "ifOutErrors"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
       "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "Counter64",
       "Counter32",
       "IpAddress",
-      "TRAP-TYPE",
-      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
       "enterprises"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "PhysAddress"
+      "PhysAddress",
+      "DisplayString"
     ]
   },
   "sigma": {
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:31 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:05:56 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CT-ELS10-MIB"

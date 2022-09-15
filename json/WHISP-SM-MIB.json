@@ -7,40 +7,40 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
       "Gauge32",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
       "Counter64",
       "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "DisplayString"
     ],
     "WHISP-BOX-MIBV2-MIB": [
-      "dhcpRfPublicIp",
-      "whispBoxEsn"
+      "whispBoxEsn",
+      "dhcpRfPublicIp"
     ],
     "WHISP-GLOBAL-REG-MIB": [
       "whispSm",
       "whispModules",
-      "whispBox",
-      "whispAps"
+      "whispAps",
+      "whispBox"
     ],
     "WHISP-TCV2-MIB": [
-      "WhispLUID",
-      "WhispMACAddress"
+      "WhispMACAddress",
+      "WhispLUID"
     ]
   },
   "whispSmMibModule": {
@@ -6955,8 +6955,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-SM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:59:55 2022",
-      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:00:53 2022",
+      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "WHISP-SM-MIB"
