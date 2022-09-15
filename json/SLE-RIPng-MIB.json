@@ -8,29 +8,29 @@
       "InetAddress"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5252,8 +5252,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-RIPng-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:09:04 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:38:03 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "SLE-RIPng-MIB"

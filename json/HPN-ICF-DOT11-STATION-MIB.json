@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
+      "HpnicfDot11CipherType",
+      "HpnicfDot11ChannelScopeType",
       "HpnicfDot11AKMType",
-      "HpnicfDot11AuthorFailType",
+      "HpnicfDot11SecIEStatusType",
+      "HpnicfDot11AuthenType",
+      "HpnicfDot11AssocFailType",
+      "HpnicfDot11ObjectIDType",
       "HpnicfDot11RadioType2",
-      "hpnicfDot11",
-      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11SSIDEncryptModeType",
+      "HpnicfDot11AuthorFailType",
       "HpnicfDot11RadioType",
       "HpnicfDot11SSIDStringType",
-      "HpnicfDot11SecIEStatusType",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11ChannelScopeType",
-      "HpnicfDot11CipherType",
-      "HpnicfDot11AssocFailType",
-      "HpnicfDot11SSIDEncryptModeType",
-      "HpnicfDot11AuthenType"
+      "HpnicfDot11RadioScopeType",
+      "hpnicfDot11"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
       "iso",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Bits",
       "Unsigned32",
-      "Counter32"
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress",
       "DateAndTime"
     ]
   },
@@ -1743,8 +1743,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-STATION-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:14:17 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:42:46 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-DOT11-STATION-MIB"

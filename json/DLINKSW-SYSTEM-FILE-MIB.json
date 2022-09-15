@@ -8,8 +8,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -18,25 +18,25 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "Counter32",
+      "Counter64",
       "OBJECT-TYPE",
       "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Gauge32",
+      "Integer32",
+      "MibIdentifier",
       "Bits",
-      "Counter32"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "dlinkSwSystemFileMIB": {
@@ -1014,8 +1014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SYSTEM-FILE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:10:09 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:39:08 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-SYSTEM-FILE-MIB"

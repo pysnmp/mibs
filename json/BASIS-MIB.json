@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "CISCOWAN-SMI": [
-      "stratacom",
-      "ciscoWan"
+      "ciscoWan",
+      "stratacom"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
       "MODULE-IDENTITY",
       "Counter64",
-      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -394,8 +394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/BASIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:05:00 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:33:28 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "BASIS-MIB"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "enterprises",
-      "OBJECT-TYPE",
       "Gauge32",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "Bits",
-      "iso",
+      "Counter32",
+      "IpAddress",
       "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4721,8 +4721,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SECURITY-STAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:13:25 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:42:39 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-SECURITY-STAT-MIB"

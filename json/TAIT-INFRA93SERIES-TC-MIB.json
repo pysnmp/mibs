@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "iso",
       "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Integer32",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "IpAddress",
       "Bits",
       "Counter32",
-      "Gauge32",
-      "iso",
-      "Unsigned32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -397,8 +397,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-INFRA93SERIES-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:20:08 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:49:15 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "TAIT-INFRA93SERIES-TC-MIB"

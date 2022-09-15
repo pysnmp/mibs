@@ -6,27 +6,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Bits",
+      "Unsigned32",
+      "Gauge32",
       "TimeTicks",
+      "OBJECT-TYPE",
       "enterprises",
-      "iso",
-      "Counter32",
       "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
+      "Counter32",
+      "iso",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "pegasusMibModule": {
@@ -3904,8 +3904,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pegasus/PEGASUS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:17:53 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:46:51 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "PEGASUS-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "IPV6-TC": [
@@ -22,26 +22,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Gauge32",
       "TimeTicks",
-      "Bits",
       "Counter64",
-      "Counter32",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32"
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "jnxUserAAAMib": {
@@ -1430,8 +1430,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-USER-AAA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:15:54 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:44:27 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-USER-AAA-MIB"

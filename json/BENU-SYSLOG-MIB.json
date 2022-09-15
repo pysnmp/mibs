@@ -8,24 +8,24 @@
       "InetPortNumber"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
       "Counter64",
+      "Bits",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32"
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -240,8 +240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-SYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:06:32 2022",
-      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:35:19 2022",
+      "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "BENU-SYSLOG-MIB"
