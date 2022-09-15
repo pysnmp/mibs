@@ -5,29 +5,29 @@
       "ssrMibs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "Gauge32",
       "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Bits",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -973,7 +973,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-CAPACITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:40:15 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:32 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

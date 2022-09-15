@@ -9,15 +9,15 @@
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021PbbTeEsp",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PbbTeTSidId",
       "ieee802dot1mibs",
-      "IEEE8021PbbTeProtectionGroupId",
-      "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbTeEsp",
+      "IEEE8021PbbTeTSidId",
       "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021PbbTeProtectionGroupActiveRequests"
+      "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "IEEE8021PbbTeProtectionGroupActiveRequests",
+      "IEEE8021PbbTeProtectionGroupId",
+      "IEEE8021PbbServiceIdentifier"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -29,26 +29,26 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "StorageType",
-      "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ieee8021PbbTeMib": {
@@ -1079,7 +1079,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:33:04 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:57:50 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

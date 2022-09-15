@@ -5,28 +5,28 @@
       "rittal"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Unsigned32",
       "Integer32",
       "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "IpAddress"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -7722,7 +7722,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-III-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:48:06 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:09:31 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

@@ -10,24 +10,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
+      "Integer32",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "iso",
-      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
       "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "netscreenVpnPhaseoneMibModule": {
@@ -246,7 +246,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-VPN-PHASEONE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:48:27 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:09:47 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "enterprises",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
       "Counter32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -290,7 +290,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/OAP-NMU",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:41:10 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:04:13 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

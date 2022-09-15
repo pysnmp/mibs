@@ -7,53 +7,53 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
-      "TimeTicks"
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "RowStatus",
-      "DateAndTime",
-      "TimeStamp"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-CHASSIS-MIB": [
-      "tmnxCardSlotNum",
-      "tmnxMDASlotNum"
+      "tmnxMDASlotNum",
+      "tmnxCardSlotNum"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
+      "tmnxSRNotifyPrefix",
       "tmnxSRConfs",
-      "tmnxSRObjs",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRObjs"
     ],
     "TIMETRA-PORT-MIB": [
-      "tmnxPortNotifyPortId",
-      "tmnxPortPortID"
+      "tmnxPortPortID",
+      "tmnxPortNotifyPortId"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxAuthPassword",
-      "TmnxEnabledDisabledAdminState",
       "TmnxEnabledDisabled",
-      "TNamedItemOrEmpty",
-      "TItemDescription"
+      "TItemDescription",
+      "TmnxEnabledDisabledAdminState",
+      "TmnxAuthPassword",
+      "TNamedItemOrEmpty"
     ]
   },
   "timetraCellularMIBModule": {
@@ -3495,7 +3495,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:46:32 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:08:21 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

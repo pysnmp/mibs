@@ -8,35 +8,35 @@
       "CounterBasedGauge64"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "PEAKFLOW-DOS-MIB": [
-      "pdosAnomalyDirection",
-      "pdosAnomalyClassification",
-      "pdosAnomalyStart",
       "pdosAnomalyDuration",
-      "pdosUrl"
+      "pdosAnomalyStart",
+      "pdosUrl",
+      "pdosAnomalyDirection",
+      "pdosAnomalyClassification"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "Counter64",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3386,7 +3386,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-PEAKFLOW-SP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:34:31 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:59:00 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

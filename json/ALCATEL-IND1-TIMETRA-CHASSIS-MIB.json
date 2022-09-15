@@ -3,53 +3,53 @@
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
-      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
       "tmnxSRConfs",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRObjs"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TItemDescription",
+      "TmnxActionType",
       "TNamedItem",
-      "TmnxOperState",
+      "TItemDescription",
       "TmnxAdminState",
+      "TmnxOperState",
       "TNamedItemOrEmpty",
-      "TmnxPortID",
-      "TmnxActionType"
+      "TmnxPortID"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
-      "TimeTicks"
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
       "RowStatus",
       "TimeInterval",
-      "DateAndTime",
+      "TimeStamp",
       "RowPointer",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "tmnxChassisMIBModule": {
@@ -8570,7 +8570,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:46:32 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:08:21 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

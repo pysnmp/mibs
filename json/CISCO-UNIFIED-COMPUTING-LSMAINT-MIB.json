@@ -7,28 +7,28 @@
     "CISCO-TC": [
       "Unsigned64",
       "TimeIntervalSec",
-      "CiscoInetAddressMask",
       "CiscoAlarmSeverity",
-      "CiscoNetworkAddress"
+      "CiscoNetworkAddress",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectDn",
-      "ciscoUnifiedComputingMIBObjects"
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsLsmaintAckDisr",
-      "CucsTrigAckMode",
-      "CucsTrigAdminState",
-      "CucsLsmaintChangeMode",
-      "CucsTrigTrigState",
+      "CucsLsmaintAckChanges",
+      "CucsTrigAckOperState",
       "CucsTrigTrigger",
       "CucsPolicyPolicyOwner",
-      "CucsLsmaintAckChangeDetails",
+      "CucsTrigTrigState",
       "CucsLsConfigIssues",
-      "CucsLsmaintAckChanges",
+      "CucsLsmaintAckDisr",
+      "CucsLsmaintChangeMode",
+      "CucsLsmaintAckChangeDetails",
       "CucsTrigAckPrevOperState",
-      "CucsTrigAckOperState"
+      "CucsTrigAdminState",
+      "CucsTrigAckMode"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -43,29 +43,29 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "IpAddress",
+      "Bits",
       "iso",
-      "Bits"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "DisplayString",
-      "TimeStamp",
-      "DateAndTime",
       "TimeInterval",
-      "TruthValue"
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "cucsLsmaintObjects": {
@@ -602,7 +602,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSMAINT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:39:14 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:02:45 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

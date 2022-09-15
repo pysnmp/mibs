@@ -3,29 +3,29 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "iso",
-      "OBJECT-TYPE",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "OBJECT-TYPE",
       "Counter32",
-      "TimeTicks"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -799,7 +799,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-GLOBAL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:46:29 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:08:19 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

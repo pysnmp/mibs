@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "enterprises",
-      "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
       "mib-2",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -66,7 +66,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltek/ELTEK-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:39:51 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:03:12 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

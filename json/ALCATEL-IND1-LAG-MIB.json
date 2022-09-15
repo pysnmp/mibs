@@ -5,9 +5,9 @@
       "softentIND1LnkAgg"
     ],
     "IEEE8023-LAG-MIB": [
+      "LacpState",
       "ChurnState",
-      "LacpKey",
-      "LacpState"
+      "LacpKey"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -20,30 +20,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
       "Bits",
-      "TimeTicks"
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "alcatelIND1LAGMIB": {
@@ -3084,7 +3084,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:46:31 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:08:20 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

@@ -5,53 +5,53 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "CmPmIntervalType",
       "AdminState",
-      "OperationalState",
-      "VlanPriority",
-      "VlanId",
       "SecondaryState",
+      "OperationalState",
       "CmPmBinAction",
+      "VlanPriority",
       "PerfCounter64",
-      "CmPmIntervalType"
+      "VlanId"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetNetPortEntry",
-      "cmPrioMapV2PrioMappingCOSEntry",
-      "cmFlowEntry"
+      "cmFlowEntry",
+      "cmPrioMapV2PrioMappingCOSEntry"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Integer32",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "Counter32",
-      "iso",
-      "MibIdentifier",
-      "Counter64",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "VariablePointer",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "StorageType",
       "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "VariablePointer",
-      "TruthValue"
+      "DateAndTime"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,7 +1279,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:34:21 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:58:51 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

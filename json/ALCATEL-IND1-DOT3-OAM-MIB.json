@@ -5,20 +5,20 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEventLogType",
-      "dot3OamStatsEntry",
-      "dot3OamEventLogValue",
-      "dot3OamEventLogOui",
-      "dot3OamEventLogTimestamp",
-      "dot3OamEntry",
-      "dot3OamLoopbackEntry",
+      "dot3OamEventLogWindowHi",
+      "dot3OamEventLogRunningTotal",
       "dot3OamEventLogLocation",
-      "dot3OamEventLogThresholdHi",
+      "dot3OamEntry",
+      "dot3OamEventLogType",
+      "dot3OamEventLogTimestamp",
+      "dot3OamEventLogOui",
       "dot3OamEventLogWindowLo",
       "dot3OamEventLogEventTotal",
-      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogValue",
+      "dot3OamLoopbackEntry",
+      "dot3OamEventLogThresholdHi",
       "dot3OamEventLogThresholdLo",
-      "dot3OamEventLogWindowHi"
+      "dot3OamStatsEntry"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -29,25 +29,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "OBJECT-TYPE",
       "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
-      "TimeTicks"
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1Dot3OamMIB": {
@@ -1090,7 +1090,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:46:32 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:08:21 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

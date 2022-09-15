@@ -8,8 +8,8 @@
       "hpnicfSan"
     ],
     "IF-MIB": [
-      "ifDescr",
       "InterfaceIndexOrZero",
+      "ifDescr",
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
@@ -18,26 +18,26 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "iso",
+      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hpnicfFcPsm": {
@@ -797,7 +797,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FC-PSM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:42:46 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:05:26 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

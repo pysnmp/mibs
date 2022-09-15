@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
       "switch001",
@@ -22,25 +22,25 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
-      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
       "iso",
-      "Bits"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "rlCopy": {
@@ -1716,7 +1716,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-COPY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:39:13 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:02:45 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

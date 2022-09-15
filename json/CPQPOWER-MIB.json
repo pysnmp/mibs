@@ -14,26 +14,26 @@
     ],
     "SNMPv2-MIB": [
       "sysLocation",
-      "sysContact",
       "sysName",
-      "sysDescr"
+      "sysDescr",
+      "sysContact"
     ],
     "SNMPv2-SMI": [
+      "TRAP-TYPE",
       "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "Gauge32",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
-      "TRAP-TYPE",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "iso",
+      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -12250,7 +12250,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQPOWER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:42:46 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:05:26 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],

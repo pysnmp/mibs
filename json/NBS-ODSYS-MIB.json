@@ -5,37 +5,37 @@
       "InterfaceIndex"
     ],
     "NBS-MIB": [
-      "NbsTcMilliVolt",
-      "NbsTcMilliAmp",
       "NbsTcStatusSimple",
-      "NbsTcStatusLevel",
-      "NbsTcTemperature",
+      "NbsTcMilliAmp",
       "nbs",
-      "NbsTcPartIndex"
+      "NbsTcMilliVolt",
+      "NbsTcPartIndex",
+      "NbsTcStatusLevel",
+      "NbsTcTemperature"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "IpAddress",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "MibIdentifier"
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsOdsysMib": {
@@ -1345,7 +1345,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-ODSYS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 09:45:06 2022",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 10:07:16 2022",
       "On host fv-az196-500 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
