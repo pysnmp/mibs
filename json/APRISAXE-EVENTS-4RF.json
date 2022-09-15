@@ -7,18 +7,18 @@
     ],
     "APRISAXE-TC-4RF": [
       "AprisaXEDataStatus",
-      "AprisaXEAlarmType",
-      "AprisaXEPortNumber",
       "AprisaXECardType",
-      "AprisaXESlotNumber"
+      "AprisaXEAlarmType",
+      "AprisaXESlotNumber",
+      "AprisaXEPortNumber"
     ],
     "COMMON-TC-4RF": [
-      "FourRFImageVersion",
-      "FourRFAlarmPresent",
       "FourRFAlarmStatus",
       "FourRFAlarmSeverity",
+      "FourRFHardwareVersion",
+      "FourRFImageVersion",
       "FourRFAlarmEnabled",
-      "FourRFHardwareVersion"
+      "FourRFAlarmPresent"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,29 +27,29 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
       "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter32",
       "iso",
-      "Gauge32"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:10:01 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:05:08 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

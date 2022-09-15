@@ -6,8 +6,8 @@
       "fcmInstanceIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -15,41 +15,41 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "IpAddress",
       "NOTIFICATION-TYPE",
       "iso",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "StorageType",
+      "AutonomousType",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue",
       "RowStatus",
-      "AutonomousType"
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpiIndex",
+      "T11FcSpLifetimeLeft",
+      "T11FcSaDirection",
+      "T11FcSpLifetimeLeftUnits",
       "T11FcSpType",
       "T11FcSpTransforms",
       "T11FcRoutingControl",
-      "T11FcSpLifetimeLeft",
-      "T11FcSpSecurityProtocolId",
       "T11FcSpPrecedence",
-      "T11FcSpLifetimeLeftUnits",
-      "T11FcSaDirection"
+      "T11FcSpSecurityProtocolId",
+      "T11FcSpiIndex"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:09:54 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:04:59 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

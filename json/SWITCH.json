@@ -3,8 +3,8 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
       "Unsigned32",
+      "enterprises",
+      "Bits",
+      "OBJECT-TYPE",
+      "mib-2",
       "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
       "iso",
       "Gauge32",
-      "enterprises",
-      "mib-2",
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter64"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "AutonomousType",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TestAndIncr",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "PhysAddress"
+      "PhysAddress",
+      "RowStatus",
+      "DisplayString",
+      "AutonomousType",
+      "TestAndIncr",
+      "TruthValue",
+      "TimeStamp"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:17:30 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:12:07 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "SWITCH"

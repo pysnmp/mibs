@@ -9,21 +9,21 @@
     ],
     "DOCS-CABLE-DEVICE-MIB": [
       "docsDevEvLevel",
-      "docsDevEvLastTime",
+      "docsDevEvId",
       "docsDevEvText",
-      "docsDevEvId"
+      "docsDevEvLastTime"
     ],
     "DOCS-IF-MIB": [
       "DocsisUpstreamType",
-      "DocsisQosVersion",
       "DocsEqualizerData",
-      "TenthdB",
-      "TenthdBmV"
+      "DocsisQosVersion",
+      "TenthdBmV",
+      "TenthdB"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifIndex",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -37,36 +37,36 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "NOTIFICATION-TYPE",
       "iso",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DateAndTime",
       "DisplayString",
       "TruthValue",
       "RowStatus",
-      "DateAndTime",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:09:54 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:05:00 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "DOCS-IF3-MIB"

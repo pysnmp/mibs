@@ -3,13 +3,13 @@
     "class": "imports",
     "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
       "CeRedunSwitchCommand",
-      "CeRedunArch",
       "CeRedunStateCategories",
-      "CeRedunMbrStatus",
-      "CeRedunMode",
-      "CeRedunType",
       "CeRedunScope",
-      "CeRedunReasonCategories"
+      "CeRedunType",
+      "CeRedunArch",
+      "CeRedunReasonCategories",
+      "CeRedunMbrStatus",
+      "CeRedunMode"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -26,33 +26,33 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "iso",
-      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "Integer32"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "TruthValue",
-      "RowStatus",
       "AutonomousType",
+      "StorageType",
       "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ciscoEntityRedunMIB": {
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:15:19 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:10:04 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-ENTITY-REDUNDANCY-MIB"

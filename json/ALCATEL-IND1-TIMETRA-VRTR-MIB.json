@@ -5,18 +5,18 @@
       "TmnxSlotNum"
     ],
     "ALCATEL-IND1-TIMETRA-FILTER-MIB": [
-      "TFilterID",
-      "TIPFilterID"
+      "TIPFilterID",
+      "TFilterID"
     ],
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRConfs",
-      "timetraSRMIBModules",
       "tmnxSRNotifyPrefix",
-      "tmnxSRObjs"
+      "tmnxSRObjs",
+      "timetraSRMIBModules",
+      "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-PORT-MIB": [
-      "tmnxPortNotifyPortId",
-      "tmnxPortType"
+      "tmnxPortType",
+      "tmnxPortNotifyPortId"
     ],
     "ALCATEL-IND1-TIMETRA-QOS-MIB": [
       "TNetworkPolicyID"
@@ -26,47 +26,47 @@
       "sapPortId"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
+      "svcDhcpLseStateNewCiAddr",
       "svcDhcpClientLease",
-      "svcDhcpLseStateNewChAddr",
-      "svcDhcpLseStateNewCiAddr"
+      "svcDhcpLseStateNewChAddr"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxVRtrID",
-      "TmnxBgpAutonomousSystem",
-      "IpAddressPrefixLength",
-      "TNamedItemOrEmpty",
-      "TCpmProtPolicyID",
-      "TmnxVPNRouteDistinguisher",
-      "TmnxPortID",
-      "TmnxDHCP6MsgType",
-      "TmnxStatus",
-      "Dot1PPriority",
-      "TmnxTunnelType",
-      "TmnxTunnelID",
-      "TItemDescription",
-      "TmnxOperState",
-      "TmnxEncapVal",
-      "TmnxServId",
-      "TFCType",
-      "TmnxAdminState",
       "TmnxCustId",
       "TPolicyStatementNameOrEmpty",
-      "TDSCPValueOrNone",
-      "TDSCPValue",
+      "Dot1PPriority",
+      "TmnxServId",
+      "TmnxVPNRouteDistinguisher",
       "TmnxVRtrIDOrZero",
+      "TmnxTunnelID",
+      "TmnxVRtrID",
+      "TCpmProtPolicyID",
+      "TmnxAdminState",
+      "TmnxEncapVal",
+      "TDSCPValue",
+      "TmnxOperState",
+      "TmnxStatus",
+      "TItemLongDescription",
+      "TItemDescription",
+      "TmnxTunnelType",
+      "TmnxPortID",
+      "TDSCPValueOrNone",
+      "TNamedItemOrEmpty",
+      "TmnxDHCP6MsgType",
       "TNamedItem",
-      "TItemLongDescription"
+      "TFCType",
+      "IpAddressPrefixLength",
+      "TmnxBgpAutonomousSystem"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddressType",
       "InetAddressIPv6",
+      "InetAddressPrefixLength",
       "InetAddressIPv6z",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "ipCidrRouteEntry"
@@ -75,34 +75,34 @@
       "ipNetToMediaEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "TimeTicks",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Integer32"
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TestAndIncr",
       "RowStatus",
       "TruthValue",
-      "TestAndIncr",
-      "MacAddress",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "timetraVRtrMIBModule": {
@@ -16282,8 +16282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-VRTR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:23:20 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:17:37 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB"

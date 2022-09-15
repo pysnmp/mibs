@@ -5,29 +5,29 @@
       "ogMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Counter64",
       "TimeTicks",
+      "MibIdentifier",
       "IpAddress",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits"
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ogSignalMib": {
@@ -254,8 +254,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SIGNAL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:23:02 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:17:16 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "OG-SIGNAL-MIB"

@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteTempLowerLimit",
+      "xupsEnvRemoteTemp",
       "xupsEnvRemoteHumidityUpperLimit",
-      "xupsEnvRemoteHumidityLowerLimit",
-      "xupsContactIndex",
-      "xupsContactType",
-      "xupsContactDescr",
       "xupsEnvRemoteTempUpperLimit",
-      "xupsEnvRemoteHumidity",
+      "xupsContactType",
       "xupsContactState",
-      "xupsEnvRemoteTemp"
+      "xupsContactIndex",
+      "xupsEnvRemoteTempLowerLimit",
+      "xupsEnvRemoteHumidity",
+      "xupsContactDescr",
+      "xupsEnvRemoteHumidityLowerLimit"
     ],
     "EATON-OIDS": [
-      "xupsEnvironment",
-      "eaton"
+      "eaton",
+      "xupsEnvironment"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -26,24 +26,24 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
       "MibIdentifier",
       "Gauge32",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
       "Integer32",
       "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:15:36 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:10:21 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "XUPS-MIB"

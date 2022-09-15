@@ -1,0 +1,3342 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises",
+      "Bits",
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime",
+      "TruthValue"
+    ]
+  },
+  "payShieldMIB": {
+    "name": "payShieldMIB",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-12-25 08:10",
+        "description": "Added new objects payShieldVersionSoftwareFirmwareVersion and payShieldVersionSoftwareDeploymentVersion. Deprecated payShieldVersionSoftwareBuildNumber."
+      },
+      {
+        "revision": "2019-02-26 08:10",
+        "description": "Provides information for following components for Thales eSecurity's payShield devices (10K or later): Enabled host commands, Fraud, Health, Host connection, Licensing, LMK, Logs, Management, PCI Security Settings, Printer, State, Utilization, Version, Auxiliary Ethernet."
+      },
+      {
+        "revision": "2019-02-26 08:10",
+        "description": "Deprecated payShieldVersionSoftwareHSMCoreAPIVersion and payShieldRestartAlarm. Updated description of payShieldUtilHostCmdVolume."
+      },
+      {
+        "revision": "2018-11-12 08:10",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "thalesEsecurity": {
+    "name": "thalesEsecurity",
+    "oid": "1.3.6.1.4.1.4096",
+    "class": "objectidentity"
+  },
+  "thalesEsecurityDevs": {
+    "name": "thalesEsecurityDevs",
+    "oid": "1.3.6.1.4.1.4096.1",
+    "class": "objectidentity"
+  },
+  "payshield": {
+    "name": "payshield",
+    "oid": "1.3.6.1.4.1.4096.1.10000",
+    "class": "objectidentity"
+  },
+  "thalesEsecurityMibs": {
+    "name": "thalesEsecurityMibs",
+    "oid": "1.3.6.1.4.1.4096.2",
+    "class": "objectidentity"
+  },
+  "raProductMibs": {
+    "name": "raProductMibs",
+    "oid": "1.3.6.1.4.1.4096.2.2",
+    "class": "objectidentity"
+  },
+  "payShieldUtil": {
+    "name": "payShieldUtil",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.1",
+    "class": "objectidentity"
+  },
+  "payShieldState": {
+    "name": "payShieldState",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2",
+    "class": "objectidentity"
+  },
+  "payShieldStateTamper": {
+    "name": "payShieldStateTamper",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.2",
+    "class": "objectidentity"
+  },
+  "payShieldStateFan": {
+    "name": "payShieldStateFan",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.3",
+    "class": "objectidentity"
+  },
+  "payShieldStatePSU": {
+    "name": "payShieldStatePSU",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.4",
+    "class": "objectidentity"
+  },
+  "payShieldLmk": {
+    "name": "payShieldLmk",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3",
+    "class": "objectidentity"
+  },
+  "payShieldComms": {
+    "name": "payShieldComms",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4",
+    "class": "objectidentity"
+  },
+  "payShieldCommsMgmt": {
+    "name": "payShieldCommsMgmt",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.1",
+    "class": "objectidentity"
+  },
+  "payShieldCommsHost": {
+    "name": "payShieldCommsHost",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2",
+    "class": "objectidentity"
+  },
+  "payShieldCommsHostPort": {
+    "name": "payShieldCommsHostPort",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.4",
+    "class": "objectidentity"
+  },
+  "payShieldSystem": {
+    "name": "payShieldSystem",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.5",
+    "class": "objectidentity"
+  },
+  "payShieldFraud": {
+    "name": "payShieldFraud",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.6",
+    "class": "objectidentity"
+  },
+  "payShieldVersion": {
+    "name": "payShieldVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7",
+    "class": "objectidentity"
+  },
+  "payShieldLicensing": {
+    "name": "payShieldLicensing",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8",
+    "class": "objectidentity"
+  },
+  "payShieldEnabledHostCommands": {
+    "name": "payShieldEnabledHostCommands",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.9",
+    "class": "objectidentity"
+  },
+  "payShieldLogs": {
+    "name": "payShieldLogs",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10",
+    "class": "objectidentity"
+  },
+  "payShieldLogsErrorlog": {
+    "name": "payShieldLogsErrorlog",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10.1",
+    "class": "objectidentity"
+  },
+  "payShieldLogsAuditlog": {
+    "name": "payShieldLogsAuditlog",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10.2",
+    "class": "objectidentity"
+  },
+  "payShieldHealth": {
+    "name": "payShieldHealth",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11",
+    "class": "objectidentity"
+  },
+  "payShieldHealthDiagSelfTest": {
+    "name": "payShieldHealthDiagSelfTest",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.1",
+    "class": "objectidentity"
+  },
+  "payShieldHealthCheckCounts": {
+    "name": "payShieldHealthCheckCounts",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2",
+    "class": "objectidentity"
+  },
+  "payShieldHostConnection": {
+    "name": "payShieldHostConnection",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12",
+    "class": "objectidentity"
+  },
+  "payShieldHostConnectionEthernet": {
+    "name": "payShieldHostConnectionEthernet",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3",
+    "class": "objectidentity"
+  },
+  "payShieldHostConnectionFICON": {
+    "name": "payShieldHostConnectionFICON",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.4",
+    "class": "objectidentity"
+  },
+  "payShieldManagement": {
+    "name": "payShieldManagement",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13",
+    "class": "objectidentity"
+  },
+  "payShieldManagementEthernet": {
+    "name": "payShieldManagementEthernet",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1",
+    "class": "objectidentity"
+  },
+  "payShieldPrinter": {
+    "name": "payShieldPrinter",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.14",
+    "class": "objectidentity"
+  },
+  "payShieldSettings": {
+    "name": "payShieldSettings",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15",
+    "class": "objectidentity"
+  },
+  "payShieldAuxiliaryEthernet": {
+    "name": "payShieldAuxiliaryEthernet",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16",
+    "class": "objectidentity"
+  },
+  "notifications": {
+    "name": "notifications",
+    "oid": "1.3.6.1.4.1.4096.999",
+    "class": "objectidentity"
+  },
+  "payShieldNotifications": {
+    "name": "payShieldNotifications",
+    "oid": "1.3.6.1.4.1.4096.999.2",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmObjects": {
+    "name": "payShieldAlarmObjects",
+    "oid": "1.3.6.1.4.1.4096.999.2.1",
+    "class": "objectidentity"
+  },
+  "payShieldTraps": {
+    "name": "payShieldTraps",
+    "oid": "1.3.6.1.4.1.4096.999.2.2",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmFans": {
+    "name": "payShieldAlarmFans",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.1",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmPSU": {
+    "name": "payShieldAlarmPSU",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.2",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmBadPortData": {
+    "name": "payShieldAlarmBadPortData",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.3",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmErrorLog": {
+    "name": "payShieldAlarmErrorLog",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.4",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmBattery": {
+    "name": "payShieldAlarmBattery",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.5",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmDiagnostic": {
+    "name": "payShieldAlarmDiagnostic",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.6",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmFraud": {
+    "name": "payShieldAlarmFraud",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.7",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmErase": {
+    "name": "payShieldAlarmErase",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.8",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmSettingsModified": {
+    "name": "payShieldAlarmSettingsModified",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.9",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmStateChange": {
+    "name": "payShieldAlarmStateChange",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.10",
+    "class": "objectidentity"
+  },
+  "payShieldAlarmTamper": {
+    "name": "payShieldAlarmTamper",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.11",
+    "class": "objectidentity"
+  },
+  "payShieldUtilLoad": {
+    "name": "payShieldUtilLoad",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldUtilHostCmdVolume": {
+    "name": "payShieldUtilHostCmdVolume",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 484
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldUtilEnabled": {
+    "name": "payShieldUtilEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateDevice": {
+    "name": "payShieldStateDevice",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateUnavailable": 1,
+          "stateOnline": 2,
+          "stateOffline": 3,
+          "stateSecure": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateTamperState": {
+    "name": "payShieldStateTamperState",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateUnknown": 1,
+          "stateOK": 2,
+          "stateTampered": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateTamperDate": {
+    "name": "payShieldStateTamperDate",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateTamperCause": {
+    "name": "payShieldStateTamperCause",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "causeUnavailable": 1,
+          "causeTemperatureOutOfRange": 2,
+          "causeBatteryLow": 3,
+          "causeEraseButtonPressed": 4,
+          "causeSensorProcessorWatchdog": 5,
+          "causeSensorProcessorRestart": 6,
+          "causeVoltageOutOfRange": 7,
+          "causeMotionDetected": 8,
+          "causeCaseTampered": 9,
+          "causePowerLoss": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateFanTable": {
+    "name": "payShieldStateFanTable",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldStateFanEntry": {
+    "name": "payShieldStateFanEntry",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldStateFanIndex": {
+    "name": "payShieldStateFanIndex",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldStateFanSerialNum": {
+    "name": "payShieldStateFanSerialNum",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateFanState": {
+    "name": "payShieldStateFanState",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateOK": 1,
+          "stateFailure": 2,
+          "stateNotDetected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStatePSUTable": {
+    "name": "payShieldStatePSUTable",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldStatePSUEntry": {
+    "name": "payShieldStatePSUEntry",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStatePSUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldStatePSUIndex": {
+    "name": "payShieldStatePSUIndex",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldStatePSUSerialNum": {
+    "name": "payShieldStatePSUSerialNum",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStatePSUState": {
+    "name": "payShieldStatePSUState",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateOK": 1,
+          "stateFailure": 2,
+          "stateNotDetected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldStateBattery": {
+    "name": "payShieldStateBattery",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateOK": 1,
+          "stateWarning": 2,
+          "stateFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkNumLoaded": {
+    "name": "payShieldLmkNumLoaded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkNumTestLmksLoaded": {
+    "name": "payShieldLmkNumTestLmksLoaded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkNumOldLmksLoaded": {
+    "name": "payShieldLmkNumOldLmksLoaded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusTable": {
+    "name": "payShieldLmkStatusTable",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldLmkStatusEntry": {
+    "name": "payShieldLmkStatusEntry",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldLmkStatusIndex": {
+    "name": "payShieldLmkStatusIndex",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldLmkStatusLoaded": {
+    "name": "payShieldLmkStatusLoaded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusAuth": {
+    "name": "payShieldLmkStatusAuth",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusNumAuthActivities": {
+    "name": "payShieldLmkStatusNumAuthActivities",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusScheme": {
+    "name": "payShieldLmkStatusScheme",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lmkSchemeUnknown": 1,
+          "lmkSchemeVariant": 2,
+          "lmkSchemeKeyblock": 3,
+          "lmkSchemeAES": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusAlgorithm": {
+    "name": "payShieldLmkStatusAlgorithm",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lmkAlgorithmUnknown": 1,
+          "lmkAlgorithm3DES2Key": 2,
+          "lmkAlgorithm3DES3Key": 3,
+          "lmkAlgorithmAES256": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusLiveTest": {
+    "name": "payShieldLmkStatusLiveTest",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lmkStatusUnknown": 1,
+          "lmkStatusLive": 2,
+          "lmkStatusTest": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusComments": {
+    "name": "payShieldLmkStatusComments",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 41
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLmkStatusCheckDigits": {
+    "name": "payShieldLmkStatusCheckDigits",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsMgmtConsoleState": {
+    "name": "payShieldCommsMgmtConsoleState",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "consoleUp": 1,
+          "consoleDown": 2,
+          "consoleDisabledByGui": 3,
+          "consoleUnavailable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsMgmtGuiState": {
+    "name": "payShieldCommsMgmtGuiState",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "guiUp": 1,
+          "guiDown": 2,
+          "guiUnavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsHostTCPServer": {
+    "name": "payShieldCommsHostTCPServer",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverUp": 1,
+          "serverDown": 2,
+          "serverNotEnabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsHostUDPServer": {
+    "name": "payShieldCommsHostUDPServer",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverUp": 1,
+          "serverDown": 2,
+          "serverNotEnabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsHostFICONServer": {
+    "name": "payShieldCommsHostFICONServer",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverUp": 1,
+          "serverDown": 2,
+          "serverNotEnabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsHostPortEthernet1": {
+    "name": "payShieldCommsHostPortEthernet1",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portUp": 1,
+          "portDown": 2,
+          "portUnavailable": 3,
+          "portNotConfigured": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsHostPortEthernet2": {
+    "name": "payShieldCommsHostPortEthernet2",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portUp": 1,
+          "portDown": 2,
+          "portUnavailable": 3,
+          "portNotConfigured": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldCommsHostPortFICON": {
+    "name": "payShieldCommsHostPortFICON",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.4.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portUp": 1,
+          "portDown": 2,
+          "portUnavailable": 3,
+          "portNotConfigured": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSystemDateAndTime": {
+    "name": "payShieldSystemDateAndTime",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSystemSerialNum": {
+    "name": "payShieldSystemSerialNum",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSystemModel": {
+    "name": "payShieldSystemModel",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldFraudPinVerifyLimitsExceeded": {
+    "name": "payShieldFraudPinVerifyLimitsExceeded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldFraudPinAttackLimitsExceeded": {
+    "name": "payShieldFraudPinAttackLimitsExceeded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareBaseRelease": {
+    "name": "payShieldVersionSoftwareBaseRelease",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareRevision": {
+    "name": "payShieldVersionSoftwareRevision",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareBuildNumber": {
+    "name": "payShieldVersionSoftwareBuildNumber",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "payShieldVersionSoftwareHSMCoreAPIVersion": {
+    "name": "payShieldVersionSoftwareHSMCoreAPIVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "payShieldVersionSoftwareCPLDVersion": {
+    "name": "payShieldVersionSoftwareCPLDVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareSPVersion": {
+    "name": "payShieldVersionSoftwareSPVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareSPBootVersion": {
+    "name": "payShieldVersionSoftwareSPBootVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareBootstrapVersion": {
+    "name": "payShieldVersionSoftwareBootstrapVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareFirmwareVersion": {
+    "name": "payShieldVersionSoftwareFirmwareVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldVersionSoftwareDeploymentVersion": {
+    "name": "payShieldVersionSoftwareDeploymentVersion",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLicensingPerformanceModel": {
+    "name": "payShieldLicensingPerformanceModel",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLicensingPackage": {
+    "name": "payShieldLicensingPackage",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLicensingOptionalLicenseCount": {
+    "name": "payShieldLicensingOptionalLicenseCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLicensingOptionalLicensesList": {
+    "name": "payShieldLicensingOptionalLicensesList",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLicensingCryptoAlgorithmCount": {
+    "name": "payShieldLicensingCryptoAlgorithmCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLicensingCryptoAlgorithmList": {
+    "name": "payShieldLicensingCryptoAlgorithmList",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldEnabledHostCommandsCount": {
+    "name": "payShieldEnabledHostCommandsCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldEnabledHostCommandsList": {
+    "name": "payShieldEnabledHostCommandsList",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLogsErrorlogTotalCount": {
+    "name": "payShieldLogsErrorlogTotalCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLogsErrorlogMaxLength": {
+    "name": "payShieldLogsErrorlogMaxLength",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLogsAuditlogTotalCount": {
+    "name": "payShieldLogsAuditlogTotalCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldLogsAuditlogMaxLength": {
+    "name": "payShieldLogsAuditlogMaxLength",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthDiagSelfTestTimeOfDay": {
+    "name": "payShieldHealthDiagSelfTestTimeOfDay",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthDiagSelfTestOK": {
+    "name": "payShieldHealthDiagSelfTestOK",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthDiagSelfTestCount": {
+    "name": "payShieldHealthDiagSelfTestCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthDiagSelfTestList": {
+    "name": "payShieldHealthDiagSelfTestList",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthHealthCheckEnabled": {
+    "name": "payShieldHealthHealthCheckEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsStartTime": {
+    "name": "payShieldHealthCheckCountsStartTime",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsEndTime": {
+    "name": "payShieldHealthCheckCountsEndTime",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsRebootCount": {
+    "name": "payShieldHealthCheckCountsRebootCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsTamperCount": {
+    "name": "payShieldHealthCheckCountsTamperCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsPinFailuresMinuteLimit": {
+    "name": "payShieldHealthCheckCountsPinFailuresMinuteLimit",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsPinFailuresHourLimit": {
+    "name": "payShieldHealthCheckCountsPinFailuresHourLimit",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHealthCheckCountsPinAttackLimitExceeded": {
+    "name": "payShieldHealthCheckCountsPinAttackLimitExceeded",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.11.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetEnabled": {
+    "name": "payShieldHostConnectionEthernetEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionFICONEnabled": {
+    "name": "payShieldHostConnectionFICONEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetIfCount": {
+    "name": "payShieldHostConnectionEthernetIfCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetSSLEnabled": {
+    "name": "payShieldHostConnectionEthernetSSLEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetACLsEnabled": {
+    "name": "payShieldHostConnectionEthernetACLsEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetUDPEnabled": {
+    "name": "payShieldHostConnectionEthernetUDPEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetTCPEnabled": {
+    "name": "payShieldHostConnectionEthernetTCPEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetMaxTCPConnections": {
+    "name": "payShieldHostConnectionEthernetMaxTCPConnections",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetTCPKeepalive": {
+    "name": "payShieldHostConnectionEthernetTCPKeepalive",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetWellKnownPortTCP": {
+    "name": "payShieldHostConnectionEthernetWellKnownPortTCP",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetWellKnownPortTLS": {
+    "name": "payShieldHostConnectionEthernetWellKnownPortTLS",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetTable": {
+    "name": "payShieldHostConnectionEthernetTable",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetEntry": {
+    "name": "payShieldHostConnectionEthernetEntry",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetIndex": {
+    "name": "payShieldHostConnectionEthernetIndex",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetConfigured": {
+    "name": "payShieldHostConnectionEthernetConfigured",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetInterfaceNumber": {
+    "name": "payShieldHostConnectionEthernetInterfaceNumber",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetConfigMethod": {
+    "name": "payShieldHostConnectionEthernetConfigMethod",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipMethodUnknown": 0,
+          "ipMethodStatic": 1,
+          "ipMethodDHCP": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetHostName": {
+    "name": "payShieldHostConnectionEthernetHostName",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetIpAddress": {
+    "name": "payShieldHostConnectionEthernetIpAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetSubnetMask": {
+    "name": "payShieldHostConnectionEthernetSubnetMask",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetGateway": {
+    "name": "payShieldHostConnectionEthernetGateway",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetMacAddress": {
+    "name": "payShieldHostConnectionEthernetMacAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetPortSpeed": {
+    "name": "payShieldHostConnectionEthernetPortSpeed",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionNumberOfConnectionsUsed": {
+    "name": "payShieldHostConnectionNumberOfConnectionsUsed",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionEthernetLoadCount": {
+    "name": "payShieldHostConnectionEthernetLoadCount",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.3.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionFICONControlUnitImage": {
+    "name": "payShieldHostConnectionFICONControlUnitImage",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionFICONControlUnitAddress": {
+    "name": "payShieldHostConnectionFICONControlUnitAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldHostConnectionFICONMIH": {
+    "name": "payShieldHostConnectionFICONMIH",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.12.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetEnabled": {
+    "name": "payShieldManagementEthernetEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetConfigMethod": {
+    "name": "payShieldManagementEthernetConfigMethod",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipMethodUnknown": 0,
+          "ipMethodStatic": 1,
+          "ipMethodDHCP": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetNetworkName": {
+    "name": "payShieldManagementEthernetNetworkName",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetIpAddress": {
+    "name": "payShieldManagementEthernetIpAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetSubnetMask": {
+    "name": "payShieldManagementEthernetSubnetMask",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetGateway": {
+    "name": "payShieldManagementEthernetGateway",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetMacAddress": {
+    "name": "payShieldManagementEthernetMacAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldManagementEthernetPortSpeed": {
+    "name": "payShieldManagementEthernetPortSpeed",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.13.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldPrinterLFCRReversed": {
+    "name": "payShieldPrinterLFCRReversed",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldPrinterTimeout": {
+    "name": "payShieldPrinterTimeout",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldPrinterDelay": {
+    "name": "payShieldPrinterDelay",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldPrinterReport": {
+    "name": "payShieldPrinterReport",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSettingsPCICompliant": {
+    "name": "payShieldSettingsPCICompliant",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSettingsHashSecuritySetting": {
+    "name": "payShieldSettingsHashSecuritySetting",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSettingsHashGeneralSetting": {
+    "name": "payShieldSettingsHashGeneralSetting",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSettingsHashConfigureCommand": {
+    "name": "payShieldSettingsHashConfigureCommand",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSettingsHashAuditSetting": {
+    "name": "payShieldSettingsHashAuditSetting",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldSettingsHashLMK": {
+    "name": "payShieldSettingsHashLMK",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetEnabled": {
+    "name": "payShieldAuxiliaryEthernetEnabled",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetConfigMethod": {
+    "name": "payShieldAuxiliaryEthernetConfigMethod",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipMethodUnknown": 0,
+          "ipMethodStatic": 1,
+          "ipMethodDHCP": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetNetworkName": {
+    "name": "payShieldAuxiliaryEthernetNetworkName",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetIpAddress": {
+    "name": "payShieldAuxiliaryEthernetIpAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetSubnetMask": {
+    "name": "payShieldAuxiliaryEthernetSubnetMask",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetGateway": {
+    "name": "payShieldAuxiliaryEthernetGateway",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetMacAddress": {
+    "name": "payShieldAuxiliaryEthernetMacAddress",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldAuxiliaryEthernetPortSpeed": {
+    "name": "payShieldAuxiliaryEthernetPortSpeed",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.16.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "payShieldFanNumber": {
+    "name": "payShieldFanNumber",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fan1": 1,
+          "fan2": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldFanState": {
+    "name": "payShieldFanState",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateOK": 1,
+          "stateFailure": 2,
+          "stateNotDetected": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldPSUNumber": {
+    "name": "payShieldPSUNumber",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psu1": 1,
+          "psu2": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldPSUState": {
+    "name": "payShieldPSUState",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateOK": 1,
+          "stateFailure": 2,
+          "stateNotDetected": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldBadDataPhysicalPort": {
+    "name": "payShieldBadDataPhysicalPort",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portHost1": 1,
+          "portHost2": 2,
+          "portFICON": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldBadDataProtocol": {
+    "name": "payShieldBadDataProtocol",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protocolTCP": 1,
+          "protocolUDP": 2,
+          "protocolFICON": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldErrorLogData": {
+    "name": "payShieldErrorLogData",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldBatteryState": {
+    "name": "payShieldBatteryState",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateOK": 1,
+          "stateWarning": 2,
+          "stateFailure": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldDiagnosticID": {
+    "name": "payShieldDiagnosticID",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diagDES": 1,
+          "diagAES": 2,
+          "diagECDSA": 3,
+          "diagHMAC": 4,
+          "diagMD5": 5,
+          "diagSHA": 6,
+          "diagRSA": 7,
+          "diagRNG": 8,
+          "diagRTC": 9,
+          "diagMemory": 10,
+          "diagPower": 11,
+          "diagBattery": 12,
+          "diagFans": 13,
+          "diagTemperature": 14,
+          "diagVoltage": 15,
+          "diagUDP": 16,
+          "diagTCP": 17,
+          "diagFICON": 18
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldDiagnosticString": {
+    "name": "payShieldDiagnosticString",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldFraudType": {
+    "name": "payShieldFraudType",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fraudExceededFailuresPerMinute": 1,
+          "fraudExceededFailuresPerHour": 2,
+          "fraudExceededAttackLimit": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldAlarmEraseTimeandDate": {
+    "name": "payShieldAlarmEraseTimeandDate",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldModifiedSetting": {
+    "name": "payShieldModifiedSetting",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "settingSecurity": 1,
+          "settingPCI": 2,
+          "settingAuditedItems": 3,
+          "settingEnabledPinblocks": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldDeviceState": {
+    "name": "payShieldDeviceState",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateUnavailable": 1,
+          "stateOnline": 2,
+          "stateOffline": 3,
+          "stateSecure": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldTamperCause": {
+    "name": "payShieldTamperCause",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "causeUnavailable": 1,
+          "causeTemperatureOutOfRange": 2,
+          "causeBatteryLow": 3,
+          "causeEraseButtonPressed": 4,
+          "causeSensorProcessorWatchdog": 5,
+          "causeSensorProcessorRestart": 6,
+          "causeVoltageOutOfRange": 7,
+          "causeMotionDetected": 8,
+          "causeCaseTampered": 9,
+          "causePowerLoss": 10
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldTamperDate": {
+    "name": "payShieldTamperDate",
+    "oid": "1.3.6.1.4.1.4096.999.2.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "payShieldPowerOnAlarm": {
+    "name": "payShieldPowerOnAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "payShieldRestartAlarm": {
+    "name": "payShieldRestartAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.2",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "payShieldEraseAlarm": {
+    "name": "payShieldEraseAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAlarmEraseTimeandDate"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldNewLicenseAlarm": {
+    "name": "payShieldNewLicenseAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "payShieldNewSoftwareAlarm": {
+    "name": "payShieldNewSoftwareAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "payShieldPSUAlarm": {
+    "name": "payShieldPSUAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPSUNumber"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPSUState"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldBatteryAlarm": {
+    "name": "payShieldBatteryAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBatteryState"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldFanAlarm": {
+    "name": "payShieldFanAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFanNumber"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFanState"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldTamperAlarm": {
+    "name": "payShieldTamperAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldTamperCause"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldTamperDate"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldHostPortBadDataAlarm": {
+    "name": "payShieldHostPortBadDataAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBadDataPhysicalPort"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBadDataProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldFraudAlarm": {
+    "name": "payShieldFraudAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFraudType"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldDiagnosticTestFailureAlarm": {
+    "name": "payShieldDiagnosticTestFailureAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDiagnosticID"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDiagnosticString"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldErrorlogAlarm": {
+    "name": "payShieldErrorlogAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldErrorLogData"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldSettingsModifiedAlarm": {
+    "name": "payShieldSettingsModifiedAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldModifiedSetting"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldDeviceStateAlarm": {
+    "name": "payShieldDeviceStateAlarm",
+    "oid": "1.3.6.1.4.1.4096.999.2.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDeviceState"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldMIBConformance": {
+    "name": "payShieldMIBConformance",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100",
+    "class": "objectidentity"
+  },
+  "payShieldMIBCompliances": {
+    "name": "payShieldMIBCompliances",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.1",
+    "class": "objectidentity"
+  },
+  "payShieldMIBGroups": {
+    "name": "payShieldMIBGroups",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.2",
+    "class": "objectidentity"
+  },
+  "payShieldMIBCompliance": {
+    "name": "payShieldMIBCompliance",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "payShieldDeprecatedObjectGroup",
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB"
+      },
+      {
+        "object": "payShieldDeprecatedNotificationGroup",
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "payShieldMIBCompliance2": {
+    "name": "payShieldMIBCompliance2",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "payShieldObjectGroup",
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB"
+      },
+      {
+        "object": "payShieldAlarmObjectGroup",
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB"
+      },
+      {
+        "object": "payShieldNotificationGroup",
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldObjectGroup": {
+    "name": "payShieldObjectGroup",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldUtilLoad"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldUtilHostCmdVolume"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldUtilEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateDevice"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateTamperState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateTamperDate"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateTamperCause"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateFanSerialNum"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateFanState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStatePSUSerialNum"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStatePSUState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldStateBattery"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkNumLoaded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkNumTestLmksLoaded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkNumOldLmksLoaded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusLoaded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusAuth"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusNumAuthActivities"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusScheme"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusAlgorithm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusLiveTest"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusComments"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLmkStatusCheckDigits"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsMgmtConsoleState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsMgmtGuiState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsHostTCPServer"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsHostUDPServer"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsHostFICONServer"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsHostPortEthernet1"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsHostPortEthernet2"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldCommsHostPortFICON"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSystemDateAndTime"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSystemSerialNum"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSystemModel"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFraudPinVerifyLimitsExceeded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFraudPinAttackLimitsExceeded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareBaseRelease"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareRevision"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareBuildNumber"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareCPLDVersion"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareSPVersion"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareSPBootVersion"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareBootstrapVersion"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLicensingPerformanceModel"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLicensingPackage"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLicensingOptionalLicenseCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLicensingOptionalLicensesList"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLicensingCryptoAlgorithmCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLicensingCryptoAlgorithmList"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldEnabledHostCommandsCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldEnabledHostCommandsList"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLogsErrorlogTotalCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLogsErrorlogMaxLength"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLogsAuditlogTotalCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldLogsAuditlogMaxLength"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthDiagSelfTestTimeOfDay"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthDiagSelfTestOK"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthDiagSelfTestCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthDiagSelfTestList"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthHealthCheckEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsStartTime"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsEndTime"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsRebootCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsTamperCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsPinFailuresMinuteLimit"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsPinFailuresHourLimit"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHealthCheckCountsPinAttackLimitExceeded"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionFICONEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetIfCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetSSLEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetACLsEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetUDPEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetTCPEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetMaxTCPConnections"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetTCPKeepalive"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetWellKnownPortTCP"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetWellKnownPortTLS"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetConfigured"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetInterfaceNumber"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetConfigMethod"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetHostName"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetIpAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetSubnetMask"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetGateway"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetMacAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetPortSpeed"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionNumberOfConnectionsUsed"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionEthernetLoadCount"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionFICONControlUnitImage"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionFICONControlUnitAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostConnectionFICONMIH"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetConfigMethod"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetNetworkName"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetIpAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetSubnetMask"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetGateway"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetMacAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldManagementEthernetPortSpeed"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPrinterLFCRReversed"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPrinterTimeout"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPrinterDelay"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPrinterReport"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsPCICompliant"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsHashSecuritySetting"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsHashGeneralSetting"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsHashConfigureCommand"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsHashAuditSetting"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsHashLMK"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetEnabled"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetConfigMethod"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetNetworkName"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetIpAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetSubnetMask"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetGateway"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetMacAddress"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAuxiliaryEthernetPortSpeed"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldDeprecatedObjectGroup": {
+    "name": "payShieldDeprecatedObjectGroup",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldVersionSoftwareHSMCoreAPIVersion"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "payShieldAlarmObjectGroup": {
+    "name": "payShieldAlarmObjectGroup",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFanNumber"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFanState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPSUNumber"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPSUState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBadDataPhysicalPort"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBadDataProtocol"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldErrorLogData"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBatteryState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDiagnosticID"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDiagnosticString"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFraudType"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldAlarmEraseTimeandDate"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldModifiedSetting"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDeviceState"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldTamperCause"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldTamperDate"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldNotificationGroup": {
+    "name": "payShieldNotificationGroup",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPowerOnAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldEraseAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldNewLicenseAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldNewSoftwareAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldPSUAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldBatteryAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFanAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldTamperAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldHostPortBadDataAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldFraudAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDiagnosticTestFailureAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldErrorlogAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldSettingsModifiedAlarm"
+      },
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldDeviceStateAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "payShieldDeprecatedNotificationGroup": {
+    "name": "payShieldDeprecatedNotificationGroup",
+    "oid": "1.3.6.1.4.1.4096.2.2.10000.100.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "THALES-ESECURITY-PAYSHIELD-MIB",
+        "object": "payShieldRestartAlarm"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/thales/THALES-ESECURITY-PAYSHIELD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:20:17 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+    ],
+    "module": "THALES-ESECURITY-PAYSHIELD-MIB"
+  }
+}

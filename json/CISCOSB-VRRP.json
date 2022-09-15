@@ -16,31 +16,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "Counter32",
       "Integer32",
-      "iso",
       "mib-2",
-      "Gauge32"
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "RowStatus",
-      "DisplayString",
-      "TimeInterval"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "VRRPV3-MIB": [
-      "vrrpv3OperationsEntry",
-      "vrrpv3AssociatedIpAddrEntry"
+      "vrrpv3AssociatedIpAddrEntry",
+      "vrrpv3OperationsEntry"
     ]
   },
   "rlVrrp": {
@@ -518,8 +518,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-VRRP",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:15:19 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:10:05 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-VRRP"

@@ -3,34 +3,34 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits",
-      "enterprises",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
       "Gauge32",
-      "Integer32"
+      "mib-2",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ray": {
@@ -2035,8 +2035,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ray/RAY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  8 10:24:46 2022",
-      "On host fv-az205-597 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 15 09:18:57 2022",
+      "On host fv-az343-490 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "RAY-MIB"
