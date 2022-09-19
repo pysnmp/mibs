@@ -5,30 +5,30 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
       "CiscoNetworkAddress",
-      "TimeIntervalSec",
       "CiscoInetAddressMask",
+      "Unsigned64",
+      "TimeIntervalSec",
       "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsLsConfigIssues",
-      "CucsLsmaintAckChangeDetails",
-      "CucsLsmaintAckDisr",
-      "CucsTrigAckMode",
-      "CucsLsmaintAckChanges",
-      "CucsTrigTrigState",
-      "CucsPolicyPolicyOwner",
-      "CucsLsmaintChangeMode",
-      "CucsTrigTrigger",
       "CucsTrigAckOperState",
       "CucsTrigAdminState",
-      "CucsTrigAckPrevOperState"
+      "CucsLsConfigIssues",
+      "CucsLsmaintAckDisr",
+      "CucsTrigTrigState",
+      "CucsTrigTrigger",
+      "CucsLsmaintAckChangeDetails",
+      "CucsLsmaintChangeMode",
+      "CucsTrigAckMode",
+      "CucsLsmaintAckChanges",
+      "CucsTrigAckPrevOperState",
+      "CucsPolicyPolicyOwner"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -38,33 +38,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "IpAddress",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Gauge32",
-      "iso",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
       "TimeStamp",
+      "TruthValue",
       "RowPointer",
-      "TimeInterval",
+      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "DateAndTime"
     ]
   },
@@ -602,8 +602,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSMAINT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:03:43 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:28:25 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-LSMAINT-MIB"

@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "ClientAuthType",
-      "extremeAgent",
-      "extremeV2Traps",
       "ExtremeDeviceId",
-      "WirelessRemoteConnectBindingType",
-      "WPAKeyMgmtSet",
-      "WPACipherSet",
+      "extremeV2Traps",
       "extremeAP",
-      "extremeLAC"
+      "extremeLAC",
+      "WPAKeyMgmtSet",
+      "WirelessRemoteConnectBindingType",
+      "WPACipherSet",
+      "ClientAuthType",
+      "extremeAgent"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Gauge32",
       "Unsigned32",
-      "Integer32"
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "RowStatus",
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "extremeWireless": {
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:05:10 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:29:33 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

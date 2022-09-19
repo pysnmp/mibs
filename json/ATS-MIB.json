@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "enterprises",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "TRAP-TYPE",
-      "iso",
-      "TimeTicks",
+      "enterprises",
       "Gauge32",
-      "Counter32",
       "MibIdentifier",
-      "Integer32"
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2060,8 +2060,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ats/ATS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:59:24 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:56 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ATS-MIB"

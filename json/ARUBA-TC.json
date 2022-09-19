@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "ObjectSyntax",
-      "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
       "Counter32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "IpAddress",
-      "Unsigned32",
-      "iso"
+      "ObjectSyntax"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ArubaEnableValue": {
@@ -1547,8 +1547,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/ARUBA-TC",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:59:15 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:48 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ARUBA-TC"

@@ -8,38 +8,38 @@
       "interfaces"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "mib-2",
-      "OBJECT-TYPE",
       "Bits",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32"
+      "Counter64",
+      "mib-2",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TestAndIncr",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "AutonomousType",
+      "RowStatus",
+      "PhysAddress"
     ]
   },
   "osnexus": {
@@ -34858,8 +34858,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/osnexus/QUANTASTOR-SYS-STATS",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:11:17 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:34:13 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "QUANTASTOR-SYS-STATS"

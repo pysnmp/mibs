@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-FC-TC-MIB": [
-      "HpnicfFcAddress",
-      "HpnicfFcVsanIndex",
       "HpnicfFcAddressType",
-      "HpnicfFcStartOper"
+      "HpnicfFcStartOper",
+      "HpnicfFcAddress",
+      "HpnicfFcVsanIndex"
     ],
     "HPN-ICF-VSAN-MIB": [
       "hpnicfSan"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
       "Gauge32",
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "MODULE-IDENTITY",
       "Counter64",
-      "Integer32"
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "hpnicfFcPing": {
@@ -464,8 +464,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FC-PING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:07:23 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:31:19 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-FC-PING-MIB"

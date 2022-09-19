@@ -8,35 +8,35 @@
       "ArubaEnableValue"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "ObjectName",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "snmpModules",
+      "OBJECT-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "iso",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "ObjectName",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TestAndIncr",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "PhysAddress",
-      "TimeStamp"
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "arubaMgmtExtensions": {
@@ -134,8 +134,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/ARUBA-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:59:15 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:48 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ARUBA-MGMT-MIB"

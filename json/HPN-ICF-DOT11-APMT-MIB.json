@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "hpnicfDot11",
-      "HpnicfDot11RFModeType",
-      "HpnicfDot11TxPwrLevelScopeType",
-      "HpnicfDot11MACModeType",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11RadioScopeType",
-      "HpnicfDot11NotifyReasonType",
-      "HpnicfDot11ObjectIDType",
       "HpnicfDot11ServicePolicyIDType",
-      "hpnicfDot11APElementIndex",
+      "HpnicfDot11ChannelScopeType",
       "HpnicfDot11RadioElementIndex",
-      "HpnicfDot11ChannelScopeType"
+      "HpnicfDot11SSIDStringType",
+      "HpnicfDot11TxPwrLevelScopeType",
+      "HpnicfDot11NotifyReasonType",
+      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11MACModeType",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11RFModeType",
+      "hpnicfDot11"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
       "Gauge32",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "IpAddress",
       "Counter64",
-      "Integer32"
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "hpnicfDot11APMT": {
@@ -8424,8 +8424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:07:25 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:31:20 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-DOT11-APMT-MIB"

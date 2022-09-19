@@ -9,37 +9,37 @@
       "SnmpAdminString"
     ],
     "SNMP-VIEW-BASED-ACM-MIB": [
-      "vacmGroupName",
+      "vacmAccessSecurityModel",
       "vacmAccessContextPrefix",
       "vacmAccessSecurityLevel",
-      "vacmAccessSecurityModel"
+      "vacmGroupName"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
       "Bits",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType"
+      "StorageType",
+      "DisplayString"
     ]
   },
   "netSnmpVacmMIB": {
@@ -199,8 +199,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-VACM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:10:08 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:33:24 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "NET-SNMP-VACM-MIB"

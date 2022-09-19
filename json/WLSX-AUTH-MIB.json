@@ -6,45 +6,45 @@
     ],
     "ARUBA-TC": [
       "ArubaEncryptionMethods",
-      "ArubaEnableValue",
+      "ArubaHashAlgorithms",
       "ArubaAuthServerType",
-      "ArubaAuthenticationMethods",
-      "ArubaHashAlgorithms"
+      "ArubaEnableValue",
+      "ArubaAuthenticationMethods"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "snmpModules",
+      "OBJECT-TYPE",
       "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "iso",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TAddress",
+      "TimeInterval",
       "TestAndIncr",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TDomain",
+      "MacAddress",
       "TruthValue",
-      "TimeInterval",
-      "RowStatus",
-      "PhysAddress",
-      "StorageType"
+      "StorageType",
+      "TDomain",
+      "TAddress",
+      "PhysAddress"
     ]
   },
   "wlsxAuthMIB": {
@@ -468,8 +468,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-AUTH-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:59:15 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:48 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "WLSX-AUTH-MIB"

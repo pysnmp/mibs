@@ -5,28 +5,28 @@
       "arrisProdIdCM"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter32",
       "iso",
-      "Bits"
+      "Counter64",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "modemCapabilities": {
@@ -57,8 +57,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-CM-CAPABILITY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:59:13 2022",
-      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:47 2022",
+      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ARRIS-CM-CAPABILITY-MIB"
