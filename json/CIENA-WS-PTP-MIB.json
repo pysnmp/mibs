@@ -5,47 +5,47 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "ChannelsNumber",
-      "EnabledDisabledNaEnum",
-      "TraceTxOperMode",
-      "Decimal2DigSmall",
-      "PtpId",
-      "EnabledDisabledEnum",
-      "XcvrId",
-      "NameString",
-      "Decimal1Dig",
-      "XcvrType",
-      "TraceMismatchFailMode",
       "TraceMismatchMode",
-      "StringMaxl32",
+      "PtpId",
+      "NameString",
+      "EnabledDisabledNaEnum",
+      "XcvrType",
+      "EnabledDisabledEnum",
       "Decimal2Dig",
-      "StringMaxl15"
+      "TraceMismatchFailMode",
+      "ChannelsNumber",
+      "StringMaxl15",
+      "Decimal1Dig",
+      "TraceTxOperMode",
+      "XcvrId",
+      "Decimal2DigSmall",
+      "StringMaxl32"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "TimeTicks",
       "IpAddress",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Bits",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsPtpMIB": {
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:25:59 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:26:04 2022",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CIENA-WS-PTP-MIB"

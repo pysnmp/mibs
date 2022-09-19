@@ -6,15 +6,15 @@
       "ifIndex"
     ],
     "INTEGRATED-SERVICES-MIB": [
-      "SessionType",
-      "QosService",
+      "Port",
       "BurstSize",
       "MessageSize",
-      "BitRate",
+      "SessionNumber",
       "intSrvFlowStatus",
-      "Protocol",
-      "Port",
-      "SessionNumber"
+      "BitRate",
+      "QosService",
+      "SessionType",
+      "Protocol"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -22,29 +22,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "mib-2",
-      "TimeTicks",
-      "Bits",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "TimeStamp",
-      "TestAndIncr",
       "RowStatus",
       "DisplayString",
+      "TimeStamp",
+      "TruthValue",
+      "TestAndIncr",
       "TimeInterval"
     ]
   },
@@ -2976,8 +2976,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RSVP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:23:46 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:23:45 2022",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "RSVP-MIB"

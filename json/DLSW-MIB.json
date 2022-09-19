@@ -13,28 +13,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "mib-2",
-      "Integer32",
-      "Bits",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "RowPointer",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "dlsw": {
@@ -4047,7 +4047,7 @@
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DLSW-MIB",
       "Produced by pysmi-1.1.8 at Mon Sep 19 08:23:45 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "DLSW-MIB"

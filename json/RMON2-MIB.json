@@ -5,18 +5,18 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "matrixControlEntry",
-      "statistics",
-      "hostControlEntry",
-      "hosts",
-      "historyControlEntry",
-      "history",
-      "OwnerString",
-      "filterEntry",
-      "channelEntry",
-      "matrix",
       "filter",
-      "etherStatsEntry"
+      "OwnerString",
+      "statistics",
+      "matrix",
+      "etherStatsEntry",
+      "hostControlEntry",
+      "history",
+      "matrixControlEntry",
+      "channelEntry",
+      "filterEntry",
+      "historyControlEntry",
+      "hosts"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -24,33 +24,33 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "mib-2",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "Counter64",
       "Bits",
-      "iso"
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "sourceRoutingStatsEntry",
       "tokenRingPStatsEntry",
       "tokenRingMLStatsEntry",
       "ringStationControlEntry",
+      "sourceRoutingStatsEntry",
       "tokenRing"
     ]
   },
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:29 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:28 2022",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "RMON2-MIB"

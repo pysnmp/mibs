@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Counter64",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
       "OBJECT-IDENTITY",
       "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
       "enterprises",
-      "Counter32"
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "alcatelNGOAWBaseMIB": {
@@ -95,8 +95,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/stellar/ALCATEL-NGOAW-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:34:16 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:35:47 2022",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-NGOAW-BASE-MIB"

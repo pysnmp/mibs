@@ -5,47 +5,47 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaHTMode",
-      "ArubaUserForwardMode",
       "ArubaEncryptionType",
       "ArubaPhyType",
-      "ArubaAuthenticationMethods",
-      "ArubaSubAuthenticationMethods"
+      "ArubaHTMode",
+      "ArubaUserForwardMode",
+      "ArubaSubAuthenticationMethods",
+      "ArubaAuthenticationMethods"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "snmpModules",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "iso",
-      "Counter64",
-      "Bits",
+      "Gauge32",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "snmpModules",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TestAndIncr",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue",
-      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TestAndIncr",
       "TDomain",
-      "TAddress",
-      "PhysAddress"
+      "TruthValue",
+      "PhysAddress",
+      "StorageType",
+      "TimeInterval",
+      "TAddress"
     ],
     "WLSX-WLAN-MIB": [
       "wlanESSID"
@@ -863,7 +863,7 @@
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-USER-MIB",
       "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:48 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "WLSX-USER-MIB"

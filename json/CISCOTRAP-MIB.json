@@ -6,20 +6,20 @@
     ],
     "IF-MIB": [
       "ifDescr",
-      "ifIndex",
-      "ifType"
+      "ifType",
+      "ifIndex"
     ],
     "OLD-CISCO-INTERFACES-MIB": [
       "locIfReason"
     ],
     "OLD-CISCO-SYSTEM-MIB": [
-      "whyReload",
-      "authAddr"
+      "authAddr",
+      "whyReload"
     ],
     "OLD-CISCO-TCP-MIB": [
       "loctcpConnOutBytes",
-      "loctcpConnElapsed",
-      "loctcpConnInBytes"
+      "loctcpConnInBytes",
+      "loctcpConnElapsed"
     ],
     "OLD-CISCO-TS-MIB": [
       "tslineSesType",
@@ -29,29 +29,29 @@
       "egpNeighAddr"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmp",
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "iso",
       "TRAP-TYPE",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
       "Bits",
-      "Unsigned32",
-      "Integer32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "iso"
+      "Counter32",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -193,8 +193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOTRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:28:25 2022",
-      "On host fv-az152-47 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:28:38 2022",
+      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCOTRAP-MIB"
