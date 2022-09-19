@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Bits",
       "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "iso",
+      "IpAddress",
       "MibIdentifier",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Integer32",
+      "enterprises",
+      "Counter64",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruggedcom": {
@@ -197,8 +197,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ros/RUGGEDCOM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:35:56 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:13:01 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "RUGGEDCOM-MIB"

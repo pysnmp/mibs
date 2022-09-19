@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Opaque",
       "OBJECT-TYPE",
-      "enterprises",
-      "Opaque"
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "PhysAddress",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
@@ -1131,8 +1131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teltonika/TELTONIKA-RUTX-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:37:04 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:14:11 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "TELTONIKA-RUTX-MIB"

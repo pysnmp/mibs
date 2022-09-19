@@ -5,24 +5,24 @@
       "pegasusMibModule"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
       "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Integer32",
-      "IpAddress"
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -332,8 +332,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pegasus/PEGASUS-LEAN-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:34:30 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:11:42 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "PEGASUS-LEAN-TRAP-MIB"

@@ -13,30 +13,30 @@
     ],
     "PEAKFLOW-DOS-MIB": [
       "pdosAnomalyDuration",
-      "pdosUrl",
+      "pdosAnomalyClassification",
       "pdosAnomalyDirection",
       "pdosAnomalyStart",
-      "pdosAnomalyClassification"
+      "pdosUrl"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
       "NOTIFICATION-TYPE",
       "Counter32",
+      "Counter64",
       "Gauge32",
       "IpAddress",
-      "iso",
+      "MibIdentifier",
+      "Integer32",
       "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3386,8 +3386,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-PEAKFLOW-SP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:21:36 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 07:59:01 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "PEAKFLOW-SP-MIB"

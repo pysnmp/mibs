@@ -10,9 +10,9 @@
       "ieee8021QBridgeTpFdbEntry"
     ],
     "IEEE8021-SPB-MIB": [
-      "ieee8021SpbTopIx",
+      "IEEE8021SpbBridgePriority",
       "ieee8021SpbmTopSrvTableEntry",
-      "IEEE8021SpbBridgePriority"
+      "ieee8021SpbTopIx"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs"
@@ -22,31 +22,31 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
       "IpAddress",
-      "Gauge32",
       "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "Gauge32",
       "Integer32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE"
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "ieee8021EcmpMib": {
@@ -489,8 +489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-ECMP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:20:17 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 07:57:37 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "IEEE8021-ECMP-MIB"

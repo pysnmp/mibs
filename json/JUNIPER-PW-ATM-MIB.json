@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVpIdentifier",
-      "AtmVcIdentifier"
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -12,42 +12,42 @@
       "jnxMibs"
     ],
     "JUNIPER-VPN-MIB": [
+      "jnxVpnPwVpnType",
       "jnxVpnPwIndex",
-      "jnxVpnPwVpnName",
-      "jnxVpnPwVpnType"
+      "jnxVpnPwVpnName"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "MibIdentifier",
       "Counter64",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
       "IpAddress",
-      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "mib-2",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
       "RowPointer",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxPWAtmMIB": {
@@ -902,8 +902,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PW-ATM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:32:18 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:09:12 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-PW-ATM-MIB"

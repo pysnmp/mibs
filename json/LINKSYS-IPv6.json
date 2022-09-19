@@ -5,22 +5,22 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAutonomousSystemNumber"
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
+      "ipv6RouterAdvertEntry",
       "ipv6InterfaceEntry",
       "ipNetToPhysicalEntry",
-      "ipv6RouterAdvertEntry",
       "ipAddressEntry"
     ],
     "LINKSYS-IP": [
@@ -34,29 +34,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "iso",
-      "zeroDotZero"
+      "IpAddress",
+      "Counter64",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "zeroDotZero",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:32:27 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:09:36 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "LINKSYS-IPv6"

@@ -5,8 +5,8 @@
       "DLCI"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -15,31 +15,31 @@
       "JuniNextIfIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
       "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "juniFrameRelayMIB": {
@@ -2096,8 +2096,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-FRAME-RELAY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:32:18 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:09:13 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "Juniper-FRAME-RELAY-MIB"

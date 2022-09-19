@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "BASIS-MIB": [
-      "basisShelf",
-      "axisRedundancy"
+      "axisRedundancy",
+      "basisShelf"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MibIdentifier",
-      "TimeTicks"
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "shelfTable": {
@@ -1111,8 +1111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/BASIS-SHELF-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:26:09 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:03:41 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "BASIS-SHELF-MIB"

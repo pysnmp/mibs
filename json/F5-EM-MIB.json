@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "F5-BIGIP-COMMON-MIB": [
-      "f5",
-      "LongDisplayString",
       "bigipCompliances",
-      "bigipGroups"
+      "bigipGroups",
+      "LongDisplayString",
+      "f5"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -13,32 +13,32 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "enterprises",
       "Unsigned32",
       "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Opaque",
       "NOTIFICATION-TYPE",
       "IpAddress",
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter32",
       "iso",
-      "Opaque"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "MacAddress",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "enterpriseManagement": {
@@ -851,8 +851,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-EM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:27:38 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:05:08 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "F5-EM-MIB"

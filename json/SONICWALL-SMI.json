@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Integer32",
       "Counter64",
+      "Integer32",
       "MODULE-IDENTITY",
       "iso",
-      "enterprises",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
       "Gauge32",
       "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Bits"
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -87,8 +87,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sonicwall/SONICWALL-SMI",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:36:43 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 08:13:48 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "SONICWALL-SMI"

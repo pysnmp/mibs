@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "Gauge32"
+      "Bits",
+      "mib-2",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaMauMIB": {
@@ -707,8 +707,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-MAU-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 07:20:04 2022",
-      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 07:57:23 2022",
+      "On host fv-az252-355 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "IANA-MAU-MIB"
