@@ -8,29 +8,29 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "segmentMIB": {
@@ -377,8 +377,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SEGMENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:00:42 2022",
-      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 07:22:33 2022",
+      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "BLUECOAT-SEGMENT-MIB"

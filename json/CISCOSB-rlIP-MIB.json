@@ -9,48 +9,48 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetZoneIndex",
-      "InetAddress",
-      "InetAddressPrefixLength",
       "InetVersion",
-      "InetAddressType"
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAddress"
     ],
     "IP-MIB": [
-      "IpAddressOriginTC",
-      "IpAddressStatusTC"
+      "IpAddressStatusTC",
+      "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "MibIdentifier",
-      "IpAddress",
-      "zeroDotZero",
-      "Gauge32",
-      "Counter32",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "zeroDotZero",
       "Integer32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "mib-2",
+      "Counter32",
+      "MODULE-IDENTITY",
       "iso",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TestAndIncr",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "TimeStamp",
       "RowStatus",
+      "PhysAddress",
       "DisplayString",
       "StorageType",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TruthValue"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 15 10:04:46 2022",
-      "On host fv-az377-643 platform Linux version 5.15.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 07:26:13 2022",
+      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
       "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

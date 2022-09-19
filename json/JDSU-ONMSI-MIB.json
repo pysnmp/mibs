@@ -1,0 +1,6426 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-ITU-ALARM-TC-MIB": [
+      "IANAItuProbableCause",
+      "IANAItuEventType"
+    ],
+    "JDSU-SMI-MIB": [
+      "jdsuOnmsi"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "jdsuOnmsiMib": {
+    "name": "jdsuOnmsiMib",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-03-11 16:27",
+        "description": "Version 4.40: add PON scheduling and home VIP flag"
+      },
+      {
+        "revision": "2019-11-20 16:01",
+        "description": "Version 4.30: add rootCause in PointToPointSpecificInfos"
+      },
+      {
+        "revision": "2018-09-04 15:59",
+        "description": "Version 3.12: add alarm additional attributes"
+      },
+      {
+        "revision": "2017-07-05 11:00",
+        "description": "Version sensing: Add a new value to JdsuOnmsiOtdrPosition: center(3). Add temperature and strain alarm specific infos to the alarm event entry and trap."
+      },
+      {
+        "revision": "2012-10-25 11:38",
+        "description": "Version 2.40.0: Rename fields to attributes and custom fields to additional attributes. Add GPS coordinates and AlarmOriginatingEntity to the alarm event entry and trap. Add OTU and central office service Add some Textual Convention Update all documentation"
+      },
+      {
+        "revision": "2011-10-04 11:15",
+        "description": "Version 2.12.1: add field tables for links, monitoring tests, PONs, homes"
+      },
+      {
+        "revision": "2011-09-27 14:49",
+        "description": "Version 2.12.0"
+      },
+      {
+        "revision": "2010-06-09 09:10",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "JdsuOnmsiAlarmAckStatus": {
+    "name": "JdsuOnmsiAlarmAckStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acknowledged": 1,
+          "unacknowledged": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiAlarmClearStatus": {
+    "name": "JdsuOnmsiAlarmClearStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "uncleared": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiAlarmEventType": {
+    "name": "JdsuOnmsiAlarmEventType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "newAlarmEvent": 1,
+          "changedAlarmEvent": 2,
+          "ackStateChangedEvent": 3,
+          "clearStateChangedEvent": 4,
+          "alarmCommentsEvent": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiInternalKey": {
+    "name": "JdsuOnmsiInternalKey",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiOtdrPosition": {
+    "name": "JdsuOnmsiOtdrPosition",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "top": 1,
+          "bottom": 2,
+          "center": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiPeakStatus": {
+    "name": "JdsuOnmsiPeakStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiPeakType": {
+    "name": "JdsuOnmsiPeakType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notReferenced": 1,
+          "notHome": 2,
+          "home": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiSeverity": {
+    "name": "JdsuOnmsiSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "indeterminate": 1,
+          "warning": 2,
+          "minor": 3,
+          "major": 4,
+          "critical": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JdsuOnmsiUtf8String": {
+    "name": "JdsuOnmsiUtf8String",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "jdsuOnmsiProduct": {
+    "name": "jdsuOnmsiProduct",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiProductDescr": {
+    "name": "jdsuOnmsiProductDescr",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiProductObjectID": {
+    "name": "jdsuOnmsiProductObjectID",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiProductContact": {
+    "name": "jdsuOnmsiProductContact",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiProductName": {
+    "name": "jdsuOnmsiProductName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiProductLocation": {
+    "name": "jdsuOnmsiProductLocation",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAdministration": {
+    "name": "jdsuOnmsiAdministration",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiSnmpConfig": {
+    "name": "jdsuOnmsiSnmpConfig",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiSnmpConfigurationReload": {
+    "name": "jdsuOnmsiSnmpConfigurationReload",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiImAlive": {
+    "name": "jdsuOnmsiImAlive",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiImAlivePeriodMin": {
+    "name": "jdsuOnmsiImAlivePeriodMin",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiImAliveText": {
+    "name": "jdsuOnmsiImAliveText",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiImAliveAlarmEventSequence": {
+    "name": "jdsuOnmsiImAliveAlarmEventSequence",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiServices": {
+    "name": "jdsuOnmsiServices",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeService": {
+    "name": "jdsuOnmsiHomeService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeData": {
+    "name": "jdsuOnmsiHomeData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeTable": {
+    "name": "jdsuOnmsiHomeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntry": {
+    "name": "jdsuOnmsiHomeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryInternalKey": {
+    "name": "jdsuOnmsiHomeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryHomeIdentifier": {
+    "name": "jdsuOnmsiHomeEntryHomeIdentifier",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryName": {
+    "name": "jdsuOnmsiHomeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryDescription": {
+    "name": "jdsuOnmsiHomeEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryPonInternalKey": {
+    "name": "jdsuOnmsiHomeEntryPonInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey": {
+    "name": "jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryLatestPeakInternalKey": {
+    "name": "jdsuOnmsiHomeEntryLatestPeakInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryLatestPeakSeverity": {
+    "name": "jdsuOnmsiHomeEntryLatestPeakSeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryLatestPeakStatus": {
+    "name": "jdsuOnmsiHomeEntryLatestPeakStatus",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiPeakStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeEntryVip": {
+    "name": "jdsuOnmsiHomeEntryVip",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAdditionalAttributeTable": {
+    "name": "jdsuOnmsiHomeAdditionalAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAdditionalAttributeEntry": {
+    "name": "jdsuOnmsiHomeAdditionalAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAdditionalAttributeEntryInternalKey",
+        "implied": 0
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAdditionalAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAdditionalAttributeEntryInternalKey": {
+    "name": "jdsuOnmsiHomeAdditionalAttributeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAdditionalAttributeEntryName": {
+    "name": "jdsuOnmsiHomeAdditionalAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAdditionalAttributeEntryValue": {
+    "name": "jdsuOnmsiHomeAdditionalAttributeEntryValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTerminationTypeTable": {
+    "name": "jdsuOnmsiHomeTerminationTypeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTerminationTypeEntry": {
+    "name": "jdsuOnmsiHomeTerminationTypeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTerminationTypeEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTerminationTypeEntryInternalKey": {
+    "name": "jdsuOnmsiHomeTerminationTypeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTerminationTypeEntryName": {
+    "name": "jdsuOnmsiHomeTerminationTypeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTerminationTypeEntryDescription": {
+    "name": "jdsuOnmsiHomeTerminationTypeEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeTable": {
+    "name": "jdsuOnmsiHomeAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeEntry": {
+    "name": "jdsuOnmsiHomeAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeEntryName": {
+    "name": "jdsuOnmsiHomeAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeEntryAdditional": {
+    "name": "jdsuOnmsiHomeAttributeEntryAdditional",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeEntryFindable": {
+    "name": "jdsuOnmsiHomeAttributeEntryFindable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeEntryUpdatable": {
+    "name": "jdsuOnmsiHomeAttributeEntryUpdatable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeFunctions": {
+    "name": "jdsuOnmsiHomeFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeTerminationTypeLoad": {
+    "name": "jdsuOnmsiHomeTerminationTypeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeTerminationTypeLoadExecute": {
+    "name": "jdsuOnmsiHomeTerminationTypeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTerminationTypeLoadError": {
+    "name": "jdsuOnmsiHomeTerminationTypeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeGet": {
+    "name": "jdsuOnmsiHomeGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeGetParamInternalKey": {
+    "name": "jdsuOnmsiHomeGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeGetExecute": {
+    "name": "jdsuOnmsiHomeGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeGetError": {
+    "name": "jdsuOnmsiHomeGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeFind": {
+    "name": "jdsuOnmsiHomeFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeFindParamAttribute": {
+    "name": "jdsuOnmsiHomeFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeFindParamValue": {
+    "name": "jdsuOnmsiHomeFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeFindExecute": {
+    "name": "jdsuOnmsiHomeFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeFindError": {
+    "name": "jdsuOnmsiHomeFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeStartTest": {
+    "name": "jdsuOnmsiHomeStartTest",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeStartTestParamInternalKey": {
+    "name": "jdsuOnmsiHomeStartTestParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeStartTestExecute": {
+    "name": "jdsuOnmsiHomeStartTestExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeStartTestError": {
+    "name": "jdsuOnmsiHomeStartTestError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeLoad": {
+    "name": "jdsuOnmsiHomeAttributeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.5",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeAttributeLoadExecute": {
+    "name": "jdsuOnmsiHomeAttributeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiHomeAttributeLoadError": {
+    "name": "jdsuOnmsiHomeAttributeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonService": {
+    "name": "jdsuOnmsiPonService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonData": {
+    "name": "jdsuOnmsiPonData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonTable": {
+    "name": "jdsuOnmsiPonTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntry": {
+    "name": "jdsuOnmsiPonEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntryInternalKey": {
+    "name": "jdsuOnmsiPonEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntryName": {
+    "name": "jdsuOnmsiPonEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntryDescription": {
+    "name": "jdsuOnmsiPonEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntryLatestTestInternalKey": {
+    "name": "jdsuOnmsiPonEntryLatestTestInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntryOtuInternalKey": {
+    "name": "jdsuOnmsiPonEntryOtuInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntryPortInternalKey": {
+    "name": "jdsuOnmsiPonEntryPortInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntrySeverity": {
+    "name": "jdsuOnmsiPonEntrySeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonEntrySchedulingConfiguration": {
+    "name": "jdsuOnmsiPonEntrySchedulingConfiguration",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAdditionalAttributeTable": {
+    "name": "jdsuOnmsiPonAdditionalAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAdditionalAttributeEntry": {
+    "name": "jdsuOnmsiPonAdditionalAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAdditionalAttributeEntryInternalKey",
+        "implied": 0
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAdditionalAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPonAdditionalAttributeEntryInternalKey": {
+    "name": "jdsuOnmsiPonAdditionalAttributeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAdditionalAttributeEntryName": {
+    "name": "jdsuOnmsiPonAdditionalAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAdditionalAttributeEntryValue": {
+    "name": "jdsuOnmsiPonAdditionalAttributeEntryValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeTable": {
+    "name": "jdsuOnmsiPonAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeEntry": {
+    "name": "jdsuOnmsiPonAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeEntryName": {
+    "name": "jdsuOnmsiPonAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeEntryAdditional": {
+    "name": "jdsuOnmsiPonAttributeEntryAdditional",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeEntryFindable": {
+    "name": "jdsuOnmsiPonAttributeEntryFindable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeEntryUpdatable": {
+    "name": "jdsuOnmsiPonAttributeEntryUpdatable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonFunctions": {
+    "name": "jdsuOnmsiPonFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonGet": {
+    "name": "jdsuOnmsiPonGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonGetParamInternalKey": {
+    "name": "jdsuOnmsiPonGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonGetExecute": {
+    "name": "jdsuOnmsiPonGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonGetError": {
+    "name": "jdsuOnmsiPonGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonFind": {
+    "name": "jdsuOnmsiPonFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonFindParamAttribute": {
+    "name": "jdsuOnmsiPonFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonFindParamValue": {
+    "name": "jdsuOnmsiPonFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonFindExecute": {
+    "name": "jdsuOnmsiPonFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonFindError": {
+    "name": "jdsuOnmsiPonFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonStartTest": {
+    "name": "jdsuOnmsiPonStartTest",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonStartTestParamInternalKey": {
+    "name": "jdsuOnmsiPonStartTestParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonStartTestExecute": {
+    "name": "jdsuOnmsiPonStartTestExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonStartTestError": {
+    "name": "jdsuOnmsiPonStartTestError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeLoad": {
+    "name": "jdsuOnmsiPonAttributeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPonAttributeLoadExecute": {
+    "name": "jdsuOnmsiPonAttributeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPonAttributeLoadError": {
+    "name": "jdsuOnmsiPonAttributeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.2.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakService": {
+    "name": "jdsuOnmsiPeakService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPeakData": {
+    "name": "jdsuOnmsiPeakData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPeakTable": {
+    "name": "jdsuOnmsiPeakTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntry": {
+    "name": "jdsuOnmsiPeakEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryInternalKey": {
+    "name": "jdsuOnmsiPeakEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryTestInternalKey": {
+    "name": "jdsuOnmsiPeakEntryTestInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryDate": {
+    "name": "jdsuOnmsiPeakEntryDate",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryIsAReference": {
+    "name": "jdsuOnmsiPeakEntryIsAReference",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryDistance": {
+    "name": "jdsuOnmsiPeakEntryDistance",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryLevel": {
+    "name": "jdsuOnmsiPeakEntryLevel",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryPower": {
+    "name": "jdsuOnmsiPeakEntryPower",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryIsPowerMeasured": {
+    "name": "jdsuOnmsiPeakEntryIsPowerMeasured",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntrySeverity": {
+    "name": "jdsuOnmsiPeakEntrySeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryStatus": {
+    "name": "jdsuOnmsiPeakEntryStatus",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiPeakStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryRefDistance": {
+    "name": "jdsuOnmsiPeakEntryRefDistance",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryRefLevel": {
+    "name": "jdsuOnmsiPeakEntryRefLevel",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryRefPower": {
+    "name": "jdsuOnmsiPeakEntryRefPower",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryRefIsPowerMeasured": {
+    "name": "jdsuOnmsiPeakEntryRefIsPowerMeasured",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryRefDate": {
+    "name": "jdsuOnmsiPeakEntryRefDate",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryType": {
+    "name": "jdsuOnmsiPeakEntryType",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiPeakType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryHomeTerminationTypeInternalKey": {
+    "name": "jdsuOnmsiPeakEntryHomeTerminationTypeInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakEntryHomeInternalKey": {
+    "name": "jdsuOnmsiPeakEntryHomeInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakFunctions": {
+    "name": "jdsuOnmsiPeakFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPeakGet": {
+    "name": "jdsuOnmsiPeakGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPeakGetParamInternalKey": {
+    "name": "jdsuOnmsiPeakGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakGetExecute": {
+    "name": "jdsuOnmsiPeakGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakGetError": {
+    "name": "jdsuOnmsiPeakGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakFind": {
+    "name": "jdsuOnmsiPeakFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiPeakFindParamAttribute": {
+    "name": "jdsuOnmsiPeakFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakFindParamValue": {
+    "name": "jdsuOnmsiPeakFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakFindExecute": {
+    "name": "jdsuOnmsiPeakFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiPeakFindError": {
+    "name": "jdsuOnmsiPeakFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.3.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkService": {
+    "name": "jdsuOnmsiLinkService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkData": {
+    "name": "jdsuOnmsiLinkData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkTable": {
+    "name": "jdsuOnmsiLinkTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntry": {
+    "name": "jdsuOnmsiLinkEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntryInternalKey": {
+    "name": "jdsuOnmsiLinkEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntryName": {
+    "name": "jdsuOnmsiLinkEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntryDescription": {
+    "name": "jdsuOnmsiLinkEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntryMeasureEnabled": {
+    "name": "jdsuOnmsiLinkEntryMeasureEnabled",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntryOtuInternalKey": {
+    "name": "jdsuOnmsiLinkEntryOtuInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkEntrySeverity": {
+    "name": "jdsuOnmsiLinkEntrySeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAdditionalAttributeTable": {
+    "name": "jdsuOnmsiLinkAdditionalAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAdditionalAttributeEntry": {
+    "name": "jdsuOnmsiLinkAdditionalAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAdditionalAttributeEntryInternalKey",
+        "implied": 0
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAdditionalAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAdditionalAttributeEntryInternalKey": {
+    "name": "jdsuOnmsiLinkAdditionalAttributeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAdditionalAttributeEntryName": {
+    "name": "jdsuOnmsiLinkAdditionalAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAdditionalAttributeEntryValue": {
+    "name": "jdsuOnmsiLinkAdditionalAttributeEntryValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeTable": {
+    "name": "jdsuOnmsiLinkAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeEntry": {
+    "name": "jdsuOnmsiLinkAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeEntryName": {
+    "name": "jdsuOnmsiLinkAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeEntryAdditional": {
+    "name": "jdsuOnmsiLinkAttributeEntryAdditional",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeEntryFindable": {
+    "name": "jdsuOnmsiLinkAttributeEntryFindable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeEntryUpdatable": {
+    "name": "jdsuOnmsiLinkAttributeEntryUpdatable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkFunctions": {
+    "name": "jdsuOnmsiLinkFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkGet": {
+    "name": "jdsuOnmsiLinkGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkGetParamInternalKey": {
+    "name": "jdsuOnmsiLinkGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkGetExecute": {
+    "name": "jdsuOnmsiLinkGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkGetError": {
+    "name": "jdsuOnmsiLinkGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkFind": {
+    "name": "jdsuOnmsiLinkFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkFindParamAttribute": {
+    "name": "jdsuOnmsiLinkFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkFindParamValue": {
+    "name": "jdsuOnmsiLinkFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkFindExecute": {
+    "name": "jdsuOnmsiLinkFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkFindError": {
+    "name": "jdsuOnmsiLinkFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkUpdate": {
+    "name": "jdsuOnmsiLinkUpdate",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkUpdateParamInternalKey": {
+    "name": "jdsuOnmsiLinkUpdateParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkUpdateExecute": {
+    "name": "jdsuOnmsiLinkUpdateExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkUpdateError": {
+    "name": "jdsuOnmsiLinkUpdateError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeLoad": {
+    "name": "jdsuOnmsiLinkAttributeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiLinkAttributeLoadExecute": {
+    "name": "jdsuOnmsiLinkAttributeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiLinkAttributeLoadError": {
+    "name": "jdsuOnmsiLinkAttributeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.4.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestService": {
+    "name": "jdsuOnmsiMonitoringTestService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestData": {
+    "name": "jdsuOnmsiMonitoringTestData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestTable": {
+    "name": "jdsuOnmsiMonitoringTestTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntry": {
+    "name": "jdsuOnmsiMonitoringTestEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryInternalKey": {
+    "name": "jdsuOnmsiMonitoringTestEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryName": {
+    "name": "jdsuOnmsiMonitoringTestEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryDescription": {
+    "name": "jdsuOnmsiMonitoringTestEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryLinkInternalKey": {
+    "name": "jdsuOnmsiMonitoringTestEntryLinkInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryDisplayOrder": {
+    "name": "jdsuOnmsiMonitoringTestEntryDisplayOrder",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntrySeverity": {
+    "name": "jdsuOnmsiMonitoringTestEntrySeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryDetectionConfiguration": {
+    "name": "jdsuOnmsiMonitoringTestEntryDetectionConfiguration",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntryLocalizationConfiguration": {
+    "name": "jdsuOnmsiMonitoringTestEntryLocalizationConfiguration",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestEntrySchedulingConfiguration": {
+    "name": "jdsuOnmsiMonitoringTestEntrySchedulingConfiguration",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAdditionalAttributeTable": {
+    "name": "jdsuOnmsiMonitoringTestAdditionalAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAdditionalAttributeEntry": {
+    "name": "jdsuOnmsiMonitoringTestAdditionalAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey",
+        "implied": 0
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey": {
+    "name": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAdditionalAttributeEntryName": {
+    "name": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAdditionalAttributeEntryValue": {
+    "name": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeTable": {
+    "name": "jdsuOnmsiMonitoringTestAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeEntry": {
+    "name": "jdsuOnmsiMonitoringTestAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeEntryName": {
+    "name": "jdsuOnmsiMonitoringTestAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeEntryAdditional": {
+    "name": "jdsuOnmsiMonitoringTestAttributeEntryAdditional",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeEntryFindable": {
+    "name": "jdsuOnmsiMonitoringTestAttributeEntryFindable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeEntryUpdatable": {
+    "name": "jdsuOnmsiMonitoringTestAttributeEntryUpdatable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestFunctions": {
+    "name": "jdsuOnmsiMonitoringTestFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestGet": {
+    "name": "jdsuOnmsiMonitoringTestGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestGetParamInternalKey": {
+    "name": "jdsuOnmsiMonitoringTestGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestGetExecute": {
+    "name": "jdsuOnmsiMonitoringTestGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestGetError": {
+    "name": "jdsuOnmsiMonitoringTestGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestFind": {
+    "name": "jdsuOnmsiMonitoringTestFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestFindParamAttribute": {
+    "name": "jdsuOnmsiMonitoringTestFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestFindParamValue": {
+    "name": "jdsuOnmsiMonitoringTestFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestFindExecute": {
+    "name": "jdsuOnmsiMonitoringTestFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestFindError": {
+    "name": "jdsuOnmsiMonitoringTestFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestStartTest": {
+    "name": "jdsuOnmsiMonitoringTestStartTest",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestStartTestParamInternalKey": {
+    "name": "jdsuOnmsiMonitoringTestStartTestParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestStartTestExecute": {
+    "name": "jdsuOnmsiMonitoringTestStartTestExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestStartTestError": {
+    "name": "jdsuOnmsiMonitoringTestStartTestError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeLoad": {
+    "name": "jdsuOnmsiMonitoringTestAttributeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiMonitoringTestAttributeLoadExecute": {
+    "name": "jdsuOnmsiMonitoringTestAttributeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestAttributeLoadError": {
+    "name": "jdsuOnmsiMonitoringTestAttributeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.5.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmService": {
+    "name": "jdsuOnmsiAlarmService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmData": {
+    "name": "jdsuOnmsiAlarmData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmTypesTable": {
+    "name": "jdsuOnmsiAlarmTypesTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmTypesEntry": {
+    "name": "jdsuOnmsiAlarmTypesEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmTypeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmTypeName": {
+    "name": "jdsuOnmsiAlarmTypeName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSpecificProblemsTable": {
+    "name": "jdsuOnmsiAlarmSpecificProblemsTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSpecificProblemsEntry": {
+    "name": "jdsuOnmsiAlarmSpecificProblemsEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSpecificProblemName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSpecificProblemName": {
+    "name": "jdsuOnmsiAlarmSpecificProblemName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventTable": {
+    "name": "jdsuOnmsiAlarmEventTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntry": {
+    "name": "jdsuOnmsiAlarmEventEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntrySequence",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntrySequence": {
+    "name": "jdsuOnmsiAlarmEventEntrySequence",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventInternalKey": {
+    "name": "jdsuOnmsiAlarmEventEntryEventInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventType": {
+    "name": "jdsuOnmsiAlarmEventEntryEventType",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiAlarmEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventClearStatus": {
+    "name": "jdsuOnmsiAlarmEventEntryEventClearStatus",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiAlarmClearStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventTime": {
+    "name": "jdsuOnmsiAlarmEventEntryEventTime",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventAckStatus": {
+    "name": "jdsuOnmsiAlarmEventEntryEventAckStatus",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiAlarmAckStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventPerceivedSeverity": {
+    "name": "jdsuOnmsiAlarmEventEntryEventPerceivedSeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventProbableCause": {
+    "name": "jdsuOnmsiAlarmEventEntryEventProbableCause",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventAdditionalText": {
+    "name": "jdsuOnmsiAlarmEventEntryEventAdditionalText",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventUserIdentifier": {
+    "name": "jdsuOnmsiAlarmEventEntryEventUserIdentifier",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmInternalKey": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmType": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmType",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmRaisedTime": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmRaisedTime",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmChangedTime": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmChangedTime",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmClearStatus": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmClearStatus",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiAlarmClearStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmAckStatus": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmAckStatus",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiAlarmAckStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmSpecificProblem": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmSpecificProblem",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmSystemDN": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmSystemDN",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmProbableCause": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmProbableCause",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmAdditionalText": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventPonSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventPonSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos": {
+    "name": "jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.3.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakTable": {
+    "name": "jdsuOnmsiAlarmSplitterPeakTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntry": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryInternalKey": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryName": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryPerceivedSeverity": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryPerceivedSeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryPreviousSeverity": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryPreviousSeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryReferenceBottomDistance": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryReferenceBottomDistance",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryReferenceTopDistance": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryReferenceTopDistance",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryReferenceLevel": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryReferenceLevel",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryPeakMeasurementValid": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryPeakMeasurementValid",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryMeasuredBottomDistance": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryMeasuredBottomDistance",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryMeasuredTopDistance": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryMeasuredTopDistance",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakEntryMeasuredLevel": {
+    "name": "jdsuOnmsiAlarmSplitterPeakEntryMeasuredLevel",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmFunctions": {
+    "name": "jdsuOnmsiAlarmFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmAck": {
+    "name": "jdsuOnmsiAlarmAck",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmAckParamInternalKey": {
+    "name": "jdsuOnmsiAlarmAckParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmAckExecute": {
+    "name": "jdsuOnmsiAlarmAckExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmAckError": {
+    "name": "jdsuOnmsiAlarmAckError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmUnAck": {
+    "name": "jdsuOnmsiAlarmUnAck",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmUnAckParamInternalKey": {
+    "name": "jdsuOnmsiAlarmUnAckParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmUnAckExecute": {
+    "name": "jdsuOnmsiAlarmUnAckExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmUnAckError": {
+    "name": "jdsuOnmsiAlarmUnAckError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmClear": {
+    "name": "jdsuOnmsiAlarmClear",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmClearParamInternalKey": {
+    "name": "jdsuOnmsiAlarmClearParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmClearExecute": {
+    "name": "jdsuOnmsiAlarmClearExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmClearError": {
+    "name": "jdsuOnmsiAlarmClearError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmUnClear": {
+    "name": "jdsuOnmsiAlarmUnClear",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmUnClearParamInternalKey": {
+    "name": "jdsuOnmsiAlarmUnClearParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmUnClearExecute": {
+    "name": "jdsuOnmsiAlarmUnClearExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmUnClearError": {
+    "name": "jdsuOnmsiAlarmUnClearError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmResendEvents": {
+    "name": "jdsuOnmsiAlarmResendEvents",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.5",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmResendEventsParamSequence": {
+    "name": "jdsuOnmsiAlarmResendEventsParamSequence",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmResendEventsExecute": {
+    "name": "jdsuOnmsiAlarmResendEventsExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmResendEventsError": {
+    "name": "jdsuOnmsiAlarmResendEventsError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmResynchronize": {
+    "name": "jdsuOnmsiAlarmResynchronize",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.6",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmResynchronizeExecute": {
+    "name": "jdsuOnmsiAlarmResynchronizeExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmResynchronizeError": {
+    "name": "jdsuOnmsiAlarmResynchronizeError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakLoad": {
+    "name": "jdsuOnmsiAlarmSplitterPeakLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.7",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiAlarmSplitterPeakLoadExecute": {
+    "name": "jdsuOnmsiAlarmSplitterPeakLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakLoadParamEventInternalKey": {
+    "name": "jdsuOnmsiAlarmSplitterPeakLoadParamEventInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmSplitterPeakLoadError": {
+    "name": "jdsuOnmsiAlarmSplitterPeakLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.6.2.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuService": {
+    "name": "jdsuOnmsiOtuService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuData": {
+    "name": "jdsuOnmsiOtuData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuTable": {
+    "name": "jdsuOnmsiOtuTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntry": {
+    "name": "jdsuOnmsiOtuEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntryInternalKey": {
+    "name": "jdsuOnmsiOtuEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntryName": {
+    "name": "jdsuOnmsiOtuEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntryDescription": {
+    "name": "jdsuOnmsiOtuEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntryIpAddress": {
+    "name": "jdsuOnmsiOtuEntryIpAddress",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntryDeviceName": {
+    "name": "jdsuOnmsiOtuEntryDeviceName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntrySerialNumber": {
+    "name": "jdsuOnmsiOtuEntrySerialNumber",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntrySoftwareVersion": {
+    "name": "jdsuOnmsiOtuEntrySoftwareVersion",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntryCentralOfficeInternalKey": {
+    "name": "jdsuOnmsiOtuEntryCentralOfficeInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuEntrySeverity": {
+    "name": "jdsuOnmsiOtuEntrySeverity",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAdditionalAttributeTable": {
+    "name": "jdsuOnmsiOtuAdditionalAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAdditionalAttributeEntry": {
+    "name": "jdsuOnmsiOtuAdditionalAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAdditionalAttributeEntryInternalKey",
+        "implied": 0
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAdditionalAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAdditionalAttributeEntryInternalKey": {
+    "name": "jdsuOnmsiOtuAdditionalAttributeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAdditionalAttributeEntryName": {
+    "name": "jdsuOnmsiOtuAdditionalAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAdditionalAttributeEntryValue": {
+    "name": "jdsuOnmsiOtuAdditionalAttributeEntryValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeTable": {
+    "name": "jdsuOnmsiOtuAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeEntry": {
+    "name": "jdsuOnmsiOtuAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeEntryName": {
+    "name": "jdsuOnmsiOtuAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeEntryAdditional": {
+    "name": "jdsuOnmsiOtuAttributeEntryAdditional",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeEntryFindable": {
+    "name": "jdsuOnmsiOtuAttributeEntryFindable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeEntryUpdatable": {
+    "name": "jdsuOnmsiOtuAttributeEntryUpdatable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrTable": {
+    "name": "jdsuOnmsiOtuOtdrTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntry": {
+    "name": "jdsuOnmsiOtuOtdrEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntryInternalKey": {
+    "name": "jdsuOnmsiOtuOtdrEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntryOtuInternalKey": {
+    "name": "jdsuOnmsiOtuOtdrEntryOtuInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntryPosition": {
+    "name": "jdsuOnmsiOtuOtdrEntryPosition",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiOtdrPosition",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntryType": {
+    "name": "jdsuOnmsiOtuOtdrEntryType",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntrySerialNumber": {
+    "name": "jdsuOnmsiOtuOtdrEntrySerialNumber",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuOtdrEntryWavelengths": {
+    "name": "jdsuOnmsiOtuOtdrEntryWavelengths",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchTable": {
+    "name": "jdsuOnmsiOtuSwitchTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntry": {
+    "name": "jdsuOnmsiOtuSwitchEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryInternalKey": {
+    "name": "jdsuOnmsiOtuSwitchEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryOtuInternalKey": {
+    "name": "jdsuOnmsiOtuSwitchEntryOtuInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryName": {
+    "name": "jdsuOnmsiOtuSwitchEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryRemote": {
+    "name": "jdsuOnmsiOtuSwitchEntryRemote",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryPosition": {
+    "name": "jdsuOnmsiOtuSwitchEntryPosition",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryInputs": {
+    "name": "jdsuOnmsiOtuSwitchEntryInputs",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuSwitchEntryOutputs": {
+    "name": "jdsuOnmsiOtuSwitchEntryOutputs",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortTable": {
+    "name": "jdsuOnmsiOtuPortTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntry": {
+    "name": "jdsuOnmsiOtuPortEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntryInternalKey": {
+    "name": "jdsuOnmsiOtuPortEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntryOtuInternalKey": {
+    "name": "jdsuOnmsiOtuPortEntryOtuInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntryModuleInternalKey": {
+    "name": "jdsuOnmsiOtuPortEntryModuleInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntryPosition": {
+    "name": "jdsuOnmsiOtuPortEntryPosition",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntryPonInternalKey": {
+    "name": "jdsuOnmsiOtuPortEntryPonInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuPortEntryLinkInternalKey": {
+    "name": "jdsuOnmsiOtuPortEntryLinkInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuFunctions": {
+    "name": "jdsuOnmsiOtuFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuGet": {
+    "name": "jdsuOnmsiOtuGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuGetParamInternalKey": {
+    "name": "jdsuOnmsiOtuGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuGetExecute": {
+    "name": "jdsuOnmsiOtuGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuGetError": {
+    "name": "jdsuOnmsiOtuGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuFind": {
+    "name": "jdsuOnmsiOtuFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuFindParamAttribute": {
+    "name": "jdsuOnmsiOtuFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuFindParamValue": {
+    "name": "jdsuOnmsiOtuFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuFindExecute": {
+    "name": "jdsuOnmsiOtuFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuFindError": {
+    "name": "jdsuOnmsiOtuFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeLoad": {
+    "name": "jdsuOnmsiOtuAttributeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuAttributeLoadExecute": {
+    "name": "jdsuOnmsiOtuAttributeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuAttributeLoadError": {
+    "name": "jdsuOnmsiOtuAttributeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuGetPorts": {
+    "name": "jdsuOnmsiOtuGetPorts",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiOtuGetPortsParamInternalKey": {
+    "name": "jdsuOnmsiOtuGetPortsParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuGetPortsExecute": {
+    "name": "jdsuOnmsiOtuGetPortsExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiOtuGetPortsError": {
+    "name": "jdsuOnmsiOtuGetPortsError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.7.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeService": {
+    "name": "jdsuOnmsiCentralOfficeService",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiCentralOfficeData": {
+    "name": "jdsuOnmsiCentralOfficeData",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiCentralOfficeTable": {
+    "name": "jdsuOnmsiCentralOfficeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeEntry": {
+    "name": "jdsuOnmsiCentralOfficeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeEntryInternalKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeEntryInternalKey": {
+    "name": "jdsuOnmsiCentralOfficeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeEntryName": {
+    "name": "jdsuOnmsiCentralOfficeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeEntryDescription": {
+    "name": "jdsuOnmsiCentralOfficeEntryDescription",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAdditionalAttributeTable": {
+    "name": "jdsuOnmsiCentralOfficeAdditionalAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAdditionalAttributeEntry": {
+    "name": "jdsuOnmsiCentralOfficeAdditionalAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey",
+        "implied": 0
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey": {
+    "name": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAdditionalAttributeEntryName": {
+    "name": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAdditionalAttributeEntryValue": {
+    "name": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeTable": {
+    "name": "jdsuOnmsiCentralOfficeAttributeTable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeEntry": {
+    "name": "jdsuOnmsiCentralOfficeAttributeEntry",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeEntryName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeEntryName": {
+    "name": "jdsuOnmsiCentralOfficeAttributeEntryName",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeEntryAdditional": {
+    "name": "jdsuOnmsiCentralOfficeAttributeEntryAdditional",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeEntryFindable": {
+    "name": "jdsuOnmsiCentralOfficeAttributeEntryFindable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeEntryUpdatable": {
+    "name": "jdsuOnmsiCentralOfficeAttributeEntryUpdatable",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeFunctions": {
+    "name": "jdsuOnmsiCentralOfficeFunctions",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiCentralOfficeGet": {
+    "name": "jdsuOnmsiCentralOfficeGet",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.1",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiCentralOfficeGetParamInternalKey": {
+    "name": "jdsuOnmsiCentralOfficeGetParamInternalKey",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiInternalKey",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeGetExecute": {
+    "name": "jdsuOnmsiCentralOfficeGetExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeGetError": {
+    "name": "jdsuOnmsiCentralOfficeGetError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeFind": {
+    "name": "jdsuOnmsiCentralOfficeFind",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiCentralOfficeFindParamAttribute": {
+    "name": "jdsuOnmsiCentralOfficeFindParamAttribute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeFindParamValue": {
+    "name": "jdsuOnmsiCentralOfficeFindParamValue",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeFindExecute": {
+    "name": "jdsuOnmsiCentralOfficeFindExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeFindError": {
+    "name": "jdsuOnmsiCentralOfficeFindError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeLoad": {
+    "name": "jdsuOnmsiCentralOfficeAttributeLoad",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiCentralOfficeAttributeLoadExecute": {
+    "name": "jdsuOnmsiCentralOfficeAttributeLoadExecute",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeAttributeLoadError": {
+    "name": "jdsuOnmsiCentralOfficeAttributeLoadError",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.3.8.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JdsuOnmsiUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jdsuOnmsiEvents": {
+    "name": "jdsuOnmsiEvents",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiImAliveTrap": {
+    "name": "jdsuOnmsiImAliveTrap",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiImAliveText"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiImAliveAlarmEventSequence"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiHomeTestResultTrap": {
+    "name": "jdsuOnmsiHomeTestResultTrap",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeStartTestError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryHomeIdentifier"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryPonInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryLatestPeakInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryLatestPeakSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryLatestPeakStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPonTestResultTrap": {
+    "name": "jdsuOnmsiPonTestResultTrap",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonStartTestError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryLatestTestInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryOtuInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryPortInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntrySeverity"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestResultTrap": {
+    "name": "jdsuOnmsiMonitoringTestResultTrap",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.4.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestStartTestError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryInternalKey"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmEventTrap": {
+    "name": "jdsuOnmsiAlarmEventTrap",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.4.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntrySequence"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventType"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventTime"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventClearStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventAckStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPerceivedSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventProbableCause"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventAdditionalText"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventUserIdentifier"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPonSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmType"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmRaisedTime"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmChangedTime"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmClearStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAckStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmSpecificProblem"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmSystemDN"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmProbableCause"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAdditionalText"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiConf": {
+    "name": "jdsuOnmsiConf",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiProductGroups": {
+    "name": "jdsuOnmsiProductGroups",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiProductDescr"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiProductObjectID"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiProductContact"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiProductName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiProductLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsOnmsiAdministrationConfGroups": {
+    "name": "jdsOnmsiAdministrationConfGroups",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiSnmpConfigConfGroup": {
+    "name": "jdsuOnmsiSnmpConfigConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiSnmpConfigurationReload"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiImAliveConfGroup": {
+    "name": "jdsuOnmsiImAliveConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiImAlivePeriodMin"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiImAliveText"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiImAliveAlarmEventSequence"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiServicesConfGroups": {
+    "name": "jdsuOnmsiServicesConfGroups",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3",
+    "class": "objectidentity"
+  },
+  "jdsuOnmsiHomeTerminationTypeConfGroup": {
+    "name": "jdsuOnmsiHomeTerminationTypeConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTerminationTypeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTerminationTypeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTerminationTypeEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTerminationTypeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTerminationTypeLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiHomeConfGroup": {
+    "name": "jdsuOnmsiHomeConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryHomeIdentifier"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryPonInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryHomeTerminationTypeInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryLatestPeakInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryLatestPeakSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryLatestPeakStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeEntryVip"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAdditionalAttributeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAdditionalAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAdditionalAttributeEntryValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeEntryAdditional"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeEntryFindable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeEntryUpdatable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeFindError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeStartTestParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeStartTestExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeStartTestError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeAttributeLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPonConfGroup": {
+    "name": "jdsuOnmsiPonConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryLatestTestInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryOtuInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntryPortInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntrySeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonEntrySchedulingConfiguration"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAdditionalAttributeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAdditionalAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAdditionalAttributeEntryValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeEntryAdditional"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeEntryFindable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeEntryUpdatable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonFindError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonStartTestParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonStartTestExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonStartTestError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonAttributeLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiPeakConfGroup": {
+    "name": "jdsuOnmsiPeakConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryTestInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryDate"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryIsAReference"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryDistance"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryLevel"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryPower"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryIsPowerMeasured"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntrySeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryRefDistance"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryRefLevel"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryRefPower"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryRefIsPowerMeasured"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryRefDate"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryType"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryHomeTerminationTypeInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakEntryHomeInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPeakFindError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiLinkServiceConfGroup": {
+    "name": "jdsuOnmsiLinkServiceConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntryMeasureEnabled"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntryOtuInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkEntrySeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAdditionalAttributeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAdditionalAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAdditionalAttributeEntryValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeEntryAdditional"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeEntryFindable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeEntryUpdatable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkFindError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkUpdateParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkUpdateExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkUpdateError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiLinkAttributeLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiMonitoringTestServiceConfGroup": {
+    "name": "jdsuOnmsiMonitoringTestServiceConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryLinkInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryDisplayOrder"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntrySeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryDetectionConfiguration"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntryLocalizationConfiguration"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestEntrySchedulingConfiguration"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAdditionalAttributeEntryValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeEntryAdditional"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeEntryFindable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeEntryUpdatable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestFindError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestStartTestParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestStartTestExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestStartTestError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestAttributeLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiAlarmServiceConfGroup": {
+    "name": "jdsuOnmsiAlarmServiceConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmTypeName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSpecificProblemName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntrySequence"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventType"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventTime"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventClearStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventAckStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPerceivedSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventProbableCause"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventAdditionalText"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventUserIdentifier"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventMonitoringTestSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPointToPointSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventAttenuationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPeakSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventOrlSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventFiberLengthExtensionSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventLocalizationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventGpsCoordinatesSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventPonSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventSplitterSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventStrainSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryEventTemperatureSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmType"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmRaisedTime"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmChangedTime"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmClearStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAckStatus"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPerceivedSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmSpecificProblem"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityKind"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOriginatingEntityOid"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmSystemDN"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmProbableCause"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAdditionalText"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmMonitoringTestSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPointToPointSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAttenuationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPeakSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmOrlSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmFiberLengthExtensionSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmLocalizationSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmGpsCoordinatesSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmPonSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmSplitterSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmStrainSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmTemperatureSpecificInfos"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventEntryAlarmAdditionalAttributes"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryPerceivedSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryPreviousSeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryMeasuredBottomDistance"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryReferenceBottomDistance"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryMeasuredTopDistance"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryReferenceTopDistance"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryMeasuredLevel"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryReferenceLevel"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakEntryPeakMeasurementValid"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmAckExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmAckParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmAckError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmUnAckParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmUnAckExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmUnAckError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmClearParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmClearExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmClearError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmUnClearParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmUnClearExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmUnClearError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmResendEventsParamSequence"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmResendEventsExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmResendEventsError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmResynchronizeExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmResynchronizeError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakLoadParamEventInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmSplitterPeakLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiOtuConfGroup": {
+    "name": "jdsuOnmsiOtuConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryIpAddress"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryDeviceName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntrySerialNumber"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntrySoftwareVersion"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntryCentralOfficeInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuEntrySeverity"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAdditionalAttributeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAdditionalAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAdditionalAttributeEntryValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeEntryAdditional"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeEntryFindable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeEntryUpdatable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntryOtuInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntryPosition"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntryType"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntrySerialNumber"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuOtdrEntryWavelengths"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryOtuInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryRemote"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryPosition"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryInputs"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuSwitchEntryOutputs"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryOtuInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryModuleInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryPosition"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryPonInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuPortEntryLinkInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuFindError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuAttributeLoadError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuGetPortsParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuGetPortsExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiOtuGetPortsError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiCentralOfficeConfGroup": {
+    "name": "jdsuOnmsiCentralOfficeConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.3.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeEntryDescription"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAdditionalAttributeEntryValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeEntryName"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeEntryAdditional"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeEntryFindable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeEntryUpdatable"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeGetParamInternalKey"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeGetExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeGetError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeFindParamAttribute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeFindParamValue"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeFindExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeFindError"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeLoadExecute"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiCentralOfficeAttributeLoadError"
+      }
+    ],
+    "status": "current"
+  },
+  "jdsuOnmsiEventsConfGroup": {
+    "name": "jdsuOnmsiEventsConfGroup",
+    "oid": "1.3.6.1.4.1.35873.5.1.1.1.5.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiImAliveTrap"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiHomeTestResultTrap"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiPonTestResultTrap"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiMonitoringTestResultTrap"
+      },
+      {
+        "module": "JDSU-ONMSI-MIB",
+        "object": "jdsuOnmsiAlarmEventTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jds/JDSU-ONMSI-MIB",
+      "Produced by pysmi-1.1.8 at Mon Sep 19 07:31:27 2022",
+      "On host fv-az215-626 platform Linux version 5.15.0-1019-azure by user runner",
+      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+    ],
+    "module": "JDSU-ONMSI-MIB"
+  }
+}
