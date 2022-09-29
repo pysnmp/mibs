@@ -6,51 +6,51 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLsrIdentifier",
+      "MplsRetentionMode",
+      "MplsLspType",
       "MplsLabel",
       "MplsLdpLabelType",
-      "MplsLspType",
-      "MplsRetentionMode",
-      "MplsLabelDistributionMethod",
-      "MplsLdpIdentifier"
+      "MplsLdpIdentifier",
+      "MplsLsrIdentifier",
+      "MplsLabelDistributionMethod"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
       "Unsigned32",
       "Bits",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
-      "RowPointer",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "TimeInterval"
+      "RowStatus",
+      "TimeInterval",
+      "DisplayString",
+      "RowPointer",
+      "TruthValue",
+      "StorageType",
+      "TimeStamp"
     ]
   },
   "jnxMplsLdpMIB": {
@@ -2014,9 +2014,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:34:03 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:55:42 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-MPLS-LDP-MIB"
   }

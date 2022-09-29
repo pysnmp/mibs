@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "UTFString",
+      "eqlGroupId",
       "eqlStorageGroupAdminAccountIndex",
-      "eqlGroupId"
+      "UTFString"
     ],
     "EQLVOLUME-MIB": [
       "eqliscsiLocalMemberId",
@@ -18,28 +18,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
       "MibIdentifier",
       "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
       "enterprises",
-      "OBJECT-TYPE",
-      "Bits",
       "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowPointer",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "eqltagModule": {
@@ -381,9 +381,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLTAG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:29:32 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:48:51 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "EQLTAG-MIB"
   }

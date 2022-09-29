@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-IF-REMAP-2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-IF-REMAP-2-MIB
-# Produced by pysmi-1.1.8 at Mon Sep 19 08:29:28 2022
-# On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner
-# Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
+# Produced by pysmi-1.1.8 at Thu Sep 29 08:48:44 2022
+# On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner
+# Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 ctIFRemap2, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctIFRemap2")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Unsigned32, iso, Gauge32, ModuleIdentity, NotificationType, TimeTicks, Counter64, Bits, ObjectIdentity, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "iso", "Gauge32", "ModuleIdentity", "NotificationType", "TimeTicks", "Counter64", "Bits", "ObjectIdentity", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, Gauge32, Bits, iso, Unsigned32, MibIdentifier, NotificationType, Counter32, ModuleIdentity, TimeTicks, ObjectIdentity, IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Gauge32", "Bits", "iso", "Unsigned32", "MibIdentifier", "NotificationType", "Counter32", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctIFRemap2Config = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 14, 1))
 ctIFRemap2Table = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 14, 1, 1), )
 if mibBuilder.loadTexts: ctIFRemap2Table.setStatus('mandatory')
@@ -69,4 +69,4 @@ ctIFRemap2VlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 14, 1, 4, 
 if mibBuilder.loadTexts: ctIFRemap2VlanStatus.setStatus('mandatory')
 ctIFRemap2VlanEgressType = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 14, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("received", 1), ("alwaysTagged", 2), ("alwaysUntagged", 3))).clone('received')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctIFRemap2VlanEgressType.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-IF-REMAP-2-MIB", ctIFRemap2PhysErrsCapable=ctIFRemap2PhysErrsCapable, ctIFRemap2PhysicalErrors=ctIFRemap2PhysicalErrors, ctIFRemap2DestSlot=ctIFRemap2DestSlot, ctIFRemap2EgressType=ctIFRemap2EgressType, ctIFRemap2VlanSourceVlan=ctIFRemap2VlanSourceVlan, ctIFRemap2SlotTable=ctIFRemap2SlotTable, ctIFRemap2VlanDestSlot=ctIFRemap2VlanDestSlot, ctIFRemap2DestPort=ctIFRemap2DestPort, ctIFRemap2VlanEntry=ctIFRemap2VlanEntry, ctIFRemap2PortTable=ctIFRemap2PortTable, ctIFRemap2SlotMaxRemoteDests=ctIFRemap2SlotMaxRemoteDests, ctIFRemap2SlotIndex=ctIFRemap2SlotIndex, ctIFRemap2PortReference=ctIFRemap2PortReference, ctIFRemap2VlanStatus=ctIFRemap2VlanStatus, ctIFRemap2SlotMaxRemaps=ctIFRemap2SlotMaxRemaps, ctIFRemap2VlanEgressType=ctIFRemap2VlanEgressType, ctIFRemap2PortSlot=ctIFRemap2PortSlot, ctIFRemap2VlanTable=ctIFRemap2VlanTable, ctIFRemap2Table=ctIFRemap2Table, ctIFRemap2Entry=ctIFRemap2Entry, ctIFRemap2SourcePort=ctIFRemap2SourcePort, ctIFRemap2Config=ctIFRemap2Config, ctIFRemap2PortEntry=ctIFRemap2PortEntry, ctIFRemap2SlotEntry=ctIFRemap2SlotEntry, ctIFRemap2VlanSourceSlot=ctIFRemap2VlanSourceSlot, ctIFRemap2Status=ctIFRemap2Status, ctIFRemap2PortIndex=ctIFRemap2PortIndex, ctIFRemap2SourceSlot=ctIFRemap2SourceSlot, ctIFRemap2VlanDestPort=ctIFRemap2VlanDestPort)
+mibBuilder.exportSymbols("CTRON-IF-REMAP-2-MIB", ctIFRemap2PortIndex=ctIFRemap2PortIndex, ctIFRemap2DestPort=ctIFRemap2DestPort, ctIFRemap2SlotTable=ctIFRemap2SlotTable, ctIFRemap2SourceSlot=ctIFRemap2SourceSlot, ctIFRemap2VlanDestPort=ctIFRemap2VlanDestPort, ctIFRemap2EgressType=ctIFRemap2EgressType, ctIFRemap2Status=ctIFRemap2Status, ctIFRemap2VlanEntry=ctIFRemap2VlanEntry, ctIFRemap2PhysicalErrors=ctIFRemap2PhysicalErrors, ctIFRemap2VlanSourceVlan=ctIFRemap2VlanSourceVlan, ctIFRemap2VlanDestSlot=ctIFRemap2VlanDestSlot, ctIFRemap2SlotEntry=ctIFRemap2SlotEntry, ctIFRemap2VlanTable=ctIFRemap2VlanTable, ctIFRemap2VlanEgressType=ctIFRemap2VlanEgressType, ctIFRemap2PortSlot=ctIFRemap2PortSlot, ctIFRemap2SlotMaxRemoteDests=ctIFRemap2SlotMaxRemoteDests, ctIFRemap2PhysErrsCapable=ctIFRemap2PhysErrsCapable, ctIFRemap2VlanSourceSlot=ctIFRemap2VlanSourceSlot, ctIFRemap2PortTable=ctIFRemap2PortTable, ctIFRemap2VlanStatus=ctIFRemap2VlanStatus, ctIFRemap2SourcePort=ctIFRemap2SourcePort, ctIFRemap2Config=ctIFRemap2Config, ctIFRemap2SlotIndex=ctIFRemap2SlotIndex, ctIFRemap2Entry=ctIFRemap2Entry, ctIFRemap2PortReference=ctIFRemap2PortReference, ctIFRemap2PortEntry=ctIFRemap2PortEntry, ctIFRemap2DestSlot=ctIFRemap2DestSlot, ctIFRemap2Table=ctIFRemap2Table, ctIFRemap2SlotMaxRemaps=ctIFRemap2SlotMaxRemaps)

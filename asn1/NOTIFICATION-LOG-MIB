@@ -1,3 +1,13 @@
+--
+--
+-- Copyright (c) 2001, 2002 by Cisco Systems, Inc.
+--
+-- Notification Log MIB 
+--
+-- RFC3014
+--
+--
+
 NOTIFICATION-LOG-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -22,8 +32,6 @@ notificationLogMIB MODULE-IDENTITY
                   Email: ramk@cisco.com"
     DESCRIPTION
      "The MIB module for logging SNMP Notifications, that is, Traps
-
-
      and Informs."
 -- Revision History
 
@@ -72,8 +80,6 @@ nlmConfigGlobalEntryLimit OBJECT-TYPE
 
 nlmConfigGlobalAgeOut OBJECT-TYPE
     SYNTAX      Unsigned32
-
-
     UNITS       "minutes"
     MAX-ACCESS  read-write
     STATUS      current
@@ -122,8 +128,6 @@ NlmConfigLogEntry ::= SEQUENCE {
     nlmConfigLogFilterName    SnmpAdminString,
     nlmConfigLogEntryLimit    Unsigned32,
     nlmConfigLogAdminStatus   INTEGER,
-
-
     nlmConfigLogOperStatus    INTEGER,
     nlmConfigLogStorageType   StorageType,
     nlmConfigLogEntryStatus   RowStatus
@@ -171,8 +175,6 @@ nlmConfigLogEntryLimit OBJECT-TYPE
      If an application changes the limit while there are
      Notifications in the log, the oldest Notifications are discarded
      to bring the log down to the new limit.
-
-
 
      A value of 0 indicates no limit.
 
@@ -222,8 +224,6 @@ nlmConfigLogStorageType OBJECT-TYPE
     ::= { nlmConfigLogEntry 6 }
 
 nlmConfigLogEntryStatus OBJECT-TYPE
-
-
     SYNTAX     RowStatus
     MAX-ACCESS read-create
     STATUS     current
@@ -272,8 +272,6 @@ nlmStatsGlobalNotificationsBumped OBJECT-TYPE
 nlmStatsLogTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF NlmStatsLogEntry
     MAX-ACCESS  not-accessible
-
-
     STATUS      current
     DESCRIPTION
      "A table of Notification log statistics entries."
@@ -322,8 +320,6 @@ nlmStatsLogNotificationsBumped OBJECT-TYPE
 
 --
 -- Log Table
-
-
 --
 
 nlmLogTable OBJECT-TYPE
@@ -371,7 +367,6 @@ nlmLogEntry OBJECT-TYPE
      does not log that Notification in that log."
     INDEX       { nlmLogName, nlmLogIndex }
     ::= { nlmLogTable 1 }
-
 
 
 NlmLogEntry ::= SEQUENCE {
@@ -422,8 +417,6 @@ nlmLogEngineID OBJECT-TYPE
     STATUS      current
     DESCRIPTION
      "The identification of the SNMP engine at which the Notification
-
-
      originated.
 
      If the log can contain Notifications from only one engine
@@ -472,8 +465,6 @@ nlmLogContextEngineID OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-
-
      "If the Notification was received in a protocol which has a
       contextEngineID element like SNMPv3, this object has that value.
       Otherwise its value is a zero-length string."
@@ -522,8 +513,6 @@ nlmLogVariableEntry OBJECT-TYPE
     ::= { nlmLogVariableTable 1 }
 
 NlmLogVariableEntry ::= SEQUENCE {
-
-
     nlmLogVariableIndex              Unsigned32,
     nlmLogVariableID                 OBJECT IDENTIFIER,
     nlmLogVariableValueType          INTEGER,
@@ -535,7 +524,7 @@ NlmLogVariableEntry ::= SEQUENCE {
     nlmLogVariableIpAddressVal       IpAddress,
     nlmLogVariableOidVal             OBJECT IDENTIFIER,
     nlmLogVariableCounter64Val       Counter64,
-    nlmLogVariableOpaqueVal          Opaque
+    nlmLogVariableOpaqueVal          OCTET STRING
 }
 
 nlmLogVariableIndex OBJECT-TYPE
@@ -572,8 +561,6 @@ nlmLogVariableCounter32Val OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-
-
      "The value when nlmLogVariableType is 'counter32'."
     ::= { nlmLogVariableEntry 4 }
 
@@ -622,8 +609,6 @@ nlmLogVariableIpAddressVal OBJECT-TYPE
 
      IPv6 addresses are represented using TAddress or
      InetAddress, and so the underlying datatype is
-
-
      OCTET STRING, and their value would be stored in
      the nlmLogVariableOctetStringVal column."
     ::= { nlmLogVariableEntry 9 }
@@ -645,7 +630,7 @@ nlmLogVariableCounter64Val OBJECT-TYPE
     ::= { nlmLogVariableEntry 11 }
 
 nlmLogVariableOpaqueVal OBJECT-TYPE
-    SYNTAX      Opaque
+    SYNTAX      OCTET STRING
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
@@ -672,7 +657,6 @@ notificationLogMIBCompliance MODULE-COMPLIANCE
           "The compliance statement for entities which implement
           the Notification Log MIB."
      MODULE    -- this module
-
 
           MANDATORY-GROUPS {
                notificationLogConfigGroup,
@@ -722,8 +706,6 @@ notificationLogConfigGroup OBJECT-GROUP
           nlmConfigLogStorageType,
           nlmConfigLogEntryStatus
      }
-
-
      STATUS current
      DESCRIPTION
           "Notification log configuration management."
@@ -772,8 +754,6 @@ notificationLogDateGroup OBJECT-GROUP
           nlmLogDateAndTime
      }
      STATUS current
-
-
      DESCRIPTION
           "Conditionally mandatory notification log data.
           This group is mandatory on systems that keep wall

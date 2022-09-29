@@ -6,21 +6,21 @@
     ],
     "CM-COMMON-MIB": [
       "IpPriorityMapMode",
-      "CmPmIntervalType",
-      "PerfCounter64",
+      "AdminState",
       "IpVersion",
       "ScheduleType",
-      "PerfCounter32",
-      "SecondaryState",
-      "OperationalState",
+      "CmPmIntervalType",
+      "PerfCounter64",
       "CmPmBinAction",
+      "OperationalState",
+      "PerfCounter32",
       "SchedActivityStatus",
-      "AdminState"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
-      "slotIndex",
       "shelfIndex",
-      "neIndex"
+      "neIndex",
+      "slotIndex"
     ],
     "F3-PTP-MIB": [
       "ScaledNanoseconds"
@@ -34,30 +34,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
       "MODULE-IDENTITY",
-      "iso"
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "DateAndTime",
-      "RowStatus",
-      "MacAddress",
       "StorageType",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "VariablePointer",
+      "DateAndTime"
     ]
   },
   "f3SyncJMIB": {
@@ -7701,9 +7701,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SYNCJACK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:24:26 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:41:13 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "F3-SYNCJACK-MIB"
   }

@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "iso",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "mib-2",
       "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
+      "Unsigned32",
       "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus",
       "InstancePointer",
-      "DisplayString",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "snanauMIB": {
@@ -340,11 +340,13 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "snaNodeOperEntry",
-      "module": "SNA-NAU-MIB",
-      "object": "snaNodeAdminEntry"
-    },
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "snaNodeOperName": {
@@ -882,11 +884,18 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "snaNodeLinkOperEntry",
-      "module": "SNA-NAU-MIB",
-      "object": "snaNodeLinkAdminEntry"
-    },
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeLinkAdminIndex",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "snaNodeLinkOperSpecific": {
@@ -1180,11 +1189,18 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "snaLuOperEntry",
-      "module": "SNA-NAU-MIB",
-      "object": "snaLuAdminEntry"
-    },
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLuIndex",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "snaLuOperName": {
@@ -1682,11 +1698,28 @@
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "augmention": {
-      "name": "snaLuSessnStatsEntry",
-      "module": "SNA-NAU-MIB",
-      "object": "snaLuSessnEntry"
-    },
+    "indices": [
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaNodeAdminIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuAdminLuIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnRluIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNA-NAU-MIB",
+        "object": "snaLuSessnIndex",
+        "implied": 0
+      }
+    ],
     "status": "current"
   },
   "snaLuSessnStatsSentBytes": {
@@ -2578,10 +2611,10 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNA-NAU-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:23:44 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNA-NAU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:53:35 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "SNA-NAU-MIB"
   }

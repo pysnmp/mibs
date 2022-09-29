@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ASAM-EQUIP-MIB": [
-      "eqptSlotId",
-      "EqptSlotIndex"
+      "EqptSlotIndex",
+      "eqptSlotId"
     ],
     "ASAM-TC-MIB": [
+      "AsamProfilePointer",
       "AsamProfileRefCount",
       "AsamProfileName",
-      "AsamProfilePointer",
       "AsamProfileIndex"
     ],
     "BRIDGE-MIB": [
@@ -18,30 +18,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Integer32",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Bits"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "RowStatus"
     ],
     "SYSTEM-MIB": [
       "asam"
@@ -3526,9 +3526,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/SFP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:35:48 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:58:04 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "SFP-MIB"
   }

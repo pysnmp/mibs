@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CTRON-CDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-CDP-MIB
-# Produced by pysmi-1.1.8 at Mon Sep 19 08:29:32 2022
-# On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner
-# Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]
+# Produced by pysmi-1.1.8 at Thu Sep 29 08:48:50 2022
+# On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner
+# Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ctCDP, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctCDP")
-ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+InterfaceIndex, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
 TimeFilter, = mibBuilder.importSymbols("RMON2-MIB", "TimeFilter")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, TimeTicks, MibIdentifier, Counter64, Unsigned32, Bits, Integer32, NotificationType, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "MibIdentifier", "Counter64", "Unsigned32", "Bits", "Integer32", "NotificationType", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "iso")
-MacAddress, DisplayString, TextualConvention, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention", "TimeStamp")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, MibIdentifier, Counter32, Gauge32, ObjectIdentity, Integer32, Unsigned32, Counter64, Bits, IpAddress, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "MibIdentifier", "Counter32", "Gauge32", "ObjectIdentity", "Integer32", "Unsigned32", "Counter64", "Bits", "IpAddress", "NotificationType", "ModuleIdentity")
+TimeStamp, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "MacAddress", "DisplayString", "TextualConvention")
 ctronCdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 19, 3))
 if mibBuilder.loadTexts: ctronCdpMIB.setLastUpdated('199908280000Z')
 if mibBuilder.loadTexts: ctronCdpMIB.setOrganization('Cabletron Systems, Inc.')
@@ -127,4 +127,4 @@ ctCdpGroupV10 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 19, 3, 11, 2, 1)).se
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctCdpGroupV10 = ctCdpGroupV10.setStatus('current')
 if mibBuilder.loadTexts: ctCdpGroupV10.setDescription('The set of managed objects that make up version 2 of the\n   CTRON-CDP-MIB.')
-mibBuilder.exportSymbols("CTRON-CDP-MIB", ctronCdpMIB=ctronCdpMIB, ctCDPNeighborChassisMAC=ctCDPNeighborChassisMAC, ctCDPPortTableEntry=ctCDPPortTableEntry, ctCDPNeighborCapability=ctCDPNeighborCapability, ctCDPCompliances=ctCDPCompliances, ctCDPNeighborMAC=ctCDPNeighborMAC, ctCDPNeighborPort=ctCDPNeighborPort, ctCDPNeighbor=ctCDPNeighbor, ctCDPHoldTime=ctCDPHoldTime, ctCDPNeighborIP=ctCDPNeighborIP, ctCDPTransmitErrors=ctCDPTransmitErrors, ctCDPAuthenticationCode=ctCDPAuthenticationCode, CTCDPCapability=CTCDPCapability, ctCDPNeighborType=ctCDPNeighborType, ctCDPComplianceV10=ctCDPComplianceV10, ctCDPNeighborDescription=ctCDPNeighborDescription, ctCDPNeighborLastDelete=ctCDPNeighborLastDelete, ctCDPVersion=ctCDPVersion, ctCDPNeighborPortName=ctCDPNeighborPortName, ctCDPGroups=ctCDPGroups, ctCDPGlobalStatus=ctCDPGlobalStatus, ctCDPInvalidVersionPackets=ctCDPInvalidVersionPackets, ctCDPNeighborEntry=ctCDPNeighborEntry, ctCDPMemoryErrors=ctCDPMemoryErrors, ctCdpGroupV10=ctCdpGroupV10, ctCDPStats=ctCDPStats, ctCDPTransmitFrequency=ctCDPTransmitFrequency, ctCDPPort=ctCDPPort, PYSNMP_MODULE_ID=ctronCdpMIB, ctCDPNeighborLastChange=ctCDPNeighborLastChange, ctCDPStatus=ctCDPStatus, ctCDPNeighborTable=ctCDPNeighborTable, ctCDPParseErrorPackets=ctCDPParseErrorPackets, ctCDPNeighborChassisIP=ctCDPNeighborChassisIP, ctCDPNeighborTimeMark=ctCDPNeighborTimeMark, ctCDPInPackets=ctCDPInPackets, ctCDPConformance=ctCDPConformance, ctCDPPortStatus=ctCDPPortStatus, ctCDPOutPackets=ctCDPOutPackets, ctCDPPortTable=ctCDPPortTable)
+mibBuilder.exportSymbols("CTRON-CDP-MIB", ctCDPNeighborTable=ctCDPNeighborTable, ctCDPNeighborTimeMark=ctCDPNeighborTimeMark, ctCDPOutPackets=ctCDPOutPackets, ctCDPCompliances=ctCDPCompliances, ctCDPNeighborCapability=ctCDPNeighborCapability, ctCDPStats=ctCDPStats, ctCDPInPackets=ctCDPInPackets, ctCDPNeighborMAC=ctCDPNeighborMAC, ctCDPMemoryErrors=ctCDPMemoryErrors, ctCDPInvalidVersionPackets=ctCDPInvalidVersionPackets, ctCDPPortStatus=ctCDPPortStatus, ctCDPHoldTime=ctCDPHoldTime, ctCDPTransmitFrequency=ctCDPTransmitFrequency, ctCDPNeighborLastDelete=ctCDPNeighborLastDelete, ctCDPNeighborType=ctCDPNeighborType, ctCDPNeighborPort=ctCDPNeighborPort, ctCDPStatus=ctCDPStatus, ctCDPNeighborLastChange=ctCDPNeighborLastChange, ctCDPPortTable=ctCDPPortTable, ctCDPNeighborChassisIP=ctCDPNeighborChassisIP, ctCDPNeighborDescription=ctCDPNeighborDescription, ctCDPPortTableEntry=ctCDPPortTableEntry, ctCDPGlobalStatus=ctCDPGlobalStatus, ctCDPNeighborPortName=ctCDPNeighborPortName, PYSNMP_MODULE_ID=ctronCdpMIB, ctCDPPort=ctCDPPort, ctCDPNeighbor=ctCDPNeighbor, ctCDPNeighborEntry=ctCDPNeighborEntry, CTCDPCapability=CTCDPCapability, ctCDPNeighborChassisMAC=ctCDPNeighborChassisMAC, ctCdpGroupV10=ctCdpGroupV10, ctCDPAuthenticationCode=ctCDPAuthenticationCode, ctronCdpMIB=ctronCdpMIB, ctCDPParseErrorPackets=ctCDPParseErrorPackets, ctCDPGroups=ctCDPGroups, ctCDPNeighborIP=ctCDPNeighborIP, ctCDPVersion=ctCDPVersion, ctCDPConformance=ctCDPConformance, ctCDPTransmitErrors=ctCDPTransmitErrors, ctCDPComplianceV10=ctCDPComplianceV10)

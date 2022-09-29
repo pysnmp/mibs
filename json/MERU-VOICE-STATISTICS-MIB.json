@@ -9,41 +9,41 @@
     ],
     "MERU-TC": [
       "MwlOnOffSwitch",
-      "MwlQosProtocol",
-      "MwlQosCallState",
       "MwlNetProtocol",
+      "MwlQosCallState",
+      "MwlQosProtocol",
       "MwlDeviceType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
-      "enterprises",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "iso",
-      "Unsigned32",
       "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "enterprises",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime",
-      "TimeInterval",
-      "MacAddress",
       "RowStatus",
       "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "TimeInterval",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "mwVoiceStatistics": {
@@ -531,9 +531,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-VOICE-STATISTICS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:30:06 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:49:40 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "MERU-VOICE-STATISTICS-MIB"
   }

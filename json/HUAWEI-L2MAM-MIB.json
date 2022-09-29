@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalIndex",
+      "PhysicalIndex",
       "entPhysicalName",
-      "PhysicalIndex"
+      "entPhysicalIndex"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
-      "hwBaseTrapEventType",
+      "hwBaseTrapSeverity",
       "hwBaseTrapProbableCause",
-      "hwBaseTrapSeverity"
+      "hwBaseTrapEventType"
     ],
     "HUAWEI-L2IF-MIB": [
       "hwL2IfPortName"
@@ -21,9 +21,9 @@
       "hwVplsVsiName"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifDescr",
-      "InterfaceIndexOrZero"
+      "InterfaceIndex"
     ],
     "NQA-MIB": [
       "EnableValue"
@@ -36,30 +36,30 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32"
+      "Unsigned32",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "MacAddress"
     ]
   },
@@ -8121,9 +8121,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2MAM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:31:47 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:52:08 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-L2MAM-MIB"
   }

@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress",
-      "InetZoneIndex",
       "InetAddressPrefixLength",
-      "InetVersion"
+      "InetZoneIndex",
+      "InetVersion",
+      "InetAddress",
+      "InetAddressType"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "zeroDotZero",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
-      "mib-2",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Integer32",
+      "OBJECT-TYPE",
       "Counter32",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "mib-2",
+      "MibIdentifier",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowPointer",
-      "DisplayString",
-      "PhysAddress",
-      "TestAndIncr",
-      "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TestAndIncr",
       "StorageType",
-      "TimeStamp"
+      "RowStatus",
+      "RowPointer",
+      "PhysAddress"
     ]
   },
   "rlIp": {
@@ -334,9 +334,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:28:27 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:46:58 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "Dell-rlIP-MIB"
   }

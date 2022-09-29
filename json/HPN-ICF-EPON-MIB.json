@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-LSW-DEV-ADM-MIB": [
-      "hpnicfLswFrameIndex",
-      "hpnicfLswSlotIndex"
+      "hpnicfLswSlotIndex",
+      "hpnicfLswFrameIndex"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfEpon"
     ],
     "IF-MIB": [
-      "ifDescr",
-      "ifIndex"
+      "ifIndex",
+      "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Counter64",
       "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "Counter32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
-      "DateAndTime",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DateAndTime",
+      "MacAddress",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "hpnicfEponMibObjects": {
@@ -6503,9 +6503,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EPON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:32:35 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:53:33 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "HPN-ICF-EPON-MIB"
   }

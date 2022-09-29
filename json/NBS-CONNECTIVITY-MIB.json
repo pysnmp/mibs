@@ -9,9 +9,9 @@
       "InetAddressType"
     ],
     "NBS-CMMC-MIB": [
+      "nbsCmmcChassisIndex",
       "nbsCmmcSlotIndex",
-      "nbsCmmcPortIndex",
-      "nbsCmmcChassisIndex"
+      "nbsCmmcPortIndex"
     ],
     "NBS-MIB": [
       "nbs"
@@ -21,20 +21,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
-      "Unsigned32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -259,9 +259,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-CONNECTIVITY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Sep 19 08:34:34 2022",
-      "On host fv-az278-268 platform Linux version 5.15.0-1019-azure by user runner",
-      "Using Python version 3.10.6 (main, Aug  3 2022, 07:09:11) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep 29 08:56:21 2022",
+      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "NBS-CONNECTIVITY-MIB"
   }
