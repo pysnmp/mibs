@@ -12,13 +12,13 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifAdminStatus",
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "ifDescr",
       "ifOperStatus",
       "ifIndex",
-      "ifDescr",
-      "InterfaceIndexOrZero",
-      "ifName"
+      "ifName",
+      "ifAdminStatus"
     ],
     "INET-ADDRESS-MIB": [
       "InetVersion"
@@ -31,36 +31,36 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "Counter32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks"
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "DisplayString",
-      "PhysAddress",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "PhysAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "hwIFExtMib": {
@@ -10754,8 +10754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:46:22 2022",
-      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:09:34 2022",
+      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-IF-EXT-MIB"

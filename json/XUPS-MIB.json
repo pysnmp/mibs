@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteTemp",
-      "xupsContactIndex",
+      "xupsEnvRemoteTempUpperLimit",
       "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactState",
-      "xupsEnvRemoteHumidity",
-      "xupsEnvRemoteHumidityLowerLimit",
-      "xupsContactType",
       "xupsContactDescr",
+      "xupsEnvRemoteTemp",
+      "xupsEnvRemoteHumidity",
+      "xupsContactIndex",
       "xupsEnvRemoteTempLowerLimit",
-      "xupsEnvRemoteTempUpperLimit"
+      "xupsContactType",
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactState"
     ],
     "EATON-OIDS": [
-      "eaton",
-      "xupsEnvironment"
+      "xupsEnvironment",
+      "eaton"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
+      "Gauge32",
       "Integer32",
-      "Unsigned32",
-      "Counter64",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:31 2022",
-      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:06:40 2022",
+      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "XUPS-MIB"

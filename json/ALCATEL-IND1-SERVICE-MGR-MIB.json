@@ -15,28 +15,28 @@
       "sdpBindId"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
-      "SdpId",
+      "svcId",
       "ServObjDesc",
-      "svcId"
+      "SdpId"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
       "ServiceAdminStatus",
-      "TmnxEncapVal",
-      "TmnxVcIdOrNone",
-      "SdpBindId",
-      "TmnxServId",
+      "ServiceOperStatus",
       "TmnxCustId",
+      "TmnxEncapVal",
       "TmnxPortID",
       "TmnxVRtrID",
-      "ServiceOperStatus"
+      "TmnxServId",
+      "TmnxVcIdOrNone",
+      "SdpBindId"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MPLS-LDP-MIB": [
       "MplsLdpIdentifier"
@@ -46,33 +46,33 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Bits",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
       "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter32"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DateAndTime",
       "DisplayString",
-      "MacAddress",
+      "TruthValue",
       "RowStatus",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TimeStamp"
     ]
   },
   "alcatelIND1ServiceMgrMIB": {
@@ -10497,8 +10497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SERVICE-MGR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:49:59 2022",
-      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:13:14 2022",
+      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-SERVICE-MGR-MIB"

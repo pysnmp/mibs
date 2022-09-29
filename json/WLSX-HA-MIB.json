@@ -5,44 +5,44 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaHaRole",
       "ArubaEnableValue",
-      "ArubaHaConnectivityStatus"
+      "ArubaHaConnectivityStatus",
+      "ArubaHaRole"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "Counter32",
       "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
       "snmpModules",
       "OBJECT-TYPE",
-      "Counter64",
+      "iso",
       "Unsigned32",
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "iso"
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "StorageType",
       "RowStatus",
-      "MacAddress",
       "TestAndIncr",
       "TAddress",
-      "TDomain"
+      "TimeInterval",
+      "MacAddress",
+      "PhysAddress",
+      "TruthValue",
+      "TDomain",
+      "StorageType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "wlsxHaMIB": {
@@ -886,8 +886,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-HA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:39:28 2022",
-      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:02:32 2022",
+      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "WLSX-HA-MIB"
