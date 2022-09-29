@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
       "Unsigned32",
       "Integer32",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Bits",
-      "Counter64",
       "IpAddress",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "Counter32",
       "Gauge32",
-      "TimeTicks",
-      "Counter32"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hh3cDot11CFGEXT": {
@@ -273,8 +273,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-CFGEXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:04:23 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:05:38 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "HH3C-DOT11-CFGEXT-MIB"

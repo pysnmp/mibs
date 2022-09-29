@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-OSPF-MIB": [
-      "nsOspfLsdbRouterId",
-      "nsOspfExtLsdbLimit",
       "nsOspfNbrState",
-      "nsOspfNbrRtrId",
-      "nsOspfLsdbLsid",
+      "nsOspf",
+      "nsOspfIfState",
+      "nsOspfLsdbAreaId",
       "nsOspfIfIpAddress",
       "nsOspfRouterId",
-      "nsOspf",
-      "nsOspfLsdbType",
       "nsOspfVirtNbrState",
-      "nsOspfLsdbAreaId",
-      "nsOspfAddressLessIf",
-      "nsOspfVirtIfAreaId",
-      "nsOspfVirtIfNeighbor",
-      "nsOspfVirtIfState",
-      "nsOspfVirtNbrRtrId",
+      "nsOspfLsdbLsid",
+      "nsOspfNbrRtrId",
+      "nsOspfLsdbRouterId",
+      "nsOspfVirtNbrArea",
       "nsOspfNbrIpAddr",
+      "nsOspfVirtNbrRtrId",
+      "nsOspfAddressLessIf",
+      "nsOspfVirtIfState",
       "nsOspfNbrAddressLessIndex",
-      "nsOspfIfState",
-      "nsOspfVirtNbrArea"
+      "nsOspfVirtIfNeighbor",
+      "nsOspfExtLsdbLimit",
+      "nsOspfLsdbType",
+      "nsOspfVirtIfAreaId"
     ],
     "NETSCREEN-TRAP-MIB": [
-      "netscreenTrapDesc",
-      "netscreenTrapType"
+      "netscreenTrapType",
+      "netscreenTrapDesc"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -33,20 +33,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "Bits",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
       "Unsigned32",
-      "Integer32"
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -778,8 +778,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-OSPF-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:15:01 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:18:35 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "NETSCREEN-OSPF-TRAP-MIB"

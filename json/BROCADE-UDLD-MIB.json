@@ -11,29 +11,29 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "MibIdentifier",
       "Counter32",
-      "Counter64",
-      "Unsigned32",
       "Bits",
-      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "iso",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "brocadeUdldMIB": {
@@ -164,8 +164,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-UDLD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:07:48 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:10:00 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "BROCADE-UDLD-MIB"

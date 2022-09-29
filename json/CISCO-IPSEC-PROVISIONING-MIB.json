@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
+      "CIPsecSecuritySuite",
+      "CIPsecLifesize",
+      "CIPsecDiffHellmanGrp",
+      "CIPsecTransform",
       "CIPsecLifetime",
       "CIPsecNumCryptoMaps",
-      "CIPsecLifesize",
       "CIPsecCryptomapType",
-      "CIPsecTransform",
-      "CIPsecTunnelIdleTime",
       "CIPsecEncapMode",
-      "CIPsecSecuritySuite",
-      "CIPsecDiffHellmanGrp"
+      "CIPsecTunnelIdleTime"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -19,38 +19,38 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "iso",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoIPsecProvisioningMIB": {
@@ -1476,8 +1476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-PROVISIONING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:06:37 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:08:34 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCO-IPSEC-PROVISIONING-MIB"

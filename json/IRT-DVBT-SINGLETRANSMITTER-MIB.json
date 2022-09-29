@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
+      "eventCounter",
       "eventTimeStamp",
-      "eventPriority",
       "mibRelease",
-      "eventCounter"
+      "eventPriority"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "PresentNotPresent",
-      "LocalRemote",
-      "Input1Input2",
-      "SFNMFN",
       "OkNotOk",
-      "SelectManualAuto",
-      "WarningOK",
-      "MuteOk",
-      "FaultOK",
       "SelectOnOff",
-      "dvbT"
+      "FaultOK",
+      "SFNMFN",
+      "MuteOk",
+      "Input1Input2",
+      "PresentNotPresent",
+      "WarningOK",
+      "SelectManualAuto",
+      "dvbT",
+      "LocalRemote"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysLocation",
       "sysName",
-      "sysDescr",
-      "sysLocation"
+      "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
       "IpAddress",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "TimeTicks",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64"
+      "Counter32",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dvbSingleTransmitter": {
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:14:47 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:18:17 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

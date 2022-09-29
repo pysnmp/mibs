@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetVersion",
       "InetAddress",
-      "InetZoneIndex"
+      "InetVersion",
+      "InetAddressPrefixLength",
+      "InetZoneIndex",
+      "InetAddressType"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "zeroDotZero",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "zeroDotZero",
-      "Bits",
-      "iso",
-      "Counter64",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TimeStamp",
-      "RowPointer",
-      "TestAndIncr",
-      "TruthValue",
+      "StorageType",
       "PhysAddress",
+      "RowPointer",
+      "TruthValue",
+      "TimeStamp",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:06:36 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:08:32 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

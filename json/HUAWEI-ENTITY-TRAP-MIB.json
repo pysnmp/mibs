@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalName",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalName"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapProbableCause",
       "hwBaseTrapSeverity",
-      "hwBaseTrapEventType",
-      "hwBaseTrapProbableCause"
+      "hwBaseTrapEventType"
     ],
     "HUAWEI-ENTITY-EXTENT-MIB": [
       "hwEntityOperStatus"
     ],
     "HUAWEI-GTL-MIB": [
-      "hwGtlItemName",
-      "hwGtlItemIndex"
+      "hwGtlItemIndex",
+      "hwGtlItemName"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -24,36 +24,36 @@
       "IANAItuProbableCause"
     ],
     "IF-MIB": [
-      "ifName",
+      "ifIndex",
       "ifAdminStatus",
-      "ifOperStatus",
-      "ifIndex"
+      "ifName",
+      "ifOperStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
       "IpAddress",
       "iso",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwEntityTrapMIB": {
@@ -9810,8 +9810,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENTITY-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:09:33 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:12:12 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-ENTITY-TRAP-MIB"

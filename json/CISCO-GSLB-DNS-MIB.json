@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "CISCO-GSLB-TC-MIB": [
-      "CiscoGslbBalanceMethod",
       "CiscoGslbAnswerStatus",
-      "CiscoGslbAnswerAdminState",
-      "CiscoGslbAnswerType"
+      "CiscoGslbAnswerType",
+      "CiscoGslbBalanceMethod",
+      "CiscoGslbAnswerAdminState"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressType",
       "InetAddressDNS",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
+      "StorageType",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "RowStatus"
     ]
   },
   "ciscoGslbDnsMIB": {
@@ -2229,8 +2229,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GSLB-DNS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:06:35 2022",
-      "On host fv-az340-469 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 13:08:31 2022",
+      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCO-GSLB-DNS-MIB"
