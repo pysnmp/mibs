@@ -11,14 +11,14 @@
       "IEEE8021PriorityValue"
     ],
     "LLDP-EXT-DOT1-V2-MIB": [
-      "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "LldpXdot1dcbxSupportedCapacity",
+      "lldpXdot1dcbxAdminApplicationPriorityAESelector",
       "LldpXdot1dcbxAppSelector",
       "LldpXdot1dcbxAppProtocol",
-      "lldpXdot1dcbxAdminApplicationPriorityAESelector",
-      "LldpXdot1dcbxSupportedCapacity",
       "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
       "LldpXdot1dcbxTrafficClassValue",
-      "LldpXdot1dcbxTrafficSelectionAlgorithm"
+      "LldpXdot1dcbxTrafficClassBandwidthValue"
     ],
     "LLDP-V2-MIB": [
       "lldpV2LocPortIfIndex"
@@ -28,30 +28,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
       "Counter32",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DcbxMIB": {
@@ -1372,8 +1372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DCBX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:58:04 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:23:57 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-DCBX-MIB"

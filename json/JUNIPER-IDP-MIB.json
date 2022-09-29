@@ -1,0 +1,331 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxTraps"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "jnxIdpMIB": {
+    "name": "jnxIdpMIB",
+    "oid": "1.3.6.1.4.1.2636.3.9",
+    "class": "moduleidentity"
+  },
+  "jnxIdpSensor": {
+    "name": "jnxIdpSensor",
+    "oid": "1.3.6.1.4.1.2636.3.9.1",
+    "class": "objectidentity"
+  },
+  "jnxIdpSensorCpuUsage": {
+    "name": "jnxIdpSensorCpuUsage",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIdpSensorMemUsage": {
+    "name": "jnxIdpSensorMemUsage",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpSensorSessAllocated": {
+    "name": "jnxIdpSensorSessAllocated",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpSensorSessMaximum": {
+    "name": "jnxIdpSensorSessMaximum",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpSensorFreeDiskSpace": {
+    "name": "jnxIdpSensorFreeDiskSpace",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Megabytes",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpSensorCpuThreshold": {
+    "name": "jnxIdpSensorCpuThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxIdpSensorMemThreshold": {
+    "name": "jnxIdpSensorMemThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpSensorSessThreshold": {
+    "name": "jnxIdpSensorSessThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpSensorDiskSpaceThreshold": {
+    "name": "jnxIdpSensorDiskSpaceThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.9.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "jnxIdpTrap": {
+    "name": "jnxIdpTrap",
+    "oid": "1.3.6.1.4.1.2636.4.12",
+    "class": "objectidentity"
+  },
+  "jnxIdpTrapsPrefix": {
+    "name": "jnxIdpTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.12.0",
+    "class": "objectidentity"
+  },
+  "jnxIdpSessionCountNotify": {
+    "name": "jnxIdpSessionCountNotify",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorSessAllocated"
+      },
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorSessThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpSessionCountLimitRestored": {
+    "name": "jnxIdpSessionCountLimitRestored",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorSessAllocated"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpCPUUtilizationNotify": {
+    "name": "jnxIdpCPUUtilizationNotify",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorCpuUsage"
+      },
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorCpuThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpCPUUtilizationLimitRestored": {
+    "name": "jnxIdpCPUUtilizationLimitRestored",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorCpuUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpMemoryNotify": {
+    "name": "jnxIdpMemoryNotify",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorMemUsage"
+      },
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorMemThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpMemoryLimitRestored": {
+    "name": "jnxIdpMemoryLimitRestored",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorMemUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpDiskUtilizationNotify": {
+    "name": "jnxIdpDiskUtilizationNotify",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorFreeDiskSpace"
+      },
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorDiskSpaceThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxIdpDiskUtilizationLimitRestored": {
+    "name": "jnxIdpDiskUtilizationLimitRestored",
+    "oid": "1.3.6.1.4.1.2636.4.12.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-IDP-MIB",
+        "object": "jnxIdpSensorFreeDiskSpace"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-IDP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:21:47 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+    ],
+    "module": "JUNIPER-IDP-MIB"
+  }
+}

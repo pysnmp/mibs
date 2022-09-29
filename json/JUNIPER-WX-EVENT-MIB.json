@@ -1,0 +1,185 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-WX-GLOBAL-MIB": [
+      "jnxWxGrpEvents"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "jnxWxGrpEventV2": {
+    "name": "jnxWxGrpEventV2",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpEventDescr": {
+    "name": "jnxWxGrpEventDescr",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxWxGrpEventPowerSupplyFailure": {
+    "name": "jnxWxGrpEventPowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxWxGrpEventPowerSupplyOk": {
+    "name": "jnxWxGrpEventPowerSupplyOk",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxWxGrpEventLicenseWillExpire": {
+    "name": "jnxWxGrpEventLicenseWillExpire",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventThruputLimitExceeded": {
+    "name": "jnxWxGrpEventThruputLimitExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventLicenseExpired": {
+    "name": "jnxWxGrpEventLicenseExpired",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventClientLimitExceeded": {
+    "name": "jnxWxGrpEventClientLimitExceeded",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventInFailSafeMode": {
+    "name": "jnxWxGrpEventInFailSafeMode",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "jnxWxGrpEventInterfaceSpeedMismatch": {
+    "name": "jnxWxGrpEventInterfaceSpeedMismatch",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventInterfaceSpeedOk": {
+    "name": "jnxWxGrpEventInterfaceSpeedOk",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventInterfaceDuplexMismatch": {
+    "name": "jnxWxGrpEventInterfaceDuplexMismatch",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventLoginFailure": {
+    "name": "jnxWxGrpEventLoginFailure",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWxGrpEventDiskFailure": {
+    "name": "jnxWxGrpEventDiskFailure",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-WX-EVENT-MIB",
+        "object": "jnxWxGrpEventDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-WX-GLOBAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:21:47 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+    ],
+    "module": "JUNIPER-WX-EVENT-MIB"
+  }
+}

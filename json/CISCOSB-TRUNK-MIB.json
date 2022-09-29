@@ -5,35 +5,35 @@
       "switch001"
     ],
     "IEEE8023-LAG-MIB": [
-      "dot3adAggPortIndex",
-      "dot3adAggIndex"
+      "dot3adAggIndex",
+      "dot3adAggPortIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
       "Counter64",
-      "TimeTicks",
-      "Gauge32",
       "Integer32",
       "iso",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "PhysAddress"
+      "RowStatus"
     ]
   },
   "rlDot3adAgg": {
@@ -612,8 +612,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:47:54 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:15:17 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-TRUNK-MIB"

@@ -8,24 +8,24 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "iso",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Integer32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Bits",
-      "Counter64"
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -312,8 +312,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBIQUOSS-10GEPON-SERVICE-POLICY-GROUP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 09:02:33 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:27:44 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "UBIQUOSS-10GEPON-SERVICE-POLICY-GROUP-MIB"

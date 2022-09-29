@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslLineConfProfileName",
-      "adslAtucIntervalNumber",
-      "adslAturChanIntervalNumber",
       "adslAtucChanIntervalNumber",
-      "adslLineAlarmConfProfileName"
+      "adslLineConfProfileName",
+      "adslLineAlarmConfProfileName",
+      "adslAturChanIntervalNumber",
+      "adslAtucIntervalNumber"
     ],
     "DASAN-SMI": [
       "dasanMgmt"
@@ -15,32 +15,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
       "Bits",
+      "Counter32",
+      "mib-2",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
       "TimeStamp",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dasanAdslMIB": {
@@ -4004,8 +4004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ADSL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:45:56 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:13:45 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "DASAN-ADSL-MIB"

@@ -9,13 +9,13 @@
       "ifAlias"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "PerfHist-TC-MIB": [
+      "PerfTotalCount",
       "PerfCurrentCount",
-      "PerfIntervalCount",
-      "PerfTotalCount"
+      "PerfIntervalCount"
     ],
     "SL-MAIN-MIB": [
       "slMain"
@@ -24,33 +24,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Counter64",
+      "enterprises",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
       "Bits",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "enterprises"
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowPointer",
-      "RowStatus"
+      "TimeStamp",
+      "RowPointer"
     ]
   },
   "MacAddress": {
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-FT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:57:56 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:23:55 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "SL-FT-MIB"

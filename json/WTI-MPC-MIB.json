@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "iso",
       "Counter64",
-      "Integer32",
-      "Unsigned32",
+      "enterprises",
+      "MibIdentifier",
+      "Bits",
+      "iso",
       "OBJECT-TYPE",
-      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Bits"
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "westernTelematic": {
@@ -1240,8 +1240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wti/WTI-MPC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 09:02:52 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:28:06 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "WTI-MPC-MIB"

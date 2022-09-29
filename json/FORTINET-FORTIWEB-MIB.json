@@ -6,32 +6,32 @@
       "fnSysSerial"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
       "OBJECT-TYPE",
       "Integer32",
-      "Counter32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fnFortiWebMib": {
@@ -1491,8 +1491,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIWEB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:49:40 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:16:56 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "FORTINET-FORTIWEB-MIB"

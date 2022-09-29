@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList1",
-      "VlanList4",
       "VlanList2",
-      "VlanList3"
+      "VlanList3",
+      "VlanList4",
+      "VlanList1"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
       "rndErrorDesc",
       "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
-      "rndNotifications",
       "rlMacMulticast",
-      "switch001"
+      "switch001",
+      "rndNotifications"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
@@ -35,27 +35,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
       "Counter64",
-      "TimeTicks",
-      "Gauge32",
       "Integer32",
       "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "rlIpv6Fhs": {
@@ -8432,8 +8432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPV6FHS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:47:48 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:15:11 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCOSB-IPV6FHS-MIB"

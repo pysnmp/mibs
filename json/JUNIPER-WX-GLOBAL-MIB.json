@@ -1,0 +1,124 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxWxMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "jnxWxGrpModule": {
+    "name": "jnxWxGrpModule",
+    "oid": "1.3.6.1.4.1.2636.3.41.1",
+    "class": "moduleidentity"
+  },
+  "jnxWxGrp": {
+    "name": "jnxWxGrp",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpStatus": {
+    "name": "jnxWxGrpStatus",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpStats": {
+    "name": "jnxWxGrpStats",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpEvents": {
+    "name": "jnxWxGrpEvents",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpConf": {
+    "name": "jnxWxGrpConf",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProduct": {
+    "name": "jnxWxGrpProduct",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc250": {
+    "name": "jnxWxGrpProductWxc250",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc500": {
+    "name": "jnxWxGrpProductWxc500",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc590": {
+    "name": "jnxWxGrpProductWxc590",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc1800": {
+    "name": "jnxWxGrpProductWxc1800",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc2600": {
+    "name": "jnxWxGrpProductWxc2600",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc3400": {
+    "name": "jnxWxGrpProductWxc3400",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "jnxWxGrpProductWxc7800": {
+    "name": "jnxWxGrpProductWxc7800",
+    "oid": "1.3.6.1.4.1.2636.3.41.1.1.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-WX-GLOBAL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:21:48 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+    ],
+    "module": "JUNIPER-WX-GLOBAL-MIB"
+  }
+}

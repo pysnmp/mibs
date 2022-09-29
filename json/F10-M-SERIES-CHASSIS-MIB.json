@@ -4,46 +4,46 @@
     "F10-CHASSIS-MIB": [
       "chAlarmVarSlot",
       "chAlarmVarPort",
-      "chAlarmVarInteger",
-      "chAlarmVarString"
+      "chAlarmVarString",
+      "chAlarmVarInteger"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
       "F10MSeriesPortType",
-      "F10HundredthdB",
       "F10ChassisType",
-      "F10MfgDate",
+      "F10HundredthdB",
+      "F10ProcessorModuleType",
       "F10SwDate",
-      "F10ProcessorModuleType"
+      "F10MfgDate"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
       "TimeTicks",
-      "Unsigned32"
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DateAndTime",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -2282,8 +2282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-M-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:46:59 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:14:39 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "F10-M-SERIES-CHASSIS-MIB"

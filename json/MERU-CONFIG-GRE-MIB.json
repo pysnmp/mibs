@@ -8,39 +8,39 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlProfileOwner",
-      "MwlOnOffSwitch"
+      "MwlOnOffSwitch",
+      "MwlProfileOwner"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "Integer32",
+      "MODULE-IDENTITY",
       "iso",
-      "enterprises",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
       "Gauge32",
-      "Counter32"
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "TimeStamp",
-      "TimeInterval",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString",
+      "TruthValue",
+      "TimeInterval",
+      "DateAndTime",
+      "MacAddress",
+      "TimeStamp"
     ]
   },
   "mwConfigGRE": {
@@ -202,8 +202,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-GRE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:49:40 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:16:56 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "MERU-CONFIG-GRE-MIB"

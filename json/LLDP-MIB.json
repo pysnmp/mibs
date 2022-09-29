@@ -5,38 +5,38 @@
       "AddressFamilyNumbers"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Integer32",
+      "OBJECT-TYPE",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "iso",
       "IpAddress",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Unsigned32"
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lldpMIB": {
@@ -1864,8 +1864,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 08:39:47 2022",
-      "On host fv-az460-75 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:08:15 2022",
+      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "LLDP-MIB"
