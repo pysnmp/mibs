@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "OBJECT-TYPE",
+      "iso",
+      "enterprises",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Counter32",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1177,8 +1177,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nti/ENVIROMUX-1W-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:23:13 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:49:27 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "ENVIROMUX-1W-MIB"

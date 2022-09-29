@@ -13,23 +13,23 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Counter64",
-      "Integer32",
       "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
       "iso",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsVlanTagsMib": {
@@ -165,8 +165,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-VLAN-TAGS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:22:26 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:48:52 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "NBS-VLAN-TAGS-MIB"

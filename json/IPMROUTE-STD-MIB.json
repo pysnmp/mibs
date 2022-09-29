@@ -14,31 +14,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Bits",
       "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "mib-2",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
-      "TimeTicks"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "ipMRouteStdMIB": {
@@ -1071,8 +1071,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPMROUTE-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:18:00 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:45:36 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "IPMROUTE-STD-MIB"

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "enterprises",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Unsigned32",
-      "MibIdentifier",
-      "Bits",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
       "Counter64",
-      "iso"
+      "enterprises",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "watchguard": {
@@ -125,8 +125,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/WATCHGUARD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:23:09 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:49:25 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "WATCHGUARD-MIB"

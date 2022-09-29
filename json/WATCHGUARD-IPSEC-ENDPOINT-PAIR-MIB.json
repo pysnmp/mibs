@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "enterprises",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
       "Integer32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "enterprises",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "iso",
-      "TimeTicks"
+      "Counter32",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "WATCHGUARD-SMI": [
       "watchguard"
@@ -519,8 +519,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/watchguard/WATCHGUARD-IPSEC-ENDPOINT-PAIR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:27:56 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:53:07 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "WATCHGUARD-IPSEC-ENDPOINT-PAIR-MIB"

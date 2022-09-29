@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepIdentifier",
+      "Dot1afCfmIndexIntegerNextFree",
       "dot1agCfmMaIndex",
       "Dot1agCfmMepIdOrZero",
       "dot1agCfmMepEntry",
       "dot1agCfmMdIndex",
-      "Dot1afCfmIndexIntegerNextFree"
+      "dot1agCfmMepIdentifier"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021VlanIndex",
       "ieee802dot1mibs",
+      "IEEE8021VlanIndex",
       "IEEE8021PriorityValue"
     ],
     "IF-MIB": [
@@ -22,42 +22,42 @@
       "jnxMibs"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
       "LldpPortId",
       "LldpPortIdSubtype",
+      "LldpChassisId",
       "LldpChassisIdSubtype"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "iso",
       "Counter32",
-      "TimeTicks",
       "Counter64",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
       "Unsigned32",
-      "Bits"
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeInterval",
       "TruthValue",
       "TimeStamp",
-      "DateAndTime",
-      "TimeInterval",
-      "TDomain",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TAddress",
+      "DateAndTime",
+      "MacAddress",
+      "TDomain",
       "DisplayString"
     ]
   },
@@ -4808,8 +4808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-SOAM-PM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:21:47 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:48:15 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "JUNIPER-SOAM-PM-MIB"

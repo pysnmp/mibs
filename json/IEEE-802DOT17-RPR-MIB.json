@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
-      "HCPerfTotalCount",
       "HCPerfIntervalCount",
+      "HCPerfTotalCount",
       "HCPerfCurrentCount"
     ],
     "IF-MIB": [
@@ -11,40 +11,40 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
+      "TimeTicks",
       "Integer32",
       "Bits",
+      "Unsigned32",
+      "MibIdentifier",
       "iso",
+      "Counter64",
+      "Gauge32",
       "IpAddress",
       "Counter32",
-      "Unsigned32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TimeStamp",
       "MacAddress",
+      "DateAndTime",
       "DisplayString",
-      "TruthValue"
+      "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8789,9 +8789,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:08:15 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE-802DOT17-RPR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:41:17 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "NETWORK-SERVICES-MIB": [
-      "applIndex",
-      "applGroups"
+      "applGroups",
+      "applIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "IpAddress",
-      "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "mib-2",
+      "Integer32",
       "Counter64",
-      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
       "Bits",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "AutonomousType",
       "DateAndTime",
+      "AutonomousType",
       "DisplayString"
     ]
   },
@@ -1330,8 +1330,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RDBMS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:08:40 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:38:25 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "RDBMS-MIB"

@@ -13,23 +13,23 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Counter64",
       "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
       "IpAddress",
       "Unsigned32",
-      "iso",
-      "MibIdentifier"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsCoherentMib": {
@@ -3683,8 +3683,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-COHERENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:22:26 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:48:51 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "NBS-COHERENT-MIB"

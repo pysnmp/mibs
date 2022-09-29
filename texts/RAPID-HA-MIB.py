@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RAPID-HA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-HA-MIB
-# Produced by pysmi-1.1.8 at Thu Sep 29 12:23:00 2022
-# On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep 29 12:49:18 2022
+# On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner
 # Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Integer32, ModuleIdentity, IpAddress, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, enterprises, TimeTicks, Bits, ObjectIdentity, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "ModuleIdentity", "IpAddress", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "enterprises", "TimeTicks", "Bits", "ObjectIdentity", "Counter32", "Counter64")
-TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, NotificationType, Counter64, Integer32, Bits, iso, MibIdentifier, Unsigned32, Counter32, Gauge32, ObjectIdentity, enterprises, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "NotificationType", "Counter64", "Integer32", "Bits", "iso", "MibIdentifier", "Unsigned32", "Counter32", "Gauge32", "ObjectIdentity", "enterprises", "TimeTicks")
+DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
 rsInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 6))
 rsInfoModule.setRevisions(('2002-11-01 12:00',))
 
@@ -108,4 +108,4 @@ if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil5.setDescription('The CPU utilizat
 rsHAPeerSystemCpuUtil15 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 11), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil15.setStatus('current')
 if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil15.setDescription('The CPU utilization of the peer system in last 15 \n            minutes.')
-mibBuilder.exportSymbols("RAPID-HA-MIB", rsHAPeerStatus=rsHAPeerStatus, PYSNMP_MODULE_ID=rsInfoModule, rsHAPeerSystemStreamReqTotal=rsHAPeerSystemStreamReqTotal, rsHAPeerSystemTotalRecvBytes=rsHAPeerSystemTotalRecvBytes, rsHAPeerIfTable=rsHAPeerIfTable, rsHAPeerCounters=rsHAPeerCounters, rsHAPeerSystemCpuUtil5=rsHAPeerSystemCpuUtil5, rsHAPeerDevice=rsHAPeerDevice, rsHAError=rsHAError, rsHAPeerError=rsHAPeerError, rsHALocal=rsHALocal, rsHAPeerSystemTotalSendBytes=rsHAPeerSystemTotalSendBytes, rsHAStatus=rsHAStatus, rsHAPeerSystemCurrIpsecTunnels=rsHAPeerSystemCurrIpsecTunnels, rsHALastDBSyncTime=rsHALastDBSyncTime, rsHAPeerIfIndex=rsHAPeerIfIndex, rsHAPeerSerialNumber=rsHAPeerSerialNumber, rsHAPeerSystemTotalSendPackets=rsHAPeerSystemTotalSendPackets, rsHAPeerSystemStreamReqDrop=rsHAPeerSystemStreamReqDrop, rsHAMIB=rsHAMIB, rsHAPeerSystemTotalRecvPackets=rsHAPeerSystemTotalRecvPackets, rsInfoModule=rsInfoModule, rsHAPeer=rsHAPeer, rsHAPeerSystemCpuUtil15=rsHAPeerSystemCpuUtil15, rsHAPeerIfNumber=rsHAPeerIfNumber, rsHAPeerLastDBSyncTime=rsHAPeerLastDBSyncTime, rsHAPeerIfEntry=rsHAPeerIfEntry, rsHAPeerIfIpAddr=rsHAPeerIfIpAddr, rsHAPeerSystemCpuUtil=rsHAPeerSystemCpuUtil, rsHAPeerSystemCpuUtil1=rsHAPeerSystemCpuUtil1, rsHAPeerIfLinkStatus=rsHAPeerIfLinkStatus)
+mibBuilder.exportSymbols("RAPID-HA-MIB", rsHAPeerSystemTotalSendPackets=rsHAPeerSystemTotalSendPackets, rsHAPeerIfTable=rsHAPeerIfTable, rsHALocal=rsHALocal, rsHAStatus=rsHAStatus, rsHAPeerStatus=rsHAPeerStatus, rsHAPeerSystemTotalRecvBytes=rsHAPeerSystemTotalRecvBytes, rsHAPeerSystemCpuUtil15=rsHAPeerSystemCpuUtil15, rsHAPeerSystemCpuUtil=rsHAPeerSystemCpuUtil, rsHAPeerSystemTotalSendBytes=rsHAPeerSystemTotalSendBytes, rsHAPeerSystemCurrIpsecTunnels=rsHAPeerSystemCurrIpsecTunnels, rsHAPeer=rsHAPeer, rsInfoModule=rsInfoModule, rsHAPeerSystemCpuUtil5=rsHAPeerSystemCpuUtil5, PYSNMP_MODULE_ID=rsInfoModule, rsHAPeerCounters=rsHAPeerCounters, rsHAPeerSystemCpuUtil1=rsHAPeerSystemCpuUtil1, rsHAPeerSystemTotalRecvPackets=rsHAPeerSystemTotalRecvPackets, rsHAPeerIfIndex=rsHAPeerIfIndex, rsHAPeerLastDBSyncTime=rsHAPeerLastDBSyncTime, rsHALastDBSyncTime=rsHALastDBSyncTime, rsHAPeerSystemStreamReqDrop=rsHAPeerSystemStreamReqDrop, rsHAPeerDevice=rsHAPeerDevice, rsHAPeerIfNumber=rsHAPeerIfNumber, rsHAPeerIfIpAddr=rsHAPeerIfIpAddr, rsHAError=rsHAError, rsHAPeerIfEntry=rsHAPeerIfEntry, rsHAPeerSerialNumber=rsHAPeerSerialNumber, rsHAMIB=rsHAMIB, rsHAPeerError=rsHAPeerError, rsHAPeerIfLinkStatus=rsHAPeerIfLinkStatus, rsHAPeerSystemStreamReqTotal=rsHAPeerSystemStreamReqTotal)

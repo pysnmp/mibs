@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PAN-LC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-LC-MIB
-# Produced by pysmi-1.1.8 at Thu Sep 29 12:23:57 2022
-# On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep 29 12:50:02 2022
+# On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner
 # Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-panProductsMibs, panModules = mibBuilder.importSymbols("PAN-GLOBAL-REG", "panProductsMibs", "panModules")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+panModules, panProductsMibs = mibBuilder.importSymbols("PAN-GLOBAL-REG", "panModules", "panProductsMibs")
 panM_100, = mibBuilder.importSymbols("PAN-PRODUCTS-MIB", "panM-100")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, MibIdentifier, Bits, IpAddress, Counter64, iso, Counter32, Gauge32, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "Bits", "IpAddress", "Counter64", "iso", "Counter32", "Gauge32", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "ObjectIdentity")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, Counter32, Counter64, MibIdentifier, ModuleIdentity, IpAddress, iso, Integer32, TimeTicks, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "Counter32", "Counter64", "MibIdentifier", "ModuleIdentity", "IpAddress", "iso", "Integer32", "TimeTicks", "Gauge32", "ObjectIdentity")
+TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
 panLogCollectorMibsModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 25461, 1, 1, 6))
 panLogCollectorMibsModule.setRevisions(('2012-01-11 10:13',))
 if mibBuilder.loadTexts: panLogCollectorMibsModule.setLastUpdated('201201111013Z')
@@ -57,4 +57,4 @@ panLcLogDurationUserid = MibScalar((1, 3, 6, 1, 4, 1, 25461, 2, 3, 30, 1, 2, 11)
 if mibBuilder.loadTexts: panLcLogDurationUserid.setStatus('current')
 panLcIsRedundancyMember = MibScalar((1, 3, 6, 1, 4, 1, 25461, 2, 3, 30, 2), TruthValue()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: panLcIsRedundancyMember.setStatus('current')
-mibBuilder.exportSymbols("PAN-LC-MIB", panLcIsRedundancyMember=panLcIsRedundancyMember, panLcLogRate=panLcLogRate, panLcLogDurationThsum=panLcLogDurationThsum, panLcLogDuration=panLcLogDuration, panLcLogDurationThreat=panLcLogDurationThreat, panLcDiskUsage=panLcDiskUsage, PYSNMP_MODULE_ID=panLogCollectorMibsModule, panLcLogDurationHipmatch=panLcLogDurationHipmatch, panLcLogDurationSystem=panLcLogDurationSystem, panLcDiskUsageLd4=panLcDiskUsageLd4, panLcLogDurationAppstat=panLcLogDurationAppstat, panLcStat=panLcStat, panLogCollectorMibsModule=panLogCollectorMibsModule, panLcDiskUsageLd1=panLcDiskUsageLd1, panLcDiskUsageLd2=panLcDiskUsageLd2, panLcLogDurationUserid=panLcLogDurationUserid, panLcLogDurationConfig=panLcLogDurationConfig, panLcLogDurationAlarm=panLcLogDurationAlarm, panLcLogDurationTrsum=panLcLogDurationTrsum, panLcLogDurationEvent=panLcLogDurationEvent, panLcLogDurationTraffic=panLcLogDurationTraffic, panLcDiskUsageLd3=panLcDiskUsageLd3)
+mibBuilder.exportSymbols("PAN-LC-MIB", panLcLogDurationSystem=panLcLogDurationSystem, panLcLogDurationThsum=panLcLogDurationThsum, panLcLogDurationThreat=panLcLogDurationThreat, panLcLogDurationAlarm=panLcLogDurationAlarm, panLcLogDuration=panLcLogDuration, panLogCollectorMibsModule=panLogCollectorMibsModule, panLcLogDurationHipmatch=panLcLogDurationHipmatch, panLcLogDurationAppstat=panLcLogDurationAppstat, panLcDiskUsageLd3=panLcDiskUsageLd3, panLcDiskUsage=panLcDiskUsage, panLcLogDurationConfig=panLcLogDurationConfig, panLcLogDurationUserid=panLcLogDurationUserid, panLcDiskUsageLd1=panLcDiskUsageLd1, panLcLogDurationTraffic=panLcLogDurationTraffic, panLcLogDurationEvent=panLcLogDurationEvent, PYSNMP_MODULE_ID=panLogCollectorMibsModule, panLcIsRedundancyMember=panLcIsRedundancyMember, panLcLogRate=panLcLogRate, panLcStat=panLcStat, panLcDiskUsageLd4=panLcDiskUsageLd4, panLcLogDurationTrsum=panLcLogDurationTrsum, panLcDiskUsageLd2=panLcDiskUsageLd2)

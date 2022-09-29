@@ -10,20 +10,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
       "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter64",
       "Unsigned32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "IpAddress"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3518,8 +3518,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-FE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:14:49 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:07 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "DKT-FE-MIB"

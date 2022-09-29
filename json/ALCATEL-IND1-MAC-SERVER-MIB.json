@@ -11,31 +11,31 @@
       "entPhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "iso",
       "TimeTicks",
-      "Bits",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1MacServerMIB": {
@@ -771,8 +771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-MAC-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:23:58 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:50:00 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "ALCATEL-IND1-MAC-SERVER-MIB"

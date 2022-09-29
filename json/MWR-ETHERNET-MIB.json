@@ -5,41 +5,41 @@
       "mwr"
     ],
     "EQUIPMENT-COMMON-MIB": [
+      "equipmentOutTrapsCounter",
       "EnableType",
-      "equipmentTrapInfo",
       "equipmentAlarmActiveConditionId",
-      "equipmentOutTrapsCounter"
+      "equipmentTrapInfo"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "MibIdentifier",
+      "Counter32",
       "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "iso",
-      "Counter32"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "DateAndTime"
+      "RowStatus",
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwrModIdentity": {
@@ -8041,8 +8041,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/MWR-ETHERNET-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:15:15 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:27 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "MWR-ETHERNET-MIB"

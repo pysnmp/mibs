@@ -12,30 +12,30 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
       "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY"
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "dlinkSwAAAServerMIB": {
@@ -1073,8 +1073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-AAA-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:14:59 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:15 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "DLINKSW-AAA-SERVER-MIB"

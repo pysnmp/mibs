@@ -5,29 +5,29 @@
       "hwDatacomm"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "IpAddress"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwIfQoSMib": {
@@ -3252,8 +3252,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IF-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:19:03 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:46:22 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "HUAWEI-IF-QOS-MIB"

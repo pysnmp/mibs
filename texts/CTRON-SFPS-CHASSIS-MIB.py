@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-SFPS-CHASSIS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-CHASSIS-MIB
-# Produced by pysmi-1.1.8 at Thu Sep 29 12:16:12 2022
-# On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep 29 12:44:14 2022
+# On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner
 # Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 sfpsChassisRipTable, sfpsChassisRipAPI = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsChassisRipTable", "sfpsChassisRipAPI")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter64, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, Integer32, Counter32, ModuleIdentity, MibIdentifier, NotificationType, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "Integer32", "Counter32", "ModuleIdentity", "MibIdentifier", "NotificationType", "Bits", "Unsigned32")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, Unsigned32, TimeTicks, NotificationType, Counter32, Integer32, Bits, MibIdentifier, iso, IpAddress, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "Unsigned32", "TimeTicks", "NotificationType", "Counter32", "Integer32", "Bits", "MibIdentifier", "iso", "IpAddress", "ModuleIdentity", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class SfpsAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
@@ -46,4 +46,4 @@ if mibBuilder.loadTexts: sfpsChassisRipAPITimer.setDescription('')
 sfpsChassisRipAPINumInTable = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 6, 1, 2, 5), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sfpsChassisRipAPINumInTable.setStatus('mandatory')
 if mibBuilder.loadTexts: sfpsChassisRipAPINumInTable.setDescription('')
-mibBuilder.exportSymbols("CTRON-SFPS-CHASSIS-MIB", sfpsChassisRipAPIChassisMac=sfpsChassisRipAPIChassisMac, sfpsChassisRipModifiedTime=sfpsChassisRipModifiedTime, sfpsChassisRipStatus=sfpsChassisRipStatus, sfpsChassisRipAPITimer=sfpsChassisRipAPITimer, sfpsChassisRipAPIVerb=sfpsChassisRipAPIVerb, sfpsChassisRipINBPortMask=sfpsChassisRipINBPortMask, sfpsChassisRipAPIPort=sfpsChassisRipAPIPort, SfpsAddress=SfpsAddress, sfpsChassisRipAPINumInTable=sfpsChassisRipAPINumInTable, sfpsChassisRipChassisMac=sfpsChassisRipChassisMac, sfpsChassisRipFPPortMask=sfpsChassisRipFPPortMask)
+mibBuilder.exportSymbols("CTRON-SFPS-CHASSIS-MIB", sfpsChassisRipAPIPort=sfpsChassisRipAPIPort, sfpsChassisRipAPITimer=sfpsChassisRipAPITimer, sfpsChassisRipAPIChassisMac=sfpsChassisRipAPIChassisMac, SfpsAddress=SfpsAddress, sfpsChassisRipINBPortMask=sfpsChassisRipINBPortMask, sfpsChassisRipFPPortMask=sfpsChassisRipFPPortMask, sfpsChassisRipAPINumInTable=sfpsChassisRipAPINumInTable, sfpsChassisRipStatus=sfpsChassisRipStatus, sfpsChassisRipChassisMac=sfpsChassisRipChassisMac, sfpsChassisRipAPIVerb=sfpsChassisRipAPIVerb, sfpsChassisRipModifiedTime=sfpsChassisRipModifiedTime)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module RADLAN-PHY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-PHY-MIB
-# Produced by pysmi-1.1.8 at Thu Sep 29 12:25:02 2022
-# On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep 29 12:50:50 2022
+# On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner
 # Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, Integer32, ModuleIdentity, ObjectIdentity, MibIdentifier, TimeTicks, Counter32, Counter64, Bits, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "Integer32", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Counter32", "Counter64", "Bits", "Gauge32")
-DisplayString, TextualConvention, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeStamp")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, Counter64, iso, NotificationType, ModuleIdentity, Bits, Unsigned32, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "iso", "NotificationType", "ModuleIdentity", "Bits", "Unsigned32", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "Gauge32", "TimeTicks")
+TimeStamp, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "TextualConvention", "DisplayString")
 rlPhy = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 90))
 rlPhy.setRevisions(('2002-09-30 00:24', '2003-09-21 00:24',))
 if mibBuilder.loadTexts: rlPhy.setLastUpdated('200209300024Z')
@@ -45,4 +45,4 @@ rlPhyTestGetAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 5), Integ
 if mibBuilder.loadTexts: rlPhyTestGetAlarm.setStatus('current')
 rlPhyTestGetTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 90, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlPhyTestGetTimeStamp.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-PHY-MIB", rlPhyTestGetTimeStamp=rlPhyTestGetTimeStamp, rlPhyTestGetAlarm=rlPhyTestGetAlarm, rlPhyTestSetTable=rlPhyTestSetTable, rlPhyTestGetResult=rlPhyTestGetResult, PYSNMP_MODULE_ID=rlPhy, rlPhyTestSetType=rlPhyTestSetType, rlPhy=rlPhy, rlPhyTestGetTable=rlPhyTestGetTable, rlPhyTestGetEntry=rlPhyTestGetEntry, RlPhyTestType=RlPhyTestType, rlPhyTestGetType=rlPhyTestGetType, rlPhyTestGetStatus=rlPhyTestGetStatus, rlPhyTestSetEntry=rlPhyTestSetEntry, rlPhyTestGetUnits=rlPhyTestGetUnits, rlPhyTest=rlPhyTest)
+mibBuilder.exportSymbols("RADLAN-PHY-MIB", rlPhyTestGetUnits=rlPhyTestGetUnits, rlPhyTestGetResult=rlPhyTestGetResult, rlPhyTestGetTimeStamp=rlPhyTestGetTimeStamp, rlPhyTestSetTable=rlPhyTestSetTable, rlPhyTestGetTable=rlPhyTestGetTable, PYSNMP_MODULE_ID=rlPhy, rlPhyTestSetEntry=rlPhyTestSetEntry, rlPhyTestGetType=rlPhyTestGetType, rlPhyTestGetEntry=rlPhyTestGetEntry, rlPhyTestGetStatus=rlPhyTestGetStatus, rlPhyTest=rlPhyTest, RlPhyTestType=RlPhyTestType, rlPhyTestSetType=rlPhyTestSetType, rlPhyTestGetAlarm=rlPhyTestGetAlarm, rlPhy=rlPhy)

@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEObjects",
-      "aprisaXEEvents"
+      "aprisaXEEvents",
+      "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEPortNumber",
-      "AprisaXEAlarmType",
-      "AprisaXECardType",
+      "AprisaXESlotNumber",
       "AprisaXEDataStatus",
-      "AprisaXESlotNumber"
+      "AprisaXEAlarmType",
+      "AprisaXEPortNumber",
+      "AprisaXECardType"
     ],
     "COMMON-TC-4RF": [
+      "FourRFAlarmPresent",
+      "FourRFImageVersion",
       "FourRFAlarmEnabled",
       "FourRFHardwareVersion",
       "FourRFAlarmSeverity",
-      "FourRFAlarmStatus",
-      "FourRFImageVersion",
-      "FourRFAlarmPresent"
+      "FourRFAlarmStatus"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,25 +27,25 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "Counter64"
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:08:50 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:38:33 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

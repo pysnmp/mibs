@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
       "TimeTicks",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
       "Gauge32",
-      "enterprises",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
       "IpAddress",
       "Integer32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "enterprises",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -486,8 +486,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ifotec/IFOTEC-SMI",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:20:23 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:47:19 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "IFOTEC-SMI"

@@ -5,9 +5,9 @@
       "cLApName"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress",
       "cldcApMacAddress",
-      "cldcIfType",
-      "cldcClientMacAddress"
+      "cldcIfType"
     ],
     "CISCO-LWAPP-TC-MIB": [
       "CLApIfType"
@@ -19,40 +19,40 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
+      "Counter32",
       "Bits",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "MacAddress"
     ]
   },
   "ciscoLwappRrmMIB": {
@@ -3385,8 +3385,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-RRM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:15:15 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:31 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCO-LWAPP-RRM-MIB"

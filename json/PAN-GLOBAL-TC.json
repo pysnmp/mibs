@@ -5,28 +5,28 @@
       "panModules"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "iso",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "panGlobalTcModule": {
@@ -78,8 +78,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-GLOBAL-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:24:00 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:50:05 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "PAN-GLOBAL-TC"

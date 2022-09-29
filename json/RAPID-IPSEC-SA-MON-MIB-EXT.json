@@ -5,13 +5,13 @@
       "ifIndex"
     ],
     "IPSEC-ISAKMP-IKE-DOI-TC": [
-      "IpsecDoiEspTransform",
-      "IpsecDoiAuthAlgorithm",
-      "IpsecDoiEncapsulationMode",
-      "IpsecDoiIdentType",
+      "IpsecDoiIpcompTransform",
       "IpsecDoiSecProtocolId",
+      "IpsecDoiEspTransform",
+      "IpsecDoiEncapsulationMode",
       "IpsecDoiAhTransform",
-      "IpsecDoiIpcompTransform"
+      "IpsecDoiAuthAlgorithm",
+      "IpsecDoiIdentType"
     ],
     "RAPID-MIB": [
       "rapidstream"
@@ -21,26 +21,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "Unsigned32",
       "Gauge32",
-      "Counter32",
       "Integer32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
       "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
       "Counter64",
-      "iso"
+      "enterprises",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsIpsecSaMonModule": {
@@ -2543,8 +2543,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-IPSEC-SA-MON-MIB-EXT",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:23:09 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:49:25 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "RAPID-IPSEC-SA-MON-MIB-EXT"

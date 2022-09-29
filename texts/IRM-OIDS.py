@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Thu Sep 29 12:16:12 2022
-# On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep 29 12:44:14 2022
+# On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner
 # Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter64, iso, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, Counter32, ModuleIdentity, MibIdentifier, NotificationType, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "iso", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "Counter32", "ModuleIdentity", "MibIdentifier", "NotificationType", "Bits", "Unsigned32")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, Unsigned32, TimeTicks, NotificationType, Counter32, Integer32, Bits, MibIdentifier, iso, IpAddress, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "Unsigned32", "TimeTicks", "NotificationType", "Counter32", "Integer32", "Bits", "MibIdentifier", "iso", "IpAddress", "ModuleIdentity", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", sysIntDev=sysIntDev, sysChassis=sysChassis, product=product, commsDevice=commsDevice, backplaneProtocol=backplaneProtocol, sysRepeaters=sysRepeaters, subSysDevice=subSysDevice, sysRouters=sysRouters, repeater=repeater, repeaterRev1=repeaterRev1, sysOIDs=sysOIDs, commonRev1=commonRev1, dl=dl, ups=ups, nb30Rev1=nb30Rev1, repeaterRev2=repeaterRev2, subSysMMAC=subSysMMAC, subsystem=subsystem, layerMgmt=layerMgmt, router=router, sysBridges=sysBridges, common=common, bridge=bridge, sysOtherType=sysOtherType)
+mibBuilder.exportSymbols("IRM-OIDS", ups=ups, subSysMMAC=subSysMMAC, subSysDevice=subSysDevice, repeaterRev2=repeaterRev2, subsystem=subsystem, repeaterRev1=repeaterRev1, product=product, sysChassis=sysChassis, sysOIDs=sysOIDs, nb30Rev1=nb30Rev1, sysIntDev=sysIntDev, layerMgmt=layerMgmt, common=common, backplaneProtocol=backplaneProtocol, dl=dl, sysBridges=sysBridges, bridge=bridge, commonRev1=commonRev1, sysOtherType=sysOtherType, sysRepeaters=sysRepeaters, commsDevice=commsDevice, router=router, sysRouters=sysRouters, repeater=repeater)

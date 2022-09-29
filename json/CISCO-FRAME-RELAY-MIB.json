@@ -9,31 +9,31 @@
       "ifIndex"
     ],
     "RFC1315-MIB": [
-      "frCircuitDlci",
-      "frCircuitIfIndex",
       "frCircuitEntry",
-      "frDlcmiEntry"
+      "frCircuitIfIndex",
+      "frDlcmiEntry",
+      "frCircuitDlci"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
+      "Counter32",
       "Bits",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Unsigned32",
-      "Counter32",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3239,8 +3239,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FRAME-RELAY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:15:14 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:29 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCO-FRAME-RELAY-MIB"

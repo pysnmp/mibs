@@ -3,9 +3,9 @@
     "class": "imports",
     "ATM-MIB": [
       "AtmTrafficDescrParamIndex",
+      "atmVclVci",
       "atmVplVpi",
-      "atmVclVpi",
-      "atmVclVci"
+      "atmVclVpi"
     ],
     "CISCO-ATM-IF-MIB": [
       "NsapAtmAddr"
@@ -17,39 +17,39 @@
       "ciscoExperiment"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
-      "IpAddress",
+      "Counter32",
       "Bits",
       "Gauge32",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ciscoAtmConnMIB": {
@@ -3827,8 +3827,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-CONN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:15:14 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:43:30 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "CISCO-ATM-CONN-MIB"

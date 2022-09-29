@@ -10,26 +10,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Integer32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Counter64",
-      "TimeTicks"
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "acdPort": {
@@ -1915,8 +1915,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-PORT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 12:08:54 2022",
-      "On host fv-az619-657 platform Linux version 5.15.0-1020-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep 29 12:38:36 2022",
+      "On host fv-az343-100 platform Linux version 5.15.0-1020-azure by user runner",
       "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
     ],
     "module": "ACD-PORT-MIB"
