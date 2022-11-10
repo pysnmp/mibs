@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -n "$(ls -A /app/new_mibs/src/vendor/new 2>/dev/null)" ]
+if [ -n "$(ls -A /app/new_mibs/src/vendor 2>/dev/null)" ]
 then
   cd /app/new_mibs
   mkdir output
