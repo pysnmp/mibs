@@ -54,10 +54,78 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "mibserver.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "mibserver.fullname" .) .Values.serviceAccount.name }}
+{{- define "mibserver.serviceAccount" -}}
+{{- if .Values.serviceAccount }}
+{{- .Values.serviceAccount | toYaml }}
 {{- else }}
-{{- default "default" .Values.serviceAccount.name }}
+{{- dict "create" true "annotations" dict "name" "" | toYaml }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "mibserver.serviceAccountName" -}}
+{{- $serviceAccount := fromYaml (include "mibserver.serviceAccount" .)}}
+{{- if $serviceAccount.create }}
+{{- default (include "mibserver.fullname" .) $serviceAccount.name }}
+{{- else }}
+{{- default "default" $serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create mibserver.service
+*/}}
+{{- define "mibserver.service" -}}
+{{- if .Values.service }}
+{{- .Values.service | toYaml }}
+{{- else }}
+{{- dict "type" "ClusterIP" "port" 80 | toYaml }}
+{{- end }}
+{{- end }}
+
+
+{{/*
+Create mibserver.autoscaling
+*/}}
+{{- define "mibserver.autoscaling" -}}
+{{- if .Values.autoscaling }}
+{{- .Values.autoscaling | toYaml }}
+{{- else }}
+{{- dict "enabled" true "minReplicas" 1 "maxReplicas" 3 "targetCPUUtilizationPercentage" 80 | toYaml }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create mibserver.autoscaling
+*/}}
+{{- define "mibserver.podAntiAffinity" -}}
+{{- if .Values.podAntiAffinity }}
+{{- .Values.podAntiAffinity }}
+{{- else }}
+{{- "soft" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create mibserver.networkPolicy
+*/}}
+{{- define "mibserver.networkPolicy" -}}
+{{- if .Values.networkPolicy }}
+{{- .Values.networkPolicy | toYaml }}
+{{- else }}
+{{- dict "enabled" false | toYaml}}
+{{- end }}
+{{- end }}
+
+{{/*
+Whether to render pv and pvc for local mibs
+*/}}
+{{- define "mibserver.enablePV" -}}
+{{- if and .Values.localMibs.pathToMibs ( eq .Values.localMibs.persistence.existingClaim "" ) }}
+{{- "true" }}
+{{- else }}
+{{- "false" }}
 {{- end }}
 {{- end }}

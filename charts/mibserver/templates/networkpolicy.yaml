@@ -1,4 +1,5 @@
-{{- if .Values.networkPolicy.enabled }}
+{{ $networkPolicy := fromYaml (include "mibserver.networkPolicy" .)}}
+{{- if $networkPolicy.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -15,7 +16,7 @@ spec:
     # Allow inbound connections
     - ports:
         - port: 8000  # WEB        
-      {{- if not .Values.networkPolicy.allowExternal }}
+      {{- if not $networkPolicy.allowExternal }}
       from:
         - podSelector:
             matchLabels:

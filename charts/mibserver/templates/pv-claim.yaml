@@ -1,0 +1,13 @@
+{{- if eq ( include "mibserver.enablePV" . ) "true" }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: {{ .Values.localMibs.persistence.storageClass | default "microk8s-hostpath" }}
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.localMibs.persistence.size | default "3Gi" }}
+{{- end }}

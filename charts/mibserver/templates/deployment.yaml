@@ -7,7 +7,7 @@ metadata:
   annotations:
     "kube-score/ignore": "container-image-pull-policy"
 spec:
-  {{- if not .Values.autoscaling.enabled }}
+  {{- if not (include "mibserver.autoscaling" .enabled) }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
@@ -27,11 +27,17 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "mibserver.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        fsGroup: 10001
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: {{ ternary "true" "false" ( empty .Values.localMibs.pathToMibs ) }}
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
@@ -50,14 +56,16 @@ spec:
               port: http-status
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if eq ( include "mibserver.enablePV" . ) "true" }}
           volumeMounts:
-            - mountPath: /tmp
-              name: tmp              
+            - mountPath: "/tmp/new_mibs/src/vendor/new"
+              name: task-pv-storage
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if eq .Values.podAntiAffinity "hard" }}
+      {{- if eq (include "mibserver.podAntiAffinity" .) "hard" }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -65,7 +73,7 @@ spec:
               labelSelector:
                 matchLabels:
                     {{- include "mibserver.selectorLabels" . | nindent 22 }}
-      {{- else if eq .Values.podAntiAffinity "soft" }}
+      {{- else if eq (include "mibserver.podAntiAffinity" .) "soft" }}
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -83,3 +91,12 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
+        {{- if eq ( include "mibserver.enablePV" . ) "true" }}
+        - name: task-pv-storage
+          persistentVolumeClaim:
+        {{- if eq .Values.localMibs.persistence.existingClaim "" }}
+            claimName: task-pv-claim
+        {{ else }}
+            claimName: {{ .Values.localMibs.persistence.existingClaim | quote }}
+        {{- end }}
+        {{- end }}

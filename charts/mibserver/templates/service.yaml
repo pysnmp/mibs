@@ -1,3 +1,4 @@
+{{ $service := fromYaml (include "mibserver.service" . ) }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -5,9 +6,9 @@ metadata:
   labels:
     {{- include "mibserver.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ $service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ $service.port }}
       targetPort: http
       protocol: TCP
       name: http

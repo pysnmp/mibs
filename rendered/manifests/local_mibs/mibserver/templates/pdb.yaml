@@ -1,0 +1,18 @@
+---
+# Source: mibserver/templates/pdb.yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: default-mibserver
+  labels:
+    helm.sh/chart: mibserver-1.14.9
+    app.kubernetes.io/name: mibserver
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/version: "1.14.9"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  minAvailable: 80%
+  selector:
+    matchLabels:
+        app.kubernetes.io/name: mibserver
+        app.kubernetes.io/instance: default
