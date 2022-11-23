@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
       - name: Install actionlint
         run: |
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/v1.6.3/scripts/download-actionlint.bash)
@@ -37,7 +37,7 @@ jobs:
           #build if this is not set false
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: "3.10"
           architecture: x64
