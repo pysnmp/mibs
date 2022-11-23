@@ -55,7 +55,7 @@ jobs:
       #Build and index
       - run: mkdir -p output/asn1
       - run: make index
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: log/
       - name: Install Helm
