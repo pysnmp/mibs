@@ -7,28 +7,28 @@
     ],
     "EXTREME-EDP-MIB": [
       "extremeEdpNeighborVlanIpAddress",
-      "extremeEdpNeighborId",
       "extremeEdpNeighborVlanName",
+      "extremeEdpEntryAge",
       "extremeEdpPortIfIndex",
-      "extremeEdpEntryAge"
+      "extremeEdpNeighborId"
     ],
     "EXTREME-ESRP-MIB": [
-      "extremeEsrpActivePorts",
       "extremeEsrpState",
-      "extremeEsrpTrackedIpRoutes",
       "extremeEsrpGroup",
+      "extremeEsrpTrackedActivePorts",
       "extremeEsrpNetAddress",
+      "extremeEsrpTrackedIpRoutes",
       "extremeEsrpInternalActivePorts",
-      "extremeEsrpTrackedActivePorts"
+      "extremeEsrpActivePorts"
     ],
     "EXTREME-SYSTEM-MIB": [
-      "extremeSlotModuleConfiguredType",
-      "extremePowerSupplyNumber",
+      "extremeCurrentTemperature",
       "extremeFanNumber",
-      "extremeSlotNumber",
-      "extremeSlotModuleState",
       "extremeSlotModuleInsertedType",
-      "extremeCurrentTemperature"
+      "extremePowerSupplyNumber",
+      "extremeSlotModuleState",
+      "extremeSlotModuleConfiguredType",
+      "extremeSlotNumber"
     ],
     "EXTREME-VLAN-MIB": [
       "extremeVlanIfDescr",
@@ -40,32 +40,32 @@
       "ifAlias"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysUpTime",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
       "Bits",
-      "Integer32"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "extremeOverheat": {
@@ -395,8 +395,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:45:08 2022",
-      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:06:18 2022",
+      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "EXTREME-TRAP-MIB"

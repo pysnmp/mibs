@@ -5,24 +5,24 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsRespCode",
       "dns",
-      "DnsType",
+      "DnsRespCode",
       "DnsName",
-      "DnsQClass",
-      "DnsQType",
       "DnsTime",
-      "DnsClass",
+      "DnsQType",
       "DnsNameAsIndex",
-      "DnsOpCode"
+      "DnsType",
+      "DnsQClass",
+      "DnsOpCode",
+      "DnsClass"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -32,26 +32,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
       "Bits",
-      "Counter32",
-      "iso",
       "TimeTicks",
       "Unsigned32",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rlDnsCl": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DNSCL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:48:32 2022",
-      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:09:40 2022",
+      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "LINKSYS-DNSCL-MIB"

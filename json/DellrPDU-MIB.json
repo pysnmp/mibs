@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "enterprises",
       "MODULE-IDENTITY",
-      "Bits",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "TRAP-TYPE",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "Integer32",
+      "enterprises",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3993,8 +3993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DellrPDU-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:43:35 2022",
-      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:04:45 2022",
+      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "DellrPDU-MIB"

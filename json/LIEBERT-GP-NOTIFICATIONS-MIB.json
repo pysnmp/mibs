@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "LIEBERT-GP-CONDITIONS-MIB": [
-      "lgpConditionTableRef",
-      "lgpConditionTime",
+      "lgpConditionDescr",
       "lgpConditionTableRowRef",
       "lgpConditionId",
-      "lgpConditionDescr"
+      "lgpConditionTableRef",
+      "lgpConditionTime"
     ],
     "LIEBERT-GP-REGISTRATION-MIB": [
       "liebertNotificationsModuleReg",
@@ -20,24 +20,24 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Bits",
+      "iso",
+      "Counter64",
       "Gauge32",
       "Integer32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "liebertGlobalProductsNotificationsModule": {
@@ -482,8 +482,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-NOTIFY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:48:22 2022",
-      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:09:30 2022",
+      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "LIEBERT-GP-NOTIFICATIONS-MIB"

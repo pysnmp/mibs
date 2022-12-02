@@ -10,17 +10,17 @@
       "hwDatacomm"
     ],
     "IEEE802171-CFM-MIB": [
-      "Dot1agCfmMaintDomainName",
       "Dot1agCfmMaintAssocName",
-      "Dot1agCfmMepIdOrZero"
+      "Dot1agCfmMepIdOrZero",
+      "Dot1agCfmMaintDomainName"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetPortNumber"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -37,33 +37,33 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Counter32",
       "Integer32",
-      "Unsigned32",
-      "mib-2",
-      "NOTIFICATION-GROUP",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Bits",
+      "OBJECT-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
       "IpAddress",
-      "Counter64"
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-GROUP",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeInterval",
-      "DisplayString",
-      "MacAddress",
-      "TruthValue",
+      "DateAndTime",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
       "StorageType",
-      "DateAndTime"
+      "TruthValue",
+      "MacAddress",
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:46:46 2022",
-      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:07:55 2022",
+      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "NQA-MIB"
