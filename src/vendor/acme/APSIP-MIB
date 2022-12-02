@@ -1,0 +1,2407 @@
+------------------------------------------------------------------------------
+-- ACMEPACKET-SIP.txt:  Acme Packet SIP Application MIB
+--
+-- March 2012
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+-------------------------------------------------------------------------------
+
+APSIP-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+        Gauge32, Integer32, Unsigned32, Counter32, Counter64
+                FROM SNMPv2-SMI
+        TEXTUAL-CONVENTION, DisplayString, TruthValue
+                FROM SNMPv2-TC
+        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+                FROM SNMPv2-CONF
+        InetAddress, InetAddressType
+            FROM INET-ADDRESS-MIB
+        acmepacketMgmt
+                FROM ACMEPACKET-SMI
+        ApHardwareModuleFamily, ApRedundancyState, ApPhyPortType,
+        ApPresence, ApServerStatus, ApSipMethod
+            FROM ACMEPACKET-TC
+        apSysMgmtSipInterfaceRealmName, apSysMgmtSipInterfaceIP,
+        apSipSessionAgentStatsEntry, apSigRealmStatsEntry
+                 FROM APSYSMGMT-MIB;
+
+apSipModule   MODULE-IDENTITY
+		LAST-UPDATED	"201904240000Z"
+	    	ORGANIZATION 	"Oracle Communications"
+	    	CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+                DESCRIPTION
+                        "SIP MIB for Oracle Communications Acme Packet SBCs"
+                REVISION        "201207130000Z"
+                DESCRIPTION
+                        "Updated contact info."
+                REVISION        "201203070000Z"
+                DESCRIPTION
+                        "Initial version."
+		REVISION 	"201406260000Z" 			
+	    	DESCRIPTION
+		    	"Updated Organization and Contact info."
+                REVISION    "201711240000Z"
+                DESCRIPTION
+                        "Added MIB definitions for SRVCC Stats."
+                REVISION 	"201712130000Z" 			
+	        DESCRIPTION
+		   	"Added new table for sip method stats (apSipMethodStatsTable)"
+                REVISION    "201804040000Z"
+                DESCRIPTION
+                        "Added stats for SRVCC pre-alerting."
+                REVISION 	"201804270000Z" 			
+	        DESCRIPTION
+		   	"Added MIB definitions for SIP Reg Event Subscription Stats."
+                REVISION    "201904240000Z"
+                DESCRIPTION
+                        "Added MIB definitions for MSRP Stats."
+
+                ::= { acmepacketMgmt 15 }
+
+
+apSipMIBObjects OBJECT IDENTIFIER ::= { apSipModule 1 }
+apSipMIBGeneralObjects OBJECT IDENTIFIER ::= {apSipMIBObjects 1}
+apSipMIBTabularObjects OBJECT IDENTIFIER ::= {apSipMIBObjects 2}
+apSipNotificationObjects OBJECT IDENTIFIER ::= { apSipModule 2 }
+
+-- conformance information
+
+apSipConformance OBJECT IDENTIFIER ::= { apSipModule 3 }
+apSipObjectGroups OBJECT IDENTIFIER ::= { apSipConformance 1 }
+apSipNotificationGroups OBJECT IDENTIFIER ::= { apSipConformance 2 }
+
+
+apSipSecInterfaceObjects        OBJECT IDENTIFIER ::= { apSipMIBGeneralObjects 1}
+apSipAudioVideoCallsObjects     OBJECT IDENTIFIER ::= { apSipMIBGeneralObjects 2}
+apSipSRVCCStatsObjects          OBJECT IDENTIFIER ::= { apSipMIBGeneralObjects 3}
+apSipRegEvtSubStatsObjects      OBJECT IDENTIFIER ::= { apSipMIBGeneralObjects 4}
+apSipMSRPStatsObjects           OBJECT IDENTIFIER ::= { apSipMIBGeneralObjects 5}
+apSipSecInterfaceNotifications  OBJECT IDENTIFIER ::= { apSipNotificationObjects 1}
+apSipSecIntfNotifObjects        OBJECT IDENTIFIER ::= { apSipSecInterfaceNotifications 1 }
+apSipSecIntfNotifPrefix         OBJECT IDENTIFIER ::= { apSipSecInterfaceNotifications 2 }
+apSipSecIntfNotifications       OBJECT IDENTIFIER ::= { apSipSecIntfNotifPrefix 0 }
+
+apSipSecInterfaceTotalRegistrations OBJECT-TYPE
+        SYNTAX                  Unsigned32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The total number of registrations on all secondary SIP interfaces."
+        ::= { apSipSecInterfaceObjects 1 }
+
+apSipSecInterfaceRegThreshold OBJECT-TYPE
+        SYNTAX                  Unsigned32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The max threshold for registrations on all secondary SIP interfaces
+                 beyond which trap and alarm will be raised."
+        ::= { apSipSecInterfaceObjects 2 }
+
+apSipSecInterfaceClearThreshold OBJECT-TYPE
+        SYNTAX                  Unsigned32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "The threshold for registrations on all secondary SIP interfaces
+                 below which if alarm was raised before, it will be cleared."
+        ::= { apSipSecInterfaceObjects 3 }
+
+--SIP Audio/Video Call counters
+
+apSIPVideoCallsActive           OBJECT-TYPE
+        SYNTAX         		Gauge32 
+	MAX-ACCESS      	read-only
+	STATUS          	current
+	DESCRIPTION
+	    	"Number of current active SIP Video calls"
+	::= {apSipAudioVideoCallsObjects 1}
+
+apSIPAudioCallsActive           OBJECT-TYPE
+        SYNTAX          	Gauge32
+	MAX-ACCESS      	read-only
+	STATUS          	current
+	DESCRIPTION
+	    	"Number of current active SIP Audio calls"
+	::= {apSipAudioVideoCallsObjects 2}
+
+-- SIP SRVCC stats objects
+apSipSRVCCStatsTotalSuccess       OBJECT-TYPE
+        SYNTAX                    Counter32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total successful SRVCC handovers"
+        ::= {apSipSRVCCStatsObjects 1}
+
+apSipSRVCCStatsTotalFailed       OBJECT-TYPE
+        SYNTAX                   Counter32
+        MAX-ACCESS               read-only
+        STATUS                   current
+        DESCRIPTION
+                "Total failed SRVCC handovers"
+        ::= {apSipSRVCCStatsObjects 2}
+
+apSipSRVCCStatsTotalCallsAfterAnswer       OBJECT-TYPE
+        SYNTAX                             Counter32
+        MAX-ACCESS                         read-only
+        STATUS                             current
+        DESCRIPTION
+                "Total calls subjected to SRVCC after answer"
+        ::= {apSipSRVCCStatsObjects 3}
+
+apSipSRVCCStatsAfterAnswerSuccess       OBJECT-TYPE
+        SYNTAX                          Counter32
+        MAX-ACCESS                      read-only
+        STATUS                          current
+        DESCRIPTION
+                "Total successful SRVCC handovers after answer"
+        ::= {apSipSRVCCStatsObjects 4}
+    
+apSipSRVCCStatsAfterAnswerFailed       OBJECT-TYPE
+        SYNTAX                         Counter32
+        MAX-ACCESS                     read-only
+        STATUS                         current
+        DESCRIPTION
+                "Total failed SRVCC handovers after answer"
+        ::= {apSipSRVCCStatsObjects 5}
+
+apSipSRVCCStatsTotalCallsDuringAlerting       OBJECT-TYPE
+        SYNTAX                                Counter32
+        MAX-ACCESS                            read-only
+        STATUS                                current
+        DESCRIPTION
+                "Total calls subjected to SRVCC during alerting"
+        ::= {apSipSRVCCStatsObjects 6}
+    
+apSipSRVCCStatsDuringAlertingSuccess       OBJECT-TYPE
+        SYNTAX                             Counter32
+        MAX-ACCESS                         read-only
+        STATUS                             current
+        DESCRIPTION
+                "Total successful SRVCC handovers during alerting"
+        ::= {apSipSRVCCStatsObjects 7}
+
+apSipSRVCCStatsDuringAlertingFailed       OBJECT-TYPE
+        SYNTAX                            Counter32
+        MAX-ACCESS                        read-only
+        STATUS                            current
+        DESCRIPTION
+                "Total failed SRVCC handovers during alerting"
+        ::= {apSipSRVCCStatsObjects 8}
+        
+apSipSRVCCStatsAtcfCancel           OBJECT-TYPE
+        SYNTAX                      Counter32
+        MAX-ACCESS                  read-only
+        STATUS                      current
+        DESCRIPTION
+                "Total number of atcf cancellations"
+        ::= {apSipSRVCCStatsObjects 9}        
+    
+apSipSRVCCStatsEmergencySuccess       OBJECT-TYPE
+        SYNTAX                        Counter32
+        MAX-ACCESS                    read-only
+        STATUS                        current
+        DESCRIPTION
+                "Total successful SRVCC handovers for emergency calls"
+        ::= {apSipSRVCCStatsObjects 10}
+    
+apSipSRVCCStatsEmergencyFailed       OBJECT-TYPE
+        SYNTAX                       Counter32
+        MAX-ACCESS                   read-only
+        STATUS                       current
+        DESCRIPTION
+                "Total failed SRVCC handovers for emergency calls"
+        ::= {apSipSRVCCStatsObjects 11}
+
+apSipSRVCCStatsEatfCancel               OBJECT-TYPE
+        SYNTAX                          Counter32
+        MAX-ACCESS                      read-only
+        STATUS                          current
+        DESCRIPTION
+                "Total number of eatf cancellations"
+        ::= {apSipSRVCCStatsObjects 12}
+
+apSipSRVCCStatsTotalCallsDuringPreAlerting  OBJECT-TYPE
+        SYNTAX                              Counter32
+        MAX-ACCESS                          read-only
+        STATUS                              current
+        DESCRIPTION
+                "Total calls subjected to SRVCC during pre-alerting"
+        ::= {apSipSRVCCStatsObjects 13}
+
+apSipSRVCCStatsDuringPreAlertingSuccess    OBJECT-TYPE
+        SYNTAX                             Counter32
+        MAX-ACCESS                         read-only
+        STATUS                             current
+        DESCRIPTION
+                "Total successful SRVCC handovers during pre-alerting"
+        ::= {apSipSRVCCStatsObjects 14}
+
+apSipSRVCCStatsDuringPreAlertingFailed    OBJECT-TYPE
+        SYNTAX                            Counter32
+        MAX-ACCESS                        read-only
+        STATUS                            current
+        DESCRIPTION
+                "Total failed SRVCC handovers during pre-alerting"
+        ::= {apSipSRVCCStatsObjects 15}
+-- SIP Reg Event Subscription stats objects
+apSipStatsActiveSubsRegEvt  OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Number of Active Reg Event Subscriptions in the SBC."
+        ::= { apSipRegEvtSubStatsObjects 1 }
+
+apSipStatsPerMaxSubsRegEvt  OBJECT-TYPE
+        SYNTAX          Counter32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Lifetime PerMax Reg Event Subscriptions count in the SBC."
+        ::= { apSipRegEvtSubStatsObjects 2 }
+
+apSipStatsMaxActiveSubsRegEvt OBJECT-TYPE
+        SYNTAX          Counter32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Count of Lifetime Maximum Active Reg Event Subscriptions in the SBC."
+        ::= { apSipRegEvtSubStatsObjects 3 }
+
+apSipStatsTotalSubsRegEvt   OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+                "Count of Lifetime Total Reg Event Subscriptions in the SBC."
+        ::= { apSipRegEvtSubStatsObjects 4 }
+
+-- MSRP stats objects
+apSipMSRPFdTableSize OBJECT-TYPE   
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of entries in the MSRP File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  1}
+apSipMSRPSessionIdTableSize OBJECT-TYPE 
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of entries in the MSRP Session-Id table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 2}
+apSipMSRPActiveSessions OBJECT-TYPE     
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of total Active MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 3}
+apSipMSRPMaxActiveSessions OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of max active MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 4}
+apSipMSRPEstablishedSessions OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of MSRP Established Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 5}
+apSipMSRPProvisionedSessions OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of MSRP Provisioned Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 6}
+apSipMSRPFinishedSessions OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of MSRP Finished Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 7}
+apSipMSRPAcceptedConnections OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Accepted Connections in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 8}
+apSipMSRPConnectedConnections OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Connected Connections in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 9}
+apSipMSRPReleasedConnections OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Released Connections in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 10}
+apSipMSRPStreamRequestReceived OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Stream Requests Received in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 11}
+apSipMSRPStreamRequestSent OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of stream Requests Sent in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 12}
+apSipMSRPStreamResponseReceived OBJECT-TYPE     
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Stream Responses Received in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 13}
+apSipMSRPStreamResponseSent OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Stream Responses Sent in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 14}
+apSipMSRPGlobalBufferedData OBJECT-TYPE 
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Current Global Buffer Data size for MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 15}
+apSipMSRPFlowAdd OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of MSRP Nat Flows Added.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 16}
+apSipMSRPFlowDelete OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of MSRP Nat Flows Deleted.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 17}
+apSipMSRPFailedSessionsCannotRoute OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Failed MSRP Sessions due to No Session Route Failure.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 18}
+apSipMSRPFailedSessionsCannotConnect OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Failed MSRP Sessions that can not connect.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects 19}
+apSipMSRPFailedSessionsFingerprintMismatch OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Falied MSRP Sessions due to Fingerprint Mismatches.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  20}
+apSipMSRPFailedMessagesCannotBeSent OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Message Send Failures in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  21}
+apSipMSRPFailedMessagesMalformed OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Malformed Messages Received in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  22}
+apSipMSRPSendQFullEvents OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Send-Q Full Events in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  23}
+apSipMSRPSendQCongestedEvents OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Send-Q Congested Events in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  24}
+apSipMSRPSendQCongestionRelievedEvents OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Send-Q Relieved Events in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  25}
+apSipMSRPStreamErrorNoTransId OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of No Trans-Id Stream Errors in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  26}
+apSipMSRPStreamErrorNoMsgType OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of No Message Type Stream Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  27}
+apSipMSRPStreamErrorNoByteLength OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of No Byte Length stream Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  28}
+apSipMSRPBufferLimitExceeded OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Buffer Limit Exceeded Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  29}
+apSipMSRPFailedConnectionInit OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Connection Attempts Failed in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  30}
+apSipMSRPSessReprovMismatch OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Session Reprovision Mismatches.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  31}
+apSipMSRPTcpListenErrors OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Listen Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  32}
+apSipMSRPTcpConnectError OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Connect Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  33}
+apSipMSRPTcpError OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  34}
+apSipMSRPNoFromHeaderSessionID OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of FROM Header without a session-id in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  35}
+apSipMSRPNoFromHeader OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Messages without FROM Header in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  36}
+apSipMSRPFromHdrAddrParseError OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of FROM Header Parse errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  37}
+apSipMSRPNoFromHdrAddr OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of FROM Header with no Address in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  38}
+apSipMSRPNoFromHdrPort OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of FROM Header with no port in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  39}
+apSipMSRPNoFromHdrAuthority OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of From Header with no Authority in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  40}
+apSipMSRPFromHdrSrvMismatch OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of FROM Header service type mismatches in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  41}
+apSipMSRPSendFailNoDestFd OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of send failures due to No Destination File Descriptor found in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  42}
+apSipMSRPSendFailedNoDstSession OBJECT-TYPE     
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of send failures due to No Destination Session found in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  43}
+apSipMSRPNoToHeaderSessionID OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TO Headers without a session-id in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  44}
+apSipMSRPNoToHeader OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Messages without TO Header in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  45}
+apSipMSRPToHdrAddrParseError OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TO Headers Parse errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  46}
+apSipMSRPNoToHdrAddr OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TO Headers with no Address in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  47}
+apSipMSRPNoToHdrPort OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TO Headers with no port in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  48}
+apSipMSRPNoToHdrAuthority OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TO Headers with no Authority in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  49}
+apSipMSRPToHdrSrvMismatch OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TO Header service type mismatches in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  50}
+apSipMSRPNoDestFdEntry OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of No Destination File Descriptor Entry Errors in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  51}
+apSipMSRPTcpSendFailure OBJECT-TYPE     
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of TCP Send Failures in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  52}
+apSipMSRPFdTableInsertErrorCollision OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Insert Collisions errors in File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  53}
+apSipMSRPFdTableInsertErrorNoData OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of No Data Insert Errors in File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  54}
+apSipMSRPFdTableInsertErrorMemory OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Memory Insert Errors in File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  55}
+apSipMSRPFdTableInsertErrorMaxHops OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Max Hops Insert Errors in File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  56}
+apSipMSRPFdTableInsertErrorBad OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Bad Insert Errors in File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  57}
+apSipMSRPSessionTableInsertErrorCollision OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Insert Collisions Errors in Session Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  58}
+apSipMSRPSessionTableInsertErrorNoData OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of No Data Insert Errors in Session Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  59}
+apSipMSRPSessionTableInsertErrorMemory OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Memory Insert Errors in Session Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  60}
+apSipMSRPSessionTableInsertErrorMaxHops OBJECT-TYPE     
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Max Hops Insert Errors in Session Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  61}
+apSipMSRPSessionTableInsertErrorBad OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Bad Insert Errors in Session Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  62}
+apSipMSRPFlowToSessionTableInsertError OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Insert Errors in Flow-To-Session Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  63}
+apSipMSRPNumPreProvSessions OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of PreProvisioned Sessions in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  64}
+apSipMSRPNumPreProvMessages OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of PreProvision RX Messages in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  65}
+apSipMSRPConnectionStateNoSession OBJECT-TYPE   
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Initial State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  66}
+apSipMSRPConnectionStateListening OBJECT-TYPE   
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Listening State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  67}
+apSipMSRPConnectionStatePending OBJECT-TYPE     
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Pending State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  68}
+apSipMSRPConnectionStateConnecting OBJECT-TYPE  
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Connecting State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  69}
+apSipMSRPConnectionStateConnected OBJECT-TYPE   
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Connected State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  70}
+apSipMSRPConnectionStateEstablished OBJECT-TYPE 
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Established State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  71}
+apSipMSRPConnectionStateFinished OBJECT-TYPE    
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Finished State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  72}
+apSipMSRPConnectionStateReleased OBJECT-TYPE    
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Released State in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  73}
+apSipMSRPUnqualifiedConnections OBJECT-TYPE     
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sockets in Unqualified Status in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  74}
+apSipMSRPSessionStateNone OBJECT-TYPE   
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sessions in Initial State.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  75}
+apSipMSRPSessionStateListening OBJECT-TYPE      
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sessions in Listening State.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  76}
+apSipMSRPSessionStatePreProvisioned OBJECT-TYPE 
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sessions in Pre-Provisioned State.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  77}
+apSipMSRPSessionStateProvisioned OBJECT-TYPE    
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sessions in Provisioned State.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  78}
+apSipMSRPSessionStateEstablished OBJECT-TYPE    
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sessions in Established State.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  79}
+apSipMSRPSessionStateFinished OBJECT-TYPE       
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Sessions in Finished State.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  80}
+apSipMSRPClosedFdTableSize OBJECT-TYPE  
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Closed FD Table Size.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  81}
+apSipMSRPClosedFdTableInsertErrors OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Insert Errors in Closed File Descriptor Table.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  82}
+apSipMSRPNumFdForcedReleases OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Forced Release File Descriptor in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  83}
+apSipMSRPNumForcedReleasedListenFdNotFound OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Forced Release Listen File Descriptor Not Found in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  84}
+apSipMSRPNumForcedReleasedForkedFdNotFound OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Forced Release Forked File Descriptor Not Found in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  85}
+apSipMSRPNumListenFdForcedReleased OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Forced Release Listen File Descriptor in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  86}
+apSipMSRPRequestBytesReceived OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Request Bytes Received in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  87}
+apSipMSRPRequestBytesSent OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Request Bytes Sent in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  88}
+apSipMSRPResponseBytesReceived OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Response Bytes Received in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  89}
+apSipMSRPResponseBytesSent OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Response Bytes Sent in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  90}
+apSipMSRPUnqualifiedClose OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Unqualified Closes in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  91}
+apSipMSRPUnconnectedClose OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of File Descriptor did not get any connection in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  92}
+apSipMSRPAcceptErrorClose OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Accept Error Closes in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  93}
+apSipMSRPPreProvisionClose OBJECT-TYPE  
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Pre-provision Closes in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  94}
+apSipMSRPReadErrorClose OBJECT-TYPE     
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Read Error Closes in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  95}
+apSipMSRPStreamErrorClose OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Stream Error Closes in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  96}
+apSipMSRPBufferClose OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Buffer Error Closes in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  97}
+apSipMSRPReleaseNotificationFailures OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Release Notification send failures.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  98}
+apSipMSRPReleaseNotificationUnsentNoId OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Unsent Release Notifications due to No session ID.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  99}
+apSipMSRPReleaseNotificationUnsentNoFd OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Unsent Release Notifications due to invalid File Descriptor.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  100}
+apSipMSRPReleaseNotificationUnsentNoListenFd OBJECT-TYPE        
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Unsent Release Notifications due to No Listen File Descriptor.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  101}
+apSipMSRPAcceptedConnectionsCema OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of CEMA Accepted Connections.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  102}
+apSipMSRPConnectedConnectionsCema OBJECT-TYPE   
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of CEMA Connected Connections.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  103}
+apSipMSRPActiveCemaSessions OBJECT-TYPE 
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Active CEMA Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  104}
+apSipMSRPEstablishedSessionsSessmatch OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Established Sessmatch Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  105}
+apSipMSRPProvisionedSessionsSessmatch OBJECT-TYPE       
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Provisioned Sessmatch Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  106}
+apSipMSRPActiveSessmatchSessions OBJECT-TYPE    
+        SYNTAX                    Gauge32
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Active Sessmatch Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  107}
+apSipMSRPMessageFromHost OBJECT-TYPE    
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Messages Received from Host in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  108}
+apSipMSRPMessageToHost OBJECT-TYPE      
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Messages Sent to Host in MSRP Sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  109}
+apSipMSRPMessageToHostFail  OBJECT-TYPE 
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "Total number of Messages Sent to Host Failed in MSRP sessions.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform."
+        ::= {apSipMSRPStatsObjects  110}
+
+-- system trap information table 
+
+apSipSecInterfaceRegThresholdExceededTrap           NOTIFICATION-TYPE
+        OBJECTS         { apSipSecInterfaceTotalRegistrations,
+                          apSipSecInterfaceRegThreshold }
+        STATUS          current
+        DESCRIPTION
+        " The trap will be generated if the total number of registrations
+          on all secondary SIP interfaces exceed threshold."
+        ::= { apSipSecIntfNotifications 1 }
+
+apSipSecInterfaceRegThresholdClearTrap           NOTIFICATION-TYPE
+        OBJECTS         { apSipSecInterfaceTotalRegistrations,
+                          apSipSecInterfaceClearThreshold }
+        STATUS          current
+        DESCRIPTION
+        " The trap will be generated if the total number of registrations
+          on all secondary SIP interfaces go below clear threshold."
+        ::= { apSipSecIntfNotifications 2 }
+
+apSipSurvivabilityNotif         OBJECT IDENTIFIER ::= { apSipNotificationObjects 2 }
+apSipSurvivabilityNotifObjects  OBJECT IDENTIFIER ::= { apSipSurvivabilityNotif 1 }
+apSipSurvivabilityNotifPrefix   OBJECT IDENTIFIER ::= { apSipSurvivabilityNotif 2 }
+apSipSurvivabilityNotifications OBJECT IDENTIFIER ::= { apSipSurvivabilityNotifPrefix 0 }
+
+apSipSurvivabilityModeEnter            NOTIFICATION-TYPE
+            OBJECTS                 { apSysMgmtSipInterfaceRealmName,
+                          apSysMgmtSipInterfaceIP }
+            STATUS                  current
+            DESCRIPTION
+        " The trap will be generated when SIP interface enters Survivability Mode."
+            ::= { apSipSurvivabilityNotifications 1 }
+
+
+apSipSurvivabilityModeExit            NOTIFICATION-TYPE
+            OBJECTS                 { apSysMgmtSipInterfaceRealmName,
+                          apSysMgmtSipInterfaceIP }
+            STATUS                  current
+            DESCRIPTION
+        " The trap will be generated when SIP interface exits Survivability Mode and
+          resumes normal operation."
+            ::= { apSipSurvivabilityNotifications 2 }
+
+
+apSipInterfaceTable  	OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApSipInterfaceEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The active SIP interface table."
+        ::= { apSipMIBTabularObjects 1 }
+
+apSipInterfaceEntry OBJECT-TYPE
+        SYNTAX  	ApSipInterfaceEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "sip interface entry "
+        INDEX { apSipInterfaceIndex }
+        ::= { apSipInterfaceTable 1 }
+
+
+ApSipInterfaceEntry ::= SEQUENCE {
+	apSipInterfaceIndex 	INTEGER,
+	apSipInterfaceRealm	DisplayString
+}
+
+apSipInterfaceIndex		OBJECT-TYPE
+        SYNTAX			INTEGER (1..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the DD interface."
+	::= { apSipInterfaceEntry 1 }
+
+apSipInterfaceRealm		OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "Realm name of the SIP interface."
+	::= { apSipInterfaceEntry 2 }
+
+apSipRateIntfStatsTable  OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApSipRateIntfStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The table of sip message rate stats."
+        ::= { apSipMIBTabularObjects 2 }
+
+apSipRateIntfStatsEntry OBJECT-TYPE
+        SYNTAX  	ApSipRateIntfStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "SIP message rate per interface statistics "
+        INDEX {apSipInterfaceIndex, apSipRateIntfMethod }
+        ::= { apSipRateIntfStatsTable 1 }
+
+
+ApSipRateIntfStatsEntry ::= SEQUENCE {
+	apSipRateIntfMethod 	ApSipMethod,
+	apSipRateIntfMsgRcvd 	Gauge32,
+	apSipRateIntfMsgSent 	Gauge32,
+	apSipRateIntfReqRcvd 	Gauge32,
+	apSipRateIntfReqSent 	Gauge32,
+	apSipRateIntfRspRcvd 	Gauge32,
+	apSipRateIntfRspSent 	Gauge32
+}
+
+apSipRateIntfMethod 		OBJECT-TYPE
+        SYNTAX			ApSipMethod
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "Sip message method."
+	::= {apSipRateIntfStatsEntry 1 }
+
+
+apSipRateIntfMsgRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of messages received."
+	::= { apSipRateIntfStatsEntry 5  }
+
+apSipRateIntfMsgSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of messages sent."
+	::= { apSipRateIntfStatsEntry 6  }
+
+apSipRateIntfReqRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of request messages received."
+	::= { apSipRateIntfStatsEntry 7  }
+
+apSipRateIntfReqSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of request messages sent."
+	::= { apSipRateIntfStatsEntry 8  }
+
+apSipRateIntfRspRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of response messages received."
+	::= { apSipRateIntfStatsEntry 9  }
+
+apSipRateIntfRspSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of response messages sent."
+	::= { apSipRateIntfStatsEntry 10  }
+
+
+
+apSipAgentTable  	OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApSipAgentEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The active SIP agent table."
+        ::= { apSipMIBTabularObjects 3 }
+
+apSipAgentEntry 	OBJECT-TYPE
+        SYNTAX  	ApSipAgentEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "SIP message rate per interface statistics "
+	INDEX {apSipAgentIndex, apSipAgentStatsMethod }
+        ::= { apSipAgentTable 1 }
+
+
+ApSipAgentEntry ::= SEQUENCE {
+	apSipAgentIndex 	INTEGER,
+	apSipAgentName		DisplayString
+}
+
+apSipAgentIndex			OBJECT-TYPE
+        SYNTAX			INTEGER (1..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the Sip agent."
+	::= {apSipAgentEntry 1 }
+
+apSipAgentName			OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "Name of the SIP agent."
+	::= {apSipAgentEntry 2 }
+
+apSipRateAgentStatsTable  OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApSipRateAgentStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The table of codec statistics per-SIP Agent statistics."
+        ::= { apSipMIBTabularObjects 4 }
+
+apSipRateAgentStatsEntry OBJECT-TYPE
+        SYNTAX  	ApSipRateAgentStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "SIP message rate per interface statistics "
+	INDEX {apSipAgentIndex, apSipAgentStatsMethod }
+        ::= { apSipRateAgentStatsTable 1 }
+
+
+ApSipRateAgentStatsEntry ::= SEQUENCE {
+	apSipAgentStatsMethod 	ApSipMethod,
+	apSipRateAgentMsgRcvd 	Gauge32,
+	apSipRateAgentMsgSent 	Gauge32,
+	apSipRateAgentReqRcvd 	Gauge32,
+	apSipRateAgentReqSent 	Gauge32,
+	apSipRateAgentRspRcvd 	Gauge32,
+	apSipRateAgentRspSent 	Gauge32
+}
+
+apSipAgentStatsMethod 		OBJECT-TYPE
+        SYNTAX			ApSipMethod
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "Sip message method."
+	::= {apSipRateAgentStatsEntry 1 }
+
+
+apSipRateAgentMsgRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of messages received."
+	::= { apSipRateAgentStatsEntry 5  }
+
+apSipRateAgentMsgSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of messages sent."
+	::= { apSipRateAgentStatsEntry 6  }
+
+apSipRateAgentReqRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of request messages received."
+	::= { apSipRateAgentStatsEntry 7  }
+
+apSipRateAgentReqSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of request messages sent."
+	::= { apSipRateAgentStatsEntry 8  }
+
+apSipRateAgentRspRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of response messages received."
+	::= { apSipRateAgentStatsEntry 9  }
+
+apSipRateAgentRspSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of response messages sent."
+	::= { apSipRateAgentStatsEntry 10  }
+
+apSipSecInterfaceRegNotificationsGroup NOTIFICATION-GROUP
+      NOTIFICATIONS {
+                        apSipSecInterfaceRegThresholdExceededTrap,
+                        apSipSecInterfaceRegThresholdClearTrap
+                    }
+                STATUS          current
+                DESCRIPTION
+                "A collection of traps to extend reporting capabilities."
+      ::= {  apSipNotificationGroups 1 }
+
+
+apSipSurvivabilityNotificationsGroup  NOTIFICATION-GROUP
+      NOTIFICATIONS {
+                              apSipSurvivabilityModeEnter,
+                              apSipSurvivabilityModeExit
+                    }
+                STATUS          current
+                DESCRIPTION
+                "Traps to monitor  SIP interface Survivability feature"
+        ::= {  apSipNotificationGroups 2 }
+
+
+apSipSecInterfaceRegObjectsGroup OBJECT-GROUP
+      OBJECTS {
+                        apSipSecInterfaceTotalRegistrations,
+                        apSipSecInterfaceRegThreshold,
+                        apSipSecInterfaceClearThreshold
+              }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing the SIP MIB
+                for Secondary Interface Registrations."
+      ::= { apSipObjectGroups 1 }
+
+
+apSipRateStatsGroup OBJECT-GROUP
+      OBJECTS {
+      apSipInterfaceRealm,
+ 	apSipRateIntfMsgRcvd,
+	apSipRateIntfMsgSent,
+	apSipRateIntfReqRcvd,
+	apSipRateIntfReqSent,
+	apSipRateIntfRspRcvd,
+	apSipRateIntfRspSent,
+	apSipAgentName,
+	apSipRateAgentMsgRcvd,
+	apSipRateAgentMsgSent,
+	apSipRateAgentReqRcvd,
+	apSipRateAgentReqSent,
+	apSipRateAgentRspRcvd,
+	apSipRateAgentRspSent
+             }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing sip rate stats."
+      ::= { apSipObjectGroups 2 }
+
+--apSip Session Agent Connection Admission Control Stats Table
+apSipSaCacStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApSipSaCacStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "SIP Session Agent Connection Admission Control Stats Table."
+        ::= { apSipMIBTabularObjects 5 }
+
+apSipSaCacStatsEntry OBJECT-TYPE
+        SYNTAX          ApSipSaCacStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Connection Admission Control Statistics."
+        AUGMENTS { apSipSessionAgentStatsEntry }
+     ::= { apSipSaCacStatsTable 1 }
+
+
+ApSipSaCacStatsEntry ::= SEQUENCE {
+    apSipSaCacSessionUtilLevel              Gauge32,
+    apSipSaCacBurstRateUtilLevel            Gauge32
+}
+
+apSipSaCacSessionUtilLevel        OBJECT-TYPE
+    SYNTAX        Gauge32
+    UNITS        "percentage"
+    MAX-ACCESS     read-only
+    STATUS        current
+    DESCRIPTION
+        "Current session utilization level."
+    ::= { apSipSaCacStatsEntry 1 }
+
+apSipSaCacBurstRateUtilLevel        OBJECT-TYPE
+    SYNTAX        Gauge32
+    UNITS        "percentage"
+    MAX-ACCESS     read-only
+    STATUS        current
+    DESCRIPTION
+        "Current burst rate utilization level."
+    ::= { apSipSaCacStatsEntry 2 }
+
+
+--apSig Realm Connection Admission Control Stats Table
+apSigRealmCacStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApSigRealmCacStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Realm Connection Admission Control Stats Table."
+        ::= { apSipMIBTabularObjects 6 }
+
+apSigRealmCacStatsEntry OBJECT-TYPE
+        SYNTAX          ApSigRealmCacStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Connection Admission Control Statistics."
+        AUGMENTS { apSigRealmStatsEntry }
+     ::= { apSigRealmCacStatsTable 1 }
+
+
+ApSigRealmCacStatsEntry ::= SEQUENCE {
+    apSigRealmCacSessionUtilLevel              Gauge32,
+    apSigRealmCacBurstRateUtilLevel            Gauge32
+}
+
+apSigRealmCacSessionUtilLevel        OBJECT-TYPE
+    SYNTAX        Gauge32
+    UNITS        "percentage"
+    MAX-ACCESS     read-only
+    STATUS        current
+    DESCRIPTION
+        "Current session utilization level."
+    ::= { apSigRealmCacStatsEntry 1 }
+
+apSigRealmCacBurstRateUtilLevel        OBJECT-TYPE
+    SYNTAX        Gauge32
+    UNITS        "percentage"
+    MAX-ACCESS     read-only
+    STATUS        current
+    DESCRIPTION
+        "Current burst rate utilization level."
+    ::= { apSigRealmCacStatsEntry 2 }
+
+--apSip Interface Connection Admission Control Stats Table
+apSipInterfaceCacStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApSipInterfaceCacStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "SIP Interface Connection Admission Control Stats Table."
+        ::= { apSipMIBTabularObjects 7 }
+
+apSipInterfaceCacStatsEntry OBJECT-TYPE
+        SYNTAX          ApSipInterfaceCacStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Connection Admission Control Statistics."
+        AUGMENTS { apSipInterfaceEntry }
+     ::= { apSipInterfaceCacStatsTable 1 }
+
+
+ApSipInterfaceCacStatsEntry ::= SEQUENCE {
+    apSipInterfaceCacSessionUtilLevel              Gauge32,
+    apSipInterfaceCacBurstRateUtilLevel            Gauge32
+}
+
+apSipInterfaceCacSessionUtilLevel        OBJECT-TYPE
+    SYNTAX        Gauge32
+    UNITS        "percentage"
+    MAX-ACCESS     read-only
+    STATUS        current
+    DESCRIPTION
+        "Current session utilization level."
+    ::= { apSipInterfaceCacStatsEntry 1 }
+
+apSipInterfaceCacBurstRateUtilLevel        OBJECT-TYPE
+    SYNTAX        Gauge32
+    UNITS        "percentage"
+    MAX-ACCESS     read-only
+    STATUS        current
+    DESCRIPTION
+        "Current burst rate utilization level."
+    ::= { apSipInterfaceCacStatsEntry 2 }
+--apSip Session Agent Call Information Stats Table
+apSipSaCallInfoStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApSipSaCallInfoStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "SIP Session Agent Call Information Stats Table."
+        ::= { apSipMIBTabularObjects 8 }
+
+apSipSaCallInfoStatsEntry OBJECT-TYPE
+        SYNTAX          ApSipSaCallInfoStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Call Information Statistics."
+        AUGMENTS { apSipSessionAgentStatsEntry }
+     ::= { apSipSaCallInfoStatsTable 1 }
+
+
+ApSipSaCallInfoStatsEntry ::= SEQUENCE {
+    apSipSAStatsTotalCallDurationInbound    Counter32,
+    apSipSAStatsTotalCallDurationOutbound   Counter32,
+    apSipSAStatsTotalCallDropsNormal        Counter32,
+    apSipSAStatsTotalCallDropsLocal         Counter32
+}
+
+apSipSAStatsTotalCallDurationInbound  OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Call Duration of Inbound Calls"
+	::= { apSipSaCallInfoStatsEntry 1}
+
+apSipSAStatsTotalCallDurationOutbound  OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Call Duration of Outbound Calls"
+	::= { apSipSaCallInfoStatsEntry 2}
+
+apSipSAStatsTotalCallDropsNormal       OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Normal Call drops"
+	::= { apSipSaCallInfoStatsEntry 3}
+
+apSipSAStatsTotalCallDropsLocal        OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Local Call drops"
+	::= { apSipSaCallInfoStatsEntry 4}
+
+--apSip Sig Realm Call Information Stats Table
+apSigRealmCallInfoStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApSigRealmCallInfoStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "SIP Realm Call Information Stats Table."
+        ::= { apSipMIBTabularObjects 9 }
+
+apSigRealmCallInfoStatsEntry OBJECT-TYPE
+        SYNTAX          ApSigRealmCallInfoStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Call Information Statistics."
+        AUGMENTS { apSigRealmStatsEntry }
+     ::= { apSigRealmCallInfoStatsTable 1 }
+
+
+ApSigRealmCallInfoStatsEntry ::= SEQUENCE {
+    apSigRealmStatsTotalCallDurationInbound    Counter32,
+    apSigRealmStatsTotalCallDurationOutbound   Counter32,
+    apSigRealmStatsTotalCallDropsNormal        Counter32,
+    apSigRealmStatsTotalCallDropsLocal         Counter32
+}
+
+apSigRealmStatsTotalCallDurationInbound  OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Call Duration of Inbound Calls"
+	::= { apSigRealmCallInfoStatsEntry 1}
+
+apSigRealmStatsTotalCallDurationOutbound OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Call Duration of Outbound Calls"
+	::= { apSigRealmCallInfoStatsEntry 2}
+
+apSigRealmStatsTotalCallDropsNormal     OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Normal Call drops"
+	::= { apSigRealmCallInfoStatsEntry 3}
+
+apSigRealmStatsTotalCallDropsLocal      OBJECT-TYPE
+	SYNTAX		Counter32
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+		"Total Local Call drops"
+	::= { apSigRealmCallInfoStatsEntry 4}
+
+-- method stats
+apSipMethodStatsTable   OBJECT-TYPE
+	SYNTAX		SEQUENCE OF ApSipMethodStatsEntry
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+		"A table to hold statistics information on SIP method 
+		statistics, indexed by unique integers.
+		These are all read only."
+	::=  { apSipMIBTabularObjects 10 }
+
+apSipMethodStatsEntry   OBJECT-TYPE
+	SYNTAX		ApSipMethodStatsEntry
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+		"A table entry designed to hold method statistics
+		for a single method"
+	INDEX { apSipMethodStatsIndex, apSipMethodStatsTransType, apSipMethodStatsEventCode }
+	::= { apSipMethodStatsTable 1 }
+
+ApSipMethodStatsEntry ::= SEQUENCE {
+	apSipMethodStatsIndex					INTEGER,
+	apSipMethodStatsTransType				INTEGER,
+	apSipMethodStatsEventCode				INTEGER,
+	apSipMethodStatsEventCount				Counter32
+}
+
+apSipMethodStatsIndex   OBJECT-TYPE
+	SYNTAX		INTEGER {
+                          invite(1),
+                          ack(2),
+                          bye(3),
+                          register(4),
+                          cancel(5),
+                          prack(6),
+                          options(7),
+                          info(8),
+                          subscribe(9),
+                          notify(10),
+                          refer(11),
+                          update(12),
+                          message(13),
+                          publish(14),
+                          other(15)
+                         }
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+		"A monotonically increasing integer for the sole
+		purpose of indexing sip methods."
+	::= {apSipMethodStatsEntry 1}
+	
+apSipMethodStatsTransType   OBJECT-TYPE
+        SYNTAX			INTEGER {
+                                  serverTrans(1),
+                                  clientTrans(2)
+                                }
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+		"Transaction type for each method"
+	::= {apSipMethodStatsEntry 2}
+	
+apSipMethodStatsEventCode   OBJECT-TYPE
+	SYNTAX	INTEGER {
+			event100Trying(1),
+			event180Ringing(2),
+			event181Forwarded(3),
+			event182Queued(4),
+			event183Progress(5),
+			event1xxProvisional(6),
+			event200OK(7),
+			event202Accepted(8),
+			event2xxSuccess(9),
+			event30xMoved(10),
+			event305UseProxy(11),
+			event380Alternative(12),
+			event3xxRedirect(13),
+			event400BadRequest(14),
+			event401Unauthorized(15),
+			event403Forbidden(16),
+			event404NotFound(17),
+			event405NotAllowed(18),
+			event406NotAcceptable(19),
+			event407ProxyAuthReq(20),
+			event408RequestTimeout(21),
+			event415BadMediaType(22),
+			event420BadExtension(23),
+			event421ExtensionReqd(24),
+			event422TooShort(25),
+			event423TooBrief(26),
+			event480Unavailable(27),
+			event481DoesNotExist(28),
+			event482LoopDetected(29),
+			event483TooManyHops(30),
+			event484AddressIncompl(31),
+			event485Ambiguous(32),
+			event486BusyHere(33),
+			event487Terminated(34),
+			event488NotAcceptable(35),
+			event489BadEvent(36),
+			event491ReqPending(37),
+			event4xxClientError(38),
+			event500InternalError(39),
+			event501NotImplemented(40),
+			event502BadGateway(41),
+			event503ServiceUnavail(42),
+			event504GatewayTimeout(43),
+			event513MsgTooLarge(44),
+			event580PreconFailure(45),
+			event5xxServerError(46),
+			event600BusyEverywhere(47),
+			event603Decline(48),
+			event606NotAcceptable(49),
+			event6xxGlobalError(50),
+			eventRequests(51),
+			eventRetransmissions(52),
+			eventResponseRetrans(53),
+			eventTransactionTimeouts(54)
+			}
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+		"A monotonically increasing integer for all event codes"
+	::= {apSipMethodStatsEntry 3}
+	
+apSipMethodStatsEventCount   OBJECT-TYPE
+	SYNTAX 			Counter32
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+		"The SIP event counter"
+	::= {apSipMethodStatsEntry 4}
+-- End of method stats
+
+apSipCACUtilNotif               OBJECT IDENTIFIER ::= { apSipNotificationObjects 3 }
+apSipCACUtilNotifObjects        OBJECT IDENTIFIER ::= { apSipCACUtilNotif 1 }
+apSipCACUtilNotifPrefix         OBJECT IDENTIFIER ::= { apSipCACUtilNotif 2 }
+apSipCACUtilNotifications       OBJECT IDENTIFIER ::= { apSipCACUtilNotifPrefix 0 }
+
+apSipCACUtilTrapType OBJECT-TYPE
+    SYNTAX            OBJECT IDENTIFIER
+    MAX-ACCESS        accessible-for-notify
+    STATUS               current
+    DESCRIPTION
+    "The object ID of the item whose value exceeds its monitoring
+    threshold. It could be the OID of instances of
+    apSipSaCacSessionUtilLevel,
+    apSipSaCacBurstRateUtilLevel,
+    apSipInterfaceCacSessionUtilLevel,
+    apSipInterfaceCacBurstRateUtilLevel,
+    apSigRealmCacSessionUtilLevel, or
+    apSigRealmCacBurstRateUtilLevel."
+    ::= { apSipCACUtilNotifObjects 1 }
+
+apSipCACUtilTrapValue        OBJECT-TYPE
+    SYNTAX              Gauge32
+    MAX-ACCESS        accessible-for-notify
+    STATUS               current
+    DESCRIPTION
+    "The value of the object which causes the trap to occur."
+    ::= { apSipCACUtilNotifObjects 2 }
+
+apSipCACUtilAlertTrap        NOTIFICATION-TYPE
+    OBJECTS        { apSipCACUtilTrapType, apSipCACUtilTrapValue }
+    STATUS           current
+    DESCRIPTION
+          " The trap will be generated if the item indicated by
+          apSipCACUtilTrapType with value indicated by
+          apSipCACUtilTrapValue exceeds the monitoring threshold. "
+    ::= { apSipCACUtilNotifications 1 }
+
+apSipCACUtilClearTrap        NOTIFICATION-TYPE
+    OBJECTS        { apSipCACUtilTrapType, apSipCACUtilTrapValue }
+    STATUS           current
+    DESCRIPTION
+          " The trap will be generated if the item indicated by
+          apSipCACUtilTrapType with value indicated by
+          apSipCACUtilTrapValue is below the monitoring threshold. "
+    ::= { apSipCACUtilNotifications 2 }
+
+
+apSipCACStatsGroup OBJECT-GROUP
+      OBJECTS {
+    apSipSaCacSessionUtilLevel,
+    apSipSaCacBurstRateUtilLevel,
+    apSigRealmCacSessionUtilLevel,
+    apSigRealmCacBurstRateUtilLevel,
+    apSipInterfaceCacSessionUtilLevel,
+    apSipInterfaceCacBurstRateUtilLevel
+    }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing sip rate stats."
+      ::= { apSipObjectGroups 3 }
+
+apSipCACStatsSubGroup OBJECT-GROUP
+      OBJECTS {
+    apSipSaCacSessionUtilLevel,
+    apSipSaCacBurstRateUtilLevel,
+    apSigRealmCacSessionUtilLevel,
+    apSigRealmCacBurstRateUtilLevel
+    }
+      STATUS            current
+      DESCRIPTION
+                "A collection of objects providing sip rate stats without
+		objects from apSipInterfaceCacStatsTable."
+      ::= { apSipObjectGroups 4 }
+apSipAudioVideoCallsGroup  OBJECT-GROUP
+        OBJECTS {
+                 apSIPVideoCallsActive,
+                 apSIPAudioCallsActive
+                }
+        STATUS          current
+        DESCRIPTION
+                "Objects for SIP Audio/Video calls."
+        ::= { apSipObjectGroups 5 }
+
+apSipSRVCCStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                 apSipSRVCCStatsTotalSuccess,
+                 apSipSRVCCStatsTotalFailed,
+                 apSipSRVCCStatsTotalCallsAfterAnswer,
+                 apSipSRVCCStatsAfterAnswerSuccess,
+                 apSipSRVCCStatsAfterAnswerFailed,
+                 apSipSRVCCStatsTotalCallsDuringAlerting,
+                 apSipSRVCCStatsDuringAlertingSuccess,
+                 apSipSRVCCStatsDuringAlertingFailed,
+                 apSipSRVCCStatsAtcfCancel,
+                 apSipSRVCCStatsEmergencySuccess,
+                 apSipSRVCCStatsEmergencyFailed,
+                 apSipSRVCCStatsEatfCancel            
+                }
+        STATUS          current
+        DESCRIPTION
+                "A collection of objects providing SIP SRVCC stats"
+        ::= { apSipObjectGroups 6 }
+
+apSipCallDurationGroup   OBJECT-GROUP
+         OBJECTS { 
+	         apSipSAStatsTotalCallDurationInbound,
+	         apSipSAStatsTotalCallDurationOutbound,
+	         apSigRealmStatsTotalCallDurationInbound,
+	         apSigRealmStatsTotalCallDurationOutbound
+	         }  
+	 STATUS		current
+         DESCRIPTION
+		"A collection of call duration statistics."
+         ::= {  apSipObjectGroups 7 }
+
+apSipCallDropGroup   OBJECT-GROUP
+         OBJECTS { 
+	         apSipSAStatsTotalCallDropsNormal,
+	         apSipSAStatsTotalCallDropsLocal,        
+                 apSigRealmStatsTotalCallDropsNormal,
+	         apSigRealmStatsTotalCallDropsLocal
+	         }  
+	 STATUS		current
+         DESCRIPTION
+		"A collection of call drop statistics."
+         ::= {  apSipObjectGroups 8 }
+
+apSipMethodStatsGroup OBJECT-GROUP
+         OBJECTS {
+                 apSipMethodStatsEventCount
+                 }
+         STATUS      current
+         DESCRIPTION
+                "A collection of sip method statistics."
+         ::= {  apSipObjectGroups 9 } 
+
+apSipSRVCCPreAlertingStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                 apSipSRVCCStatsTotalCallsDuringPreAlerting,
+                 apSipSRVCCStatsDuringPreAlertingSuccess,
+                 apSipSRVCCStatsDuringPreAlertingFailed
+                }
+        STATUS          current
+        DESCRIPTION
+                "A collection of objects providing SIP SRVCC stats"
+        ::= { apSipObjectGroups 10 }
+
+apSipRegEvtSubStatsGroup OBJECT-GROUP
+         OBJECTS {
+                 apSipStatsActiveSubsRegEvt,
+                 apSipStatsPerMaxSubsRegEvt,
+                 apSipStatsMaxActiveSubsRegEvt,
+                 apSipStatsTotalSubsRegEvt   
+
+                 }
+         STATUS      current
+         DESCRIPTION
+                "A collection of objects providing SIP Reg Event Subscription stats."
+         ::= { apSipObjectGroups 11 }
+
+apSipMSRPStatsGroup  OBJECT-GROUP
+         OBJECTS {
+                  apSipMSRPFdTableSize,   
+                  apSipMSRPSessionIdTableSize, 
+                  apSipMSRPActiveSessions,     
+                  apSipMSRPMaxActiveSessions,  
+                  apSipMSRPEstablishedSessions,        
+                  apSipMSRPProvisionedSessions,        
+                  apSipMSRPFinishedSessions,   
+                  apSipMSRPAcceptedConnections,        
+                  apSipMSRPConnectedConnections,       
+                  apSipMSRPReleasedConnections,        
+                  apSipMSRPStreamRequestReceived,      
+                  apSipMSRPStreamRequestSent,  
+                  apSipMSRPStreamResponseReceived,     
+                  apSipMSRPStreamResponseSent, 
+                  apSipMSRPGlobalBufferedData, 
+                  apSipMSRPFlowAdd,    
+                  apSipMSRPFlowDelete, 
+                  apSipMSRPFailedSessionsCannotRoute,  
+                  apSipMSRPFailedSessionsCannotConnect,        
+                  apSipMSRPFailedSessionsFingerprintMismatch,  
+                  apSipMSRPFailedMessagesCannotBeSent, 
+                  apSipMSRPFailedMessagesMalformed,    
+                  apSipMSRPSendQFullEvents,    
+                  apSipMSRPSendQCongestedEvents,       
+                  apSipMSRPSendQCongestionRelievedEvents,      
+                  apSipMSRPStreamErrorNoTransId,       
+                  apSipMSRPStreamErrorNoMsgType,       
+                  apSipMSRPStreamErrorNoByteLength,    
+                  apSipMSRPBufferLimitExceeded,        
+                  apSipMSRPFailedConnectionInit,       
+                  apSipMSRPSessReprovMismatch, 
+                  apSipMSRPTcpListenErrors,    
+                  apSipMSRPTcpConnectError,    
+                  apSipMSRPTcpError,  
+                  apSipMSRPNoFromHeaderSessionID,      
+                  apSipMSRPNoFromHeader,       
+                  apSipMSRPFromHdrAddrParseError,      
+                  apSipMSRPNoFromHdrAddr,      
+                  apSipMSRPNoFromHdrPort,      
+                  apSipMSRPNoFromHdrAuthority, 
+                  apSipMSRPFromHdrSrvMismatch, 
+                  apSipMSRPSendFailNoDestFd,   
+                  apSipMSRPSendFailedNoDstSession,     
+                  apSipMSRPNoToHeaderSessionID,        
+                  apSipMSRPNoToHeader, 
+                  apSipMSRPToHdrAddrParseError,        
+                  apSipMSRPNoToHdrAddr,        
+                  apSipMSRPNoToHdrPort,        
+                  apSipMSRPNoToHdrAuthority,   
+                  apSipMSRPToHdrSrvMismatch,   
+                  apSipMSRPNoDestFdEntry,      
+                  apSipMSRPTcpSendFailure,     
+                  apSipMSRPFdTableInsertErrorCollision,        
+                  apSipMSRPFdTableInsertErrorNoData,   
+                  apSipMSRPFdTableInsertErrorMemory,   
+                  apSipMSRPFdTableInsertErrorMaxHops,  
+                  apSipMSRPFdTableInsertErrorBad,      
+                  apSipMSRPSessionTableInsertErrorCollision,   
+                  apSipMSRPSessionTableInsertErrorNoData,      
+                  apSipMSRPSessionTableInsertErrorMemory,      
+                  apSipMSRPSessionTableInsertErrorMaxHops,     
+                  apSipMSRPSessionTableInsertErrorBad, 
+                  apSipMSRPFlowToSessionTableInsertError,      
+                  apSipMSRPNumPreProvSessions, 
+                  apSipMSRPNumPreProvMessages, 
+                  apSipMSRPConnectionStateNoSession,   
+                  apSipMSRPConnectionStateListening,   
+                  apSipMSRPConnectionStatePending,     
+                  apSipMSRPConnectionStateConnecting,  
+                  apSipMSRPConnectionStateConnected,   
+                  apSipMSRPConnectionStateEstablished, 
+                  apSipMSRPConnectionStateFinished,    
+                  apSipMSRPConnectionStateReleased,    
+                  apSipMSRPUnqualifiedConnections,     
+                  apSipMSRPSessionStateNone,   
+                  apSipMSRPSessionStateListening,      
+                  apSipMSRPSessionStatePreProvisioned, 
+                  apSipMSRPSessionStateProvisioned,    
+                  apSipMSRPSessionStateEstablished,    
+                  apSipMSRPSessionStateFinished,       
+                  apSipMSRPClosedFdTableSize,  
+                  apSipMSRPClosedFdTableInsertErrors,  
+                  apSipMSRPNumFdForcedReleases,        
+                  apSipMSRPNumForcedReleasedListenFdNotFound,  
+                  apSipMSRPNumForcedReleasedForkedFdNotFound,  
+                  apSipMSRPNumListenFdForcedReleased,  
+                  apSipMSRPRequestBytesReceived,       
+                  apSipMSRPRequestBytesSent,   
+                  apSipMSRPResponseBytesReceived,      
+                  apSipMSRPResponseBytesSent,  
+                  apSipMSRPUnqualifiedClose,   
+                  apSipMSRPUnconnectedClose,   
+                  apSipMSRPAcceptErrorClose,   
+                  apSipMSRPPreProvisionClose,  
+                  apSipMSRPReadErrorClose,     
+                  apSipMSRPStreamErrorClose,   
+                  apSipMSRPBufferClose,        
+                  apSipMSRPReleaseNotificationFailures,        
+                  apSipMSRPReleaseNotificationUnsentNoId,      
+                  apSipMSRPReleaseNotificationUnsentNoFd,      
+                  apSipMSRPReleaseNotificationUnsentNoListenFd,        
+                  apSipMSRPAcceptedConnectionsCema,    
+                  apSipMSRPConnectedConnectionsCema,   
+                  apSipMSRPActiveCemaSessions, 
+                  apSipMSRPEstablishedSessionsSessmatch,       
+                  apSipMSRPProvisionedSessionsSessmatch,       
+                  apSipMSRPActiveSessmatchSessions,    
+                  apSipMSRPMessageFromHost,    
+                  apSipMSRPMessageToHost,      
+                  apSipMSRPMessageToHostFail   
+                 }
+         STATUS      current
+         DESCRIPTION
+                "A collection of objects providing MSRP stats.
+                 Please note that the actual object counter in PNF platform is 32-bit long 
+                 while it is 64-bit long in VNF platform.
+                 To make object counter type uniform across PNF and VNF platforms
+                 it is defined as 64-bit long."
+         ::= { apSipObjectGroups 12 }
+
+-- end of new mibs--
+apSipCACNotificationsGroup  NOTIFICATION-GROUP
+      NOTIFICATIONS {
+		apSipCACUtilAlertTrap,
+      	apSipCACUtilClearTrap
+ 	}
+	STATUS          current
+	DESCRIPTION
+		"Traps to monitor SIP CAC utilization."
+	::= {  apSipNotificationGroups 3 }
+
+-- siprec
+apSipRecModule			OBJECT IDENTIFIER ::= { apSipModule 4 }
+apSipRecNotifications		OBJECT IDENTIFIER ::= { apSipRecModule 1 }
+apSipRecNotificationPrefix	OBJECT IDENTIFIER ::= { apSipRecNotifications 0 }
+apSipRecNotifyObjects		OBJECT IDENTIFIER ::= { apSipRecNotifications 1 }
+
+-- siprec notification objects
+apSipRecRecDlgCallIdHeader	OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS			current
+	DESCRIPTION
+	    "Call-ID header value for Recording Dialog"
+	::= { apSipRecNotifyObjects 1 }
+
+apSipRecRecDlgToHeader		OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS			current
+	DESCRIPTION
+	    "To header value for Recording Dialog"
+	::= { apSipRecNotifyObjects 2 }
+
+apSipRecRecDlgFromHeader	OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS			current
+	DESCRIPTION
+	    "From header value for Recording Dialog"
+	::= { apSipRecNotifyObjects 3 }
+
+apSipRecCommSessCallIdHeader	OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS			current
+	DESCRIPTION
+	    "Call-ID header value for Communications Session Server Dialog"
+	::= { apSipRecNotifyObjects 4 }
+
+apSipRecCommSessToHeader	OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS			current
+	DESCRIPTION
+	    "To header value for Communications Session Server Dialog"
+	::= { apSipRecNotifyObjects 5 }
+
+apSipRecCommSessFromHeader	OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		accessible-for-notify
+	STATUS			current
+	DESCRIPTION
+	    "From header value for Communications Session Server Dialog"
+	::= { apSipRecNotifyObjects 6 }
+
+-- siprec notifications
+apSipRecRecDlgFailNotify		NOTIFICATION-TYPE
+	    OBJECTS		    { apSipRecRecDlgCallIdHeader,
+				      apSipRecRecDlgToHeader,
+				      apSipRecRecDlgFromHeader }
+	    STATUS		    current
+	    DESCRIPTION
+		" This trap will be generated when a Recording Dialog fails to send a timely
+		response to a requests, typically an in-dialog OPTIONS request."
+	    ::= { apSipRecNotificationPrefix 1 }
+
+apSipRecCommSessionNotify		NOTIFICATION-TYPE
+	    OBJECTS		    { apSipRecCommSessCallIdHeader,
+				      apSipRecCommSessToHeader,
+				      apSipRecCommSessFromHeader }
+	    STATUS		    current
+	    DESCRIPTION
+		" This trap will be generated when a Communications Session is terminated
+		because a recording dialog could not be established or prematurely terminated."
+	    ::= { apSipRecNotificationPrefix 2 }
+
+apSipRecNotificationsGroup NOTIFICATION-GROUP
+	    NOTIFICATIONS {
+			    apSipRecRecDlgFailNotify,
+			    apSipRecCommSessionNotify
+	    }
+	    STATUS	current
+	    DESCRIPTION
+		" This notification group contains traps specific to SIPREC recording."
+	    ::= { apSipNotificationGroups 4 }
+
+
+
+            
+END

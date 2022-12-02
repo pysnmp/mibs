@@ -1,0 +1,1026 @@
+-------------------------------------------------------------------------------
+-- ACMEPACKET-DIAMETER-MIB.txt:  Acme Packet Diameter MIB
+--
+-- July 2011
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+-------------------------------------------------------------------------------
+-- 
+
+AP-DIAMETER-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+    Integer32, Gauge32, Counter32, Unsigned32, IpAddress
+                    FROM SNMPv2-SMI
+        TEXTUAL-CONVENTION
+                    FROM SNMPv2-TC
+    DisplayString
+                    FROM SNMPv2-TC
+        InterfaceIndexOrZero
+                    FROM IF-MIB
+        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+                    FROM SNMPv2-CONF
+    acmepacketMgmt
+                    FROM ACMEPACKET-SMI
+
+    InetAddress, InetAddressType, InetPortNumber             
+        FROM INET-ADDRESS-MIB
+
+    ApTransportType, ApDiamResultCode
+                    FROM ACMEPACKET-TC
+    SysMgmtPercentage
+                    FROM APSYSMGMT-MIB;
+     
+apDiameterModule   MODULE-IDENTITY
+        LAST-UPDATED	"201711240000Z"
+        ORGANIZATION 	"Oracle Communications"
+        CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+        DESCRIPTION
+            "The Accounting MIB for Oracle Communications Acme Packet SBCs"
+	REVISION "201406260000Z" 			
+        DESCRIPTION
+			"Updated Organization and Contact info."
+        REVISION "201711240000Z"
+        DESCRIPTION
+                 "Added new MIB Definitions for Diameter Rx External Policy Server."
+        ::= { acmepacketMgmt 13 }
+
+apDiamMIBModule OBJECT IDENTIFIER ::= { apDiameterModule 1 }
+apDiamMIBObjects OBJECT IDENTIFIER ::= { apDiamMIBModule 1 }
+apDiamNotificationObjects OBJECT IDENTIFIER ::= { apDiamMIBModule 2 }
+apDiamNotifObjects OBJECT IDENTIFIER ::= { apDiamNotificationObjects 1 }
+apDiamNotifPrefix  OBJECT IDENTIFIER ::= { apDiamNotificationObjects 2 }
+apDiamNotifications  OBJECT IDENTIFIER ::= { apDiamNotifPrefix 0 }
+
+-- Textual Conventions
+apDiamiMIBTabularObjects OBJECT IDENTIFIER ::= {apDiamMIBObjects 2}
+
+-- conformance information
+
+apDiamConformance OBJECT IDENTIFIER ::= { apDiamMIBModule 3 }    
+apDiamObjectGroups OBJECT IDENTIFIER ::= { apDiamConformance 1 }      
+apDiamNotificationGroups OBJECT IDENTIFIER ::= { apDiamConformance 2 }
+
+-- Tables
+
+apDiamClfErrorStatsTable OBJECT-TYPE
+        SYNTAX          	SEQUENCE OF ApDiamClfErrorStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS         	 	current
+        DESCRIPTION
+	    "Error Stats per external policy server."
+        ::= { apDiamiMIBTabularObjects 1 }
+
+apDiamClfErrorStatsEntry  OBJECT-TYPE
+        SYNTAX          	ApDiamClfErrorStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS          	current
+        DESCRIPTION
+	    "A table entry designed to hold error status data"
+        INDEX { apDiamClfExtPolSvrIndex }
+        ::= { apDiamClfErrorStatsTable 1 }
+
+ApDiamClfErrorStatsEntry ::= SEQUENCE {
+	apDiamClfExtPolSvrIndex			INTEGER,
+	apDiamClfExtPolSvrName			DisplayString,	
+	apDiamClfErrorsRecent                   Gauge32,
+	apDiamClfErrorsTotal                    Counter32,
+	apDiamClfErrorsPerMax                   Counter32
+}
+
+apDiamClfExtPolSvrIndex OBJECT-TYPE
+        SYNTAX			INTEGER (1..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the external policy servers."
+	::= {apDiamClfErrorStatsEntry 1}
+
+
+apDiamClfExtPolSvrName OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "Ext policy server name"
+	::= { apDiamClfErrorStatsEntry   2}
+
+apDiamClfErrorsRecent OBJECT-TYPE
+	SYNTAX			Gauge32
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "Number of diameter errors in recent period received on e2 interface with the CLF."
+	::= { apDiamClfErrorStatsEntry   3}
+
+apDiamClfErrorsTotal OBJECT-TYPE
+	SYNTAX			Counter32
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "Total number of diameter errors in life time received on e2 interface with the CLF."
+	::= { apDiamClfErrorStatsEntry   4}
+
+apDiamClfErrorsPerMax OBJECT-TYPE
+	SYNTAX			Counter32
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "PerMax count of diameter errors in life time received on e2 interface with the CLF."
+	::= { apDiamClfErrorStatsEntry   5}
+    
+apDiamInterfaceStatsTable OBJECT-TYPE
+        SYNTAX          	SEQUENCE OF ApDiamInterfaceStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS         	 	current
+        DESCRIPTION	    
+	    "The table of DIAMETER statistics per interface."
+        ::= { apDiamiMIBTabularObjects 2 }
+
+apDiamInterfaceStatsEntry  OBJECT-TYPE
+        SYNTAX          	ApDiamInterfaceStatsEntry
+        MAX-ACCESS      	not-accessible
+        STATUS          	current
+        DESCRIPTION
+	    "A table entry designed to hold interface stats data"        
+	INDEX { apDiamInterfaceType, apDiamInterfaceAddress }
+        ::= { apDiamInterfaceStatsTable 1 }
+
+ApDiamInterfaceStatsEntry ::=
+        SEQUENCE {
+	        apDiamInterfaceType		        InetAddressType,
+		apDiamInterfaceAddress			InetAddress,		
+		apDiamMessagesSent			Unsigned32,
+		apDiamMessagesSentFailed		Unsigned32,
+		apDiamMessagesReSent			Unsigned32,
+		apDiamMessagesReceived			Unsigned32,
+		apDiamMessagesProcessed			Unsigned32,
+		apDiamConnectionTimeouts		Unsigned32,
+		apDiamBadStateDrops			Unsigned32,
+		apDiamBadTypeDrops			Unsigned32,
+		apDiamBadIDDrops			Unsigned32,
+		apDiamAuthFailDrops			Unsigned32,
+		apDiamInvalidPeerMessages		Unsigned32
+		}
+
+apDiamInterfaceType OBJECT-TYPE
+        SYNTAX		InetAddressType
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "IPAddress type of the DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 1 }
+
+apDiamInterfaceAddress OBJECT-TYPE
+        SYNTAX		InetAddress
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+		"IPAddress of the DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 2 }
+
+apDiamMessagesSent OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of messages sent to this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 3 }
+
+apDiamMessagesSentFailed OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of messages sent failed to this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 4 }
+
+apDiamMessagesReSent OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of messages resent to this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 5 }
+
+apDiamMessagesReceived OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of messages received from this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 6 }
+
+apDiamMessagesProcessed OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of messages processed from this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 7 }
+
+apDiamConnectionTimeouts OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of connection timeouts on this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 8 }
+
+apDiamBadStateDrops OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of bad state drops from this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 9 }
+
+apDiamBadTypeDrops OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of bad type drops from this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 10 }
+
+apDiamBadIDDrops OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of bad id drops from this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 11 }
+
+apDiamAuthFailDrops OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of authentication failure drops on this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 12 }
+
+apDiamInvalidPeerMessages OBJECT-TYPE
+        SYNTAX		Unsigned32
+        MAX-ACCESS	read-only
+        STATUS		current
+        DESCRIPTION
+                "Number of invalid peer messages received from this DIAMETER server"
+        ::= { apDiamInterfaceStatsEntry 13 }
+
+-- Rx Policy Server Stats
+apDiamRxPolicyServerStatsTable OBJECT-TYPE
+        SYNTAX                  SEQUENCE OF ApDiamRxPolicyServerStatsEntry
+        MAX-ACCESS              not-accessible
+        STATUS                  current
+        DESCRIPTION
+            "Stats per external Rx policy server"
+        ::= { apDiamiMIBTabularObjects 3 }
+
+apDiamRxPolicyServerStatsEntry  OBJECT-TYPE
+        SYNTAX                  ApDiamRxPolicyServerStatsEntry
+        MAX-ACCESS              not-accessible
+        STATUS                  current
+        DESCRIPTION
+            "A table entry designed to hold Rx policy server stats"
+        INDEX { apDiamRxExtPolSvrIndex }
+        ::= { apDiamRxPolicyServerStatsTable 1 }
+
+ApDiamRxPolicyServerStatsEntry ::= SEQUENCE {
+        apDiamRxExtPolSvrIndex                 INTEGER,
+        apDiamRxExtPolSvrName                  DisplayString,
+        apDiamRxExtPolSvrSockets               Counter32,
+        apDiamRxExtPolSvrConnections           Counter32,   
+        apDiamRxExtPolSvrClientTrans           Counter32,
+        apDiamRxExtPolSvrCTReserveReqSent      Counter32,
+        apDiamRxExtPolSvrCTUpdateReqSent       Counter32,
+        apDiamRxExtPolSvrCTRemoveReqSent       Counter32,
+        apDiamRxExtPolSvrCTReTransReq          Counter32,   
+        apDiamRxExtPolSvrCTInstallRespRecvd    Counter32,
+        apDiamRxExtPolSvrCTRejectRespRecvd     Counter32,
+        apDiamRxExtPolSvrCTRemoveRespRecvd     Counter32,   
+        apDiamRxExtPolSvrCTErrorsRecvd         Counter32,   
+        apDiamRxExtPolSvrCTTimeouts            Counter32,
+        apDiamRxExtPolSvrCTErrors              Counter32,    
+        apDiamRxExtPolSvrServerTransactions    Counter32,   
+        apDiamRxExtPolSvrSTReqRecvd            Counter32,
+        apDiamRxExtPolSvrSTDupReqRecvd         Counter32,
+        apDiamRxExtPolSvrSTSuccessRespSent     Counter32,
+        apDiamRxExtPolSvrSTErrorRespSent       Counter32,
+        apDiamRxExtPolSvrSTReqDropped          Counter32,   
+        apDiamRxExtPolSvrCERSent               Counter32,
+        apDiamRxExtPolSvrCEASuccess            Counter32,
+        apDiamRxExtPolSvrCEAErrors             Counter32,
+        apDiamRxExtPolSvrAARSent               Counter32,
+        apDiamRxExtPolSvrAAASuccess            Counter32,
+        apDiamRxExtPolSvrAAAErrors             Counter32,    
+        apDiamRxExtPolSvrSTRSent               Counter32,
+        apDiamRxExtPolSvrSTASuccess            Counter32,
+        apDiamRxExtPolSvrSTAErrors             Counter32,    
+        apDiamRxExtPolSvrRARRecvd              Counter32,
+        apDiamRxExtPolSvrRAARecvdSuccess       Counter32,
+        apDiamRxExtPolSvrRAARecvdErrors        Counter32,    
+        apDiamRxExtPolSvrDWRSent               Counter32,
+        apDiamRxExtPolSvrDWASuccess            Counter32,
+        apDiamRxExtPolSvrDWAErrors             Counter32,   
+        apDiamRxExtPolSvrDWRRecvd              Counter32,
+        apDiamRxExtPolSvrDWARecvcSuccess       Counter32,
+        apDiamRxExtPolSvrDWARecvdErrors        Counter32,   
+        apDiamRxExtPolSvrASRRecvd              Counter32,
+        apDiamRxExtPolSvrASARecvdSuccess       Counter32,
+        apDiamRxExtPolSvrASARecvdErrors        Counter32
+}
+
+apDiamRxExtPolSvrIndex OBJECT-TYPE
+        SYNTAX                  INTEGER (1..2147483647)
+        MAX-ACCESS              not-accessible
+        STATUS                  current
+        DESCRIPTION
+            "An integer for the sole purpose of indexing 
+             a Rx policy server and persisting through reboots"
+        ::= {apDiamRxPolicyServerStatsEntry 1}
+
+apDiamRxExtPolSvrName  OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (0..255))
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Name of the Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   2}
+
+apDiamRxExtPolSvrSockets OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of sockets created for 
+             Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   3}
+    
+apDiamRxExtPolSvrConnections OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of transport connections 
+             created for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   4}
+
+apDiamRxExtPolSvrClientTrans OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions for 
+             Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   5}
+
+apDiamRxExtPolSvrCTReserveReqSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions Reserve 
+             requests sent for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   6}
+
+apDiamRxExtPolSvrCTUpdateReqSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions Update requests 
+             sent for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   7}
+
+apDiamRxExtPolSvrCTRemoveReqSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions Remove 
+             requests sent for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   8}
+    
+apDiamRxExtPolSvrCTReTransReq OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of re-transmitted requests sent for 
+             client transactions for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   9}
+
+apDiamRxExtPolSvrCTInstallRespRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions Install 
+             responses received for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   10}
+
+apDiamRxExtPolSvrCTRejectRespRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions Reject 
+             responses received for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   11}
+
+apDiamRxExtPolSvrCTRemoveRespRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions Remove 
+             responses received for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   12}
+    
+apDiamRxExtPolSvrCTErrorsRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transactions 
+             Errors received for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   13}
+
+apDiamRxExtPolSvrCTTimeouts OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transaction timeouts 
+             for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   14}
+
+apDiamRxExtPolSvrCTErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of client transaction errors 
+             for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   15}
+
+apDiamRxExtPolSvrServerTransactions OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of server transactions for 
+             Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   16}
+    
+apDiamRxExtPolSvrSTReqRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of requests received on server 
+             transaction for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   17}
+
+apDiamRxExtPolSvrSTDupReqRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of duplicate requests received 
+             on server transactions for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   18}
+
+apDiamRxExtPolSvrSTSuccessRespSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of success responses sent by 
+             server transactions for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   19}
+
+apDiamRxExtPolSvrSTErrorRespSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of error responses sent by server 
+             transactions for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   20}
+    
+apDiamRxExtPolSvrSTReqDropped OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of requests dropped  by server 
+             transactions for Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   21}
+
+apDiamRxExtPolSvrCERSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of CER messages sent by this 
+             Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   22}
+
+apDiamRxExtPolSvrCEASuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of CEA success messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   23}
+
+apDiamRxExtPolSvrCEAErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of CEA error messages 
+             for this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   24}
+    
+apDiamRxExtPolSvrAARSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of AAR messages sent by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   25}
+
+apDiamRxExtPolSvrAAASuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of AAA success messages 
+             for this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   26}
+
+apDiamRxExtPolSvrAAAErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of AAA error messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   27}
+
+apDiamRxExtPolSvrSTRSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of STR messages sent by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   28}
+    
+apDiamRxExtPolSvrSTASuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of STA success messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   29}
+
+apDiamRxExtPolSvrSTAErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of STA error messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   30}
+
+apDiamRxExtPolSvrRARRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of RAR messages received by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   31}
+
+apDiamRxExtPolSvrRAARecvdSuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of RAA success messages 
+             for this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   32}
+    
+apDiamRxExtPolSvrRAARecvdErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of RAA error messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   33}
+
+apDiamRxExtPolSvrDWRSent OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of DWR messages sent by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   34}
+
+apDiamRxExtPolSvrDWASuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of DWA success messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   35}
+
+apDiamRxExtPolSvrDWAErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of DWA error messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   36}
+    
+apDiamRxExtPolSvrDWRRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of DWR messages received by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   37}
+
+apDiamRxExtPolSvrDWARecvcSuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of DWA success messages sent 
+             by this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   38}
+    
+apDiamRxExtPolSvrDWARecvdErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of DWA error messages sent by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   39}
+
+apDiamRxExtPolSvrASRRecvd OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of ASR messages sent by 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   40}
+
+apDiamRxExtPolSvrASARecvdSuccess OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of ASA success messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   41}
+
+apDiamRxExtPolSvrASARecvdErrors OBJECT-TYPE
+        SYNTAX                  Counter32
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "Total number of ASA error messages for 
+             this Rx policy server"
+        ::= { apDiamRxPolicyServerStatsEntry   42}        
+        
+-- Notifications
+
+apDiamAcctSrvrHostName OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (1..255)) 
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+                "The Diameter Accounting Server host name."
+        ::= { apDiamNotifObjects 1 }
+
+apDiamAcctSrvrIPPort OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (1..255))
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+                "The Diameter Accounting Server IP address and port number:
+                 XX.XX.XX.XX:P"
+        ::= { apDiamNotifObjects 2 }
+        
+apDiamAcctSrvrOriginRealm OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (1..255)) 
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+                "The Diameter Accounting Server Origin Realm."
+        ::= { apDiamNotifObjects 3 }
+
+apDiamAcctSrvrOriginHost OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (1..255)) 
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+                "The Diameter Accounting Server Origin Host."
+        ::= { apDiamNotifObjects 4 }
+
+apDiamAcctSrvrTransportType OBJECT-TYPE
+        SYNTAX                  ApTransportType
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+                "The Diameter Accounting Server Transport Type."
+        ::= { apDiamNotifObjects 5 }
+
+apAcctMsgQueueAvailCurrent OBJECT-TYPE
+       SYNTAX                SysMgmtPercentage
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "The current measured percentage value of
+              space available."
+       ::= { apDiamNotifObjects 6 }
+
+apAcctMsgQueueMinorThreshold OBJECT-TYPE
+       SYNTAX                SysMgmtPercentage
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "The current configured minor threshold value."
+       ::= { apDiamNotifObjects 7 }
+
+apAcctMsgQueueMajorThreshold OBJECT-TYPE
+       SYNTAX                SysMgmtPercentage
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "The current configured major threshold value."
+       ::= { apDiamNotifObjects 8 }
+
+apAcctMsgQueueCriticalThreshold OBJECT-TYPE
+       SYNTAX                SysMgmtPercentage
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "The current configured critical threshold value"
+       ::= { apDiamNotifObjects 9 }
+       
+apDiameterResultCode OBJECT-TYPE
+       SYNTAX                ApDiamResultCode
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "The Result-Code AVP (268) value 
+               RFC 3588, 7.1. Result-Code AVP"
+       ::= { apDiamNotifObjects 10 }
+       
+
+apDiameterAcctSrvrUpTrap       NOTIFICATION-TYPE
+        OBJECTS         { apDiamAcctSrvrHostName,
+                          apDiamAcctSrvrIPPort,
+                          apDiamAcctSrvrOriginRealm,
+                          apDiamAcctSrvrOriginHost,
+                          apDiamAcctSrvrTransportType
+                        }
+        STATUS          current
+        DESCRIPTION
+            " The trap will be generated when the Diameter Accounting Server
+              goes up"
+        ::= { apDiamNotifications 1 }
+        
+apDiameterAcctSrvrDownTrap       NOTIFICATION-TYPE
+        OBJECTS         { apDiamAcctSrvrHostName,
+                          apDiamAcctSrvrIPPort,
+                          apDiamAcctSrvrOriginRealm,
+                          apDiamAcctSrvrOriginHost,
+                          apDiamAcctSrvrTransportType
+                        }
+        STATUS          current
+        DESCRIPTION
+            " The trap will be generated when the Diameter Accounting Server
+              goes down"
+        ::= { apDiamNotifications 2 }
+
+apAcctMsgQueueFullTrap        NOTIFICATION-TYPE
+        OBJECTS         { apAcctMsgQueueAvailCurrent,
+                          apAcctMsgQueueMinorThreshold,
+                          apAcctMsgQueueMajorThreshold,
+                          apAcctMsgQueueCriticalThreshold
+                        }
+        STATUS          current
+        DESCRIPTION
+            "The trap will be generated when the accounting message 
+             queue is full and all accounting servers are down"
+        ::= { apDiamNotifications 3 }
+
+apAcctMsgQueueFullClearTrap        NOTIFICATION-TYPE
+        OBJECTS         { apAcctMsgQueueAvailCurrent,
+                          apAcctMsgQueueMinorThreshold,
+                          apAcctMsgQueueMajorThreshold,
+                          apAcctMsgQueueCriticalThreshold
+                        }
+        STATUS          current
+        DESCRIPTION
+            "The trap will be generated when the apAcctMsgQueueFullTrap condition clears"
+        ::= { apDiamNotifications 4 }
+
+apDiameterSrvrErrorResultTrap       NOTIFICATION-TYPE
+        OBJECTS         { apDiamAcctSrvrHostName,
+                          apDiamAcctSrvrIPPort,
+                          apDiamAcctSrvrOriginRealm,
+                          apDiamAcctSrvrOriginHost,
+                          apDiamAcctSrvrTransportType,
+                          apDiameterResultCode
+                        }
+        STATUS          current
+        DESCRIPTION
+            " The trap can be generated when the Diameter Server
+              returns 3xxx (Protocol Errors), 4xxx (Transient Failures), or
+              5xxx (Permanent Failure) Result-Code AVP (268)"
+        ::= { apDiamNotifications 5 }
+
+apDiameterSrvrSuccessResultTrap       NOTIFICATION-TYPE
+        OBJECTS         { apDiamAcctSrvrHostName,
+                          apDiamAcctSrvrIPPort,
+                          apDiamAcctSrvrOriginRealm,
+                          apDiamAcctSrvrOriginHost,
+                          apDiamAcctSrvrTransportType,
+                          apDiameterResultCode
+                        }
+        STATUS          current
+        DESCRIPTION
+            " The trap can be generated when the Diameter Server
+              returns a 2xxx (Success) Result-Code AVP (268) 
+              after an error result"
+        ::= { apDiamNotifications 6 }
+
+-- compliance statements
+
+-- units of conformance
+
+
+----------------------------------------------------
+--
+-- apDiamACCTNotificationGroups
+--
+----------------------------------------------------
+
+apDiamACCTObjectsGroup OBJECT-GROUP
+     OBJECTS {
+             apDiamAcctSrvrHostName,
+             apDiamAcctSrvrIPPort,
+             apDiamAcctSrvrOriginRealm,
+             apDiamAcctSrvrOriginHost,
+             apDiamAcctSrvrTransportType
+             }
+     STATUS     current
+     DESCRIPTION
+     "A collection of mib objects accessible only to traps."
+      ::= { apDiamNotificationGroups 1 }
+
+apDiamACCTNotificationsGroup NOTIFICATION-GROUP
+     NOTIFICATIONS {
+           apDiameterAcctSrvrUpTrap,
+           apDiameterAcctSrvrDownTrap,
+           apAcctMsgQueueFullTrap,
+           apAcctMsgQueueFullClearTrap
+           }
+     STATUS     current
+      DESCRIPTION
+      "A collection of traps defined for ACCT."
+      ::= { apDiamNotificationGroups 2 }
+
+apDiamACCTResultObjectsGroup OBJECT-GROUP
+     OBJECTS {
+             apDiameterResultCode
+             }
+     STATUS     current
+     DESCRIPTION
+     "A collection of mib objects accessible only to traps."
+      ::= { apDiamNotificationGroups 3 }
+
+apDiamACCTResultNotificationsGroup NOTIFICATION-GROUP
+     NOTIFICATIONS {
+           apDiameterSrvrErrorResultTrap,
+           apDiameterSrvrSuccessResultTrap
+           }
+     STATUS     current
+      DESCRIPTION
+      "A collection of traps defined for ACCT Result Code."
+      ::= { apDiamNotificationGroups 4 }
+
+----------------------------------------------------
+--
+-- apDiamObjectGroups
+--
+----------------------------------------------------
+
+apDiamClfErrorStatsGroup OBJECT-GROUP
+    OBJECTS {
+    	apDiamClfExtPolSvrName,
+	apDiamClfErrorsRecent ,
+	apDiamClfErrorsTotal,
+	apDiamClfErrorsPerMax	          
+	     }
+      STATUS		current
+      DESCRIPTION
+	  "A collection of statistics for CLF errors perr ext pol svr."
+      ::= {  apDiamObjectGroups 1 }
+
+apDiamInterfaceStatsGroup OBJECT-GROUP
+    OBJECTS {	
+	apDiamMessagesSent,
+	apDiamMessagesSentFailed,
+	apDiamMessagesReSent,
+	apDiamMessagesReceived,
+	apDiamMessagesProcessed,
+	apDiamConnectionTimeouts,
+	apDiamBadStateDrops,
+	apDiamBadTypeDrops,
+	apDiamBadIDDrops,
+	apDiamAuthFailDrops,
+	apDiamInvalidPeerMessages
+	     }
+      STATUS		current
+      DESCRIPTION
+	  "A collection of statistics for DIAMETER server."
+      ::= {  apDiamObjectGroups 2 }
+
+apDiamRxPolicyServerStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                 apDiamRxExtPolSvrName,
+                 apDiamRxExtPolSvrSockets,
+                 apDiamRxExtPolSvrConnections,
+                 apDiamRxExtPolSvrClientTrans,
+                 apDiamRxExtPolSvrCTReserveReqSent,
+                 apDiamRxExtPolSvrCTUpdateReqSent,
+                 apDiamRxExtPolSvrCTRemoveReqSent,
+                 apDiamRxExtPolSvrCTReTransReq,
+                 apDiamRxExtPolSvrCTInstallRespRecvd,
+                 apDiamRxExtPolSvrCTRejectRespRecvd,
+                 apDiamRxExtPolSvrCTRemoveRespRecvd,
+                 apDiamRxExtPolSvrCTErrorsRecvd,
+                 apDiamRxExtPolSvrCTTimeouts,
+                 apDiamRxExtPolSvrCTErrors,
+                 apDiamRxExtPolSvrServerTransactions,
+                 apDiamRxExtPolSvrSTReqRecvd,
+                 apDiamRxExtPolSvrSTDupReqRecvd,
+                 apDiamRxExtPolSvrSTSuccessRespSent,
+                 apDiamRxExtPolSvrSTErrorRespSent,
+                 apDiamRxExtPolSvrSTReqDropped,
+                 apDiamRxExtPolSvrCERSent,
+                 apDiamRxExtPolSvrCEASuccess,
+                 apDiamRxExtPolSvrCEAErrors,
+                 apDiamRxExtPolSvrAARSent,
+                 apDiamRxExtPolSvrAAASuccess,
+                 apDiamRxExtPolSvrAAAErrors,
+                 apDiamRxExtPolSvrSTRSent,
+                 apDiamRxExtPolSvrSTASuccess,
+                 apDiamRxExtPolSvrSTAErrors,
+                 apDiamRxExtPolSvrRARRecvd,
+                 apDiamRxExtPolSvrRAARecvdSuccess,
+                 apDiamRxExtPolSvrRAARecvdErrors,
+                 apDiamRxExtPolSvrDWRSent,
+                 apDiamRxExtPolSvrDWASuccess,
+                 apDiamRxExtPolSvrDWAErrors,
+                 apDiamRxExtPolSvrDWRRecvd,
+                 apDiamRxExtPolSvrDWARecvcSuccess,
+                 apDiamRxExtPolSvrDWARecvdErrors,
+                 apDiamRxExtPolSvrASRRecvd,
+                 apDiamRxExtPolSvrASARecvdSuccess,
+                 apDiamRxExtPolSvrASARecvdErrors
+                }
+        STATUS          current
+        DESCRIPTION
+                "A collection of objects providing Rx policy server stats"
+        ::= { apDiamObjectGroups 3 }      
+      
+END
