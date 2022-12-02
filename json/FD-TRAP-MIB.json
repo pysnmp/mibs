@@ -5,34 +5,34 @@
       "epon"
     ],
     "FD-OLT-MIB": [
-      "linkIdExhaust",
       "onuIdExhaust",
+      "linkIdExhaust",
       "linkOnLineStatus"
     ],
     "FD-ONU-MIB": [
-      "uniPortLink",
+      "onuOnLineStatus",
       "uniPortRstpState",
-      "onuOnLineStatus"
+      "uniPortLink"
     ],
     "FD-PERFORMANCE-MIB": [
-      "swSniPortTrafficChangeVal",
+      "oltTrafficChangeVal",
       "onuTrafficChangeVal",
-      "oltTrafficChangeVal"
+      "swSniPortTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
       "sfpPlugStauts",
       "swPortLinkState"
     ],
     "FD-SYSTEM-MIB": [
-      "ponCardRunningStatus",
       "userName",
-      "powerStatusBit",
-      "userPermission",
-      "userEntryRowStatus",
-      "nonAuthOnuMac",
-      "loginTimeout",
       "fanStatusBit",
+      "nonAuthOnuMac",
+      "ponCardRunningStatus",
       "userId",
+      "userPermission",
+      "loginTimeout",
+      "userEntryRowStatus",
+      "powerStatusBit",
       "userAccessDeviceMap",
       "userPassword"
     ],
@@ -45,18 +45,18 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Gauge32",
       "MODULE-IDENTITY",
-      "iso",
       "Counter32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
+      "iso",
+      "TimeTicks",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:02:17 2022",
-      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:02:54 2022",
+      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "FD-TRAP-MIB"

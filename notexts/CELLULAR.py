@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CELLULAR (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/CELLULAR
-# Produced by pysmi-1.1.8 at Fri Dec  2 17:11:21 2022
-# On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Dec  2 17:13:25 2022
+# On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner
 # Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, iso, enterprises, Counter32, TimeTicks, IpAddress, ObjectIdentity, ModuleIdentity, NotificationType, MibIdentifier, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "iso", "enterprises", "Counter32", "TimeTicks", "IpAddress", "ObjectIdentity", "ModuleIdentity", "NotificationType", "MibIdentifier", "Integer32", "Bits")
-DisplayString, TextualConvention, TruthValue, MacAddress, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue", "MacAddress", "RowStatus")
+IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Unsigned32, Counter64, ObjectIdentity, TimeTicks, Bits, Counter32, enterprises, Integer32, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Unsigned32", "Counter64", "ObjectIdentity", "TimeTicks", "Bits", "Counter32", "enterprises", "Integer32", "ModuleIdentity", "NotificationType")
+TextualConvention, RowStatus, MacAddress, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "MacAddress", "DisplayString", "TruthValue")
 peplink = MibIdentifier((1, 3, 6, 1, 4, 1, 23695))
 productMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200))
 generalMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200, 1))
@@ -57,4 +57,4 @@ cellularIdentityInfoId = MibTableColumn((1, 3, 6, 1, 4, 1, 23695, 200, 1, 12, 2,
 if mibBuilder.loadTexts: cellularIdentityInfoId.setStatus('current')
 cellularIdentityInfoImei = MibTableColumn((1, 3, 6, 1, 4, 1, 23695, 200, 1, 12, 2, 1, 1, 2), OctetString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cellularIdentityInfoImei.setStatus('current')
-mibBuilder.exportSymbols("CELLULAR", cellularSignalInfoTable=cellularSignalInfoTable, cellularBand=cellularBand, cellularNetworkType=cellularNetworkType, cellularIdentityInfoImei=cellularIdentityInfoImei, cellularIdentityInfoTable=cellularIdentityInfoTable, cellularSignalRssi=cellularSignalRssi, PYSNMP_MODULE_ID=cellularMib, cellularSignalRsrq=cellularSignalRsrq, cellularSignalInfoEntry=cellularSignalInfoEntry, cellularIdentityInfo=cellularIdentityInfo, cellularENodeBId=cellularENodeBId, cellularIdentityInfoEntry=cellularIdentityInfoEntry, cellularMib=cellularMib, cellularSignalSnr=cellularSignalSnr, productMib=productMib, cellularTac=cellularTac, cellularSignalInfoId=cellularSignalInfoId, cellularSignalSinr=cellularSignalSinr, generalMib=generalMib, cellularSignalInfo=cellularSignalInfo, peplink=peplink, cellularSignalRsrp=cellularSignalRsrp, cellularLac=cellularLac, cellularSignalEcio=cellularSignalEcio, cellularIdentityInfoId=cellularIdentityInfoId, cellularSignalInfoWanId=cellularSignalInfoWanId)
+mibBuilder.exportSymbols("CELLULAR", cellularBand=cellularBand, cellularNetworkType=cellularNetworkType, cellularSignalEcio=cellularSignalEcio, cellularSignalSinr=cellularSignalSinr, cellularMib=cellularMib, PYSNMP_MODULE_ID=cellularMib, cellularSignalRssi=cellularSignalRssi, cellularSignalInfoEntry=cellularSignalInfoEntry, cellularSignalInfoId=cellularSignalInfoId, cellularIdentityInfoId=cellularIdentityInfoId, cellularSignalRsrq=cellularSignalRsrq, peplink=peplink, cellularIdentityInfo=cellularIdentityInfo, cellularSignalInfoWanId=cellularSignalInfoWanId, cellularSignalSnr=cellularSignalSnr, cellularIdentityInfoTable=cellularIdentityInfoTable, cellularIdentityInfoImei=cellularIdentityInfoImei, cellularIdentityInfoEntry=cellularIdentityInfoEntry, cellularSignalInfo=cellularSignalInfo, cellularENodeBId=cellularENodeBId, cellularTac=cellularTac, cellularLac=cellularLac, generalMib=generalMib, cellularSignalRsrp=cellularSignalRsrp, productMib=productMib, cellularSignalInfoTable=cellularSignalInfoTable)

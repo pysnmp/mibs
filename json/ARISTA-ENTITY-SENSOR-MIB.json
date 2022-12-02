@@ -5,12 +5,12 @@
       "aristaMibs"
     ],
     "ENTITY-MIB": [
-      "entPhysicalDescr",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalDescr"
     ],
     "ENTITY-SENSOR-MIB": [
-      "entPhySensorValue",
-      "EntitySensorValue"
+      "EntitySensorValue",
+      "entPhySensorValue"
     ],
     "ENTITY-STATE-MIB": [
       "entStateAlarm"
@@ -19,25 +19,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Counter64",
       "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
       "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "iso"
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -246,8 +246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-ENTITY-SENSOR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:01:14 2022",
-      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:01:41 2022",
+      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "ARISTA-ENTITY-SENSOR-MIB"

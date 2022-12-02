@@ -8,44 +8,44 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlDataplaneMode",
+      "MwlOperationalState",
       "MwlProfileOwner",
       "MwlBridgedVlanType",
-      "MwlIfAdministrativeState",
       "MwlEnableDisableOption",
-      "MwlOperationalState",
-      "MwlOnOffSwitch"
+      "MwlOnOffSwitch",
+      "MwlIfAdministrativeState",
+      "MwlDataplaneMode"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "iso",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Counter32",
-      "TimeTicks"
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "MacAddress",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeInterval",
       "RowStatus",
-      "TruthValue"
+      "TimeInterval",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwConfigPortProfile": {
@@ -466,8 +466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-PORTPROFILE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:06:28 2022",
-      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:07:47 2022",
+      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "MERU-CONFIG-PORTPROFILE-MIB"

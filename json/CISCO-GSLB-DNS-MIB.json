@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "CISCO-GSLB-TC-MIB": [
-      "CiscoGslbAnswerType",
-      "CiscoGslbBalanceMethod",
       "CiscoGslbAnswerAdminState",
-      "CiscoGslbAnswerStatus"
+      "CiscoGslbAnswerStatus",
+      "CiscoGslbAnswerType",
+      "CiscoGslbBalanceMethod"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetAddressDNS",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressDNS"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter64"
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "StorageType"
     ]
   },
@@ -2229,8 +2229,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GSLB-DNS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:05:12 2022",
-      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:06:23 2022",
+      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "CISCO-GSLB-DNS-MIB"

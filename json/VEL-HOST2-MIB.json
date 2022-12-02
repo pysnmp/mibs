@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TRAP-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
       "Unsigned32",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
       "Bits",
-      "TimeTicks"
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -932,8 +932,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vigintos/VEL-HOST2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:13:49 2022",
-      "On host fv-az444-693 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 17:16:13 2022",
+      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "VEL-HOST2-MIB"
