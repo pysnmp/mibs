@@ -5,17 +5,17 @@
       "AtmAddr"
     ],
     "BGP4-MIB": [
-      "bgpPeerRemoteAddr",
       "bgpPeerState",
+      "bgpPeerRemoteAddr",
       "bgpPeerLastError"
     ],
     "DIFFSERV-MIB": [
       "IndexInteger"
     ],
     "DVMRP-MIB": [
+      "dvmrpNeighborAddress",
       "dvmrpInterfaceOperState",
       "dvmrpNeighborIfIndex",
-      "dvmrpNeighborAddress",
       "dvmrpInterfaceIfIndex"
     ],
     "IEEE8021-SECY-MIB": [
@@ -27,21 +27,21 @@
       "ifOperStatus"
     ],
     "IGMP-MIB": [
-      "igmpInterfaceIfIndex",
-      "igmpInterfaceQuerier",
       "igmpCacheAddress",
-      "igmpCacheIfIndex"
+      "igmpCacheIfIndex",
+      "igmpInterfaceIfIndex",
+      "igmpInterfaceQuerier"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetPortNumber",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetPortNumber"
     ],
     "IP-MIB": [
-      "ipNetToMediaNetAddress",
-      "ipNetToMediaPhysAddress"
+      "ipNetToMediaPhysAddress",
+      "ipNetToMediaNetAddress"
     ],
     "IPMROUTE-MIB": [
       "ipMRouteNextHopEntry",
@@ -56,33 +56,33 @@
       "mldInterfaceIfIndex"
     ],
     "IPV6-TC": [
+      "Ipv6AddressIfIdentifier",
       "Ipv6IfIndexOrZero",
       "Ipv6IfIndex",
-      "Ipv6Address",
       "Ipv6AddressPrefix",
-      "Ipv6AddressIfIdentifier"
+      "Ipv6Address"
     ],
     "LLDP-MIB": [
-      "lldpRemEntry",
-      "LldpManAddress",
-      "AddressFamilyNumbers",
+      "LldpPortIdSubtype",
       "LldpSystemCapabilitiesMap",
-      "LldpPortId",
-      "LldpPortIdSubtype"
+      "LldpManAddress",
+      "lldpRemEntry",
+      "AddressFamilyNumbers",
+      "LldpPortId"
     ],
     "MPLS-TC-STD-MIB": [
       "MplsTunnelIndex",
       "MplsExtendedTunnelId",
       "MplsLSPID",
-      "MplsLdpIdentifier",
       "MplsLabel",
-      "MplsTunnelInstanceIndex"
+      "MplsTunnelInstanceIndex",
+      "MplsLdpIdentifier"
     ],
     "MSDP-MIB": [
-      "msdpPeerState",
       "msdpSACacheEntry",
-      "msdpPeerEntry",
-      "msdpPeerFsmEstablishedTransitions"
+      "msdpPeerState",
+      "msdpPeerFsmEstablishedTransitions",
+      "msdpPeerEntry"
     ],
     "RADIUS-DYNAUTH-SERVER-MIB": [
       "radiusDynAuthClientEntry"
@@ -93,39 +93,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
+      "Integer32",
       "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "MacAddress",
-      "TimeStamp",
-      "PhysAddress",
+      "TimeInterval",
       "StorageType",
       "DateAndTime",
-      "DisplayString",
-      "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "RowStatus",
       "TruthValue",
-      "TimeInterval",
-      "RowPointer"
+      "PhysAddress"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -145635,8 +145635,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:17 2022",
-      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 16:49:20 2022",
+      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "RAPID-CITY"

@@ -9,22 +9,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
       "iso",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "TRAP-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -7313,8 +7313,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radwin/RADWIN-MIB-WINLINK1000",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:01:14 2022",
-      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 16:50:59 2022",
+      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "RADWIN-MIB-WINLINK1000"

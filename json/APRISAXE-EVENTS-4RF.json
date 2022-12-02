@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEObjects",
-      "aprisaXEEvents"
+      "aprisaXEEvents",
+      "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
       "AprisaXEDataStatus",
-      "AprisaXESlotNumber",
-      "AprisaXEPortNumber",
       "AprisaXEAlarmType",
-      "AprisaXECardType"
+      "AprisaXECardType",
+      "AprisaXEPortNumber",
+      "AprisaXESlotNumber"
     ],
     "COMMON-TC-4RF": [
       "FourRFAlarmSeverity",
       "FourRFAlarmPresent",
+      "FourRFHardwareVersion",
       "FourRFImageVersion",
-      "FourRFAlarmEnabled",
       "FourRFAlarmStatus",
-      "FourRFHardwareVersion"
+      "FourRFAlarmEnabled"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -28,24 +28,24 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Bits",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "iso",
+      "Unsigned32",
+      "Gauge32",
       "MibIdentifier",
+      "Counter32",
       "IpAddress",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 15:46:11 2022",
-      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 16:39:16 2022",
+      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

@@ -5,16 +5,16 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
-      "DellNetPEOperStatus",
-      "DellNetCardOperStatus",
       "DellNetChassisType",
-      "DellNetProcessorModuleType",
       "DellNetSystemCardType",
       "DellNetDeviceType",
       "DellNetHundredthdB",
+      "DellNetPEOperStatus",
       "DellNetSwDate",
-      "DellNetIfType",
-      "DellNetMfgDate"
+      "DellNetProcessorModuleType",
+      "DellNetCardOperStatus",
+      "DellNetMfgDate",
+      "DellNetIfType"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -22,30 +22,30 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "TimeTicks",
+      "iso",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DisplayString",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DateAndTime"
     ]
   },
   "dellNetChassisMib": {
@@ -4673,8 +4673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 15:51:11 2022",
-      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 16:43:35 2022",
+      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"

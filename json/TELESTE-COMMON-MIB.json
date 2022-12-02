@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "MibIdentifier"
+      "Bits",
+      "Counter64",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "TELESTE-ROOT-MIB": [
-      "common",
-      "TPhysAddress",
+      "Uint16",
       "DateAndTime",
-      "Uint16"
+      "TPhysAddress",
+      "common"
     ]
   },
   "element": {
@@ -1697,8 +1697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teleste/TELESTE-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 16:03:01 2022",
-      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 16:52:14 2022",
+      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "TELESTE-COMMON-MIB"

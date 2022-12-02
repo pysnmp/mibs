@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
       "Counter32",
       "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "Gauge32",
       "enterprises",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
       "IpAddress",
-      "iso",
-      "TimeTicks",
       "TRAP-TYPE",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -501,8 +501,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-ASF-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 15:51:11 2022",
-      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 16:43:35 2022",
+      "On host fv-az545-99 platform Linux version 5.15.0-1023-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "DELL-ASF-MIB"
