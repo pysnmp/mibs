@@ -1,0 +1,468 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apSyslogModule": {
+    "name": "apSyslogModule",
+    "oid": "1.3.6.1.4.1.9148.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-07-16 00:00",
+        "description": "Updated contact info"
+      },
+      {
+        "revision": "2013-09-13 00:00",
+        "description": "Updated description for apSyslogMessageGenerated trap and apSyslogHistoryTable."
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      }
+    ]
+  },
+  "apSyslogMIBObjects": {
+    "name": "apSyslogMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.1.1",
+    "class": "objectidentity"
+  },
+  "SyslogLevel": {
+    "name": "SyslogLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "critical": 2,
+          "major": 3,
+          "minor": 4,
+          "warning": 5,
+          "notice": 6,
+          "info": 7,
+          "trace": 8,
+          "debug": 9,
+          "detail": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "apSyslogBasic": {
+    "name": "apSyslogBasic",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "apSyslogNotificationsSent": {
+    "name": "apSyslogNotificationsSent",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogNotificationsEnabled": {
+    "name": "apSyslogNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "apSyslogMaxLevel": {
+    "name": "apSyslogMaxLevel",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogLevel",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warning",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "apSyslogMsgIgnores": {
+    "name": "apSyslogMsgIgnores",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogMsgDrops": {
+    "name": "apSyslogMsgDrops",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistory": {
+    "name": "apSyslogHistory",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "apSyslogHistTableMaxLength": {
+    "name": "apSyslogHistTableMaxLength",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "apSyslogHistMsgsFlushed": {
+    "name": "apSyslogHistMsgsFlushed",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistoryTable": {
+    "name": "apSyslogHistoryTable",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSyslogHistoryEntry": {
+    "name": "apSyslogHistoryEntry",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSyslogHistIndex": {
+    "name": "apSyslogHistIndex",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistFrom": {
+    "name": "apSyslogHistFrom",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistLevel": {
+    "name": "apSyslogHistLevel",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogLevel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistType": {
+    "name": "apSyslogHistType",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistContent": {
+    "name": "apSyslogHistContent",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogHistTimestamp": {
+    "name": "apSyslogHistTimestamp",
+    "oid": "1.3.6.1.4.1.9148.3.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSyslogMIBNotificationPrefix": {
+    "name": "apSyslogMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.1.2",
+    "class": "objectidentity"
+  },
+  "apSyslogMIBNotifications": {
+    "name": "apSyslogMIBNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.1.2.0",
+    "class": "objectidentity"
+  },
+  "apSyslogMessageGenerated": {
+    "name": "apSyslogMessageGenerated",
+    "oid": "1.3.6.1.4.1.9148.3.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistFrom"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistLevel"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistType"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistContent"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "apSyslogMIBConformance": {
+    "name": "apSyslogMIBConformance",
+    "oid": "1.3.6.1.4.1.9148.3.1.3",
+    "class": "objectidentity"
+  },
+  "apSyslogMIBCompliances": {
+    "name": "apSyslogMIBCompliances",
+    "oid": "1.3.6.1.4.1.9148.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "apSyslogMIBGroups": {
+    "name": "apSyslogMIBGroups",
+    "oid": "1.3.6.1.4.1.9148.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "apSyslogGroup": {
+    "name": "apSyslogGroup",
+    "oid": "1.3.6.1.4.1.9148.3.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogNotificationsSent"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogNotificationsEnabled"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogMaxLevel"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogMsgIgnores"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogMsgDrops"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistTableMaxLength"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistMsgsFlushed"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistIndex"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistFrom"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistLevel"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistType"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistContent"
+      },
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogHistTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "apSyslogNotificationsGroup": {
+    "name": "apSyslogNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.1.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APSYSLOG-MIB",
+        "object": "apSyslogMessageGenerated"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APSYSLOG-MIB"
+  }
+}

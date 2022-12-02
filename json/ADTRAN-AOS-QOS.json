@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSConformance",
-      "adGenAOSRouter"
+      "adGenAOSRouter",
+      "adGenAOSConformance"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Gauge32",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
       "TimeTicks",
-      "Counter64"
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2655,9 +2655,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-QOS",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:02:01 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:46:17 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "ADTRAN-AOS-QOS"
   }

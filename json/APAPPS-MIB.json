@@ -1,0 +1,808 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApRedundancyState",
+      "ApHardwareModuleFamily",
+      "ApPresence",
+      "ApCommMonitorState",
+      "ApAclType",
+      "ApServerStatus",
+      "ApPhyPortType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apAppsModule": {
+    "name": "apAppsModule",
+    "oid": "1.3.6.1.4.1.9148.3.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-03-07 00:00",
+        "description": "Initial version."
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      }
+    ]
+  },
+  "apAppsMIBObjects": {
+    "name": "apAppsMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.1",
+    "class": "objectidentity"
+  },
+  "apAppsMIBGeneralObjects": {
+    "name": "apAppsMIBGeneralObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.1",
+    "class": "objectidentity"
+  },
+  "apAppsMIBTabularObjects": {
+    "name": "apAppsMIBTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2",
+    "class": "objectidentity"
+  },
+  "apAppsENUMTabularObjects": {
+    "name": "apAppsENUMTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1",
+    "class": "objectidentity"
+  },
+  "apAppsDNSTabularObjects": {
+    "name": "apAppsDNSTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2",
+    "class": "objectidentity"
+  },
+  "apAppsNotificationObjects": {
+    "name": "apAppsNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.2",
+    "class": "objectidentity"
+  },
+  "apAppsNotifObjects": {
+    "name": "apAppsNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.1",
+    "class": "objectidentity"
+  },
+  "apAppsNotifPrefix": {
+    "name": "apAppsNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2",
+    "class": "objectidentity"
+  },
+  "apAppsEnumNotif": {
+    "name": "apAppsEnumNotif",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.1",
+    "class": "objectidentity"
+  },
+  "apAppsEnumNotifications": {
+    "name": "apAppsEnumNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.1.0",
+    "class": "objectidentity"
+  },
+  "apAppsDnsNotif": {
+    "name": "apAppsDnsNotif",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.2",
+    "class": "objectidentity"
+  },
+  "apAppsDnsNotifications": {
+    "name": "apAppsDnsNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "apAppsConformance": {
+    "name": "apAppsConformance",
+    "oid": "1.3.6.1.4.1.9148.3.16.3",
+    "class": "objectidentity"
+  },
+  "apAppsObjectGroups": {
+    "name": "apAppsObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.1",
+    "class": "objectidentity"
+  },
+  "apAppsNotificationGroups": {
+    "name": "apAppsNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2",
+    "class": "objectidentity"
+  },
+  "apAppsAclObjects": {
+    "name": "apAppsAclObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.4",
+    "class": "objectidentity"
+  },
+  "apAppsENUMServerStatusTable": {
+    "name": "apAppsENUMServerStatusTable",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apAppsENUMServerStatusEntry": {
+    "name": "apAppsENUMServerStatusEntry",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMConfigName",
+        "implied": 0
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsENUMConfigName": {
+    "name": "apAppsENUMConfigName",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsENUMServerInetAddressType": {
+    "name": "apAppsENUMServerInetAddressType",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsENUMServerInetAddress": {
+    "name": "apAppsENUMServerInetAddress",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsENUMServerStatus": {
+    "name": "apAppsENUMServerStatus",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsDnsServerStatusTable": {
+    "name": "apAppsDnsServerStatusTable",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apAppsDnsServerStatusEntry": {
+    "name": "apAppsDnsServerStatusEntry",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsInterfaceName",
+        "implied": 0
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsDnsInterfaceName": {
+    "name": "apAppsDnsInterfaceName",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsDnsServerInetAddressType": {
+    "name": "apAppsDnsServerInetAddressType",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsDnsServerInetAddress": {
+    "name": "apAppsDnsServerInetAddress",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsDnsServerStatus": {
+    "name": "apAppsDnsServerStatus",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApServerStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEnumServerRateStatsTable": {
+    "name": "apEnumServerRateStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apEnumServerRateStatsEntry": {
+    "name": "apEnumServerRateStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apEnumServerRateStatsEntry",
+      "module": "APAPPS-MIB",
+      "object": "apAppsENUMServerStatusEntry"
+    },
+    "status": "current"
+  },
+  "apEnumServerRateMsgRcvd": {
+    "name": "apEnumServerRateMsgRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEnumServerRateMsgSent": {
+    "name": "apEnumServerRateMsgSent",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEnumServerRateReqRcvd": {
+    "name": "apEnumServerRateReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEnumServerRateReqSent": {
+    "name": "apEnumServerRateReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEnumServerRateRspRcvd": {
+    "name": "apEnumServerRateRspRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEnumServerRateRspSent": {
+    "name": "apEnumServerRateRspSent",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAppsENUMServerStatusChangeTrap": {
+    "name": "apAppsENUMServerStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMConfigName"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerInetAddressType"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerInetAddress"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsDnsServerStatusChangeTrap": {
+    "name": "apAppsDnsServerStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsInterfaceName"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerInetAddressType"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerInetAddress"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsENUMServerStatusGroup": {
+    "name": "apAppsENUMServerStatusGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMConfigName"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerInetAddressType"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerInetAddress"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsDnsServerStatusGroup": {
+    "name": "apAppsDnsServerStatusGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsInterfaceName"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerInetAddressType"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerInetAddress"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsENUMServerRateStatsGroup": {
+    "name": "apAppsENUMServerRateStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apEnumServerRateMsgRcvd"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apEnumServerRateMsgSent"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apEnumServerRateReqRcvd"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apEnumServerRateReqSent"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apEnumServerRateRspRcvd"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apEnumServerRateRspSent"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsEnumServerNotificationsGroup": {
+    "name": "apAppsEnumServerNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsENUMServerStatusChangeTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsDnsServerNotificationsGroup": {
+    "name": "apAppsDnsServerNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAppsDnsServerStatusChangeTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apAppsCommMonitorObjects": {
+    "name": "apAppsCommMonitorObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.3",
+    "class": "objectidentity"
+  },
+  "apCommMonitorStatsTable": {
+    "name": "apCommMonitorStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCommMonitorStatsEntry": {
+    "name": "apCommMonitorStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apCommMonitorInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apCommMonitorInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apCommMonitorInetAddressType": {
+    "name": "apCommMonitorInetAddressType",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCommMonitorInetAddress": {
+    "name": "apCommMonitorInetAddress",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCommMonitorState": {
+    "name": "apCommMonitorState",
+    "oid": "1.3.6.1.4.1.9148.3.16.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApCommMonitorState",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apCommMonitorNotif": {
+    "name": "apCommMonitorNotif",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.3",
+    "class": "objectidentity"
+  },
+  "apCommMonitorNotifications": {
+    "name": "apCommMonitorNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.3.0",
+    "class": "objectidentity"
+  },
+  "apMonitorCollectorDownTrap": {
+    "name": "apMonitorCollectorDownTrap",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apCommMonitorState"
+      }
+    ],
+    "status": "current"
+  },
+  "apMonitorCollectorClearTrap": {
+    "name": "apMonitorCollectorClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apCommMonitorState"
+      }
+    ],
+    "status": "current"
+  },
+  "apCommMonitorNotificationGroups": {
+    "name": "apCommMonitorNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2.3",
+    "class": "objectidentity"
+  },
+  "apCommMonitorNotificationsGroup": {
+    "name": "apCommMonitorNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apMonitorCollectorDownTrap"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apMonitorCollectorClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apAclDropObjects": {
+    "name": "apAclDropObjects",
+    "oid": "1.3.6.1.4.1.9148.3.16.4.1",
+    "class": "objectidentity"
+  },
+  "apAclDropType": {
+    "name": "apAclDropType",
+    "oid": "1.3.6.1.4.1.9148.3.16.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApAclType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAclDropCount": {
+    "name": "apAclDropCount",
+    "oid": "1.3.6.1.4.1.9148.3.16.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAclDropRatio": {
+    "name": "apAclDropRatio",
+    "oid": "1.3.6.1.4.1.9148.3.16.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAppsAclNotif": {
+    "name": "apAppsAclNotif",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.4",
+    "class": "objectidentity"
+  },
+  "apAppsAclNotifications": {
+    "name": "apAppsAclNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.4.0",
+    "class": "objectidentity"
+  },
+  "apAclDropOverThresholdTrap": {
+    "name": "apAclDropOverThresholdTrap",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropType"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropCount"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropRatio"
+      }
+    ],
+    "status": "current"
+  },
+  "apAclDropOverThresholdClearTrap": {
+    "name": "apAclDropOverThresholdClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.16.2.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropType"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropCount"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropRatio"
+      }
+    ],
+    "status": "current"
+  },
+  "apAclNotificationGroups": {
+    "name": "apAclNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2.4",
+    "class": "objectidentity"
+  },
+  "apAclDropNotificationsGroup": {
+    "name": "apAclDropNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.16.3.2.4.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropOverThresholdTrap"
+      },
+      {
+        "module": "APAPPS-MIB",
+        "object": "apAclDropOverThresholdClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAPPS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APAPPS-MIB"
+  }
+}

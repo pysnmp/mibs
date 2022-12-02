@@ -1,0 +1,1505 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApPercentage"
+    ],
+    "APSYSMGMT-MIB": [
+      "apSigRealmStatsEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apCodecModule": {
+    "name": "apCodecModule",
+    "oid": "1.3.6.1.4.1.9148.3.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-07-16 00:00",
+        "description": "Updated contact information."
+      },
+      {
+        "revision": "2012-06-22 10:00",
+        "description": " adding global transcoding stats"
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2017-11-24 00:00",
+        "description": "Added new MIB definitions for TCU Load Statistics."
+      }
+    ]
+  },
+  "apCodecMIBObjects": {
+    "name": "apCodecMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.7.1",
+    "class": "objectidentity"
+  },
+  "apCodecRealmStatsTable": {
+    "name": "apCodecRealmStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecRealmStatsEntry": {
+    "name": "apCodecRealmStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apCodecRealmStatsEntry",
+      "module": "APCODEC-MIB",
+      "object": "apSigRealmStatsEntry"
+    },
+    "status": "current"
+  },
+  "apCodecRealmCountOther": {
+    "name": "apCodecRealmCountOther",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountPCMU": {
+    "name": "apCodecRealmCountPCMU",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountPCMA": {
+    "name": "apCodecRealmCountPCMA",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG722": {
+    "name": "apCodecRealmCountG722",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG723": {
+    "name": "apCodecRealmCountG723",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG726_16": {
+    "name": "apCodecRealmCountG726_16",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG726_24": {
+    "name": "apCodecRealmCountG726_24",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG726_32": {
+    "name": "apCodecRealmCountG726_32",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG726_40": {
+    "name": "apCodecRealmCountG726_40",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG728": {
+    "name": "apCodecRealmCountG728",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountG729": {
+    "name": "apCodecRealmCountG729",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountGSM": {
+    "name": "apCodecRealmCountGSM",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountILBC": {
+    "name": "apCodecRealmCountILBC",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountAMR": {
+    "name": "apCodecRealmCountAMR",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRC": {
+    "name": "apCodecRealmCountEVRC",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountH261": {
+    "name": "apCodecRealmCountH261",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountH263": {
+    "name": "apCodecRealmCountH263",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountT38": {
+    "name": "apCodecRealmCountT38",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountAMRWB": {
+    "name": "apCodecRealmCountAMRWB",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRC0": {
+    "name": "apCodecRealmCountEVRC0",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRC1": {
+    "name": "apCodecRealmCountEVRC1",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRCB": {
+    "name": "apCodecRealmCountEVRCB",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRCB0": {
+    "name": "apCodecRealmCountEVRCB0",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRCB1": {
+    "name": "apCodecRealmCountEVRCB1",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountOPUS": {
+    "name": "apCodecRealmCountOPUS",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountSILK": {
+    "name": "apCodecRealmCountSILK",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountT140": {
+    "name": "apCodecRealmCountT140",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountBAUDOT": {
+    "name": "apCodecRealmCountBAUDOT",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountH264": {
+    "name": "apCodecRealmCountH264",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRCNW": {
+    "name": "apCodecRealmCountEVRCNW",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRCNW0": {
+    "name": "apCodecRealmCountEVRCNW0",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVRCNW1": {
+    "name": "apCodecRealmCountEVRCNW1",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmCountEVS": {
+    "name": "apCodecRealmCountEVS",
+    "oid": "1.3.6.1.4.1.9148.3.7.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingMIBObjects": {
+    "name": "apCodecTranscodingMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.7.2",
+    "class": "objectidentity"
+  },
+  "apCodecTranscodingRealmStatsTable": {
+    "name": "apCodecTranscodingRealmStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecTranscodingRealmStatsEntry": {
+    "name": "apCodecTranscodingRealmStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apCodecTranscodingRealmStatsEntry",
+      "module": "APCODEC-MIB",
+      "object": "apSigRealmStatsEntry"
+    },
+    "status": "current"
+  },
+  "apCodecRealmSessionsTransparent": {
+    "name": "apCodecRealmSessionsTransparent",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmSessionsTransrated": {
+    "name": "apCodecRealmSessionsTransrated",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecRealmSessionsTranscoded": {
+    "name": "apCodecRealmSessionsTranscoded",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ApCodecDigitTypes": {
+    "name": "ApCodecDigitTypes",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "none": 1,
+          "inband": 2,
+          "rfc2833": 3,
+          "noneDual": 4,
+          "inbandTrans": 5,
+          "inbandDual": 6,
+          "rfc2833Trans": 7,
+          "rfc2833Dual": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "apCodecTranscodingResourceMIBObjects": {
+    "name": "apCodecTranscodingResourceMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.2",
+    "class": "objectidentity"
+  },
+  "apCodecTranscodingResourcesTotal": {
+    "name": "apCodecTranscodingResourcesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingResourcesCurrent": {
+    "name": "apCodecTranscodingResourcesCurrent",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingResourcesHigh": {
+    "name": "apCodecTranscodingResourcesHigh",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingInUsePercentCurrent": {
+    "name": "apCodecTranscodingInUsePercentCurrent",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingInUsePercentHigh": {
+    "name": "apCodecTranscodingInUsePercentHigh",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApPercentage",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTable": {
+    "name": "apCodecTable",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecEntry": {
+    "name": "apCodecEntry",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecIndex": {
+    "name": "apCodecIndex",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecName": {
+    "name": "apCodecName",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecPairStatsTable": {
+    "name": "apCodecPairStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairStatsEntry": {
+    "name": "apCodecPairStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairAIndex",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairBIndex",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairAPValue",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairBPValue",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairADigitType",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairBDigitType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecPairAIndex": {
+    "name": "apCodecPairAIndex",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairBIndex": {
+    "name": "apCodecPairBIndex",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairAPValue": {
+    "name": "apCodecPairAPValue",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairBPValue": {
+    "name": "apCodecPairBPValue",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairADigitType": {
+    "name": "apCodecPairADigitType",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApCodecDigitTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairBDigitType": {
+    "name": "apCodecPairBDigitType",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApCodecDigitTypes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecPairTranscodingCurrent": {
+    "name": "apCodecPairTranscodingCurrent",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecPairTranscodingHigh": {
+    "name": "apCodecPairTranscodingHigh",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingResourceUtilMIBObjects": {
+    "name": "apCodecTranscodingResourceUtilMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5",
+    "class": "objectidentity"
+  },
+  "apCodecTranscodingLicensedTotalSessions": {
+    "name": "apCodecTranscodingLicensedTotalSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedAMRSessions": {
+    "name": "apCodecTranscodingLicensedAMRSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedAMRWBSessions": {
+    "name": "apCodecTranscodingLicensedAMRWBSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedEVRCSessions": {
+    "name": "apCodecTranscodingLicensedEVRCSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedEVRCBSessions": {
+    "name": "apCodecTranscodingLicensedEVRCBSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedOPUSSessions": {
+    "name": "apCodecTranscodingLicensedOPUSSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedSILKSessions": {
+    "name": "apCodecTranscodingLicensedSILKSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingLicensedEVSSessions": {
+    "name": "apCodecTranscodingLicensedEVSSessions",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingDSPMIPSProtection": {
+    "name": "apCodecTranscodingDSPMIPSProtection",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingTCULoadStatsTable": {
+    "name": "apCodecTranscodingTCULoadStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecTranscodingTCULoadStatsEntry": {
+    "name": "apCodecTranscodingTCULoadStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingTCUIndex",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingTCMIndex",
+        "implied": 0
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingDSPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecTranscodingTCUIndex": {
+    "name": "apCodecTranscodingTCUIndex",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecTranscodingTCMIndex": {
+    "name": "apCodecTranscodingTCMIndex",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecTranscodingDSPIndex": {
+    "name": "apCodecTranscodingDSPIndex",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apCodecTranscodingSessionCount": {
+    "name": "apCodecTranscodingSessionCount",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingCurrentLoad": {
+    "name": "apCodecTranscodingCurrentLoad",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "one hundredth",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingPeakLoad": {
+    "name": "apCodecTranscodingPeakLoad",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "one hundredth",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecTranscodingDSPOverloaded": {
+    "name": "apCodecTranscodingDSPOverloaded",
+    "oid": "1.3.6.1.4.1.9148.3.7.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apCodecNotificationObjects": {
+    "name": "apCodecNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.7.3",
+    "class": "objectidentity"
+  },
+  "apCodecNotificationPrefix": {
+    "name": "apCodecNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.7.4",
+    "class": "objectidentity"
+  },
+  "apCodecNotifications": {
+    "name": "apCodecNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.7.4.0",
+    "class": "objectidentity"
+  },
+  "apCodecConformance": {
+    "name": "apCodecConformance",
+    "oid": "1.3.6.1.4.1.9148.3.7.5",
+    "class": "objectidentity"
+  },
+  "apCodecCompliances": {
+    "name": "apCodecCompliances",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.1",
+    "class": "objectidentity"
+  },
+  "apCodecGroups": {
+    "name": "apCodecGroups",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2",
+    "class": "objectidentity"
+  },
+  "apCodecNotificationsGroups": {
+    "name": "apCodecNotificationsGroups",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.3",
+    "class": "objectidentity"
+  },
+  "apCodecRealmStatsObjectsGroup": {
+    "name": "apCodecRealmStatsObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountOther"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountPCMU"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountPCMA"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG722"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG723"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG726_16"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG726_24"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG726_32"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG726_40"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG728"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountG729"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountGSM"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountILBC"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountH261"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountH263"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountT38"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecMediaProcessingObjectsGroup": {
+    "name": "apCodecMediaProcessingObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmSessionsTransparent"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmSessionsTransrated"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmSessionsTranscoded"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup2": {
+    "name": "apCodecRealmStatsObjectsGroup2",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountAMR"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRC"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecTranscodingStatsGroup": {
+    "name": "apCodecTranscodingStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingResourcesTotal"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingResourcesCurrent"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingResourcesHigh"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingInUsePercentCurrent"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingInUsePercentHigh"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecName"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairTranscodingCurrent"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecPairTranscodingHigh"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup3": {
+    "name": "apCodecRealmStatsObjectsGroup3",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountAMRWB"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup4": {
+    "name": "apCodecRealmStatsObjectsGroup4",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRC0"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRC1"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRCB"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRCB0"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRCB1"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup5": {
+    "name": "apCodecRealmStatsObjectsGroup5",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountOPUS"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountSILK"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup6": {
+    "name": "apCodecRealmStatsObjectsGroup6",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountT140"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup7": {
+    "name": "apCodecRealmStatsObjectsGroup7",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountBAUDOT"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup8": {
+    "name": "apCodecRealmStatsObjectsGroup8",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountH264"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup9": {
+    "name": "apCodecRealmStatsObjectsGroup9",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRCNW"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRCNW0"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVRCNW1"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecRealmStatsObjectsGroup10": {
+    "name": "apCodecRealmStatsObjectsGroup10",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecRealmCountEVS"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecTranscodingResourceUtilMIBGroup": {
+    "name": "apCodecTranscodingResourceUtilMIBGroup",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedTotalSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedAMRSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedAMRWBSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedEVRCSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedEVRCBSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedOPUSSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedSILKSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingLicensedEVSSessions"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingDSPMIPSProtection"
+      }
+    ],
+    "status": "current"
+  },
+  "apCodecTranscodingTCULoadStatsGroup": {
+    "name": "apCodecTranscodingTCULoadStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.7.5.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingSessionCount"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingCurrentLoad"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingPeakLoad"
+      },
+      {
+        "module": "APCODEC-MIB",
+        "object": "apCodecTranscodingDSPOverloaded"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APCODEC-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APCODEC-MIB"
+  }
+}

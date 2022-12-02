@@ -5,44 +5,44 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisNotificationEnable",
-      "ColubrisUsersAuthenticationType",
-      "ColubrisProfileIndexOrZero",
-      "ColubrisUsersAuthenticationMode",
-      "ColubrisPriorityQueue",
       "ColubrisSecurity",
-      "ColubrisSSIDOrNone"
+      "ColubrisSSIDOrNone",
+      "ColubrisUsersAuthenticationType",
+      "ColubrisNotificationEnable",
+      "ColubrisPriorityQueue",
+      "ColubrisUsersAuthenticationMode",
+      "ColubrisProfileIndexOrZero"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
       "IpAddress",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "iso",
-      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "colubrisPublicAccessMIB": {
@@ -1573,9 +1573,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PUBLIC-ACCESS-MIB.my",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:11:16 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:54:25 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "COLUBRIS-PUBLIC-ACCESS-MIB"
   }

@@ -1,0 +1,535 @@
+-------------------------------------------------------------------------------
+-- ACMEPACKET-APPS.txt:  Acme Packet Applications MIB
+-- 
+-- March, 2012
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+-------------------------------------------------------------------------------
+
+APAPPS-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+        Gauge32, Integer32, Counter32
+                FROM SNMPv2-SMI
+        TEXTUAL-CONVENTION, DisplayString, TruthValue
+                FROM SNMPv2-TC
+        MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+                FROM SNMPv2-CONF
+        InetAddress, InetAddressType
+	    FROM INET-ADDRESS-MIB
+	acmepacketMgmt
+                FROM ACMEPACKET-SMI
+        ApHardwareModuleFamily, ApRedundancyState, ApPhyPortType,
+	ApPresence, ApServerStatus, ApCommMonitorState, ApAclType
+	    FROM ACMEPACKET-TC;
+
+apAppsModule   MODULE-IDENTITY
+		LAST-UPDATED	"201406260000Z"
+		ORGANIZATION 	"Oracle Communications"
+		CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+	        DESCRIPTION	
+			"APPS MIB for Oracle Communications Acme Packet SBCs"
+ 		REVISION 	"201203070000Z"
+		DESCRIPTION
+			"Initial version."
+                REVISION "201406260000Z" 			
+                DESCRIPTION
+			"Updated Organization and Contact info."
+                ::= { acmepacketMgmt 16 }
+
+
+
+
+apAppsMIBObjects OBJECT IDENTIFIER ::= { apAppsModule 1 }
+apAppsMIBGeneralObjects OBJECT IDENTIFIER ::= {apAppsMIBObjects 1}
+apAppsMIBTabularObjects OBJECT IDENTIFIER ::= {apAppsMIBObjects 2}
+apAppsENUMTabularObjects OBJECT IDENTIFIER ::= {apAppsMIBTabularObjects 1}
+apAppsDNSTabularObjects  OBJECT IDENTIFIER ::= {apAppsMIBTabularObjects 2}
+
+apAppsNotificationObjects OBJECT IDENTIFIER ::= { apAppsModule 2 }
+apAppsNotifObjects OBJECT IDENTIFIER ::= { apAppsNotificationObjects 1 }
+apAppsNotifPrefix  OBJECT IDENTIFIER ::= { apAppsNotificationObjects 2 }
+apAppsEnumNotif  OBJECT IDENTIFIER ::= { apAppsNotifPrefix 1}
+apAppsEnumNotifications  OBJECT IDENTIFIER ::= { apAppsEnumNotif 0 }
+apAppsDnsNotif  OBJECT IDENTIFIER ::= { apAppsNotifPrefix 2 }
+apAppsDnsNotifications  OBJECT IDENTIFIER ::= { apAppsDnsNotif 0 }
+
+-- conformance information
+
+apAppsConformance OBJECT IDENTIFIER ::= { apAppsModule 3 }
+apAppsObjectGroups OBJECT IDENTIFIER ::= { apAppsConformance 1 }
+apAppsNotificationGroups OBJECT IDENTIFIER ::= { apAppsConformance 2 }
+
+apAppsAclObjects OBJECT IDENTIFIER ::= { apAppsModule 4 }
+
+
+apAppsENUMServerStatusTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsENUMServerStatusEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the status of configured ENUM servers,
+            indexed by the name of the enum server, server address type and server IP.
+
+	    Please note this table is the replacement of apENUMServerStatusTable
+	    defined in ap-smgmt.mib, where the table was obsoleted."
+        ::= { apAppsENUMTabularObjects 1 }
+
+apAppsENUMServerStatusEntry OBJECT-TYPE
+        SYNTAX          ApAppsENUMServerStatusEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "An entry designed to hold the status of a single ENUM server"
+        INDEX { apAppsENUMConfigName,
+                apAppsENUMServerInetAddressType,
+                apAppsENUMServerInetAddress }
+        ::= { apAppsENUMServerStatusTable 1 }
+
+ApAppsENUMServerStatusEntry ::= SEQUENCE {
+        apAppsENUMConfigName                DisplayString,
+        apAppsENUMServerInetAddressType     InetAddressType,
+        apAppsENUMServerInetAddress         InetAddress,
+        apAppsENUMServerStatus              ApServerStatus
+        }
+
+apAppsENUMConfigName 	OBJECT-TYPE
+	SYNTAX		DisplayString
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The name of the enum-config element that contains this 
+	    ENUM server."
+	::= { apAppsENUMServerStatusEntry 1 }
+
+apAppsENUMServerInetAddressType   OBJECT-TYPE
+        SYNTAX          InetAddressType
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The IP address of this ENUM server."
+        ::= { apAppsENUMServerStatusEntry 2 }
+
+apAppsENUMServerInetAddress   OBJECT-TYPE
+        SYNTAX          InetAddress
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The IP address of this ENUM server."
+        ::= { apAppsENUMServerStatusEntry 3 }
+
+apAppsENUMServerStatus	OBJECT-TYPE
+	SYNTAX		ApServerStatus
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The status of this ENUM server."
+	::= { apAppsENUMServerStatusEntry 4 }
+
+    
+-- DNS Server Table
+
+apAppsDnsServerStatusTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsDnsServerStatusEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the status of configured dns servers
+            indexed by dns interface name and ip address of the dns server." 
+        ::= { apAppsDNSTabularObjects 1 }
+
+apAppsDnsServerStatusEntry OBJECT-TYPE
+        SYNTAX          ApAppsDnsServerStatusEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "An entry designed to hold the status of a single dns server"
+        INDEX { apAppsDnsInterfaceName,
+                apAppsDnsServerInetAddressType,
+                apAppsDnsServerInetAddress }
+      ::= { apAppsDnsServerStatusTable 1 }
+
+ApAppsDnsServerStatusEntry ::= SEQUENCE {
+	apAppsDnsInterfaceName           DisplayString,
+        apAppsDnsServerInetAddressType   InetAddressType,
+        apAppsDnsServerInetAddress       InetAddress,
+        apAppsDnsServerStatus            ApServerStatus
+        }
+
+apAppsDnsInterfaceName      	OBJECT-TYPE
+        SYNTAX          	DisplayString (SIZE (1..255))
+        MAX-ACCESS      	read-only
+        STATUS          	current
+        DESCRIPTION
+            "The name of the dns interface that contains this
+            dns server."
+        ::= { apAppsDnsServerStatusEntry 1 }
+        
+apAppsDnsServerInetAddressType OBJECT-TYPE
+        SYNTAX          InetAddressType
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The Inet address type of this dns server."
+        ::= { apAppsDnsServerStatusEntry 2 }
+
+apAppsDnsServerInetAddress OBJECT-TYPE
+        SYNTAX          InetAddress
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The IP address of this dns server."
+        ::= { apAppsDnsServerStatusEntry 3 }
+
+apAppsDnsServerStatus    OBJECT-TYPE
+        SYNTAX          ApServerStatus
+	MAX-ACCESS      read-only
+	STATUS          current
+	DESCRIPTION
+	"The status of this dns server."
+	::= { apAppsDnsServerStatusEntry 4 }
+
+
+--apEnum Server Rate Stats Table
+apEnumServerRateStatsTable  OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApEnumServerRateStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Enum message rate stats."
+        ::= { apAppsENUMTabularObjects 2 }
+
+apEnumServerRateStatsEntry OBJECT-TYPE
+        SYNTAX          ApEnumServerRateStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "Enum server message rate statistics."
+        AUGMENTS { apAppsENUMServerStatusEntry }
+     ::= { apEnumServerRateStatsTable 1 }
+
+ApEnumServerRateStatsEntry ::= SEQUENCE {
+	apEnumServerRateMsgRcvd 	Gauge32,
+	apEnumServerRateMsgSent 	Gauge32,
+	apEnumServerRateReqRcvd 	Gauge32,
+	apEnumServerRateReqSent 	Gauge32,
+	apEnumServerRateRspRcvd 	Gauge32,
+	apEnumServerRateRspSent 	Gauge32
+}
+
+apEnumServerRateMsgRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of messages received."
+	::= { apEnumServerRateStatsEntry 5  }
+
+apEnumServerRateMsgSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of messages sent."
+	::= { apEnumServerRateStatsEntry 6  }
+
+apEnumServerRateReqRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of request messages received."
+	::= { apEnumServerRateStatsEntry 7  }
+
+apEnumServerRateReqSent	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of request messages sent."
+	::= { apEnumServerRateStatsEntry 8  }
+
+apEnumServerRateRspRcvd	OBJECT-TYPE
+	SYNTAX			Gauge32
+	UNITS 			"messages per 10 seconds"
+	MAX-ACCESS 		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The rate of response messages received."
+	::= { apEnumServerRateStatsEntry 9  }
+
+apEnumServerRateRspSent	OBJECT-TYPE
+	SYNTAX		Gauge32
+	UNITS 		"messages per 10 seconds"
+	MAX-ACCESS 	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The rate of response messages sent."
+	::= { apEnumServerRateStatsEntry 10  }
+
+-- Notifications
+
+		
+apAppsENUMServerStatusChangeTrap           NOTIFICATION-TYPE
+        OBJECTS         { apAppsENUMConfigName,
+                          apAppsENUMServerInetAddressType,
+                          apAppsENUMServerInetAddress,
+                          apAppsENUMServerStatus }
+        STATUS          current
+        DESCRIPTION
+        " The trap will be generated if the reachability status of an ENUM
+        server changes."
+        ::= { apAppsEnumNotifications 1 }
+
+
+apAppsDnsServerStatusChangeTrap NOTIFICATION-TYPE
+        OBJECTS {
+                 apAppsDnsInterfaceName,
+		 apAppsDnsServerInetAddressType,
+		 apAppsDnsServerInetAddress,
+		 apAppsDnsServerStatus
+		 }
+		STATUS          current
+	DESCRIPTION
+	" The trap will be generated if the reachability status of a dns
+        server changes."
+        ::= { apAppsDnsNotifications 1 }
+
+apAppsENUMServerStatusGroup  OBJECT-GROUP
+        OBJECTS {
+                apAppsENUMConfigName,
+                apAppsENUMServerInetAddressType,
+                apAppsENUMServerInetAddress,
+                apAppsENUMServerStatus
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the status of configured ENUM servers."
+        ::= { apAppsObjectGroups 1  }
+
+apAppsDnsServerStatusGroup  OBJECT-GROUP
+        OBJECTS {
+                apAppsDnsInterfaceName,
+                apAppsDnsServerInetAddressType,
+                apAppsDnsServerInetAddress,
+                apAppsDnsServerStatus
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the status of configured DNS servers."
+        ::= { apAppsObjectGroups 2  }
+
+apAppsENUMServerRateStatsGroup  OBJECT-GROUP
+        OBJECTS {
+		apEnumServerRateMsgRcvd,
+		apEnumServerRateMsgSent,
+		apEnumServerRateReqRcvd,
+		apEnumServerRateReqSent,
+		apEnumServerRateRspRcvd,
+		apEnumServerRateRspSent
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the status of configured ENUM servers."
+        ::= { apAppsObjectGroups 3  }
+
+
+apAppsEnumServerNotificationsGroup NOTIFICATION-GROUP
+      NOTIFICATIONS {
+                        apAppsENUMServerStatusChangeTrap
+                    }
+                STATUS          current
+                DESCRIPTION
+                "A collection of traps to extend reporting capabilities."
+      ::= {  apAppsNotificationGroups 1 }
+
+apAppsDnsServerNotificationsGroup NOTIFICATION-GROUP
+      NOTIFICATIONS {
+                        apAppsDnsServerStatusChangeTrap
+                    }
+                STATUS          current
+                DESCRIPTION
+                "A collection of traps to extend reporting capabilities."
+      ::= {  apAppsNotificationGroups 2 }
+
+
+--------------------------------------------------------------
+-- 
+-- Comm-Monitor Objects
+-- 
+--------------------------------------------------------------
+
+apAppsCommMonitorObjects   OBJECT IDENTIFIER ::= {apAppsMIBTabularObjects 3}
+
+apCommMonitorStatsTable   OBJECT-TYPE
+        SYNTAX         	SEQUENCE OF ApCommMonitorStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A table to hold the infomation of commMonitors."
+        ::= {apAppsCommMonitorObjects 1}
+       
+apCommMonitorStatsEntry   OBJECT-TYPE
+        SYNTAX          ApCommMonitorStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "An entry designed to hold the infomation of commMonitor."
+        INDEX {  apCommMonitorInetAddressType, apCommMonitorInetAddress}
+        ::= { apCommMonitorStatsTable 1 }
+
+ApCommMonitorStatsEntry ::= SEQUENCE {
+        apCommMonitorInetAddressType     InetAddressType,
+        apCommMonitorInetAddress         InetAddress,
+        apCommMonitorState               ApCommMonitorState
+        }
+
+
+apCommMonitorInetAddressType   OBJECT-TYPE
+        SYNTAX          InetAddressType
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The IPAddress type of a CommMonitor."
+        ::= {  apCommMonitorStatsEntry 1}
+       
+apCommMonitorInetAddress   OBJECT-TYPE
+        SYNTAX          InetAddress
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The IPAddress type of a CommMonitor."
+        ::= {  apCommMonitorStatsEntry 2}
+       
+apCommMonitorState   OBJECT-TYPE
+        SYNTAX          ApCommMonitorState
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION
+            "The state of a CommMonitor."
+        ::= {  apCommMonitorStatsEntry 3}
+        
+        
+--------------------------------------------------------------
+-- 
+-- Comm-Monitor Trap
+-- 
+--------------------------------------------------------------
+
+apCommMonitorNotif         OBJECT IDENTIFIER ::= { apAppsNotifPrefix 3 }
+apCommMonitorNotifications OBJECT IDENTIFIER ::= { apCommMonitorNotif 0 }
+
+apMonitorCollectorDownTrap   NOTIFICATION-TYPE
+        OBJECTS                 { apCommMonitorState }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when there is a disconnect 
+                between a SBC and a CommMonitor."
+        ::= { apCommMonitorNotifications 1 }
+
+
+apMonitorCollectorClearTrap   NOTIFICATION-TYPE
+        OBJECTS                 { apCommMonitorState }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when SBC reconnects with the 
+                CommMonitor and resumes normal operation."
+        ::= { apCommMonitorNotifications 2 }
+                 
+apCommMonitorNotificationGroups OBJECT IDENTIFIER ::= { apAppsNotificationGroups 3 }
+
+apCommMonitorNotificationsGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                              apMonitorCollectorDownTrap,
+                              apMonitorCollectorClearTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor  SBC - CommMonitor connection."
+        ::= {  apCommMonitorNotificationGroups 1 }
+        
+
+-- ACL Drop Objects
+
+apAclDropObjects OBJECT IDENTIFIER ::= { apAppsAclObjects 1 } 
+
+apAclDropType    OBJECT-TYPE
+        SYNTAX			ApAclType
+        MAX-ACCESS		accessible-for-notify
+        STATUS			current
+        DESCRIPTION
+        "ACL drop type."
+        ::= { apAclDropObjects 1 }
+
+apAclDropCount    OBJECT-TYPE
+        SYNTAX			Counter32
+        MAX-ACCESS		accessible-for-notify
+        STATUS			current
+        DESCRIPTION
+        "ACL drop count within monitor time window."
+        ::= { apAclDropObjects 2 }
+
+apAclDropRatio    OBJECT-TYPE
+        SYNTAX			Gauge32
+        MAX-ACCESS		accessible-for-notify
+        STATUS			current
+        DESCRIPTION
+        "ACL drop ratio as permillage of current time window. Valid range 0-1000"
+        ::= { apAclDropObjects 3 }
+
+-- ACL Drop Traps
+
+apAppsAclNotif  OBJECT IDENTIFIER ::= { apAppsNotifPrefix 4 }
+apAppsAclNotifications  OBJECT IDENTIFIER ::= { apAppsAclNotif 0 }
+
+apAclDropOverThresholdTrap   NOTIFICATION-TYPE
+        OBJECTS                 { apAclDropType,
+                                  apAclDropCount,
+                                  apAclDropRatio
+                                }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when acl drop ratio has 
+                exceeded the configured threshold."
+        ::= { apAppsAclNotifications 1 }
+
+
+apAclDropOverThresholdClearTrap   NOTIFICATION-TYPE
+        OBJECTS                 { apAclDropType,
+                                  apAclDropCount,
+                                  apAclDropRatio
+                                }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when acl drop ratio has 
+                gone below the configured threshold."
+        ::= { apAppsAclNotifications 2 }
+                 
+apAclNotificationGroups OBJECT IDENTIFIER ::= { apAppsNotificationGroups 4 }
+
+apAclDropNotificationsGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                              apAclDropOverThresholdTrap,
+                              apAclDropOverThresholdClearTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor acl drops."
+        ::= {  apAclNotificationGroups 1 }
+
+
+END

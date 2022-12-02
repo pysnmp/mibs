@@ -1,0 +1,364 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "APEMS-MIB": [
+      "apEMSModule"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apOCAOModule": {
+    "name": "apOCAOModule",
+    "oid": "1.3.6.1.4.1.9148.3.8.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-03-20 09:00",
+        "description": "Updated contact info"
+      },
+      {
+        "revision": "2015-07-10 00:00",
+        "description": "Add new traps: apOCAONFcDeploymentFailure, apOCAONFcDeploymentFailureClear, apOCAONFcDUAvailabilityFailure, apOCAONFcDUAvailabilityFailureClear"
+      }
+    ]
+  },
+  "apOCAOMIBObjects": {
+    "name": "apOCAOMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.1",
+    "class": "objectidentity"
+  },
+  "apOCAONotificationObjects": {
+    "name": "apOCAONotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2",
+    "class": "objectidentity"
+  },
+  "apOCAOSourceServerAddress": {
+    "name": "apOCAOSourceServerAddress",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apOCAOSourceServerName": {
+    "name": "apOCAOSourceServerName",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apOCAOFailureReason": {
+    "name": "apOCAOFailureReason",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apOCAONFName": {
+    "name": "apOCAONFName",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apOCAONFcGroupName": {
+    "name": "apOCAONFcGroupName",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apOCAODUName": {
+    "name": "apOCAODUName",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apOCAONotifications": {
+    "name": "apOCAONotifications",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3",
+    "class": "objectidentity"
+  },
+  "apOCAONFcDeploymentStatusNotificationsPrefix": {
+    "name": "apOCAONFcDeploymentStatusNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.1",
+    "class": "objectidentity"
+  },
+  "apOCAONFcDeploymentStatusNotifications": {
+    "name": "apOCAONFcDeploymentStatusNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.1.0",
+    "class": "objectidentity"
+  },
+  "apOCAONFcDeploymentFailure": {
+    "name": "apOCAONFcDeploymentFailure",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOSourceServerAddress"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcGroupName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAODUName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "apOCAONFcDeploymentFailureClear": {
+    "name": "apOCAONFcDeploymentFailureClear",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOSourceServerAddress"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcGroupName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAODUName"
+      }
+    ],
+    "status": "current"
+  },
+  "apOCAOCapacityPlannerNotificationsPrefix": {
+    "name": "apOCAOCapacityPlannerNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.2",
+    "class": "objectidentity"
+  },
+  "apOCAOCapacityPlannerNotifications": {
+    "name": "apOCAOCapacityPlannerNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.2.0",
+    "class": "objectidentity"
+  },
+  "apOCAONFcDUAvailabilityFailure": {
+    "name": "apOCAONFcDUAvailabilityFailure",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOSourceServerAddress"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcGroupName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "apOCAONFcDUAvailabilityFailureClear": {
+    "name": "apOCAONFcDUAvailabilityFailureClear",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.3.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOSourceServerAddress"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcGroupName"
+      }
+    ],
+    "status": "current"
+  },
+  "apOCAOModuleConformance": {
+    "name": "apOCAOModuleConformance",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.4",
+    "class": "objectidentity"
+  },
+  "apOCAOGroups": {
+    "name": "apOCAOGroups",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.4.1",
+    "class": "objectidentity"
+  },
+  "apOCAONotificationsGroups": {
+    "name": "apOCAONotificationsGroups",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.4.2",
+    "class": "objectidentity"
+  },
+  "apOCAONotificationObjectsGroups": {
+    "name": "apOCAONotificationObjectsGroups",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.4.3",
+    "class": "objectidentity"
+  },
+  "apOCAODeploymentStatusNotificationsGroup": {
+    "name": "apOCAODeploymentStatusNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.4.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcDeploymentFailure"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcDeploymentFailureClear"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcDUAvailabilityFailure"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcDUAvailabilityFailureClear"
+      }
+    ],
+    "status": "current"
+  },
+  "apOCAODeploymentStatusObjectsGroup": {
+    "name": "apOCAODeploymentStatusObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.8.7.4.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAONFcGroupName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAODUName"
+      },
+      {
+        "module": "APOCAO-MIB",
+        "object": "apOCAOFailureReason"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APOCAO-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APOCAO-MIB"
+  }
+}

@@ -1,0 +1,1064 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApTransportType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apDiameterAuthServerModule": {
+    "name": "apDiameterAuthServerModule",
+    "oid": "1.3.6.1.4.1.9148.3.20",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-19 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2017-02-09 00:00",
+        "description": "Included mib objects related to traps."
+      }
+    ]
+  },
+  "apDiamAuthServerMIBObjects": {
+    "name": "apDiamAuthServerMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.20.1",
+    "class": "objectidentity"
+  },
+  "apDiamAuthStatsTable": {
+    "name": "apDiamAuthStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamAuthStatsEntry": {
+    "name": "apDiamAuthStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthInterfaceType",
+        "implied": 0
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthInterfaceType": {
+    "name": "apDiamAuthInterfaceType",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthServerAddress": {
+    "name": "apDiamAuthServerAddress",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthCapExchReqSent": {
+    "name": "apDiamAuthCapExchReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthCapExchReqTimedout": {
+    "name": "apDiamAuthCapExchReqTimedout",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthCapExchAnsRcvd": {
+    "name": "apDiamAuthCapExchAnsRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthCapExchReqRcvd": {
+    "name": "apDiamAuthCapExchReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthCapExchAnsSent": {
+    "name": "apDiamAuthCapExchAnsSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDWDReqSent": {
+    "name": "apDiamAuthDWDReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDWDReqTimedout": {
+    "name": "apDiamAuthDWDReqTimedout",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDWDAnsRcvd": {
+    "name": "apDiamAuthDWDAnsRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDWDReqRcvd": {
+    "name": "apDiamAuthDWDReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDWDAnsSent": {
+    "name": "apDiamAuthDWDAnsSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDisconPeerReqSent": {
+    "name": "apDiamAuthDisconPeerReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDisconPeerReqTimedout": {
+    "name": "apDiamAuthDisconPeerReqTimedout",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDisconPeerAnsRcvd": {
+    "name": "apDiamAuthDisconPeerAnsRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDisconPeerReqRcvd": {
+    "name": "apDiamAuthDisconPeerReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthDisconPeerAnsSent": {
+    "name": "apDiamAuthDisconPeerAnsSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthSessTermReqSent": {
+    "name": "apDiamAuthSessTermReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthSessTermReqTimedout": {
+    "name": "apDiamAuthSessTermReqTimedout",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthSessTermAnsRcvd": {
+    "name": "apDiamAuthSessTermAnsRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthAbortSessReqRcvd": {
+    "name": "apDiamAuthAbortSessReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthAbortSessAnsSent": {
+    "name": "apDiamAuthAbortSessAnsSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthEapReqSent": {
+    "name": "apDiamAuthEapReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthEapReqTimedout": {
+    "name": "apDiamAuthEapReqTimedout",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthEapAnsRcvd": {
+    "name": "apDiamAuthEapAnsRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthEapAccepts": {
+    "name": "apDiamAuthEapAccepts",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthEapRejects": {
+    "name": "apDiamAuthEapRejects",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthActiveSessions": {
+    "name": "apDiamAuthActiveSessions",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthServerStatus": {
+    "name": "apDiamAuthServerStatus",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 0,
+          "tcpConInProgress": 1,
+          "tcpConnComplete": 2,
+          "capexInProgress": 3,
+          "inService": 4,
+          "outOfService": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthErrorStatsTable": {
+    "name": "apDiamAuthErrorStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamAuthErrorStatsEntry": {
+    "name": "apDiamAuthErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apDiamAuthErrorStatsEntry",
+      "module": "AP-DIAMETERAUTH-MIB",
+      "object": "apDiamAuthStatsEntry"
+    },
+    "status": "current"
+  },
+  "apDiamAuthUnknownVersionRcvd": {
+    "name": "apDiamAuthUnknownVersionRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthUnknownExchRcvd": {
+    "name": "apDiamAuthUnknownExchRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthNoCommonAppRcvd": {
+    "name": "apDiamAuthNoCommonAppRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthAppUnsuppRcvd": {
+    "name": "apDiamAuthAppUnsuppRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthCommandUnsuppRcvd": {
+    "name": "apDiamAuthCommandUnsuppRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthUnkownPeerRcvd": {
+    "name": "apDiamAuthUnkownPeerRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthUnkownSessIdRcvd": {
+    "name": "apDiamAuthUnkownSessIdRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthUnableToComplyRcvd": {
+    "name": "apDiamAuthUnableToComplyRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthAvpsUnsupportedRcvd": {
+    "name": "apDiamAuthAvpsUnsupportedRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthMissingAvpRcvd": {
+    "name": "apDiamAuthMissingAvpRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthUnknownUsersRcvd": {
+    "name": "apDiamAuthUnknownUsersRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthAuthorizationRejectedRcvd": {
+    "name": "apDiamAuthAuthorizationRejectedRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthRoamingNotAllowedRcvd": {
+    "name": "apDiamAuthRoamingNotAllowedRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthNoNon3gppSubscriptionRcvd": {
+    "name": "apDiamAuthNoNon3gppSubscriptionRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthNoApnSubscriptionRcvd": {
+    "name": "apDiamAuthNoApnSubscriptionRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthRatTypeNotAllowedRcvd": {
+    "name": "apDiamAuthRatTypeNotAllowedRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.20.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthNotificationObjects": {
+    "name": "apDiamAuthNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.20.3",
+    "class": "objectidentity"
+  },
+  "apDiamAuthNotifObjects": {
+    "name": "apDiamAuthNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1",
+    "class": "objectidentity"
+  },
+  "apDiamAuthNotifPrefix": {
+    "name": "apDiamAuthNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.2",
+    "class": "objectidentity"
+  },
+  "apDiamAuthNotifications": {
+    "name": "apDiamAuthNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.2.0",
+    "class": "objectidentity"
+  },
+  "apDiamAuthServerType": {
+    "name": "apDiamAuthServerType",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAuthServerAddr": {
+    "name": "apDiamAuthServerAddr",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAuthOriginHostType": {
+    "name": "apDiamAuthOriginHostType",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAuthOriginHostAddr": {
+    "name": "apDiamAuthOriginHostAddr",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAuthServerPort": {
+    "name": "apDiamAuthServerPort",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAuthOriginRealm": {
+    "name": "apDiamAuthOriginRealm",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAuthSrvrEstTrap": {
+    "name": "apDiamAuthSrvrEstTrap",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerType"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerAddr"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginHostType"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginHostAddr"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerPort"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginRealm"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthSrvrDownTrap": {
+    "name": "apDiamAuthSrvrDownTrap",
+    "oid": "1.3.6.1.4.1.9148.3.20.3.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerType"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerAddr"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginHostType"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginHostAddr"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerPort"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginRealm"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthServerConformance": {
+    "name": "apDiamAuthServerConformance",
+    "oid": "1.3.6.1.4.1.9148.3.20.2",
+    "class": "objectidentity"
+  },
+  "apDiamAuthObjectGroups": {
+    "name": "apDiamAuthObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.20.2.1",
+    "class": "objectidentity"
+  },
+  "apDiamAuthStatsGroup": {
+    "name": "apDiamAuthStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.20.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthCapExchReqSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthCapExchReqTimedout"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthCapExchAnsRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthCapExchReqRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthCapExchAnsSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDWDReqSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDWDReqTimedout"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDWDAnsRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDWDReqRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDWDAnsSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDisconPeerReqSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDisconPeerReqTimedout"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDisconPeerAnsRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDisconPeerReqRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthDisconPeerAnsSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthSessTermReqSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthSessTermReqTimedout"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthSessTermAnsRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthAbortSessReqRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthAbortSessAnsSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthEapReqSent"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthEapReqTimedout"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthEapAnsRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthEapAccepts"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthEapRejects"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerStatus"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthActiveSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthErrorStatsGroup": {
+    "name": "apDiamAuthErrorStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.20.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthUnknownVersionRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthUnknownExchRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthNoCommonAppRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthAppUnsuppRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthCommandUnsuppRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthUnkownPeerRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthUnkownSessIdRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthUnableToComplyRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthAvpsUnsupportedRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthMissingAvpRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthUnknownUsersRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthAuthorizationRejectedRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthRoamingNotAllowedRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthNoNon3gppSubscriptionRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthNoApnSubscriptionRcvd"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthRatTypeNotAllowedRcvd"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamAuthNotificationGroup": {
+    "name": "apDiamAuthNotificationGroup",
+    "oid": "1.3.6.1.4.1.9148.3.20.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerType"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerAddr"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginHostType"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginHostAddr"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthServerPort"
+      },
+      {
+        "module": "AP-DIAMETERAUTH-MIB",
+        "object": "apDiamAuthOriginRealm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/AP-DIAMETERAUTH-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "AP-DIAMETERAUTH-MIB"
+  }
+}

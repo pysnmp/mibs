@@ -1,0 +1,175 @@
+----------------------------------------------------------------------
+-- ACMEPACKET-PRODUCTS-MIB:  Acme packet Product Information
+--
+-- April 2007
+--
+-- Copyright by Oracle Communications
+-- All rights reserved.
+------------------------------------------------------------------------
+
+ACMEPACKET-PRODUCTS DEFINITIONS ::= BEGIN
+
+IMPORTS
+        acmepacket
+                FROM ACMEPACKET-SMI
+
+	OBJECT-IDENTITY, MODULE-IDENTITY
+		FROM SNMPv2-SMI;
+
+acmepacketProducts MODULE-IDENTITY
+        LAST-UPDATED	"201905040000Z"
+        ORGANIZATION 	"Oracle Communications"
+        CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+	DESCRIPTION
+		"Products supported at Acme Packet."
+        REVISION    "201207160000Z"
+        DESCRIPTION "Updated contact info"
+	REVISION      "200704031500Z"
+	DESCRIPTION
+		"Initial version of this MIB module."
+	REVISION "201406260000Z" 			
+        DESCRIPTION
+	        "Updated Organization and Contact info."
+    	REVISION "201703290000Z" 			
+    	DESCRIPTION
+        	"Added OBJECT-IDENTITY for Platform 6350"
+	REVISION "201905040000Z"
+	    DESCRIPTION
+			"Added OBJECT-IDENTITY for AP4900"
+	::= { acmepacket 1 }	-- assigned by IANA
+
+
+apNetNet4000Series OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"This is subtree contains all product lines supported in
+                 the Net-Net 4000 Series product line." 
+	::= { acmepacketProducts 1 }
+
+apNetNet4250 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 4250 product." 
+	::= { apNetNet4000Series 1 }
+
+apNetNet4500 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 4500 product." 
+	::= { apNetNet4000Series 2 }
+
+apNetNet4600 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 4600 product." 
+	::= { apNetNet4000Series 3 }
+
+apNetNet4900 OBJECT-IDENTITY
+    STATUS  current
+    DESCRIPTION
+        "The Net-Net 4900 product."
+    ::= { apNetNet4000Series 4 }
+
+apNetNet9000Series OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"This is subtree contains all product lines supported in
+                 the Net-Net 9000 Series product line." 
+	::= { acmepacketProducts 2 }
+
+apNetNet9200 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 9200 product." 
+	::= { apNetNet9000Series 1 }
+
+apNetNet3000Series OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"This is subtree contains all product lines supported in
+                 the Net-Net 3000 Series product line." 
+	::= { acmepacketProducts 3 }
+
+apNetNet3800 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 3800 product." 
+	::= { apNetNet3000Series 1 }
+
+apNetNet3820 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 3820 product." 
+	::= { apNetNet3000Series 2 }
+
+apNetNet3900 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 3900 product." 
+	::= { apNetNet3000Series 3 }
+
+apNetNetOSSeries OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"This is subtree contains all product lines supported in
+                 the Net-Net OS Series product line." 
+	::= { acmepacketProducts 4 }
+
+apNetNetOS OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net OS running on third party hardware." 
+	::= { apNetNetOSSeries 1 }
+
+apNetNetOSVM OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net OS running in a virtual machine environment."
+	::= { apNetNetOSSeries 2 }
+
+apNetNet6000Series OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"This is subtree contains all product lines supported in
+                 the Net-Net 6000 Series product line." 
+	::= { acmepacketProducts 5 }
+
+apNetNet6300 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 6300 product." 
+	::= { apNetNet6000Series 1 }
+
+apNetNet6100 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 6100 product." 
+	::= { apNetNet6000Series 2 }
+
+apNetNet6350 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 6350 product." 
+	::= { apNetNet6000Series 3 }
+
+apNetNet1000Series OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"This is subtree contains all product lines supported in
+                 the Net-Net 1000 Series product line."
+	::= { acmepacketProducts 6 }
+
+apNetNet1100 OBJECT-IDENTITY
+	STATUS	current
+	DESCRIPTION
+		"The Net-Net 1100 product." 
+	::= { apNetNet1000Series 1 }
+END

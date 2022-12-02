@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MDS-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Thu Sep 29 13:10:39 2022
-# On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner
-# Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]
+# Produced by pysmi-1.1.8 at Fri Dec  2 15:53:30 2022
+# On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner
+# Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 mdsSystem, = mibBuilder.importSymbols("MDS-ORBIT-SMI-MIB", "mdsSystem")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter32, iso, ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Bits, Gauge32, IpAddress, Counter64, NotificationType, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Bits", "Gauge32", "IpAddress", "Counter64", "NotificationType", "TimeTicks", "Unsigned32")
-DateAndTime, DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention", "TruthValue")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+iso, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ObjectIdentity, NotificationType, TimeTicks, MibIdentifier, Counter64, Counter32, IpAddress, Gauge32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ObjectIdentity", "NotificationType", "TimeTicks", "MibIdentifier", "Counter64", "Counter32", "IpAddress", "Gauge32", "ModuleIdentity")
+TextualConvention, TruthValue, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString", "DateAndTime")
 mdsSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 10, 1, 1))
 mdsSystemMIB.setRevisions(('2019-11-18 00:00', '2018-05-16 00:00', '2014-02-10 00:00',))
 
@@ -110,4 +110,4 @@ mSysMprStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4130, 10, 1, 1, 3, 2, 2)).se
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mSysMprStatusGroup = mSysMprStatusGroup.setStatus('current')
 if mibBuilder.loadTexts: mSysMprStatusGroup.setDescription('A collection of objects providing information about\n        Orbit MPR system status.')
-mibBuilder.exportSymbols("MDS-SYSTEM-MIB", mSysAutoUpdateState=mSysAutoUpdateState, mSysLocation=mSysLocation, mSysMprPowerSupplyVoltage1=mSysMprPowerSupplyVoltage1, mSysMprStatusGroup=mSysMprStatusGroup, FirmwareLocation=FirmwareLocation, mSysMprHeatsinkTemperature2=mSysMprHeatsinkTemperature2, PYSNMP_MODULE_ID=mdsSystemMIB, mSysFirmwareVersionEntry=mSysFirmwareVersionEntry, mSysConfig=mSysConfig, mSysMIBObjects=mSysMIBObjects, mSysActive=mSysActive, mSysStatusGroup=mSysStatusGroup, mSysGuid=mSysGuid, mSysPowerSupplyVoltage=mSysPowerSupplyVoltage, mSysProductConfiguration=mSysProductConfiguration, mdsSystemMIB=mdsSystemMIB, mSysSerialNumberPlatform=mSysSerialNumberPlatform, mdsSysMIBCompliances=mdsSysMIBCompliances, mSysMprHeatsinkTemperature1=mSysMprHeatsinkTemperature1, mSysSerialNumberCore=mSysSerialNumberCore, mSysUptime=mSysUptime, mSysCompliance=mSysCompliance, mdsSysMIBGroups=mdsSysMIBGroups, mSysVersion=mSysVersion, mSysMprPowerSupplyVoltage2=mSysMprPowerSupplyVoltage2, mSysStatus=mSysStatus, mSysTemperature=mSysTemperature, mSysMprRelaySwitchPosition=mSysMprRelaySwitchPosition, mSysMprStatus=mSysMprStatus, mSysBootDateTime=mSysBootDateTime, mSysFirmwareVersionTable=mSysFirmwareVersionTable, mSysCurrentDateTime=mSysCurrentDateTime, mSysAutoUpdateDetails=mSysAutoUpdateDetails, mdsSysMIBConformance=mdsSysMIBConformance)
+mibBuilder.exportSymbols("MDS-SYSTEM-MIB", mSysMprPowerSupplyVoltage2=mSysMprPowerSupplyVoltage2, mSysVersion=mSysVersion, mSysMprHeatsinkTemperature1=mSysMprHeatsinkTemperature1, mSysAutoUpdateState=mSysAutoUpdateState, mSysSerialNumberPlatform=mSysSerialNumberPlatform, mdsSysMIBGroups=mdsSysMIBGroups, mSysStatusGroup=mSysStatusGroup, mSysAutoUpdateDetails=mSysAutoUpdateDetails, mSysPowerSupplyVoltage=mSysPowerSupplyVoltage, mSysMprRelaySwitchPosition=mSysMprRelaySwitchPosition, mSysFirmwareVersionEntry=mSysFirmwareVersionEntry, mSysMprStatus=mSysMprStatus, mSysUptime=mSysUptime, mSysActive=mSysActive, mSysMIBObjects=mSysMIBObjects, mSysMprStatusGroup=mSysMprStatusGroup, mSysConfig=mSysConfig, mSysLocation=mSysLocation, mdsSysMIBConformance=mdsSysMIBConformance, mdsSysMIBCompliances=mdsSysMIBCompliances, mSysGuid=mSysGuid, mSysCompliance=mSysCompliance, FirmwareLocation=FirmwareLocation, mSysFirmwareVersionTable=mSysFirmwareVersionTable, mSysBootDateTime=mSysBootDateTime, mdsSystemMIB=mdsSystemMIB, mSysSerialNumberCore=mSysSerialNumberCore, mSysProductConfiguration=mSysProductConfiguration, PYSNMP_MODULE_ID=mdsSystemMIB, mSysCurrentDateTime=mSysCurrentDateTime, mSysMprPowerSupplyVoltage1=mSysMprPowerSupplyVoltage1, mSysMprHeatsinkTemperature2=mSysMprHeatsinkTemperature2, mSysTemperature=mSysTemperature, mSysStatus=mSysStatus)

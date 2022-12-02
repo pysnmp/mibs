@@ -1,0 +1,621 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Integer32",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apNNCItuX733AlarmModule": {
+    "name": "apNNCItuX733AlarmModule",
+    "oid": "1.3.6.1.4.1.9148.3.8.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-07-20 00:00",
+        "description": "Initial version"
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2018-03-28 00:00",
+        "description": "Resolved compilation issue for apNNCItuX733AdditionalInformation Object"
+      }
+    ]
+  },
+  "acmepacket": {
+    "name": "acmepacket",
+    "oid": "1.3.6.1.4.1.9148",
+    "class": "objectidentity"
+  },
+  "acmepacketMgmt": {
+    "name": "acmepacketMgmt",
+    "oid": "1.3.6.1.4.1.9148.3",
+    "class": "objectidentity"
+  },
+  "apEMSModule": {
+    "name": "apEMSModule",
+    "oid": "1.3.6.1.4.1.9148.3.8",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733AlarmMIBObjects": {
+    "name": "apNNCItuX733AlarmMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.1",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733NotificationObjects": {
+    "name": "apNNCItuX733NotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733NotificationId": {
+    "name": "apNNCItuX733NotificationId",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733ManagedObjectClass": {
+    "name": "apNNCItuX733ManagedObjectClass",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733ManagedObjectInstance": {
+    "name": "apNNCItuX733ManagedObjectInstance",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733PerceivedSeverity": {
+    "name": "apNNCItuX733PerceivedSeverity",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "indeterminate": 2,
+          "critical": 3,
+          "major": 4,
+          "minor": 5,
+          "warning": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733EventTime": {
+    "name": "apNNCItuX733EventTime",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733EventType": {
+    "name": "apNNCItuX733EventType",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "communicationsAlarm": 2,
+          "qualityOfServiceAlarm": 3,
+          "processingErrorAlarm": 4,
+          "equipmentAlarm": 5,
+          "environmentalAlarm": 6,
+          "integrityViolation": 7,
+          "operationalViolation": 8,
+          "physicalViolation": 9,
+          "securityServiceOrMechanismViolation": 10,
+          "timeDomainViolation": 11
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733ProbableCause": {
+    "name": "apNNCItuX733ProbableCause",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "adapterError": 2,
+          "applicationSubsystemFailure": 3,
+          "bandwidthReduced": 4,
+          "callEstablishmentError": 5,
+          "communicationsProtocolError": 6,
+          "communicationsSubsystemFailure": 7,
+          "configurationOrCustomizationError": 8,
+          "congestion": 9,
+          "corruptData": 10,
+          "cpuCyclesLimitExceeded": 11,
+          "dataSetOrModemError": 12,
+          "degradedSignal": 13,
+          "dteDceInterfaceError": 14,
+          "enclosureDoorOpen": 15,
+          "equipmentMalfunction": 16,
+          "excessiveVibration": 17,
+          "fileError": 18,
+          "fireDetected": 19,
+          "floodDetected": 20,
+          "framingError": 21,
+          "heatingVentCoolingSystemProblem": 22,
+          "humidityUnacceptable": 23,
+          "inputOutputDeviceError": 24,
+          "inputDeviceError": 25,
+          "lanError": 26,
+          "leakDetected": 27,
+          "localNodeTransmissionError": 28,
+          "lossOfFrame": 29,
+          "lossOfSignal": 30,
+          "materialSupplyExhausted": 31,
+          "multiplexerProblem": 32,
+          "outOfMemory": 33,
+          "ouputDeviceError": 34,
+          "performanceDegraded": 35,
+          "powerProblem": 36,
+          "pressureUnacceptable": 37,
+          "processorProblem": 38,
+          "pumpFailure": 39,
+          "queueSizeExceeded": 40,
+          "receiveFailure": 41,
+          "receiverFailure": 42,
+          "remoteNodeTransmissionError": 43,
+          "resourceAtOrNearingCapacity": 44,
+          "responseTimeExecessive": 45,
+          "retransmissionRateExcessive": 46,
+          "softwareError": 47,
+          "softwareProgramAbnormallyTerminated": 48,
+          "softwareProgramError": 49,
+          "storageCapacityProblem": 50,
+          "temperatureUnacceptable": 51,
+          "thresholdCrossed": 52,
+          "timingProblem": 53,
+          "toxicLeakDetected": 54,
+          "transmitFailure": 55,
+          "transmitterFailure": 56,
+          "underlyingResourceUnavailable": 57,
+          "versionMismatch": 58,
+          "authenticationFailure": 59,
+          "breachOfConfidentiality": 60,
+          "cableTamper": 61,
+          "delayedInformation": 62,
+          "denialOfService": 63,
+          "duplicateInformation": 64,
+          "informationMissing": 65,
+          "informationModificationDetected": 66,
+          "informationOutOfSequence": 67,
+          "intrusionDetection": 68,
+          "keyExpired": 69,
+          "nonRepudiationFailure": 70,
+          "outOfHoursActivity": 71,
+          "outOfService": 72,
+          "proceduralError": 73,
+          "unauthorizedAccessAttempt": 74,
+          "unexpectedInformation": 75
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733AdditionalText": {
+    "name": "apNNCItuX733AdditionalText",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733ThresholdInformation": {
+    "name": "apNNCItuX733ThresholdInformation",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733SpecificProblem": {
+    "name": "apNNCItuX733SpecificProblem",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733CorrelationNotificationIds": {
+    "name": "apNNCItuX733CorrelationNotificationIds",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733AdditionalInformation": {
+    "name": "apNNCItuX733AdditionalInformation",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733AdditionalInformationSeq": {
+    "name": "apNNCItuX733AdditionalInformationSeq",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalInformationIdentifier",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apNNCItuX733AdditionalInformationIdentifier": {
+    "name": "apNNCItuX733AdditionalInformationIdentifier",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "keyValue": 1,
+          "text": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "keyValue",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733AdditionalInformationIndicator": {
+    "name": "apNNCItuX733AdditionalInformationIndicator",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733AdditionalInformationInformation": {
+    "name": "apNNCItuX733AdditionalInformationInformation",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733ProposedRepairAction": {
+    "name": "apNNCItuX733ProposedRepairAction",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apNNCItuX733Notifications": {
+    "name": "apNNCItuX733Notifications",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.3",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733NotificationsPrefix": {
+    "name": "apNNCItuX733NotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.3.0",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733Notification": {
+    "name": "apNNCItuX733Notification",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733NotificationId"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ManagedObjectClass"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ManagedObjectInstance"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733PerceivedSeverity"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733EventTime"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733EventType"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ProbableCause"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalText"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ThresholdInformation"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733SpecificProblem"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733CorrelationNotificationIds"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalInformation"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ProposedRepairAction"
+      }
+    ],
+    "status": "current"
+  },
+  "apNNCItuX733ModuleConformance": {
+    "name": "apNNCItuX733ModuleConformance",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.4",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733Groups": {
+    "name": "apNNCItuX733Groups",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.4.1",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733NotificationsGroups": {
+    "name": "apNNCItuX733NotificationsGroups",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.4.2",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733NotificationObjectsGroups": {
+    "name": "apNNCItuX733NotificationObjectsGroups",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.4.3",
+    "class": "objectidentity"
+  },
+  "apNNCItuX733NotificationsGroup": {
+    "name": "apNNCItuX733NotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.4.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733Notification"
+      }
+    ],
+    "status": "current"
+  },
+  "apNNCItuX733NotificationObjectsGroup": {
+    "name": "apNNCItuX733NotificationObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.8.6.4.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733NotificationId"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ManagedObjectClass"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ManagedObjectInstance"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733PerceivedSeverity"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733EventTime"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733EventType"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ProbableCause"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalText"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ThresholdInformation"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733SpecificProblem"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733CorrelationNotificationIds"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalInformationIdentifier"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalInformationIndicator"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733AdditionalInformationInformation"
+      },
+      {
+        "module": "APNNCItuX733Alarm-MIB",
+        "object": "apNNCItuX733ProposedRepairAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APNNCItuX733Alarm-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APNNCItuX733Alarm-MIB"
+  }
+}

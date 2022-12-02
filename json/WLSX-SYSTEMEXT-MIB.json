@@ -6,43 +6,43 @@
     ],
     "ARUBA-TC": [
       "ArubaActiveState",
-      "ArubaSwitchRole",
-      "ArubaCardType"
+      "ArubaCardType",
+      "ArubaSwitchRole"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
       "IpAddress",
       "Counter64",
-      "Gauge32",
-      "snmpModules"
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "snmpModules",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TDomain",
       "TestAndIncr",
-      "MacAddress",
-      "RowStatus",
       "TAddress",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "TimeInterval",
       "StorageType",
-      "PhysAddress"
+      "TruthValue",
+      "DisplayString",
+      "PhysAddress",
+      "MacAddress",
+      "TDomain",
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "wlsxSystemExtMIB": {
@@ -1671,9 +1671,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SYSTEMEXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:03:13 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:47:07 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "WLSX-SYSTEMEXT-MIB"
   }

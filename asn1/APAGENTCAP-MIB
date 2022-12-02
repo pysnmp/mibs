@@ -1,0 +1,2886 @@
+--------------------------------------------------------------------------------
+-- ACMEPACKET-AGENTCAP-MIB.txt:  Acme Packet agent capability MIB file
+--
+-- August 2001, pzhou
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+---------------------------------------------------------------
+
+
+APAGENTCAP-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+	enterprises, snmpModules, mib-2 
+		 				FROM SNMPv2-SMI
+	MODULE-COMPLIANCE, AGENT-CAPABILITIES
+						FROM SNMPv2-CONF
+	acmepacketAgentCapability 	FROM ACMEPACKET-SMI;
+
+apAgentCapModule MODULE-IDENTITY
+		LAST-UPDATED	"201904240000Z"
+		ORGANIZATION 	"Oracle Communications"
+		CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+		DESCRIPTION	
+			" Agent capability MIB for Oracle Communications Acme Packet SBCs."
+ 		REVISION 	"200108010000Z"
+		DESCRIPTION
+			" The initial version."
+		REVISION	"200411180000Z"
+		DESCRIPTION
+			" Add agent capacity for release 2.0. "
+		REVISION 	"200605010000Z"
+		DESCRIPTION
+			" Add agent capability for SD9000 series"
+		REVISION 	"200705070000Z"
+		DESCRIPTION
+			" Add agent capability for SD9000 series"
+		REVISION 	"2012150000Z"
+		DESCRIPTION
+			" Add agent capability for ap-dd.mib"
+		REVISION 	"201203070000Z"
+		DESCRIPTION
+			" Add agent capability for ap-apps.mib"
+		REVISION    "201207160000Z" 			
+	    	DESCRIPTION
+			"Updated contact information."
+		REVISION    "201402260000Z" 			
+	    	DESCRIPTION
+			"Added new capability object apIfMibVHCCap."
+		REVISION    "201406200000Z"
+	    	DESCRIPTION
+		    	" Added new capability object, apSmgmtCPULoadAvgCap"
+                REVISION "201406260000Z" 			
+                DESCRIPTION
+			"Updated Organization and Contact info."
+                REVISION "201702090000Z" 			
+                DESCRIPTION
+			"Updated capabiltiy information for diameter authentication notification"
+		REVISION    "201710180000Z"
+	    	DESCRIPTION
+		    	" Added new capability object apSecurityTacacsDownLocalAuthCap"
+                REVISION    "201711240000Z"
+                DESCRIPTION
+                        "Added new capability object apSipVoLTECountersCap for SRVCC,
+                         Diameter Rx Policy Server, IKE SA, IMS-AKA SA and SRTP SA,
+                         licensed codec session stats, TCU Load Statistics,
+                         and licensed codec capaciites."
+
+		REVISION    "201712140000Z" 			
+	    	DESCRIPTION
+                        "Added new capability objects apSmgmtSipMethodStatsCap, apSipCallInformationCap"
+
+		REVISION    "201804100000Z" 			
+	    	DESCRIPTION
+                        "Added new capability object apSipSRVCCPreAlertingStatsCap for SRVCC Pre-Alerting stats"
+
+                REVISION    "201804270000Z"
+                DESCRIPTION
+                        "Added new capability objects apSipRegEvtSubscriptionCap for SIP Reg Event Subscriptions."
+
+                REVISION    "201904240000Z"
+                DESCRIPTION
+                        "Added new capability objects apSipMSRPStatsCap for MSRP statistics."
+
+		::= { acmepacketAgentCapability 1}
+
+-- standard mibs modules
+apSnmpMibCapabilities   OBJECT IDENTIFIER ::= { apAgentCapModule 1 }
+apIfMibCapabilities     OBJECT IDENTIFIER ::= { apAgentCapModule 2 }
+apIPMibCapabilities     OBJECT IDENTIFIER ::= { apAgentCapModule 3 }
+apTCPMibCapabilities    OBJECT IDENTIFIER ::= { apAgentCapModule 4 }
+apUDPMibCapabilities    OBJECT IDENTIFIER ::= { apAgentCapModule 5 }
+apEntityCapabilities    OBJECT IDENTIFIER ::= { apAgentCapModule 6 }
+
+-- enterprise specific mibs
+apSlogMibCapabilities          OBJECT IDENTIFIER ::= { apAgentCapModule  7 }
+apSmgmtMibCapabilities         OBJECT IDENTIFIER ::= { apAgentCapModule  8 }
+apEnvMonitorMibCapabilities    OBJECT IDENTIFIER ::= { apAgentCapModule  9 }
+apSwinventoryMibCapabilities   OBJECT IDENTIFIER ::= { apAgentCapModule 10 }
+apLicenseMibCapabilities       OBJECT IDENTIFIER ::= { apAgentCapModule 11 }
+apAmiMibCapabilities           OBJECT IDENTIFIER ::= { apAgentCapModule 12 }
+apCodecMibCapabilities         OBJECT IDENTIFIER ::= { apAgentCapModule 13 }
+apSecurityMibCapabilities      OBJECT IDENTIFIER ::= { apAgentCapModule 14 }
+apH323MibCapabilites           OBJECT IDENTIFIER ::= { apAgentCapModule 15 } 
+apSLBMibCapabilities           OBJECT IDENTIFIER ::= { apAgentCapModule 16 } 
+apDiamMibCapabilities          OBJECT IDENTIFIER ::= { apAgentCapModule 17 }
+apDDMibCapabilities            OBJECT IDENTIFIER ::= { apAgentCapModule 18 } 
+apDNSALGMibCapabilities        OBJECT IDENTIFIER ::= { apAgentCapModule 19 }
+apAppsMibCapabilities          OBJECT IDENTIFIER ::= { apAgentCapModule 20 }
+apSipMibCapabilities           OBJECT IDENTIFIER ::= { apAgentCapModule 21 }
+apUsbcSysMibCapabilities       OBJECT IDENTIFIER ::= { apAgentCapModule 22 }
+apRadiusMibCapabilities        OBJECT IDENTIFIER ::= { apAgentCapModule 23 }
+apCoreLbMibCapabilities        OBJECT IDENTIFIER ::= { apAgentCapModule 24 }
+apUsbcSysDPDKMibCapabilities   OBJECT IDENTIFIER ::= { apAgentCapModule 25 }
+apUsbcSysScalingMibCapabilities OBJECT IDENTIFIER ::= { apAgentCapModule 26 }
+apUsbcSysThreadMibCapabilities OBJECT IDENTIFIER ::= { apAgentCapModule 27 }
+apUsbcSysThreadMibCapabilities2 OBJECT IDENTIFIER ::= { apAgentCapModule 28 }
+apUsbcSysSmMibCapabilities OBJECT IDENTIFIER ::= { apAgentCapModule 29 }
+apUsbcSysThreadMibCapabilities3 OBJECT IDENTIFIER ::= { apAgentCapModule 30 }
+apAclDropMibCapabilities       OBJECT IDENTIFIER ::= { apAgentCapModule 31 }
+apCsvConfigMibCapabilities         OBJECT IDENTIFIER ::= { apAgentCapModule  32 }
+--------------------------------------------------------------
+-- 
+-- Following are the Standard Groups that we supports
+--
+--------------------------------------------------------------
+
+
+--------------------------------------------------------------
+--
+-- snmpMib
+--
+--------------------------------------------------------------
+
+apSnmpCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	      STATUS		 current
+	      DESCRIPTION	"Acme Packet Agent Capability for SNMPv2-MIB."
+
+	      SUPPORTS	SNMPv2-MIB
+	      INCLUDES        { systemGroup,
+				snmpGroup,
+				snmpCommunityGroup, 
+				snmpObsoleteGroup,
+				snmpBasicNotificationsGroup }
+	          ::= { apSnmpMibCapabilities 1 }
+
+apSnmpv3Cap AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	      STATUS		 current
+	      DESCRIPTION	"Acme Packet Agent Capability for SNMPv3 MIBs."
+
+	      SUPPORTS	SNMPv2-MIB
+	      INCLUDES        { snmpCommunityGroup }
+
+	      SUPPORTS	SNMP-TARGET-MIB
+	      INCLUDES        { snmpTargetBasicGroup }
+
+	      VARIATION       snmpTargetSpinLock
+              ACCESS          not-implemented
+              DESCRIPTION   "information is not available"
+
+	      SUPPORTS	SNMP-NOTIFICATION-MIB
+	      INCLUDES        { snmpNotifyGroup }
+
+	      SUPPORTS	SNMP-USER-BASED-SM-MIB
+	      INCLUDES        { usmMIBBasicGroup }
+
+	      VARIATION       usmStats
+              ACCESS          not-implemented
+              DESCRIPTION  "usmStats are provided in ACLI command show snmp-info stats"
+
+	      SUPPORTS	SNMP-VIEW-BASED-ACM-MIB
+	      INCLUDES        { vacmBasicGroup }
+
+	      VARIATION       vacmContextName
+              ACCESS          not-implemented
+              DESCRIPTION  "only default context is supported"
+
+	      VARIATION       vacmViewSpinLock
+              ACCESS          not-implemented
+              DESCRIPTION  "not supported"
+	      
+	          ::= { apSnmpMibCapabilities 2 }
+
+
+--------------------------------------------------------------
+-- 
+-- ifMIB
+-- 
+--------------------------------------------------------------
+
+apInterfacesCap  AGENT-CAPABILITIES
+              PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	      STATUS		 current
+	      DESCRIPTION	"Acme Packet Agent Capability for interfaces."
+
+  	      SUPPORTS	IF-MIB
+ 		   	INCLUDES	{ ifGeneralInformationGroup,
+					  ifPacketGroup,
+					  ifOldObjectsGroup,
+					  linkUpDownNotificationsGroup }
+
+			VARIATION               ifLinkUpDownTrapEnable
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifConnectorPresent
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifHighSpeed
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION		ifAdminStatus
+			  ACCESS		read-only
+			  DESCRIPTION	"Agent does not support any
+                                         SET request for security reason"
+
+			VARIATION               ifAlias
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifTableLastChange
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifInUnknownProtos
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION		ifInMulticastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+	
+			VARIATION		ifInBroadcastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifOutMulticastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifOutBroadcastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifPromiscuousMode
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifOutQLen
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+		  ::= { apIfMibCapabilities 1 }
+
+apIfMibCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability IfMib support."
+            SUPPORTS		IF-MIB
+ 		   	INCLUDES	{ ifGeneralGroup,
+					  ifPacketGroup,
+                                          ifOldObjectsGroup,
+					  ifStackGroup,
+					  linkUpDownNotificationsGroup
+					}
+
+                        VARIATION               ifLinkUpDownTrapEnable
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifHighSpeed
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION		ifAdminStatus
+			  ACCESS		read-only
+			  DESCRIPTION	"Agent does not support any SET
+                                         request for security reason"	
+
+			VARIATION               ifAlias
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifTableLastChange
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION		ifInMulticastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+	
+			VARIATION		ifInBroadcastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifOutMulticastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifOutBroadcastPkts
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifPromiscuousMode
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+			VARIATION		ifOutQLen
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+            ::= { apIfMibCapabilities 2 }
+
+
+apIfMibHCCap  AGENT-CAPABILITIES
+              PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	      STATUS		 current
+	      DESCRIPTION	"Acme Packet Agent Capability for interfaces."
+
+  		SUPPORTS	IF-MIB
+ 		   INCLUDES	{ ifGeneralGroup,
+				  ifPacketGroup,
+				  ifOldObjectsGroup,
+				  ifHCPacketGroup,
+				  ifCounterDiscontinuityGroup,
+				  linkUpDownNotificationsGroup 
+				}
+
+			VARIATION               ifLinkUpDownTrapEnable
+                          ACCESS                read-only
+			  DESCRIPTION	"Agent does not support any
+					SET request for security reasons"
+
+			VARIATION		ifAdminStatus
+			  ACCESS		read-only
+			  DESCRIPTION	"Agent does not support any
+					SET request for security reasons"
+
+			VARIATION               ifTableLastChange
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifInUnknownProtos
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION		ifOutQLen
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+		  ::= { apIfMibCapabilities 3 }
+
+
+apIfMibVHCCap  AGENT-CAPABILITIES
+              PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	      STATUS		 current
+	      DESCRIPTION	"Acme Packet Agent Capability for interfaces."
+
+  		SUPPORTS	IF-MIB
+ 		   INCLUDES	{ ifGeneralGroup,
+				  ifPacketGroup,
+				  ifOldObjectsGroup,
+				  ifVHCPacketGroup,
+				  linkUpDownNotificationsGroup 
+				}
+
+			VARIATION               ifLinkUpDownTrapEnable
+                          ACCESS                read-only
+			  DESCRIPTION	"Agent does not support any
+					SET request for security reasons"
+
+			VARIATION		ifAdminStatus
+			  ACCESS		read-only
+			  DESCRIPTION	"Agent does not support any
+					SET request for security reasons"
+
+			VARIATION               ifTableLastChange
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION               ifInUnknownProtos
+                          ACCESS                not-implemented
+                          DESCRIPTION   "information is not available"
+
+			VARIATION		ifOutQLen
+			  ACCESS		not-implemented
+			  DESCRIPTION	"information is not available"
+
+		  ::= { apIfMibCapabilities 4 }
+
+
+--------------------------------------------------------------
+-- 
+-- ipMib
+-- 
+--------------------------------------------------------------
+
+apIpCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability IP support."
+		SUPPORTS	IP-MIB
+		INCLUDES	{ ipGroup,icmpGroup }
+
+		VARIATION	ipForwarding
+		ACCESS		read-only
+	        DESCRIPTION	"read-only access"
+
+		VARIATION	ipDefaultTTL
+		  ACCESS	read-only
+		  DESCRIPTION	"read-only access"
+
+		VARIATION		ipNetToMediaIfIndex
+		  ACCESS		not-implemented
+		  DESCRIPTION	"information is not available"
+
+		VARIATION		ipNetToMediaPhysAddress
+		  ACCESS		not-implemented
+		  DESCRIPTION	"information is not available"
+
+		VARIATION		ipNetToMediaNetAddress
+		  ACCESS		not-implemented
+		  DESCRIPTION	"information is not available"
+
+		VARIATION		ipNetToMediaType
+		  ACCESS		not-implemented
+	  	  DESCRIPTION		"information is not available"
+
+            ::= { apIPMibCapabilities 1 }
+
+
+apIpCap2 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability IP support."
+		SUPPORTS	IP-MIB
+		INCLUDES	{ ipGroup, icmpGroup }
+
+		VARIATION	ipForwarding
+		ACCESS		read-only
+	        DESCRIPTION	"read-only access"
+
+		VARIATION	ipDefaultTTL
+		  ACCESS	read-only
+		  DESCRIPTION	"read-only access"
+
+            ::= { apIPMibCapabilities 2 }
+
+apIcmpStatsCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability IP-FORWARD support."
+		SUPPORTS	IP-MIB
+		INCLUDES	{ icmpStatsGroup }
+
+            ::= { apIPMibCapabilities 3 }
+
+--------------------------------------------------------------
+--
+-- tcp
+--
+--------------------------------------------------------------
+
+apTcpCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability TCP support."
+	    SUPPORTS            TCP-MIB
+		INCLUDES        { tcpGroup }
+                VARIATION       tcpConnState
+                ACCESS          read-only
+                DESCRIPTION   "Agent does not support SET requests"
+            ::= { apTCPMibCapabilities 1 }
+
+
+apTcpCap2 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability TCP support."
+	    SUPPORTS            TCP-MIB
+		INCLUDES        { tcpConnectionGroup, tcpListenerGroup, tcpHCGroup}
+                VARIATION       tcpConnState
+                ACCESS          read-only
+                DESCRIPTION   "Agent does not support SET requests"
+            ::= { apTCPMibCapabilities 2 }
+
+
+--------------------------------------------------------------
+-- 
+-- udpMib
+-- 
+--------------------------------------------------------------
+
+
+apUdpCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability UDP support."
+	    SUPPORTS            UDP-MIB
+		INCLUDES        { udpGroup }
+            ::= {  apUDPMibCapabilities 1 }
+
+apUdpCap2 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability UDP support."
+	    SUPPORTS            UDP-MIB
+		INCLUDES        { udpHCGroup, udpEndpointGroup}
+            ::= {  apUDPMibCapabilities 2 }
+
+--------------------------------------------------------------
+--
+-- entity mib
+--
+--------------------------------------------------------------
+
+apEntityCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Acme Packet for Relase 2.0"
+	    STATUS          	current
+            DESCRIPTION		"Acme Packet Agent Capability for entity MIB."
+	    SUPPORTS		ENTITY-MIB
+		INCLUDES        { entityPhysicalGroup,
+				  entityGeneralGroup,
+				  entityPhysical2Group }
+	    ::= { apEntityCapabilities 1 }
+
+
+
+		  
+--------------------------------------------------------------
+--
+-- enterprise specific mibs
+--
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+-- 
+-- syslog MIB
+-- 
+--------------------------------------------------------------
+
+apSyslogCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	      STATUS		 current
+	      DESCRIPTION	"Acme Packet Agent Capability for enterprise
+                                 syslog MIB."
+
+		SUPPORTS		APSYSLOG-MIB
+			INCLUDES	{ apSyslogGroup,
+					  apSyslogNotificationsGroup }
+  		::= { apSlogMibCapabilities 1 }
+---------------------------------------------------------------------------
+--
+-- CSV Config MIB
+--
+---------------------------------------------------------------------------
+apCsvConfigSaveCap AGENT-CAPABILITIES 
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 CSV Config mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {apSysMgmtCsvConfigSaveFailTrapGroup}
+            ::= { apCsvConfigMibCapabilities 1 }
+
+--------------------------------------------------------------
+-- 
+-- system management MIB
+-- 
+--------------------------------------------------------------
+		
+
+apSmgmtCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtGeneralGroup,
+				  apSysMgmtCombinedGroup,
+				  apSysMgmtSipGroup,
+				  apSysMgmtH323Group,
+				  apSysMgmtSigRealmGroup,
+				  apSysMgmtNotificationsGroup,
+				  apSysMgmtObsoleteNotificationsGroup,
+				  apSysMgmtH323NotificationsGroup }
+  	    ::= { apSmgmtMibCapabilities 1 }
+
+
+
+apSmgmtCap2 AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system management MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtGeneralGroup,
+				  apSysMgmtSipGroup,
+		                  apSysMgmtSigRealmGroup,
+				  apSysMgmtNotificationsGroup,
+				  apSysMgmtNotificationsGroup2
+				 }
+
+                VARIATION       apSysCPUUtil
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysMemoryUtil
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysHealthScore
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysRedundancy
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysState
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysMgmtPowerTrap
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release.
+				it has been replaced with the
+				apEnvMonVoltageChangeNotification"
+
+                VARIATION       apSysMgmtTempTrap
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release.
+				it has been replace with the
+				apEnvMonTempChangeNotification"
+
+                VARIATION       apSysMgmtFanTrap
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysMgmtRedundancyTrap
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysMgmtSystemStateTrap
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysMgmtTaskDeleteTrap
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+  	    ::= { apSmgmtMibCapabilities 2 }
+
+
+apSmgmtCap3 AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtGeneralGroup,
+				  apSysMgmtCombinedGroup,
+				  apSysMgmtSipGroup,
+				  apSysMgmtH323Group,
+				  apSysMgmtSigRealmGroup,
+				  apSysMgmtCtrlStatsGroup,
+				  apSysMgmtENUMServerStatusGroup,
+				  apSysMgmtNotificationsGroup,
+				  apSysMgmtObsoleteNotificationsGroup,
+				  apSysMgmtH323NotificationsGroup,
+				  apSysMgmtNotificationsGroup3
+				}
+  	    ::= { apSmgmtMibCapabilities 3 }
+
+
+apSmgmtCap4 AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtGeneralGroup,
+				  apSysMgmtCombinedGroup,
+				  apSysMgmtSipGroup,
+				  apSysMgmtH323Group,
+				  apSysMgmtSigRealmGroup,
+				  apSysMgmtCtrlStatsGroup,
+				  apSysMgmtENUMServerStatusGroup,
+				  apSysMgmtNSEPStatsGroup,
+				  apSysMgmtNotificationsGroup,
+				  apSysMgmtObsoleteNotificationsGroup,
+				  apSysMgmtH323NotificationsGroup,
+				  apSysMgmtNotificationsGroup3,
+				  apSysMgmtNTPNotificationsGroup,
+				  apSysMgmtRegNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 4 }
+
+
+apSmgmtCap5 AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtGeneralGroup,
+				  apSysMgmtCombinedGroup,
+				  apSysMgmtSipGroup,
+				  apSysMgmtH323Group,
+				  apSysMgmtSigRealmGroup,
+				  apSysMgmtCtrlStatsGroup,
+				  apSysMgmtENUMServerStatusGroup,
+				  apSysMgmtNotificationsGroup,
+				  apSysMgmtObsoleteNotificationsGroup,
+				  apSysMgmtH323NotificationsGroup,
+				  apSysMgmtNotificationsGroup3,
+				  apSysMgmtHDRNotificationsGroup,
+				  apSysMgmtMediaNotificationsGroup,
+				  apSysMgmtH248NotificationsGroup,
+				  apSysMgmtRFactorNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 5 }
+
+apSmgmtCap6 AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtGeneralGroup,
+				  apSysMgmtCombinedGroup,
+				  apSysMgmtSipGroup,
+				  apSysMgmtH323Group,
+				  apSysMgmtSigRealmGroup,
+				  apSysMgmtCtrlStatsGroup,
+				  apSysMgmtENUMServerStatusGroup,
+				  apSysMgmtNotificationsGroup,
+				  apSysMgmtDOSNotificationsGroup,
+				  apSysMgmtH323NotificationsGroup,
+				  apSysMgmtNotificationsGroup3,
+				  apSysMgmtHDRNotificationsGroup,
+                                  apSysMgmtInetAddrDOSTrustedtoUntrustedNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 6 }
+
+apSmgmtNSEPCap
+	AGENT-CAPABILITIES
+        PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	STATUS		 current
+	DESCRIPTION	"Acme Packet Agent Capability for enterprise 
+                         system mamgerment MIB."
+
+    	SUPPORTS	APSYSMGMT-MIB
+	   INCLUDES	{ apSysMgmtNSEPStatsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 7 }
+
+apSmgmtCtrlStatsCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ apSysMgmtCtrlStatsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 8 }
+
+apSmgmtLDAPCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtLDAPServerStatusNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 9 }
+
+
+apSmgmtHDRCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{
+				   apSysMgmtHDRNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 10 }
+
+apSmgmtMediaSuperCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtMediaNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 11 }
+
+apSmgmtH248Cap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtH248NotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 12 }
+
+apSmgmtRFactorCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtRFactorNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 13 }
+
+apSmgmtSipRejectCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtSipRejectNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 14 }
+
+apSmgmtDOSNotifyCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtDOSNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 15 }
+
+apSmgmtRegNotifyCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtRegNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 16 }
+
+apSmgmtNTPNotifyCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtNTPNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 17 }
+
+apSmgmtCollectorPushSuccessNotifyCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtCollectorPushSuccessNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 18 }
+
+apSmgmtExtSigRealmCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtExtSigRealmStatsGroup,
+                                  apSysMgmtRealmExceedNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 19 }
+
+
+apSmgmtClockNotifyCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtClockSkewNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 20 }
+
+apSmgmtRegistrationCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtRegistrationGroup
+                                }
+                VARIATION       apSysMgcpGWEndpoints
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+                VARIATION       apSysH323Registration 
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+            ::= { apSmgmtMibCapabilities 21 }
+
+apSmgmtRegistrationCap2
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtRegistrationGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 22 }
+
+apSmgmtRegCacheLimCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtRegCacheLimitGroup,
+				  apSysMgmtRegCacheLimitNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 23 }
+
+apSmgmtShortSessionCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtShortSessionGroup,
+				  apSysMgmtShortSessionNotificationsGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 24 }
+
+
+apSystemManagementGatewaySynchronizedMonitorCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                 apSysMgmtMonitorNetworkGatewaySynchronizedNotificationsGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 25 }
+
+apSmgmtRegistrationCap3
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtRegistrationGroup
+                                }
+                VARIATION       apSysMgcpGWEndpoints
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+
+            ::= { apSmgmtMibCapabilities 26 }
+
+apSmgmtCallRecordingCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtCallRecordingGroup,
+                                  apSysMgmtCallRecordingNotificationsGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 27 }
+
+apSmgmtH323AdditionsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtH323Group
+                                }
+
+            ::= { apSmgmtMibCapabilities 28 }
+
+
+apSmgmtENUMCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+
+                                  apSysMgmtENUMServerStatusGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 29 }
+
+
+apSmgmtExtSipCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+
+                                  apSysMgmtSipExtNotificationsGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 30 }
+
+
+apSmgmtRealmIcmpFailureCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtIcmpFailureNotificationsGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 31 }
+
+apSmgmtTrapTableObjectCap
+           AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtTrapTableObjectGroup 
+                                }
+
+            ::= { apSmgmtMibCapabilities 32 }
+
+apSmgmtCDRPushReceiverFailureCap
+           AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtCDRPushReceiverNotificationsGroup 
+                                }
+
+            ::= { apSmgmtMibCapabilities 33 }
+
+apSmgmtRealmStatsQoSCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtRealmStatsQoSGroup
+                                }
+
+            ::= { apSmgmtMibCapabilities 34 }
+
+apSmgmtInetAddrDOSNotifyCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtInetAddrDOSNotificationsGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 35 }
+
+
+
+apSmgmtApplicationCPUUsageCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        { apSysMgmtApplicationCPUUsageGroup
+                                }
+            ::= { apSmgmtMibCapabilities 36 }
+
+apSmgmtRegistrationCapacityCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               obsolete 
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        { apSysMgmtRegistrationCapacityGroup
+                                }
+            ::= { apSmgmtMibCapabilities 37 }
+
+apSmgmtRejectedMessagesCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise 
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        { 
+                                  apSysMgmtRejectedMessagesGroup,
+                                  apSysMgmtRejectedMessagesNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 38 }
+
+apSmgmtEndPtDemotionCap AGENT-CAPABILITIES
+	    PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+	    STATUS               current
+	    DESCRIPTION         "Acme Packet Agent Capability for enterprise
+	                         system management MIB."
+
+	    SUPPORTS            APSYSMGMT-MIB
+	        INCLUDES        {
+		                  apSysMgmtEndPtDemotionObjectGroup,
+				  apSysMgmtInetAddrWithReasonDOSNotificationsGroup
+				}
+
+	    ::= { apSmgmtMibCapabilities 39 }
+
+apSmgmtAdminCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+	    STATUS               current
+	    DESCRIPTION         "Acme Packet Agent Capability for enterprise
+	                         system management MIB."
+
+  	    SUPPORTS            APSYSMGMT-MIB
+	    INCLUDES            { 
+	                          apSysMgmtAdminGroup
+	                        }
+            ::= { apSmgmtMibCapabilities 40 }
+
+apSmgmtLPCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+	    STATUS               current
+	    DESCRIPTION         "Acme Packet Agent Capability for enterprise
+	                         system management MIB."
+
+  	    SUPPORTS            APSYSMGMT-MIB
+	    INCLUDES            { 
+	                          apSysMgmtLPGroup
+	                        }
+            ::= { apSmgmtMibCapabilities 41 }
+
+apSmgmtPhyUtilCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+                                  apSysMgmtPhyUtilGroup,
+                                  apSysMgmtPhyUtilNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 42 }
+
+apSmgmtStorageSpaceCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+                                  apSysMgmtStorageSpaceGroup,
+                                  apSysMgmtStorageSpaceNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 43 }
+
+apSmgmtCtrlStatsCap2
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE    "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION        "Acme Packet Agent Capability for enterprise 
+                                system mamgerment MIB."
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+				  apSysMgmtCtrlStatsGroup2
+                                }
+            ::= { apSmgmtMibCapabilities 44 }
+
+apSmgmtDatabaseRegCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE    "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION        "Acme Packet Agent Capability for enterprise 
+                                system mamgerment MIB."
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+				  apSysMgmtDatabaseRegGroup,
+				  apSysMgmtDatabaseRegNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 45 }
+
+apSmgmtCallsRejectedCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE    "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION        "Acme Packet Agent Capability for enterprise 
+                                system mamgerment MIB."
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+				  apSysMgmtCallsRejectedGroup
+                                }
+            ::= { apSmgmtMibCapabilities 46 }
+
+apSmgmtSipInterfaceRegCacheLimCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtSipInterfaceRegCacheLimitNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 47 }
+
+apSmgmtRealmRegCacheSummaryCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                                  apSysMgmtRealmRegCacheSummaryGroup
+                                }
+            ::= { apSmgmtMibCapabilities 48 }
+
+apSmgmtSubscriptionSummaryCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+				  apSysMgmtSubscriptionSummaryGroup
+                                }
+            ::= { apSmgmtMibCapabilities 49 }
+
+apSmgmtH248PortMapUsageCap
+             AGENT-CAPABILITIES
+	     PRODUCT-RELEASE      "Oracle Communications Acme Packet SBC"
+	     STATUS                current
+	     DESCRIPTION          "Acme Packet Agent Capability for enterprise
+	                           system management MIB."
+
+	     SUPPORTS             APSYSMGMT-MIB
+	     INCLUDES             {
+	                             apSysMgmtH248PortMapUsageNotificationsGroup
+				  }
+	     ::= { apSmgmtMibCapabilities 50 }
+
+
+apSmgmtDOSNotifyTrustedtoUntrustedCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+                INCLUDES        {
+                              apSysMgmtInetAddrDOSTrustedtoUntrustedNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 51 }
+
+apSysMgmtETCUtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtETCUtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 52 }
+
+apSmgmtXCodeEVRCUtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtXCodeEVRCUtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 53 }
+
+apSmgmtXCodeG729UtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtXCodeG729UtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 54 }
+
+apSmgmtCPULoadAvgCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme-Packet SD"
+            STATUS              obsolete
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+                        apSysMgmtCPULoadAvgGroup,
+                        apSysMgmtCPULoadAvgNotificationsGroup
+                                }
+            ::= { apSmgmtMibCapabilities 55 }
+
+apSmgmtXCodeOpusUtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtXCodeOpusUtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 56 }
+
+apSmgmtXCodeSILKUtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtXCodeSILKUtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 57 }
+
+apSmgmtXCodeEVRCNWUtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtXCodeEVRCNWUtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 58 }
+
+apSmgmtXCodeEVSUtilCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 system management MIB."
+
+            SUPPORTS            APSYSMGMT-MIB
+            INCLUDES            {
+	    			   apSysMgmtXCodeEVSUtilGroup
+                                }
+            ::= { apSmgmtMibCapabilities 59 }
+
+--------------------------------------------------------------
+-- 
+-- environmental monitoring MIB
+-- 
+--------------------------------------------------------------
+
+apEnvMonCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				Environmental Monitor MIB."
+	    SUPPORTS		ACMEPACKET-ENVMON-MIB
+		INCLUDES        { apEnvMonGroup,
+                                  apEnvMonNotifyGroup }
+	    ::= { apEnvMonitorMibCapabilities 1 }
+
+
+
+apEnvMonCap2 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				Environmental Monitor MIB."
+	    SUPPORTS		ACMEPACKET-ENVMON-MIB
+		INCLUDES        { apEnvMonGroup,
+				  apEnvMonExtGroup,
+				  apEnvMonCardGroup,
+                                  apEnvMonNotifyGroup,
+				  apEnvMonExtNotifyGroup
+				  }
+                VARIATION       apEnvMonI2CState
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+	    ::= { apEnvMonitorMibCapabilities 2 }
+
+
+apEnvMonPortChangeCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				Environmental Monitor MIB."
+	    SUPPORTS		ACMEPACKET-ENVMON-MIB
+		INCLUDES        { apEnvMonPortNotifyGroup
+				  }
+	    ::= { apEnvMonitorMibCapabilities 3 }
+
+apEnvMonCap4 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				Environmental Monitor MIB."
+	    SUPPORTS		ACMEPACKET-ENVMON-MIB
+		INCLUDES        { apEnvMonGroup,
+				  apEnvMonExtGroup,
+				  apEnvMonCardGroup,
+                                  apEnvMonNotifyGroup,
+				  apEnvMonTempNotifyGroup
+				  }
+                VARIATION       apEnvMonI2CState
+                ACCESS          not-implemented
+                DESCRIPTION   "information not applicapable to this release"
+	    ::= { apEnvMonitorMibCapabilities 4 }
+
+apEnvMonCardCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for apEnvMonCardOnlyGroup 
+				Environmental Monitor MIB."
+	    SUPPORTS		ACMEPACKET-ENVMON-MIB
+	    INCLUDES	        { 
+		                  apEnvMonCardGroup
+		                }
+	    ::= { apEnvMonitorMibCapabilities 5 }
+
+
+
+--------------------------------------------------------------
+-- 
+-- software inventory MIB
+-- 
+--------------------------------------------------------------
+
+apSwInventoryCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability for
+                                 enterprise software inventory MIB."
+	    SUPPORTS            APSWINVENTORY-MIB
+		INCLUDES        { apSwBootObjectsGroup,
+				  apSwCfgObjectsGroup,
+                                  apSwInventoryNotificationsGroup }
+            ::= { apSwinventoryMibCapabilities 1 }
+
+--------------------------------------------------------------
+-- 
+-- license MIB
+-- 
+--------------------------------------------------------------
+
+apLicenseCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				License MIB."
+	    SUPPORTS		APLICENSE-MIB
+		INCLUDES        { apLicenseObjectsGroup,
+                                  apLicenseNotificationsGroup }
+	    ::= { apLicenseMibCapabilities 1 }
+
+apLicenseDBRegCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				License MIB."
+	    SUPPORTS		APLICENSE-MIB
+		INCLUDES        { apLicenseDatabaseRegGroup }
+	    ::= { apLicenseMibCapabilities 2 }
+
+apLicenseExpirationWarnCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				License MIB."
+	    SUPPORTS		APLICENSE-MIB
+		INCLUDES        { apLicenseExpirationNotificationsGroup }
+	    ::= { apLicenseMibCapabilities 3 }
+
+--------------------------------------------------------------
+--
+-- acme managemnt interface mib
+--
+--------------------------------------------------------------
+
+apAmiCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				AMI MIB."
+	    SUPPORTS		APAMI-MIB
+		INCLUDES        { apAMIMibObjectsGroup }
+	    ::= { apAmiMibCapabilities 1 }
+
+--------------------------------------------------------------
+--
+-- acme codec mib
+--
+--------------------------------------------------------------
+
+apCodecRealmCodecCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB."
+
+            SUPPORTS            APCODEC-MIB
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup
+                                }
+
+            ::= { apCodecMibCapabilities 1 }
+
+apCodecMediaProcessingCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB."
+
+            SUPPORTS            APCODEC-MIB
+                INCLUDES        {
+                                 apCodecMediaProcessingObjectsGroup
+                                }
+
+            ::= { apCodecMibCapabilities 2 }
+
+apCodecRealmCodecCap2
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup2
+                                }
+
+            ::= { apCodecMibCapabilities 3 }
+
+apCodecTranscodingStatsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecTranscodingStatsGroup
+                                }
+
+            ::= { apCodecMibCapabilities 4 }
+
+apCodecRealmCodecCap3
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup3
+                                }
+
+            ::= { apCodecMibCapabilities 5 }
+
+apCodecRealmCodecCap4
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup4
+                                }
+
+            ::= { apCodecMibCapabilities 6 }
+
+apCodecRealmCodecCap5
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup5
+                                }
+
+            ::= { apCodecMibCapabilities 7 }
+
+apCodecRealmCodecCap6
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup6
+                                }
+
+            ::= { apCodecMibCapabilities 8 }
+
+apCodecRealmCodecCap7
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup7
+                                }
+
+            ::= { apCodecMibCapabilities 9 }
+            
+apCodecRealmCodecCap8
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup8
+                                }
+
+            ::= { apCodecMibCapabilities 10 }
+
+apCodecRealmCodecCap9
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup9
+                                }
+
+            ::= { apCodecMibCapabilities 11 }
+
+apCodecRealmCodecCap10
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 codec MIB. (Additional Codecs)"
+
+            SUPPORTS            APCODEC-MIB 
+                INCLUDES        {
+                                  apCodecRealmStatsObjectsGroup10
+                                }
+
+            ::= { apCodecMibCapabilities 12 }
+
+--------------------------------------------------------------
+-- 
+-- Security MIB
+-- 
+--------------------------------------------------------------
+
+apSecurityCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				License MIB."
+	    SUPPORTS		APSECURITY-MIB
+		INCLUDES        { 
+                                  apSecurityNotificationsGroup 
+				}
+	    ::= { apSecurityMibCapabilities 1 }
+
+apSecurityIPsecTunnelsCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+		INCLUDES	{
+					apSecurityIPsecTunnelsObjectsGroup,
+					apSecurityIPsecTunnelsNotificationsGroup 
+				}
+	::= { apSecurityMibCapabilities 2 }
+
+apSecurityIkeInterfaceCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityIkeInterfaceObjectsGroup
+			}
+	::= { apSecurityMibCapabilities 3 }
+
+apSecurityTacacsCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityTacacsObjectsGroup
+			}
+	::= { apSecurityMibCapabilities 4 }
+
+apSecurityCertStatusCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityCRLRetrievalNotificationsGroup,
+				apSecurityCrlNotificationsGroup,
+				apSecurityOCSRNotificationsGroup
+			}
+	::= { apSecurityMibCapabilities 5 }
+
+apSecurityIkeDDoSCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityDDosNotificationsGroup
+			}
+	::= { apSecurityMibCapabilities 6 }
+
+apSecurityCertificateCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityCertObjectsGroup,
+				apSecurityCertNotificationsGroup
+			}
+	::= { apSecurityMibCapabilities 7 }
+
+apSecurityGtpStatusCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityGTPNotificationsGroup							
+			}
+	::= { apSecurityMibCapabilities 8 }
+
+apSecurityIkeInterfaceInfoCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityIkeInterfaceInfoObjectsGroup
+			}
+	::= { apSecurityMibCapabilities 9 }
+
+apSecurityTacacsNotifCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityNotificationsGroup
+			}
+	::= { apSecurityMibCapabilities 10 }
+
+apSecurityInetCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for enterprise 
+				License MIB."
+	    SUPPORTS		APSECURITY-MIB
+		INCLUDES        { 
+                                  apSecurityNotificationsInetGroup 
+				}
+	    ::= { apSecurityMibCapabilities 11 }
+
+apSecurityIkeDDoSInetCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityDDosNotificationsInetGroup
+			}
+	::= { apSecurityMibCapabilities 12 }
+
+apSecurityIkeIfcBlAuthIDErrorCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityIkeIfcBlAuthIDErrorObjectsGroup
+			}
+	::= { apSecurityMibCapabilities 13 }
+
+apSecurityDhcpInterfaceCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet MSG"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityDhcpInterfaceObjectsGroup	
+			}
+	::= { apSecurityMibCapabilities 14 }
+
+apSecurityGtpProfileCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet MSG"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityGtpProfileObjectsGroup,
+                                apSecurityGtpErrorObjectsGroup	
+			}
+	::= { apSecurityMibCapabilities 15 }
+
+apSecurityRekeyOnSNoverflowCap	AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet MSG"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB."
+	SUPPORTS		APSECURITY-MIB
+	INCLUDES	{
+				apSecurityRekeyOnSNoverflowObjectsGroup
+			}
+	::= { apSecurityMibCapabilities 16 }
+
+apSecurityIkeInterfaceDpdStatsCap       AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise 
+                                Security MIB."
+        SUPPORTS                APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityIkeInterfaceDpdStatsObjectsGroup
+                        }
+        ::= { apSecurityMibCapabilities 17 }
+
+apSecurityIkeInterfaceEapOnlyAuthStatsCap       AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise 
+                                Security MIB."
+        SUPPORTS                APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityIkeInterfaceEapOnlyAuthStatsGroup 
+                        }
+        ::= { apSecurityMibCapabilities 18 }
+
+apSecurityTscfCap               AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityTscfStatsGroup,
+                                apSecurityTscfNotificationsGroup
+                        }
+        ::= { apSecurityMibCapabilities 19 }
+
+apSecurityIkeInterfaceEapMethodsStatsCap       AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise 
+                                Security MIB."
+        SUPPORTS                APSECURITY-MIB
+        INCLUDES        {
+                          apSecurityIkeInterfaceEapMethodsStatsGroup      
+                        }
+        ::= { apSecurityMibCapabilities 20 }
+
+apSecurityIkeInterfaceIkeErrorStatsCap               AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityIkeInterfaceIkeErrorsGroup,
+                                apSecurityIkeInterfaceIkeStatsGroup
+                        }
+        ::= { apSecurityMibCapabilities 21 }
+
+apSecurityIkeInterfaceMobikeStatsCap               AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityIkeInterfaceMobikeStatsGroup
+                        }
+        ::= { apSecurityMibCapabilities 22 }
+
+apSecurityTscfTimeoutCap            AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet SBC"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityTscfStatsTimeoutGroup
+                        }
+        ::= { apSecurityMibCapabilities 23 }
+
+apSecurityIkeInterface3GPPAuthErrorsCap               AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                                apSecurityIkeInterface3GPPAuthErrorsGroup
+                        }
+        ::= { apSecurityMibCapabilities 24 }
+
+apSecurityGtpCaviumStatsCap		AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                               apSecurityGtpCaviumStatsGroup 
+                        }
+        ::= { apSecurityMibCapabilities 25 }
+
+apSecurityTacacsDownLocalAuthCap		AGENT-CAPABILITIES
+        PRODUCT-RELEASE         "Oracle Communications Acme Packet SBC"
+        STATUS                  current
+        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+                                Security MIB."
+        SUPPORTS                  APSECURITY-MIB
+        INCLUDES        {
+                               apSecurityTacacsDownLocalAuthTrapGroup 
+                        }
+        ::= { apSecurityMibCapabilities 26 }
+
+apSecurityTlsCap		AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB for TLS."
+	SUPPORTS		APSECURITY-MIB
+		INCLUDES	{
+					apSecurityTlsNotificationsGroup	 
+				}
+	::= { apSecurityMibCapabilities 27 }
+
+apSecuritySrtpCap		AGENT-CAPABILITIES
+	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
+	STATUS			current
+	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+				Security MIB for SRTP."
+	SUPPORTS		APSECURITY-MIB
+		INCLUDES	{
+					apSecuritySrtpNotificationsGroup	 
+				}
+	::= { apSecurityMibCapabilities 28 }
+
+
+--------------------------------------------------------------
+-- 
+-- H323  MIB
+-- 
+--------------------------------------------------------------
+apH323StackCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS         	current
+            DESCRIPTION     	"Acme Packet Agent Capability for H323 stack."
+	    SUPPORTS		APH323-MIB 
+		INCLUDES        { 
+                                  apH323StackObjectsGroup,
+                                  apH323StackNotificationsGroup 
+				}
+	    ::= { apH323MibCapabilites 1 }
+
+--------------------------------------------------------------
+-- 
+-- SLB MIB
+-- 
+--------------------------------------------------------------
+
+apSLBEndpointCapacityCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 SLB MIB."
+
+            SUPPORTS            APSLB-MIB
+                INCLUDES        {
+                                  apSLBEndpointCapacityGroup,
+                                  apSLBEndpointCapacityNotificationsGroup
+                                }
+            ::= { apSLBMibCapabilities 1 }
+
+apSLBUntrustedEndpointCapacityCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 SLB MIB."
+
+            SUPPORTS            APSLB-MIB
+                INCLUDES        {
+                                  apSLBUntrustedEndpointCapacityGroup,
+                                  apSLBUntrustedEndpointCapacityNotificationsGroup
+                                }
+            ::= { apSLBMibCapabilities 2 }
+
+--------------------------------------------------------------
+--
+-- ACCT MIB
+-- 
+--------------------------------------------------------------
+
+apDiamMibCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETER-MIB."
+
+            SUPPORTS            AP-DIAMETER-MIB
+                INCLUDES        {
+                                  apDiamACCTObjectsGroup,
+                                  apDiamACCTNotificationsGroup,
+                                  apDiamClfErrorStatsGroup,
+                                  apDiamACCTResultObjectsGroup,
+                                  apDiamACCTResultNotificationsGroup,
+				  apDiamInterfaceStatsGroup
+                                }
+            ::= { apDiamMibCapabilities 1 }
+
+apDiamNotifCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETER-MIB."
+
+            SUPPORTS            AP-DIAMETER-MIB
+                INCLUDES        {
+                                  apDiamACCTNotificationsGroup
+                                }
+            ::= { apDiamMibCapabilities 2 }
+
+apDiamClfCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETER-MIB."
+
+            SUPPORTS            AP-DIAMETER-MIB
+                INCLUDES        {
+                                  apDiamClfErrorStatsGroup
+                                }
+            ::= { apDiamMibCapabilities 3 }
+
+apDiamIntfCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETER-MIB."
+
+            SUPPORTS            AP-DIAMETER-MIB
+                INCLUDES        {
+		                  apDiamInterfaceStatsGroup
+                                }
+            ::= { apDiamMibCapabilities 4 }
+
+apDiamAuthCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme MSG"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETERAUTH-MIB."
+
+            SUPPORTS            AP-DIAMETERAUTH-MIB
+                INCLUDES        {
+		                  apDiamAuthStatsGroup,
+                                  apDiamAuthErrorStatsGroup
+                                }
+            ::= { apDiamMibCapabilities 5 }
+
+apDiamAuthNotifyCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme MSG"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETERAUTH-MIB."
+
+            SUPPORTS            AP-DIAMETERAUTH-MIB
+                INCLUDES        {
+                                  apDiamAuthNotificationGroup 
+                                }
+            ::= { apDiamMibCapabilities 6 }
+
+--------------------------------------------------------------
+-- 
+-- DD MIB
+-- 
+--------------------------------------------------------------
+
+apDDStatsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet Diameter Signaling Controller"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DD MIB."
+
+            SUPPORTS            APDD-MIB
+                INCLUDES        {
+                                  apDdGeneralGroup,
+				  				  apDdInterfaceStatsGroup,
+				                  apDdErrorStatusGroup,
+				                  apDdMsgTypeStatsGroup,
+				                  apDdMsgStatsReturnCodeGroup
+				                }
+            ::= { apDDMibCapabilities 1 }
+
+apDDNotifGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet Diameter Signaling Controller"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DD MIB."
+
+            SUPPORTS            APDD-MIB
+                INCLUDES        {
+                                  apDDNotifObjectsGroup,
+				  apDDNotificationsGroup
+                                }
+            ::= { apDDMibCapabilities 2 }
+
+apDDStatsGroup2Cap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet Diameter Signaling Controller"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DD MIB."
+
+            SUPPORTS            APDD-MIB
+                INCLUDES        {
+                                  apDdIntfErrorStatusGroup,
+                                  apDdAgentGeneralGroup,
+                                  apDdAgentStatsGroup,
+                                  apDdAgentErrorStatusGroup,
+                                  apDdAgentMsgTypeStatsGroup,
+                                  apDdAgentMsgStatsReturnCodeGroup
+                                }
+            ::= { apDDMibCapabilities 3 }
+
+apDDStatsGroup3Cap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet Diameter Signaling Controller"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DD MIB."
+
+            SUPPORTS            APDD-MIB
+                INCLUDES        {
+                                  apDdSessionSubscriberGeneralGroup
+                                }
+            ::= { apDDMibCapabilities 4 }
+
+apDDSCTPNotifGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet Diameter Signaling Controller"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DD MIB."
+
+            SUPPORTS            APDD-MIB
+                INCLUDES        {
+                                  apDDSCTPNotifObjectsGroup,
+                                  apDDSCTPNotificationsGroup
+                                }
+            ::= { apDDMibCapabilities 5 }
+            
+apDDStatsGroup4Cap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet Diameter Signaling Controller"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DD MIB."
+
+            SUPPORTS            APDD-MIB
+                INCLUDES        {
+                                  apDdDnsStatsEntryGroup,
+                                  apDdAgentDnsStatsEntryGroup 
+                                }
+            ::= { apDDMibCapabilities 6 }            
+
+        
+            
+
+
+--------------------------------------------------------------
+--
+-- DNSALG MIB
+--
+--------------------------------------------------------------
+
+apDNSALGStatsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet DNS ALG"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DNSALG MIB."
+
+            SUPPORTS            APDNSALG-MIB
+                INCLUDES        {
+				  apDnsAlgServerStatusGroup,
+				  apDnsAlgStatsGroup
+                                }
+            ::= { apDNSALGMibCapabilities 1 }
+
+apDNSALGNotifGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet PEC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 DNSALG MIB."
+
+            SUPPORTS            APDNSALG-MIB
+                INCLUDES        {
+				  apDNSALGNotificationsGroup
+                                }
+            ::= { apDNSALGMibCapabilities 2 }
+
+apDNSALGRateGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability stats for
+                                 DNSALG MIB."
+
+            SUPPORTS            APDNSALG-MIB
+                INCLUDES        {
+				  apDnsAlgServerRateStatsGroup  
+                                }
+            ::= { apDNSALGMibCapabilities 3 }
+
+
+--------------------------------------------------------------
+--
+-- APPS MIB
+--
+--------------------------------------------------------------
+
+apAppsENUMStatusGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for APPS
+                                 ENUM server status group. "
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        {
+                                   apAppsENUMServerStatusGroup
+                                }
+            ::= { apAppsMibCapabilities 1 }
+
+apAppsDNSStatusGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for APPS
+                                 DNS server status group. "
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        {
+                                   apAppsDnsServerStatusGroup
+                                }
+            ::= { apAppsMibCapabilities 2 }
+
+apAppsENUMSvrNotifGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for APPS 
+                                 ENUM Server Notif group."
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        {
+				  apAppsEnumServerNotificationsGroup
+                                }
+            ::= { apAppsMibCapabilities 3 }
+
+
+apAppsDNSSvrNotifGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for APPS 
+                                 DNS Server Notif group."
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        {
+				  apAppsDnsServerNotificationsGroup
+                                }
+            ::= { apAppsMibCapabilities 4 }
+apAppsENUMRateGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for APPS
+                                 ENUM server status group. "
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        {
+                                   apAppsENUMServerRateStatsGroup  
+                                }
+            ::= { apAppsMibCapabilities 5 }
+            
+apCommMonitorNotificationGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Report an alarm when disconnect between 
+                                 SBC and CommMonitor."
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        {
+                                   apCommMonitorNotificationsGroup  
+                                }
+            ::= { apAppsMibCapabilities 6 }
+  
+--------------------------------------------------------------
+--
+-- SIP MIB
+--
+--------------------------------------------------------------
+
+apSipSecInterfaceRegNotifGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SIP
+                                 Secondary SIP Interface Registrations
+                                 Notif group."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipSecInterfaceRegNotificationsGroup
+                                }
+            ::= { apSipMibCapabilities 1 }
+
+
+apSipSecInterfaceRegObjectsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SIP
+                                 Secondary SIP Interface Registrations
+                                 Object group."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipSecInterfaceRegObjectsGroup
+                                }
+            ::= { apSipMibCapabilities 2 }
+
+
+apSipSurvivabilityNotificationsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SIP
+                                 Interface Survivability Mode
+                                 Notif group."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipSurvivabilityNotificationsGroup
+                                }
+            ::= { apSipMibCapabilities 3 }
+apSipRateGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SIP
+                                 Rate Stats group."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipRateStatsGroup
+                                }
+            ::= { apSipMibCapabilities 4 }
+
+
+apSipCACStatsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "A collection of objects providing
+                                 sip rate stats."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipCACStatsGroup
+                                }
+            ::= { apSipMibCapabilities 5 }
+
+apSipCACNotificationsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Traps to montitor SIP CAC 
+                                 utilizaton."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipCACNotificationsGroup
+                                }
+            ::= { apSipMibCapabilities 6 }
+
+apSipCACStatsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "A collection of objects providing
+                                 sip rate stats."
+
+            SUPPORTS            APSIP-MIB
+                INCLUDES        {
+                                  apSipCACStatsSubGroup
+                                }
+            ::= { apSipMibCapabilities 7 }
+
+apSipRecNotificationsGroupCap
+	    AGENT-CAPABILITIES
+	    PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		current
+	    DESCRIPTION		"Traps to monitor SIPREC dialogs and sessions."
+	    SUPPORTS		APSIP-MIB
+		INCLUDES	{
+				  apSipRecNotificationsGroup
+				}
+	    ::= { apSipMibCapabilities 8 }
+
+apSipAudioVideoCallsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SIP Audio 
+                                Video Call counters MIB."
+            SUPPORTS            APSIP-MIB
+            INCLUDES            { 
+                                  apSipAudioVideoCallsGroup
+                                }
+            ::= { apSipMibCapabilities 9 }
+            
+apSipVoLTECountersCap
+              AGENT-CAPABILITIES
+              PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+              STATUS              current
+              DESCRIPTION         "Acme Packet Agent Capability for SIP
+                                   VoLTE Counters MIB"
+              SUPPORTS            APSIP-MIB
+              INCLUDES            {
+                                    apSipSRVCCStatsGroup
+                                  }
+              SUPPORTS            APSECURITY-MIB
+              INCLUDES            {
+                                    apSecuritySAIKEStatsGroup,
+                                    apSecuritySAIMSAKAStatsGroup,
+                                    apSecuritySASRTPStatsGroup
+                                  }
+	      SUPPORTS            APCODEC-MIB
+              INCLUDES            {
+                                    apCodecTranscodingResourceUtilMIBGroup,
+                                    apCodecTranscodingTCULoadStatsGroup
+                                  }
+              SUPPORTS            AP-DIAMETER-MIB
+              INCLUDES            {
+                                    apDiamRxPolicyServerStatsGroup
+                                  }
+              SUPPORTS            APLICENSE-MIB
+              INCLUDES            {
+                                    apLicenseCodecLicensedCapGroup
+                                  }
+                           ::= { apSipMibCapabilities 10 }            
+
+apSipCallInformationCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SIP call drop and 
+                                 call duuration information MIB."
+            SUPPORTS            APSIP-MIB
+            INCLUDES            {
+                                  apSipCallDurationGroup,
+                                  apSipCallDropGroup
+                                }
+            ::= { apSipMibCapabilities 11 }
+            
+apSmgmtSipMethodStatsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for system wide SIP method stats
+                                 system mamgerment MIB."
+
+            SUPPORTS            APSIP-MIB
+            INCLUDES            {
+	    			   apSipMethodStatsGroup
+                                }
+            ::= {apSipMibCapabilities 12 } 
+
+apSipSRVCCPreAlertingStatsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for SRVCC Pre-Alerting
+                                 stats MIB."
+            SUPPORTS            APSIP-MIB
+            INCLUDES            {
+                                  apSipSRVCCPreAlertingStatsGroup
+                                }
+            ::= { apSipMibCapabilities 13 }
+
+apSipRegEvtSubscriptionCap
+              AGENT-CAPABILITIES
+              PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+              STATUS              current
+              DESCRIPTION         "Acme Packet Agent Capability for SIP
+                                   Reg Event Subscrption Counters MIB"
+              SUPPORTS            APSIP-MIB
+              INCLUDES            {
+                                    apSipRegEvtSubStatsGroup
+                                  }
+            ::= { apSipMibCapabilities 14 }
+            
+apSipMSRPStatsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for MSRP statistics  MIB."                               
+            SUPPORTS            APSIP-MIB
+            INCLUDES            {
+                                  apSipMSRPStatsGroup
+                                }
+            ::= { apSipMibCapabilities 15 }
+
+--------------------------------------------------------------
+-- 
+
+--------------------------------------------------------------
+-- 
+-- usbc system management MIB
+-- 
+--------------------------------------------------------------
+
+
+apUsbcSysCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 system mamgerment MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysGroup,
+                                  apUsbcSysCpuTblGroup } 
+            ::= { apUsbcSysMibCapabilities 1 }
+
+
+apUsbcSysDPDKCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 DPDK system management MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysDPDKGroup }
+            ::= { apUsbcSysDPDKMibCapabilities 1 }
+
+apUsbcSysScalingCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 Scaling system management MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysScalingGroup }
+            ::= { apUsbcSysScalingMibCapabilities 1 }
+
+apUsbcSysThreadCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 Thread Usage and Event monitoring MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysThreadUsageTblGroup,
+                				  apUsbcSysThreadEventTblGroup,
+                					apUsbcSysThreadSipGroup,
+                					apUsbcSysThreadAtcpGroup,
+                					apUsbcSysThreadMbcdGroup,
+                					apUsbcSysCpuNotificationsGroup}
+            ::= { apUsbcSysThreadMibCapabilities 1 }          
+
+apUsbcSysFdCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 system FD Count."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysFdCountGroup,
+                                  apUsbcSysFdObjGroup}
+            ::= { apUsbcSysMibCapabilities 2 }          
+
+apUsbcSysThreadCap2 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 Thread Usage and Event monitoring MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysThreadEbmdGroup,
+                		  apUsbcSysThreadDnsGroup}
+            ::= { apUsbcSysThreadMibCapabilities2 1 }          
+
+apUsbcSysThreadCap3 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 Thread Deadlock monitoring MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apMutexDeadLockNotificationsGroup }
+            ::= { apUsbcSysThreadMibCapabilities3 1 }  
+
+apUsbcSysThreadCap4 AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 Thread Usage and Event monitoring MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysThreadNotRespNotifGroup}
+            ::= { apUsbcSysThreadMibCapabilities 4 }
+
+apUsbcSysSmCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for USBC
+                                 SM monitoring MIB."
+
+            SUPPORTS            APUSBCSYS-MIB
+                INCLUDES        { apUsbcSysSmGroup }
+            ::= { apUsbcSysSmMibCapabilities 1 }          
+
+--------------------------------------------------------------
+--
+-- AUTH MIB
+-- 
+--------------------------------------------------------------
+
+apRadiusMibCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-RADIUS-MIB."
+
+            SUPPORTS            APRADIUS-MIB
+                INCLUDES        {
+				  apRadiusInterfaceStatsGroup
+                                }
+            ::= { apRadiusMibCapabilities 1 }
+
+apRadiusServerStatsCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-RADIUS-MIB."
+
+            SUPPORTS            APRADIUS-MIB
+                INCLUDES        {
+				  apRadiusInterfaceStatsGroup
+                                }
+            ::= { apRadiusMibCapabilities 2 }
+
+--------------------------------------------------------------
+-- 
+-- CORELB MIB
+-- 
+--------------------------------------------------------------
+
+apCoreLBMemberStatusNotifCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for enterprise
+                                 CORELB MIB."
+
+            SUPPORTS            APCORELB-MIB
+                INCLUDES        {
+                                  apCoreLBMemberStatusNotificationsGroup
+                                }
+            ::= { apCoreLbMibCapabilities 1 }
+
+--------------------------------------------------------------
+-- 
+-- ACL DROP MIB
+-- 
+--------------------------------------------------------------
+
+
+apAclDropCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for ACL
+                                 drop monitoring MIB."
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        { apAclDropNotificationsGroup } 
+            ::= { apAclDropMibCapabilities 1 }
+
+
+END

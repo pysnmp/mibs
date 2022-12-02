@@ -1,0 +1,92 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "acmepacket": {
+    "name": "acmepacket",
+    "oid": "1.3.6.1.4.1.9148",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-02-02 18:00",
+        "description": "Updated new contact info."
+      },
+      {
+        "revision": "2004-02-26 18:00",
+        "description": "The Structure of Management Information for the Acme Packet enterprise. Add acmepacketModules."
+      },
+      {
+        "revision": "2001-09-05 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      }
+    ]
+  },
+  "acmepacketAgentCapability": {
+    "name": "acmepacketAgentCapability",
+    "oid": "1.3.6.1.4.1.9148.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acmepacketMgmt": {
+    "name": "acmepacketMgmt",
+    "oid": "1.3.6.1.4.1.9148.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acmepacketConfig": {
+    "name": "acmepacketConfig",
+    "oid": "1.3.6.1.4.1.9148.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acmepacketExperiment": {
+    "name": "acmepacketExperiment",
+    "oid": "1.3.6.1.4.1.9148.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acmepacketModules": {
+    "name": "acmepacketModules",
+    "oid": "1.3.6.1.4.1.9148.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-SMI",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "ACMEPACKET-SMI"
+  }
+}

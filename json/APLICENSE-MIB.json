@@ -1,0 +1,801 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apLicenseModule": {
+    "name": "apLicenseModule",
+    "oid": "1.3.6.1.4.1.9148.3.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-07-16 00:00",
+        "description": "Updated contact info"
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2017-11-24 00:00",
+        "description": "Updated apLicenseTable to include licensed codec capacities."
+      }
+    ]
+  },
+  "apLicenseMIBObjects": {
+    "name": "apLicenseMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.5.1",
+    "class": "objectidentity"
+  },
+  "apLicenseTable": {
+    "name": "apLicenseTable",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apLicenseEntry": {
+    "name": "apLicenseEntry",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseIndex": {
+    "name": "apLicenseIndex",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apLicenseKey": {
+    "name": "apLicenseKey",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseCapacity": {
+    "name": "apLicenseCapacity",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseInstallDate": {
+    "name": "apLicenseInstallDate",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseBeginDate": {
+    "name": "apLicenseBeginDate",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseExpireDate": {
+    "name": "apLicenseExpireDate",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseSIPFeature": {
+    "name": "apLicenseSIPFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseMGCPFeature": {
+    "name": "apLicenseMGCPFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseH323Feature": {
+    "name": "apLicenseH323Feature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseIWFFeature": {
+    "name": "apLicenseIWFFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseQOSFeature": {
+    "name": "apLicenseQOSFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseACPFeature": {
+    "name": "apLicenseACPFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseLPFeature": {
+    "name": "apLicenseLPFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseSAGFeature": {
+    "name": "apLicenseSAGFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseACCTFeature": {
+    "name": "apLicenseACCTFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseHAFeature": {
+    "name": "apLicenseHAFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicensePACFeature": {
+    "name": "apLicensePACFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseIKEFeature": {
+    "name": "apLicenseIKEFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseIPsecTunCap": {
+    "name": "apLicenseIPsecTunCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseAuthFeature": {
+    "name": "apLicenseAuthFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseDatabaseRegFeature": {
+    "name": "apLicenseDatabaseRegFeature",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseDatabaseRegCap": {
+    "name": "apLicenseDatabaseRegCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseSLBEndpointCap": {
+    "name": "apLicenseSLBEndpointCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseAMRLicensedCap": {
+    "name": "apLicenseAMRLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseAMRWBLicensedCap": {
+    "name": "apLicenseAMRWBLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseEVRCLicensedCap": {
+    "name": "apLicenseEVRCLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseEVRCBLicensedCap": {
+    "name": "apLicenseEVRCBLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseOPUSLicensedCap": {
+    "name": "apLicenseOPUSLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseSILKLicensedCap": {
+    "name": "apLicenseSILKLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseEVSLicensedCap": {
+    "name": "apLicenseEVSLicensedCap",
+    "oid": "1.3.6.1.4.1.9148.3.5.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apLicenseNotificationObjects": {
+    "name": "apLicenseNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.5.2",
+    "class": "objectidentity"
+  },
+  "apLicenseExpirationWarningAcliIndex": {
+    "name": "apLicenseExpirationWarningAcliIndex",
+    "oid": "1.3.6.1.4.1.9148.3.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apLicenseExpirationWarningSnmpIndex": {
+    "name": "apLicenseExpirationWarningSnmpIndex",
+    "oid": "1.3.6.1.4.1.9148.3.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apLicenseExpirationWarningKey": {
+    "name": "apLicenseExpirationWarningKey",
+    "oid": "1.3.6.1.4.1.9148.3.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apLicenseExpirationWarningDays": {
+    "name": "apLicenseExpirationWarningDays",
+    "oid": "1.3.6.1.4.1.9148.3.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apLicenseNotificationPrefix": {
+    "name": "apLicenseNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.5.3",
+    "class": "objectidentity"
+  },
+  "apLicenseNotifications": {
+    "name": "apLicenseNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.5.3.0",
+    "class": "objectidentity"
+  },
+  "apLicenseApproachingCapacityNotification": {
+    "name": "apLicenseApproachingCapacityNotification",
+    "oid": "1.3.6.1.4.1.9148.3.5.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "apLicenseNotApproachingCapacityNotification": {
+    "name": "apLicenseNotApproachingCapacityNotification",
+    "oid": "1.3.6.1.4.1.9148.3.5.3.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "apLicenseExpirationWarningNotification": {
+    "name": "apLicenseExpirationWarningNotification",
+    "oid": "1.3.6.1.4.1.9148.3.5.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseExpirationWarningAcliIndex"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseExpirationWarningSnmpIndex"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseExpirationWarningKey"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseExpirationWarningDays"
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseConformance": {
+    "name": "apLicenseConformance",
+    "oid": "1.3.6.1.4.1.9148.3.5.4",
+    "class": "objectidentity"
+  },
+  "apLicenseCompliances": {
+    "name": "apLicenseCompliances",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.1",
+    "class": "objectidentity"
+  },
+  "apLicenseGroups": {
+    "name": "apLicenseGroups",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.2",
+    "class": "objectidentity"
+  },
+  "apLicenseNotificationsGroups": {
+    "name": "apLicenseNotificationsGroups",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.3",
+    "class": "objectidentity"
+  },
+  "apLicenseObjectsGroup": {
+    "name": "apLicenseObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseKey"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseCapacity"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseInstallDate"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseBeginDate"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseExpireDate"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseSIPFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseMGCPFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseH323Feature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseIWFFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseQOSFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseACPFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseLPFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseSAGFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseACCTFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseHAFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicensePACFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseIKEFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseIPsecTunCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseSLBEndpointCap"
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseDatabaseRegGroup": {
+    "name": "apLicenseDatabaseRegGroup",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseAuthFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseDatabaseRegFeature"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseDatabaseRegCap"
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseCodecLicensedCapGroup": {
+    "name": "apLicenseCodecLicensedCapGroup",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseAMRLicensedCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseAMRWBLicensedCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseEVRCLicensedCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseEVRCBLicensedCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseOPUSLicensedCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseSILKLicensedCap"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseEVSLicensedCap"
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseNotificationsGroup": {
+    "name": "apLicenseNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseApproachingCapacityNotification"
+      },
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseNotApproachingCapacityNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "apLicenseExpirationNotificationsGroup": {
+    "name": "apLicenseExpirationNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.5.4.3.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APLICENSE-MIB",
+        "object": "apLicenseExpirationWarningNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APLICENSE-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APLICENSE-MIB"
+  }
+}

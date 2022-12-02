@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------
+-- ACMEPACKET-AGENTCAP2-MIB.txt:  Acme Packet agent capability2 MIB file
+--
+-- Copyright (c) by Oracle Communications
+-- All rights reserved.
+---------------------------------------------------------------
+
+
+APAGENTCAP2-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+	enterprises, snmpModules, mib-2 
+		 				FROM SNMPv2-SMI
+	MODULE-COMPLIANCE, AGENT-CAPABILITIES
+						FROM SNMPv2-CONF
+	acmepacketAgentCapability 	FROM ACMEPACKET-SMI;
+
+apAgentCap2Module MODULE-IDENTITY
+		LAST-UPDATED	"201509200000Z"
+		ORGANIZATION 	"Oracle Communications"
+		CONTACT-INFO
+			"           	Customer Service
+		 	Postal:		Oracle Communications
+					100 Crosby Drive 
+					Bedford, MA 01730
+					US
+		    	Tel:		1-800-633-0738
+			Url:		www.oracle.com
+		 	E-mail:		support@oracle.com"
+		DESCRIPTION	
+			" Agent capability2 MIB for Oracle Communications Acme Packet SBCs."
+		::= { acmepacketAgentCapability 2}
+
+
+-- standard mibs modules
+apIPForwardMibCapabilities     OBJECT IDENTIFIER ::= { apAgentCap2Module 1 }
+
+--------------------------------------------------------------
+-- 
+-- Following are the Standard Groups that we supports
+--
+--------------------------------------------------------------
+
+
+apIpForwardCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability IP-FORWARD support."
+		SUPPORTS	IP-FORWARD-MIB
+		INCLUDES	{ inetForwardCidrRouteGroup, ipForwardCidrRouteGroup }
+
+            ::= { apIPForwardMibCapabilities 1 }
+
+END

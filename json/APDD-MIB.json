@@ -1,0 +1,5265 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApTransportType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apDDModule": {
+    "name": "apDDModule",
+    "oid": "1.3.6.1.4.1.9148.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      }
+    ]
+  },
+  "apDDMIBObjects": {
+    "name": "apDDMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.12.1",
+    "class": "objectidentity"
+  },
+  "apDDMIBGeneralObjects": {
+    "name": "apDDMIBGeneralObjects",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1",
+    "class": "objectidentity"
+  },
+  "apDDMIBTabularObjects": {
+    "name": "apDDMIBTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2",
+    "class": "objectidentity"
+  },
+  "apDDNotificationObjects": {
+    "name": "apDDNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.12.2",
+    "class": "objectidentity"
+  },
+  "apDDNotifObjects": {
+    "name": "apDDNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1",
+    "class": "objectidentity"
+  },
+  "apDDNotifPrefix": {
+    "name": "apDDNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.2",
+    "class": "objectidentity"
+  },
+  "apDDNotifications": {
+    "name": "apDDNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.2.0",
+    "class": "objectidentity"
+  },
+  "apDDConformance": {
+    "name": "apDDConformance",
+    "oid": "1.3.6.1.4.1.9148.3.12.3",
+    "class": "objectidentity"
+  },
+  "apDDObjectGroups": {
+    "name": "apDDObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1",
+    "class": "objectidentity"
+  },
+  "apDDNotificationGroups": {
+    "name": "apDDNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.2",
+    "class": "objectidentity"
+  },
+  "ApDdStatusOptions": {
+    "name": "ApDdStatusOptions",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outOfService": 0,
+          "inService": 1,
+          "constraintsExceeded": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "apDdInterfaceNumber": {
+    "name": "apDdInterfaceNumber",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdCurrentTransRate": {
+    "name": "apDdCurrentTransRate",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "per10Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdHighTransRate": {
+    "name": "apDdHighTransRate",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "per10Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdLowTransRate": {
+    "name": "apDdLowTransRate",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "per10Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentNumber": {
+    "name": "apDdAgentNumber",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessionPeriodActive": {
+    "name": "apDdSessionPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessionPeriodHigh": {
+    "name": "apDdSessionPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessionPeriodTotal": {
+    "name": "apDdSessionPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessionLifeTotal": {
+    "name": "apDdSessionLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessionLifePerMax": {
+    "name": "apDdSessionLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessionLifeHigh": {
+    "name": "apDdSessionLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessInitPeriodActive": {
+    "name": "apDdSessInitPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessInitPeriodHigh": {
+    "name": "apDdSessInitPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessInitPeriodTotal": {
+    "name": "apDdSessInitPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessInitLifeTotal": {
+    "name": "apDdSessInitLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessInitLifePerMax": {
+    "name": "apDdSessInitLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessInitLifeHigh": {
+    "name": "apDdSessInitLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessEstablishedPeriodActive": {
+    "name": "apDdSessEstablishedPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessEstablishedPeriodHigh": {
+    "name": "apDdSessEstablishedPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessEstablishedPeriodTotal": {
+    "name": "apDdSessEstablishedPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessEstablishedLifeTotal": {
+    "name": "apDdSessEstablishedLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessEstablishedLifePerMax": {
+    "name": "apDdSessEstablishedLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessEstablishedLifeHigh": {
+    "name": "apDdSessEstablishedLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTerminatedPeriodActive": {
+    "name": "apDdSessTerminatedPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTerminatedPeriodHigh": {
+    "name": "apDdSessTerminatedPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTerminatedPeriodTotal": {
+    "name": "apDdSessTerminatedPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTerminatedLifeTotal": {
+    "name": "apDdSessTerminatedLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTerminatedLifePerMax": {
+    "name": "apDdSessTerminatedLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTerminatedLifeHigh": {
+    "name": "apDdSessTerminatedLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTimeoutPeriodTotal": {
+    "name": "apDdSessTimeoutPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTimeoutLifeTotal": {
+    "name": "apDdSessTimeoutLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessTimeoutLifePerMax": {
+    "name": "apDdSessTimeoutLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessErrorsPeriodTotal": {
+    "name": "apDdSessErrorsPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessErrorsLifeTotal": {
+    "name": "apDdSessErrorsLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessErrorsLifePerMax": {
+    "name": "apDdSessErrorsLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessMissPeriodTotal": {
+    "name": "apDdSessMissPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessMissLifeTotal": {
+    "name": "apDdSessMissLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSessMissLifePerMax": {
+    "name": "apDdSessMissLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberPeriodActive": {
+    "name": "apDdSubscriberPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberPeriodHigh": {
+    "name": "apDdSubscriberPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberPeriodTotal": {
+    "name": "apDdSubscriberPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberLifeTotal": {
+    "name": "apDdSubscriberLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberLifePerMax": {
+    "name": "apDdSubscriberLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberLifeHigh": {
+    "name": "apDdSubscriberLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscribePeriodActive": {
+    "name": "apDdSubscribePeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscribePeriodHigh": {
+    "name": "apDdSubscribePeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscribePeriodTotal": {
+    "name": "apDdSubscribePeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscribeLifeTotal": {
+    "name": "apDdSubscribeLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscribeLifePerMax": {
+    "name": "apDdSubscribeLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscribeLifeHigh": {
+    "name": "apDdSubscribeLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.111",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdUnsubscribePeriodActive": {
+    "name": "apDdUnsubscribePeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.112",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdUnsubscribePeriodHigh": {
+    "name": "apDdUnsubscribePeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.113",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdUnsubscribePeriodTotal": {
+    "name": "apDdUnsubscribePeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.114",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdUnsubscribeLifeTotal": {
+    "name": "apDdUnsubscribeLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.115",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdUnsubscribeLifePerMax": {
+    "name": "apDdUnsubscribeLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.116",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdUnsubscribeLifeHigh": {
+    "name": "apDdUnsubscribeLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.117",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyHitPeriodActive": {
+    "name": "apDdPolicyHitPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.118",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyHitPeriodHigh": {
+    "name": "apDdPolicyHitPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.119",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyHitPeriodTotal": {
+    "name": "apDdPolicyHitPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.120",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyHitLifeTotal": {
+    "name": "apDdPolicyHitLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.121",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyHitLifePerMax": {
+    "name": "apDdPolicyHitLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.122",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyHitLifeHigh": {
+    "name": "apDdPolicyHitLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.123",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyMissPeriodActive": {
+    "name": "apDdPolicyMissPeriodActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.124",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyMissPeriodHigh": {
+    "name": "apDdPolicyMissPeriodHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.125",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyMissPeriodTotal": {
+    "name": "apDdPolicyMissPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.126",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyMissLifeTotal": {
+    "name": "apDdPolicyMissLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.127",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyMissLifePerMax": {
+    "name": "apDdPolicyMissLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.128",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdPolicyMissLifeHigh": {
+    "name": "apDdPolicyMissLifeHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.129",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberMissPeriodTotal": {
+    "name": "apDdSubscriberMissPeriodTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.130",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberMissLifeTotal": {
+    "name": "apDdSubscriberMissLifeTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.131",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdSubscriberMissLifePerMax": {
+    "name": "apDdSubscriberMissLifePerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.1.132",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdInterfaceStatsTable": {
+    "name": "apDdInterfaceStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdInterfaceStatsEntry": {
+    "name": "apDdInterfaceStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdInterfaceIndex": {
+    "name": "apDdInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdInterfaceRealmName": {
+    "name": "apDdInterfaceRealmName",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdClientTransCPActive": {
+    "name": "apDdClientTransCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdClientTransCPHigh": {
+    "name": "apDdClientTransCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdClientTransCPTotal": {
+    "name": "apDdClientTransCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdClientTransLTTotal": {
+    "name": "apDdClientTransLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdClientTransLTPerMax": {
+    "name": "apDdClientTransLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdClientTransLTHigh": {
+    "name": "apDdClientTransLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdServerTransCPActive": {
+    "name": "apDdServerTransCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdServerTransCPHigh": {
+    "name": "apDdServerTransCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdServerTransCPTotal": {
+    "name": "apDdServerTransCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdServerTransLTTotal": {
+    "name": "apDdServerTransLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdServerTransLTPerMax": {
+    "name": "apDdServerTransLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdServerTransLTHigh": {
+    "name": "apDdServerTransLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenSocketsCPActive": {
+    "name": "apDdGenSocketsCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenSocketsCPHigh": {
+    "name": "apDdGenSocketsCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenSocketsCPTotal": {
+    "name": "apDdGenSocketsCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenSocketsLTTotal": {
+    "name": "apDdGenSocketsLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenSocketsLTPerMax": {
+    "name": "apDdGenSocketsLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenSocketsLTHigh": {
+    "name": "apDdGenSocketsLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenConnectsCPActive": {
+    "name": "apDdGenConnectsCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenConnectsCPHigh": {
+    "name": "apDdGenConnectsCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenConnectsCPTotal": {
+    "name": "apDdGenConnectsCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenConnectsLTTotal": {
+    "name": "apDdGenConnectsLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenConnectsLTPerMax": {
+    "name": "apDdGenConnectsLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdGenConnectsLTHigh": {
+    "name": "apDdGenConnectsLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdInterfaceStatus": {
+    "name": "apDdInterfaceStatus",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApDdStatusOptions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdErrorStatusTable": {
+    "name": "apDdErrorStatusTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdErrorStatusEntry": {
+    "name": "apDdErrorStatusEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdNoRouteFoundRecent": {
+    "name": "apDdNoRouteFoundRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdNoRouteFoundTotal": {
+    "name": "apDdNoRouteFoundTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdNoRouteFoundPerMax": {
+    "name": "apDdNoRouteFoundPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMalformedMsgRecent": {
+    "name": "apDdMalformedMsgRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMalformedMsgTotal": {
+    "name": "apDdMalformedMsgTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMalformedMsgPerMax": {
+    "name": "apDdMalformedMsgPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdRejectedMsgRecent": {
+    "name": "apDdRejectedMsgRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdRejectedMsgTotal": {
+    "name": "apDdRejectedMsgTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdRejectedMsgPerMax": {
+    "name": "apDdRejectedMsgPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDroppedMsgRecent": {
+    "name": "apDdDroppedMsgRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDroppedMsgTotal": {
+    "name": "apDdDroppedMsgTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDroppedMsgPerMax": {
+    "name": "apDdDroppedMsgPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdInboundConstraintsRecent": {
+    "name": "apDdInboundConstraintsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdInboundConstraintsTotal": {
+    "name": "apDdInboundConstraintsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdInboundConstraintsPerMax": {
+    "name": "apDdInboundConstraintsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdOutboundConstraintsRecent": {
+    "name": "apDdOutboundConstraintsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdOutboundConstraintsTotal": {
+    "name": "apDdOutboundConstraintsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdOutboundConstraintsPerMax": {
+    "name": "apDdOutboundConstraintsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeInfoTable": {
+    "name": "apDdMsgTypeInfoTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdMsgTypeInfoEntry": {
+    "name": "apDdMsgTypeInfoEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdMsgTypeIndex": {
+    "name": "apDdMsgTypeIndex",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdMsgTypeMsgName": {
+    "name": "apDdMsgTypeMsgName",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeStatsTable": {
+    "name": "apDdMsgTypeStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdMsgTypeStatsEntry": {
+    "name": "apDdMsgTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdMsgTypeServerReqRecent": {
+    "name": "apDdMsgTypeServerReqRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerReqTotal": {
+    "name": "apDdMsgTypeServerReqTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerReqPerMax": {
+    "name": "apDdMsgTypeServerReqPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientReqRecent": {
+    "name": "apDdMsgTypeClientReqRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientReqTotal": {
+    "name": "apDdMsgTypeClientReqTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientReqPerMax": {
+    "name": "apDdMsgTypeClientReqPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerRetransRecent": {
+    "name": "apDdMsgTypeServerRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerRetransTotal": {
+    "name": "apDdMsgTypeServerRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerRetransPerMax": {
+    "name": "apDdMsgTypeServerRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientRetransRecent": {
+    "name": "apDdMsgTypeClientRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientRetransTotal": {
+    "name": "apDdMsgTypeClientRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientRetransPerMax": {
+    "name": "apDdMsgTypeClientRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerRespRetransRecent": {
+    "name": "apDdMsgTypeServerRespRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerRespRetransTotal": {
+    "name": "apDdMsgTypeServerRespRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeServerRespRetransPerMax": {
+    "name": "apDdMsgTypeServerRespRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientRespRetransRecent": {
+    "name": "apDdMsgTypeClientRespRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientRespRetransTotal": {
+    "name": "apDdMsgTypeClientRespRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientRespRetransPerMax": {
+    "name": "apDdMsgTypeClientRespRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientTimeoutRecent": {
+    "name": "apDdMsgTypeClientTimeoutRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientTimeoutTotal": {
+    "name": "apDdMsgTypeClientTimeoutTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientTimeoutPerMax": {
+    "name": "apDdMsgTypeClientTimeoutPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientThrottledRecent": {
+    "name": "apDdMsgTypeClientThrottledRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientThrottledTotal": {
+    "name": "apDdMsgTypeClientThrottledTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeClientThrottledPerMax": {
+    "name": "apDdMsgTypeClientThrottledPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeAverageLatency": {
+    "name": "apDdMsgTypeAverageLatency",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeMaximumLatency": {
+    "name": "apDdMsgTypeMaximumLatency",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgTypeLatencyWindow": {
+    "name": "apDdMsgTypeLatencyWindow",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.4.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeInfoTable": {
+    "name": "apDdMsgReturnCodeInfoTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeInfoEntry": {
+    "name": "apDdMsgReturnCodeInfoEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdMsgReturnCodeIndex": {
+    "name": "apDdMsgReturnCodeIndex",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeName": {
+    "name": "apDdMsgReturnCodeName",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgStatsReturnCodeTable": {
+    "name": "apDdMsgStatsReturnCodeTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdMsgStatsReturnCodeEntry": {
+    "name": "apDdMsgStatsReturnCodeEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdMsgReturnCodeServerRecent": {
+    "name": "apDdMsgReturnCodeServerRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeServerTotal": {
+    "name": "apDdMsgReturnCodeServerTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeServerPerMax": {
+    "name": "apDdMsgReturnCodeServerPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeClientRecent": {
+    "name": "apDdMsgReturnCodeClientRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeClientTotal": {
+    "name": "apDdMsgReturnCodeClientTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdMsgReturnCodeClientPerMax": {
+    "name": "apDdMsgReturnCodeClientPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsStatsTable": {
+    "name": "apDdDnsStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdDnsStatsEntry": {
+    "name": "apDdDnsStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdDnsQueriesRecent": {
+    "name": "apDdDnsQueriesRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsQueriesTotal": {
+    "name": "apDdDnsQueriesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsQueriesPerMax": {
+    "name": "apDdDnsQueriesPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsCacheHitsRecent": {
+    "name": "apDdDnsCacheHitsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsCacheHitsTotal": {
+    "name": "apDdDnsCacheHitsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsCacheHitsPerMax": {
+    "name": "apDdDnsCacheHitsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsCacheMissesRecent": {
+    "name": "apDdDnsCacheMissesRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsCacheMissesTotal": {
+    "name": "apDdDnsCacheMissesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsCacheMissesPerMax": {
+    "name": "apDdDnsCacheMissesPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsClientErrorsRecent": {
+    "name": "apDdDnsClientErrorsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsClientErrorsTotal": {
+    "name": "apDdDnsClientErrorsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsClientErrorsPerMax": {
+    "name": "apDdDnsClientErrorsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsServerErrorsRecent": {
+    "name": "apDdDnsServerErrorsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsServerErrorsTotal": {
+    "name": "apDdDnsServerErrorsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsServerErrorsPerMax": {
+    "name": "apDdDnsServerErrorsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsResponsesRecent": {
+    "name": "apDdDnsResponsesRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsResponsesTotal": {
+    "name": "apDdDnsResponsesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDnsResponsesPerMax": {
+    "name": "apDdDnsResponsesPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentStatsTable": {
+    "name": "apDdAgentStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdAgentStatsEntry": {
+    "name": "apDdAgentStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentIndex": {
+    "name": "apDdAgentIndex",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdAgentRealmName": {
+    "name": "apDdAgentRealmName",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentClientTransCPActive": {
+    "name": "apDdAgentClientTransCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentClientTransCPHigh": {
+    "name": "apDdAgentClientTransCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentClientTransCPTotal": {
+    "name": "apDdAgentClientTransCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentClientTransLTTotal": {
+    "name": "apDdAgentClientTransLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentClientTransLTPerMax": {
+    "name": "apDdAgentClientTransLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentClientTransLTHigh": {
+    "name": "apDdAgentClientTransLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentServerTransCPActive": {
+    "name": "apDdAgentServerTransCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentServerTransCPHigh": {
+    "name": "apDdAgentServerTransCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentServerTransCPTotal": {
+    "name": "apDdAgentServerTransCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentServerTransLTTotal": {
+    "name": "apDdAgentServerTransLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentServerTransLTPerMax": {
+    "name": "apDdAgentServerTransLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentServerTransLTHigh": {
+    "name": "apDdAgentServerTransLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenSocketsCPActive": {
+    "name": "apDdAgentGenSocketsCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenSocketsCPHigh": {
+    "name": "apDdAgentGenSocketsCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenSocketsCPTotal": {
+    "name": "apDdAgentGenSocketsCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenSocketsLTTotal": {
+    "name": "apDdAgentGenSocketsLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenSocketsLTPerMax": {
+    "name": "apDdAgentGenSocketsLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenSocketsLTHigh": {
+    "name": "apDdAgentGenSocketsLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenConnectsCPActive": {
+    "name": "apDdAgentGenConnectsCPActive",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenConnectsCPHigh": {
+    "name": "apDdAgentGenConnectsCPHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenConnectsCPTotal": {
+    "name": "apDdAgentGenConnectsCPTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenConnectsLTTotal": {
+    "name": "apDdAgentGenConnectsLTTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenConnectsLTPerMax": {
+    "name": "apDdAgentGenConnectsLTPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentGenConnectsLTHigh": {
+    "name": "apDdAgentGenConnectsLTHigh",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentStatus": {
+    "name": "apDdAgentStatus",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.7.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApDdStatusOptions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentErrorStatusTable": {
+    "name": "apDdAgentErrorStatusTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdAgentErrorStatusEntry": {
+    "name": "apDdAgentErrorStatusEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentNoRouteFoundRecent": {
+    "name": "apDdAgentNoRouteFoundRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentNoRouteFoundTotal": {
+    "name": "apDdAgentNoRouteFoundTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentNoRouteFoundPerMax": {
+    "name": "apDdAgentNoRouteFoundPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMalformedMsgRecent": {
+    "name": "apDdAgentMalformedMsgRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMalformedMsgTotal": {
+    "name": "apDdAgentMalformedMsgTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMalformedMsgPerMax": {
+    "name": "apDdAgentMalformedMsgPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentRejectedMsgRecent": {
+    "name": "apDdAgentRejectedMsgRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentRejectedMsgTotal": {
+    "name": "apDdAgentRejectedMsgTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentRejectedMsgPerMax": {
+    "name": "apDdAgentRejectedMsgPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDroppedMsgRecent": {
+    "name": "apDdAgentDroppedMsgRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDroppedMsgTotal": {
+    "name": "apDdAgentDroppedMsgTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDroppedMsgPerMax": {
+    "name": "apDdAgentDroppedMsgPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentInboundConstraintsRecent": {
+    "name": "apDdAgentInboundConstraintsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentInboundConstraintsTotal": {
+    "name": "apDdAgentInboundConstraintsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentInboundConstraintsPerMax": {
+    "name": "apDdAgentInboundConstraintsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentOutboundConstraintsRecent": {
+    "name": "apDdAgentOutboundConstraintsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentOutboundConstraintsTotal": {
+    "name": "apDdAgentOutboundConstraintsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentOutboundConstraintsPerMax": {
+    "name": "apDdAgentOutboundConstraintsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeStatsTable": {
+    "name": "apDdAgentMsgTypeStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeStatsEntry": {
+    "name": "apDdAgentMsgTypeStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerReqRecent": {
+    "name": "apDdAgentMsgTypeServerReqRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerReqTotal": {
+    "name": "apDdAgentMsgTypeServerReqTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerReqPerMax": {
+    "name": "apDdAgentMsgTypeServerReqPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientReqRecent": {
+    "name": "apDdAgentMsgTypeClientReqRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientReqTotal": {
+    "name": "apDdAgentMsgTypeClientReqTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientReqPerMax": {
+    "name": "apDdAgentMsgTypeClientReqPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerRetransRecent": {
+    "name": "apDdAgentMsgTypeServerRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerRetransTotal": {
+    "name": "apDdAgentMsgTypeServerRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerRetransPerMax": {
+    "name": "apDdAgentMsgTypeServerRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientRetransRecent": {
+    "name": "apDdAgentMsgTypeClientRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientRetransTotal": {
+    "name": "apDdAgentMsgTypeClientRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientRetransPerMax": {
+    "name": "apDdAgentMsgTypeClientRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerRespRetransRecent": {
+    "name": "apDdAgentMsgTypeServerRespRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerRespRetransTotal": {
+    "name": "apDdAgentMsgTypeServerRespRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeServerRespRetransPerMax": {
+    "name": "apDdAgentMsgTypeServerRespRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientRespRetransRecent": {
+    "name": "apDdAgentMsgTypeClientRespRetransRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientRespRetransTotal": {
+    "name": "apDdAgentMsgTypeClientRespRetransTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientRespRetransPerMax": {
+    "name": "apDdAgentMsgTypeClientRespRetransPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientTimeoutRecent": {
+    "name": "apDdAgentMsgTypeClientTimeoutRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientTimeoutTotal": {
+    "name": "apDdAgentMsgTypeClientTimeoutTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientTimeoutPerMax": {
+    "name": "apDdAgentMsgTypeClientTimeoutPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientThrottledRecent": {
+    "name": "apDdAgentMsgTypeClientThrottledRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientThrottledTotal": {
+    "name": "apDdAgentMsgTypeClientThrottledTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeClientThrottledPerMax": {
+    "name": "apDdAgentMsgTypeClientThrottledPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeAverageLatency": {
+    "name": "apDdAgentMsgTypeAverageLatency",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeMaximumLatency": {
+    "name": "apDdAgentMsgTypeMaximumLatency",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgTypeLatencyWindow": {
+    "name": "apDdAgentMsgTypeLatencyWindow",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.9.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgStatsReturnCodeTable": {
+    "name": "apDdAgentMsgStatsReturnCodeTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdAgentMsgStatsReturnCodeEntry": {
+    "name": "apDdAgentMsgStatsReturnCodeEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentMsgReturnCodeServerRecent": {
+    "name": "apDdAgentMsgReturnCodeServerRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgReturnCodeServerTotal": {
+    "name": "apDdAgentMsgReturnCodeServerTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgReturnCodeServerPerMax": {
+    "name": "apDdAgentMsgReturnCodeServerPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgReturnCodeClientRecent": {
+    "name": "apDdAgentMsgReturnCodeClientRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgReturnCodeClientTotal": {
+    "name": "apDdAgentMsgReturnCodeClientTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentMsgReturnCodeClientPerMax": {
+    "name": "apDdAgentMsgReturnCodeClientPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsStatsTable": {
+    "name": "apDdAgentDnsStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDdAgentDnsStatsEntry": {
+    "name": "apDdAgentDnsStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentDnsQueriesRecent": {
+    "name": "apDdAgentDnsQueriesRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsQueriesTotal": {
+    "name": "apDdAgentDnsQueriesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsQueriesPerMax": {
+    "name": "apDdAgentDnsQueriesPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsCacheHitsRecent": {
+    "name": "apDdAgentDnsCacheHitsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsCacheHitsTotal": {
+    "name": "apDdAgentDnsCacheHitsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsCacheHitsPerMax": {
+    "name": "apDdAgentDnsCacheHitsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsCacheMissesRecent": {
+    "name": "apDdAgentDnsCacheMissesRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsCacheMissesTotal": {
+    "name": "apDdAgentDnsCacheMissesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsCacheMissesPerMax": {
+    "name": "apDdAgentDnsCacheMissesPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsClientErrorsRecent": {
+    "name": "apDdAgentDnsClientErrorsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsClientErrorsTotal": {
+    "name": "apDdAgentDnsClientErrorsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsClientErrorsPerMax": {
+    "name": "apDdAgentDnsClientErrorsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsServerErrorsRecent": {
+    "name": "apDdAgentDnsServerErrorsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsServerErrorsTotal": {
+    "name": "apDdAgentDnsServerErrorsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsServerErrorsPerMax": {
+    "name": "apDdAgentDnsServerErrorsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsResponsesRecent": {
+    "name": "apDdAgentDnsResponsesRecent",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsResponsesTotal": {
+    "name": "apDdAgentDnsResponsesTotal",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdAgentDnsResponsesPerMax": {
+    "name": "apDdAgentDnsResponsesPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.12.1.2.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDdDiameterAgentHostName": {
+    "name": "apDdDiameterAgentHostName",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdDiameterIPPort": {
+    "name": "apDdDiameterIPPort",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdDiameterAgentOriginHostName": {
+    "name": "apDdDiameterAgentOriginHostName",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdDiameterAgentOriginRealmName": {
+    "name": "apDdDiameterAgentOriginRealmName",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdTransportType": {
+    "name": "apDdTransportType",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApTransportType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdInterfaceStatusReason": {
+    "name": "apDdInterfaceStatusReason",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnectByRequest": 0,
+          "diameterAgentUnreachable": 1,
+          "transportFailure": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdDiameterRemoteIPPort": {
+    "name": "apDdDiameterRemoteIPPort",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdSCTPAssociationID": {
+    "name": "apDdSCTPAssociationID",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdSCTPIsPrimaryPath": {
+    "name": "apDdSCTPIsPrimaryPath",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDdConnectionFailureTrap": {
+    "name": "apDdConnectionFailureTrap",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdTransportType"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdConnectionFailureClearTrap": {
+    "name": "apDdConnectionFailureClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdTransportType"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdSCTPPathFailureTrap": {
+    "name": "apDdSCTPPathFailureTrap",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterRemoteIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPAssociationID"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPIsPrimaryPath"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdSCTPPathFailureClearTrap": {
+    "name": "apDdSCTPPathFailureClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.12.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterRemoteIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPAssociationID"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPIsPrimaryPath"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdGeneralGroup": {
+    "name": "apDdGeneralGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceNumber"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdCurrentTransRate"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdHighTransRate"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdLowTransRate"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdInterfaceStatsGroup": {
+    "name": "apDdInterfaceStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdClientTransCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdClientTransCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdClientTransCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdClientTransLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdClientTransLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdClientTransLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdServerTransCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdServerTransCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdServerTransCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdServerTransLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdServerTransLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdServerTransLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenSocketsCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenSocketsCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenSocketsCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenSocketsLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenSocketsLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenSocketsLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenConnectsCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenConnectsCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenConnectsCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenConnectsLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenConnectsLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdGenConnectsLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdErrorStatusGroup": {
+    "name": "apDdErrorStatusGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdNoRouteFoundRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdNoRouteFoundTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdNoRouteFoundPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMalformedMsgRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMalformedMsgTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMalformedMsgPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdMsgTypeStatsGroup": {
+    "name": "apDdMsgTypeStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeMsgName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerReqRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerReqTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerReqPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientReqRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientReqTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientReqPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerRespRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerRespRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeServerRespRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientRespRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientRespRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientRespRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientTimeoutRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientTimeoutTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientTimeoutPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientThrottledRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientThrottledTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeClientThrottledPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeAverageLatency"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeMaximumLatency"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeLatencyWindow"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdMsgStatsReturnCodeGroup": {
+    "name": "apDdMsgStatsReturnCodeGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeServerRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeServerTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeServerPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeClientRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeClientTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeClientPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdIntfErrorStatusGroup": {
+    "name": "apDdIntfErrorStatusGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdRejectedMsgRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdRejectedMsgTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdRejectedMsgPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDroppedMsgRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDroppedMsgTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDroppedMsgPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInboundConstraintsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInboundConstraintsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInboundConstraintsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdOutboundConstraintsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdOutboundConstraintsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdOutboundConstraintsPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentGeneralGroup": {
+    "name": "apDdAgentGeneralGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentStatsGroup": {
+    "name": "apDdAgentStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentClientTransCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentClientTransCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentClientTransCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentClientTransLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentClientTransLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentClientTransLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentServerTransCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentServerTransCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentServerTransCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentServerTransLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentServerTransLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentServerTransLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenSocketsCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenSocketsCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenSocketsCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenSocketsLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenSocketsLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenSocketsLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenConnectsCPActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenConnectsCPHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenConnectsCPTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenConnectsLTTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenConnectsLTPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentGenConnectsLTHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentErrorStatusGroup": {
+    "name": "apDdAgentErrorStatusGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentNoRouteFoundRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentNoRouteFoundTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentNoRouteFoundPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMalformedMsgRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMalformedMsgTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMalformedMsgPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentRejectedMsgRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentRejectedMsgTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentRejectedMsgPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDroppedMsgRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDroppedMsgTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDroppedMsgPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentInboundConstraintsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentInboundConstraintsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentInboundConstraintsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentOutboundConstraintsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentOutboundConstraintsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentOutboundConstraintsPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentMsgTypeStatsGroup": {
+    "name": "apDdAgentMsgTypeStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgTypeMsgName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerReqRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerReqTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerReqPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientReqRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientReqTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientReqPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerRespRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerRespRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeServerRespRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientRespRetransRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientRespRetransTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientRespRetransPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientTimeoutRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientTimeoutTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientTimeoutPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientThrottledRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientThrottledTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeClientThrottledPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeAverageLatency"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeMaximumLatency"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgTypeLatencyWindow"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentMsgStatsReturnCodeGroup": {
+    "name": "apDdAgentMsgStatsReturnCodeGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdMsgReturnCodeName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgReturnCodeServerRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgReturnCodeServerTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgReturnCodeServerPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgReturnCodeClientRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgReturnCodeClientTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentMsgReturnCodeClientPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdDnsStatsEntryGroup": {
+    "name": "apDdDnsStatsEntryGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsQueriesRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsQueriesTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsQueriesPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsCacheHitsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsCacheHitsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsCacheHitsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsCacheMissesRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsCacheMissesTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsCacheMissesPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsClientErrorsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsClientErrorsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsClientErrorsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsServerErrorsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsServerErrorsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsServerErrorsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsResponsesRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsResponsesTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDnsResponsesPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdAgentDnsStatsEntryGroup": {
+    "name": "apDdAgentDnsStatsEntryGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsQueriesRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsQueriesTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsQueriesPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsCacheHitsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsCacheHitsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsCacheHitsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsCacheMissesRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsCacheMissesTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsCacheMissesPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsClientErrorsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsClientErrorsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsClientErrorsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsServerErrorsRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsServerErrorsTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsServerErrorsPerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsResponsesRecent"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsResponsesTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdAgentDnsResponsesPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDdSessionSubscriberGeneralGroup": {
+    "name": "apDdSessionSubscriberGeneralGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessionPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessionPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessionPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessionLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessionLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessionLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessInitPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessInitPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessInitPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessInitLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessInitLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessInitLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessEstablishedPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessEstablishedPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessEstablishedPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessEstablishedLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessEstablishedLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessEstablishedLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTerminatedPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTerminatedPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTerminatedPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTerminatedLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTerminatedLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTerminatedLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTimeoutPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTimeoutLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessTimeoutLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessErrorsPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessErrorsLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessErrorsLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessMissPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessMissLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSessMissLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscribePeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscribePeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscribePeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscribeLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscribeLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscribeLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdUnsubscribePeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdUnsubscribePeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdUnsubscribePeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdUnsubscribeLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdUnsubscribeLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdUnsubscribeLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyHitPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyHitPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyHitPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyHitLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyHitLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyHitLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyMissPeriodActive"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyMissPeriodHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyMissPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyMissLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyMissLifePerMax"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdPolicyMissLifeHigh"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberMissPeriodTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberMissLifeTotal"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSubscriberMissLifePerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDDNotifObjectsGroup": {
+    "name": "apDDNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginHostName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterAgentOriginRealmName"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdTransportType"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdInterfaceStatusReason"
+      }
+    ],
+    "status": "current"
+  },
+  "apDDNotificationsGroup": {
+    "name": "apDDNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdConnectionFailureTrap"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdConnectionFailureClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apDDSCTPNotifObjectsGroup": {
+    "name": "apDDSCTPNotifObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdDiameterRemoteIPPort"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPAssociationID"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPIsPrimaryPath"
+      }
+    ],
+    "status": "current"
+  },
+  "apDDSCTPNotificationsGroup": {
+    "name": "apDDSCTPNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.12.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPPathFailureTrap"
+      },
+      {
+        "module": "APDD-MIB",
+        "object": "apDdSCTPPathFailureClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APDD-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APDD-MIB"
+  }
+}

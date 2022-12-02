@@ -5,16 +5,16 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
-      "DellNetSwDate",
+      "DellNetPEOperStatus",
+      "DellNetCardOperStatus",
       "DellNetChassisType",
       "DellNetProcessorModuleType",
-      "DellNetMfgDate",
-      "DellNetIfType",
-      "DellNetCardOperStatus",
       "DellNetSystemCardType",
-      "DellNetPEOperStatus",
+      "DellNetDeviceType",
       "DellNetHundredthdB",
-      "DellNetDeviceType"
+      "DellNetSwDate",
+      "DellNetIfType",
+      "DellNetMfgDate"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -26,26 +26,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
       "MODULE-IDENTITY",
-      "Bits"
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "MacAddress"
     ]
   },
   "dellNetChassisMib": {
@@ -4673,9 +4673,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:07:50 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:51:11 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"
   }

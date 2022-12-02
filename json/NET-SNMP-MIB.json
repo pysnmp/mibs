@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "Bits",
       "enterprises",
-      "iso"
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "netSnmp": {
@@ -106,9 +106,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:15:15 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:58:56 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "NET-SNMP-MIB"
   }

@@ -1,0 +1,3766 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApRedundancyState",
+      "ApHardwareModuleFamily",
+      "ApPresence",
+      "ApSipMethod",
+      "ApServerStatus",
+      "ApPhyPortType"
+    ],
+    "APSYSMGMT-MIB": [
+      "apSysMgmtSipInterfaceRealmName",
+      "apSysMgmtSipInterfaceIP",
+      "apSipSessionAgentStatsEntry",
+      "apSigRealmStatsEntry"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apSipModule": {
+    "name": "apSipModule",
+    "oid": "1.3.6.1.4.1.9148.3.15",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-07-13 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2012-03-07 00:00",
+        "description": "Initial version."
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2017-11-24 00:00",
+        "description": "Added MIB definitions for SRVCC Stats."
+      },
+      {
+        "revision": "2017-12-13 00:00",
+        "description": "Added new table for sip method stats (apSipMethodStatsTable)"
+      },
+      {
+        "revision": "2018-04-04 00:00",
+        "description": "Added stats for SRVCC pre-alerting."
+      },
+      {
+        "revision": "2018-04-27 00:00",
+        "description": "Added MIB definitions for SIP Reg Event Subscription Stats."
+      },
+      {
+        "revision": "2019-04-24 00:00",
+        "description": "Added MIB definitions for MSRP Stats."
+      }
+    ]
+  },
+  "apSipMIBObjects": {
+    "name": "apSipMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1",
+    "class": "objectidentity"
+  },
+  "apSipMIBGeneralObjects": {
+    "name": "apSipMIBGeneralObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1",
+    "class": "objectidentity"
+  },
+  "apSipMIBTabularObjects": {
+    "name": "apSipMIBTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2",
+    "class": "objectidentity"
+  },
+  "apSipNotificationObjects": {
+    "name": "apSipNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.2",
+    "class": "objectidentity"
+  },
+  "apSipConformance": {
+    "name": "apSipConformance",
+    "oid": "1.3.6.1.4.1.9148.3.15.3",
+    "class": "objectidentity"
+  },
+  "apSipObjectGroups": {
+    "name": "apSipObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1",
+    "class": "objectidentity"
+  },
+  "apSipNotificationGroups": {
+    "name": "apSipNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.2",
+    "class": "objectidentity"
+  },
+  "apSipSecInterfaceObjects": {
+    "name": "apSipSecInterfaceObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.1",
+    "class": "objectidentity"
+  },
+  "apSipAudioVideoCallsObjects": {
+    "name": "apSipAudioVideoCallsObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.2",
+    "class": "objectidentity"
+  },
+  "apSipSRVCCStatsObjects": {
+    "name": "apSipSRVCCStatsObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3",
+    "class": "objectidentity"
+  },
+  "apSipRegEvtSubStatsObjects": {
+    "name": "apSipRegEvtSubStatsObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.4",
+    "class": "objectidentity"
+  },
+  "apSipMSRPStatsObjects": {
+    "name": "apSipMSRPStatsObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5",
+    "class": "objectidentity"
+  },
+  "apSipSecInterfaceNotifications": {
+    "name": "apSipSecInterfaceNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.1",
+    "class": "objectidentity"
+  },
+  "apSipSecIntfNotifObjects": {
+    "name": "apSipSecIntfNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.1.1",
+    "class": "objectidentity"
+  },
+  "apSipSecIntfNotifPrefix": {
+    "name": "apSipSecIntfNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.1.2",
+    "class": "objectidentity"
+  },
+  "apSipSecIntfNotifications": {
+    "name": "apSipSecIntfNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.1.2.0",
+    "class": "objectidentity"
+  },
+  "apSipSecInterfaceTotalRegistrations": {
+    "name": "apSipSecInterfaceTotalRegistrations",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSecInterfaceRegThreshold": {
+    "name": "apSipSecInterfaceRegThreshold",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSecInterfaceClearThreshold": {
+    "name": "apSipSecInterfaceClearThreshold",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSIPVideoCallsActive": {
+    "name": "apSIPVideoCallsActive",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSIPAudioCallsActive": {
+    "name": "apSIPAudioCallsActive",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsTotalSuccess": {
+    "name": "apSipSRVCCStatsTotalSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsTotalFailed": {
+    "name": "apSipSRVCCStatsTotalFailed",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsTotalCallsAfterAnswer": {
+    "name": "apSipSRVCCStatsTotalCallsAfterAnswer",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsAfterAnswerSuccess": {
+    "name": "apSipSRVCCStatsAfterAnswerSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsAfterAnswerFailed": {
+    "name": "apSipSRVCCStatsAfterAnswerFailed",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsTotalCallsDuringAlerting": {
+    "name": "apSipSRVCCStatsTotalCallsDuringAlerting",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsDuringAlertingSuccess": {
+    "name": "apSipSRVCCStatsDuringAlertingSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsDuringAlertingFailed": {
+    "name": "apSipSRVCCStatsDuringAlertingFailed",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsAtcfCancel": {
+    "name": "apSipSRVCCStatsAtcfCancel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsEmergencySuccess": {
+    "name": "apSipSRVCCStatsEmergencySuccess",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsEmergencyFailed": {
+    "name": "apSipSRVCCStatsEmergencyFailed",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsEatfCancel": {
+    "name": "apSipSRVCCStatsEatfCancel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsTotalCallsDuringPreAlerting": {
+    "name": "apSipSRVCCStatsTotalCallsDuringPreAlerting",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsDuringPreAlertingSuccess": {
+    "name": "apSipSRVCCStatsDuringPreAlertingSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSRVCCStatsDuringPreAlertingFailed": {
+    "name": "apSipSRVCCStatsDuringPreAlertingFailed",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipStatsActiveSubsRegEvt": {
+    "name": "apSipStatsActiveSubsRegEvt",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipStatsPerMaxSubsRegEvt": {
+    "name": "apSipStatsPerMaxSubsRegEvt",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipStatsMaxActiveSubsRegEvt": {
+    "name": "apSipStatsMaxActiveSubsRegEvt",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipStatsTotalSubsRegEvt": {
+    "name": "apSipStatsTotalSubsRegEvt",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFdTableSize": {
+    "name": "apSipMSRPFdTableSize",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionIdTableSize": {
+    "name": "apSipMSRPSessionIdTableSize",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPActiveSessions": {
+    "name": "apSipMSRPActiveSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPMaxActiveSessions": {
+    "name": "apSipMSRPMaxActiveSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPEstablishedSessions": {
+    "name": "apSipMSRPEstablishedSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPProvisionedSessions": {
+    "name": "apSipMSRPProvisionedSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFinishedSessions": {
+    "name": "apSipMSRPFinishedSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPAcceptedConnections": {
+    "name": "apSipMSRPAcceptedConnections",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectedConnections": {
+    "name": "apSipMSRPConnectedConnections",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPReleasedConnections": {
+    "name": "apSipMSRPReleasedConnections",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamRequestReceived": {
+    "name": "apSipMSRPStreamRequestReceived",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamRequestSent": {
+    "name": "apSipMSRPStreamRequestSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamResponseReceived": {
+    "name": "apSipMSRPStreamResponseReceived",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamResponseSent": {
+    "name": "apSipMSRPStreamResponseSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPGlobalBufferedData": {
+    "name": "apSipMSRPGlobalBufferedData",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFlowAdd": {
+    "name": "apSipMSRPFlowAdd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFlowDelete": {
+    "name": "apSipMSRPFlowDelete",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFailedSessionsCannotRoute": {
+    "name": "apSipMSRPFailedSessionsCannotRoute",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFailedSessionsCannotConnect": {
+    "name": "apSipMSRPFailedSessionsCannotConnect",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFailedSessionsFingerprintMismatch": {
+    "name": "apSipMSRPFailedSessionsFingerprintMismatch",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFailedMessagesCannotBeSent": {
+    "name": "apSipMSRPFailedMessagesCannotBeSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFailedMessagesMalformed": {
+    "name": "apSipMSRPFailedMessagesMalformed",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSendQFullEvents": {
+    "name": "apSipMSRPSendQFullEvents",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSendQCongestedEvents": {
+    "name": "apSipMSRPSendQCongestedEvents",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSendQCongestionRelievedEvents": {
+    "name": "apSipMSRPSendQCongestionRelievedEvents",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamErrorNoTransId": {
+    "name": "apSipMSRPStreamErrorNoTransId",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamErrorNoMsgType": {
+    "name": "apSipMSRPStreamErrorNoMsgType",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamErrorNoByteLength": {
+    "name": "apSipMSRPStreamErrorNoByteLength",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPBufferLimitExceeded": {
+    "name": "apSipMSRPBufferLimitExceeded",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFailedConnectionInit": {
+    "name": "apSipMSRPFailedConnectionInit",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessReprovMismatch": {
+    "name": "apSipMSRPSessReprovMismatch",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPTcpListenErrors": {
+    "name": "apSipMSRPTcpListenErrors",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPTcpConnectError": {
+    "name": "apSipMSRPTcpConnectError",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPTcpError": {
+    "name": "apSipMSRPTcpError",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoFromHeaderSessionID": {
+    "name": "apSipMSRPNoFromHeaderSessionID",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoFromHeader": {
+    "name": "apSipMSRPNoFromHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFromHdrAddrParseError": {
+    "name": "apSipMSRPFromHdrAddrParseError",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoFromHdrAddr": {
+    "name": "apSipMSRPNoFromHdrAddr",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoFromHdrPort": {
+    "name": "apSipMSRPNoFromHdrPort",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoFromHdrAuthority": {
+    "name": "apSipMSRPNoFromHdrAuthority",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFromHdrSrvMismatch": {
+    "name": "apSipMSRPFromHdrSrvMismatch",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSendFailNoDestFd": {
+    "name": "apSipMSRPSendFailNoDestFd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSendFailedNoDstSession": {
+    "name": "apSipMSRPSendFailedNoDstSession",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoToHeaderSessionID": {
+    "name": "apSipMSRPNoToHeaderSessionID",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoToHeader": {
+    "name": "apSipMSRPNoToHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPToHdrAddrParseError": {
+    "name": "apSipMSRPToHdrAddrParseError",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoToHdrAddr": {
+    "name": "apSipMSRPNoToHdrAddr",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoToHdrPort": {
+    "name": "apSipMSRPNoToHdrPort",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoToHdrAuthority": {
+    "name": "apSipMSRPNoToHdrAuthority",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPToHdrSrvMismatch": {
+    "name": "apSipMSRPToHdrSrvMismatch",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNoDestFdEntry": {
+    "name": "apSipMSRPNoDestFdEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPTcpSendFailure": {
+    "name": "apSipMSRPTcpSendFailure",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFdTableInsertErrorCollision": {
+    "name": "apSipMSRPFdTableInsertErrorCollision",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFdTableInsertErrorNoData": {
+    "name": "apSipMSRPFdTableInsertErrorNoData",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFdTableInsertErrorMemory": {
+    "name": "apSipMSRPFdTableInsertErrorMemory",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFdTableInsertErrorMaxHops": {
+    "name": "apSipMSRPFdTableInsertErrorMaxHops",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFdTableInsertErrorBad": {
+    "name": "apSipMSRPFdTableInsertErrorBad",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionTableInsertErrorCollision": {
+    "name": "apSipMSRPSessionTableInsertErrorCollision",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionTableInsertErrorNoData": {
+    "name": "apSipMSRPSessionTableInsertErrorNoData",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionTableInsertErrorMemory": {
+    "name": "apSipMSRPSessionTableInsertErrorMemory",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionTableInsertErrorMaxHops": {
+    "name": "apSipMSRPSessionTableInsertErrorMaxHops",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionTableInsertErrorBad": {
+    "name": "apSipMSRPSessionTableInsertErrorBad",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPFlowToSessionTableInsertError": {
+    "name": "apSipMSRPFlowToSessionTableInsertError",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNumPreProvSessions": {
+    "name": "apSipMSRPNumPreProvSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNumPreProvMessages": {
+    "name": "apSipMSRPNumPreProvMessages",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateNoSession": {
+    "name": "apSipMSRPConnectionStateNoSession",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateListening": {
+    "name": "apSipMSRPConnectionStateListening",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStatePending": {
+    "name": "apSipMSRPConnectionStatePending",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateConnecting": {
+    "name": "apSipMSRPConnectionStateConnecting",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateConnected": {
+    "name": "apSipMSRPConnectionStateConnected",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateEstablished": {
+    "name": "apSipMSRPConnectionStateEstablished",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateFinished": {
+    "name": "apSipMSRPConnectionStateFinished",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectionStateReleased": {
+    "name": "apSipMSRPConnectionStateReleased",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPUnqualifiedConnections": {
+    "name": "apSipMSRPUnqualifiedConnections",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionStateNone": {
+    "name": "apSipMSRPSessionStateNone",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionStateListening": {
+    "name": "apSipMSRPSessionStateListening",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionStatePreProvisioned": {
+    "name": "apSipMSRPSessionStatePreProvisioned",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionStateProvisioned": {
+    "name": "apSipMSRPSessionStateProvisioned",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionStateEstablished": {
+    "name": "apSipMSRPSessionStateEstablished",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPSessionStateFinished": {
+    "name": "apSipMSRPSessionStateFinished",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPClosedFdTableSize": {
+    "name": "apSipMSRPClosedFdTableSize",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPClosedFdTableInsertErrors": {
+    "name": "apSipMSRPClosedFdTableInsertErrors",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNumFdForcedReleases": {
+    "name": "apSipMSRPNumFdForcedReleases",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNumForcedReleasedListenFdNotFound": {
+    "name": "apSipMSRPNumForcedReleasedListenFdNotFound",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNumForcedReleasedForkedFdNotFound": {
+    "name": "apSipMSRPNumForcedReleasedForkedFdNotFound",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPNumListenFdForcedReleased": {
+    "name": "apSipMSRPNumListenFdForcedReleased",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPRequestBytesReceived": {
+    "name": "apSipMSRPRequestBytesReceived",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.87",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPRequestBytesSent": {
+    "name": "apSipMSRPRequestBytesSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.88",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPResponseBytesReceived": {
+    "name": "apSipMSRPResponseBytesReceived",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.89",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPResponseBytesSent": {
+    "name": "apSipMSRPResponseBytesSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.90",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPUnqualifiedClose": {
+    "name": "apSipMSRPUnqualifiedClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.91",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPUnconnectedClose": {
+    "name": "apSipMSRPUnconnectedClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.92",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPAcceptErrorClose": {
+    "name": "apSipMSRPAcceptErrorClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.93",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPPreProvisionClose": {
+    "name": "apSipMSRPPreProvisionClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.94",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPReadErrorClose": {
+    "name": "apSipMSRPReadErrorClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.95",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPStreamErrorClose": {
+    "name": "apSipMSRPStreamErrorClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.96",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPBufferClose": {
+    "name": "apSipMSRPBufferClose",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.97",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPReleaseNotificationFailures": {
+    "name": "apSipMSRPReleaseNotificationFailures",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.98",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPReleaseNotificationUnsentNoId": {
+    "name": "apSipMSRPReleaseNotificationUnsentNoId",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPReleaseNotificationUnsentNoFd": {
+    "name": "apSipMSRPReleaseNotificationUnsentNoFd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPReleaseNotificationUnsentNoListenFd": {
+    "name": "apSipMSRPReleaseNotificationUnsentNoListenFd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPAcceptedConnectionsCema": {
+    "name": "apSipMSRPAcceptedConnectionsCema",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPConnectedConnectionsCema": {
+    "name": "apSipMSRPConnectedConnectionsCema",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPActiveCemaSessions": {
+    "name": "apSipMSRPActiveCemaSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPEstablishedSessionsSessmatch": {
+    "name": "apSipMSRPEstablishedSessionsSessmatch",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPProvisionedSessionsSessmatch": {
+    "name": "apSipMSRPProvisionedSessionsSessmatch",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPActiveSessmatchSessions": {
+    "name": "apSipMSRPActiveSessmatchSessions",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPMessageFromHost": {
+    "name": "apSipMSRPMessageFromHost",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPMessageToHost": {
+    "name": "apSipMSRPMessageToHost",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMSRPMessageToHostFail": {
+    "name": "apSipMSRPMessageToHostFail",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.1.5.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSecInterfaceRegThresholdExceededTrap": {
+    "name": "apSipSecInterfaceRegThresholdExceededTrap",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceTotalRegistrations"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceRegThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSecInterfaceRegThresholdClearTrap": {
+    "name": "apSipSecInterfaceRegThresholdClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceTotalRegistrations"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceClearThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSurvivabilityNotif": {
+    "name": "apSipSurvivabilityNotif",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.2",
+    "class": "objectidentity"
+  },
+  "apSipSurvivabilityNotifObjects": {
+    "name": "apSipSurvivabilityNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.2.1",
+    "class": "objectidentity"
+  },
+  "apSipSurvivabilityNotifPrefix": {
+    "name": "apSipSurvivabilityNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.2.2",
+    "class": "objectidentity"
+  },
+  "apSipSurvivabilityNotifications": {
+    "name": "apSipSurvivabilityNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "apSipSurvivabilityModeEnter": {
+    "name": "apSipSurvivabilityModeEnter",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "object": "apSysMgmtSipInterfaceRealmName"
+      },
+      {
+        "module": "APSYSMGMT-MIB",
+        "object": "apSysMgmtSipInterfaceIP"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSurvivabilityModeExit": {
+    "name": "apSipSurvivabilityModeExit",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSYSMGMT-MIB",
+        "object": "apSysMgmtSipInterfaceRealmName"
+      },
+      {
+        "module": "APSYSMGMT-MIB",
+        "object": "apSysMgmtSipInterfaceIP"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipInterfaceTable": {
+    "name": "apSipInterfaceTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipInterfaceEntry": {
+    "name": "apSipInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSipInterfaceIndex": {
+    "name": "apSipInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipInterfaceRealm": {
+    "name": "apSipInterfaceRealm",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateIntfStatsTable": {
+    "name": "apSipRateIntfStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipRateIntfStatsEntry": {
+    "name": "apSipRateIntfStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipInterfaceIndex",
+        "implied": 0
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRateIntfMethod": {
+    "name": "apSipRateIntfMethod",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApSipMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipRateIntfMsgRcvd": {
+    "name": "apSipRateIntfMsgRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateIntfMsgSent": {
+    "name": "apSipRateIntfMsgSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateIntfReqRcvd": {
+    "name": "apSipRateIntfReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateIntfReqSent": {
+    "name": "apSipRateIntfReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateIntfRspRcvd": {
+    "name": "apSipRateIntfRspRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateIntfRspSent": {
+    "name": "apSipRateIntfRspSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipAgentTable": {
+    "name": "apSipAgentTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipAgentEntry": {
+    "name": "apSipAgentEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipAgentIndex",
+        "implied": 0
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipAgentStatsMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSipAgentIndex": {
+    "name": "apSipAgentIndex",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipAgentName": {
+    "name": "apSipAgentName",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateAgentStatsTable": {
+    "name": "apSipRateAgentStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipRateAgentStatsEntry": {
+    "name": "apSipRateAgentStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipAgentIndex",
+        "implied": 0
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipAgentStatsMethod",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSipAgentStatsMethod": {
+    "name": "apSipAgentStatsMethod",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApSipMethod",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipRateAgentMsgRcvd": {
+    "name": "apSipRateAgentMsgRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateAgentMsgSent": {
+    "name": "apSipRateAgentMsgSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateAgentReqRcvd": {
+    "name": "apSipRateAgentReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateAgentReqSent": {
+    "name": "apSipRateAgentReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateAgentRspRcvd": {
+    "name": "apSipRateAgentRspRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipRateAgentRspSent": {
+    "name": "apSipRateAgentRspSent",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSecInterfaceRegNotificationsGroup": {
+    "name": "apSipSecInterfaceRegNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceRegThresholdExceededTrap"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceRegThresholdClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSurvivabilityNotificationsGroup": {
+    "name": "apSipSurvivabilityNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSurvivabilityModeEnter"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSurvivabilityModeExit"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSecInterfaceRegObjectsGroup": {
+    "name": "apSipSecInterfaceRegObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceTotalRegistrations"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceRegThreshold"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSecInterfaceClearThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRateStatsGroup": {
+    "name": "apSipRateStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipInterfaceRealm"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfMsgRcvd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfMsgSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfReqRcvd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfReqSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfRspRcvd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateIntfRspSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipAgentName"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateAgentMsgRcvd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateAgentMsgSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateAgentReqRcvd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateAgentReqSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateAgentRspRcvd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRateAgentRspSent"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSaCacStatsTable": {
+    "name": "apSipSaCacStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipSaCacStatsEntry": {
+    "name": "apSipSaCacStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apSipSaCacStatsEntry",
+      "module": "APSIP-MIB",
+      "object": "apSipSessionAgentStatsEntry"
+    },
+    "status": "current"
+  },
+  "apSipSaCacSessionUtilLevel": {
+    "name": "apSipSaCacSessionUtilLevel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSaCacBurstRateUtilLevel": {
+    "name": "apSipSaCacBurstRateUtilLevel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSigRealmCacStatsTable": {
+    "name": "apSigRealmCacStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSigRealmCacStatsEntry": {
+    "name": "apSigRealmCacStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apSigRealmCacStatsEntry",
+      "module": "APSIP-MIB",
+      "object": "apSigRealmStatsEntry"
+    },
+    "status": "current"
+  },
+  "apSigRealmCacSessionUtilLevel": {
+    "name": "apSigRealmCacSessionUtilLevel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSigRealmCacBurstRateUtilLevel": {
+    "name": "apSigRealmCacBurstRateUtilLevel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipInterfaceCacStatsTable": {
+    "name": "apSipInterfaceCacStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipInterfaceCacStatsEntry": {
+    "name": "apSipInterfaceCacStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apSipInterfaceCacStatsEntry",
+      "module": "APSIP-MIB",
+      "object": "apSipInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "apSipInterfaceCacSessionUtilLevel": {
+    "name": "apSipInterfaceCacSessionUtilLevel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipInterfaceCacBurstRateUtilLevel": {
+    "name": "apSipInterfaceCacBurstRateUtilLevel",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSaCallInfoStatsTable": {
+    "name": "apSipSaCallInfoStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipSaCallInfoStatsEntry": {
+    "name": "apSipSaCallInfoStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apSipSaCallInfoStatsEntry",
+      "module": "APSIP-MIB",
+      "object": "apSipSessionAgentStatsEntry"
+    },
+    "status": "current"
+  },
+  "apSipSAStatsTotalCallDurationInbound": {
+    "name": "apSipSAStatsTotalCallDurationInbound",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSAStatsTotalCallDurationOutbound": {
+    "name": "apSipSAStatsTotalCallDurationOutbound",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSAStatsTotalCallDropsNormal": {
+    "name": "apSipSAStatsTotalCallDropsNormal",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipSAStatsTotalCallDropsLocal": {
+    "name": "apSipSAStatsTotalCallDropsLocal",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSigRealmCallInfoStatsTable": {
+    "name": "apSigRealmCallInfoStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSigRealmCallInfoStatsEntry": {
+    "name": "apSigRealmCallInfoStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "apSigRealmCallInfoStatsEntry",
+      "module": "APSIP-MIB",
+      "object": "apSigRealmStatsEntry"
+    },
+    "status": "current"
+  },
+  "apSigRealmStatsTotalCallDurationInbound": {
+    "name": "apSigRealmStatsTotalCallDurationInbound",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSigRealmStatsTotalCallDurationOutbound": {
+    "name": "apSigRealmStatsTotalCallDurationOutbound",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSigRealmStatsTotalCallDropsNormal": {
+    "name": "apSigRealmStatsTotalCallDropsNormal",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSigRealmStatsTotalCallDropsLocal": {
+    "name": "apSigRealmStatsTotalCallDropsLocal",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipMethodStatsTable": {
+    "name": "apSipMethodStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipMethodStatsEntry": {
+    "name": "apSipMethodStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMethodStatsIndex",
+        "implied": 0
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMethodStatsTransType",
+        "implied": 0
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMethodStatsEventCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apSipMethodStatsIndex": {
+    "name": "apSipMethodStatsIndex",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invite": 1,
+          "ack": 2,
+          "bye": 3,
+          "register": 4,
+          "cancel": 5,
+          "prack": 6,
+          "options": 7,
+          "info": 8,
+          "subscribe": 9,
+          "notify": 10,
+          "refer": 11,
+          "update": 12,
+          "message": 13,
+          "publish": 14,
+          "other": 15
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipMethodStatsTransType": {
+    "name": "apSipMethodStatsTransType",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serverTrans": 1,
+          "clientTrans": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipMethodStatsEventCode": {
+    "name": "apSipMethodStatsEventCode",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "event100Trying": 1,
+          "event180Ringing": 2,
+          "event181Forwarded": 3,
+          "event182Queued": 4,
+          "event183Progress": 5,
+          "event1xxProvisional": 6,
+          "event200OK": 7,
+          "event202Accepted": 8,
+          "event2xxSuccess": 9,
+          "event30xMoved": 10,
+          "event305UseProxy": 11,
+          "event380Alternative": 12,
+          "event3xxRedirect": 13,
+          "event400BadRequest": 14,
+          "event401Unauthorized": 15,
+          "event403Forbidden": 16,
+          "event404NotFound": 17,
+          "event405NotAllowed": 18,
+          "event406NotAcceptable": 19,
+          "event407ProxyAuthReq": 20,
+          "event408RequestTimeout": 21,
+          "event415BadMediaType": 22,
+          "event420BadExtension": 23,
+          "event421ExtensionReqd": 24,
+          "event422TooShort": 25,
+          "event423TooBrief": 26,
+          "event480Unavailable": 27,
+          "event481DoesNotExist": 28,
+          "event482LoopDetected": 29,
+          "event483TooManyHops": 30,
+          "event484AddressIncompl": 31,
+          "event485Ambiguous": 32,
+          "event486BusyHere": 33,
+          "event487Terminated": 34,
+          "event488NotAcceptable": 35,
+          "event489BadEvent": 36,
+          "event491ReqPending": 37,
+          "event4xxClientError": 38,
+          "event500InternalError": 39,
+          "event501NotImplemented": 40,
+          "event502BadGateway": 41,
+          "event503ServiceUnavail": 42,
+          "event504GatewayTimeout": 43,
+          "event513MsgTooLarge": 44,
+          "event580PreconFailure": 45,
+          "event5xxServerError": 46,
+          "event600BusyEverywhere": 47,
+          "event603Decline": 48,
+          "event606NotAcceptable": 49,
+          "event6xxGlobalError": 50,
+          "eventRequests": 51,
+          "eventRetransmissions": 52,
+          "eventResponseRetrans": 53,
+          "eventTransactionTimeouts": 54
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apSipMethodStatsEventCount": {
+    "name": "apSipMethodStatsEventCount",
+    "oid": "1.3.6.1.4.1.9148.3.15.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipCACUtilNotif": {
+    "name": "apSipCACUtilNotif",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3",
+    "class": "objectidentity"
+  },
+  "apSipCACUtilNotifObjects": {
+    "name": "apSipCACUtilNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.1",
+    "class": "objectidentity"
+  },
+  "apSipCACUtilNotifPrefix": {
+    "name": "apSipCACUtilNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.2",
+    "class": "objectidentity"
+  },
+  "apSipCACUtilNotifications": {
+    "name": "apSipCACUtilNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.2.0",
+    "class": "objectidentity"
+  },
+  "apSipCACUtilTrapType": {
+    "name": "apSipCACUtilTrapType",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipCACUtilTrapValue": {
+    "name": "apSipCACUtilTrapValue",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipCACUtilAlertTrap": {
+    "name": "apSipCACUtilAlertTrap",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipCACUtilTrapType"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipCACUtilTrapValue"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACUtilClearTrap": {
+    "name": "apSipCACUtilClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.15.2.3.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipCACUtilTrapType"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipCACUtilTrapValue"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACStatsGroup": {
+    "name": "apSipCACStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSaCacSessionUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSaCacBurstRateUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmCacSessionUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmCacBurstRateUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipInterfaceCacSessionUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipInterfaceCacBurstRateUtilLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACStatsSubGroup": {
+    "name": "apSipCACStatsSubGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSaCacSessionUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSaCacBurstRateUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmCacSessionUtilLevel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmCacBurstRateUtilLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipAudioVideoCallsGroup": {
+    "name": "apSipAudioVideoCallsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSIPVideoCallsActive"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSIPAudioCallsActive"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSRVCCStatsGroup": {
+    "name": "apSipSRVCCStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsTotalSuccess"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsTotalFailed"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsTotalCallsAfterAnswer"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsAfterAnswerSuccess"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsAfterAnswerFailed"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsTotalCallsDuringAlerting"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsDuringAlertingSuccess"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsDuringAlertingFailed"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsAtcfCancel"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsEmergencySuccess"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsEmergencyFailed"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsEatfCancel"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCallDurationGroup": {
+    "name": "apSipCallDurationGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSAStatsTotalCallDurationInbound"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSAStatsTotalCallDurationOutbound"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmStatsTotalCallDurationInbound"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmStatsTotalCallDurationOutbound"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCallDropGroup": {
+    "name": "apSipCallDropGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSAStatsTotalCallDropsNormal"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSAStatsTotalCallDropsLocal"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmStatsTotalCallDropsNormal"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSigRealmStatsTotalCallDropsLocal"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipMethodStatsGroup": {
+    "name": "apSipMethodStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMethodStatsEventCount"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipSRVCCPreAlertingStatsGroup": {
+    "name": "apSipSRVCCPreAlertingStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsTotalCallsDuringPreAlerting"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsDuringPreAlertingSuccess"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipSRVCCStatsDuringPreAlertingFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRegEvtSubStatsGroup": {
+    "name": "apSipRegEvtSubStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipStatsActiveSubsRegEvt"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipStatsPerMaxSubsRegEvt"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipStatsMaxActiveSubsRegEvt"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipStatsTotalSubsRegEvt"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipMSRPStatsGroup": {
+    "name": "apSipMSRPStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFdTableSize"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionIdTableSize"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPActiveSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPMaxActiveSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPEstablishedSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPProvisionedSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFinishedSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPAcceptedConnections"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectedConnections"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPReleasedConnections"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamRequestReceived"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamRequestSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamResponseReceived"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamResponseSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPGlobalBufferedData"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFlowAdd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFlowDelete"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFailedSessionsCannotRoute"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFailedSessionsCannotConnect"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFailedSessionsFingerprintMismatch"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFailedMessagesCannotBeSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFailedMessagesMalformed"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSendQFullEvents"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSendQCongestedEvents"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSendQCongestionRelievedEvents"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamErrorNoTransId"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamErrorNoMsgType"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamErrorNoByteLength"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPBufferLimitExceeded"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFailedConnectionInit"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessReprovMismatch"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPTcpListenErrors"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPTcpConnectError"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPTcpError"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoFromHeaderSessionID"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoFromHeader"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFromHdrAddrParseError"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoFromHdrAddr"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoFromHdrPort"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoFromHdrAuthority"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFromHdrSrvMismatch"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSendFailNoDestFd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSendFailedNoDstSession"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoToHeaderSessionID"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoToHeader"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPToHdrAddrParseError"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoToHdrAddr"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoToHdrPort"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoToHdrAuthority"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPToHdrSrvMismatch"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNoDestFdEntry"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPTcpSendFailure"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFdTableInsertErrorCollision"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFdTableInsertErrorNoData"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFdTableInsertErrorMemory"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFdTableInsertErrorMaxHops"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFdTableInsertErrorBad"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionTableInsertErrorCollision"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionTableInsertErrorNoData"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionTableInsertErrorMemory"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionTableInsertErrorMaxHops"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionTableInsertErrorBad"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPFlowToSessionTableInsertError"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNumPreProvSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNumPreProvMessages"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateNoSession"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateListening"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStatePending"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateConnecting"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateConnected"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateEstablished"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateFinished"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectionStateReleased"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPUnqualifiedConnections"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionStateNone"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionStateListening"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionStatePreProvisioned"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionStateProvisioned"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionStateEstablished"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPSessionStateFinished"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPClosedFdTableSize"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPClosedFdTableInsertErrors"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNumFdForcedReleases"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNumForcedReleasedListenFdNotFound"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNumForcedReleasedForkedFdNotFound"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPNumListenFdForcedReleased"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPRequestBytesReceived"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPRequestBytesSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPResponseBytesReceived"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPResponseBytesSent"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPUnqualifiedClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPUnconnectedClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPAcceptErrorClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPPreProvisionClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPReadErrorClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPStreamErrorClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPBufferClose"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPReleaseNotificationFailures"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPReleaseNotificationUnsentNoId"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPReleaseNotificationUnsentNoFd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPReleaseNotificationUnsentNoListenFd"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPAcceptedConnectionsCema"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPConnectedConnectionsCema"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPActiveCemaSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPEstablishedSessionsSessmatch"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPProvisionedSessionsSessmatch"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPActiveSessmatchSessions"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPMessageFromHost"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPMessageToHost"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipMSRPMessageToHostFail"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipCACNotificationsGroup": {
+    "name": "apSipCACNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipCACUtilAlertTrap"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipCACUtilClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRecModule": {
+    "name": "apSipRecModule",
+    "oid": "1.3.6.1.4.1.9148.3.15.4",
+    "class": "objectidentity"
+  },
+  "apSipRecNotifications": {
+    "name": "apSipRecNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1",
+    "class": "objectidentity"
+  },
+  "apSipRecNotificationPrefix": {
+    "name": "apSipRecNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.0",
+    "class": "objectidentity"
+  },
+  "apSipRecNotifyObjects": {
+    "name": "apSipRecNotifyObjects",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1",
+    "class": "objectidentity"
+  },
+  "apSipRecRecDlgCallIdHeader": {
+    "name": "apSipRecRecDlgCallIdHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipRecRecDlgToHeader": {
+    "name": "apSipRecRecDlgToHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipRecRecDlgFromHeader": {
+    "name": "apSipRecRecDlgFromHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipRecCommSessCallIdHeader": {
+    "name": "apSipRecCommSessCallIdHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipRecCommSessToHeader": {
+    "name": "apSipRecCommSessToHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipRecCommSessFromHeader": {
+    "name": "apSipRecCommSessFromHeader",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apSipRecRecDlgFailNotify": {
+    "name": "apSipRecRecDlgFailNotify",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecRecDlgCallIdHeader"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecRecDlgToHeader"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecRecDlgFromHeader"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRecCommSessionNotify": {
+    "name": "apSipRecCommSessionNotify",
+    "oid": "1.3.6.1.4.1.9148.3.15.4.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecCommSessCallIdHeader"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecCommSessToHeader"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecCommSessFromHeader"
+      }
+    ],
+    "status": "current"
+  },
+  "apSipRecNotificationsGroup": {
+    "name": "apSipRecNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.15.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecRecDlgFailNotify"
+      },
+      {
+        "module": "APSIP-MIB",
+        "object": "apSipRecCommSessionNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSIP-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APSIP-MIB"
+  }
+}

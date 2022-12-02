@@ -1,0 +1,1816 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApRedundancyState",
+      "ApHardwareModuleFamily",
+      "ApPresence",
+      "ApThreadOverloaded",
+      "ApServerStatus",
+      "ApPhyPortType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apUsbcSysModule": {
+    "name": "apUsbcSysModule",
+    "oid": "1.3.6.1.4.1.9148.3.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-03-07 00:00",
+        "description": "Initial version."
+      },
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2018-04-13 00:00",
+        "description": "Added MIB OID for system FD count traps"
+      }
+    ]
+  },
+  "apUsbcSysMIBObjects": {
+    "name": "apUsbcSysMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1",
+    "class": "objectidentity"
+  },
+  "apUsbcSysNotificationObjects": {
+    "name": "apUsbcSysNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.2",
+    "class": "objectidentity"
+  },
+  "apUsbcSysNotifObjects": {
+    "name": "apUsbcSysNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.1",
+    "class": "objectidentity"
+  },
+  "apUsbcSysNotifPrefix": {
+    "name": "apUsbcSysNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2",
+    "class": "objectidentity"
+  },
+  "apUsbcSysCpuNotif": {
+    "name": "apUsbcSysCpuNotif",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1",
+    "class": "objectidentity"
+  },
+  "apUsbcSysCpuNotifications": {
+    "name": "apUsbcSysCpuNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0",
+    "class": "objectidentity"
+  },
+  "apUsbcSysFdNotif": {
+    "name": "apUsbcSysFdNotif",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.2",
+    "class": "objectidentity"
+  },
+  "apUsbcSysFdNotifications": {
+    "name": "apUsbcSysFdNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.2.0",
+    "class": "objectidentity"
+  },
+  "apUsbcSysConformance": {
+    "name": "apUsbcSysConformance",
+    "oid": "1.3.6.1.4.1.9148.3.17.3",
+    "class": "objectidentity"
+  },
+  "apUsbcSysObjectGroups": {
+    "name": "apUsbcSysObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1",
+    "class": "objectidentity"
+  },
+  "apUsbcSysNotificationGroups": {
+    "name": "apUsbcSysNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2",
+    "class": "objectidentity"
+  },
+  "UsbcSysPercent": {
+    "name": "UsbcSysPercent",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "apUsbcSysObjects": {
+    "name": "apUsbcSysObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1",
+    "class": "objectidentity"
+  },
+  "apUsbcSysCpuUtilAll": {
+    "name": "apUsbcSysCpuUtilAll",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UsbcSysPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysCpuCount": {
+    "name": "apUsbcSysCpuCount",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysCpuSpeedMHz": {
+    "name": "apUsbcSysCpuSpeedMHz",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysMemSzMB": {
+    "name": "apUsbcSysMemSzMB",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysMemSzGB": {
+    "name": "apUsbcSysMemSzGB",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysAppMemUtil": {
+    "name": "apUsbcSysAppMemUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UsbcSysPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysKernelMemUtil": {
+    "name": "apUsbcSysKernelMemUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UsbcSysPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysMyBogoMips": {
+    "name": "apUsbcSysMyBogoMips",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysAllBogoMips": {
+    "name": "apUsbcSysAllBogoMips",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysCpuTblObjects": {
+    "name": "apUsbcSysCpuTblObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.10",
+    "class": "objectidentity"
+  },
+  "apUsbcSysCpuTable": {
+    "name": "apUsbcSysCpuTable",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apUsbcSysCpuEntry": {
+    "name": "apUsbcSysCpuEntry",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysCpuNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysCpuNum": {
+    "name": "apUsbcSysCpuNum",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysCpuUtil": {
+    "name": "apUsbcSysCpuUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UsbcSysPercent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysScalingObjects": {
+    "name": "apUsbcSysScalingObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12",
+    "class": "objectidentity"
+  },
+  "apUsbcSysEstSessions": {
+    "name": "apUsbcSysEstSessions",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysEstG711G729Trans": {
+    "name": "apUsbcSysEstG711G729Trans",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysEstSigTPS": {
+    "name": "apUsbcSysEstSigTPS",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysEstACLs": {
+    "name": "apUsbcSysEstACLs",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysEstTCP": {
+    "name": "apUsbcSysEstTCP",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysEstTLS": {
+    "name": "apUsbcSysEstTLS",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysEstVLANs": {
+    "name": "apUsbcSysEstVLANs",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKObjects": {
+    "name": "apUsbcSysDPDKObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13",
+    "class": "objectidentity"
+  },
+  "apUsbcSysDPDKFwdPurpose": {
+    "name": "apUsbcSysDPDKFwdPurpose",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKDOSPurpose": {
+    "name": "apUsbcSysDPDKDOSPurpose",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKSigPurpose": {
+    "name": "apUsbcSysDPDKSigPurpose",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKTransPurpose": {
+    "name": "apUsbcSysDPDKTransPurpose",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKCmdLine": {
+    "name": "apUsbcSysDPDKCmdLine",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKFileMem": {
+    "name": "apUsbcSysDPDKFileMem",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKSysMem": {
+    "name": "apUsbcSysDPDKSysMem",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKNum1G": {
+    "name": "apUsbcSysDPDKNum1G",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKNum2MB": {
+    "name": "apUsbcSysDPDKNum2MB",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKHypervisorType": {
+    "name": "apUsbcSysDPDKHypervisorType",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKAddFwdCores": {
+    "name": "apUsbcSysDPDKAddFwdCores",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKAddSigCores": {
+    "name": "apUsbcSysDPDKAddSigCores",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysDPDKAddTransCores": {
+    "name": "apUsbcSysDPDKAddTransCores",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.13.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysSmObjects": {
+    "name": "apUsbcSysSmObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.14",
+    "class": "objectidentity"
+  },
+  "apUsbcSysSmMsgRate": {
+    "name": "apUsbcSysSmMsgRate",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysThreadObjects": {
+    "name": "apUsbcSysThreadObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2",
+    "class": "objectidentity"
+  },
+  "apUsbcThreadUsageTableObject": {
+    "name": "apUsbcThreadUsageTableObject",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1",
+    "class": "objectidentity"
+  },
+  "apUsbcThreadUsageTable": {
+    "name": "apUsbcThreadUsageTable",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apThreadUsageEntry": {
+    "name": "apThreadUsageEntry",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apThreadId": {
+    "name": "apThreadId",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apThreadName": {
+    "name": "apThreadName",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadCurrentUsage": {
+    "name": "apThreadCurrentUsage",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadOverloaded": {
+    "name": "apThreadOverloaded",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApThreadOverloaded",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysFdCurrentCount": {
+    "name": "apUsbcSysFdCurrentCount",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcThreadEventTableObject": {
+    "name": "apUsbcThreadEventTableObject",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2",
+    "class": "objectidentity"
+  },
+  "apUsbcThreadEventTable": {
+    "name": "apUsbcThreadEventTable",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apThreadEventEntry": {
+    "name": "apThreadEventEntry",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apThreadEventPendingCurrent": {
+    "name": "apThreadEventPendingCurrent",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventPendingCurhigh": {
+    "name": "apThreadEventPendingCurhigh",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventPendingWindow": {
+    "name": "apThreadEventPendingWindow",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventPendingTotal": {
+    "name": "apThreadEventPendingTotal",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventPendingMaximum": {
+    "name": "apThreadEventPendingMaximum",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventPendingHigh": {
+    "name": "apThreadEventPendingHigh",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventDroppedCurrent": {
+    "name": "apThreadEventDroppedCurrent",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventDroppedCurhigh": {
+    "name": "apThreadEventDroppedCurhigh",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventDroppedWindow": {
+    "name": "apThreadEventDroppedWindow",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventDroppedTotal": {
+    "name": "apThreadEventDroppedTotal",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventDroppedMaximum": {
+    "name": "apThreadEventDroppedMaximum",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadEventDroppedHigh": {
+    "name": "apThreadEventDroppedHigh",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadLatencyPendingAverage": {
+    "name": "apThreadLatencyPendingAverage",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadLatencyPendingMax": {
+    "name": "apThreadLatencyPendingMax",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadLatencyProcessingAverage": {
+    "name": "apThreadLatencyProcessingAverage",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apThreadLatencyProcessingMax": {
+    "name": "apThreadLatencyProcessingMax",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSipObjects": {
+    "name": "apUsbcSipObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3",
+    "class": "objectidentity"
+  },
+  "apUsbcAtcpObjects": {
+    "name": "apUsbcAtcpObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4",
+    "class": "objectidentity"
+  },
+  "apUsbcMbcdObjects": {
+    "name": "apUsbcMbcdObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.5",
+    "class": "objectidentity"
+  },
+  "apUsbcEbmdObjects": {
+    "name": "apUsbcEbmdObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.6",
+    "class": "objectidentity"
+  },
+  "apUsbcDnsObjects": {
+    "name": "apUsbcDnsObjects",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.7",
+    "class": "objectidentity"
+  },
+  "apSipNumberOfThreads": {
+    "name": "apSipNumberOfThreads",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipAverageCpuUtil": {
+    "name": "apSipAverageCpuUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipPendingAverageLatency": {
+    "name": "apSipPendingAverageLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipPendingMaxLatency": {
+    "name": "apSipPendingMaxLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipProcessingAverageLatency": {
+    "name": "apSipProcessingAverageLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apSipProcessingMaxLatency": {
+    "name": "apSipProcessingMaxLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAtcpNumberOfThreads": {
+    "name": "apAtcpNumberOfThreads",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAtcpAverageCpuUtil": {
+    "name": "apAtcpAverageCpuUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAtcpPendingAverageLatency": {
+    "name": "apAtcpPendingAverageLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAtcpPendingMaxLatency": {
+    "name": "apAtcpPendingMaxLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAtcpProcessingAverageLatency": {
+    "name": "apAtcpProcessingAverageLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apAtcpProcessingMaxLatency": {
+    "name": "apAtcpProcessingMaxLatency",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apMbcdNumberOfThreads": {
+    "name": "apMbcdNumberOfThreads",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apMbcdAverageCpuUtil": {
+    "name": "apMbcdAverageCpuUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEbmdNumberOfThreads": {
+    "name": "apEbmdNumberOfThreads",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apEbmdAverageCpuUtil": {
+    "name": "apEbmdAverageCpuUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsNumberOfThreads": {
+    "name": "apDnsNumberOfThreads",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAverageCpuUtil": {
+    "name": "apDnsAverageCpuUtil",
+    "oid": "1.3.6.1.4.1.9148.3.17.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apUsbcSysGroup": {
+    "name": "apUsbcSysGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysCpuUtilAll"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysCpuCount"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysCpuSpeedMHz"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysMemSzMB"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysMemSzGB"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysAppMemUtil"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysKernelMemUtil"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysMyBogoMips"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysAllBogoMips"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysCpuTblGroup": {
+    "name": "apUsbcSysCpuTblGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysCpuNum"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysCpuUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysScalingGroup": {
+    "name": "apUsbcSysScalingGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstSessions"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstG711G729Trans"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstSigTPS"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstACLs"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstTCP"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstTLS"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysEstVLANs"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysDPDKGroup": {
+    "name": "apUsbcSysDPDKGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKFwdPurpose"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKDOSPurpose"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKSigPurpose"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKTransPurpose"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKCmdLine"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKFileMem"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKSysMem"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKNum1G"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKNum2MB"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKHypervisorType"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKAddFwdCores"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKAddSigCores"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysDPDKAddTransCores"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadUsageTblGroup": {
+    "name": "apUsbcSysThreadUsageTblGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadCurrentUsage"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadOverloaded"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadEventTblGroup": {
+    "name": "apUsbcSysThreadEventTblGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventPendingCurrent"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventPendingCurhigh"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventPendingWindow"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventPendingTotal"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventPendingMaximum"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventPendingWindow"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventDroppedCurrent"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventDroppedCurhigh"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventDroppedWindow"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventDroppedTotal"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventDroppedMaximum"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadEventDroppedWindow"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadLatencyPendingAverage"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadLatencyPendingMax"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadLatencyProcessingAverage"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadLatencyProcessingMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadSipGroup": {
+    "name": "apUsbcSysThreadSipGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apSipNumberOfThreads"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apSipAverageCpuUtil"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apSipPendingAverageLatency"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apSipPendingMaxLatency"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apSipProcessingAverageLatency"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apSipProcessingMaxLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadAtcpGroup": {
+    "name": "apUsbcSysThreadAtcpGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apAtcpNumberOfThreads"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apAtcpAverageCpuUtil"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apAtcpPendingAverageLatency"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apAtcpPendingMaxLatency"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apAtcpProcessingAverageLatency"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apAtcpProcessingMaxLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadMbcdGroup": {
+    "name": "apUsbcSysThreadMbcdGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apMbcdNumberOfThreads"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apMbcdAverageCpuUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadEbmdGroup": {
+    "name": "apUsbcSysThreadEbmdGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apEbmdNumberOfThreads"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apEbmdAverageCpuUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadDnsGroup": {
+    "name": "apUsbcSysThreadDnsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apDnsNumberOfThreads"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apDnsAverageCpuUtil"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysSmGroup": {
+    "name": "apUsbcSysSmGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysSmMsgRate"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysFdCountExceedingTrap": {
+    "name": "apUsbcSysFdCountExceedingTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysFdCurrentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysFdCountClearTrap": {
+    "name": "apUsbcSysFdCountClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysFdCurrentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysFdCountGroups": {
+    "name": "apUsbcSysFdCountGroups",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.4",
+    "class": "objectidentity"
+  },
+  "apUsbcSysFdCountGroup": {
+    "name": "apUsbcSysFdCountGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.4.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysFdCountExceedingTrap"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysFdCountClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysFdObjGroups": {
+    "name": "apUsbcSysFdObjGroups",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.5",
+    "class": "objectidentity"
+  },
+  "apUsbcSysFdObjGroup": {
+    "name": "apUsbcSysFdObjGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysFdCurrentCount"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadUsageExceededTrap": {
+    "name": "apUsbcSysThreadUsageExceededTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadCurrentUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadUsageClearTrap": {
+    "name": "apUsbcSysThreadUsageClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadCurrentUsage"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadUsageOverloadEnableTrap": {
+    "name": "apUsbcSysThreadUsageOverloadEnableTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadUsageOverloadDisableTrap": {
+    "name": "apUsbcSysThreadUsageOverloadDisableTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysCpuNotificationGroups": {
+    "name": "apUsbcSysCpuNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.1",
+    "class": "objectidentity"
+  },
+  "apUsbcSysCpuNotificationsGroup": {
+    "name": "apUsbcSysCpuNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.1.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysThreadUsageExceededTrap"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysThreadUsageClearTrap"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysThreadUsageOverloadEnableTrap"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysThreadUsageOverloadDisableTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apMutexDeadLockDetectedTrap": {
+    "name": "apMutexDeadLockDetectedTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      }
+    ],
+    "status": "current"
+  },
+  "apMutexDeadLockClearTrap": {
+    "name": "apMutexDeadLockClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      }
+    ],
+    "status": "current"
+  },
+  "apMutexDeadLockNotificationGroups": {
+    "name": "apMutexDeadLockNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.2",
+    "class": "objectidentity"
+  },
+  "apMutexDeadLockNotificationsGroup": {
+    "name": "apMutexDeadLockNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apMutexDeadLockDetectedTrap"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apMutexDeadLockClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apThreadNotRespBackTrace": {
+    "name": "apThreadNotRespBackTrace",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1152
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apUsbcSysThreadNotRespondingTrap": {
+    "name": "apUsbcSysThreadNotRespondingTrap",
+    "oid": "1.3.6.1.4.1.9148.3.17.2.2.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadName"
+      },
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apThreadNotRespBackTrace"
+      }
+    ],
+    "status": "current"
+  },
+  "apUsbcSysThreadNotRespNotifGroup": {
+    "name": "apUsbcSysThreadNotRespNotifGroup",
+    "oid": "1.3.6.1.4.1.9148.3.17.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APUSBCSYS-MIB",
+        "object": "apUsbcSysThreadNotRespondingTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APUSBCSYS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APUSBCSYS-MIB"
+  }
+}

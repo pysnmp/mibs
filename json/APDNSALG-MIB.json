@@ -1,0 +1,1131 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApRedundancyState",
+      "ApHardwareModuleFamily",
+      "ApTransportType"
+    ],
+    "APSYSMGMT-MIB": [
+      "SysMgmtPercentage"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetZoneIndex",
+      "InetVersion"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apDNSALGModule": {
+    "name": "apDNSALGModule",
+    "oid": "1.3.6.1.4.1.9148.3.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      }
+    ]
+  },
+  "apDNSALGMIBObjects": {
+    "name": "apDNSALGMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.14.1",
+    "class": "objectidentity"
+  },
+  "apDNSALGMIBGeneralObjects": {
+    "name": "apDNSALGMIBGeneralObjects",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.1",
+    "class": "objectidentity"
+  },
+  "apDNSALGMIBTabularObjects": {
+    "name": "apDNSALGMIBTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2",
+    "class": "objectidentity"
+  },
+  "apDNSALGNotificationObjects": {
+    "name": "apDNSALGNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.14.2",
+    "class": "objectidentity"
+  },
+  "apDNSALGNotifObjects": {
+    "name": "apDNSALGNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.1",
+    "class": "objectidentity"
+  },
+  "apDNSALGNotifPrefix": {
+    "name": "apDNSALGNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2",
+    "class": "objectidentity"
+  },
+  "apDNSALGNotifications": {
+    "name": "apDNSALGNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0",
+    "class": "objectidentity"
+  },
+  "apDNSALGConformance": {
+    "name": "apDNSALGConformance",
+    "oid": "1.3.6.1.4.1.9148.3.14.3",
+    "class": "objectidentity"
+  },
+  "apDNSALGObjectGroups": {
+    "name": "apDNSALGObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.14.3.1",
+    "class": "objectidentity"
+  },
+  "apDNSALGNotificationGroups": {
+    "name": "apDNSALGNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.14.3.2",
+    "class": "objectidentity"
+  },
+  "apDNSALGServerStatusTable": {
+    "name": "apDNSALGServerStatusTable",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDNSALGServerStatusEntry": {
+    "name": "apDNSALGServerStatusEntry",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDNSALGConfigIndex": {
+    "name": "apDNSALGConfigIndex",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDNSALGServerIndex": {
+    "name": "apDNSALGServerIndex",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDNSALGConfigName": {
+    "name": "apDNSALGConfigName",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDNSALGServerRealm": {
+    "name": "apDNSALGServerRealm",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDNSALGDomainSuffix": {
+    "name": "apDNSALGDomainSuffix",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDNSALGServerIpAddress": {
+    "name": "apDNSALGServerIpAddress",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDNSALGServerStatus": {
+    "name": "apDNSALGServerStatus",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inservice": 0,
+          "lowerpriority": 1,
+          "oosunreachable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDNSALGStatsTable": {
+    "name": "apDNSALGStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDnsALGStatsEntry": {
+    "name": "apDnsALGStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgClientRealmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgClientRealmIndex": {
+    "name": "apDnsAlgClientRealmIndex",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDnsAlgClientRealmName": {
+    "name": "apDnsAlgClientRealmName",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgCurrentQueries": {
+    "name": "apDnsAlgCurrentQueries",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgTotalQueries": {
+    "name": "apDnsAlgTotalQueries",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgCurrentSucess": {
+    "name": "apDnsAlgCurrentSucess",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgTotalSucess": {
+    "name": "apDnsAlgTotalSucess",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgCurrentNotFound": {
+    "name": "apDnsAlgCurrentNotFound",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgTotalNotFound": {
+    "name": "apDnsAlgTotalNotFound",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgCurrentTimeOut": {
+    "name": "apDnsAlgCurrentTimeOut",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgTotalTimeOut": {
+    "name": "apDnsAlgTotalTimeOut",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgCurrentBadStatus": {
+    "name": "apDnsAlgCurrentBadStatus",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgTotalBadStatus": {
+    "name": "apDnsAlgTotalBadStatus",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgCurrentOtherFailures": {
+    "name": "apDnsAlgCurrentOtherFailures",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgTotalOtherFailures": {
+    "name": "apDnsAlgTotalOtherFailures",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgAvgLatency": {
+    "name": "apDnsAlgAvgLatency",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgMaxLatency": {
+    "name": "apDnsAlgMaxLatency",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgMaxBurstRate": {
+    "name": "apDnsAlgMaxBurstRate",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgConfigTable": {
+    "name": "apDnsAlgConfigTable",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDnsAlgConfigEntry": {
+    "name": "apDnsAlgConfigEntry",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgConfigIndex": {
+    "name": "apDnsAlgConfigIndex",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDnsAlgConfigClientRealm": {
+    "name": "apDnsAlgConfigClientRealm",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerTable": {
+    "name": "apDnsAlgServerTable",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDnsAlgServerEntry": {
+    "name": "apDnsAlgServerEntry",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgServerIndex": {
+    "name": "apDnsAlgServerIndex",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDnsAlgServerRealm": {
+    "name": "apDnsAlgServerRealm",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateStatsTable": {
+    "name": "apDnsAlgServerRateStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDnsAlgServerRateStatsEntry": {
+    "name": "apDnsAlgServerRateStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerIndex",
+        "implied": 0
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgServerInetAddressType": {
+    "name": "apDnsAlgServerInetAddressType",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerInetAddress": {
+    "name": "apDnsAlgServerInetAddress",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateMsgRcvd": {
+    "name": "apDnsAlgServerRateMsgRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateMsgSent": {
+    "name": "apDnsAlgServerRateMsgSent",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateReqRcvd": {
+    "name": "apDnsAlgServerRateReqRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateReqSent": {
+    "name": "apDnsAlgServerRateReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateRspRcvd": {
+    "name": "apDnsAlgServerRateRspRcvd",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDnsAlgServerRateRspSent": {
+    "name": "apDnsAlgServerRateRspSent",
+    "oid": "1.3.6.1.4.1.9148.3.14.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages per 10 seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDNSALGConstraintsStatus": {
+    "name": "apDNSALGConstraintsStatus",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inservice": 0,
+          "constraintsExceeded": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDnsAlgStatusChangeTrap": {
+    "name": "apDnsAlgStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIpAddress"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgStatusChangeClearTrap": {
+    "name": "apDnsAlgStatusChangeClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIpAddress"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgConstraintStateChangeTrap": {
+    "name": "apDnsAlgConstraintStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConstraintsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgConstraintStateChangeClearTrap": {
+    "name": "apDnsAlgConstraintStateChangeClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConstraintsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgSvrConstraintStateChangeTrap": {
+    "name": "apDnsAlgSvrConstraintStateChangeTrap",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIpAddress"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConstraintsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgSvrConstraintStateChangeClearTrap": {
+    "name": "apDnsAlgSvrConstraintStateChangeClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.14.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIpAddress"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConstraintsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgServerStatusGroup": {
+    "name": "apDnsAlgServerStatusGroup",
+    "oid": "1.3.6.1.4.1.9148.3.14.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGConfigName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGDomainSuffix"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerIpAddress"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDNSALGServerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgStatsGroup": {
+    "name": "apDnsAlgStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.14.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgClientRealmIndex"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgClientRealmName"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgCurrentQueries"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgTotalQueries"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgCurrentSucess"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgTotalSucess"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgCurrentNotFound"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgTotalNotFound"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgCurrentTimeOut"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgTotalTimeOut"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgCurrentBadStatus"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgTotalBadStatus"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgCurrentOtherFailures"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgTotalOtherFailures"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgAvgLatency"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgMaxLatency"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgMaxBurstRate"
+      }
+    ],
+    "status": "current"
+  },
+  "apDnsAlgServerRateStatsGroup": {
+    "name": "apDnsAlgServerRateStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.14.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerInetAddressType"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerInetAddress"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgConfigClientRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRealm"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRateMsgRcvd"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRateMsgSent"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRateReqRcvd"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRateReqSent"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRateRspRcvd"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgServerRateRspSent"
+      }
+    ],
+    "status": "current"
+  },
+  "apDNSALGNotificationsGroup": {
+    "name": "apDNSALGNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.14.3.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgStatusChangeTrap"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgStatusChangeClearTrap"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgConstraintStateChangeTrap"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgConstraintStateChangeClearTrap"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgSvrConstraintStateChangeTrap"
+      },
+      {
+        "module": "APDNSALG-MIB",
+        "object": "apDnsAlgSvrConstraintStateChangeClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APDNSALG-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "APDNSALG-MIB"
+  }
+}

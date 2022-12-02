@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
-      "TRAP-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
       "MODULE-IDENTITY",
-      "Bits"
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "enterprises",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -12958,9 +12958,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/StorageManagement-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:07:50 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:51:11 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "StorageManagement-MIB"
   }

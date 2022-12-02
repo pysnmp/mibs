@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "DS3-MIB": [
-      "dsx3FarEndIntervalEntry",
       "dsx3FarEndTotalEntry",
+      "dsx3FarEndConfigEntry",
       "dsx3FarEndCurrentEntry",
-      "dsx3FarEndConfigEntry"
+      "dsx3FarEndIntervalEntry"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -18,9 +18,9 @@
       "JuniNextIfIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
+      "PerfTotalCount",
       "PerfIntervalCount",
-      "PerfTotalCount"
+      "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -28,26 +28,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Integer32",
       "Gauge32",
-      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
       "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
+      "Bits",
+      "Counter32",
       "TimeTicks",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniDs3MIB": {
@@ -1106,9 +1106,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DS3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:14:17 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:58:12 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "Juniper-DS3-MIB"
   }

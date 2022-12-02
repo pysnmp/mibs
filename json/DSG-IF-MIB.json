@@ -9,10 +9,10 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetPortNumber",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,26 +23,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "IpAddress",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
       "Unsigned32",
+      "Bits",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1307,9 +1307,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-DSG-IF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:01:43 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:46:01 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "DSG-IF-MIB"
   }

@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "EKINOPS-MIB": [
-      "EkiOnOff",
-      "ekinops"
+      "ekinops",
+      "EkiOnOff"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Counter64",
       "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Integer32",
-      "Counter32"
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SNMPv2-TM": [
       "SnmpUDPAddress"
@@ -1761,9 +1761,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MGNT2-NMS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:09:00 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:52:04 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "EKINOPS-MGNT2-NMS-MIB"
   }

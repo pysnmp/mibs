@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "IpVersion",
-      "AdminState",
+      "VlanId",
       "PerfCounter64",
       "SecondaryState",
-      "CmPmBinAction",
-      "VlanId",
+      "IpVersion",
+      "OperationalState",
+      "AdminState",
       "VlanPriority",
-      "OperationalState"
+      "CmPmBinAction"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -24,35 +24,35 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
       "Integer32",
       "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
       "Bits",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
       "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64"
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "TruthValue",
-      "MacAddress",
       "StorageType",
+      "MacAddress",
       "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "VariablePointer"
+      "TruthValue",
+      "VariablePointer",
+      "RowStatus"
     ]
   },
   "f3TwampMIB": {
@@ -8131,9 +8131,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-TWAMP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep 29 13:02:45 2022",
-      "On host fv-az359-613 platform Linux version 5.15.0-1020-azure by user runner",
-      "Using Python version 3.10.7 (main, Sep  6 2022, 15:19:58) [GCC 9.4.0]"
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:46:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "F3-TWAMP-MIB"
   }

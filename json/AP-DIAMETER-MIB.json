@@ -1,0 +1,1596 @@
+{
+  "imports": {
+    "class": "imports",
+    "ACMEPACKET-SMI": [
+      "acmepacketMgmt"
+    ],
+    "ACMEPACKET-TC": [
+      "ApDiamResultCode",
+      "ApTransportType"
+    ],
+    "APSYSMGMT-MIB": [
+      "SysMgmtPercentage"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "apDiameterModule": {
+    "name": "apDiameterModule",
+    "oid": "1.3.6.1.4.1.9148.3.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-06-26 00:00",
+        "description": "Updated Organization and Contact info."
+      },
+      {
+        "revision": "2017-11-24 00:00",
+        "description": "Added new MIB Definitions for Diameter Rx External Policy Server."
+      }
+    ]
+  },
+  "apDiamMIBModule": {
+    "name": "apDiamMIBModule",
+    "oid": "1.3.6.1.4.1.9148.3.13.1",
+    "class": "objectidentity"
+  },
+  "apDiamMIBObjects": {
+    "name": "apDiamMIBObjects",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1",
+    "class": "objectidentity"
+  },
+  "apDiamNotificationObjects": {
+    "name": "apDiamNotificationObjects",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2",
+    "class": "objectidentity"
+  },
+  "apDiamNotifObjects": {
+    "name": "apDiamNotifObjects",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1",
+    "class": "objectidentity"
+  },
+  "apDiamNotifPrefix": {
+    "name": "apDiamNotifPrefix",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2",
+    "class": "objectidentity"
+  },
+  "apDiamNotifications": {
+    "name": "apDiamNotifications",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0",
+    "class": "objectidentity"
+  },
+  "apDiamiMIBTabularObjects": {
+    "name": "apDiamiMIBTabularObjects",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2",
+    "class": "objectidentity"
+  },
+  "apDiamConformance": {
+    "name": "apDiamConformance",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3",
+    "class": "objectidentity"
+  },
+  "apDiamObjectGroups": {
+    "name": "apDiamObjectGroups",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.1",
+    "class": "objectidentity"
+  },
+  "apDiamNotificationGroups": {
+    "name": "apDiamNotificationGroups",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.2",
+    "class": "objectidentity"
+  },
+  "apDiamClfErrorStatsTable": {
+    "name": "apDiamClfErrorStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamClfErrorStatsEntry": {
+    "name": "apDiamClfErrorStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamClfExtPolSvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamClfExtPolSvrIndex": {
+    "name": "apDiamClfExtPolSvrIndex",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamClfExtPolSvrName": {
+    "name": "apDiamClfExtPolSvrName",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamClfErrorsRecent": {
+    "name": "apDiamClfErrorsRecent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamClfErrorsTotal": {
+    "name": "apDiamClfErrorsTotal",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamClfErrorsPerMax": {
+    "name": "apDiamClfErrorsPerMax",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamInterfaceStatsTable": {
+    "name": "apDiamInterfaceStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamInterfaceStatsEntry": {
+    "name": "apDiamInterfaceStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamInterfaceType",
+        "implied": 0
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamInterfaceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamInterfaceType": {
+    "name": "apDiamInterfaceType",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamInterfaceAddress": {
+    "name": "apDiamInterfaceAddress",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamMessagesSent": {
+    "name": "apDiamMessagesSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamMessagesSentFailed": {
+    "name": "apDiamMessagesSentFailed",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamMessagesReSent": {
+    "name": "apDiamMessagesReSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamMessagesReceived": {
+    "name": "apDiamMessagesReceived",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamMessagesProcessed": {
+    "name": "apDiamMessagesProcessed",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamConnectionTimeouts": {
+    "name": "apDiamConnectionTimeouts",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamBadStateDrops": {
+    "name": "apDiamBadStateDrops",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamBadTypeDrops": {
+    "name": "apDiamBadTypeDrops",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamBadIDDrops": {
+    "name": "apDiamBadIDDrops",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAuthFailDrops": {
+    "name": "apDiamAuthFailDrops",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamInvalidPeerMessages": {
+    "name": "apDiamInvalidPeerMessages",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxPolicyServerStatsTable": {
+    "name": "apDiamRxPolicyServerStatsTable",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamRxPolicyServerStatsEntry": {
+    "name": "apDiamRxPolicyServerStatsEntry",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrIndex": {
+    "name": "apDiamRxExtPolSvrIndex",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrName": {
+    "name": "apDiamRxExtPolSvrName",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSockets": {
+    "name": "apDiamRxExtPolSvrSockets",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrConnections": {
+    "name": "apDiamRxExtPolSvrConnections",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrClientTrans": {
+    "name": "apDiamRxExtPolSvrClientTrans",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTReserveReqSent": {
+    "name": "apDiamRxExtPolSvrCTReserveReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTUpdateReqSent": {
+    "name": "apDiamRxExtPolSvrCTUpdateReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTRemoveReqSent": {
+    "name": "apDiamRxExtPolSvrCTRemoveReqSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTReTransReq": {
+    "name": "apDiamRxExtPolSvrCTReTransReq",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTInstallRespRecvd": {
+    "name": "apDiamRxExtPolSvrCTInstallRespRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTRejectRespRecvd": {
+    "name": "apDiamRxExtPolSvrCTRejectRespRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTRemoveRespRecvd": {
+    "name": "apDiamRxExtPolSvrCTRemoveRespRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTErrorsRecvd": {
+    "name": "apDiamRxExtPolSvrCTErrorsRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTTimeouts": {
+    "name": "apDiamRxExtPolSvrCTTimeouts",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCTErrors": {
+    "name": "apDiamRxExtPolSvrCTErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrServerTransactions": {
+    "name": "apDiamRxExtPolSvrServerTransactions",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTReqRecvd": {
+    "name": "apDiamRxExtPolSvrSTReqRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTDupReqRecvd": {
+    "name": "apDiamRxExtPolSvrSTDupReqRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTSuccessRespSent": {
+    "name": "apDiamRxExtPolSvrSTSuccessRespSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTErrorRespSent": {
+    "name": "apDiamRxExtPolSvrSTErrorRespSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTReqDropped": {
+    "name": "apDiamRxExtPolSvrSTReqDropped",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCERSent": {
+    "name": "apDiamRxExtPolSvrCERSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCEASuccess": {
+    "name": "apDiamRxExtPolSvrCEASuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrCEAErrors": {
+    "name": "apDiamRxExtPolSvrCEAErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrAARSent": {
+    "name": "apDiamRxExtPolSvrAARSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrAAASuccess": {
+    "name": "apDiamRxExtPolSvrAAASuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrAAAErrors": {
+    "name": "apDiamRxExtPolSvrAAAErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTRSent": {
+    "name": "apDiamRxExtPolSvrSTRSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTASuccess": {
+    "name": "apDiamRxExtPolSvrSTASuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrSTAErrors": {
+    "name": "apDiamRxExtPolSvrSTAErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrRARRecvd": {
+    "name": "apDiamRxExtPolSvrRARRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrRAARecvdSuccess": {
+    "name": "apDiamRxExtPolSvrRAARecvdSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrRAARecvdErrors": {
+    "name": "apDiamRxExtPolSvrRAARecvdErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrDWRSent": {
+    "name": "apDiamRxExtPolSvrDWRSent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrDWASuccess": {
+    "name": "apDiamRxExtPolSvrDWASuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrDWAErrors": {
+    "name": "apDiamRxExtPolSvrDWAErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrDWRRecvd": {
+    "name": "apDiamRxExtPolSvrDWRRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrDWARecvcSuccess": {
+    "name": "apDiamRxExtPolSvrDWARecvcSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrDWARecvdErrors": {
+    "name": "apDiamRxExtPolSvrDWARecvdErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrASRRecvd": {
+    "name": "apDiamRxExtPolSvrASRRecvd",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrASARecvdSuccess": {
+    "name": "apDiamRxExtPolSvrASARecvdSuccess",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamRxExtPolSvrASARecvdErrors": {
+    "name": "apDiamRxExtPolSvrASARecvdErrors",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.1.2.3.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "apDiamAcctSrvrHostName": {
+    "name": "apDiamAcctSrvrHostName",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAcctSrvrIPPort": {
+    "name": "apDiamAcctSrvrIPPort",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAcctSrvrOriginRealm": {
+    "name": "apDiamAcctSrvrOriginRealm",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAcctSrvrOriginHost": {
+    "name": "apDiamAcctSrvrOriginHost",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiamAcctSrvrTransportType": {
+    "name": "apDiamAcctSrvrTransportType",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApTransportType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAcctMsgQueueAvailCurrent": {
+    "name": "apAcctMsgQueueAvailCurrent",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SysMgmtPercentage",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAcctMsgQueueMinorThreshold": {
+    "name": "apAcctMsgQueueMinorThreshold",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SysMgmtPercentage",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAcctMsgQueueMajorThreshold": {
+    "name": "apAcctMsgQueueMajorThreshold",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SysMgmtPercentage",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apAcctMsgQueueCriticalThreshold": {
+    "name": "apAcctMsgQueueCriticalThreshold",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SysMgmtPercentage",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiameterResultCode": {
+    "name": "apDiameterResultCode",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApDiamResultCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "apDiameterAcctSrvrUpTrap": {
+    "name": "apDiameterAcctSrvrUpTrap",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrHostName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrIPPort"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginRealm"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginHost"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrTransportType"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiameterAcctSrvrDownTrap": {
+    "name": "apDiameterAcctSrvrDownTrap",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrHostName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrIPPort"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginRealm"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginHost"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrTransportType"
+      }
+    ],
+    "status": "current"
+  },
+  "apAcctMsgQueueFullTrap": {
+    "name": "apAcctMsgQueueFullTrap",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueAvailCurrent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueMinorThreshold"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueMajorThreshold"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueCriticalThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "apAcctMsgQueueFullClearTrap": {
+    "name": "apAcctMsgQueueFullClearTrap",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueAvailCurrent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueMinorThreshold"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueMajorThreshold"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueCriticalThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiameterSrvrErrorResultTrap": {
+    "name": "apDiameterSrvrErrorResultTrap",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrHostName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrIPPort"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginRealm"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginHost"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrTransportType"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterResultCode"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiameterSrvrSuccessResultTrap": {
+    "name": "apDiameterSrvrSuccessResultTrap",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.2.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrHostName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrIPPort"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginRealm"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginHost"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrTransportType"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterResultCode"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamACCTObjectsGroup": {
+    "name": "apDiamACCTObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrHostName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrIPPort"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginRealm"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrOriginHost"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAcctSrvrTransportType"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamACCTNotificationsGroup": {
+    "name": "apDiamACCTNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterAcctSrvrUpTrap"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterAcctSrvrDownTrap"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueFullTrap"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apAcctMsgQueueFullClearTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamACCTResultObjectsGroup": {
+    "name": "apDiamACCTResultObjectsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterResultCode"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamACCTResultNotificationsGroup": {
+    "name": "apDiamACCTResultNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterSrvrErrorResultTrap"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiameterSrvrSuccessResultTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamClfErrorStatsGroup": {
+    "name": "apDiamClfErrorStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamClfExtPolSvrName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamClfErrorsRecent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamClfErrorsTotal"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamClfErrorsPerMax"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamInterfaceStatsGroup": {
+    "name": "apDiamInterfaceStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamMessagesSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamMessagesSentFailed"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamMessagesReSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamMessagesReceived"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamMessagesProcessed"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamConnectionTimeouts"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamBadStateDrops"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamBadTypeDrops"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamBadIDDrops"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamAuthFailDrops"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamInvalidPeerMessages"
+      }
+    ],
+    "status": "current"
+  },
+  "apDiamRxPolicyServerStatsGroup": {
+    "name": "apDiamRxPolicyServerStatsGroup",
+    "oid": "1.3.6.1.4.1.9148.3.13.1.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrName"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSockets"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrConnections"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrClientTrans"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTReserveReqSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTUpdateReqSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTRemoveReqSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTReTransReq"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTInstallRespRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTRejectRespRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTRemoveRespRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTErrorsRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTTimeouts"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCTErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrServerTransactions"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTReqRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTDupReqRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTSuccessRespSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTErrorRespSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTReqDropped"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCERSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCEASuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrCEAErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrAARSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrAAASuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrAAAErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTRSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTASuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrSTAErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrRARRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrRAARecvdSuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrRAARecvdErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrDWRSent"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrDWASuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrDWAErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrDWRRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrDWARecvcSuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrDWARecvdErrors"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrASRRecvd"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrASARecvdSuccess"
+      },
+      {
+        "module": "AP-DIAMETER-MIB",
+        "object": "apDiamRxExtPolSvrASARecvdErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/AP-DIAMETER-MIB",
+      "Produced by pysmi-1.1.8 at Fri Dec  2 15:59:44 2022",
+      "On host fv-az267-189 platform Linux version 5.15.0-1023-azure by user runner",
+      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+    ],
+    "module": "AP-DIAMETER-MIB"
+  }
+}
