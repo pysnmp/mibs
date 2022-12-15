@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "enterprises",
+      "TimeTicks",
       "IpAddress",
+      "MODULE-IDENTITY",
       "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Bits",
       "OBJECT-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Unsigned32"
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lantronix": {
@@ -94,8 +94,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lantronix/LANTRONIX-MIB.mib",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:11:04 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:29:52 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "LANTRONIX-MIB"

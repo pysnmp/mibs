@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Unsigned32",
-      "mib-2",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter32",
-      "Gauge32",
       "Integer32",
-      "IpAddress",
+      "mib-2",
+      "OBJECT-IDENTITY",
       "Bits",
+      "Counter32",
       "TimeTicks",
-      "MibIdentifier"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -306,8 +306,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/TRANSPORT-ADDRESS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:09:29 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:27:39 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "TRANSPORT-ADDRESS-MIB"

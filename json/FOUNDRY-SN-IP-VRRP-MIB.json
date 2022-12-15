@@ -8,28 +8,28 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Gauge32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
       "Integer32",
+      "IpAddress",
+      "Counter64",
       "Bits",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snVrrp": {
@@ -1446,8 +1446,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-IP-VRRP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:07:36 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:25:26 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "FOUNDRY-SN-IP-VRRP-MIB"

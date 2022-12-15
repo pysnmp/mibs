@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "AUDIOCODES-TYPES-MIB": [
+      "audioCodes",
+      "acRegistrations",
       "acProducts",
       "acGeneric",
-      "audioCodes",
-      "acBoardMibs",
-      "acRegistrations"
+      "acBoardMibs"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "enterprises",
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "enterprises",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TAddress",
       "DisplayString",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TAddress",
+      "RowStatus",
+      "DateAndTime"
     ]
   },
   "acPSTN": {
@@ -2184,8 +2184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-PSTN-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:02:08 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:19:22 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "AC-PSTN-MIB"

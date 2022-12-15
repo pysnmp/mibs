@@ -5,8 +5,8 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifIndex",
       "ifName",
+      "ifIndex",
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
@@ -17,26 +17,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "BITS",
-      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
+      "Counter64",
+      "Unsigned32",
       "IpAddress",
-      "Counter32",
+      "OBJECT-TYPE",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Bits",
+      "Counter32",
       "TimeTicks",
-      "MibIdentifier"
+      "BITS"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -418,8 +418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-OPENFLOW-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:09:28 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:27:38 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "HUAWEI-OPENFLOW-MIB"

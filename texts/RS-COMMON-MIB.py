@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RS-COMMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-COMMON-MIB
-# Produced by pysmi-1.1.8 at Fri Dec  2 17:14:35 2022
-# On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Dec 15 08:34:07 2022
+# On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, NotificationType, TimeTicks, Counter64, Bits, Integer32, IpAddress, enterprises, iso, ObjectIdentity, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "NotificationType", "TimeTicks", "Counter64", "Bits", "Integer32", "IpAddress", "enterprises", "iso", "ObjectIdentity", "Unsigned32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, Counter32, Integer32, enterprises, MibIdentifier, Counter64, IpAddress, Gauge32, TimeTicks, Unsigned32, ObjectIdentity, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "Counter32", "Integer32", "enterprises", "MibIdentifier", "Counter64", "IpAddress", "Gauge32", "TimeTicks", "Unsigned32", "ObjectIdentity", "NotificationType", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rsRoot = ModuleIdentity((1, 3, 6, 1, 4, 1, 2566))
 rsRoot.setRevisions(('2006-05-17 08:40',))
 
@@ -59,4 +59,4 @@ if mibBuilder.loadTexts: rsRegBroadcastMeasurement.setDescription('currently not
 rsRegBroadcastTransmitter = ObjectIdentity((1, 3, 6, 1, 4, 1, 2566, 149, 2, 2))
 if mibBuilder.loadTexts: rsRegBroadcastTransmitter.setStatus('current')
 if mibBuilder.loadTexts: rsRegBroadcastTransmitter.setDescription('currently not used')
-mibBuilder.exportSymbols("RS-COMMON-MIB", PYSNMP_MODULE_ID=rsRoot, rsRegBroadcast=rsRegBroadcast, rsRoot=rsRoot, rsCommon=rsCommon, rsRegistration=rsRegistration, rsExperimental=rsExperimental, rsProdBroadcastMeasurement=rsProdBroadcastMeasurement, rsRegModules=rsRegModules, rsProdBroadcastTransmitter=rsProdBroadcastTransmitter, rsProdBroadcast=rsProdBroadcast, rsCapabilities=rsCapabilities, rsRequirements=rsRequirements, rsRegBroadcastTransmitter=rsRegBroadcastTransmitter, rsRegBroadcastMeasurement=rsRegBroadcastMeasurement, rsProducts=rsProducts)
+mibBuilder.exportSymbols("RS-COMMON-MIB", rsProducts=rsProducts, rsExperimental=rsExperimental, rsRegModules=rsRegModules, rsRoot=rsRoot, rsCommon=rsCommon, rsRequirements=rsRequirements, rsRegBroadcastTransmitter=rsRegBroadcastTransmitter, rsProdBroadcast=rsProdBroadcast, rsProdBroadcastTransmitter=rsProdBroadcastTransmitter, PYSNMP_MODULE_ID=rsRoot, rsRegBroadcastMeasurement=rsRegBroadcastMeasurement, rsProdBroadcastMeasurement=rsProdBroadcastMeasurement, rsRegBroadcast=rsRegBroadcast, rsRegistration=rsRegistration, rsCapabilities=rsCapabilities)

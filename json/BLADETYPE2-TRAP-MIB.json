@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "vrrpCurCfgIfIndx",
-      "vrrpCurCfgVirtRtrAddr",
-      "vrrpCurCfgVirtRtrIndx",
       "vrrpCurCfgIfPasswd",
+      "ipCurCfgGwAddr",
       "ipCurCfgGwIndex",
-      "ipCurCfgGwAddr"
+      "vrrpCurCfgIfIndx",
+      "vrrpCurCfgVirtRtrIndx",
+      "vrrpCurCfgVirtRtrAddr"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
-      "agChassis",
       "agRackId",
+      "agChassis",
       "agSlotNumber"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
+      "sysName",
       "sysContact",
-      "sysName"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "TRAP-TYPE",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:09:30 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:28:25 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

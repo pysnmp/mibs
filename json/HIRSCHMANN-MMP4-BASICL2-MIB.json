@@ -18,36 +18,36 @@
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
+      "dot1qVlanIndex",
       "dot1qFdbId",
-      "VlanIndex",
-      "dot1qVlanIndex"
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
       "iso",
       "Gauge32",
-      "IpAddress",
       "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hmPlatform4BasicL2": {
@@ -6241,8 +6241,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4.mib",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:08:36 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:26:42 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "HIRSCHMANN-MMP4-BASICL2-MIB"

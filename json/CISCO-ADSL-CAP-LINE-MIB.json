@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslLineConfProfileName",
-      "adslAtucIntervalNumber"
+      "adslAtucIntervalNumber",
+      "adslLineConfProfileName"
     ],
     "ADSL-TC-MIB": [
-      "AdslPerfPrevDayCount",
-      "AdslPerfCurrDayCount"
+      "AdslPerfCurrDayCount",
+      "AdslPerfPrevDayCount"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -16,34 +16,34 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Unsigned32",
       "MibIdentifier",
+      "Counter32",
+      "iso",
       "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "ciscoAdslLineCapMIB": {
@@ -1001,8 +1001,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ADSL-CAP-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:06:26 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:24:02 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "CISCO-ADSL-CAP-LINE-MIB"

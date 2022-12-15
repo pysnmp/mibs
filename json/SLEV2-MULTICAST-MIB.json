@@ -16,31 +16,31 @@
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "BITS",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "Bits",
       "OBJECT-TYPE",
       "iso",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "BITS",
-      "Unsigned32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "sleV2Multicast": {
@@ -36859,8 +36859,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-MULTICAST-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:04:59 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:22:34 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "SLEV2-MULTICAST-MIB"

@@ -7,10 +7,10 @@
       "eqlApplianceNetworkID"
     ],
     "EQLVOLUME-MIB": [
-      "SiteIndexOrZero",
       "StatusDisabledDefault",
-      "eqliscsiVolumeReplSiteIndex",
-      "SiteIndex"
+      "SiteIndex",
+      "SiteIndexOrZero",
+      "eqliscsiVolumeReplSiteIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -20,33 +20,33 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "enterprises",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "iso",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
       "TimeTicks",
-      "Gauge32"
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "RowPointer",
-      "DateAndTime"
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime",
+      "RowPointer"
     ]
   },
   "eqlNASModule": {
@@ -8606,8 +8606,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLNAS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Dec  2 17:07:08 2022",
-      "On host fv-az563-842 platform Linux version 5.15.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Dec 15 08:24:56 2022",
+      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
     ],
     "module": "EQLNAS-MIB"
