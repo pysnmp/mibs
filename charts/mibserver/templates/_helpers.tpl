@@ -89,11 +89,11 @@ Create mibserver.service
 {{/*
 Create mibserver.autoscaling
 */}}
-{{- define "mibserver.autoscaling" -}}
+{{- define "mibserver.autoscaling.enabled" -}}
 {{- if .Values.autoscaling }}
-{{- .Values.autoscaling | toYaml }}
+{{- .Values.autoscaling.enabled | default "false" | quote }}
 {{- else }}
-{{- dict "enabled" true "minReplicas" 1 "maxReplicas" 3 "targetCPUUtilizationPercentage" 80 | toYaml }}
+{{- "false" }}
 {{- end }}
 {{- end }}
 
