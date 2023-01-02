@@ -63,7 +63,7 @@ Configure mibserver.autoscaling
 */}}
 {{- define "mibserver.autoscaling.enabled" -}}
 {{- if .Values.autoscaling }}
-{{- .Values.autoscaling.enabled | default "false" | quote }}
+{{- printf "%s" .Values.autoscaling.enabled | default false }}
 {{- else }}
 {{- "false" }}
 {{- end }}
@@ -74,7 +74,7 @@ Create mibserver.podAntiAffinity
 */}}
 {{- define "mibserver.podAntiAffinity" -}}
 {{- if .Values.podAntiAffinity }}
-{{- .Values.podAntiAffinity }}
+{{- printf "%s" .Values.podAntiAffinity }}
 {{- else }}
 {{- "soft" }}
 {{- end }}

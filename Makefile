@@ -33,6 +33,10 @@ index: standard vendor ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
 
+index-local-mibs: vendor
+	touch output/.nojekyll
+	poetry run python index.py
+
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 		echo "## Compiling $$f"; \
