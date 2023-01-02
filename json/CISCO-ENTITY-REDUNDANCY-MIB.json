@@ -3,13 +3,13 @@
     "class": "imports",
     "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
       "CeRedunScope",
-      "CeRedunMode",
-      "CeRedunType",
+      "CeRedunSwitchCommand",
+      "CeRedunReasonCategories",
       "CeRedunArch",
       "CeRedunStateCategories",
-      "CeRedunReasonCategories",
-      "CeRedunMbrStatus",
-      "CeRedunSwitchCommand"
+      "CeRedunType",
+      "CeRedunMode",
+      "CeRedunMbrStatus"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,41 +18,41 @@
       "PhysicalIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeStamp",
-      "StorageType",
-      "TruthValue",
-      "AutonomousType",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType"
     ]
   },
   "ciscoEntityRedunMIB": {
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:11 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:27:48 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ENTITY-REDUNDANCY-MIB"

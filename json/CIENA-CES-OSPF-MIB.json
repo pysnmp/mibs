@@ -8,30 +8,30 @@
       "AreaID"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Unsigned32"
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "cienaCesOspfMIB": {
@@ -574,8 +574,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-OSPF-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:47:09 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:25:10 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-OSPF-MIB"

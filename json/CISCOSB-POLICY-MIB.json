@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
+      "VlanList4",
       "VlanList3",
       "VlanList1",
-      "VlanList2",
-      "VlanList4"
+      "VlanList2"
     ],
     "CISCOSB-MIB": [
-      "switch001",
       "VlanPriority",
+      "switch001",
       "Percents"
     ],
     "DIFF-SERV-MIB": [
@@ -28,28 +28,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
       "Gauge32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "Bits",
       "zeroDotZero",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "RowPointer",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:11 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:27:48 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

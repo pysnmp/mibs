@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2AddressFamilyIdentifierTC",
       "Bgp4V2IdentifierTC",
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
+      "Bgp4V2AddressFamilyIdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddressType",
+      "InetAddress",
       "InetPortNumber",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "mib-2",
       "Counter32",
-      "Bits"
+      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:51:39 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:28:59 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BGP4V2-MIB"

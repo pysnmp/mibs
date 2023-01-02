@@ -12,28 +12,28 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "Counter32",
       "Gauge32",
-      "Counter64",
-      "iso",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -378,8 +378,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-M-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:53:39 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:30:38 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-M-LAG-MIB"

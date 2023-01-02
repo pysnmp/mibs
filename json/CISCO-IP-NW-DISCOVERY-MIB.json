@@ -12,36 +12,36 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetPortNumber",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TestAndIncr"
     ]
   },
   "ciscoIpNetworkDiscoveryMIB": {
@@ -546,8 +546,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-NW-DISCOVERY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:14 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:27:51 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IP-NW-DISCOVERY-MIB"

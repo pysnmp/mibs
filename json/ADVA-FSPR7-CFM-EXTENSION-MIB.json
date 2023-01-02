@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ADVA-MIB": [
-      "fspR7",
-      "TrapAlarmSeverity",
       "neEventLogIdentityTranslation",
+      "fspR7",
+      "neEventLogTimeStamp",
       "ServiceImpairment",
-      "neEventLogTimeStamp"
+      "TrapAlarmSeverity"
     ],
     "FspR7-LAYER2-MIB": [
-      "flowEntityIndexFlow",
-      "flowEntityIndexEth"
+      "flowEntityIndexEth",
+      "flowEntityIndexFlow"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
       "dot1agCfmMaIndex",
+      "dot1agCfmMdIndex",
       "dot1agCfmMepIdentifier"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -22,29 +22,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
       "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
+      "TimeTicks",
+      "Bits",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Integer32",
       "Gauge32",
-      "TimeTicks",
-      "IpAddress",
+      "iso",
+      "MibIdentifier",
       "Counter64",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "cfmExtensionMIB": {
@@ -762,8 +762,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-CFM-EXTENSION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:45:17 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:23:35 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADVA-FSPR7-CFM-EXTENSION-MIB"

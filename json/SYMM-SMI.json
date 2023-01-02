@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "RFC-1212": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "RFC1155-SMI": [
       "Integer32",
       "Unsigned32"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "IpAddress",
+      "enterprises",
       "TimeTicks",
-      "Unsigned32",
-      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
       "TRAP-TYPE",
-      "enterprises",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -828,8 +828,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/SYMM-SMI",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:56:15 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:32:37 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SYMM-SMI"

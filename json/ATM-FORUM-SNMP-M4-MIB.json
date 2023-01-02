@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
+      "atmVclEntry",
+      "atmVplVpi",
       "atmVpCrossConnectEntry",
-      "atmVcCrossConnectL2HOperStatus",
-      "atmVclVci",
-      "atmVplOperStatus",
+      "atmVcCrossConnectEntry",
       "atmVplEntry",
       "atmVpCrossConnectH2LOperStatus",
-      "atmVpCrossConnectL2HOperStatus",
-      "atmVclVpi",
       "atmVcCrossConnectH2LOperStatus",
+      "atmVcCrossConnectL2HOperStatus",
+      "atmVclVci",
       "atmVclOperStatus",
-      "atmVcCrossConnectEntry",
-      "atmVclEntry",
-      "atmVplVpi"
+      "atmVclVpi",
+      "atmVpCrossConnectL2HOperStatus",
+      "atmVplOperStatus"
     ],
     "ENTITY-MIB": [
-      "entPhysicalContainedIn",
       "entPhysicalIndex",
       "entPhysicalParentRelPos",
+      "entPhysicalContainedIn",
       "entPhysicalClass"
     ],
     "HOST-RESOURCES-MIB": [
@@ -38,32 +38,32 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
       "Counter64",
-      "MibIdentifier",
       "IpAddress",
-      "Bits",
+      "MibIdentifier",
+      "Integer32",
       "Unsigned32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
       "Counter32",
-      "Gauge32",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "enterprises",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue",
-      "TimeInterval",
-      "DisplayString",
-      "TestAndIncr",
+      "RowStatus",
       "AutonomousType",
+      "DateAndTime",
+      "TestAndIncr",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TimeInterval",
       "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atmfM4MIB": {
@@ -5869,8 +5869,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-SNMP-M4-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:43:57 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:22:25 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ATM-FORUM-SNMP-M4-MIB"

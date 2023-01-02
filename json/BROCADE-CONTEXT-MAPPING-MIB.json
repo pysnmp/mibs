@@ -9,29 +9,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "Bits"
+      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "RowStatus",
       "TEXTUAL-CONVENTION",
+      "StorageType",
       "DisplayString"
     ]
   },
@@ -208,8 +208,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-CONTEXT-MAPPING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:51:39 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:28:59 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BROCADE-CONTEXT-MAPPING-MIB"

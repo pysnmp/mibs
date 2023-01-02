@@ -8,8 +8,8 @@
       "Dlink2kVlanList"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4"
@@ -18,30 +18,30 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter64",
       "Counter32",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "RowStatus"
     ]
   },
@@ -478,8 +478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IP-SOURCE-GUARD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:07 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:27:41 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DLINKSW-IP-SOURCE-GUARD-MIB"

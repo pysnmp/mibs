@@ -19,34 +19,34 @@
       "MplsBitRate"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Counter64",
       "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Unsigned32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "DisplayString",
-      "TruthValue",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "MacAddress",
-      "RowStatus"
+      "TimeStamp",
+      "DisplayString",
+      "RowPointer",
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
     ]
   },
   "cienaCesMplsMIB": {
@@ -14463,8 +14463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-MPLS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:47:09 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:25:09 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-MPLS-MIB"

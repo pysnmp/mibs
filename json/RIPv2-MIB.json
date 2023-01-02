@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "mib-2",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Gauge32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress"
+      "mib-2",
+      "Bits",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -646,9 +646,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RIPv2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:18 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RIPv2-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:22:53 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RIPv2-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ARISTA-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-SMI-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  2 13:45:31 2023
-# On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  2 15:23:47 2023
+# On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Unsigned32, MibIdentifier, NotificationType, Counter64, ObjectIdentity, ModuleIdentity, Integer32, iso, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "MibIdentifier", "NotificationType", "Counter64", "ObjectIdentity", "ModuleIdentity", "Integer32", "iso", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Bits", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, Bits, iso, enterprises, IpAddress, MibIdentifier, TimeTicks, ObjectIdentity, Gauge32, Counter64, Counter32, ModuleIdentity, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "iso", "enterprises", "IpAddress", "MibIdentifier", "TimeTicks", "ObjectIdentity", "Gauge32", "Counter64", "Counter32", "ModuleIdentity", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 arista = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065))
 arista.setRevisions(('2014-08-15 00:00', '2011-03-31 13:00', '2008-10-27 18:30',))
 
@@ -32,4 +32,4 @@ if mibBuilder.loadTexts: aristaMibs.setDescription('aristaMibs provides a root o
 aristaExperiment = ObjectIdentity((1, 3, 6, 1, 4, 1, 30065, 4))
 if mibBuilder.loadTexts: aristaExperiment.setStatus('current')
 if mibBuilder.loadTexts: aristaExperiment.setDescription('aristaExperiment provides a root object identifier\n         for experimental MIBs.  The structure of information\n         for these MIBs can not be guaranteed between releases.')
-mibBuilder.exportSymbols("ARISTA-SMI-MIB", arista=arista, aristaMibs=aristaMibs, PYSNMP_MODULE_ID=arista, aristaModules=aristaModules, aristaExperiment=aristaExperiment, aristaProducts=aristaProducts)
+mibBuilder.exportSymbols("ARISTA-SMI-MIB", arista=arista, aristaExperiment=aristaExperiment, aristaProducts=aristaProducts, aristaModules=aristaModules, aristaMibs=aristaMibs, PYSNMP_MODULE_ID=arista)

@@ -12,31 +12,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "Bits",
       "iso",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hh3cLicense": {
@@ -1180,8 +1180,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LICENSE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:47:49 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:25:44 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-LICENSE-MIB"

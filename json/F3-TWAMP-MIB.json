@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "IpVersion",
-      "PerfCounter64",
-      "AdminState",
-      "VlanPriority",
-      "OperationalState",
       "CmPmBinAction",
+      "OperationalState",
+      "SecondaryState",
+      "AdminState",
+      "PerfCounter64",
       "VlanId",
-      "SecondaryState"
+      "VlanPriority",
+      "IpVersion"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -25,34 +25,34 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Integer32",
       "Gauge32",
-      "TimeTicks",
+      "iso",
+      "MibIdentifier",
       "Counter64",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "StorageType",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "VariablePointer",
+      "MacAddress",
+      "StorageType"
     ]
   },
   "f3TwampMIB": {
@@ -8131,8 +8131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-TWAMP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:45:19 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:23:36 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-TWAMP-MIB"

@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
       "Counter64",
       "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1392,8 +1392,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-GDOI-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:55:41 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:32:17 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JNX-GDOI-MIB"

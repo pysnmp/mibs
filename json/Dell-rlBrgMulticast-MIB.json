@@ -5,8 +5,8 @@
       "rnd"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex",
@@ -17,20 +17,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Bits",
+      "Integer32",
+      "Gauge32",
       "Counter32",
+      "Counter64",
       "MibIdentifier",
       "iso",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -896,8 +896,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlBrgMulticast-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:49:48 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:27:26 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-rlBrgMulticast-MIB"

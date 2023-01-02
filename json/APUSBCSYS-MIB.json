@@ -5,37 +5,37 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApRedundancyState",
-      "ApServerStatus",
-      "ApThreadOverloaded",
+      "ApPresence",
       "ApHardwareModuleFamily",
+      "ApThreadOverloaded",
       "ApPhyPortType",
-      "ApPresence"
+      "ApRedundancyState",
+      "ApServerStatus"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Counter64",
-      "TimeTicks"
+      "Gauge32",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -1807,8 +1807,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APUSBCSYS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:57:37 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:33:47 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APUSBCSYS-MIB"

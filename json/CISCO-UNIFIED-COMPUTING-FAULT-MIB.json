@@ -5,34 +5,34 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
       "TimeIntervalSec",
-      "Unsigned64",
       "CiscoInetAddressMask",
+      "CiscoAlarmSeverity",
+      "Unsigned64",
       "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsFaultType",
+      "CucsManagedObjectId",
       "CucsFaultProbableCause",
+      "CucsFaultType",
       "CucsFaultSeverity",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
       "CucsFaultCode",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsConditionRule",
-      "CucsFaultBasePolicyClearAction",
-      "CucsConditionType",
-      "CucsConditionLifecycle",
-      "CucsConditionTag",
       "CucsConditionCause",
       "CucsConditionAckAction",
-      "CucsMoMoClassId",
+      "CucsConditionRule",
       "CucsPolicyPolicyOwner",
       "CucsTrigTrigOperState",
+      "CucsFaultBasePolicyClearAction",
+      "CucsMoMoClassId",
+      "CucsConditionType",
       "CucsTrigAdminState",
-      "CucsFaultBasePolicySoakingSeverity"
+      "CucsFaultBasePolicySoakingSeverity",
+      "CucsConditionTag",
+      "CucsConditionLifecycle"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -46,30 +46,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Counter64",
-      "IpAddress"
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
-      "TimeStamp",
       "RowPointer",
-      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TimeInterval",
+      "TruthValue",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "cucsFaultObjects": {
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FAULT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:15 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:27:51 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-FAULT-MIB"

@@ -11,29 +11,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "mib-2",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "iso",
+      "Counter64",
+      "mib-2",
+      "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "RowStatus",
-      "TimeInterval",
-      "TestAndIncr",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval"
     ]
   },
   "intSrv": {
@@ -870,8 +870,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/INTEGRATED-SERVICES-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:46 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:28:15 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "INTEGRATED-SERVICES-MIB"

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "iso",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "iso",
-      "Counter64",
-      "mib-2",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Counter32",
+      "Bits",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "appletalk": {
@@ -3551,9 +3551,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/APPLETALK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:53:49 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPLETALK-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:22:54 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APPLETALK-MIB"

@@ -9,38 +9,38 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
+      "InetAddressPrefixLength",
       "InetAddressType",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetVersion"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "mib-2",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "mib-2",
+      "Counter32",
       "Bits",
       "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress"
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "StorageType",
       "TruthValue",
+      "DisplayString",
       "RowStatus",
+      "StorageType",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -5327,9 +5327,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PIM-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:18 2023",
-      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PIM-STD-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 15:22:53 2023",
+      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PIM-STD-MIB"
