@@ -18,26 +18,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Integer32",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "Counter64",
+      "Counter32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "MibIdentifier"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "alcatelIND1ChassisMIB": {
@@ -5106,8 +5106,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:27:18 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:57:49 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-CHASSIS-MIB"

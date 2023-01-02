@@ -5,8 +5,8 @@
       "softentIND1LldpMed"
     ],
     "LLDP-EXT-MED-MIB": [
-      "PolicyAppType",
-      "Dscp"
+      "Dscp",
+      "PolicyAppType"
     ],
     "LLDP-MIB": [
       "LldpPortNumber"
@@ -17,25 +17,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Integer32",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "MibIdentifier"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DisplayString",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -355,8 +355,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LLDP-MED-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:27:17 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:57:48 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-LLDP-MED-MIB"

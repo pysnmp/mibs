@@ -11,32 +11,32 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
+      "Bits",
       "Counter32",
+      "Unsigned32",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits"
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -578,8 +578,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-VOICE-CALL-HISTORY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:24:03 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:53:47 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-VOICE-CALL-HISTORY-MIB"

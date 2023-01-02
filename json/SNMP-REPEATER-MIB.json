@@ -5,34 +5,34 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
       "Integer32",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "DisplayString",
       "MacAddress",
       "TestAndIncr",
-      "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snmpRptrMod": {
@@ -2541,9 +2541,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-REPEATER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:14:59 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-REPEATER-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:18 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SNMP-REPEATER-MIB"

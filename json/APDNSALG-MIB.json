@@ -13,16 +13,16 @@
       "SysMgmtPercentage"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetZoneIndex",
       "InetAddress",
-      "InetVersion",
       "InetAddressType",
-      "InetZoneIndex"
+      "InetAddressPrefixLength",
+      "InetVersion"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -30,19 +30,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "IpAddress",
+      "Counter64",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
@@ -1122,8 +1122,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APDNSALG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:27:03 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:57:38 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APDNSALG-MIB"

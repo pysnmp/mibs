@@ -6,44 +6,44 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetZoneIndex",
-      "InetVersion",
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetVersion",
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Bits",
-      "zeroDotZero",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Counter64",
+      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
       "MibIdentifier",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "IpAddress",
+      "iso",
       "Integer32",
-      "iso"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "StorageType",
       "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
       "TestAndIncr",
+      "RowStatus",
+      "TimeStamp",
+      "StorageType",
       "DisplayString",
-      "TruthValue",
-      "TimeStamp"
+      "TruthValue"
     ]
   },
   "ipMIB": {
@@ -4777,9 +4777,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:14:58 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IP-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:49:49 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IP-MIB"

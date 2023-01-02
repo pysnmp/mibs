@@ -8,46 +8,46 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlDropPolicy",
-      "MwlQosProtocol",
       "MwlQosCodecProtocol",
       "MwlDscpType",
-      "MwlQosRulesMatchClass",
-      "MwlQosRulesMatchClassBits",
-      "MwlQosCodec",
       "MwlAdmissionControl",
+      "MwlQosCodec",
+      "MwlDropPolicy",
+      "MwlOnOffSwitch",
       "MwlQosAction",
-      "MwlOnOffSwitch"
+      "MwlQosRulesMatchClassBits",
+      "MwlQosProtocol",
+      "MwlQosRulesMatchClass"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
+      "MibIdentifier",
       "Bits",
       "OBJECT-TYPE",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "enterprises",
       "Unsigned32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Integer32"
+      "enterprises",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DateAndTime",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "RowStatus",
+      "MacAddress",
       "TimeInterval"
     ]
   },
@@ -991,8 +991,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:21:38 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:51:51 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-QOS-MIB"

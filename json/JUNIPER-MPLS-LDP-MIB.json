@@ -5,52 +5,52 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetPortNumber",
       "InetAddressType",
-      "InetAddress",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsRetentionMode",
-      "MplsLabel",
-      "MplsLabelDistributionMethod",
-      "MplsLdpLabelType",
       "MplsLsrIdentifier",
+      "MplsLdpIdentifier",
       "MplsLspType",
-      "MplsLdpIdentifier"
+      "MplsLabel",
+      "MplsLdpLabelType",
+      "MplsRetentionMode",
+      "MplsLabelDistributionMethod"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "iso"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
+      "StorageType",
       "RowStatus",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "RowPointer",
-      "StorageType",
-      "TimeInterval"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "jnxMplsLdpMIB": {
@@ -2014,8 +2014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:25:35 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:55:41 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-MPLS-LDP-MIB"

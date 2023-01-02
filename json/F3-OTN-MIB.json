@@ -5,42 +5,42 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "PerfCounter64",
-      "CmPmIntervalType"
+      "CmPmIntervalType",
+      "PerfCounter64"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetNetPortEntry"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmEthernetNetPortHistoryEntry",
-      "cmEthernetNetPortStatsEntry"
+      "cmEthernetNetPortStatsEntry",
+      "cmEthernetNetPortHistoryEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
       "TimeTicks",
-      "Counter64"
+      "IpAddress",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "VariablePointer"
+      "TruthValue"
     ]
   },
   "f3OtnMIB": {
@@ -1073,8 +1073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-OTN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:40 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:45:17 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-OTN-MIB"

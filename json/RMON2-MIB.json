@@ -5,53 +5,53 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "OwnerString",
-      "matrixControlEntry",
-      "filterEntry",
-      "channelEntry",
-      "etherStatsEntry",
-      "matrix",
+      "hosts",
       "statistics",
       "historyControlEntry",
+      "filterEntry",
       "hostControlEntry",
-      "hosts",
+      "etherStatsEntry",
+      "channelEntry",
+      "OwnerString",
+      "matrix",
+      "filter",
       "history",
-      "filter"
+      "matrixControlEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "mib-2",
       "Bits",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "MibIdentifier",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
       "TimeTicks",
-      "Integer32"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
       "TimeStamp"
     ],
     "TOKEN-RING-RMON-MIB": [
       "sourceRoutingStatsEntry",
-      "tokenRingPStatsEntry",
-      "ringStationControlEntry",
       "tokenRing",
-      "tokenRingMLStatsEntry"
+      "tokenRingMLStatsEntry",
+      "tokenRingPStatsEntry",
+      "ringStationControlEntry"
     ]
   },
   "rmon": {
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:42 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:45:19 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RMON2-MIB"

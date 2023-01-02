@@ -8,9 +8,9 @@
       "VlanIdOrNone"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021BridgePortNumber",
       "IEEE8021PbbServiceIdentifierOrUnassigned",
-      "IEEE8021PbbIngressEgress"
+      "IEEE8021PbbIngressEgress",
+      "IEEE8021BridgePortNumber"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -27,29 +27,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
       "Counter32",
-      "MibIdentifier"
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
       "MacAddress",
+      "TruthValue",
       "DisplayString",
+      "TimeStamp",
       "RowStatus",
-      "TimeStamp"
+      "TimeInterval"
     ]
   },
   "alcatelIND1IsisSpbMib": {
@@ -3500,8 +3500,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-ISIS-SPB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:27:16 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:57:47 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-ISIS-SPB-MIB"

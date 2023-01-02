@@ -12,21 +12,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Bits",
+      "MibIdentifier",
       "TimeTicks",
-      "Unsigned32",
-      "Counter64",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Integer32",
-      "iso"
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "mib-2",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -479,9 +479,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/UDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:14:59 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/UDP-MIB",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:54:37 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "UDP-MIB"

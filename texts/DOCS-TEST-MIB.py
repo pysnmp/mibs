@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module DOCS-TEST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/DOCS-TEST-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  2 13:16:01 2023
-# On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:45:39 2023
+# On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-iso, TimeTicks, Counter32, NotificationType, enterprises, MibIdentifier, Gauge32, Bits, Counter64, Unsigned32, IpAddress, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "Counter32", "NotificationType", "enterprises", "MibIdentifier", "Gauge32", "Bits", "Counter64", "Unsigned32", "IpAddress", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+Counter64, ModuleIdentity, Counter32, Gauge32, Integer32, iso, MibIdentifier, IpAddress, Bits, enterprises, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Counter32", "Gauge32", "Integer32", "iso", "MibIdentifier", "IpAddress", "Bits", "enterprises", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 cableLabs = MibIdentifier((1, 3, 6, 1, 4, 1, 4491))
 clabFunction = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 1))
 clabFuncMib2 = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 1, 1))
@@ -55,4 +55,4 @@ docsTestGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 1, 12, 2, 2, 1)).setObje
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     docsTestGroup = docsTestGroup.setStatus('current')
 if mibBuilder.loadTexts: docsTestGroup.setDescription('Group of objects implemented in both Cable Modems and\n             Cable Modem Termination Systems.')
-mibBuilder.exportSymbols("DOCS-TEST-MIB", clabProjOpenCable=clabProjOpenCable, cableLabs=cableLabs, docsTestEnable=docsTestEnable, docsTestType=docsTestType, docsTestBasicCompliance=docsTestBasicCompliance, docsTestGroup=docsTestGroup, docsTestCompliances=docsTestCompliances, docsTestCapability=docsTestCapability, docsTestBaseObjects=docsTestBaseObjects, clabFunction=clabFunction, clabProject=clabProject, docsTestStatus=docsTestStatus, clabProjPacketCable=clabProjPacketCable, PYSNMP_MODULE_ID=docsTestMIB, docsTestSetupObjects=docsTestSetupObjects, docsTestMibObjects=docsTestMibObjects, docsTestConformance=docsTestConformance, docsTestData=docsTestData, clabFuncMib2=clabFuncMib2, clabProjCableHome=clabProjCableHome, clabFuncProprietary=clabFuncProprietary, docsTestGroups=docsTestGroups, docsTestMIB=docsTestMIB, clabProjDocsis=clabProjDocsis)
+mibBuilder.exportSymbols("DOCS-TEST-MIB", docsTestType=docsTestType, clabProjOpenCable=clabProjOpenCable, docsTestBasicCompliance=docsTestBasicCompliance, docsTestGroups=docsTestGroups, docsTestCompliances=docsTestCompliances, clabProjCableHome=clabProjCableHome, docsTestBaseObjects=docsTestBaseObjects, docsTestMIB=docsTestMIB, clabProjDocsis=clabProjDocsis, docsTestSetupObjects=docsTestSetupObjects, docsTestCapability=docsTestCapability, docsTestData=docsTestData, docsTestMibObjects=docsTestMibObjects, docsTestStatus=docsTestStatus, PYSNMP_MODULE_ID=docsTestMIB, cableLabs=cableLabs, clabFunction=clabFunction, docsTestConformance=docsTestConformance, docsTestEnable=docsTestEnable, clabFuncMib2=clabFuncMib2, clabFuncProprietary=clabFuncProprietary, clabProject=clabProject, docsTestGroup=docsTestGroup, clabProjPacketCable=clabProjPacketCable)

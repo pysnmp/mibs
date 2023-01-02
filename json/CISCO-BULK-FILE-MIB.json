@@ -5,33 +5,33 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "TimeTicks",
       "MibIdentifier",
-      "iso",
-      "zeroDotZero",
+      "Unsigned32",
+      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "IpAddress",
+      "iso",
+      "Bits",
       "OBJECT-TYPE",
-      "Gauge32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoBulkFileMIB": {
@@ -966,8 +966,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-BULK-FILE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:13 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:17 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-BULK-FILE-MIB"

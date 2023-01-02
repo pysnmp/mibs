@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
+      "Bgp4V2AddressFamilyIdentifierTC",
       "Bgp4V2IdentifierTC",
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
-      "Bgp4V2AddressFamilyIdentifierTC"
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
-      "InetPortNumber",
       "InetAddressType",
-      "InetAddress"
+      "InetPortNumber",
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "iso",
-      "Counter64",
-      "Integer32",
-      "mib-2",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "mib-2",
       "Counter32",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TruthValue",
+      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "RowPointer"
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "bgp4V2": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:21:27 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:51:39 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BGP4V2-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module APAMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAMI-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  2 13:27:01 2023
-# On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:57:35 2023
+# On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, Counter32, Unsigned32, IpAddress, iso, NotificationType, Integer32, Gauge32, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "Unsigned32", "IpAddress", "iso", "NotificationType", "Integer32", "Gauge32", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier", "ModuleIdentity")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, TimeTicks, Counter64, Counter32, Gauge32, IpAddress, NotificationType, MibIdentifier, iso, Unsigned32, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "TimeTicks", "Counter64", "Counter32", "Gauge32", "IpAddress", "NotificationType", "MibIdentifier", "iso", "Unsigned32", "ObjectIdentity", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 apAMIModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 6))
 apAMIModule.setRevisions(('2012-07-16 00:00', '2014-06-26 00:00',))
@@ -41,4 +41,4 @@ apAMIMibObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 6, 2, 1, 1)).setO
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apAMIMibObjectsGroup = apAMIMibObjectsGroup.setStatus('current')
 if mibBuilder.loadTexts: apAMIMibObjectsGroup.setDescription('This automatically created object group contains\n                            all those objects that do not belong to any other\n                            OBJECT-GROUP')
-mibBuilder.exportSymbols("APAMI-MIB", apAMISoapHttps=apAMISoapHttps, apAMISoapHttpsPort=apAMISoapHttpsPort, apAMISoapHttp=apAMISoapHttp, apAMIModule=apAMIModule, apAMIMIBObjects=apAMIMIBObjects, apAMIModuleGroups=apAMIModuleGroups, PYSNMP_MODULE_ID=apAMIModule, apAMISoapObjects=apAMISoapObjects, apAMIMibObjectsGroup=apAMIMibObjectsGroup, apAMISoapHttpPort=apAMISoapHttpPort, apAMIModuleConformance=apAMIModuleConformance)
+mibBuilder.exportSymbols("APAMI-MIB", apAMIModuleConformance=apAMIModuleConformance, apAMISoapObjects=apAMISoapObjects, apAMIModuleGroups=apAMIModuleGroups, PYSNMP_MODULE_ID=apAMIModule, apAMISoapHttps=apAMISoapHttps, apAMISoapHttp=apAMISoapHttp, apAMIMIBObjects=apAMIMIBObjects, apAMIModule=apAMIModule, apAMISoapHttpsPort=apAMISoapHttpsPort, apAMISoapHttpPort=apAMISoapHttpPort, apAMIMibObjectsGroup=apAMIMibObjectsGroup)

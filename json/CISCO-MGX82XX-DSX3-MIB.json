@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "BASIS-MIB": [
-      "dsx3Line",
-      "dsx3Framing"
+      "dsx3Framing",
+      "dsx3Line"
     ],
     "CISCOWAN-SMI": [
       "ciscoWan"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
       "MibIdentifier",
-      "iso",
+      "Unsigned32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
+      "iso",
+      "Bits",
       "OBJECT-TYPE",
-      "Gauge32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4343,8 +4343,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-DSX3-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:12 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:16 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-MGX82XX-DSX3-MIB"

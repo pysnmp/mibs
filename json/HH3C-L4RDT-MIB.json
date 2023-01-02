@@ -10,27 +10,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Counter32",
+      "Integer32",
       "IpAddress",
-      "Counter64"
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "MacAddress",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "hh3cL4Redirect": {
@@ -328,8 +328,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-L4RDT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:17:58 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:47:49 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-L4RDT-MIB"

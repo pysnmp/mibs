@@ -5,63 +5,63 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
-      "OperationalState",
       "PerfCounter64",
-      "SecondaryState",
+      "AdminState",
       "VlanPriority",
-      "CmPmBinAction"
+      "CmPmBinAction",
+      "OperationalState",
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
+      "neIndex",
       "slotIndex",
-      "shelfIndex",
-      "neIndex"
+      "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetAccPortIndex",
-      "cmEthernetTrafficPortIndex",
-      "cmEthernetNetPortIndex"
+      "cmEthernetNetPortIndex",
+      "cmEthernetTrafficPortIndex"
     ],
     "IEEE8021-CFM-MIB": [
       "dot1agCfmMdIndex",
       "dot1agCfmMaNetEntry",
-      "dot1agCfmMepIdentifier",
-      "Dot1agCfmMDLevel",
       "dot1agCfmMaCompEntry",
+      "Dot1agCfmMDLevel",
       "Dot1agCfmMepId",
+      "dot1agCfmMepEntry",
       "dot1agCfmMaIndex",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMepIdentifier"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY",
       "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
       "TimeTicks",
-      "Integer32"
+      "IpAddress",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress",
       "TruthValue",
       "StorageType"
     ]
@@ -2033,8 +2033,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:40 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:45:17 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-CFM-MIB"

@@ -5,29 +5,29 @@
       "snmpPrivProtocols"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Bits",
-      "TimeTicks",
-      "snmpModules",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Integer32",
-      "iso"
+      "Counter64",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snmpUsmAesMIB": {
@@ -50,8 +50,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-USM-AES-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:14:58 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:44:29 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SNMP-USM-AES-MIB"

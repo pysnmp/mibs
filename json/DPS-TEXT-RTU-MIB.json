@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Counter64",
       "Counter32",
-      "NOTIFICATION-TYPE",
       "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
       "iso",
-      "Counter64"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -349,8 +349,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-TEXT-RTU-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:08 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:50:11 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DPS-TEXT-RTU-MIB"

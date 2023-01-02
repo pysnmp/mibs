@@ -7,32 +7,32 @@
       "InetPortNumber"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
       "Unsigned32",
-      "TimeTicks",
       "enterprises",
-      "Gauge32",
-      "MibIdentifier",
       "Bits",
       "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "mikrotikExperimentalModule": {
@@ -6136,8 +6136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mikrotik/MIKROTIK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:25:53 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:56:18 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MIKROTIK-MIB"

@@ -5,13 +5,13 @@
       "InterfaceIndexOrZero"
     ],
     "JUNIPER-SMI": [
-      "jnxPwTdmMibRoot",
-      "jnxMibs"
+      "jnxMibs",
+      "jnxPwTdmMibRoot"
     ],
     "JUNIPER-VPN-MIB": [
       "jnxVpnPwVpnType",
-      "jnxVpnPwIndex",
-      "jnxVpnPwVpnName"
+      "jnxVpnPwVpnName",
+      "jnxVpnPwIndex"
     ],
     "PerfHist-TC-MIB": [
       "PerfIntervalCount",
@@ -21,34 +21,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "transmission",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "iso"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "transmission",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
       "RowStatus",
       "TruthValue",
-      "StorageType"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "jnxPWTdmMIB": {
@@ -1487,8 +1487,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PW-TDM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:25:35 2023",
-      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:55:42 2023",
+      "On host fv-az573-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-PW-TDM-MIB"
