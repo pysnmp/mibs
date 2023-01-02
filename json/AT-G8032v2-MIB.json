@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "AT-SMI-MIB": [
-      "modules",
-      "DisplayStringUnsized"
+      "DisplayStringUnsized",
+      "modules"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
+      "Unsigned32",
+      "Integer32",
       "Counter32",
       "MibIdentifier",
-      "Integer32",
       "MODULE-IDENTITY",
+      "IpAddress",
       "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "atG8032v2": {
@@ -167,8 +167,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-G8032v2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:05:06 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:42 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AT-G8032v2-MIB"

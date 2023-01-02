@@ -5,12 +5,12 @@
       "ciscoMgmt"
     ],
     "FC-MGMT-MIB": [
-      "fcmInstanceIndex",
-      "fcmSwitchIndex"
+      "fcmSwitchIndex",
+      "fcmInstanceIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -24,28 +24,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Integer32",
       "TimeTicks",
       "Counter32",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Bits"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TimeStamp",
+      "MacAddress",
+      "RowStatus"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -769,8 +769,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCOE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:58 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:09 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-FCOE-MIB"

@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "enterprises",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "iso",
       "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
       "Integer32",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "enterprises",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -59,8 +59,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/schleifenbauer/SCHLEIFENBAUER-SMI",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:23:31 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:29:05 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SCHLEIFENBAUER-SMI"

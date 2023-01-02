@@ -5,26 +5,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
       "mib-2",
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "Integer32",
+      "IpAddress",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Bits"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RADIUS-AUTH-CLIENT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:16:42 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:24:05 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RADIUS-AUTH-CLIENT-MIB"

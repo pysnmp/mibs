@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "iso",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Gauge32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Bits",
-      "IpAddress",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "hwIPpool": {
@@ -1945,8 +1945,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:16 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:23:19 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-IPPOOL-MIB"

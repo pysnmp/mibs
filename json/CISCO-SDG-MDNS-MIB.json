@@ -10,8 +10,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -19,27 +19,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
       "Counter32",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Bits"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TimeInterval"
+      "DisplayString"
     ]
   },
   "ciscoSdgMdnsMIB": {
@@ -1249,8 +1249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDG-MDNS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:11:03 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:13 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-SDG-MDNS-MIB"

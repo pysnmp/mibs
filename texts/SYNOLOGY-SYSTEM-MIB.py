@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  2 13:24:23 2023
-# On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:29:45 2023
+# On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, NotificationType, enterprises, Bits, Gauge32, Integer32, Counter64, ObjectIdentity, MibIdentifier, TimeTicks, Unsigned32, IpAddress, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "NotificationType", "enterprises", "Bits", "Gauge32", "Integer32", "Counter64", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Unsigned32", "IpAddress", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, enterprises, Bits, MibIdentifier, Counter32, IpAddress, Integer32, TimeTicks, ObjectIdentity, Unsigned32, NotificationType, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "enterprises", "Bits", "MibIdentifier", "Counter32", "IpAddress", "Integer32", "TimeTicks", "ObjectIdentity", "Unsigned32", "NotificationType", "Counter64", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 synoSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 1))
 synoSystem.setRevisions(('2013-09-11 00:00',))
@@ -62,4 +62,4 @@ systemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 1, 6, 2, 1)).setObjects(("SYN
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     systemGroup = systemGroup.setStatus('current')
 if mibBuilder.loadTexts: systemGroup.setDescription('A collection of objects providing basic information\n             of an synology system entity.')
-mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", upgradeAvailable=upgradeAvailable, systemConformance=systemConformance, temperature=temperature, systemCompliance=systemCompliance, systemGroup=systemGroup, synology=synology, version=version, modelName=modelName, fan=fan, systemFanStatus=systemFanStatus, systemCompliances=systemCompliances, cpuFanStatus=cpuFanStatus, systemGroups=systemGroups, PYSNMP_MODULE_ID=synoSystem, serialNumber=serialNumber, systemStatus=systemStatus, dsmInfo=dsmInfo, powerStatus=powerStatus, synoSystem=synoSystem)
+mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", systemCompliances=systemCompliances, PYSNMP_MODULE_ID=synoSystem, powerStatus=powerStatus, systemStatus=systemStatus, systemConformance=systemConformance, cpuFanStatus=cpuFanStatus, modelName=modelName, serialNumber=serialNumber, systemGroup=systemGroup, version=version, temperature=temperature, systemGroups=systemGroups, synology=synology, upgradeAvailable=upgradeAvailable, fan=fan, dsmInfo=dsmInfo, synoSystem=synoSystem, systemFanStatus=systemFanStatus, systemCompliance=systemCompliance)

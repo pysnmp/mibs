@@ -10,20 +10,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
       "Counter32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Bits",
       "TimeTicks",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "Gauge32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "MibIdentifier",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -421,8 +421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SOURCE-ROUTING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:04:10 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:14:59 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SOURCE-ROUTING-MIB"

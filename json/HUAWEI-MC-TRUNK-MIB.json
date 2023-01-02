@@ -9,28 +9,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "iso",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Gauge32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Bits",
-      "IpAddress",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "RowStatus",
+      "DisplayString",
+      "TimeStamp",
       "PhysAddress",
-      "TimeStamp"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwMcTrunkMIB": {
@@ -825,8 +825,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MC-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:18 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:23:20 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-MC-TRUNK-MIB"

@@ -5,35 +5,35 @@
       "rnd"
     ],
     "IEEE8023-LAG-MIB": [
-      "dot3adAggIndex",
-      "dot3adAggPortIndex"
+      "dot3adAggPortIndex",
+      "dot3adAggIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
+      "TimeTicks",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
       "MibIdentifier",
-      "TimeTicks"
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlDot3adAgg": {
@@ -592,8 +592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:39 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:19:49 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-TRUNK-MIB"

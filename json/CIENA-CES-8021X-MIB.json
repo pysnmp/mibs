@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalMacAddress",
-      "cienaGlobalSeverity"
+      "cienaGlobalSeverity",
+      "cienaGlobalMacAddress"
     ],
     "CIENA-SMI": [
       "cienaCesConfig",
@@ -13,29 +13,29 @@
       "dot1xPaeSystemAuthControl"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32"
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaCes8021xMIB": {
@@ -677,8 +677,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-8021X-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:07:22 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:17:23 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-8021X-MIB"

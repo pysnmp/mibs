@@ -8,33 +8,33 @@
       "InterfaceIndex"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "Counter64",
       "IpAddress",
+      "Integer32",
+      "iso",
       "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleMVQoS": {
@@ -1127,8 +1127,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MVQOS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:09:38 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:19:03 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SLE-MVQOS-MIB"

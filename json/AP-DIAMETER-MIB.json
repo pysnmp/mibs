@@ -5,8 +5,8 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApTransportType",
-      "ApDiamResultCode"
+      "ApDiamResultCode",
+      "ApTransportType"
     ],
     "APSYSMGMT-MIB": [
       "SysMgmtPercentage"
@@ -15,9 +15,9 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -25,24 +25,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "iso",
       "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "apDiameterModule": {
@@ -1587,8 +1587,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/AP-DIAMETER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:38 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:27:03 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AP-DIAMETER-MIB"

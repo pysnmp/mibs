@@ -8,30 +8,30 @@
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Counter32",
-      "Counter64",
       "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
       "Gauge32",
-      "Integer32"
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DisplayString",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -7232,8 +7232,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:18:46 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:25:34 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Juniper-POLICY-MIB"

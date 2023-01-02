@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsDiagEventLog",
-      "sfpsAOPropertiesAPI",
+      "sfpsAOProperties",
       "sfpsSystemGenerics",
-      "sfpsAOProperties"
+      "sfpsAOPropertiesAPI",
+      "sfpsDiagEventLog"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "iso",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "HexInteger": {
@@ -766,8 +766,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:12:13 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:21:07 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTRON-SFPS-COMMON-MIB"

@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
       "VlanList4",
       "VlanList1",
-      "VlanList2"
+      "VlanList2",
+      "VlanList3"
     ],
     "CISCOSB-MIB": [
-      "Percents",
-      "switch001"
+      "switch001",
+      "Percents"
     ],
     "CISCOSB-POLICY-MIB": [
-      "StatisticsDPType",
-      "StatisticsClearActionType"
+      "StatisticsClearActionType",
+      "StatisticsDPType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
       "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Bits"
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "RowPointer",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "rlQosCliMib": {
@@ -5628,8 +5628,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-QOS-CLI-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:11:01 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:12 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-QOS-CLI-MIB"

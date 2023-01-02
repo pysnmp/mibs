@@ -3,38 +3,38 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "dot1dBridge",
-      "dot1dTpPort",
-      "dot1dTp",
       "dot1dBasePort",
+      "dot1dTp",
+      "dot1dTpPort",
       "dot1dBasePortEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Integer32",
-      "iso",
+      "Gauge32",
       "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier"
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "pBridgeMIB": {
@@ -1025,8 +1025,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/P-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:05:07 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:42 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "P-BRIDGE-MIB"

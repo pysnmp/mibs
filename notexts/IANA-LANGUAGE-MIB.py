@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module IANA-LANGUAGE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-LANGUAGE-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  2 13:03:26 2023
-# On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:14:25 2023
+# On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Gauge32, Unsigned32, iso, IpAddress, MibIdentifier, Bits, mib_2, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "Unsigned32", "iso", "IpAddress", "MibIdentifier", "Bits", "mib-2", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Integer32", "Counter64")
+ObjectIdentity, Integer32, ModuleIdentity, MibIdentifier, NotificationType, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, Gauge32, IpAddress, TimeTicks, mib_2, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "ModuleIdentity", "MibIdentifier", "NotificationType", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "Gauge32", "IpAddress", "TimeTicks", "mib-2", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ianaLanguages = ModuleIdentity((1, 3, 6, 1, 2, 1, 73))
 ianaLanguages.setRevisions(('2014-05-22 00:00', '2000-05-10 00:00', '1999-09-09 09:00',))
@@ -29,4 +29,4 @@ ianaLangPSL = ObjectIdentity((1, 3, 6, 1, 2, 1, 73, 6))
 if mibBuilder.loadTexts: ianaLangPSL.setStatus('current')
 ianaLangSMSL = ObjectIdentity((1, 3, 6, 1, 2, 1, 73, 7))
 if mibBuilder.loadTexts: ianaLangSMSL.setStatus('current')
-mibBuilder.exportSymbols("IANA-LANGUAGE-MIB", PYSNMP_MODULE_ID=ianaLanguages, ianaLangPerl=ianaLangPerl, ianaLangSRSL=ianaLangSRSL, ianaLangPSL=ianaLangPSL, ianaLangSMSL=ianaLangSMSL, ianaLanguages=ianaLanguages, ianaLangJavaByteCode=ianaLangJavaByteCode, ianaLangTcl=ianaLangTcl, ianaLangScheme=ianaLangScheme)
+mibBuilder.exportSymbols("IANA-LANGUAGE-MIB", ianaLangJavaByteCode=ianaLangJavaByteCode, ianaLanguages=ianaLanguages, PYSNMP_MODULE_ID=ianaLanguages, ianaLangTcl=ianaLangTcl, ianaLangSRSL=ianaLangSRSL, ianaLangSMSL=ianaLangSMSL, ianaLangScheme=ianaLangScheme, ianaLangPerl=ianaLangPerl, ianaLangPSL=ianaLangPSL)

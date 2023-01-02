@@ -14,52 +14,52 @@
       "IANAtunnelType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAutonomousSystemNumber"
+      "InetAutonomousSystemNumber",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipAddressEntry",
-      "ipv6InterfaceEntry",
+      "ipv6RouterAdvertEntry",
       "ipNetToPhysicalEntry",
-      "ipv6RouterAdvertEntry"
+      "ipv6InterfaceEntry"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "zeroDotZero",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
       "Gauge32",
-      "mib-2",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "zeroDotZero",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Bits"
+      "Bits",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TimeInterval"
+      "RowStatus"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:56 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:08 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-IPv6"

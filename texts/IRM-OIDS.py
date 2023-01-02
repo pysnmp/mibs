@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Mon Jan  2 13:12:08 2023
-# On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:21:02 2023
+# On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, TimeTicks, Bits, IpAddress, MibIdentifier, ObjectIdentity, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, iso, Gauge32, Counter32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "Bits", "IpAddress", "MibIdentifier", "ObjectIdentity", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "iso", "Gauge32", "Counter32", "ModuleIdentity")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, MibIdentifier, Unsigned32, Integer32, Gauge32, ModuleIdentity, IpAddress, iso, Counter64, TimeTicks, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "ModuleIdentity", "IpAddress", "iso", "Counter64", "TimeTicks", "ObjectIdentity", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", sysRepeaters=sysRepeaters, repeaterRev2=repeaterRev2, repeaterRev1=repeaterRev1, subSysMMAC=subSysMMAC, sysRouters=sysRouters, bridge=bridge, router=router, nb30Rev1=nb30Rev1, sysIntDev=sysIntDev, sysOIDs=sysOIDs, sysChassis=sysChassis, sysOtherType=sysOtherType, commsDevice=commsDevice, ups=ups, product=product, sysBridges=sysBridges, repeater=repeater, layerMgmt=layerMgmt, backplaneProtocol=backplaneProtocol, common=common, commonRev1=commonRev1, subSysDevice=subSysDevice, subsystem=subsystem, dl=dl)
+mibBuilder.exportSymbols("IRM-OIDS", bridge=bridge, repeaterRev2=repeaterRev2, ups=ups, router=router, subsystem=subsystem, commsDevice=commsDevice, repeaterRev1=repeaterRev1, dl=dl, commonRev1=commonRev1, sysBridges=sysBridges, product=product, sysIntDev=sysIntDev, subSysMMAC=subSysMMAC, repeater=repeater, layerMgmt=layerMgmt, common=common, sysRepeaters=sysRepeaters, backplaneProtocol=backplaneProtocol, nb30Rev1=nb30Rev1, sysOtherType=sysOtherType, sysRouters=sysRouters, sysOIDs=sysOIDs, sysChassis=sysChassis, subSysDevice=subSysDevice)

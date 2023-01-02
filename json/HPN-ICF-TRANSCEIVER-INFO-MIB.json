@@ -12,24 +12,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "Integer32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -659,8 +659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-TRANSCEIVER-INFO-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:16:42 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:24:04 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-TRANSCEIVER-INFO-MIB"

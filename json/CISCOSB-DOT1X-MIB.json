@@ -6,16 +6,16 @@
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xPaePortNumber",
-      "PaeControlledPortStatus",
-      "dot1xAuthSessionStatsEntry"
+      "dot1xAuthSessionStatsEntry",
+      "PaeControlledPortStatus"
     ],
     "IEEE8021X-PAE-MIB": [
       "ieee8021XPaePortNumber"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
+      "dot1qFdbId",
       "VlanIndex",
-      "dot1qFdbId"
+      "PortList"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,27 +25,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
       "Counter32",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Bits"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "rldot1x": {
@@ -1861,8 +1861,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:57 2023",
-      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:08 2023",
+      "On host fv-az552-501 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-DOT1X-MIB"
