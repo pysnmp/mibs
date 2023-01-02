@@ -54,40 +54,12 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "mibserver.serviceAccount" -}}
-{{- if .Values.serviceAccount }}
-{{- .Values.serviceAccount | toYaml }}
-{{- else }}
-{{- dict "create" true "annotations" dict "name" "" | toYaml }}
-{{- end }}
-{{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
 {{- define "mibserver.serviceAccountName" -}}
-{{- $serviceAccount := fromYaml (include "mibserver.serviceAccount" .)}}
-{{- if $serviceAccount.create }}
-{{- default (include "mibserver.fullname" .) $serviceAccount.name }}
-{{- else }}
-{{- default "default" $serviceAccount.name }}
-{{- end }}
+{{- default ( include "mibserver.fullname" .) }}
 {{- end }}
 
 {{/*
-Create mibserver.service
-*/}}
-{{- define "mibserver.service" -}}
-{{- if .Values.service }}
-{{- .Values.service | toYaml }}
-{{- else }}
-{{- dict "type" "ClusterIP" "port" 80 | toYaml }}
-{{- end }}
-{{- end }}
-
-
-{{/*
-Create mibserver.autoscaling
+Configure mibserver.autoscaling
 */}}
 {{- define "mibserver.autoscaling.enabled" -}}
 {{- if .Values.autoscaling }}
@@ -98,24 +70,13 @@ Create mibserver.autoscaling
 {{- end }}
 
 {{/*
-Create mibserver.autoscaling
+Create mibserver.podAntiAffinity
 */}}
 {{- define "mibserver.podAntiAffinity" -}}
 {{- if .Values.podAntiAffinity }}
 {{- .Values.podAntiAffinity }}
 {{- else }}
 {{- "soft" }}
-{{- end }}
-{{- end }}
-
-{{/*
-Create mibserver.networkPolicy
-*/}}
-{{- define "mibserver.networkPolicy" -}}
-{{- if .Values.networkPolicy }}
-{{- .Values.networkPolicy | toYaml }}
-{{- else }}
-{{- dict "enabled" false | toYaml}}
 {{- end }}
 {{- end }}
 

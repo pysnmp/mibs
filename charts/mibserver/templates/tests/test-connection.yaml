@@ -1,4 +1,3 @@
-{{ $service := fromYaml (include "mibserver.service" . ) }}
 apiVersion: v1
 kind: Pod
 metadata:
@@ -14,7 +13,7 @@ spec:
       image: busybox:1.34.1
       imagePullPolicy: Always
       command: ['wget']
-      args: ['{{ include "mibserver.fullname" . }}:{{ $service.port }}/index.csv']
+      args: ['{{ include "mibserver.fullname" . }}:{{ (.Values.service).port | default 80 }}/index.csv']
       securityContext:
         capabilities:
           drop:
