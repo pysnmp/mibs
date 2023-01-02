@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "Dell-BRIDGEMIBOBJECTS-MIB": [
-      "rldot1dStpTrapVrblifIndex",
-      "rldot1dStpTrapVrblVID"
+      "rldot1dStpTrapVrblVID",
+      "rldot1dStpTrapVrblifIndex"
     ],
     "Dell-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "Dell-MIB": [
       "rnd"
@@ -17,20 +17,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "Gauge32",
+      "Integer32",
       "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "IpAddress",
-      "Integer32",
       "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1491,9 +1491,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-TRAPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:23:28 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:39 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-TRAPS-MIB"
   }

@@ -8,66 +8,66 @@
       "BridgeId"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
       "Dot1agCfmMepId",
-      "dot1agCfmMaIndex",
       "dot1agCfmMepIdentifier",
-      "dot1agCfmMepDbRMepIdentifier"
+      "dot1agCfmMepDbRMepIdentifier",
+      "dot1agCfmMaIndex",
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "ifOperStatus",
       "InterfaceIndex",
-      "ifOperStatus"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressIPv6"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "POWER-ETHERNET-MIB": [
-      "pethMainPseEntry",
-      "pethPsePortEntry"
+      "pethPsePortEntry",
+      "pethMainPseEntry"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
+      "dot1qVlanStaticEntry",
+      "PortList",
       "dot1vProtocolPortEntry",
       "VlanIndex",
-      "PortList",
-      "dot1qVlanStaticEntry"
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "enterprises",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "enterprises",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue",
-      "MacAddress"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "accton": {
@@ -23123,9 +23123,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS2100-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:24:31 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:11:44 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ECS2100-MIB"
   }

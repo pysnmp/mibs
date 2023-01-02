@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
-      "AristaBgp4V2AddressFamilyIdentifierTC",
+      "AristaBgp4V2IdentifierTC",
       "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
-      "AristaBgp4V2IdentifierTC"
+      "AristaBgp4V2AddressFamilyIdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddress",
-      "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,27 +25,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
       "TimeTicks",
       "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "Integer32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TimeStamp"
+      "RowPointer",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "aristaBgp4V2": {
@@ -1865,9 +1865,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:18:53 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:05:22 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ARISTA-BGP4V2-MIB"
   }

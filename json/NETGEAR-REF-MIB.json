@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Unsigned32",
-      "enterprises",
-      "Integer32",
-      "Counter32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
       "MibIdentifier",
       "IpAddress",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Bits",
+      "enterprises",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -808,9 +808,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-REF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:30:56 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:19:32 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NETGEAR-REF-MIB"
   }

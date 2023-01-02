@@ -5,25 +5,25 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "fastPath",
-      "AgentPortMask"
+      "AgentPortMask",
+      "fastPath"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qVlanIndex",
       "VlanIndex",
       "dot1qFdbId",
+      "dot1qVlanIndex",
       "VlanId"
     ],
     "SNMPv2-CONF": [
@@ -31,29 +31,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
       "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "Counter64",
       "OBJECT-TYPE",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "PhysAddress",
-      "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "MacAddress"
+      "DateAndTime",
+      "TruthValue",
+      "PhysAddress",
+      "RowStatus"
     ]
   },
   "fastPathSwitching": {
@@ -15375,9 +15375,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:24:18 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:11:26 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"
   }

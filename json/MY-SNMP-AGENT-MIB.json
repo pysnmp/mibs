@@ -12,31 +12,31 @@
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
       "Counter64",
-      "MODULE-IDENTITY",
-      "iso"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "mySnmpAgentMIB": {
@@ -445,9 +445,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-SNMP-AGENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:34:15 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:23:27 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MY-SNMP-AGENT-MIB"
   }

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-MAB-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-MAB-MIB
-# Produced by pysmi-1.1.8 at Thu Dec 15 08:34:33 2022
-# On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner
-# Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:23:48 2023
+# On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner
+# Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Integer32, NotificationType, ObjectIdentity, MibIdentifier, TimeTicks, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, ModuleIdentity, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Integer32", "NotificationType", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "ModuleIdentity", "iso", "Gauge32")
-TextualConvention, RowStatus, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "MacAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, Gauge32, IpAddress, Bits, Counter64, NotificationType, TimeTicks, Unsigned32, iso, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "Gauge32", "IpAddress", "Bits", "Counter64", "NotificationType", "TimeTicks", "Unsigned32", "iso", "MibIdentifier", "ObjectIdentity")
+TextualConvention, DisplayString, MacAddress, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "MacAddress", "RowStatus")
 mabMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 93))
 mabMib.setRevisions(('2015-02-17 00:00',))
 
@@ -136,4 +136,4 @@ if mibBuilder.loadTexts: mabPduSenderOption.setDescription('This object enable t
 mabPduSenderPduCompliance = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 93, 4, 1, 12), MabPduCompliance().clone('stdMcmCompliant')).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: mabPduSenderPduCompliance.setStatus('current')
 if mibBuilder.loadTexts: mabPduSenderPduCompliance.setDescription('This object defines the compliance of the MAB PDU format.\n            ')
-mibBuilder.exportSymbols("SIAE-MAB-MIB", mabPduSenderPduCompliance=mabPduSenderPduCompliance, MabSenderOption=MabSenderOption, mabSensorCurrentBw=mabSensorCurrentBw, mabSensorStatusTable=mabSensorStatusTable, PYSNMP_MODULE_ID=mabMib, mabSensorLinkId=mabSensorLinkId, mabPduSenderPcp=mabPduSenderPcp, mabSensorStatusEntry=mabSensorStatusEntry, mabSensorIndex=mabSensorIndex, mabMib=mabMib, MabPduCompliance=MabPduCompliance, mabMibVersion=mabMibVersion, mabSensorRowStatus=mabSensorRowStatus, mabPduSenderUnicastDA=mabPduSenderUnicastDA, mabPduSenderSensorIndex=mabPduSenderSensorIndex, mabSensorBwMode=mabSensorBwMode, mabPduSenderAdminStatus=mabPduSenderAdminStatus, mabPduSenderIfIndex=mabPduSenderIfIndex, mabSensorHoldoffTime=mabSensorHoldoffTime, mabPduSenderOamMaintLevel=mabPduSenderOamMaintLevel, MabBwCalculationMethod=MabBwCalculationMethod, mabSensorObservationTime=mabSensorObservationTime, mabSensorAdminStatus=mabSensorAdminStatus, mabSensorIfIndex=mabSensorIfIndex, mabSensorFastCount=mabSensorFastCount, mabPduSenderOption=mabPduSenderOption, mabSensorEntry=mabSensorEntry, mabSensorNominalBw=mabSensorNominalBw, mabPduSenderRowStatus=mabPduSenderRowStatus, mabPduSenderDAType=mabPduSenderDAType, mabSensorTable=mabSensorTable, mabPduSenderIndex=mabPduSenderIndex, mabSensorFastTime=mabSensorFastTime, mabPduSenderEntry=mabPduSenderEntry, mabPduSenderVlanId=mabPduSenderVlanId, mabPduSenderTable=mabPduSenderTable)
+mibBuilder.exportSymbols("SIAE-MAB-MIB", mabSensorObservationTime=mabSensorObservationTime, mabSensorAdminStatus=mabSensorAdminStatus, mabPduSenderPcp=mabPduSenderPcp, mabPduSenderOamMaintLevel=mabPduSenderOamMaintLevel, mabPduSenderDAType=mabPduSenderDAType, mabMib=mabMib, mabSensorIfIndex=mabSensorIfIndex, mabPduSenderPduCompliance=mabPduSenderPduCompliance, mabSensorStatusEntry=mabSensorStatusEntry, mabPduSenderIndex=mabPduSenderIndex, mabPduSenderIfIndex=mabPduSenderIfIndex, mabSensorEntry=mabSensorEntry, PYSNMP_MODULE_ID=mabMib, mabSensorFastCount=mabSensorFastCount, mabPduSenderAdminStatus=mabPduSenderAdminStatus, mabSensorCurrentBw=mabSensorCurrentBw, mabPduSenderTable=mabPduSenderTable, mabSensorStatusTable=mabSensorStatusTable, MabSenderOption=MabSenderOption, mabSensorLinkId=mabSensorLinkId, mabSensorBwMode=mabSensorBwMode, mabSensorTable=mabSensorTable, mabSensorRowStatus=mabSensorRowStatus, mabPduSenderRowStatus=mabPduSenderRowStatus, mabSensorNominalBw=mabSensorNominalBw, MabBwCalculationMethod=MabBwCalculationMethod, mabPduSenderOption=mabPduSenderOption, mabSensorHoldoffTime=mabSensorHoldoffTime, mabMibVersion=mabMibVersion, MabPduCompliance=MabPduCompliance, mabPduSenderSensorIndex=mabPduSenderSensorIndex, mabPduSenderUnicastDA=mabPduSenderUnicastDA, mabSensorIndex=mabSensorIndex, mabPduSenderVlanId=mabPduSenderVlanId, mabSensorFastTime=mabSensorFastTime, mabPduSenderEntry=mabPduSenderEntry)

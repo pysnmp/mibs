@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
+      "mcTrapLParam2",
+      "elHardware",
+      "mcTrapID",
       "mcTrapDescr",
       "mcTrapExState",
       "mcTrapLParam3",
-      "mcTrapLParam2",
-      "mcTrapID",
-      "eltrapGroup",
       "mcTrapLParam1",
-      "elHardware"
+      "eltrapGroup"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -19,33 +19,33 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "Counter64",
       "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
       "Integer32",
-      "TimeTicks"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "TimeInterval",
-      "DisplayString",
-      "TimeStamp",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "pp4": {
@@ -6478,9 +6478,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:24:42 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:11:52 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ELTEX-PP4"
   }

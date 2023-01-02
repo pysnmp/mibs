@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "experimental",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "TimeTicks",
       "iso",
-      "Integer32",
-      "mib-2",
       "MODULE-IDENTITY",
+      "experimental",
+      "Integer32",
+      "Counter32",
       "Counter64",
-      "MibIdentifier",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "mib-2",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "WATCHGUARD-MIB": [
       "watchguard"
@@ -532,9 +532,9 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IPSEC-ISAKMP-IKE-DOI-TC",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:31:26 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:05 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IPSEC-ISAKMP-IKE-DOI-TC"
   }

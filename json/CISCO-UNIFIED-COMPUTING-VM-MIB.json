@@ -5,63 +5,63 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
-      "TimeIntervalSec",
-      "CiscoInetAddressMask",
       "CiscoAlarmSeverity",
-      "Unsigned64"
+      "CiscoNetworkAddress",
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsVmMgmtPlane",
-      "CucsFabricVnetEpLocale",
-      "CucsFabricAVlanTransport",
-      "CucsVmComputeEpClInstType",
-      "CucsVmHvClInstType",
       "CucsVmLifeCyclePolicyFsmStageName",
-      "CucsFabricAVlanType",
-      "CucsFabricAVsanType",
-      "CucsVmInstType",
-      "CucsFabricVlanOverlapState",
-      "CucsVmSwitchAdminState",
-      "CucsDcxOperState",
-      "CucsVmSwitchVendor",
-      "CucsVmAdaptorOwner",
-      "CucsFabricZoningState",
       "CucsFabricAVsanTransport",
-      "CucsConditionRemoteInvRslt",
-      "CucsFabricVlanAssocPrimaryVlanState",
-      "CucsOsOsType",
-      "CucsFsmCompletion",
-      "CucsPolicyPolicyOwner",
-      "CucsFabricVnetEpIfRole",
-      "CucsVmOsHvVendor",
-      "CucsAdaptorLinkState",
-      "CucsVmStatus",
-      "CucsVmHbaType",
-      "CucsVmHvType",
-      "CucsVmLifeCyclePolicyFsmTaskItem",
-      "CucsNetworkVnetEpIfType",
-      "CucsFabricVnetEpPolicyOwner",
+      "CucsVmSwitchAdminState",
+      "CucsFabricAVsanType",
       "CucsFabricVsanOperState",
       "CucsFsmFsmStageStatus",
-      "CucsFabricAVlanAssocPrimaryVlanSwitchId",
-      "CucsFabricVlanOperState",
-      "CucsFabricAVlanSharing",
+      "CucsVmHvType",
+      "CucsFabricAVlanTransport",
+      "CucsDcxOperState",
+      "CucsVmComputeEpClInstType",
       "CucsVmLifeCyclePolicyFsmCurrentFsm",
+      "CucsFabricAVlanAssocPrimaryVlanSwitchId",
+      "CucsFabricVnetEpIfRole",
+      "CucsFabricVlanAssocPrimaryVlanState",
+      "CucsVmHvClInstType",
+      "CucsFabricVlanOverlapState",
+      "CucsFabricZoningState",
+      "CucsFabricAVlanType",
+      "CucsFabricVnetEpPolicyOwner",
+      "CucsVmHbaType",
+      "CucsNetworkVnetEpIfType",
       "CucsExtvmmOwnership",
-      "CucsVnicPortProfileType",
+      "CucsOsOsType",
+      "CucsVmSwitchVendor",
+      "CucsPolicyPolicyOwner",
+      "CucsFabricVlanOperState",
+      "CucsVmLifeCyclePolicyFsmTaskItem",
+      "CucsFabricAVlanSharing",
+      "CucsVmMgmtPlane",
+      "CucsAdaptorLinkState",
+      "CucsFsmCompletion",
+      "CucsVmInstType",
+      "CucsFabricVnetEpLocale",
       "CucsVmNicType",
+      "CucsVmAdaptorOwner",
+      "CucsVmOsHvVendor",
+      "CucsVnicPortProfileType",
+      "CucsVmStatus",
+      "CucsConditionRemoteInvRslt",
       "CucsNetworkSwitchId",
       "CucsFsmFlags"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -71,30 +71,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "MibIdentifier",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
+      "MacAddress",
+      "RowPointer",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "MacAddress",
       "TimeStamp",
       "TruthValue",
-      "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "cucsVmObjects": {
@@ -3986,9 +3986,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-VM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:23:58 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:59 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-VM-MIB"
   }

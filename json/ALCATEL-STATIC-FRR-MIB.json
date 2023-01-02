@@ -8,8 +8,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressType"
     ],
     "MPLS-LSR-MIB": [
       "MplsObjectOwner",
@@ -20,26 +20,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Counter64",
       "TimeTicks",
       "MibIdentifier",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Bits",
       "Unsigned32",
-      "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
+      "Gauge32",
       "Integer32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "iso",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TIMETRA-TC-MIB": [
       "TmnxOperState"
@@ -511,9 +511,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-STATIC-FRR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:32:15 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:21:00 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-STATIC-FRR-MIB"
   }

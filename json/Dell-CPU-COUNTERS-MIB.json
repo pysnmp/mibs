@@ -9,20 +9,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "Counter64",
       "OBJECT-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
       "IpAddress",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "Unsigned32"
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -216,9 +216,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-CPU-COUNTERS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:23:28 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:10:38 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-CPU-COUNTERS-MIB"
   }

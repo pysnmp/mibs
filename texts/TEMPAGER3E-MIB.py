@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TEMPAGER3E-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/TEMPAGER3E-MIB
-# Produced by pysmi-1.1.8 at Thu Dec 15 08:19:26 2022
-# On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner
-# Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:05:59 2023
+# On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner
+# Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Integer32, MibIdentifier, iso, ObjectIdentity, Counter64, Unsigned32, NotificationType, IpAddress, Gauge32, enterprises, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Integer32", "MibIdentifier", "iso", "ObjectIdentity", "Counter64", "Unsigned32", "NotificationType", "IpAddress", "Gauge32", "enterprises", "Counter32", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, Bits, IpAddress, Counter32, NotificationType, ObjectIdentity, iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, enterprises, Unsigned32, Gauge32, Counter64, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "IpAddress", "Counter32", "NotificationType", "ObjectIdentity", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "enterprises", "Unsigned32", "Gauge32", "Counter64", "NotificationType", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 avtech = MibIdentifier((1, 3, 6, 1, 4, 1, 20916))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1))
 TEMPAGER3E = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 7))
@@ -56,4 +56,4 @@ if mibBuilder.loadTexts: alarmmessage.setStatus('mandatory')
 if mibBuilder.loadTexts: alarmmessage.setDescription('Last Alarm Message')
 tempager3e_snmp_trap = NotificationType((1, 3, 6, 1, 4, 1, 20916, 1, 7) + (0,2)).setLabel("tempager3e-snmp-trap").setObjects(("TEMPAGER3E-MIB", "alarmmessage"))
 if mibBuilder.loadTexts: tempager3e_snmp_trap.setDescription('A tempager3e-snmp-trap indicates that an alarm\n\t\t\tcondition has occurred on the sensor indicated\n\t\t\tby the alarmmessage variable.')
-mibBuilder.exportSymbols("TEMPAGER3E-MIB", digital_sen1_4=digital_sen1_4, sensors=sensors, digital_sen1_2=digital_sen1_2, digital_sen2_4=digital_sen2_4, internal_tempc=internal_tempc, digital_sen1_1=digital_sen1_1, temperature=temperature, internal_tempf=internal_tempf, internal=internal, digital_sen2_3=digital_sen2_3, tempager3e_snmp_trap=tempager3e_snmp_trap, digital_sen2_2=digital_sen2_2, TEMPAGER3E=TEMPAGER3E, traps=traps, alarmmessage=alarmmessage, digital_sen2_1=digital_sen2_1, digital=digital, digital_sen1=digital_sen1, digital_sen2=digital_sen2, avtech=avtech, digital_sen1_3=digital_sen1_3, products=products)
+mibBuilder.exportSymbols("TEMPAGER3E-MIB", products=products, alarmmessage=alarmmessage, internal_tempc=internal_tempc, TEMPAGER3E=TEMPAGER3E, digital_sen1_3=digital_sen1_3, digital_sen2_4=digital_sen2_4, internal=internal, traps=traps, digital_sen2_1=digital_sen2_1, digital_sen1=digital_sen1, temperature=temperature, digital_sen2_2=digital_sen2_2, avtech=avtech, digital=digital, sensors=sensors, digital_sen1_2=digital_sen1_2, digital_sen1_4=digital_sen1_4, digital_sen1_1=digital_sen1_1, digital_sen2=digital_sen2, internal_tempf=internal_tempf, tempager3e_snmp_trap=tempager3e_snmp_trap, digital_sen2_3=digital_sen2_3)

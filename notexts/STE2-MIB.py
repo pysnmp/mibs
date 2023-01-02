@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STE2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/STE2-MIB
-# Produced by pysmi-1.1.8 at Thu Dec 15 08:27:42 2022
-# On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner
-# Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]
+# Produced by pysmi-1.1.8 at Mon Jan  2 13:15:22 2023
+# On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner
+# Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, TimeTicks, ModuleIdentity, ObjectIdentity, Bits, Integer32, Counter32, Counter64, MibIdentifier, iso, enterprises, NotificationType, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "Bits", "Integer32", "Counter32", "Counter64", "MibIdentifier", "iso", "enterprises", "NotificationType", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+MibIdentifier, ModuleIdentity, Bits, enterprises, Gauge32, Integer32, Counter32, Counter64, TimeTicks, ObjectIdentity, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "Bits", "enterprises", "Gauge32", "Integer32", "Counter32", "Counter64", "TimeTicks", "ObjectIdentity", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class PositiveInteger(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
@@ -86,4 +86,4 @@ sensUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 9, 3, 1, 7), UnitType()).
 if mibBuilder.loadTexts: sensUnit.setStatus('mandatory')
 sensID = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 9, 3, 1, 8), UnitType()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sensID.setStatus('mandatory')
-mibBuilder.exportSymbols("STE2-MIB", SensorName=SensorName, IOName=IOName, SensorString=SensorString, PositiveInteger=PositiveInteger, InputAlarmState=InputAlarmState, info=info, sensID=sensID, SensorValue=SensorValue, SensorID=SensorID, inpAlarmState=inpAlarmState, sensUnit=sensUnit, ste2=ste2, sensIndex=sensIndex, sensValue=sensValue, inpName=inpName, UnitType=UnitType, SensorSN=SensorSN, sensTable=sensTable, hwgroup=hwgroup, sensEntry=sensEntry, inpValue=inpValue, sensName=sensName, OnOff=OnOff, sensSN=sensSN, infoAddressMAC=infoAddressMAC, x390=x390, sensString=sensString, inpTable=inpTable, sensState=sensState, inpEntry=inpEntry, inpIndex=inpIndex, SensorState=SensorState)
+mibBuilder.exportSymbols("STE2-MIB", sensIndex=sensIndex, sensID=sensID, SensorSN=SensorSN, IOName=IOName, inpIndex=inpIndex, infoAddressMAC=infoAddressMAC, info=info, sensString=sensString, inpName=inpName, hwgroup=hwgroup, UnitType=UnitType, SensorName=SensorName, SensorState=SensorState, OnOff=OnOff, sensValue=sensValue, SensorValue=SensorValue, sensEntry=sensEntry, inpTable=inpTable, PositiveInteger=PositiveInteger, sensUnit=sensUnit, x390=x390, sensName=sensName, SensorID=SensorID, inpAlarmState=inpAlarmState, inpValue=inpValue, SensorString=SensorString, sensState=sensState, sensSN=sensSN, inpEntry=inpEntry, ste2=ste2, InputAlarmState=InputAlarmState, sensTable=sensTable)

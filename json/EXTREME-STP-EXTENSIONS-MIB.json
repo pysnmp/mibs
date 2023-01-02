@@ -3,41 +3,41 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "Timeout",
-      "dot1dStpPort",
-      "BridgeId"
+      "BridgeId",
+      "dot1dStpPort"
     ],
     "EXTREME-BASE-MIB": [
-      "PortList",
-      "extremeAgent"
+      "extremeAgent",
+      "PortList"
     ],
     "EXTREME-VLAN-MIB": [
       "extremeVlanIfIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "iso",
       "IpAddress",
       "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "extremeStp": {
@@ -678,9 +678,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:25:26 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:12:40 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EXTREME-STP-EXTENSIONS-MIB"
   }

@@ -5,36 +5,36 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApPresence",
-      "ApHardwareModuleFamily",
+      "ApRedundancyState",
       "ApPhyPortType",
-      "ApRedundancyState"
+      "ApHardwareModuleFamily",
+      "ApPresence"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "apEnvMonModule": {
@@ -1551,9 +1551,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-ENVMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:31:57 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:20:38 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ACMEPACKET-ENVMON-MIB"
   }

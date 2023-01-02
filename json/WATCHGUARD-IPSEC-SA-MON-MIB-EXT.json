@@ -5,39 +5,39 @@
       "ifIndex"
     ],
     "IPSEC-ISAKMP-IKE-DOI-TC": [
-      "IpsecDoiIdentType",
-      "IpsecDoiIpcompTransform",
       "IpsecDoiSecProtocolId",
-      "IpsecDoiAuthAlgorithm",
+      "IpsecDoiEspTransform",
+      "IpsecDoiIdentType",
       "IpsecDoiAhTransform",
-      "IpsecDoiEncapsulationMode",
-      "IpsecDoiEspTransform"
+      "IpsecDoiIpcompTransform",
+      "IpsecDoiAuthAlgorithm",
+      "IpsecDoiEncapsulationMode"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
       "enterprises",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "iso"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ],
     "WATCHGUARD-SMI": [
       "watchguard"
@@ -2235,9 +2235,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/watchguard/WATCHGUARD-IPSEC-SA-MON-MIB-EXT",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:36:08 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:25:34 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WATCHGUARD-IPSEC-SA-MON-MIB-EXT"
   }

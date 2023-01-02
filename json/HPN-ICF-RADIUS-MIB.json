@@ -12,39 +12,39 @@
       "Ipv6Address"
     ],
     "RADIUS-ACC-CLIENT-MIB": [
-      "radiusAccClientServerPortNumber",
       "radiusAccServerAddress",
-      "radiusAccServerIndex"
+      "radiusAccServerIndex",
+      "radiusAccClientServerPortNumber"
     ],
     "RADIUS-AUTH-CLIENT-MIB": [
       "radiusAuthClientServerPortNumber",
-      "radiusAuthServerIndex",
-      "radiusAuthServerAddress"
+      "radiusAuthServerAddress",
+      "radiusAuthServerIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "Bits",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
       "Integer32",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1952,9 +1952,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RADIUS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:28:25 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:16:42 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-RADIUS-MIB"
   }

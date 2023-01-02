@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCOSB-MIB": [
-      "rlRadius",
       "rlAAAEap",
+      "rlRadius",
       "switch001"
     ],
     "INET-ADDRESS-MIB": [
@@ -16,27 +16,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "MibIdentifier",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "RowStatus",
       "TimeStamp",
+      "DateAndTime",
       "TruthValue",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -4957,9 +4957,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-AAA",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:24:02 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:11:03 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-AAA"
   }

@@ -3,48 +3,48 @@
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
       "HCPerfCurrentCount",
-      "HCPerfIntervalCount",
-      "HCPerfTotalCount"
+      "HCPerfTotalCount",
+      "HCPerfIntervalCount"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "iso",
       "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "IpAddress",
       "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "Unsigned32"
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "TimeStamp",
-      "DateAndTime"
+      "TruthValue",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,9 +8790,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:17:25 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:03:44 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"
   }

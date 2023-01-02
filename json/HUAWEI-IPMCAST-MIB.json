@@ -13,11 +13,11 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
-      "InetAddress",
-      "InetZoneIndex",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetVersion",
+      "InetAddressPrefixLength",
+      "InetZoneIndex",
+      "InetAddress"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
       "Counter32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "IpAddress"
+      "Counter64",
+      "mib-2",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TimeStamp",
-      "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "StorageType",
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "hwMcast": {
@@ -2016,9 +2016,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPMCAST-MIB",
-      "Produced by pysmi-1.1.8 at Thu Dec 15 08:27:38 2022",
-      "On host fv-az193-683 platform Linux version 5.15.0-1024-azure by user runner",
-      "Using Python version 3.10.8 (main, Oct 18 2022, 06:44:51) [GCC 11.2.0]"
+      "Produced by pysmi-1.1.8 at Mon Jan  2 13:15:16 2023",
+      "On host fv-az574-39 platform Linux version 5.15.0-1024-azure by user runner",
+      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-IPMCAST-MIB"
   }
