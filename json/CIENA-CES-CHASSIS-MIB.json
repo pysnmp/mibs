@@ -13,31 +13,31 @@
       "cienaCesConfig"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
       "Counter32",
-      "Gauge32"
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
       "DisplayString",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -7518,8 +7518,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 15:25:10 2023",
-      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:00:23 2023",
+      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-CHASSIS-MIB"

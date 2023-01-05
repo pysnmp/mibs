@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-LSW-DEV-ADM-MIB": [
-      "hpnicfLswFrameIndex",
+      "hpnicfLswSlotIndex",
       "hpnicfLswSubslotIndex",
-      "hpnicfLswSlotIndex"
+      "hpnicfLswFrameIndex"
     ],
     "HPN-ICF-LswDEVM-MIB": [
       "hpnicfDevMFanNum",
@@ -15,24 +15,24 @@
       "hpnicflswCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
+      "Integer32",
       "Unsigned32",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Integer32",
+      "Counter64",
       "Gauge32",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -428,8 +428,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswTRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 15:30:53 2023",
-      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:08:08 2023",
+      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-LswTRAP-MIB"

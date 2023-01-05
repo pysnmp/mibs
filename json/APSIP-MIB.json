@@ -5,48 +5,48 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApPresence",
+      "ApServerStatus",
       "ApSipMethod",
       "ApHardwareModuleFamily",
       "ApPhyPortType",
       "ApRedundancyState",
-      "ApServerStatus"
+      "ApPresence"
     ],
     "APSYSMGMT-MIB": [
       "apSysMgmtSipInterfaceRealmName",
-      "apSigRealmStatsEntry",
+      "apSipSessionAgentStatsEntry",
       "apSysMgmtSipInterfaceIP",
-      "apSipSessionAgentStatsEntry"
+      "apSigRealmStatsEntry"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Counter32",
       "Unsigned32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "iso",
       "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "apSipModule": {
@@ -3757,8 +3757,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSIP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 15:33:47 2023",
-      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:12:24 2023",
+      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APSIP-MIB"

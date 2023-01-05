@@ -30,30 +30,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
+      "IpAddress",
       "OBJECT-TYPE",
       "Opaque",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
+      "Integer32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "enterprises",
+      "Bits",
+      "iso",
       "MibIdentifier",
-      "IpAddress",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 15:28:35 2023",
-      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:05:14 2023",
+      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

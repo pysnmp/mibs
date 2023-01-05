@@ -5,16 +5,16 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaPoeState",
-      "ArubaOperStateValue",
       "ArubaIfType",
       "ArubaDot1dState",
-      "ArubaPortMode",
-      "ArubaPortDuplex",
-      "ArubaPortType",
+      "ArubaPoeState",
+      "ArubaOperStateValue",
       "ArubaPortSpeed",
-      "ArubaEnableValue",
-      "ArubaVlanValidRange"
+      "ArubaPortType",
+      "ArubaPortDuplex",
+      "ArubaVlanValidRange",
+      "ArubaPortMode",
+      "ArubaEnableValue"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -25,34 +25,34 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
       "snmpModules",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Integer32",
       "Bits",
-      "TimeTicks",
-      "MibIdentifier"
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TAddress",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TestAndIncr",
       "TDomain",
+      "TimeInterval",
       "MacAddress",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "TruthValue",
       "PhysAddress",
-      "DisplayString",
-      "StorageType",
-      "RowStatus"
+      "TestAndIncr",
+      "TAddress"
     ]
   },
   "wlsxIfExtMIB": {
@@ -1143,8 +1143,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-IFEXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  2 15:23:57 2023",
-      "On host fv-az407-858 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 08:58:39 2023",
+      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WLSX-IFEXT-MIB"
