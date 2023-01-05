@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HMRINGARC-MGMT-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmARC
-# Produced by pysmi-1.1.8 at Thu Jan  5 10:20:58 2023
-# On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 11:30:39 2023
+# On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 hmRingRedundancy, = mibBuilder.importSymbols("HMRING-MGMT-SNMP-MIB", "hmRingRedundancy")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, Gauge32, Counter64, MibIdentifier, Unsigned32, Integer32, iso, Bits, ModuleIdentity, NotificationType, TimeTicks, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "Gauge32", "Counter64", "MibIdentifier", "Unsigned32", "Integer32", "iso", "Bits", "ModuleIdentity", "NotificationType", "TimeTicks", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Bits, Counter32, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, ObjectIdentity, NotificationType, Unsigned32, TimeTicks, IpAddress, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "ObjectIdentity", "NotificationType", "Unsigned32", "TimeTicks", "IpAddress", "MibIdentifier", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hmARC = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 5, 7))
 hmARC.setRevisions(('2010-09-01 12:00',))
 if mibBuilder.loadTexts: hmARC.setLastUpdated('201009011200Z')
@@ -68,4 +68,4 @@ hmArcClientRedGroupID = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 5, 7, 4, 5), Integ
 if mibBuilder.loadTexts: hmArcClientRedGroupID.setStatus('current')
 hmArcClientRedIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 5, 7, 4, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hmArcClientRedIfIndex.setStatus('current')
-mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcManagerRedGroupID=hmArcManagerRedGroupID, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcCheckResultTable=hmArcCheckResultTable, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcClientStatus=hmArcClientStatus, hmArcManagerAction=hmArcManagerAction, hmArcCheckStatusType=hmArcCheckStatusType, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcClientRedGroupID=hmArcClientRedGroupID, hmArcClientConfig=hmArcClientConfig, hmARC=hmARC, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcClientPrimGroupID=hmArcClientPrimGroupID, PYSNMP_MODULE_ID=hmARC, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcManagerVlanID=hmArcManagerVlanID, hmArcManagerActionResult=hmArcManagerActionResult, hmArcClientAdminStatus=hmArcClientAdminStatus, hmArcManagerConfig=hmArcManagerConfig, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcManagerStatus=hmArcManagerStatus, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcCheckStatusClassification=hmArcCheckStatusClassification)
+mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcCheckResultTable=hmArcCheckResultTable, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcClientAdminStatus=hmArcClientAdminStatus, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcClientRedGroupID=hmArcClientRedGroupID, hmArcClientStatus=hmArcClientStatus, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcManagerAction=hmArcManagerAction, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcManagerVlanID=hmArcManagerVlanID, hmArcManagerStatus=hmArcManagerStatus, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmARC=hmARC, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcManagerRedGroupID=hmArcManagerRedGroupID, hmArcManagerActionResult=hmArcManagerActionResult, hmArcManagerConfig=hmArcManagerConfig, hmArcCheckStatusType=hmArcCheckStatusType, hmArcCheckStatusClassification=hmArcCheckStatusClassification, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, PYSNMP_MODULE_ID=hmARC, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcClientConfig=hmArcClientConfig, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcClientPrimGroupID=hmArcClientPrimGroupID)

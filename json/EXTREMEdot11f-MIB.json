@@ -5,24 +5,24 @@
       "extremeAP"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "iso",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -37,8 +37,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:19:34 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:38 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EXTREMEdot11f-MIB"

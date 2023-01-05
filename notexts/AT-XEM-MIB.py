@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-XEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-XEM-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 10:12:38 2023
-# On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 11:23:52 2023
+# On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Counter32, Counter64, MibIdentifier, NotificationType, TimeTicks, ModuleIdentity, IpAddress, Integer32, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Counter32", "Counter64", "MibIdentifier", "NotificationType", "TimeTicks", "ModuleIdentity", "IpAddress", "Integer32", "Unsigned32", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, MibIdentifier, ModuleIdentity, Gauge32, IpAddress, TimeTicks, ObjectIdentity, NotificationType, Counter64, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "MibIdentifier", "ModuleIdentity", "Gauge32", "IpAddress", "TimeTicks", "ObjectIdentity", "NotificationType", "Counter64", "Counter32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 xem = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 11))
 xem.setRevisions(('2010-09-07 00:00', '2010-06-15 00:15', '2009-07-15 00:00', '2008-02-29 00:00',))
 if mibBuilder.loadTexts: xem.setLastUpdated('201009070000Z')
@@ -43,4 +43,4 @@ xemInfoRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 11, 2, 1, 6
 if mibBuilder.loadTexts: xemInfoRevision.setStatus('current')
 xemInfoSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 11, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: xemInfoSerialNumber.setStatus('current')
-mibBuilder.exportSymbols("AT-XEM-MIB", xemInfoMemberId=xemInfoMemberId, xemInfoBoardType=xemInfoBoardType, xemRemoved=xemRemoved, xemTraps=xemTraps, PYSNMP_MODULE_ID=xem, xem=xem, xemInsertedFail=xemInsertedFail, xemInfoBayId=xemInfoBayId, xemInfoBoardName=xemInfoBoardName, xemInserted=xemInserted, xemInfoEntry=xemInfoEntry, xemInfoXemId=xemInfoXemId, xemInfoTable=xemInfoTable, xemInfoSerialNumber=xemInfoSerialNumber, xemNumOfXem=xemNumOfXem, xemInfoRevision=xemInfoRevision)
+mibBuilder.exportSymbols("AT-XEM-MIB", xemInfoMemberId=xemInfoMemberId, xemInfoRevision=xemInfoRevision, xemNumOfXem=xemNumOfXem, xemInfoBoardType=xemInfoBoardType, xemInfoBayId=xemInfoBayId, xem=xem, xemInfoSerialNumber=xemInfoSerialNumber, xemInfoEntry=xemInfoEntry, xemTraps=xemTraps, xemInfoTable=xemInfoTable, xemInfoXemId=xemInfoXemId, xemRemoved=xemRemoved, xemInserted=xemInserted, xemInsertedFail=xemInsertedFail, PYSNMP_MODULE_ID=xem, xemInfoBoardName=xemInfoBoardName)

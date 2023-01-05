@@ -11,25 +11,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "AGENT-CAPABILITIES"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
       "IpAddress",
-      "Integer32",
-      "Bits",
+      "TimeTicks",
       "MibIdentifier",
+      "iso",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Gauge32",
-      "Unsigned32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -748,8 +748,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CAPABILITIES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:12:40 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:23:55 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-CAPABILITIES-MIB"

@@ -5,37 +5,37 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
       "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfTotalCount"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
       "transmission",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
       "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "ds3": {
@@ -1925,9 +1925,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DS3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:11:51 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DS3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:33:47 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DS3-MIB"

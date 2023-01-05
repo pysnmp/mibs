@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
       "sysContact",
-      "sysName"
+      "sysName",
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
       "IpAddress",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "enterprises",
       "Integer32",
-      "Counter32",
+      "enterprises",
+      "Bits",
       "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
-      "iso"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
       "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -8197,8 +8197,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enlogic/ENLOGIC-PDU-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:18:56 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:06 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ENLOGIC-PDU-MIB"

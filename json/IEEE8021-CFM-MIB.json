@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021VlanIndex",
-      "ieee802dot1mibs"
+      "ieee802dot1mibs",
+      "IEEE8021VlanIndex"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -25,31 +25,31 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Bits",
+      "IpAddress",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Unsigned32"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TDomain",
       "MacAddress",
-      "TimeInterval",
-      "TAddress",
-      "TimeStamp",
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp",
+      "TDomain",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TimeInterval",
+      "TAddress"
     ]
   },
   "ieee8021CfmMib": {
@@ -3465,8 +3465,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:11:31 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:22:55 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IEEE8021-CFM-MIB"

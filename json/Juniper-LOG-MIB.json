@@ -13,28 +13,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "IpAddress",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
       "Unsigned32",
+      "Counter32",
       "TimeTicks",
       "Counter64",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "TruthValue"
     ]
   },
   "juniLogMIB": {
@@ -887,8 +887,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-LOG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:25:13 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:33:47 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Juniper-LOG-MIB"

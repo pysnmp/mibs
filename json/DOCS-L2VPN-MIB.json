@@ -11,8 +11,8 @@
       "docsIfCmtsCmStatusIndex"
     ],
     "DOCS-QOS-MIB": [
-      "docsQosPktClassId",
-      "docsQosServiceFlowId"
+      "docsQosServiceFlowId",
+      "docsQosPktClassId"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -20,34 +20,34 @@
     "Q-BRIDGE-MIB": [
       "dot1qTpGroupAddress",
       "dot1qTpFdbAddress",
-      "dot1qVlanIndex",
-      "dot1qFdbId"
+      "dot1qFdbId",
+      "dot1qVlanIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
       "MibIdentifier",
-      "IpAddress",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1203,8 +1203,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-L2VPN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:11:51 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:23:13 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DOCS-L2VPN-MIB"

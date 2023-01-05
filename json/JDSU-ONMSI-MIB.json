@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "IANA-ITU-ALARM-TC-MIB": [
-      "IANAItuProbableCause",
-      "IANAItuEventType"
+      "IANAItuEventType",
+      "IANAItuProbableCause"
     ],
     "JDSU-SMI-MIB": [
       "jdsuOnmsi"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
+      "IpAddress",
       "Counter64",
-      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Integer32",
       "Counter32",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "jdsuOnmsiMib": {
@@ -6417,8 +6417,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jds/JDSU-ONMSI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:24:07 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:32:59 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JDSU-ONMSI-MIB"

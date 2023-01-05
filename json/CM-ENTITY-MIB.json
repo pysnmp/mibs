@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "RestartType",
-      "OperationalState",
-      "UsbOperationalMode",
-      "AdminState",
-      "TDMFrequencySourceType",
       "CmPmIntervalType",
+      "OperationalState",
+      "SecondaryState",
+      "TDMFrequencySourceType",
+      "UsbOperationalMode",
       "VlanId",
-      "SecondaryState"
+      "AdminState",
+      "RestartType"
     ],
     "CM-SYSTEM-MIB": [
       "CmAutoProvMode"
@@ -21,34 +21,34 @@
       "PhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
       "IpAddress",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Unsigned32"
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "DisplayString",
       "RowStatus",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "VariablePointer",
       "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmEntityMIB": {
@@ -21184,8 +21184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:12:39 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:23:54 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CM-ENTITY-MIB"

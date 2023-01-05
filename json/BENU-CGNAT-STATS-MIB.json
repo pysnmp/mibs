@@ -5,28 +5,28 @@
       "benuWAG"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
       "Gauge32",
       "Counter32",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "IpAddress",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
       "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -1583,8 +1583,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-CGNAT-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:13:41 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:24:45 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BENU-CGNAT-STATS-MIB"

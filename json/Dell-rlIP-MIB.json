@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetVersion",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetZoneIndex"
+      "InetZoneIndex",
+      "InetVersion",
+      "InetAddress",
+      "InetAddressType"
     ],
     "IP-MIB": [
-      "IpAddressOriginTC",
-      "IpAddressStatusTC"
+      "IpAddressStatusTC",
+      "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Counter64",
       "Counter32",
+      "Gauge32",
       "Unsigned32",
-      "zeroDotZero",
-      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "mib-2",
+      "zeroDotZero",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowPointer",
+      "StorageType",
+      "PhysAddress",
+      "TimeStamp",
+      "RowStatus",
       "TestAndIncr",
       "TruthValue",
-      "RowStatus",
-      "PhysAddress"
+      "DisplayString",
+      "RowPointer"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:17:41 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:28:01 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-rlIP-MIB"

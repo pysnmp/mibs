@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "DOCS-IF-MIB": [
-      "docsIfCmtsCmStatusEntry",
-      "docsIfMib"
+      "docsIfMib",
+      "docsIfCmtsCmStatusEntry"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -11,24 +11,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "Bits",
       "MibIdentifier",
       "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "iso"
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsIfExtMib": {
@@ -187,9 +187,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:11:52 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DOCS-IF-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:24:16 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DOCS-IF-EXT-MIB"

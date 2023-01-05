@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorValue",
-      "EntitySensorStatus"
+      "EntitySensorStatus",
+      "EntitySensorValue"
     ],
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "MAU-MIB": [
       "JackType"
@@ -17,36 +17,36 @@
       "RlEnvMonState"
     ],
     "RADLAN-MIB": [
+      "rndNotifications",
       "rndErrorDesc",
       "rndErrorSeverity",
-      "rndNotifications",
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "TRAP-TYPE",
       "iso",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "TRAP-TYPE"
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ],
     "SNMPv2-TC-v1": [
@@ -1354,8 +1354,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:28:27 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:36:26 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RADLAN-Physicaldescription-MIB"

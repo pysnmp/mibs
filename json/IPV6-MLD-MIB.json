@@ -10,31 +10,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
       "mib-2",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "iso"
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "mldMIB": {
@@ -560,9 +560,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPV6-MLD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:11:52 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPV6-MLD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:34:49 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IPV6-MLD-MIB"

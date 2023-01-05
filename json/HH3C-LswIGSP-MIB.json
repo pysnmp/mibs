@@ -13,24 +13,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cLswIgmpsnoopingMib": {
@@ -541,8 +541,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-IGSP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:15:26 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:26:10 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-LswIGSP-MIB"

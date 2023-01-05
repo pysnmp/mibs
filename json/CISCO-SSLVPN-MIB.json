@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
+      "InetAddressType",
       "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -18,25 +18,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "iso",
-      "Gauge32"
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ciscoSslvpnMIB": {
@@ -829,8 +829,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SSLVPN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:17:55 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:28:22 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-SSLVPN-MIB"

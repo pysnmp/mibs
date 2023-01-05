@@ -5,8 +5,8 @@
       "firebrickNewStyle"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -14,25 +14,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
       "IpAddress",
+      "Counter64",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
       "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "enterprises",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fbL2tpMib": {
@@ -424,8 +424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/firebrick/FIREBRICK-L2TP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:19:43 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:45 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FIREBRICK-L2TP-MIB"

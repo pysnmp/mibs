@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
       "TRAP-TYPE",
       "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Gauge32",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "enterprises",
-      "Integer32",
-      "Bits",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -13037,8 +13037,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPIPFTRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:23:21 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:32:14 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPIPFTRAP-MIB"

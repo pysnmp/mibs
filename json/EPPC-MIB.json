@@ -6,30 +6,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Counter64",
-      "IpAddress",
       "TimeTicks",
       "OBJECT-TYPE",
       "TRAP-TYPE",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
       "iso",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
       "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Unsigned32",
+      "Counter32",
+      "enterprises",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "UPS-MIB": [
-      "PositiveInteger",
-      "NonNegativeInteger"
+      "NonNegativeInteger",
+      "PositiveInteger"
     ]
   },
   "ppc": {
@@ -3444,8 +3444,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/powerwalker/EPPC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:27:55 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:36:01 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EPPC-MIB"

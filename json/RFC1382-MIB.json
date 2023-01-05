@@ -9,30 +9,30 @@
       "PositiveInteger"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
       "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "transmission",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
+      "iso",
+      "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso"
+      "TRAP-TYPE",
+      "transmission"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "x25": {
@@ -2744,9 +2744,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC1382-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:11:52 2023",
-      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RFC1382-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 11:28:27 2023",
+      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RFC1382-MIB"
