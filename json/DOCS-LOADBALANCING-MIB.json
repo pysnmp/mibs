@@ -17,30 +17,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
       "Counter64",
-      "MibIdentifier",
+      "iso",
       "Unsigned32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Gauge32",
-      "zeroDotZero"
+      "Integer32",
+      "TimeTicks",
+      "zeroDotZero",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "RowStatus",
       "TimeStamp",
-      "RowPointer",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowPointer",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "docsLoadBalanceMib": {
@@ -1321,8 +1321,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-LOADBALANCING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:16:49 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:51:20 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DOCS-LOADBALANCING-MIB"

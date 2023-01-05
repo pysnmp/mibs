@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "mib-2",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
       "Counter64",
-      "MibIdentifier",
+      "iso",
       "Unsigned32",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Gauge32"
+      "mib-2",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bfdTCStdMib": {
@@ -131,8 +131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/BFD-TC-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:16:49 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:51:20 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BFD-TC-STD-MIB"

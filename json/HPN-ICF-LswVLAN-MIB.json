@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-LswINF-MIB": [
-      "PortList",
-      "hpnicfifVLANTrunkStatusEntry"
+      "hpnicfifVLANTrunkStatusEntry",
+      "PortList"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicflswCommon"
@@ -15,31 +15,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "IpAddress",
+      "Unsigned32",
       "iso",
       "OBJECT-TYPE",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeInterval",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "hpnicfLswVlan": {
@@ -1136,8 +1136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswVLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:27:41 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:58:59 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-LswVLAN-MIB"

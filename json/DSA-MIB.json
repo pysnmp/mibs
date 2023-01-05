@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "NETWORK-SERVICES-MIB": [
-      "applIndex",
-      "DistinguishedName"
+      "DistinguishedName",
+      "applIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -11,26 +11,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "IpAddress",
-      "iso",
-      "mib-2",
-      "TimeTicks",
-      "Integer32",
       "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
       "Counter64",
-      "MibIdentifier",
+      "iso",
       "OBJECT-IDENTITY",
       "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Gauge32",
+      "mib-2",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dsaMIB": {
@@ -730,8 +730,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DSA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:16:50 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:51:21 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DSA-MIB"

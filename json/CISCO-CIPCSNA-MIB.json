@@ -3,8 +3,8 @@
     "class": "imports",
     "CISCO-CHANNEL-MIB": [
       "cipCardSubChannelIndex",
-      "cipCardEntryIndex",
-      "cipCardDtrBrdIndex"
+      "cipCardDtrBrdIndex",
+      "cipCardEntryIndex"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,23 +18,23 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
       "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
       "iso"
     ],
     "SNMPv2-TC": [
@@ -1141,8 +1141,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CIPCSNA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:23 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:56:13 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-CIPCSNA-MIB"

@@ -5,14 +5,14 @@
       "CbpElementName"
     ],
     "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
-      "DynamicTemplateType",
       "DynamicTemplateTargetId",
-      "DynamicTemplateName",
-      "DynamicTemplateTargetType"
+      "DynamicTemplateTargetType",
+      "DynamicTemplateType",
+      "DynamicTemplateName"
     ],
     "CISCO-IP-URPF-MIB": [
-      "UnicastRpfOptions",
-      "UnicastRpfType"
+      "UnicastRpfType",
+      "UnicastRpfOptions"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -33,32 +33,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Bits",
       "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "StorageType",
       "TruthValue",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "ciscoDynamicTemplateMIB": {
@@ -3213,8 +3213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:21 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:56:11 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-DYNAMIC-TEMPLATE-MIB"

@@ -17,9 +17,9 @@
       "EntitySensorValue"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "MAU-MIB": [
       "JackType"
@@ -30,26 +30,26 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "iso",
+      "OBJECT-TYPE",
       "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "Bits",
+      "Unsigned32",
       "Integer32",
-      "TimeTicks"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "PhysAddress",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "PhysAddress"
     ]
   },
   "rlPhysicalDescription": {
@@ -1717,8 +1717,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:05 2023",
-      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:55:46 2023",
+      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-Physicaldescription-MIB"
