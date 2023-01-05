@@ -5,8 +5,8 @@
       "begemot"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
@@ -14,25 +14,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
+      "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "iso"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "begemotPf": {
@@ -1810,8 +1810,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-PF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:13:09 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:31:43 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BEGEMOT-PF-MIB"

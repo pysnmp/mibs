@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "HpnicfDot11ChannelScopeType",
-      "hpnicfDot11",
       "HpnicfDot11ObjectIDType",
       "HpnicfDot11RadioType",
-      "HpnicfDot11RadioScopeType",
-      "HpnicfDot11SSIDStringType"
+      "hpnicfDot11",
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11SSIDStringType",
+      "HpnicfDot11RadioScopeType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
-      "Gauge32",
+      "Bits",
+      "Integer32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "Unsigned32",
       "Counter32",
-      "iso"
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "MacAddress",
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime"
     ]
   },
   "hpnicfDot11WIDS": {
@@ -2726,8 +2726,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-WIDS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:08:08 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:27:42 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-DOT11-WIDS-MIB"

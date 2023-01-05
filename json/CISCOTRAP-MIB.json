@@ -5,20 +5,20 @@
       "cisco"
     ],
     "IF-MIB": [
-      "ifType",
       "ifDescr",
+      "ifType",
       "ifIndex"
     ],
     "OLD-CISCO-INTERFACES-MIB": [
       "locIfReason"
     ],
     "OLD-CISCO-SYSTEM-MIB": [
-      "whyReload",
-      "authAddr"
+      "authAddr",
+      "whyReload"
     ],
     "OLD-CISCO-TCP-MIB": [
-      "loctcpConnInBytes",
       "loctcpConnOutBytes",
+      "loctcpConnInBytes",
       "loctcpConnElapsed"
     ],
     "OLD-CISCO-TS-MIB": [
@@ -29,33 +29,33 @@
       "egpNeighAddr"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysUpTime",
       "snmp"
     ],
     "SNMPv2-SMI": [
-      "TRAP-TYPE",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "TCP-MIB": [
       "tcpConnState"
@@ -193,8 +193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOTRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:11 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:17 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOTRAP-MIB"

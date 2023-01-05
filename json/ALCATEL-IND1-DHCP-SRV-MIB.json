@@ -5,35 +5,35 @@
       "softentIND1DhcpSrv"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
       "Counter64",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DateAndTime"
     ]
   },
   "alcatelIND1DhcpSrvMIB": {
@@ -400,8 +400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DHCP-SRV-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:12:28 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:31:15 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-DHCP-SRV-MIB"

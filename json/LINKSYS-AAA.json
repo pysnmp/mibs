@@ -7,36 +7,36 @@
       "InetAddress"
     ],
     "LINKSYS-MIB": [
-      "rnd",
+      "rlAAAEap",
       "rlRadius",
-      "rlAAAEap"
+      "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "Bits",
-      "IpAddress",
-      "Integer32",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "TimeTicks",
       "OBJECT-TYPE",
       "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32"
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TimeStamp"
     ]
   },
@@ -4705,8 +4705,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-AAA",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:10:32 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:29:28 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-AAA"

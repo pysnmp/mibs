@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
       "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
       "Counter32",
-      "Bits"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -118,8 +118,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-CPU-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:16:24 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:35:11 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "UBQS-CPU-STATS-MIB"

@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList1",
       "VlanList2",
       "VlanList3",
+      "VlanList1",
       "VlanList4"
     ],
     "CISCOSB-MIB": [
-      "Percents",
-      "switch001"
+      "switch001",
+      "Percents"
     ],
     "CISCOSB-POLICY-MIB": [
-      "StatisticsClearActionType",
-      "StatisticsDPType"
+      "StatisticsDPType",
+      "StatisticsClearActionType"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -24,31 +24,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "IpAddress",
-      "MibIdentifier"
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "RowPointer",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlQosCliMib": {
@@ -5628,8 +5628,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-QOS-CLI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:17 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:21 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-QOS-CLI-MIB"

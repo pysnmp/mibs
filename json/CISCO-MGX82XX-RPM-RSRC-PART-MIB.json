@@ -8,29 +8,29 @@
       "ciscoWan"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoMgx82xxRpmRsrcPartMIB": {
@@ -388,8 +388,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MGX82XX-RPM-RSRC-PART-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:11 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:18 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-MGX82XX-RPM-RSRC-PART-MIB"

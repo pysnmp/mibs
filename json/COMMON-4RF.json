@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFProcessResultType",
-      "FourRFResetType",
-      "FourRFImageType",
-      "FourRFTftpFileName",
-      "FourRFTimeZone",
-      "FourRFImageStatus",
-      "FourRFFileSize",
       "FourRFWebUserEnabled",
-      "FourRFImageVersion",
+      "FourRFTftpFileName",
+      "FourRFImageType",
+      "FourRFProcessResultType",
+      "FourRFWebUserGroup",
+      "FourRFTimeZone",
+      "FourRFFileSize",
+      "FourRFImageStatus",
       "FourRFSerialNumber",
-      "FourRFWebUserGroup"
+      "FourRFImageVersion",
+      "FourRFResetType"
     ],
     "MIB-4RF": [
       "fourRFModules",
@@ -22,29 +22,29 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter32",
-      "TimeTicks",
       "IpAddress",
-      "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 08:57:14 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:17:00 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "COMMON-4RF"

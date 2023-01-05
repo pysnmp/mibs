@@ -5,14 +5,14 @@
       "CbpElementName"
     ],
     "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
-      "DynamicTemplateTargetId",
       "DynamicTemplateType",
+      "DynamicTemplateTargetId",
       "DynamicTemplateName",
       "DynamicTemplateTargetType"
     ],
     "CISCO-IP-URPF-MIB": [
-      "UnicastRpfType",
-      "UnicastRpfOptions"
+      "UnicastRpfOptions",
+      "UnicastRpfType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -32,33 +32,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
       "StorageType",
-      "DisplayString",
-      "MacAddress"
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDynamicTemplateMIB": {
@@ -3213,8 +3213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:16 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:21 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-DYNAMIC-TEMPLATE-MIB"

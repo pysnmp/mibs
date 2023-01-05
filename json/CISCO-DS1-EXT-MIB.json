@@ -5,17 +5,17 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "ConfigIterator",
-      "BulkConfigResult"
+      "BulkConfigResult",
+      "ConfigIterator"
     ],
     "DS1-MIB": [
-      "dsx1TotalEntry",
-      "dsx1ConfigEntry",
-      "dsx1IntervalEntry",
       "dsx1FarEndCurrentEntry",
-      "dsx1FarEndTotalEntry",
+      "dsx1FarEndIntervalEntry",
+      "dsx1TotalEntry",
       "dsx1CurrentEntry",
-      "dsx1FarEndIntervalEntry"
+      "dsx1FarEndTotalEntry",
+      "dsx1ConfigEntry",
+      "dsx1IntervalEntry"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -29,31 +29,31 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "iso"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:16 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:21 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

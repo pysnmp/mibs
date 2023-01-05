@@ -9,27 +9,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter64",
-      "enterprises",
       "Counter32",
-      "Gauge32"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "enterprises",
+      "TRAP-TYPE",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-SMI-v1": [
-      "IpAddress",
+      "Counter32",
       "TimeTicks",
-      "Counter32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -718,8 +718,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMIROCRLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:09:16 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:27:05 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IBMIROCRLAN-MIB"

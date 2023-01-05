@@ -7,34 +7,34 @@
       "ifIndex"
     ],
     "PEGASUS-MIB": [
-      "pegasusMibModule",
+      "OperStateEnum",
       "AvailabilityStatusElem",
-      "CommStateEnum",
-      "OperStateEnum"
+      "pegasusMibModule",
+      "CommStateEnum"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "iso",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Integer32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
       "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -1158,8 +1158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pegasus/PEGASUS-SDH-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:13:02 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:31:36 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PEGASUS-SDH-MIB"

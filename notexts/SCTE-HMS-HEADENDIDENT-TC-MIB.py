@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SCTE-HMS-HEADENDIDENT-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/scte/SCTE-HMS-HEADENDIDENT-TC-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 08:56:42 2023
-# On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 09:16:37 2023
+# On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, iso, ModuleIdentity, ObjectIdentity, Unsigned32, Gauge32, IpAddress, TimeTicks, NotificationType, Counter64, Bits, MibIdentifier, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "iso", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "Gauge32", "IpAddress", "TimeTicks", "NotificationType", "Counter64", "Bits", "MibIdentifier", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, Bits, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, Integer32, ModuleIdentity, Unsigned32, Gauge32, MibIdentifier, enterprises, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "Integer32", "ModuleIdentity", "Unsigned32", "Gauge32", "MibIdentifier", "enterprises", "TimeTicks", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hmsTextualConventionMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5591, 1, 11, 5, 1))
 hmsTextualConventionMIB.setRevisions(('2008-07-23 13:00', '2008-07-12 13:00', '2008-01-16 13:00', '2007-12-17 00:00',))
@@ -126,4 +126,4 @@ class HeHundredthWatts(TextualConvention, Unsigned32):
     status = 'current'
     displayHint = 'd-2'
 
-mibBuilder.exportSymbols("SCTE-HMS-HEADENDIDENT-TC-MIB", QAMChannelModulationFormat=QAMChannelModulationFormat, HeClockSource=HeClockSource, ProgDataType=ProgDataType, HeTenthdBmV=HeTenthdBmV, MpegErrorStatus=MpegErrorStatus, HeResetValue=HeResetValue, HeTrapRegenerate=HeTrapRegenerate, HeDigitalAlarmType=HeDigitalAlarmType, HeTenthdBm=HeTenthdBm, HeHundredthNanoMeter=HeHundredthNanoMeter, VideoInputFrameRateType=VideoInputFrameRateType, HeMilliAmp=HeMilliAmp, hmsTextualConventionMIB=hmsTextualConventionMIB, HeTenthVolt=HeTenthVolt, PYSNMP_MODULE_ID=hmsTextualConventionMIB, HeTenthdB=HeTenthdB, QAMChannelInterleaveMode=QAMChannelInterleaveMode, HeTenthCentigrade=HeTenthCentigrade, HeDigitalAlarmSeverity=HeDigitalAlarmSeverity, DeviceEnableDisableValues=DeviceEnableDisableValues, HeOnOffStatus=HeOnOffStatus, HeFaultStatus=HeFaultStatus, HeHundredthWatts=HeHundredthWatts, HePIDValue=HePIDValue, HeOnOffControl=HeOnOffControl, HeAlarmControl=HeAlarmControl)
+mibBuilder.exportSymbols("SCTE-HMS-HEADENDIDENT-TC-MIB", PYSNMP_MODULE_ID=hmsTextualConventionMIB, HeTenthdB=HeTenthdB, HePIDValue=HePIDValue, HeMilliAmp=HeMilliAmp, HeAlarmControl=HeAlarmControl, HeTrapRegenerate=HeTrapRegenerate, DeviceEnableDisableValues=DeviceEnableDisableValues, HeTenthdBmV=HeTenthdBmV, VideoInputFrameRateType=VideoInputFrameRateType, HeTenthCentigrade=HeTenthCentigrade, QAMChannelInterleaveMode=QAMChannelInterleaveMode, HeFaultStatus=HeFaultStatus, HeHundredthNanoMeter=HeHundredthNanoMeter, HeDigitalAlarmType=HeDigitalAlarmType, MpegErrorStatus=MpegErrorStatus, HeDigitalAlarmSeverity=HeDigitalAlarmSeverity, HeResetValue=HeResetValue, HeTenthVolt=HeTenthVolt, ProgDataType=ProgDataType, QAMChannelModulationFormat=QAMChannelModulationFormat, hmsTextualConventionMIB=hmsTextualConventionMIB, HeClockSource=HeClockSource, HeTenthdBm=HeTenthdBm, HeHundredthWatts=HeHundredthWatts, HeOnOffStatus=HeOnOffStatus, HeOnOffControl=HeOnOffControl)

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32",
       "OBJECT-TYPE",
       "Integer32",
-      "Bits",
-      "Gauge32",
-      "enterprises",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "IpAddress",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier"
+      "iso",
+      "TimeTicks",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "WATCHGUARD-SMI": [
       "watchguard"
@@ -202,8 +202,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/watchguard/WATCHGUARD-SYSTEM-STATISTICS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:16:41 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:35:05 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WATCHGUARD-SYSTEM-STATISTICS-MIB"

@@ -7,21 +7,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
       "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
+      "TimeTicks",
+      "enterprises",
       "iso",
       "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "enterprises",
-      "Counter32",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -9705,8 +9705,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-SMI-ACTUAL",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:56 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:23:07 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ELTEX-SMI-ACTUAL"

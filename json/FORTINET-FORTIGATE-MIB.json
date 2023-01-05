@@ -2,58 +2,58 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
+      "fnAdminEntry",
       "FnBoolState",
-      "FnIndex",
       "fortinet",
       "fnSysSerial",
-      "fnAdminEntry"
+      "FnIndex"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
       "ifIndex",
-      "ifEntry",
-      "ifName"
+      "ifName",
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressPrefixLength",
+      "InetAddress",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Bits",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "OBJECT-TYPE",
       "iso",
-      "Bits"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "AutonomousType",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString"
     ]
   },
@@ -12888,8 +12888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:06:03 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:24:01 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"

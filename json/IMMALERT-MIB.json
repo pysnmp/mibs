@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "mib-2",
+      "Counter32",
       "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "Gauge32",
+      "mib-2",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "enterprises",
       "IpAddress",
       "Counter64",
-      "enterprises",
-      "Counter32",
-      "Gauge32"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2753,8 +2753,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IMMALERT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:09:19 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:27:06 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IMMALERT-MIB"

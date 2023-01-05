@@ -11,35 +11,35 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifDescr",
-      "ifIndex"
+      "ifIndex",
+      "ifDescr"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
       "TimeTicks",
       "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "Unsigned32",
       "Bits",
       "Counter32",
-      "IpAddress",
       "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "MacAddress",
+      "RowStatus",
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cEOCCommon": {
@@ -1936,8 +1936,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-EOC-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:01:14 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:20:00 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-EOC-COMMON-MIB"

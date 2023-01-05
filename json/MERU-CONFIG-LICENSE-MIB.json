@@ -16,31 +16,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "iso",
       "Bits",
-      "Integer32"
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "enterprises",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DateAndTime",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TruthValue",
       "DisplayString",
-      "TimeInterval"
+      "TimeStamp"
     ]
   },
   "mwConfigLicense": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-LICENSE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:06:03 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:24:01 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-LICENSE-MIB"

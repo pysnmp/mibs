@@ -12,35 +12,35 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TimeStamp",
-      "RowStatus",
-      "StorageType",
       "DisplayString",
-      "MacAddress"
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue",
+      "StorageType",
+      "TimeStamp"
     ]
   },
   "ciscoVrrp07MIB": {
@@ -1806,8 +1806,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-VRRP-07-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:19 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:23 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IETF-VRRP-07-MIB"

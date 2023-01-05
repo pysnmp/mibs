@@ -3,53 +3,53 @@
     "class": "imports",
     "CISCO-MPLS-TC-EXT-STD-MIB": [
       "CMplsIccId",
-      "CMplsNodeId",
       "CMplsLocalId",
-      "CMplsGlobalId"
+      "CMplsGlobalId",
+      "CMplsNodeId"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsTunnelIndex",
+      "MplsTunnelInstanceIndex",
       "mplsStdMIB",
-      "MplsTunnelInstanceIndex"
+      "MplsTunnelIndex"
     ],
     "MPLS-TE-STD-MIB": [
+      "mplsTunnelInstance",
       "mplsTunnelEgressLSRId",
       "mplsTunnelIngressLSRId",
-      "mplsTunnelIndex",
-      "mplsTunnelInstance"
+      "mplsTunnelIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "zeroDotZero",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
+      "zeroDotZero",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
+      "DisplayString",
       "RowStatus",
+      "RowPointer",
+      "TruthValue",
       "StorageType",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmplsTeExtStdMIB": {
@@ -657,8 +657,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:14 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:20 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"

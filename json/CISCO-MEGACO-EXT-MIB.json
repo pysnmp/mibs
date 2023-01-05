@@ -6,10 +6,10 @@
     ],
     "CISCO-IETF-MEGACO-MIB": [
       "cmedGatewayId",
-      "cmedGatewayLinkId",
       "cmedGatewayStatsEntry",
-      "cmedGatewayConfigEntry",
-      "cmedTerminationsEntry"
+      "cmedGatewayLinkId",
+      "cmedTerminationsEntry",
+      "cmedGatewayConfigEntry"
     ],
     "CISCO-MEDIA-GATEWAY-MIB": [
       "CCallControlProfileIndexOrZero",
@@ -28,39 +28,39 @@
       "CvcSpeechCoderRate"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "ciscoMegacoExtMIB": {
@@ -5193,8 +5193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEGACO-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:04:17 2023",
-      "On host fv-az351-145 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 09:22:21 2023",
+      "On host fv-az581-610 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-MEGACO-EXT-MIB"
