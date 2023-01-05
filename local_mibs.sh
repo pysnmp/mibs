@@ -7,7 +7,7 @@ then
   echo "Found local mibs. Compiling..."
   make index-local-mibs
   echo "Successfully compiled MIBs are: "
-  sed 's/,.*//g' index.csv | uniq | sort
+  sed 's/,.*//g' /tmp/new_mibs/output/index.csv | uniq | sort
   # The convention here is to have no MIB extension (like .my or .mib) so we cut it off
   find /tmp/new_mibs/output/asn1 -type f -name '*.*' | while read f; do mv "$f" "${f%.*}"; done
   echo "Preparing new mibs to be served..."
