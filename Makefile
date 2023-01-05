@@ -26,7 +26,7 @@ standard: dirs $(RFC)
 	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
 	./scripts/vendor.sh standard	
 
-vendor:
+vendor: dirs $(RFC)
 	./scripts/vendor.sh vendor
 
 index: standard vendor ##generate index
