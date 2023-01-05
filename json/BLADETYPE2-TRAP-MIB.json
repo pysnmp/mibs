@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "ipCurCfgGwIndex",
-      "vrrpCurCfgVirtRtrIndx",
-      "vrrpCurCfgIfIndx",
-      "vrrpCurCfgVirtRtrAddr",
       "vrrpCurCfgIfPasswd",
-      "ipCurCfgGwAddr"
+      "vrrpCurCfgVirtRtrIndx",
+      "ipCurCfgGwIndex",
+      "ipCurCfgGwAddr",
+      "vrrpCurCfgIfIndx",
+      "vrrpCurCfgVirtRtrAddr"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
-      "agSlotNumber",
       "agChassis",
+      "agSlotNumber",
       "agRackId"
     ],
     "HP-SWITCH-PL-MIB": [
@@ -25,30 +25,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysName",
       "sysContact",
+      "sysName",
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bt2Traps": {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:32:14 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:23:54 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

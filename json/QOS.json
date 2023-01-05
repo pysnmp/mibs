@@ -6,28 +6,28 @@
     ],
     "ExaltComm": [
       "EnableStatusT",
-      "QosTagT",
-      "VlanIdT"
+      "VlanIdT",
+      "QosTagT"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "Unsigned32",
       "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -573,8 +573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/QOS",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:26 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:21:04 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "QOS"

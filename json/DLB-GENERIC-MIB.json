@@ -5,26 +5,26 @@
       "dlbMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "MibIdentifier",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "TimeTicks",
       "iso",
-      "Bits",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64"
     ],
     "SNMPv2-TC": [
@@ -85,8 +85,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/deliberant/DLB-GENERIC-MIB.mib",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:27:44 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:19:24 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DLB-GENERIC-MIB"

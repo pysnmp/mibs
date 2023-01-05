@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "PortList",
-      "extremeAgent"
+      "extremeAgent",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
       "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64"
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "extremeFdb": {
@@ -375,8 +375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:38 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:21:16 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EXTREME-FDB-MIB"

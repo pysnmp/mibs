@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifEntry",
-      "ifIndex"
+      "ifIndex",
+      "ifEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
@@ -16,21 +16,21 @@
       "sysContact"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "enterprises",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "IpAddress",
       "Counter64",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits"
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -507,8 +507,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/SCS-ks-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:25:09 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:16:49 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SCS-ks-MIB"

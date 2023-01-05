@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
       "enterprises",
-      "MibIdentifier",
+      "Counter64",
       "Counter32",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "alcatel": {
@@ -50,8 +50,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:39 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:21:17 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SYSTEM-MIB"

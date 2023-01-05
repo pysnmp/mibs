@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "AWCVX-MIB": [
-      "AwcDot11WEPKeyPermuteAlgorithm",
-      "AwcPolId",
-      "AwcDot11MicAlgorithm",
+      "WEPKeytype128",
+      "AwcPfPriority",
       "awcVx",
       "AwcVlanId",
-      "AwcPfPriority",
-      "WEPKeytype128"
+      "AwcDot11WEPKeyPermuteAlgorithm",
+      "AwcDot11MicAlgorithm",
+      "AwcPolId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -16,26 +16,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
       "Integer32",
-      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "awcVlanCfgMIB": {
@@ -547,8 +547,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/AWC-VLAN-CFG-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:28:24 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:20:02 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AWC-VLAN-CFG-MIB"

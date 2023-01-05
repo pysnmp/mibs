@@ -8,28 +8,28 @@
       "NbsCmmcChannelBand"
     ],
     "NBS-MIB": [
-      "NbsTcMHz",
-      "nbs"
+      "nbs",
+      "NbsTcMHz"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
       "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1939,8 +1939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SFF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:34:16 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:25:52 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NBS-SFF-MIB"

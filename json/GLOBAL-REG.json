@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "Counter32",
       "Counter64",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "iso",
       "enterprises",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
       "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -101,8 +101,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/GLOBAL-REG",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:28:05 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:19:45 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "GLOBAL-REG"

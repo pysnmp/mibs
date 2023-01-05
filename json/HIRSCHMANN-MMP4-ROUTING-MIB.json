@@ -5,8 +5,8 @@
       "hmPlatform4"
     ],
     "OSPF-MIB": [
-      "ospfVirtIfEntry",
-      "ospfIfEntry"
+      "ospfIfEntry",
+      "ospfVirtIfEntry"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
@@ -16,27 +16,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
       "MibIdentifier",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "TimeTicks",
+      "iso",
+      "Counter32",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
-      "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "hmPlatform4Routing": {
@@ -2862,8 +2862,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4Routing.mib",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:30:44 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:22:22 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HIRSCHMANN-MMP4-ROUTING-MIB"

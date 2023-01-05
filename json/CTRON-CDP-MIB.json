@@ -5,8 +5,8 @@
       "ctCDP"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "RMON2-MIB": [
       "TimeFilter"
@@ -17,26 +17,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
       "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "ctronCdpMIB": {
@@ -636,8 +636,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-CDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:29:19 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:20:57 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTRON-CDP-MIB"

@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
+      "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "mib-2",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -91,9 +91,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/FLOAT-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:35:31 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FLOAT-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:14:53 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FLOAT-TC-MIB"

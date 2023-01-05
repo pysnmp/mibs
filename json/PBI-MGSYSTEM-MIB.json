@@ -5,31 +5,31 @@
       "mg"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "enterprises",
-      "MODULE-IDENTITY",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Integer32"
+      "enterprises",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "mgSystem": {
@@ -1363,8 +1363,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbi/PBI-MGSYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:35:43 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:27:20 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PBI-MGSYSTEM-MIB"

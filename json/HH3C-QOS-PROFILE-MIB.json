@@ -5,32 +5,32 @@
       "hh3cCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
       "Bits",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "iso"
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
       "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "hh3cQosProfile": {
@@ -2170,8 +2170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-QOS-PROFILE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:26:10 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:17:50 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-QOS-PROFILE-MIB"

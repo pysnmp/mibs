@@ -5,24 +5,24 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
-      "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
       "CiscoAlarmSeverity",
+      "Unsigned64",
       "TimeIntervalSec",
-      "CiscoNetworkAddress"
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsChangeStatus",
-      "CucsMoMoClassId"
+      "CucsMoMoClassId",
+      "CucsChangeStatus"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,30 +32,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
       "Integer32",
-      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "RowPointer",
-      "TimeInterval",
-      "MacAddress",
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "MacAddress",
+      "DateAndTime",
+      "TimeStamp",
+      "RowPointer",
+      "TimeInterval"
     ]
   },
   "cucsChangeObjects": {
@@ -209,8 +209,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CHANGE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:28:23 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:20:02 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CHANGE-MIB"

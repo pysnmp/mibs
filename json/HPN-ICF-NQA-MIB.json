@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingCtlEntry",
-      "pingCtlType",
+      "pingCtlTargetAddressType",
+      "pingCtlOwnerIndex",
       "pingCtlTargetAddress",
       "pingCtlDescr",
+      "pingCtlType",
       "pingCtlTestName",
-      "pingCtlOwnerIndex",
-      "pingCtlTargetAddressType"
+      "pingCtlEntry"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfRhw"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
-      "RowStatus"
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfNqa": {
@@ -3081,8 +3081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NQA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:32:14 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:23:53 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-NQA-MIB"

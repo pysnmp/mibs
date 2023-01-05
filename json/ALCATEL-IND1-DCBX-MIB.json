@@ -11,14 +11,14 @@
       "IEEE8021PriorityValue"
     ],
     "LLDP-EXT-DOT1-V2-MIB": [
-      "LldpXdot1dcbxAppProtocol",
-      "LldpXdot1dcbxTrafficClassValue",
-      "LldpXdot1dcbxSupportedCapacity",
-      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
-      "LldpXdot1dcbxTrafficClassBandwidthValue",
       "LldpXdot1dcbxAppSelector",
+      "LldpXdot1dcbxTrafficSelectionAlgorithm",
+      "LldpXdot1dcbxSupportedCapacity",
+      "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
+      "LldpXdot1dcbxAppProtocol",
       "lldpXdot1dcbxAdminApplicationPriorityAESelector",
-      "LldpXdot1dcbxTrafficSelectionAlgorithm"
+      "LldpXdot1dcbxTrafficClassValue"
     ],
     "LLDP-V2-MIB": [
       "lldpV2LocPortIfIndex"
@@ -27,31 +27,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Integer32",
       "Counter32",
-      "IpAddress",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "iso",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "alcatelIND1DcbxMIB": {
@@ -1372,8 +1372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DCBX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 11:35:25 2023",
-      "On host fv-az280-773 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 13:27:02 2023",
+      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-DCBX-MIB"
