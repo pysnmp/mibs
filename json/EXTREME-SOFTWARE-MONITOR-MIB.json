@@ -9,29 +9,29 @@
       "extremeImageDescription"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
       "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
+      "Bits",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeSwMonitor": {
@@ -938,8 +938,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-SOFTWARE-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:57:16 2023",
-      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 10:19:34 2023",
+      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EXTREME-SOFTWARE-MONITOR-MIB"

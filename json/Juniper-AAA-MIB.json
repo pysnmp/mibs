@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "IPV6-TC": [
-      "Ipv6AddressPrefix",
       "Ipv6Address",
-      "Ipv6AddressIfIdentifier"
+      "Ipv6AddressIfIdentifier",
+      "Ipv6AddressPrefix"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -13,38 +13,38 @@
       "juniRouterIndex"
     ],
     "Juniper-TC": [
-      "JuniVrfGroupName",
-      "JuniInterfaceLocationType",
       "JuniName",
+      "JuniEnable",
+      "JuniInterfaceLocationType",
       "JuniInterfaceLocationValue",
-      "JuniEnable"
+      "JuniVrfGroupName"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
       "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "juniAaaMIB": {
@@ -9411,8 +9411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-AAA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 10:00:22 2023",
-      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 10:25:13 2023",
+      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Juniper-AAA-MIB"

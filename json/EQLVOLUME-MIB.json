@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlStorageGroupAdminAccountIndex",
-      "eqlGroupTaskIndex",
-      "eqlLdapLoginAccessType",
       "eqlLdapLoginAccessName",
       "UTFString",
-      "eqlGroupId"
+      "eqlLdapLoginAccessType",
+      "eqlStorageGroupAdminAccountIndex",
+      "eqlGroupId",
+      "eqlGroupTaskIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
@@ -16,37 +16,37 @@
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "MibIdentifier",
       "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter64",
       "iso",
-      "TimeTicks",
-      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
       "RowPointer",
       "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "RowStatus"
     ]
   },
   "eqliscsiModule": {
@@ -12436,8 +12436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLUME-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:56:53 2023",
-      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 10:19:03 2023",
+      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EQLVOLUME-MIB"

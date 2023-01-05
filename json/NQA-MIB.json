@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HUAWEI-ETHOAM-MIB": [
+      "HWDot1agCfmRelayActionFieldValue",
       "HWDot1agCfmIngressActionFieldValue",
-      "HWDot1agCfmEgressActionFieldValue",
-      "HWDot1agCfmRelayActionFieldValue"
+      "HWDot1agCfmEgressActionFieldValue"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -18,8 +18,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
+      "InetPortNumber",
       "InetAddress"
     ],
     "P-BRIDGE-MIB": [
@@ -32,38 +32,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-GROUP",
-      "Unsigned32",
-      "mib-2",
-      "Gauge32",
-      "Counter64",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "IpAddress",
-      "Counter32"
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "mib-2",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-GROUP",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "StorageType",
-      "TimeStamp",
-      "TruthValue",
-      "RowStatus",
       "DateAndTime",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress",
       "TimeInterval",
       "DisplayString",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 09:58:53 2023",
-      "On host fv-az306-820 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 10:21:58 2023",
+      "On host fv-az255-307 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NQA-MIB"
