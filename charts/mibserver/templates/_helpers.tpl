@@ -59,17 +59,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Configure mibserver.autoscaling
-*/}}
-{{- define "mibserver.autoscaling.enabled" -}}
-{{- if .Values.autoscaling }}
-{{- printf "%s" .Values.autoscaling.enabled | default false }}
-{{- else }}
-{{- "false" }}
-{{- end }}
-{{- end }}
-
-{{/*
 Create mibserver.podAntiAffinity
 */}}
 {{- define "mibserver.podAntiAffinity" -}}

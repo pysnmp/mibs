@@ -13,7 +13,6 @@ metadata:
   annotations:
     "kube-score/ignore": "container-image-pull-policy"
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: mibserver
@@ -78,4 +77,4 @@ spec:
           emptyDir: {}
         - name: task-pv-storage
           persistentVolumeClaim:
-            claimName: task-pv-claim
+            claimName: default-mibserver

@@ -3,7 +3,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim
+  name: default-mibserver
+  labels:
+    helm.sh/chart: mibserver-1.14.10
+    app.kubernetes.io/name: mibserver
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/version: "1.14.10"
+    app.kubernetes.io/managed-by: Helm
 spec:
   storageClassName: microk8s-hostpath
   accessModes:

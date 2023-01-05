@@ -22,9 +22,22 @@ resources:
     cpu: 100m
     memory: 128Mi
 
+autoscaling:
+  enabled: True
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
 localMibs:
+  # pathToMibs is the path on the node where mibserver pod will be scheduled to
+  # inside the directory you can put all the MIB files you want to add to the mibserver
+  # if you're installing mibserver on a multi-node cluster, use persistence.existingClaim instead
   pathToMibs: ""
   persistence:
+    # use existingClaim when installing mibserver on a multi-nde cluster
+    # provide an existing PersistentVolumeClaim (works only when pathToMibs is empty)
+    # copy mib files to one of the node and use nodeSelector to schedule the mibserver to that specific node
     existingClaim: ""
     storageClass: "microk8s-hostpath"
     size: 3Gi
