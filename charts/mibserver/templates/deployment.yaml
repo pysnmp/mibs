@@ -95,7 +95,7 @@ spec:
         - name: task-pv-storage
           persistentVolumeClaim:
         {{- if eq .Values.localMibs.persistence.existingClaim "" }}
-            claimName: task-pv-claim
+            claimName: {{ include "mibserver.fullname" . }}
         {{ else }}
             claimName: {{ .Values.localMibs.persistence.existingClaim | quote }}
         {{- end }}

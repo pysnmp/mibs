@@ -23,7 +23,6 @@ resources:
     memory: 128Mi
 
 localMibs:
-  enabled: "false"
   pathToMibs: ""
   persistence:
     existingClaim: ""

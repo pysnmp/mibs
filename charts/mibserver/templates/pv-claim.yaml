@@ -2,7 +2,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim
+  name: {{ include "mibserver.fullname" . }}
+  labels:
+    {{- include "mibserver.labels" . | nindent 4 }}
 spec:
   storageClassName: {{ .Values.localMibs.persistence.storageClass | default "microk8s-hostpath" }}
   accessModes:
