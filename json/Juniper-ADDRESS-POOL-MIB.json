@@ -8,31 +8,31 @@
       "juniRouterName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
       "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "IpAddress",
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "iso",
-      "Bits"
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "juniAddressPoolMIB": {
@@ -1175,8 +1175,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ADDRESS-POOL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:25:23 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:50:02 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Juniper-ADDRESS-POOL-MIB"

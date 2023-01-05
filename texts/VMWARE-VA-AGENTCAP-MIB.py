@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-VA-AGENTCAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VA-AGENTCAP-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 13:30:20 2023
-# On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 14:56:10 2023
+# On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-AgentCapabilities, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "ModuleCompliance", "NotificationGroup")
-TimeTicks, ModuleIdentity, IpAddress, Counter32, Bits, Counter64, NotificationType, Gauge32, Unsigned32, MibIdentifier, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "IpAddress", "Counter32", "Bits", "Counter64", "NotificationType", "Gauge32", "Unsigned32", "MibIdentifier", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
+Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, TimeTicks, Integer32, IpAddress, Counter32, Bits, Unsigned32, Counter64, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "TimeTicks", "Integer32", "IpAddress", "Counter32", "Bits", "Unsigned32", "Counter64", "ModuleIdentity", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
 vmwVAAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 5))
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwVA2015x = vmwVA2015x.setStatus('current')
 if mibBuilder.loadTexts: vmwVA2015x.setDescription("Release 2015 aka 6.0 for VMware Virtual Appliance supporting SNMPv1, SNMPv2c, and SNMPv3.\n\n     This agent supports read-only protocol operations, shares same configuration file as VMware ESXi agent.\n     This implies that configuring the SNMPv3 Agent can not be done via SET operations or use SET PDU to\n     discover engine id. Hence IETF standard SNMPv3 agent configuration mibs are not provided.\n     The SNMPv3 protocol is fully supported once configured via the CLI command interface, run\n     appliancesh shell using the 'snmp' command set. Lastly this SNMP agent provides one read-only view of\n     the entire system to which all SNMPv3 users configured are assigned.\n\n     This initial release does not have: UDP-MIB, TCP-MIB modules.\n     ")
 vmwVA2015x.setReference('http://www.vmware.com/products')
-mibBuilder.exportSymbols("VMWARE-VA-AGENTCAP-MIB", vmwVA2015x=vmwVA2015x, vmwVCSA2020x=vmwVCSA2020x, vmwVCSA2017x=vmwVCSA2017x, vmwVCSA2016x=vmwVCSA2016x, vmwVACapability=vmwVACapability, vmwVAAgentCapabilityMIB=vmwVAAgentCapabilityMIB, PYSNMP_MODULE_ID=vmwVAAgentCapabilityMIB)
+mibBuilder.exportSymbols("VMWARE-VA-AGENTCAP-MIB", vmwVCSA2016x=vmwVCSA2016x, PYSNMP_MODULE_ID=vmwVAAgentCapabilityMIB, vmwVAAgentCapabilityMIB=vmwVAAgentCapabilityMIB, vmwVA2015x=vmwVA2015x, vmwVACapability=vmwVACapability, vmwVCSA2017x=vmwVCSA2017x, vmwVCSA2020x=vmwVCSA2020x)

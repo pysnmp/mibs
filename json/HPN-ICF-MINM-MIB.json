@@ -17,24 +17,24 @@
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "Bits",
       "Unsigned32",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Integer32",
-      "iso"
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hpnicfMinm": {
@@ -350,8 +350,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MINM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:23:53 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:48:06 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-MINM-MIB"

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
+      "AdslLineProfileName",
       "adslLineConfProfileName",
-      "adslLineAlarmConfProfileName",
-      "AdslLineProfileName"
+      "adslLineAlarmConfProfileName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -13,38 +13,38 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Bits",
       "Gauge32",
-      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
       "IpAddress",
+      "iso",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
       "Counter32",
-      "Counter64"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "VariablePointer",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoSdslLineMIB": {
@@ -3542,8 +3542,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDSL-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:20:02 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:44:15 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-SDSL-LINE-MIB"

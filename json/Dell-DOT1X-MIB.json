@@ -9,13 +9,13 @@
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xPaePortNumber",
-      "dot1xAuthSessionStatsEntry",
-      "PaeControlledPortStatus"
+      "PaeControlledPortStatus",
+      "dot1xAuthSessionStatsEntry"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
       "dot1qFdbId",
-      "PortList"
+      "PortList",
+      "VlanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "IpAddress",
+      "Unsigned32",
+      "iso",
       "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "Unsigned32"
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rldot1x": {
@@ -1417,8 +1417,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:19:41 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:43:41 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-DOT1X-MIB"

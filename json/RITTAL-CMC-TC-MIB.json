@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
-      "sysLocation",
       "sysContact",
-      "sysDescr"
+      "sysDescr",
+      "sysName",
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "TRAP-TYPE",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rittal": {
@@ -4481,8 +4481,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:28:38 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:54:04 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RITTAL-CMC-TC-MIB"

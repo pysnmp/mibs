@@ -10,24 +10,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Bits",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32"
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lvl7": {
@@ -106,8 +106,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/BROADCOM-REF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:19:41 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:43:40 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BROADCOM-REF-MIB"

@@ -15,32 +15,32 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits",
       "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "Bits",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress",
       "DateAndTime",
-      "DisplayString"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "systemConfig": {
@@ -1197,8 +1197,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bti/BTI8xx-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:16:39 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:39:55 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BTI8xx-SYSTEM-MIB"

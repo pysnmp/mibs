@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module LIEBERT-GP-SRC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-SRC-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 13:25:14 2023
-# On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 14:50:06 2023
+# On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
 liebertSrcModuleReg, lgpSrc = mibBuilder.importSymbols("LIEBERT-GP-REGISTRATION-MIB", "liebertSrcModuleReg", "lgpSrc")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
 sysUpTime, = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime")
-Integer32, Unsigned32, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Bits, Counter32, IpAddress, MibIdentifier, Gauge32, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Bits", "Counter32", "IpAddress", "MibIdentifier", "Gauge32", "Counter64", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleIdentity, Counter32, ObjectIdentity, Unsigned32, MibIdentifier, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, iso, Integer32, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "iso", "Integer32", "IpAddress", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 liebertGlobalProductsSrcModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 12, 1))
 liebertGlobalProductsSrcModule.setRevisions(('2017-11-10 00:00', '2017-10-16 00:00', '2017-08-18 00:00',))
 if mibBuilder.loadTexts: liebertGlobalProductsSrcModule.setLastUpdated('201711100000Z')
@@ -49,4 +49,4 @@ lgpSrcDevTemperatureHighThresholdDegC = MibTableColumn((1, 3, 6, 1, 4, 1, 476, 1
 if mibBuilder.loadTexts: lgpSrcDevTemperatureHighThresholdDegC.setStatus('current')
 lgpSrcDevTemperatureLowThresholdDegC = MibTableColumn((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 10, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2147483647))).clone(namedValues=NamedValues(("unknown", 2147483647)))).setUnits('degrees Celsius').setMaxAccess("readwrite")
 if mibBuilder.loadTexts: lgpSrcDevTemperatureLowThresholdDegC.setStatus('current')
-mibBuilder.exportSymbols("LIEBERT-GP-SRC-MIB", lgpSrcDevState=lgpSrcDevState, lgpSrcDevTemperatureDegC=lgpSrcDevTemperatureDegC, lgpSrcDevTemperatureDegF=lgpSrcDevTemperatureDegF, PYSNMP_MODULE_ID=liebertGlobalProductsSrcModule, lgpSrcDevTemperatureLowThresholdDegC=lgpSrcDevTemperatureLowThresholdDegC, lgpSrcDevId=lgpSrcDevId, lgpSrcEntry=lgpSrcEntry, lgpSrcDevOperatingMode=lgpSrcDevOperatingMode, lgpSrcDevTemperatureLowThresholdDegF=lgpSrcDevTemperatureLowThresholdDegF, lgpSrcDevTemperatureHighThresholdDegC=lgpSrcDevTemperatureHighThresholdDegC, lgpSrcDevTemperatureSetpointDegC=lgpSrcDevTemperatureSetpointDegC, lgpSrcDevTemperatureHighThresholdDegF=lgpSrcDevTemperatureHighThresholdDegF, lgpSrcDevPowerStatus=lgpSrcDevPowerStatus, lgpSrcDevAddress=lgpSrcDevAddress, liebertGlobalProductsSrcModule=liebertGlobalProductsSrcModule, lgpSrcDevFanSpeed=lgpSrcDevFanSpeed, lgpSrcDevTemperatureSetpointDegF=lgpSrcDevTemperatureSetpointDegF, lgpSrcTable=lgpSrcTable)
+mibBuilder.exportSymbols("LIEBERT-GP-SRC-MIB", lgpSrcDevState=lgpSrcDevState, lgpSrcDevFanSpeed=lgpSrcDevFanSpeed, lgpSrcDevAddress=lgpSrcDevAddress, lgpSrcDevTemperatureDegF=lgpSrcDevTemperatureDegF, lgpSrcDevOperatingMode=lgpSrcDevOperatingMode, lgpSrcDevTemperatureLowThresholdDegF=lgpSrcDevTemperatureLowThresholdDegF, lgpSrcDevTemperatureHighThresholdDegC=lgpSrcDevTemperatureHighThresholdDegC, lgpSrcDevTemperatureSetpointDegC=lgpSrcDevTemperatureSetpointDegC, lgpSrcDevTemperatureLowThresholdDegC=lgpSrcDevTemperatureLowThresholdDegC, lgpSrcDevTemperatureHighThresholdDegF=lgpSrcDevTemperatureHighThresholdDegF, liebertGlobalProductsSrcModule=liebertGlobalProductsSrcModule, lgpSrcDevTemperatureSetpointDegF=lgpSrcDevTemperatureSetpointDegF, lgpSrcDevTemperatureDegC=lgpSrcDevTemperatureDegC, lgpSrcEntry=lgpSrcEntry, lgpSrcTable=lgpSrcTable, PYSNMP_MODULE_ID=liebertGlobalProductsSrcModule, lgpSrcDevId=lgpSrcDevId, lgpSrcDevPowerStatus=lgpSrcDevPowerStatus)

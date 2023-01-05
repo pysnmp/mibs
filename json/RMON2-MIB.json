@@ -5,40 +5,40 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "matrix",
-      "filter",
-      "history",
-      "etherStatsEntry",
-      "historyControlEntry",
-      "matrixControlEntry",
       "channelEntry",
-      "hosts",
+      "matrixControlEntry",
       "hostControlEntry",
+      "hosts",
+      "matrix",
+      "history",
       "statistics",
       "filterEntry",
-      "OwnerString"
+      "etherStatsEntry",
+      "historyControlEntry",
+      "OwnerString",
+      "filter"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
       "OBJECT-TYPE",
-      "mib-2",
-      "Bits",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "mib-2",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -48,8 +48,8 @@
     ],
     "TOKEN-RING-RMON-MIB": [
       "sourceRoutingStatsEntry",
-      "tokenRing",
       "tokenRingMLStatsEntry",
+      "tokenRing",
       "tokenRingPStatsEntry",
       "ringStationControlEntry"
     ]
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:15:35 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:38:31 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RMON2-MIB"

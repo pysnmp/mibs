@@ -8,12 +8,12 @@
       "ifIndex"
     ],
     "LLDP-MIB": [
-      "LldpSystemCapabilitiesMap",
       "LldpChassisIdSubtype",
-      "LldpManAddrIfSubtype",
       "LldpPortIdSubtype",
-      "LldpManAddress",
       "LldpChassisId",
+      "LldpManAddrIfSubtype",
+      "LldpManAddress",
+      "LldpSystemCapabilitiesMap",
       "LldpPortId"
     ],
     "RMON2-MIB": [
@@ -29,36 +29,36 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Integer32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "TimeTicks",
       "Bits",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32"
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
       "tmnxSRNotifyPrefix",
-      "tmnxSRConfs",
-      "tmnxSRObjs"
+      "tmnxSRObjs",
+      "tmnxSRConfs"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxEnabledDisabled",
-      "TmnxEnabledDisabledAdminState"
+      "TmnxEnabledDisabledAdminState",
+      "TmnxEnabledDisabled"
     ]
   },
   "tmnxLldpMIBModule": {
@@ -1599,8 +1599,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:27:02 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:52:11 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "TIMETRA-LLDP-MIB"

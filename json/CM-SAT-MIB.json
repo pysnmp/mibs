@@ -5,19 +5,19 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "VlanPriority",
+      "SecondaryState",
+      "CmPmBinAction",
+      "AdminState",
       "OperationalState",
       "MepDestinationType",
-      "CmPmBinAction",
-      "VlanId",
-      "AdminState",
-      "SecondaryState",
-      "VlanPriority"
+      "VlanId"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
-      "slotIndex",
+      "networkElementEntry",
       "shelfIndex",
-      "networkElementEntry"
+      "slotIndex",
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "PolicerColorMode"
@@ -26,39 +26,39 @@
       "EsaProbePktIntervalType"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepEntry",
-      "Dot1agCfmMepIdOrZero"
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMepEntry"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
       "OBJECT-TYPE",
-      "Bits",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "StorageType",
-      "DisplayString",
-      "RowStatus",
+      "TruthValue",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "VariablePointer",
       "MacAddress",
-      "TruthValue"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmServiceActivationMIB": {
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:15:34 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:38:30 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CM-SAT-MIB"

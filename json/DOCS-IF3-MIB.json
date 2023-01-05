@@ -8,17 +8,17 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvId",
-      "docsDevEvLevel",
       "docsDevEvLastTime",
-      "docsDevEvText"
+      "docsDevEvText",
+      "docsDevEvLevel",
+      "docsDevEvId"
     ],
     "DOCS-IF-MIB": [
-      "TenthdB",
-      "DocsEqualizerData",
-      "DocsisQosVersion",
       "DocsisUpstreamType",
-      "TenthdBmV"
+      "DocsisQosVersion",
+      "TenthdBmV",
+      "DocsEqualizerData",
+      "TenthdB"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -26,8 +26,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -36,37 +36,37 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "iso"
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "StorageType",
       "TruthValue",
       "MacAddress",
-      "DisplayString",
+      "RowStatus",
       "DateAndTime",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:14:53 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:37:30 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DOCS-IF3-MIB"

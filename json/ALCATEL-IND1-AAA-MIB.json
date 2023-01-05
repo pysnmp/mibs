@@ -5,8 +5,8 @@
       "softentIND1AAA"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -18,26 +18,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
       "TimeTicks",
-      "IpAddress",
-      "Gauge32"
+      "iso",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "alcatelIND1AAAMIB": {
@@ -5754,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-AAA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:27:04 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:52:14 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-AAA-MIB"

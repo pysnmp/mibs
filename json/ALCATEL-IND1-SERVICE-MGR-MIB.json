@@ -8,35 +8,35 @@
       "AlaEServiceUNIProfileProtocolTreatment"
     ],
     "ALCATEL-IND1-TIMETRA-SAP-MIB": [
-      "sapPortId",
-      "sapEncapValue"
+      "sapEncapValue",
+      "sapPortId"
     ],
     "ALCATEL-IND1-TIMETRA-SDP-MIB": [
       "sdpBindId"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
-      "ServObjDesc",
+      "svcId",
       "SdpId",
-      "svcId"
+      "ServObjDesc"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
       "TmnxServId",
-      "TmnxVcIdOrNone",
-      "SdpBindId",
-      "ServiceOperStatus",
-      "ServiceAdminStatus",
-      "TmnxCustId",
       "TmnxVRtrID",
+      "SdpBindId",
+      "ServiceAdminStatus",
       "TmnxPortID",
-      "TmnxEncapVal"
+      "TmnxCustId",
+      "TmnxEncapVal",
+      "TmnxVcIdOrNone",
+      "ServiceOperStatus"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MPLS-LDP-MIB": [
       "MplsLdpIdentifier"
@@ -45,34 +45,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
       "TimeTicks",
-      "IpAddress",
-      "Gauge32"
+      "iso",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "MacAddress",
-      "TimeStamp",
       "TruthValue",
-      "DateAndTime",
-      "DisplayString"
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DateAndTime"
     ]
   },
   "alcatelIND1ServiceMgrMIB": {
@@ -10497,8 +10497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SERVICE-MGR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:27:05 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:52:15 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-SERVICE-MGR-MIB"

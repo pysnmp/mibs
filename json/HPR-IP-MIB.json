@@ -5,34 +5,34 @@
       "SnaControlPointName"
     ],
     "HPR-MIB": [
-      "hprObjects",
       "hprCompliances",
+      "hprObjects",
       "hprGroups"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "iso"
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -445,8 +445,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/HPR-IP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:14:53 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:37:31 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPR-IP-MIB"

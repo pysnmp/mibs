@@ -7,28 +7,28 @@
     "IF-MIB": [
       "ifAdminStatus",
       "ifOperStatus",
-      "ifType",
       "ifDescr",
-      "ifIndex"
+      "ifIndex",
+      "ifType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
       "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
       "iso"
     ],
     "SNMPv2-TC": [
@@ -1235,8 +1235,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:16:25 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:39:37 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BENU-CHASSIS-MIB"

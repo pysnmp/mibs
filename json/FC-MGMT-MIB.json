@@ -15,24 +15,24 @@
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "Counter64",
       "Unsigned32",
-      "transmission",
+      "Bits",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Integer32",
-      "iso"
+      "Gauge32",
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "transmission",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "fcMgmtMIB": {
@@ -2739,8 +2739,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/FC-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:23:54 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:48:07 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FC-MGMT-MIB"

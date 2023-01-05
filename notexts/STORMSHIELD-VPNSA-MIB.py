@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-VPNSA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-VPNSA-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 13:29:27 2023
-# On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 14:55:09 2023
+# On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Gauge32, MibIdentifier, iso, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter64, Integer32, ObjectIdentity, IpAddress, Unsigned32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "MibIdentifier", "iso", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter64", "Integer32", "ObjectIdentity", "IpAddress", "Unsigned32", "Counter32")
+Counter32, MibIdentifier, Integer32, NotificationType, ModuleIdentity, Unsigned32, TimeTicks, IpAddress, Gauge32, Counter64, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "Integer32", "NotificationType", "ModuleIdentity", "Unsigned32", "TimeTicks", "IpAddress", "Gauge32", "Counter64", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsVPN = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 1))
@@ -50,4 +50,4 @@ snsVPNMaxLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 1, 1, 1, 14), Co
 if mibBuilder.loadTexts: snsVPNMaxLifetime.setStatus('current')
 snsVPNMaxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 1, 1, 1, 15), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsVPNMaxBytes.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-VPNSA-MIB", snsVPNIPDst=snsVPNIPDst, snsVPNEnc=snsVPNEnc, snsVPNMaxLifetime=snsVPNMaxLifetime, snsVPNSAIndex=snsVPNSAIndex, snsVPNSpi=snsVPNSpi, snsVPNReqID=snsVPNReqID, snsVPNIPSrc=snsVPNIPSrc, snsVPNPeerSpi=snsVPNPeerSpi, PYSNMP_MODULE_ID=snsVPN, snsVPNLifetime=snsVPNLifetime, snsVPNMode=snsVPNMode, snsVPNType=snsVPNType, snsVPNBytes=snsVPNBytes, snsVPN=snsVPN, snsVPNState=snsVPNState, snsVPNMaxBytes=snsVPNMaxBytes, snsVPNSATable=snsVPNSATable, snsVPNSAEntry=snsVPNSAEntry, snsVPNAuth=snsVPNAuth)
+mibBuilder.exportSymbols("STORMSHIELD-VPNSA-MIB", snsVPNIPDst=snsVPNIPDst, snsVPNBytes=snsVPNBytes, snsVPNPeerSpi=snsVPNPeerSpi, snsVPNMode=snsVPNMode, snsVPNReqID=snsVPNReqID, snsVPNEnc=snsVPNEnc, snsVPN=snsVPN, snsVPNMaxBytes=snsVPNMaxBytes, snsVPNMaxLifetime=snsVPNMaxLifetime, PYSNMP_MODULE_ID=snsVPN, snsVPNAuth=snsVPNAuth, snsVPNSATable=snsVPNSATable, snsVPNIPSrc=snsVPNIPSrc, snsVPNSAIndex=snsVPNSAIndex, snsVPNState=snsVPNState, snsVPNSpi=snsVPNSpi, snsVPNSAEntry=snsVPNSAEntry, snsVPNLifetime=snsVPNLifetime, snsVPNType=snsVPNType)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-XEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-XEM-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 13:15:33 2023
-# On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 14:38:24 2023
+# On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, Integer32, ObjectIdentity, NotificationType, Gauge32, Bits, iso, IpAddress, MibIdentifier, Counter64, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "Integer32", "ObjectIdentity", "NotificationType", "Gauge32", "Bits", "iso", "IpAddress", "MibIdentifier", "Counter64", "ModuleIdentity", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleIdentity, Counter32, IpAddress, MibIdentifier, NotificationType, Bits, Integer32, TimeTicks, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "IpAddress", "MibIdentifier", "NotificationType", "Bits", "Integer32", "TimeTicks", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 xem = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 11))
 xem.setRevisions(('2010-09-07 00:00', '2010-06-15 00:15', '2009-07-15 00:00', '2008-02-29 00:00',))
 
@@ -61,4 +61,4 @@ if mibBuilder.loadTexts: xemInfoRevision.setDescription('The board revision numb
 xemInfoSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 11, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: xemInfoSerialNumber.setStatus('current')
 if mibBuilder.loadTexts: xemInfoSerialNumber.setDescription('The board serial number of the XEM.')
-mibBuilder.exportSymbols("AT-XEM-MIB", xemInfoBoardName=xemInfoBoardName, xemRemoved=xemRemoved, xemInfoTable=xemInfoTable, xemInfoEntry=xemInfoEntry, xemTraps=xemTraps, xemInserted=xemInserted, xemNumOfXem=xemNumOfXem, xemInfoSerialNumber=xemInfoSerialNumber, xemInsertedFail=xemInsertedFail, xemInfoXemId=xemInfoXemId, xemInfoRevision=xemInfoRevision, xem=xem, PYSNMP_MODULE_ID=xem, xemInfoBayId=xemInfoBayId, xemInfoMemberId=xemInfoMemberId, xemInfoBoardType=xemInfoBoardType)
+mibBuilder.exportSymbols("AT-XEM-MIB", xemInfoBayId=xemInfoBayId, xemInfoBoardType=xemInfoBoardType, xemInfoEntry=xemInfoEntry, xemInserted=xemInserted, xemInfoXemId=xemInfoXemId, xem=xem, PYSNMP_MODULE_ID=xem, xemTraps=xemTraps, xemInfoTable=xemInfoTable, xemNumOfXem=xemNumOfXem, xemInfoMemberId=xemInfoMemberId, xemInfoBoardName=xemInfoBoardName, xemInfoRevision=xemInfoRevision, xemRemoved=xemRemoved, xemInfoSerialNumber=xemInfoSerialNumber, xemInsertedFail=xemInsertedFail)

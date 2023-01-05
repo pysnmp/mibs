@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BEGEMOT-HOSTRES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-HOSTRES-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 13:27:28 2023
-# On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 14:52:48 2023
+# On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 begemot, = mibBuilder.importSymbols("BEGEMOT-MIB", "begemot")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, Gauge32, IpAddress, MibIdentifier, Counter64, TimeTicks, Unsigned32, Counter32, iso, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "Gauge32", "IpAddress", "MibIdentifier", "Counter64", "TimeTicks", "Unsigned32", "Counter32", "iso", "ObjectIdentity")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, ModuleIdentity, iso, Unsigned32, Bits, MibIdentifier, Integer32, Counter64, NotificationType, TimeTicks, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "ModuleIdentity", "iso", "Unsigned32", "Bits", "MibIdentifier", "Integer32", "Counter64", "NotificationType", "TimeTicks", "Counter32", "IpAddress")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 begemotHostres = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 202))
 if mibBuilder.loadTexts: begemotHostres.setLastUpdated('200601030000Z')
@@ -30,4 +30,4 @@ begemotHrSWRunUpdate = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 202, 1, 6), TimeTi
 if mibBuilder.loadTexts: begemotHrSWRunUpdate.setStatus('current')
 begemotHrPkgDir = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 202, 1, 7), OctetString().clone('/var/db/pkg')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: begemotHrPkgDir.setStatus('current')
-mibBuilder.exportSymbols("BEGEMOT-HOSTRES-MIB", begemotHostres=begemotHostres, PYSNMP_MODULE_ID=begemotHostres, begemotHrFSUpdate=begemotHrFSUpdate, begemotHrPkgDir=begemotHrPkgDir, begemotHrDiskStorageUpdate=begemotHrDiskStorageUpdate, begemotHrSWInstalledUpdate=begemotHrSWInstalledUpdate, begemotHrSWRunUpdate=begemotHrSWRunUpdate, begemotHrStorageUpdate=begemotHrStorageUpdate, begemotHostresObjects=begemotHostresObjects, begemotHrNetworkUpdate=begemotHrNetworkUpdate)
+mibBuilder.exportSymbols("BEGEMOT-HOSTRES-MIB", begemotHrNetworkUpdate=begemotHrNetworkUpdate, PYSNMP_MODULE_ID=begemotHostres, begemotHrSWRunUpdate=begemotHrSWRunUpdate, begemotHostresObjects=begemotHostresObjects, begemotHrSWInstalledUpdate=begemotHrSWInstalledUpdate, begemotHrPkgDir=begemotHrPkgDir, begemotHrStorageUpdate=begemotHrStorageUpdate, begemotHrDiskStorageUpdate=begemotHrDiskStorageUpdate, begemotHostres=begemotHostres, begemotHrFSUpdate=begemotHrFSUpdate)

@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "Counter64",
       "Unsigned32",
-      "IpAddress",
+      "Gauge32",
+      "iso",
+      "mib-2",
       "Integer32",
       "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "mib-2",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ctEntityStateTc": {
@@ -130,8 +130,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ENTITY-STATE-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:20:57 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:45:22 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTRON-ENTITY-STATE-TC-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NETONIX-SWITCH-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netonix/NETONIX-SWITCH-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  5 13:25:57 2023
-# On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan  5 14:50:51 2023
+# On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
 snmpMIBGroups, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpMIBGroups")
-iso, Counter64, Bits, Counter32, TimeTicks, ObjectIdentity, Integer32, Gauge32, NotificationType, Unsigned32, enterprises, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Bits", "Counter32", "TimeTicks", "ObjectIdentity", "Integer32", "Gauge32", "NotificationType", "Unsigned32", "enterprises", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
+ModuleIdentity, enterprises, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, IpAddress, MibIdentifier, Counter32, TimeTicks, Unsigned32, Bits, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "enterprises", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "IpAddress", "MibIdentifier", "Counter32", "TimeTicks", "Unsigned32", "Bits", "Integer32", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 netonixSwitch = ModuleIdentity((1, 3, 6, 1, 4, 1, 46242))
 netonixSwitch.setRevisions(('1998-03-23 18:00',))
@@ -82,4 +82,4 @@ voltageDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 46242, 4, 1, 2), DisplayS
 if mibBuilder.loadTexts: voltageDescription.setStatus('current')
 voltage = MibTableColumn((1, 3, 6, 1, 4, 1, 46242, 4, 1, 3), VoltageTC()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: voltage.setStatus('current')
-mibBuilder.exportSymbols("NETONIX-SWITCH-MIB", poeStatusEntry=poeStatusEntry, CurrentTC=CurrentTC, netonixSwitchConformance=netonixSwitchConformance, voltageEntry=voltageEntry, netonixSwitchCompliances=netonixSwitchCompliances, tempIndex=tempIndex, tempTable=tempTable, netonixSwitchGroups=netonixSwitchGroups, voltage=voltage, netonixSwitch=netonixSwitch, fanTable=fanTable, PowerTC=PowerTC, netonixSwitchGroup=netonixSwitchGroup, dcdcEfficiency=dcdcEfficiency, voltageIndex=voltageIndex, tempEntry=tempEntry, voltageDescription=voltageDescription, dcdcInputCurrent=dcdcInputCurrent, poeStatus=poeStatus, temp=temp, poeStatusIndex=poeStatusIndex, PYSNMP_MODULE_ID=netonixSwitch, fanSpeed=fanSpeed, firmwareVersion=firmwareVersion, tempDescription=tempDescription, fanEntry=fanEntry, voltageTable=voltageTable, totalPowerConsumption=totalPowerConsumption, fanIndex=fanIndex, VoltageTC=VoltageTC, poeStatusTable=poeStatusTable, netonixSwitchCompliance=netonixSwitchCompliance)
+mibBuilder.exportSymbols("NETONIX-SWITCH-MIB", voltage=voltage, dcdcEfficiency=dcdcEfficiency, fanIndex=fanIndex, netonixSwitch=netonixSwitch, tempTable=tempTable, fanEntry=fanEntry, CurrentTC=CurrentTC, tempEntry=tempEntry, totalPowerConsumption=totalPowerConsumption, poeStatusIndex=poeStatusIndex, voltageEntry=voltageEntry, tempIndex=tempIndex, PYSNMP_MODULE_ID=netonixSwitch, PowerTC=PowerTC, firmwareVersion=firmwareVersion, netonixSwitchCompliance=netonixSwitchCompliance, voltageDescription=voltageDescription, fanTable=fanTable, netonixSwitchConformance=netonixSwitchConformance, netonixSwitchGroups=netonixSwitchGroups, netonixSwitchCompliances=netonixSwitchCompliances, tempDescription=tempDescription, voltageTable=voltageTable, dcdcInputCurrent=dcdcInputCurrent, VoltageTC=VoltageTC, poeStatusTable=poeStatusTable, poeStatusEntry=poeStatusEntry, poeStatus=poeStatus, netonixSwitchGroup=netonixSwitchGroup, voltageIndex=voltageIndex, fanSpeed=fanSpeed, temp=temp)

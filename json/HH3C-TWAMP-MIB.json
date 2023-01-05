@@ -5,36 +5,36 @@
       "hh3cCommon"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "iso",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
       "RowStatus",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "hh3cTwamp": {
@@ -1697,8 +1697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-TWAMP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:17:50 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:41:26 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-TWAMP-MIB"

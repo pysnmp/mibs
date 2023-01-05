@@ -5,34 +5,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "enterprises",
       "Integer32",
-      "TimeTicks",
+      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "Counter32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "advantech": {
@@ -693,8 +693,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/advantech/ADVANTECH-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 13:15:10 2023",
-      "On host fv-az203-74 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan  5 14:37:52 2023",
+      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADVANTECH-COMMON-MIB"
