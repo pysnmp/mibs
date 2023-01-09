@@ -13,23 +13,23 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
       "Integer32",
-      "Counter32",
+      "iso",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -243,8 +243,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OTNOH-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:34:25 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:07:15 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NBS-OTNOH-MIB"

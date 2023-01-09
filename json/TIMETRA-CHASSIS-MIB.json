@@ -5,67 +5,67 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Counter32",
       "Bits",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
       "TimeTicks",
       "Unsigned32",
       "Counter64",
-      "Counter32",
+      "iso",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "DisplayString",
-      "RowPointer",
-      "TimeStamp",
-      "TimeInterval",
       "RowStatus",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DateAndTime",
+      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowPointer"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRObjs",
       "timetraSRMIBModules",
+      "tmnxSRNotifyPrefix",
       "tmnxSRConfs",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRObjs"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxPortID",
-      "TmnxOperState",
-      "TNamedItem",
-      "TmnxUuid",
-      "TmnxIngPolicerStatModeOverride",
-      "TIngPolicerId",
-      "TmnxAdminState",
-      "TLevel",
-      "TPerPacketOffsetOvr",
-      "TmnxFPNumber",
-      "THPolCIRRateOverride",
       "TNamedItemOrEmpty",
-      "THsmdaWeightOverride",
-      "THPolPIRRateOverride",
-      "TmnxActionType",
-      "TLNamedItemOrEmpty",
+      "TmnxAdminState",
+      "TmnxPortID",
       "TmnxIngPolicerStatMode",
-      "TmnxEnabledDisabled",
-      "TItemDescription",
+      "THPolPIRRateOverride",
+      "TLNamedItemOrEmpty",
       "TmnxInternalSchedWeightMode",
-      "TPlcrBurstSizeBytesOverride",
       "THsmdaPIRMRateOverride",
-      "TmnxIpSecIsaOperFlags"
+      "TmnxEnabledDisabled",
+      "TPlcrBurstSizeBytesOverride",
+      "TmnxFPNumber",
+      "TPerPacketOffsetOvr",
+      "THsmdaWeightOverride",
+      "TmnxOperState",
+      "TmnxUuid",
+      "TmnxIpSecIsaOperFlags",
+      "TIngPolicerId",
+      "THPolCIRRateOverride",
+      "TNamedItem",
+      "TmnxActionType",
+      "TmnxIngPolicerStatModeOverride",
+      "TLevel",
+      "TItemDescription"
     ]
   },
   "tmnxChassisMIBModule": {
@@ -41933,8 +41933,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:35:32 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:08:19 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "TIMETRA-CHASSIS-MIB"

@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifNumber",
-      "ifIndex"
+      "ifIndex",
+      "ifNumber"
     ],
     "OPENBSD-BASE-MIB": [
       "openBSD"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY"
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "memMIBObjects": {
@@ -111,8 +111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-MEM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:35:16 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:08:04 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "OPENBSD-MEM-MIB"

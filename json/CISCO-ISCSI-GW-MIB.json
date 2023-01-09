@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-ISCSI-MIB": [
+      "cIscsiInstIndex",
       "cIscsiNodeAttributesEntry",
       "cIscsiInstanceAttributesEntry",
-      "cIscsiSessionAttributesEntry",
-      "cIscsiInstIndex"
+      "cIscsiSessionAttributesEntry"
     ],
     "CISCO-SCSI-MIB": [
-      "ScsiLUNOrZero",
+      "ciscoScsiLuEntry",
       "ScsiName",
-      "ciscoScsiLuEntry"
+      "ScsiLUNOrZero"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -21,9 +21,9 @@
       "VsanIndex"
     ],
     "CISCO-TC": [
-      "ListIndex",
       "ListIndexOrZero",
-      "CiscoPort"
+      "CiscoPort",
+      "ListIndex"
     ],
     "CISCO-ZS-MIB": [
       "FcList"
@@ -36,31 +36,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
-      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
       "Gauge32",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Bits",
-      "Integer32"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoIscsiGwMIB": {
@@ -3090,8 +3090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ISCSI-GW-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:06 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:24 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ISCSI-GW-MIB"

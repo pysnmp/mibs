@@ -17,25 +17,25 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "Bits",
+      "IpAddress",
       "Counter64",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "MibIdentifier",
-      "Unsigned32"
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaCesRadiusClientMIB": {
@@ -2271,8 +2271,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RADIUS-CLIENT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:26:28 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:59:49 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-RADIUS-CLIENT-MIB"

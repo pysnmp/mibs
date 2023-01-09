@@ -5,8 +5,8 @@
       "softentIND1VlanStp"
     ],
     "BRIDGE-MIB": [
-      "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "Timeout"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -15,31 +15,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
       "Counter64",
-      "MibIdentifier"
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1VLANSTPMIB": {
@@ -6531,8 +6531,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VLAN-STP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:35:32 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:08:19 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-VLAN-STP-MIB"

@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-DIAG-TC-MIB": [
-      "CeDiagTestIdentifier",
-      "CeDiagErrorIdentifier",
-      "CeDiagDiagnosticLevel",
-      "CeDiagPortList",
-      "CeDiagErrorIdentifierOrZero",
       "CeDiagJobSuite",
       "CeDiagJobIdentifier",
+      "CeDiagDiagnosticMethod",
+      "CeDiagDiagnosticLevel",
+      "CeDiagTestIdentifier",
       "CeDiagTestList",
-      "CeDiagDiagnosticMethod"
+      "CeDiagErrorIdentifier",
+      "CeDiagErrorIdentifierOrZero",
+      "CeDiagPortList"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -27,31 +27,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "Bits",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
       "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ]
   },
@@ -2117,8 +2117,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-DIAG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:06 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:25 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ENTITY-DIAG-MIB"

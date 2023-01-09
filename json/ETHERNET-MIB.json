@@ -3,8 +3,8 @@
     "class": "imports",
     "ExaltComProducts": [
       "interface",
-      "remEthAlarms",
-      "locEthAlarms"
+      "locEthAlarms",
+      "remEthAlarms"
     ],
     "ExaltComm": [
       "EnableStatusT",
@@ -12,29 +12,29 @@
       "AlarmLevelT"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
       "Bits",
-      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
       "Counter32",
-      "TimeTicks",
       "Unsigned32",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "EthernetFunctionT": {
@@ -399,8 +399,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ETHERNET-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:30:04 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:03:22 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ETHERNET-MIB"

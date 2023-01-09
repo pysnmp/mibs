@@ -12,34 +12,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "TimeTicks",
+      "MibIdentifier",
       "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Bits",
-      "Integer32"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "DateAndTime",
       "TimeStamp",
-      "MacAddress"
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "ciscoDigitalMediaSystemsMIB": {
@@ -2452,8 +2452,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIGITAL-MEDIA-SYSTEMS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:11 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:29 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-DIGITAL-MEDIA-SYSTEMS-MIB"

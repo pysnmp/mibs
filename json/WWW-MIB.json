@@ -7,27 +7,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "mib-2",
       "Integer32",
-      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SYSAPPL-MIB": [
       "Utf8String"
@@ -1560,8 +1560,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/WWW-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:24:09 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:34 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WWW-MIB"

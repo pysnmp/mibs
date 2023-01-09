@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "FnIndex",
       "FnBoolState",
+      "fnAdminEntry",
+      "FnIndex",
       "fortinet",
-      "fnSysSerial",
-      "fnAdminEntry"
+      "fnSysSerial"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -16,39 +16,39 @@
       "ifName"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "iso",
       "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
       "Unsigned32",
-      "Gauge32"
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "AutonomousType",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fnFortiSandboxMib": {
@@ -1187,8 +1187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTISANDBOX-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:30:26 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:03:43 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FORTINET-FORTISANDBOX-MIB"

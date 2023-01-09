@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
-      "CIPsecEncryptionKeySize",
-      "CIPsecPhase2TunnelIndex",
-      "CIPsecProtocol",
-      "CIPsecEncryptAlgorithm",
       "CIPsecPmtu",
-      "CIPsecTunnelStatus",
-      "CIPsecEndPtType",
+      "CIPsecPhase2TunnelIndex",
       "CIPsecNATTraversalMode",
+      "CIPsecEndPtType",
+      "CIPsecCompAlgorithm",
+      "CIPsecEncryptionKeySize",
+      "CIPsecAuthAlgorithm",
+      "CIPsecDiffHellmanGrp",
+      "CIPsecEncryptAlgorithm",
+      "CIPsecEncapMode",
+      "CIPsecProtocol",
+      "CIPsecTunnelStatus",
+      "CIPsecControlProtocol",
       "CIPsecSpi",
       "CIPsecPhase2SaDirection",
-      "CIPsecEncapMode",
-      "CIPsecCompAlgorithm",
-      "CIPsecPhase1TunnelIndexOrZero",
-      "CIPsecAuthAlgorithm",
-      "CIPsecControlProtocol",
-      "CIPsecDiffHellmanGrp"
+      "CIPsecPhase1TunnelIndexOrZero"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -38,33 +38,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
       "MODULE-IDENTITY",
       "Counter64",
-      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
       "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Bits",
-      "Integer32"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "DateAndTime",
       "TimeInterval",
-      "TimeStamp"
+      "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "ciscoEnhancedIpsecFlowMIB": {
@@ -4822,8 +4822,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-IPSEC-FLOW-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:11 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:30 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ENHANCED-IPSEC-FLOW-MIB"

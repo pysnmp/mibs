@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "enterprises",
-      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Integer32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "mib-2",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "iso",
       "Gauge32",
-      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "AutonomousType",
-      "TruthValue",
-      "DisplayString",
-      "PhysAddress",
       "DateAndTime",
-      "TestAndIncr",
       "RowStatus",
+      "DisplayString",
+      "AutonomousType",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:30:42 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:03:59 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SWITCH"

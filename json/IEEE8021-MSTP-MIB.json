@@ -5,9 +5,9 @@
       "BridgeId"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021MstIdentifier",
       "IEEE8021VlanIndex",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021MstIdentifier",
       "IEEE8021BridgePortNumber",
       "ieee802dot1mibs"
     ],
@@ -15,31 +15,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter64"
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021MstpMib": {
@@ -1899,8 +1899,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-MSTP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:23:52 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:15 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IEEE8021-MSTP-MIB"

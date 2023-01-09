@@ -5,16 +5,16 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
-      "DellNetIfType",
-      "DellNetDeviceType",
-      "DellNetCardOperStatus",
-      "DellNetProcessorModuleType",
-      "DellNetSwDate",
-      "DellNetChassisType",
-      "DellNetPEOperStatus",
       "DellNetMfgDate",
+      "DellNetCardOperStatus",
+      "DellNetChassisType",
+      "DellNetDeviceType",
+      "DellNetSwDate",
+      "DellNetSystemCardType",
+      "DellNetProcessorModuleType",
+      "DellNetPEOperStatus",
       "DellNetHundredthdB",
-      "DellNetSystemCardType"
+      "DellNetIfType"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -26,26 +26,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "TimeTicks",
-      "IpAddress"
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DateAndTime"
+      "DisplayString",
+      "DateAndTime",
+      "MacAddress"
     ]
   },
   "dellNetChassisMib": {
@@ -4673,8 +4673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:28:43 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:02 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"

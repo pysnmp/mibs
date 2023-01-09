@@ -10,24 +10,24 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
       "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
       "Gauge32",
-      "Counter64"
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cARPSourceSuppression": {
@@ -92,8 +92,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-ARP-SOURCE-SUPPRESSION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:27:02 2023",
-      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 11:00:23 2023",
+      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-ARP-SOURCE-SUPPRESSION-MIB"
