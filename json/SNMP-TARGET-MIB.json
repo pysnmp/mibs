@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpSecurityLevel",
-      "SnmpAdminString",
+      "SnmpSecurityModel",
       "SnmpMessageProcessingModel",
-      "SnmpSecurityModel"
+      "SnmpAdminString",
+      "SnmpSecurityLevel"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
       "Unsigned32",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "snmpModules",
       "Integer32",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "snmpModules",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "RowStatus",
-      "TDomain",
+      "TimeInterval",
+      "StorageType",
       "TAddress",
-      "TestAndIncr"
+      "DisplayString",
+      "TestAndIncr",
+      "TDomain",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snmpTargetMIB": {
@@ -556,8 +556,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-TARGET-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:37:31 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:12:30 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SNMP-TARGET-MIB"

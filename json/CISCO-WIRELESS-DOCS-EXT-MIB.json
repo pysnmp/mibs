@@ -5,49 +5,49 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-DOCS-IF-MIB": [
+      "cwdIfHeSuStatusUpChanIfIndex",
       "cwdIfHeServiceEntry",
       "cwdIfHeMacEntry",
-      "cwdIfHeSuStatusUpChanIfIndex",
-      "cwdIfHeSuStatusEntry",
-      "cwdIfHeSuStatusServiceId",
       "cwdIfQosProfileEntry",
-      "cwdIfHeSuStatusDownChanIfIndex",
-      "cwdIfHeSuStatusIpAddress",
-      "cwdIfQosProfIndex",
       "cwdIfHeSuStatusIndex",
-      "cwdIfHeSuStatusMacAddress"
+      "cwdIfHeSuStatusEntry",
+      "cwdIfHeSuStatusDownChanIfIndex",
+      "cwdIfHeSuStatusServiceId",
+      "cwdIfHeSuStatusIpAddress",
+      "cwdIfHeSuStatusMacAddress",
+      "cwdIfQosProfIndex"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
+      "Counter32",
       "iso",
-      "Gauge32",
+      "Integer32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "IpAddress",
       "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits"
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
       "DisplayString",
       "TimeStamp",
       "TruthValue",
+      "TimeInterval",
+      "RowStatus",
       "MacAddress"
     ]
   },
@@ -1717,8 +1717,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-DOCS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:07 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:11:05 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-WIRELESS-DOCS-EXT-MIB"

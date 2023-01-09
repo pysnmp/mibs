@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
       "Integer32",
       "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "Counter32",
-      "MibIdentifier",
+      "Counter64",
+      "iso",
       "IpAddress",
-      "Counter64"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -687,8 +687,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HMIOMODULE-SNMP-MIB.mib",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:38:46 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:14:04 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HMIOMODULE-SNMP-MIB"

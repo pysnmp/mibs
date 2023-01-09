@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList2",
-      "VlanList4",
       "VlanList1",
-      "VlanList3"
+      "VlanList3",
+      "VlanList2",
+      "VlanList4"
     ],
     "CISCOSB-MIB": [
       "VlanPriority",
-      "switch001",
-      "Percents"
+      "Percents",
+      "switch001"
     ],
     "DIFF-SERV-MIB": [
       "diffServClassifierEntry"
@@ -20,36 +20,36 @@
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "zeroDotZero",
       "Counter32",
-      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "TimeTicks",
+      "zeroDotZero",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "RowPointer",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:00 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:11:00 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

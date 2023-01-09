@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Integer32",
       "IpAddress",
+      "Gauge32",
+      "iso",
       "Counter64",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32"
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue"
     ]
   },
@@ -2083,8 +2083,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-WLAN-FLEXAPP-CFG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:33:27 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:08:39 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-WLAN-FLEXAPP-CFG-MIB"

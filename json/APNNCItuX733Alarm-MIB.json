@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
+      "IpAddress",
+      "Counter32",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "OBJECT-IDENTITY",
       "enterprises",
-      "Integer32"
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -612,8 +612,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APNNCItuX733Alarm-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:44:03 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:19:42 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APNNCItuX733Alarm-MIB"

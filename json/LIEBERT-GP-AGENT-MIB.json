@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "LIEBERT-GP-CONDITIONS-MIB": [
-      "lgpConditionsPresent",
+      "lgpConditionDescription",
       "lgpNetworkName",
-      "lgpConditionDescription"
+      "lgpConditionsPresent"
     ],
     "LIEBERT-GP-REGISTRATION-MIB": [
-      "lgpAgentDevice",
-      "lgpAgentIdent",
-      "lgpAgentNotifications",
       "liebertAgentModuleReg",
-      "lgpAgentControl"
+      "lgpAgentControl",
+      "lgpAgentNotifications",
+      "lgpAgentIdent",
+      "lgpAgentDevice"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -21,24 +21,24 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
       "Integer32",
+      "Bits",
+      "Counter32",
       "Counter64",
       "Unsigned32",
-      "Counter32",
-      "iso",
       "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "liebertAgentModule": {
@@ -793,8 +793,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-AGENT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 13:42:13 2023",
-      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 14:18:06 2023",
+      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LIEBERT-GP-AGENT-MIB"
