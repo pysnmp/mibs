@@ -1,9 +1,9 @@
 #!/bin/bash
-if [ -n "$(ls -A /tmp/new_mibs/src/vendor/new 2>/dev/null)" ]
+if [ -n "$(ls -A /app/new_mibs/src/vendor/new 2>/dev/null)" ]
 then
-  cd /tmp/new_mibs
+  cd /app/new_mibs
   mkdir output
-  source /tmp/.cache/pysnmp-mibs*/bin/activate
+  source /app/.cache/pysnmp-mibs*/bin/activate
   echo "**********************************"
   echo "Found local mibs. Compiling..."
   echo "**********************************"
@@ -11,14 +11,14 @@ then
   echo "**********************************"
   echo "Successfully compiled MIBs are: "
   echo "**********************************"
-  sed 's/,.*//g' /tmp/new_mibs/output/index.csv | uniq | sort
+  sed 's/,.*//g' /app/new_mibs/output/index.csv | uniq | sort
   # The convention here is to have no MIB extension (like .my or .mib) so we cut it off
-  find /tmp/new_mibs/output/asn1 -type f -name '*.*' | while read f; do mv "$f" "${f%.*}"; done
+  find /app/new_mibs/output/asn1 -type f -name '*.*' | while read f; do mv "$f" "${f%.*}"; done
   echo "**********************************"
   echo "Preparing new mibs to be served..."
   echo "**********************************"
-  cp -a /tmp/new_mibs/output/asn1/. /usr/share/nginx/html/asn1/
-  sort -u /tmp/new_mibs/output/index.csv /usr/share/nginx/html/index.csv > /usr/share/nginx/html/index_merged.csv
+  cp -a /app/new_mibs/output/asn1/. /usr/share/nginx/html/asn1/
+  sort -u /app/new_mibs/output/index.csv /usr/share/nginx/html/index.csv > /usr/share/nginx/html/index_merged.csv
   mv /usr/share/nginx/html/index_merged.csv /usr/share/nginx/html/index.csv
 else
   echo "No local mibs. Skipping..."

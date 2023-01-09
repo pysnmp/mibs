@@ -60,7 +60,7 @@ spec:
             - mountPath: /tmp
               name: tmp
           {{- if eq ( include "mibserver.enablePV" . ) "true" }}
-            - mountPath: "/tmp/new_mibs/src/vendor/new"
+            - mountPath: "/app/new_mibs/src/vendor/new"
               name: task-pv-storage
           {{- end }}
       {{- with .Values.nodeSelector }}
