@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "OBJECT-TYPE",
       "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "enterprises",
       "Counter32",
       "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Bits",
+      "Counter64",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
@@ -180,8 +180,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 14:38:58 2023",
-      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 09:46:47 2023",
+      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CADANT-PRODUCTS-MIB"

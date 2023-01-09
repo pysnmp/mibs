@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "enterprises",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
       "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4044,8 +4044,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-BIGIP-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 14:45:47 2023",
-      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 09:52:46 2023",
+      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F5-BIGIP-COMMON-MIB"

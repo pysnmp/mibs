@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
+      "vlanSystem",
       "vlanName",
-      "vlanPort",
-      "vlanCountAPI",
-      "vlanTestAPI",
-      "vlanAMRStats",
       "vlanAPI",
-      "vlanAMRSubnets",
+      "vlanPort",
+      "vlanTestAPI",
+      "vlanCountAPI",
       "vlanAMRRules",
-      "vlanSystem"
+      "vlanAMRSubnets",
+      "vlanAMRStats"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Gauge32",
-      "iso",
-      "Integer32",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "iso",
       "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
       "Counter32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1492,8 +1492,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 14:45:22 2023",
-      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 09:52:23 2023",
+      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTRON-SFPS-VLAN-MIB"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "enterprises",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Integer32",
       "TRAP-TYPE",
-      "Counter32",
-      "iso",
       "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "enterprises",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -750,8 +750,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ctm/CTMMIBCUSTOM",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 14:41:41 2023",
-      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 09:49:10 2023",
+      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTMMIBCUSTOM"

@@ -6,50 +6,50 @@
     ],
     "RMON-MIB": [
       "channelEntry",
-      "matrixControlEntry",
-      "hostControlEntry",
-      "hosts",
-      "matrix",
-      "history",
-      "statistics",
       "filterEntry",
+      "hostControlEntry",
       "etherStatsEntry",
+      "statistics",
       "historyControlEntry",
       "OwnerString",
-      "filter"
+      "matrixControlEntry",
+      "history",
+      "filter",
+      "hosts",
+      "matrix"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
       "Integer32",
-      "IpAddress",
-      "mib-2",
-      "iso",
-      "Bits",
+      "Gauge32",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "Counter64",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "RowStatus",
       "TimeStamp",
-      "RowStatus"
+      "DisplayString"
     ],
     "TOKEN-RING-RMON-MIB": [
+      "tokenRing",
       "sourceRoutingStatsEntry",
       "tokenRingMLStatsEntry",
-      "tokenRing",
       "tokenRingPStatsEntry",
       "ringStationControlEntry"
     ]
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  5 14:38:31 2023",
-      "On host fv-az561-247 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 09:46:23 2023",
+      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RMON2-MIB"
