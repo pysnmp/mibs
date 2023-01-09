@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RADLAN-File (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-File
-# Produced by pysmi-1.1.8 at Mon Jan  9 09:59:32 2023
-# On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 10:22:14 2023
+# On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
 rlFile, = mibBuilder.importSymbols("RADLAN-MIB", "rlFile")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, ModuleIdentity, MibIdentifier, Unsigned32, ObjectIdentity, Counter32, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, IpAddress, Bits, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "MibIdentifier", "Unsigned32", "ObjectIdentity", "Counter32", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "IpAddress", "Bits", "Counter64", "Integer32")
-RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, TimeTicks, Bits, ModuleIdentity, Unsigned32, IpAddress, Counter32, iso, ObjectIdentity, MibIdentifier, NotificationType, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "Bits", "ModuleIdentity", "Unsigned32", "IpAddress", "Counter32", "iso", "ObjectIdentity", "MibIdentifier", "NotificationType", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+RowStatus, TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TruthValue", "DisplayString", "TextualConvention")
 rlFileMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 96, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlFileMibVersion.setStatus('current')
 rlFileTable = MibTable((1, 3, 6, 1, 4, 1, 89, 96, 2), )
@@ -50,4 +50,4 @@ rlFileFreeSizeOfFlash = MibScalar((1, 3, 6, 1, 4, 1, 89, 96, 5), Integer32()).se
 if mibBuilder.loadTexts: rlFileFreeSizeOfFlash.setStatus('current')
 rlFileAuditingEnable = MibScalar((1, 3, 6, 1, 4, 1, 89, 96, 6), TruthValue().clone('true')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlFileAuditingEnable.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-File", rlFileName=rlFileName, rlFileMibVersion=rlFileMibVersion, rlFileActionEntry=rlFileActionEntry, rlFileRowStatus=rlFileRowStatus, rlFileActionName=rlFileActionName, rlFileTable=rlFileTable, rlFileActionCommand=rlFileActionCommand, rlFileFreeSizeOfFlash=rlFileFreeSizeOfFlash, rlFileModificationTime=rlFileModificationTime, rlFileActionNewName=rlFileActionNewName, rlFileEntry=rlFileEntry, rlFileTotalSizeOfFlash=rlFileTotalSizeOfFlash, rlFileActionRowStatus=rlFileActionRowStatus, rlFilePermission=rlFilePermission, rlFileModificationDate=rlFileModificationDate, rlFileSize=rlFileSize, rlFileActionTable=rlFileActionTable, rlFileAuditingEnable=rlFileAuditingEnable, rlFileFlashSize=rlFileFlashSize)
+mibBuilder.exportSymbols("RADLAN-File", rlFileTotalSizeOfFlash=rlFileTotalSizeOfFlash, rlFileFreeSizeOfFlash=rlFileFreeSizeOfFlash, rlFileActionTable=rlFileActionTable, rlFileActionNewName=rlFileActionNewName, rlFileActionEntry=rlFileActionEntry, rlFileEntry=rlFileEntry, rlFileActionName=rlFileActionName, rlFileRowStatus=rlFileRowStatus, rlFileModificationDate=rlFileModificationDate, rlFileName=rlFileName, rlFileMibVersion=rlFileMibVersion, rlFileAuditingEnable=rlFileAuditingEnable, rlFileFlashSize=rlFileFlashSize, rlFileSize=rlFileSize, rlFileModificationTime=rlFileModificationTime, rlFileActionRowStatus=rlFileActionRowStatus, rlFileTable=rlFileTable, rlFilePermission=rlFilePermission, rlFileActionCommand=rlFileActionCommand)

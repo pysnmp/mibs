@@ -5,32 +5,32 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "BITS",
+      "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
       "Bits",
-      "iso",
-      "Unsigned32",
-      "BITS",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "lagMIB": {
@@ -1355,8 +1355,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/quanta/dot3ad.my",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:59:36 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:22:39 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LAG-MIB"

@@ -6,24 +6,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
       "iso",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SUPERMICRO-SMI": [
       "smSSMInfo"
@@ -2622,8 +2622,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/supermicro/SUPERMICRO-SD5-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:01:06 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:23:48 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SUPERMICRO-SD5-MIB"

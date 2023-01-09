@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
-      "cerentRequirements",
       "cerentGeneric",
+      "cerentRequirements",
       "cerentModules"
     ],
     "CERENT-TC": [
-      "CerentAlarmThresholdMonitorType",
+      "CerentPeriod",
       "CerentLocation",
       "CerentMonitorType",
-      "CerentPeriod"
+      "CerentAlarmThresholdMonitorType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
       "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
-      "IpAddress"
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "cerentGenericPmMIB": {
@@ -740,8 +740,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-GENERIC-PM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:51:26 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:14:20 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CERENT-GENERIC-PM-MIB"

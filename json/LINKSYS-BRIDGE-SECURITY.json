@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -17,26 +17,26 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "TimeTicks",
-      "Unsigned32",
+      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
       "iso",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "MacAddress",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlBridgeSecurity": {
@@ -1215,8 +1215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-BRIDGE-SECURITY",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:56:47 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:19:46 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-BRIDGE-SECURITY"

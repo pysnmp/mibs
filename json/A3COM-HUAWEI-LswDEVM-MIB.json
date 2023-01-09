@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "A3COM-HUAWEI-DEVICE-MIB": [
-      "hwLswSlotIndex",
-      "hwLswFrameIndex"
+      "hwLswFrameIndex",
+      "hwLswSlotIndex"
     ],
     "A3COM-HUAWEI-OID-MIB": [
-      "lswCommon",
-      "huaweiUtility"
+      "huaweiUtility",
+      "lswCommon"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
+      "Integer32",
       "iso",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "IpAddress",
-      "Integer32"
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwLswdevMMib": {
@@ -701,8 +701,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3COM-HUAWEI-LswDEVM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:45:36 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:09:15 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "A3COM-HUAWEI-LswDEVM-MIB"

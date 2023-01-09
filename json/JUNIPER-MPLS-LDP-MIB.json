@@ -5,9 +5,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -15,42 +15,42 @@
     "MPLS-TC-STD-MIB": [
       "MplsLsrIdentifier",
       "MplsLabelDistributionMethod",
-      "MplsRetentionMode",
+      "MplsLspType",
       "MplsLdpIdentifier",
       "MplsLabel",
       "MplsLdpLabelType",
-      "MplsLspType"
+      "MplsRetentionMode"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
       "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter32",
       "Counter64",
-      "iso"
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
-      "RowStatus",
       "RowPointer",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TimeInterval",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "StorageType",
+      "TruthValue"
     ]
   },
   "jnxMplsLdpMIB": {
@@ -2014,8 +2014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:56:29 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:19:39 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-MPLS-LDP-MIB"

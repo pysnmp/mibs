@@ -11,14 +11,14 @@
       "IEEE8021PriorityValue"
     ],
     "LLDP-EXT-DOT1-V2-MIB": [
-      "LldpXdot1dcbxTrafficClassValue",
-      "LldpXdot1dcbxSupportedCapacity",
-      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
-      "LldpXdot1dcbxTrafficClassBandwidthValue",
       "LldpXdot1dcbxAppSelector",
+      "LldpXdot1dcbxTrafficSelectionAlgorithm",
       "lldpXdot1dcbxAdminApplicationPriorityAESelector",
-      "LldpXdot1dcbxAppProtocol",
-      "LldpXdot1dcbxTrafficSelectionAlgorithm"
+      "LldpXdot1dcbxTrafficClassBandwidthValue",
+      "LldpXdot1dcbxTrafficClassValue",
+      "lldpXdot1dcbxAdminApplicationPriorityAEProtocol",
+      "LldpXdot1dcbxSupportedCapacity",
+      "LldpXdot1dcbxAppProtocol"
     ],
     "LLDP-V2-MIB": [
       "lldpV2LocPortIfIndex"
@@ -32,26 +32,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "Counter32",
-      "Integer32",
-      "iso",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter64",
       "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "alcatelIND1DcbxMIB": {
@@ -1372,8 +1372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DCBX-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:58:24 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:21:19 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-DCBX-MIB"

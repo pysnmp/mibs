@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
-      "MibIdentifier",
+      "Counter32",
       "TimeTicks",
       "enterprises",
       "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "deliberant": {
@@ -61,8 +61,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/deliberant/DELIBERANT-MIB.mib",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:50:36 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:13:41 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DELIBERANT-MIB"

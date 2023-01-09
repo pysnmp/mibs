@@ -8,44 +8,44 @@
       "Dlink2kVlanList"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
-      "VlanId"
+      "VlanId",
+      "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "Counter64",
-      "OBJECT-TYPE",
       "Bits",
+      "IpAddress",
+      "TimeTicks",
       "Counter32",
-      "iso"
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DateAndTime",
-      "TruthValue",
+      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "dlinkSwDynamicArpInspectionMIB": {
@@ -1190,8 +1190,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DAI-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:51:13 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:14:15 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DLINKSW-DAI-MIB"

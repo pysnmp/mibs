@@ -6,17 +6,17 @@
     ],
     "CM-COMMON-MIB": [
       "CmPmBinAction",
-      "MepDestinationType",
-      "VlanPriority",
-      "OperationalState",
-      "AdminState",
       "SecondaryState",
-      "VlanId"
+      "MepDestinationType",
+      "VlanId",
+      "OperationalState",
+      "VlanPriority",
+      "AdminState"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "networkElementEntry",
       "shelfIndex",
+      "neIndex",
       "slotIndex"
     ],
     "CM-FACILITY-MIB": [
@@ -26,39 +26,39 @@
       "EsaProbePktIntervalType"
     ],
     "IEEE8021-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMepEntry",
+      "Dot1agCfmMepIdOrZero"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
+      "iso",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Counter64",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
       "StorageType",
+      "MacAddress",
       "RowStatus",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "VariablePointer"
     ]
   },
   "cmServiceActivationMIB": {
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:46:22 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:09:53 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CM-SAT-MIB"

@@ -5,49 +5,49 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "F3DisplayString",
-      "OperationalState",
-      "AdminState",
       "SecondaryState",
-      "RestartType"
+      "OperationalState",
+      "RestartType",
+      "AdminState",
+      "F3DisplayString"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "shelfIndex",
+      "neIndex",
       "slotIndex"
     ],
     "CM-REDUNDANCY-MIB": [
       "CmGenPgSwitchoverReason"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "TimeTicks",
       "iso",
       "Counter64",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
       "StorageType",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "VariablePointer"
     ]
   },
   "f3SyncMIB": {
@@ -2529,8 +2529,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SYNC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:46:22 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:09:53 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-SYNC-MIB"

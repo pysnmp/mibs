@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-TC-MIB": [
-      "CItpTcServiceIndicator",
-      "CItpTcPointCode",
-      "CItpTcTranslationType",
-      "CItpTcAclId",
-      "CItpTcSubSystemNumber",
-      "CItpTcPointCodeMask",
-      "CItpTcNumberingPlan",
-      "CItpTcSubSystemNumberMask",
       "CItpTcEncodingSchemeValue",
+      "CItpTcServiceIndicator",
+      "CItpTcNumberingPlan",
+      "CItpTcTranslationType",
+      "CItpTcPointCode",
+      "CItpTcSubSystemNumber",
+      "CItpTcSubSystemNumberMask",
       "CItpTcGlobalTitleSelector",
-      "CItpTcNAI"
+      "CItpTcNAI",
+      "CItpTcPointCodeMask",
+      "CItpTcAclId"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -21,30 +21,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "Counter32",
       "Integer32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
+      "Counter32",
+      "IpAddress",
       "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
-      "IpAddress"
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "RowStatus"
     ]
   },
@@ -738,8 +738,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-ACL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:51:26 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:14:19 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ITP-ACL-MIB"

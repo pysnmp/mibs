@@ -10,58 +10,58 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetZoneIndex",
-      "InetAddressType",
       "InetVersion",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteEntry",
-      "ipCidrRouteNextHop",
       "ipCidrRouteDest",
-      "ipCidrRouteTos",
-      "ipCidrRouteMask"
+      "ipCidrRouteEntry",
+      "ipCidrRouteMask",
+      "ipCidrRouteNextHop",
+      "ipCidrRouteTos"
     ],
     "IP-MIB": [
+      "IpAddressOriginTC",
       "IpAddressStatusTC",
-      "ipAddrEntry",
-      "IpAddressOriginTC"
+      "ipAddrEntry"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "zeroDotZero",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "zeroDotZero"
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "DisplayString",
       "TestAndIncr",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp",
       "RowPointer",
-      "StorageType"
+      "StorageType",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ipSpec": {
@@ -1900,8 +1900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IP",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 09:51:27 2023",
-      "On host fv-az573-126 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:14:20 2023",
+      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-IP"
