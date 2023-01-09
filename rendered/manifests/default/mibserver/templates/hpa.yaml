@@ -1,6 +1,6 @@
 ---
 # Source: mibserver/templates/hpa.yaml
-apiVersion: autoscaling/v2
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: default-mibserver
@@ -21,12 +21,6 @@ spec:
     - type: Resource
       resource:
         name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 80
-    - type: Resource
-      resource:
-        name: memory
         target:
           type: Utilization
           averageUtilization: 80
