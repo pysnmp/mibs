@@ -32,7 +32,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
@@ -62,6 +62,8 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
+            - mountPath: "/app/new_mibs/src/vendor/new"
+              name: task-pv-storage
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -75,3 +77,6 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
+        - name: task-pv-storage
+          persistentVolumeClaim:
+            claimName: default-mibserver

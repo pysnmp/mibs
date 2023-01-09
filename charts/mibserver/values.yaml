@@ -10,54 +10,6 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-podAnnotations: {}
-
-podSecurityContext:
-  fsGroup: 10001
-
-securityContext:
-  capabilities:
-    drop:
-      - ALL
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  runAsUser: 10001
-  runAsGroup: 10001
-
-service:
-  type: ClusterIP
-  port: 80
-
-ingress:
-  enabled: false
-  className: ""
-  annotations:
-    {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -77,11 +29,15 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
-
-tolerations: []
-
-podAntiAffinity: soft
-
-networkPolicy:
-  enabled: False
+localMibs:
+  # pathToMibs is the path on the node where mibserver pod will be scheduled to
+  # inside the directory you can put all the MIB files you want to add to the mibserver
+  # if you're installing mibserver on a multi-node cluster, use persistence.existingClaim instead
+  pathToMibs: ""
+  persistence:
+    # use existingClaim when installing mibserver on a multi-nde cluster
+    # provide an existing PersistentVolumeClaim (works only when pathToMibs is empty)
+    # copy mib files to one of the node and use nodeSelector to schedule the mibserver to that specific node
+    existingClaim: ""
+    storageClass: "microk8s-hostpath"
+    size: 3Gi

@@ -1,0 +1,17 @@
+{{- if eq ( include "mibserver.enablePV" . ) "true" }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "mibserver.fullname" . }}
+  labels:
+    type: local
+    {{- include "mibserver.labels" . | nindent 4 }}
+spec:
+  storageClassName: {{ .Values.localMibs.persistence.storageClass | default "microk8s-hostpath" }}
+  capacity:
+    storage: {{ .Values.localMibs.persistence.size | default "3Gi" }}
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: {{ .Values.localMibs.pathToMibs }}
+{{- end }}
