@@ -15,6 +15,10 @@ dirs:
 	mkdir -p output/json/ || true
 	mkdir -p log || true
 
+render:
+	rm -rf rendered/manifests/*
+	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
+
 standard: dirs $(RFC)
 	@# Compile mibs
 
