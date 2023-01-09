@@ -31,11 +31,11 @@ spec:
           securityContext:
             capabilities:
               drop:
-              - ALL
+                - ALL
             readOnlyRootFilesystem: true
-            runAsGroup: 10001
             runAsNonRoot: true
             runAsUser: 10001
+            runAsGroup: 10001
           image: "ghcr.io/pysnmp/mibs/container:1.14.10"
           imagePullPolicy: IfNotPresent
           env:
@@ -59,9 +59,6 @@ spec:
             requests:
               cpu: 100m
               memory: 128Mi
-          volumeMounts:
-            - mountPath: /tmp
-              name: tmp
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
