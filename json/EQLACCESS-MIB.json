@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
+      "eqlStorageGroupAdminAccountIndex",
       "UTFString",
-      "eqlGroupId",
-      "eqlStorageGroupAdminAccountIndex"
+      "eqlGroupId"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiLocalMemberId",
       "eqliscsiVolumeIndex",
-      "ACLAppliesTo"
+      "ACLAppliesTo",
+      "eqliscsiLocalMemberId"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "enterprises",
       "Counter64",
+      "Integer32",
       "Gauge32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "Counter32",
+      "enterprises",
       "IpAddress",
-      "Unsigned32",
       "iso",
-      "Bits"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowPointer",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "eqlAccessModule": {
@@ -1274,8 +1274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLACCESS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:15:10 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:51 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EQLACCESS-MIB"

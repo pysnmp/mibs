@@ -6,30 +6,30 @@
       "TFilterID"
     ],
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "timetraSRMIBModules",
       "tmnxSRConfs",
-      "tmnxSRNotifyPrefix",
-      "tmnxSRObjs"
+      "timetraSRMIBModules",
+      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
       "SdpId",
+      "ServType",
       "TdmOptionsCasTrunkFraming",
-      "TdmOptionsSigPkts",
-      "ServType"
+      "TdmOptionsSigPkts"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxVcType",
-      "TmnxVcId",
       "TmnxAdminState",
-      "TmnxOperState",
       "TmnxServId",
+      "TmnxVcId",
+      "TmnxOperState",
       "TPolicyStatementNameOrEmpty",
       "TNamedItemOrEmpty",
-      "TmnxVRtrMplsLspID"
+      "TmnxVRtrMplsLspID",
+      "TmnxVcType"
     ],
     "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
-      "vRtrLdpStatus",
-      "vRtrID"
+      "vRtrID",
+      "vRtrLdpStatus"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -44,29 +44,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
+      "IpAddress",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter64",
       "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Gauge32",
+      "Counter64",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "TestAndIncr",
       "TruthValue",
-      "DisplayString"
+      "TimeStamp",
+      "DisplayString",
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "timetraLdpMIBModule": {
@@ -9122,8 +9122,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:21:19 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:35:32 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-LDP-MIB"

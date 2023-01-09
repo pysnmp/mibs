@@ -3,8 +3,8 @@
     "class": "imports",
     "FLOAT-TC-MIB": [
       "Float32TC",
-      "Float128TC",
-      "Float64TC"
+      "Float64TC",
+      "Float128TC"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -24,31 +24,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
       "Counter32",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "slSfp": {
@@ -2400,8 +2400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SFP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:21:25 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:35:42 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SL-SFP-MIB"

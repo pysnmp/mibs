@@ -8,50 +8,50 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
-      "LldpPortIdSubtype",
       "LldpChassisIdSubtype",
-      "LldpManAddress",
-      "LldpPortId"
+      "LldpPortIdSubtype",
+      "LldpChassisId",
+      "LldpPortId",
+      "LldpManAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "zeroDotZero",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "iso",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "zeroDotZero",
       "IpAddress",
-      "Integer32"
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeStamp",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TimeStamp"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportAddress",
-      "TransportDomain"
+      "TransportDomain",
+      "TransportAddress"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:08:52 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:23:52 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IEEE802171-CFM-MIB"

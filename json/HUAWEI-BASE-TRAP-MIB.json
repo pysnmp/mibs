@@ -3,21 +3,21 @@
     "class": "imports",
     "ENTITY-MIB": [
       "entPhysicalClass",
-      "entPhysicalContainedIn",
       "entPhysicalName",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalContainedIn"
     ],
     "HUAWEI-FLASH-MAN-MIB": [
-      "hwStorageName",
+      "hwStorageSpace",
       "hwStorageSpaceFree",
-      "hwStorageSpace"
+      "hwStorageName"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "HUAWEI-SECURITY-STAT-MIB": [
-      "hwSecStatTrapSlot",
-      "hwSecStatTrapCPU"
+      "hwSecStatTrapCPU",
+      "hwSecStatTrapSlot"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
       "IANAItuProbableCause",
@@ -26,33 +26,33 @@
     "IF-MIB": [
       "ifOperStatus",
       "ifName",
-      "ifDescr",
       "ifIndex",
+      "ifDescr",
       "ifAdminStatus"
     ],
     "ITU-ALARM-TC-MIB": [
       "ItuPerceivedSeverity"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
       "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Bits",
+      "Counter64",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "Unsigned32"
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4120,8 +4120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BASE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:17:28 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:31:57 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-BASE-TRAP-MIB"

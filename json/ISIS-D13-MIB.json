@@ -7,32 +7,32 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Counter32",
       "experimental",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
       "TimeTicks",
-      "Integer32"
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "TestAndIncr",
       "RowStatus",
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -5141,8 +5141,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/ISIS-D13-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:08:56 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:23:56 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ISIS-D13-MIB"

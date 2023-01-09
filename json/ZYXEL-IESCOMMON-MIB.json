@@ -3,8 +3,8 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "Timeout",
-      "BridgeId",
-      "MacAddress"
+      "MacAddress",
+      "BridgeId"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -17,31 +17,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Bits",
+      "MibIdentifier",
       "Counter32",
-      "Unsigned32",
       "Integer32",
-      "Gauge32",
       "TRAP-TYPE",
-      "iso",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ],
     "ZYXEL-MIB": [
-      "iesSeries",
-      "iesSeriesCommon"
+      "iesSeriesCommon",
+      "iesSeries"
     ]
   },
   "iesChassis": {
@@ -3206,8 +3206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-IESCOMMON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:25:13 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:39:15 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ZYXEL-IESCOMMON-MIB"

@@ -8,30 +8,30 @@
       "mplsVpnVrfName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
       "iso",
+      "Unsigned32",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "OBJECT-TYPE",
       "Bits",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ATK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:17:28 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:31:57 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-ATK-MIB"

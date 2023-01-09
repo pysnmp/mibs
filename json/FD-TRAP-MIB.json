@@ -11,8 +11,8 @@
     ],
     "FD-ONU-MIB": [
       "uniPortLink",
-      "onuOnLineStatus",
-      "uniPortRstpState"
+      "uniPortRstpState",
+      "onuOnLineStatus"
     ],
     "FD-PERFORMANCE-MIB": [
       "onuTrafficChangeVal",
@@ -20,43 +20,43 @@
       "swSniPortTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
-      "swPortLinkState",
-      "sfpPlugStauts"
+      "sfpPlugStauts",
+      "swPortLinkState"
     ],
     "FD-SYSTEM-MIB": [
-      "userEntryRowStatus",
-      "userPassword",
-      "userName",
       "userPermission",
+      "userEntryRowStatus",
       "ponCardRunningStatus",
-      "loginTimeout",
       "userId",
-      "userAccessDeviceMap",
-      "fanStatusBit",
+      "userName",
       "nonAuthOnuMac",
-      "powerStatusBit"
+      "fanStatusBit",
+      "userPassword",
+      "powerStatusBit",
+      "userAccessDeviceMap",
+      "loginTimeout"
     ],
     "RMON-MIB": [
       "alarmValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
       "IpAddress",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
       "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
       "Gauge32"
     ],
     "SNMPv2-TC": [
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:11:17 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:26:10 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FD-TRAP-MIB"

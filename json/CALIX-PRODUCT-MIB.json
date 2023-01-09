@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "CALIX-SMI": [
-      "calixModules",
-      "calixManagement",
       "calixRegistrations",
-      "calixProducts"
+      "calixProducts",
+      "calixModules",
+      "calixManagement"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -294,8 +294,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/CALIX-PRODUCT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:11:08 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:26:02 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CALIX-PRODUCT-MIB"

@@ -7,24 +7,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
       "TimeTicks",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
       "Integer32",
-      "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "ZYXEL-ES-SMI": [
       "esMgmt"
@@ -38,8 +38,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-ES-RF-MANAGEMENT",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:25:13 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:39:15 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ZYXEL-ES-RF-MANAGEMENT"

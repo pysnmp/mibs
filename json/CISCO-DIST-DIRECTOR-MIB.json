@@ -8,9 +8,9 @@
       "CiscoPort"
     ],
     "DNS-SERVER-MIB": [
-      "DnsNameAsIndex",
+      "DnsName",
       "DnsType",
-      "DnsName"
+      "DnsNameAsIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -20,33 +20,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "Gauge32",
       "Counter64",
-      "iso"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TimeInterval",
+      "TimeStamp"
     ]
   },
   "ciscoDistDirMIB": {
@@ -1995,8 +1995,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIST-DIRECTOR-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:14:18 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:06 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-DIST-DIRECTOR-MIB"

@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcAddressIdOrZero",
-      "fcmInstanceIndex"
+      "fcmInstanceIndex",
+      "FcAddressIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
-      "mib-2",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "IpAddress",
-      "iso"
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "mib-2",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeStamp",
-      "TruthValue",
       "DisplayString",
+      "StorageType",
       "TEXTUAL-CONVENTION",
-      "AutonomousType",
-      "StorageType"
+      "TruthValue",
+      "TimeStamp",
+      "AutonomousType"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpiIndex",
-      "T11FcSpTransforms",
-      "T11FcRoutingControl",
-      "T11FcSpType",
-      "T11FcSpLifetimeLeftUnits",
-      "T11FcSaDirection",
-      "T11FcSpSecurityProtocolId",
       "T11FcSpLifetimeLeft",
-      "T11FcSpPrecedence"
+      "T11FcRoutingControl",
+      "T11FcSpPrecedence",
+      "T11FcSpTransforms",
+      "T11FcSpSecurityProtocolId",
+      "T11FcSaDirection",
+      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpType",
+      "T11FcSpiIndex"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:09:11 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:24:09 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "Gauge32",
+      "Counter64",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
       "MibIdentifier",
       "TimeTicks",
+      "Unsigned32",
       "Counter32",
-      "Counter64",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "VERITAS-REG": [
       "products"
     ],
     "VERITAS-TC": [
-      "Utf8StringShort",
+      "Utf8StringLong",
       "Uint64ReadOnly",
-      "Utf8StringLong"
+      "Utf8StringShort"
     ]
   },
   "veritascc": {
@@ -523,8 +523,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-COMMAND-CENTRAL-MIB.mib",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:24:25 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:38:32 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "VERITAS-COMMAND-CENTRAL-MIB"

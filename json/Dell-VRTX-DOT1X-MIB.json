@@ -8,14 +8,14 @@
       "rnd"
     ],
     "IEEE8021-PAE-MIB": [
+      "PaeControlledPortStatus",
       "dot1xAuthSessionStatsEntry",
-      "dot1xPaePortNumber",
-      "PaeControlledPortStatus"
+      "dot1xPaePortNumber"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex",
-      "dot1qFdbId",
-      "PortList"
+      "PortList",
+      "dot1qFdbId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "TimeTicks",
       "Unsigned32",
-      "Bits",
-      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "Gauge32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rldot1x": {
@@ -1417,8 +1417,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-VRTX-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:13:58 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:28:43 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-VRTX-DOT1X-MIB"

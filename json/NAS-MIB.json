@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Integer32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "TRAP-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Integer32",
       "IpAddress",
-      "TimeTicks"
+      "Unsigned32",
+      "enterprises",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4107,8 +4107,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/qnap/NAS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:22:05 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:36:20 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NAS-MIB"

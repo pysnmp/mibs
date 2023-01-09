@@ -10,26 +10,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Counter64",
-      "Counter32",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
       "iso",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "StorageType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "netSnmpExtendMIB": {
@@ -453,8 +453,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-EXTEND-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:20:21 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:34:37 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NET-SNMP-EXTEND-MIB"

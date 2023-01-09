@@ -5,53 +5,53 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaVoipProtocol",
-      "ArubaVoiceCacBit",
-      "ArubaCallStates",
-      "ArubaVlanValidRange",
-      "ArubaVoipRegState",
       "ArubaEnableValue",
-      "ArubaVoiceCdrDirection"
+      "ArubaVoipProtocol",
+      "ArubaVlanValidRange",
+      "ArubaVoiceCacBit",
+      "ArubaVoipRegState",
+      "ArubaVoiceCdrDirection",
+      "ArubaCallStates"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "Bits",
       "OBJECT-IDENTITY",
       "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "snmpModules",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
       "IpAddress",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter32",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TAddress",
-      "MacAddress",
-      "TruthValue",
-      "TimeInterval",
-      "DisplayString",
-      "TestAndIncr",
-      "RowStatus",
       "PhysAddress",
+      "MacAddress",
+      "TimeInterval",
+      "TAddress",
       "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "DisplayString",
+      "RowStatus",
       "DateAndTime",
+      "StorageType",
+      "TruthValue",
       "TDomain"
     ],
     "WLSX-WLAN-MIB": [
-      "wlanStaPhyAddress",
       "wlanAPMacAddress",
+      "wlanStaPhyAddress",
       "wlanAPBSSID",
       "wlanAPRadioNumber"
     ]
@@ -1080,8 +1080,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-VOICE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:10:15 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:25:14 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WLSX-VOICE-MIB"

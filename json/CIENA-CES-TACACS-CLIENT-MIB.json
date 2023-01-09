@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalMacAddress",
-      "cienaGlobalSeverity"
+      "cienaGlobalSeverity",
+      "cienaGlobalMacAddress"
     ],
     "CIENA-SMI": [
-      "cienaCommon",
-      "cienaCesStatistics"
+      "cienaCesStatistics",
+      "cienaCommon"
     ],
     "CIENA-TC": [
-      "CienaStatsClear",
-      "CienaGlobalState"
+      "CienaGlobalState",
+      "CienaStatsClear"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -22,26 +22,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
       "TimeTicks",
-      "IpAddress",
       "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
+      "Integer32",
+      "Bits",
       "Counter32",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "cienaCesTacacsClientMIB": {
@@ -1953,8 +1953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-TACACS-CLIENT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:11:34 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:26:28 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-TACACS-CLIENT-MIB"

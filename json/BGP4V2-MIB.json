@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2AddressFamilyIdentifierTC",
       "Bgp4V2SubsequentAddressFamilyIdentifierTC",
+      "Bgp4V2AddressFamilyIdentifierTC",
       "Bgp4V2IdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetPortNumber",
-      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAutonomousSystemNumber",
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
+      "Gauge32",
       "iso",
       "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32",
       "TimeTicks",
+      "MibIdentifier",
       "Counter64",
-      "OBJECT-TYPE",
       "mib-2",
+      "OBJECT-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeStamp",
+      "TruthValue",
+      "DisplayString",
       "RowPointer"
     ]
   },
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:15:36 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:30:16 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BGP4V2-MIB"

@@ -16,28 +16,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "enterprises",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
       "TRAP-TYPE",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "iesChassis": {
@@ -3205,8 +3205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-IESCOMMON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:11:08 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:26:02 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "E5-111-IESCOMMON-MIB"

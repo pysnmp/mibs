@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "CISCOSB-MIB": [
-      "switch001",
       "rlAAAEap",
-      "rlRadius"
+      "rlRadius",
+      "switch001"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressIPv6",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressIPv6"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
       "Counter64",
-      "iso"
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DateAndTime",
-      "TruthValue",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "DateAndTime",
+      "TimeStamp",
+      "MacAddress"
     ]
   },
   "rlRadiusServ": {
@@ -1310,8 +1310,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-RADIUSSRV",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:14:20 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:29:08 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-RADIUSSRV"

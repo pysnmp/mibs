@@ -5,30 +5,30 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
       "IpAddress",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
       "MibIdentifier",
-      "TimeTicks"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ],
     "WISI-GTMODULES-MIB": [
       "gtModule"
@@ -3015,8 +3015,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-GTSETTINGS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:24:46 2023",
-      "On host fv-az412-551 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 10:38:50 2023",
+      "On host fv-az244-152 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WISI-GTSETTINGS-MIB"
