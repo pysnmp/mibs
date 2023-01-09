@@ -59,6 +59,9 @@ spec:
             requests:
               cpu: 100m
               memory: 128Mi
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:

@@ -56,8 +56,10 @@ spec:
               port: http-status
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if eq ( include "mibserver.enablePV" . ) "true" }}
           volumeMounts:
+            - mountPath: /tmp
+              name: tmp
+          {{- if eq ( include "mibserver.enablePV" . ) "true" }}
             - mountPath: "/tmp/new_mibs/src/vendor/new"
               name: task-pv-storage
           {{- end }}

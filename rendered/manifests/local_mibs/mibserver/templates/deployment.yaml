@@ -60,6 +60,8 @@ spec:
               cpu: 100m
               memory: 128Mi
           volumeMounts:
+            - mountPath: /tmp
+              name: tmp
             - mountPath: "/tmp/new_mibs/src/vendor/new"
               name: task-pv-storage
       affinity:
