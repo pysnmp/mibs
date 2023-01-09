@@ -5,25 +5,25 @@
       "DocsX509ASN1DEREncodedCertificate"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter32",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Integer32"
+      "enterprises",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/CLAB-DEF-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:34 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:29:54 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CLAB-DEF-MIB"

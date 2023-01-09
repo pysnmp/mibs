@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CTRON-TX-QUEUE-ARBITRATION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-TX-QUEUE-ARBITRATION-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:03:10 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:37:02 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ctTxQArb, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctTxQArb")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, iso, IpAddress, Counter32, Counter64, Bits, ObjectIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, TimeTicks, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "IpAddress", "Counter32", "Counter64", "Bits", "ObjectIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "TimeTicks", "Integer32", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationType, iso, TimeTicks, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, ObjectIdentity, Counter32, Integer32, IpAddress, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "TimeTicks", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Counter32", "Integer32", "IpAddress", "Counter64", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctTxQArbConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 1))
 ctTxQBufferConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 2))
 ctTxQPortGroupMapTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 1, 1), )
@@ -42,4 +42,4 @@ if mibBuilder.loadTexts: ctTxQArbSetting.setDescription("The approximate percent
 ctTxQBufferOptimizeEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctTxQBufferOptimizeEnable.setStatus('optional')
 if mibBuilder.loadTexts: ctTxQBufferOptimizeEnable.setDescription('enabled  (1) - optimize system buffer distribution for default CoS queue\n       disabled (2) - use default system buffer distribution.')
-mibBuilder.exportSymbols("CTRON-TX-QUEUE-ARBITRATION-MIB", ctTxQPortGroup=ctTxQPortGroup, ctTxQBufferOptimizeEnable=ctTxQBufferOptimizeEnable, ctTxQArbNumQueues=ctTxQArbNumQueues, ctTxQBufferConfig=ctTxQBufferConfig, ctTxQPortGroupEntry=ctTxQPortGroupEntry, ctTxQArbEntry=ctTxQArbEntry, ctTxQPortGroupMapTable=ctTxQPortGroupMapTable, ctTxQArbSetting=ctTxQArbSetting, ctTxQArbNumSlices=ctTxQArbNumSlices, ctTxQArbConfig=ctTxQArbConfig, ctTxQArbTable=ctTxQArbTable)
+mibBuilder.exportSymbols("CTRON-TX-QUEUE-ARBITRATION-MIB", ctTxQPortGroupMapTable=ctTxQPortGroupMapTable, ctTxQArbNumSlices=ctTxQArbNumSlices, ctTxQBufferOptimizeEnable=ctTxQBufferOptimizeEnable, ctTxQPortGroup=ctTxQPortGroup, ctTxQArbEntry=ctTxQArbEntry, ctTxQPortGroupEntry=ctTxQPortGroupEntry, ctTxQArbTable=ctTxQArbTable, ctTxQBufferConfig=ctTxQBufferConfig, ctTxQArbSetting=ctTxQArbSetting, ctTxQArbConfig=ctTxQArbConfig, ctTxQArbNumQueues=ctTxQArbNumQueues)

@@ -5,8 +5,8 @@
       "InterfaceIndex"
     ],
     "JUNIPER-SMI": [
-      "jnxDfcNotifications",
-      "jnxMibs"
+      "jnxMibs",
+      "jnxDfcNotifications"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -16,24 +16,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Gauge32",
+      "iso",
       "TimeTicks",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "jnxDfc": {
@@ -1120,8 +1120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-DFC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:06:43 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:42:17 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-DFC-MIB"

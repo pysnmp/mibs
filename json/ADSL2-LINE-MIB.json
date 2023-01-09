@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "ADSL2-LINE-TC-MIB": [
-      "Adsl2InitResult",
-      "Adsl2LineLdsf",
-      "Adsl2RaMode",
-      "Adsl2PsdMaskDs",
-      "Adsl2Direction",
-      "Adsl2SymbolProtection",
-      "Adsl2ConfPmsForce",
-      "Adsl2Unit",
-      "Adsl2LConfProfPmMode",
-      "Adsl2PowerMngState",
-      "Adsl2OperationModes",
-      "Adsl2ScMaskUs",
-      "Adsl2Tssi",
-      "Adsl2ChAtmStatus",
-      "Adsl2ScMaskDs",
-      "Adsl2LineStatus",
       "Adsl2ChPtmStatus",
-      "Adsl2RfiDs",
+      "Adsl2Unit",
+      "Adsl2InitResult",
       "Adsl2TransmissionModeType",
+      "Adsl2LConfProfPmMode",
+      "Adsl2ScMaskUs",
+      "Adsl2RfiDs",
+      "Adsl2ScMaskDs",
+      "Adsl2Tssi",
+      "Adsl2RaMode",
       "Adsl2PsdMaskUs",
+      "Adsl2LineStatus",
+      "Adsl2SymbolProtection",
+      "Adsl2PsdMaskDs",
+      "Adsl2LineLdsf",
+      "Adsl2ConfPmsForce",
+      "Adsl2OperationModes",
+      "Adsl2PowerMngState",
+      "Adsl2Direction",
       "Adsl2LastTransmittedState",
+      "Adsl2ChAtmStatus",
       "Adsl2MaxBer",
       "Adsl2LdsfResult"
     ],
@@ -37,32 +37,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
+      "Integer32",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "transmission",
+      "Counter32",
+      "Bits",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Integer32"
+      "iso",
+      "transmission",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "adsl2MIB": {
@@ -6519,8 +6519,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL2-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:35 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:29:55 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADSL2-LINE-MIB"

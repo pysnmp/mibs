@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
-      "cerentRequirements",
       "cerentModules",
+      "cerentRequirements",
       "cerentGeneric"
     ],
     "HC-RMON-MIB": [
@@ -14,29 +14,29 @@
       "EntryStatus"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "Gauge32",
       "Unsigned32",
-      "IpAddress",
-      "iso",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cerentHcRMON": {
@@ -3191,8 +3191,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-HC-RMON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:26 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:02 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CERENT-HC-RMON-MIB"

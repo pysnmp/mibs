@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "CISCO-MPLS-TC-EXT-STD-MIB": [
-      "CMplsNodeId",
-      "CMplsLocalId",
       "CMplsIccId",
-      "CMplsGlobalId"
+      "CMplsGlobalId",
+      "CMplsLocalId",
+      "CMplsNodeId"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
     ],
     "MPLS-TC-STD-MIB": [
+      "mplsStdMIB",
       "MplsTunnelIndex",
-      "MplsTunnelInstanceIndex",
-      "mplsStdMIB"
+      "MplsTunnelInstanceIndex"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelInstance",
-      "mplsTunnelIndex",
       "mplsTunnelIngressLSRId",
-      "mplsTunnelEgressLSRId"
+      "mplsTunnelIndex",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelInstance"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "Gauge32",
-      "zeroDotZero",
       "Unsigned32",
-      "IpAddress",
-      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "zeroDotZero",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "RowPointer",
       "DisplayString",
       "StorageType",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cmplsTeExtStdMIB": {
@@ -657,8 +657,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:26 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:03 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"

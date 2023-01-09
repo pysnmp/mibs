@@ -12,20 +12,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
-      "iso",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "IpAddress",
       "Counter32",
-      "TimeTicks",
       "Counter64",
-      "MibIdentifier"
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -250,8 +250,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-TRAPCONTROL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:07:14 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:42:53 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NBS-TRAPCONTROL-MIB"

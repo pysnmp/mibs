@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module STORMSHIELD-AUTHUSERS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-AUTHUSERS-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:10:28 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:47:08 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, NotificationType, ModuleIdentity, Bits, Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, ObjectIdentity, MibIdentifier, TimeTicks, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "ModuleIdentity", "Bits", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Counter32", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter64, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, ModuleIdentity, ObjectIdentity, iso, Gauge32, Unsigned32, Counter32, Integer32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "iso", "Gauge32", "Unsigned32", "Counter32", "Integer32", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsUsers = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 2))
 snsUsers.setRevisions(('2017-02-20 00:00',))
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: snsAuthUsersName.setDescription('Username')
 snsAuthUsersDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 2, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsAuthUsersDomain.setStatus('current')
 if mibBuilder.loadTexts: snsAuthUsersDomain.setDescription('Domain name')
-mibBuilder.exportSymbols("STORMSHIELD-AUTHUSERS-MIB", snsAuthUsersTable=snsAuthUsersTable, snsUsers=snsUsers, snsAuthUsersTimeOut=snsAuthUsersTimeOut, snsAuthUsersDomain=snsAuthUsersDomain, snsAuthUsersIPAddr=snsAuthUsersIPAddr, PYSNMP_MODULE_ID=snsUsers, snsAuthUsersName=snsAuthUsersName, snsAuthUsersEntry=snsAuthUsersEntry)
+mibBuilder.exportSymbols("STORMSHIELD-AUTHUSERS-MIB", PYSNMP_MODULE_ID=snsUsers, snsAuthUsersTimeOut=snsAuthUsersTimeOut, snsUsers=snsUsers, snsAuthUsersIPAddr=snsAuthUsersIPAddr, snsAuthUsersTable=snsAuthUsersTable, snsAuthUsersName=snsAuthUsersName, snsAuthUsersEntry=snsAuthUsersEntry, snsAuthUsersDomain=snsAuthUsersDomain)

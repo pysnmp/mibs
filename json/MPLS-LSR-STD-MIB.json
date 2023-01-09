@@ -5,51 +5,51 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "ifCounterDiscontinuityGroup",
+      "InterfaceIndexOrZero",
       "ifGeneralInformationGroup"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsOwner",
-      "MplsBitRate",
       "MplsLabel",
+      "mplsStdMIB",
       "MplsLSPID",
-      "mplsStdMIB"
+      "MplsBitRate",
+      "MplsOwner"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
+      "Integer32",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Counter32",
+      "Bits",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Integer32"
+      "iso",
+      "zeroDotZero",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue",
-      "DisplayString",
+      "RowPointer",
       "StorageType",
-      "RowPointer"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "mplsLsrStdMIB": {
@@ -1830,8 +1830,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:35 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:29:55 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MPLS-LSR-STD-MIB"

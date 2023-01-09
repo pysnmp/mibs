@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CONTROLBOX-TH332-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/controlbox/CONTROLBOX-TH332-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:00:25 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:33:29 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Counter32, enterprises, Integer32, Counter64, IpAddress, NotificationType, iso, TimeTicks, Unsigned32, MibIdentifier, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "enterprises", "Integer32", "Counter64", "IpAddress", "NotificationType", "iso", "TimeTicks", "Unsigned32", "MibIdentifier", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, Bits, NotificationType, Counter32, TimeTicks, ObjectIdentity, ModuleIdentity, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Gauge32, IpAddress, Counter64, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "NotificationType", "Counter32", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Gauge32", "IpAddress", "Counter64", "enterprises")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 th332 = ModuleIdentity((1, 3, 6, 1, 4, 1, 17095, 2))
 th332.setRevisions(('2015-03-23 00:00',))
 
@@ -56,4 +56,4 @@ if mibBuilder.loadTexts: humidityState.setDescription('Current himidity state')
 dewpointState = MibScalar((1, 3, 6, 1, 4, 1, 17095, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("normal", 0), ("alert", 1)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dewpointState.setStatus('current')
 if mibBuilder.loadTexts: dewpointState.setDescription('Current dew point state')
-mibBuilder.exportSymbols("CONTROLBOX-TH332-MIB", dewpointTrap=dewpointTrap, temperature=temperature, deviceID=deviceID, th332=th332, deviceName=deviceName, temperatureState=temperatureState, humidityState=humidityState, dewpointState=dewpointState, humidity=humidity, dewpoint=dewpoint, PYSNMP_MODULE_ID=th332, temperatureTrap=temperatureTrap, control=control, controlbox=controlbox, trapNotifications=trapNotifications, humidityTrap=humidityTrap)
+mibBuilder.exportSymbols("CONTROLBOX-TH332-MIB", controlbox=controlbox, temperatureState=temperatureState, control=control, dewpointTrap=dewpointTrap, humidity=humidity, trapNotifications=trapNotifications, temperatureTrap=temperatureTrap, PYSNMP_MODULE_ID=th332, humidityTrap=humidityTrap, humidityState=humidityState, deviceName=deviceName, deviceID=deviceID, dewpointState=dewpointState, th332=th332, temperature=temperature, dewpoint=dewpoint)

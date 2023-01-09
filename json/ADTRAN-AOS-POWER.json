@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSPower",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSPower"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
       "TimeTicks",
-      "Counter64",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adGenAOSPowerMonitor": {
@@ -435,8 +435,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-POWER",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:47 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:30:12 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADTRAN-AOS-POWER"

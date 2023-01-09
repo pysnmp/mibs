@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-SECURITY-MANAGEMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SECURITY-MANAGEMENT-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:10:05 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:46:39 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Counter64, Bits, iso, Counter32, NotificationType, MibIdentifier, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Counter64", "Bits", "iso", "Counter32", "NotificationType", "MibIdentifier", "ModuleIdentity", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+IpAddress, ModuleIdentity, Unsigned32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, ObjectIdentity, MibIdentifier, iso, TimeTicks, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Unsigned32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "ObjectIdentity", "MibIdentifier", "iso", "TimeTicks", "Bits", "Counter32")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 securityManagement = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 82))
 securityManagement.setRevisions(('2014-04-17 00:00',))
 
@@ -48,4 +48,4 @@ if mibBuilder.loadTexts: serviceOperStatus.setDescription('This object shows ser
 serviceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 82, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: serviceRowStatus.setStatus('current')
 if mibBuilder.loadTexts: serviceRowStatus.setDescription('Status of this conceptual row in servicesTable.\n            ')
-mibBuilder.exportSymbols("SIAE-SECURITY-MANAGEMENT-MIB", serviceAdminStatus=serviceAdminStatus, PYSNMP_MODULE_ID=securityManagement, serviceOperStatus=serviceOperStatus, securityManagementMibVersion=securityManagementMibVersion, securityManagement=securityManagement, serviceEntry=serviceEntry, serviceName=serviceName, serviceProtocolVersion=serviceProtocolVersion, servicesTable=servicesTable, serviceRowStatus=serviceRowStatus, serviceIndex=serviceIndex)
+mibBuilder.exportSymbols("SIAE-SECURITY-MANAGEMENT-MIB", securityManagement=securityManagement, serviceAdminStatus=serviceAdminStatus, serviceRowStatus=serviceRowStatus, serviceOperStatus=serviceOperStatus, serviceProtocolVersion=serviceProtocolVersion, serviceEntry=serviceEntry, serviceIndex=serviceIndex, servicesTable=servicesTable, serviceName=serviceName, securityManagementMibVersion=securityManagementMibVersion, PYSNMP_MODULE_ID=securityManagement)

@@ -8,42 +8,42 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
+      "MwlOnOffSwitch",
       "MwlProfileOwner",
       "MwlNmsInterfaceType",
       "MwlAddressIfAssignmentType",
-      "MwlArrayDataTypeAction",
-      "MwlOnOffSwitch"
+      "MwlArrayDataTypeAction"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
       "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "enterprises",
-      "iso",
+      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "enterprises",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DateAndTime",
-      "TimeStamp",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue",
-      "TimeInterval"
+      "DateAndTime",
+      "TimeInterval",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "mwConfigVlan": {
@@ -483,8 +483,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:03:43 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:37:44 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-VLAN-MIB"

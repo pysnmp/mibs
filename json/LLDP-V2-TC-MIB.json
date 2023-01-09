@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "OBJECT-IDENTITY",
       "Integer32",
-      "org",
-      "Counter32",
-      "IpAddress",
-      "Bits",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "iso",
       "Gauge32",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
       "MibIdentifier",
-      "Unsigned32"
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "org"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lldpV2TcMIB": {
@@ -224,8 +224,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-TC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:15 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:29:33 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LLDP-V2-TC-MIB"

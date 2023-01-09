@@ -6,29 +6,29 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter64",
-      "MibIdentifier",
-      "Gauge32",
       "Unsigned32",
-      "IpAddress",
-      "iso",
-      "Integer32",
       "mib-2",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "tcp": {
@@ -229,8 +229,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-TCPSESSIONS",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:28 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:04 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-TCPSESSIONS"

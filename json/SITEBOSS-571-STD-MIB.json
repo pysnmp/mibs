@@ -5,28 +5,28 @@
       "asentria"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
       "Bits",
-      "iso"
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "s571": {
@@ -28701,8 +28701,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/asentria/SITEBOSS-571-STD-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:58:44 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:31:20 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SITEBOSS-571-STD-MIB"

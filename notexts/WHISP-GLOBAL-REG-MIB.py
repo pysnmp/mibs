@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WHISP-GLOBAL-REG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-GLOBAL-REG-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 10:59:18 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:32:04 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter32, iso, TimeTicks, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Counter64, MibIdentifier, NotificationType, ModuleIdentity, Gauge32, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "iso", "TimeTicks", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Counter64", "MibIdentifier", "NotificationType", "ModuleIdentity", "Gauge32", "Bits", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, Counter64, Integer32, TimeTicks, NotificationType, iso, Bits, enterprises, ObjectIdentity, Counter32, MibIdentifier, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "Integer32", "TimeTicks", "NotificationType", "iso", "Bits", "enterprises", "ObjectIdentity", "Counter32", "MibIdentifier", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 whispGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 161, 19, 1, 1, 1))
 if mibBuilder.loadTexts: whispGlobalRegModule.setLastUpdated('200304100000Z')
 if mibBuilder.loadTexts: whispGlobalRegModule.setOrganization('Motorola')
@@ -34,4 +34,4 @@ canopySnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 250))
 ucos = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 250, 256))
 prizmSnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 1250))
 prizm = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 1000))
-mibBuilder.exportSymbols("WHISP-GLOBAL-REG-MIB", whispAps=whispAps, whispBox=whispBox, prizm=prizm, ucos=ucos, whispCMM=whispCMM, whispPlvGateway=whispPlvGateway, whispGlobalRegModule=whispGlobalRegModule, whispProducts=whispProducts, PYSNMP_MODULE_ID=whispGlobalRegModule, whispPlvModem=whispPlvModem, canopySnmpAgent=canopySnmpAgent, mot=mot, whispModules=whispModules, whispCMM4=whispCMM4, whispSm=whispSm, prizmSnmpAgent=prizmSnmpAgent, whispPlvRepeater=whispPlvRepeater, whispPlvBridge=whispPlvBridge, whispGeneric=whispGeneric, whispPlv=whispPlv, whispRoot=whispRoot, whispReg=whispReg)
+mibBuilder.exportSymbols("WHISP-GLOBAL-REG-MIB", PYSNMP_MODULE_ID=whispGlobalRegModule, prizm=prizm, ucos=ucos, whispProducts=whispProducts, whispPlvRepeater=whispPlvRepeater, whispPlv=whispPlv, whispSm=whispSm, whispCMM=whispCMM, canopySnmpAgent=canopySnmpAgent, whispGlobalRegModule=whispGlobalRegModule, mot=mot, whispPlvGateway=whispPlvGateway, whispAps=whispAps, whispCMM4=whispCMM4, whispBox=whispBox, whispModules=whispModules, whispPlvModem=whispPlvModem, whispGeneric=whispGeneric, prizmSnmpAgent=prizmSnmpAgent, whispRoot=whispRoot, whispReg=whispReg, whispPlvBridge=whispPlvBridge)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SIAE-FEATUREKEYS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-FEATUREKEYS-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:10:05 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:46:39 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Counter64, Bits, iso, Counter32, NotificationType, MibIdentifier, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Counter64", "Bits", "iso", "Counter32", "NotificationType", "MibIdentifier", "ModuleIdentity", "Gauge32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+IpAddress, ModuleIdentity, Unsigned32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, ObjectIdentity, MibIdentifier, iso, TimeTicks, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Unsigned32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "ObjectIdentity", "MibIdentifier", "iso", "TimeTicks", "Bits", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 featureKeys = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 101))
 featureKeys.setRevisions(('2014-02-03 00:00', '2013-04-16 00:00',))
@@ -45,4 +45,4 @@ if mibBuilder.loadTexts: featureKeysLastOperationState.setDescription('This obje
 featureKeysLastOperationFailure = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("noFailure", 1), ("transfer", 2), ("serialNo", 3), ("verifySign", 4), ("primaryDigest", 5), ("secondaryDigest", 6)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: featureKeysLastOperationFailure.setStatus('current')
 if mibBuilder.loadTexts: featureKeysLastOperationFailure.setDescription('This objects is the failure code of the last operation (a SNMP set on\n             radio/line map or a certificate transfer).')
-mibBuilder.exportSymbols("SIAE-FEATUREKEYS-MIB", featureKeysMibVersion=featureKeysMibVersion, featureKeys=featureKeys, featureKeysLastOperationState=featureKeysLastOperationState, featureKeysRadioMap=featureKeysRadioMap, featureKeysLastOperationFailure=featureKeysLastOperationFailure, featureKeysCertificateName=featureKeysCertificateName, featureKeysLineMap=featureKeysLineMap, featureKeysCertificateRemoteIpAddress=featureKeysCertificateRemoteIpAddress, featureKeysActionRequest=featureKeysActionRequest, PYSNMP_MODULE_ID=featureKeys)
+mibBuilder.exportSymbols("SIAE-FEATUREKEYS-MIB", featureKeysLastOperationState=featureKeysLastOperationState, PYSNMP_MODULE_ID=featureKeys, featureKeysLineMap=featureKeysLineMap, featureKeys=featureKeys, featureKeysCertificateRemoteIpAddress=featureKeysCertificateRemoteIpAddress, featureKeysRadioMap=featureKeysRadioMap, featureKeysCertificateName=featureKeysCertificateName, featureKeysLastOperationFailure=featureKeysLastOperationFailure, featureKeysMibVersion=featureKeysMibVersion, featureKeysActionRequest=featureKeysActionRequest)

@@ -12,35 +12,35 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Integer32",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Counter32",
+      "Bits",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Integer32"
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeInterval",
       "TimeStamp",
       "RowPointer",
-      "TruthValue",
-      "DisplayString",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TimeInterval"
     ]
   },
   "mplsLdpMIB": {
@@ -3081,8 +3081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:34 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:29:55 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MPLS-LDP-MIB"

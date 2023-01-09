@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AT-EPSRv2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-EPSRv2-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 10:58:13 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:30:43 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-modules, DisplayStringUnsized = mibBuilder.importSymbols("AT-SMI-MIB", "modules", "DisplayStringUnsized")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Gauge32, TimeTicks, Counter64, Unsigned32, ModuleIdentity, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Bits, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Gauge32", "TimeTicks", "Counter64", "Unsigned32", "ModuleIdentity", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Bits", "iso", "Counter32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+NotificationType, Unsigned32, Gauge32, Counter32, iso, MibIdentifier, Bits, IpAddress, Integer32, ModuleIdentity, Counter64, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Gauge32", "Counter32", "iso", "MibIdentifier", "Bits", "IpAddress", "Integer32", "ModuleIdentity", "Counter64", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
 atEpsrv2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536))
 atEpsrv2.setRevisions(('2011-07-07 00:00', '2010-09-07 00:00', '2010-06-14 04:55', '2010-05-24 01:19', '2010-01-15 00:39', '2008-12-23 01:30',))
 
@@ -93,4 +93,4 @@ if mibBuilder.loadTexts: atEpsrv2HasControlOfPrimaryIf.setDescription('Returns 2
 atEpsrv2HasControlOfSecondaryIf = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 536, 2, 1, 15), TruthValue()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atEpsrv2HasControlOfSecondaryIf.setStatus('current')
 if mibBuilder.loadTexts: atEpsrv2HasControlOfSecondaryIf.setDescription('Returns 2 (false) if the EPSR instance does not have physical\n                 control of its secondary interface because it is on a common\n                 segment and is not the highest priority instance, else it\n                 returns 1 (true).')
-mibBuilder.exportSymbols("AT-EPSRv2-MIB", atEpsrv2VariablesTable=atEpsrv2VariablesTable, atEpsrv2ControlVlanId=atEpsrv2ControlVlanId, atEpsrv2PrimaryIfIsOnCommonSeg=atEpsrv2PrimaryIfIsOnCommonSeg, atEpsrv2HasControlOfSecondaryIf=atEpsrv2HasControlOfSecondaryIf, atEpsrv2PrimaryIfIndex=atEpsrv2PrimaryIfIndex, atEpsrv2DomainID=atEpsrv2DomainID, atEpsrv2SecondaryIfIndex=atEpsrv2SecondaryIfIndex, atEpsrv2SecondaryIfState=atEpsrv2SecondaryIfState, atEpsrv2SecondaryIfIsOnCommonSeg=atEpsrv2SecondaryIfIsOnCommonSeg, atEpsrv2FromState=atEpsrv2FromState, atEpsrv2VariablesEntry=atEpsrv2VariablesEntry, PYSNMP_MODULE_ID=atEpsrv2, AtEpsrv2NodeState=AtEpsrv2NodeState, atEpsrv2Notify=atEpsrv2Notify, atEpsrv2CurrentState=atEpsrv2CurrentState, atEpsrv2DomainName=atEpsrv2DomainName, AtEpsrv2InterfaceState=AtEpsrv2InterfaceState, atEpsrv2NodeTrap=atEpsrv2NodeTrap, atEpsrv2DomainPriority=atEpsrv2DomainPriority, atEpsrv2=atEpsrv2, atEpsrv2HasControlOfPrimaryIf=atEpsrv2HasControlOfPrimaryIf, atEpsrv2PrimaryIfState=atEpsrv2PrimaryIfState, atEpsrv2NodeType=atEpsrv2NodeType, atEpsrv2Events=atEpsrv2Events, atEpsrv2Notifications=atEpsrv2Notifications)
+mibBuilder.exportSymbols("AT-EPSRv2-MIB", atEpsrv2DomainName=atEpsrv2DomainName, atEpsrv2PrimaryIfIndex=atEpsrv2PrimaryIfIndex, atEpsrv2PrimaryIfIsOnCommonSeg=atEpsrv2PrimaryIfIsOnCommonSeg, atEpsrv2VariablesEntry=atEpsrv2VariablesEntry, atEpsrv2FromState=atEpsrv2FromState, atEpsrv2HasControlOfSecondaryIf=atEpsrv2HasControlOfSecondaryIf, atEpsrv2SecondaryIfIsOnCommonSeg=atEpsrv2SecondaryIfIsOnCommonSeg, atEpsrv2SecondaryIfState=atEpsrv2SecondaryIfState, atEpsrv2Notify=atEpsrv2Notify, AtEpsrv2NodeState=AtEpsrv2NodeState, atEpsrv2VariablesTable=atEpsrv2VariablesTable, atEpsrv2HasControlOfPrimaryIf=atEpsrv2HasControlOfPrimaryIf, atEpsrv2NodeType=atEpsrv2NodeType, atEpsrv2DomainID=atEpsrv2DomainID, atEpsrv2CurrentState=atEpsrv2CurrentState, PYSNMP_MODULE_ID=atEpsrv2, atEpsrv2SecondaryIfIndex=atEpsrv2SecondaryIfIndex, atEpsrv2Events=atEpsrv2Events, atEpsrv2PrimaryIfState=atEpsrv2PrimaryIfState, AtEpsrv2InterfaceState=AtEpsrv2InterfaceState, atEpsrv2Notifications=atEpsrv2Notifications, atEpsrv2=atEpsrv2, atEpsrv2NodeTrap=atEpsrv2NodeTrap, atEpsrv2DomainPriority=atEpsrv2DomainPriority, atEpsrv2ControlVlanId=atEpsrv2ControlVlanId)

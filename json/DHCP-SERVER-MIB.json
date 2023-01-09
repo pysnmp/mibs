@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "iso",
       "IpAddress",
+      "Integer32",
+      "Unsigned32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
+      "iso",
       "Counter32",
+      "Bits",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Integer32"
+      "enterprises",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "lucent": {
@@ -1506,8 +1506,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DHCP-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:57:35 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:29:55 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DHCP-SERVER-MIB"

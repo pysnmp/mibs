@@ -18,48 +18,48 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAutonomousSystemNumber"
+      "InetAutonomousSystemNumber",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipv6InterfaceEntry",
-      "ipNetToPhysicalEntry",
       "ipv6RouterAdvertEntry",
-      "ipAddressEntry"
+      "ipAddressEntry",
+      "ipv6InterfaceEntry",
+      "ipNetToPhysicalEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "Gauge32",
-      "zeroDotZero",
       "Unsigned32",
-      "IpAddress",
-      "iso",
-      "Integer32",
       "mib-2",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "zeroDotZero",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "TimeInterval",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:24 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:00 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-IPv6"

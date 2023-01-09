@@ -10,35 +10,35 @@
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
+      "TimeTicks",
+      "enterprises",
       "iso",
+      "Unsigned32",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Integer32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter64",
-      "enterprises",
+      "OBJECT-TYPE",
       "Counter32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "eqlmemberModule": {
@@ -4926,8 +4926,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLMEMBER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:03:10 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:37:01 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EQLMEMBER-MIB"

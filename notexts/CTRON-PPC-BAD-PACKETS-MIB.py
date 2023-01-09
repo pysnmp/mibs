@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-PPC-BAD-PACKETS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PPC-BAD-PACKETS-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:03:05 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:36:56 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ctFWDebug, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctFWDebug")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, MibIdentifier, Gauge32, ModuleIdentity, Integer32, ObjectIdentity, IpAddress, TimeTicks, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "Gauge32", "ModuleIdentity", "Integer32", "ObjectIdentity", "IpAddress", "TimeTicks", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Bits, ModuleIdentity, Unsigned32, iso, TimeTicks, Integer32, Counter64, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Unsigned32", "iso", "TimeTicks", "Integer32", "Counter64", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "Counter32", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctPPCBadPkts = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 29, 1))
 ctPPCBadPktsTotalTx = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 29, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctPPCBadPktsTotalTx.setStatus('mandatory')
@@ -57,4 +57,4 @@ ctPPCBadPktsRxDaSa2 = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 29, 1, 5, 1, 7
 if mibBuilder.loadTexts: ctPPCBadPktsRxDaSa2.setStatus('mandatory')
 ctPPCBadPktsRxData = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 29, 1, 5, 1, 8), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctPPCBadPktsRxData.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-PPC-BAD-PACKETS-MIB", ctPPCBadPktsTxQDepthTable=ctPPCBadPktsTxQDepthTable, ctPPCBadPktsTxQDepthEntry=ctPPCBadPktsTxQDepthEntry, ctPPCBadPktsTotalRx=ctPPCBadPktsTotalRx, ctPPCBadPktsRxIndex=ctPPCBadPktsRxIndex, ctPPCBadPktsRxDescHigh=ctPPCBadPktsRxDescHigh, ctPPCBadPktsRxData=ctPPCBadPktsRxData, ctPPCBadPktsTxTable=ctPPCBadPktsTxTable, ctPPCBadPktsRxTotalErrors=ctPPCBadPktsRxTotalErrors, ctPPCBadPktsRxDaSa2=ctPPCBadPktsRxDaSa2, ctPPCBadPktsRxDaSa1=ctPPCBadPktsRxDaSa1, ctPPCBadPktsTxEntry=ctPPCBadPktsTxEntry, ctPPCBadPktsRxTable=ctPPCBadPktsRxTable, ctPPCBadPktsTxQueues=ctPPCBadPktsTxQueues, ctPPCBadPktsTxQIndex=ctPPCBadPktsTxQIndex, ctPPCBadPktsTotalTx=ctPPCBadPktsTotalTx, ctPPCBadPktsRxEntry=ctPPCBadPktsRxEntry, ctPPCBadPktsTxFulls=ctPPCBadPktsTxFulls, ctPPCBadPktsRxDescLow=ctPPCBadPktsRxDescLow, ctPPCBadPkts=ctPPCBadPkts, ctPPCBadPktsTxQDepth=ctPPCBadPktsTxQDepth, ctPPCBadPktsRxDaSa0=ctPPCBadPktsRxDaSa0, ctPPCBadPktsTxIndex=ctPPCBadPktsTxIndex, ctPPCBadPktsQ=ctPPCBadPktsQ)
+mibBuilder.exportSymbols("CTRON-PPC-BAD-PACKETS-MIB", ctPPCBadPktsTxQIndex=ctPPCBadPktsTxQIndex, ctPPCBadPktsRxDescHigh=ctPPCBadPktsRxDescHigh, ctPPCBadPktsTxQueues=ctPPCBadPktsTxQueues, ctPPCBadPktsRxEntry=ctPPCBadPktsRxEntry, ctPPCBadPktsRxDescLow=ctPPCBadPktsRxDescLow, ctPPCBadPktsTxEntry=ctPPCBadPktsTxEntry, ctPPCBadPktsTxQDepthEntry=ctPPCBadPktsTxQDepthEntry, ctPPCBadPkts=ctPPCBadPkts, ctPPCBadPktsRxIndex=ctPPCBadPktsRxIndex, ctPPCBadPktsQ=ctPPCBadPktsQ, ctPPCBadPktsTxQDepth=ctPPCBadPktsTxQDepth, ctPPCBadPktsTxTable=ctPPCBadPktsTxTable, ctPPCBadPktsRxDaSa2=ctPPCBadPktsRxDaSa2, ctPPCBadPktsTxIndex=ctPPCBadPktsTxIndex, ctPPCBadPktsRxTable=ctPPCBadPktsRxTable, ctPPCBadPktsTotalRx=ctPPCBadPktsTotalRx, ctPPCBadPktsRxData=ctPPCBadPktsRxData, ctPPCBadPktsTotalTx=ctPPCBadPktsTotalTx, ctPPCBadPktsRxDaSa1=ctPPCBadPktsRxDaSa1, ctPPCBadPktsTxFulls=ctPPCBadPktsTxFulls, ctPPCBadPktsRxTotalErrors=ctPPCBadPktsRxTotalErrors, ctPPCBadPktsRxDaSa0=ctPPCBadPktsRxDaSa0, ctPPCBadPktsTxQDepthTable=ctPPCBadPktsTxQDepthTable)

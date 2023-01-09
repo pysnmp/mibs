@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "mcTrapLParam3",
-      "mcTrapID",
       "mcTrapLParam2",
-      "mcTrapExState",
-      "elHardware",
       "mcTrapLParam1",
-      "mcTrapDescr"
+      "mcTrapExState",
+      "mcTrapDescr",
+      "mcTrapID",
+      "mcTrapLParam3",
+      "elHardware"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -17,34 +17,34 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TimeInterval",
+      "MacAddress",
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
-      "TimeStamp",
-      "TimeInterval"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ltp8x": {
@@ -18751,8 +18751,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-LTP8X",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:02:58 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:36:47 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ELTEX-LTP8X"

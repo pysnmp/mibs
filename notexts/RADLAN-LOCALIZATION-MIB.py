@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RADLAN-LOCALIZATION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-LOCALIZATION-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:09:13 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:45:22 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, ObjectIdentity, NotificationType, Unsigned32, ModuleIdentity, Integer32, Counter64, MibIdentifier, Gauge32, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ObjectIdentity", "NotificationType", "Unsigned32", "ModuleIdentity", "Integer32", "Counter64", "MibIdentifier", "Gauge32", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, Gauge32, iso, Integer32, NotificationType, ObjectIdentity, Bits, TimeTicks, Counter32, MibIdentifier, Unsigned32, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "iso", "Integer32", "NotificationType", "ObjectIdentity", "Bits", "TimeTicks", "Counter32", "MibIdentifier", "Unsigned32", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
 rlLocalization = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 103))
 rlLocalization.setRevisions(('2005-03-15 00:00',))
 if mibBuilder.loadTexts: rlLocalization.setLastUpdated('200503150000Z')
@@ -29,4 +29,4 @@ rlWEBlocalizationLanguage = MibScalar((1, 3, 6, 1, 4, 1, 89, 103, 6), RlLanguage
 if mibBuilder.loadTexts: rlWEBlocalizationLanguage.setStatus('current')
 rlLocalizationFiles = MibScalar((1, 3, 6, 1, 4, 1, 89, 103, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("no-translated-files", 1), ("two-messages-files", 2), ("two-web-files", 3), ("two-messages-and-web-files", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlLocalizationFiles.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-LOCALIZATION-MIB", rlLocalization=rlLocalization, rlLocalizationLanguage=rlLocalizationLanguage, rlLocalizationFiles=rlLocalizationFiles, PYSNMP_MODULE_ID=rlLocalization, RlLanguage=RlLanguage, rlLocalizationMibVersion=rlLocalizationMibVersion, rlWEBlocalizationLanguage=rlWEBlocalizationLanguage)
+mibBuilder.exportSymbols("RADLAN-LOCALIZATION-MIB", PYSNMP_MODULE_ID=rlLocalization, rlLocalizationMibVersion=rlLocalizationMibVersion, rlLocalizationLanguage=rlLocalizationLanguage, rlLocalizationFiles=rlLocalizationFiles, rlLocalization=rlLocalization, RlLanguage=RlLanguage, rlWEBlocalizationLanguage=rlWEBlocalizationLanguage)

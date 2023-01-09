@@ -9,23 +9,23 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
       "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
       "iso",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
@@ -1572,8 +1572,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-SYSINFO-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 10:58:15 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:30:46 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AT-SYSINFO-MIB"

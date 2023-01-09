@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
       "Integer32",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "WAYSTREAM-SMI": [
-      "wsExperiment",
-      "wsMgmt"
+      "wsMgmt",
+      "wsExperiment"
     ]
   },
   "ibos": {
@@ -2691,8 +2691,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:11:18 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:48:16 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WAYSTREAM-MIB"

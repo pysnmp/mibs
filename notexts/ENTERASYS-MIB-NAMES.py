@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ENTERASYS-MIB-NAMES (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/ENTERASYS-MIB-NAMES
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:03:05 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:36:57 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, MibIdentifier, ObjectIdentity, ModuleIdentity, Integer32, enterprises, Gauge32, IpAddress, Bits, iso, TimeTicks, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "ObjectIdentity", "ModuleIdentity", "Integer32", "enterprises", "Gauge32", "IpAddress", "Bits", "iso", "TimeTicks", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Bits, ModuleIdentity, Unsigned32, iso, TimeTicks, enterprises, Integer32, Counter64, MibIdentifier, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Unsigned32", "iso", "TimeTicks", "enterprises", "Integer32", "Counter64", "MibIdentifier", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter32", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 etsysModuleName = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 1))
 etsysModuleName.setRevisions(('2003-11-06 15:15', '2003-10-23 17:19', '2002-06-14 16:02', '2002-06-14 14:02', '2000-11-13 21:21', '2000-10-05 13:00', '2000-04-07 00:00', '2000-03-21 00:00',))
 if mibBuilder.loadTexts: etsysModuleName.setLastUpdated('200311061515Z')
@@ -30,4 +30,4 @@ etsysConformName = ObjectIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 3, 1))
 if mibBuilder.loadTexts: etsysConformName.setStatus('obsolete')
 etsysConformOID = ObjectIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 3, 2))
 if mibBuilder.loadTexts: etsysConformOID.setStatus('obsolete')
-mibBuilder.exportSymbols("ENTERASYS-MIB-NAMES", etsysOids=etsysOids, PYSNMP_MODULE_ID=etsysModuleName, etsysConformance=etsysConformance, etsysModules=etsysModules, etsysNamesMib=etsysNamesMib, etsysConformOID=etsysConformOID, etsysAgentCaps=etsysAgentCaps, etsysX509Pki=etsysX509Pki, enterasys=enterasys, etsysMibs=etsysMibs, etsysModuleName=etsysModuleName, etsysConformName=etsysConformName)
+mibBuilder.exportSymbols("ENTERASYS-MIB-NAMES", etsysAgentCaps=etsysAgentCaps, etsysX509Pki=etsysX509Pki, etsysConformName=etsysConformName, etsysConformance=etsysConformance, etsysModules=etsysModules, etsysConformOID=etsysConformOID, etsysMibs=etsysMibs, etsysModuleName=etsysModuleName, etsysOids=etsysOids, enterasys=enterasys, etsysNamesMib=etsysNamesMib, PYSNMP_MODULE_ID=etsysModuleName)

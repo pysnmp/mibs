@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-QUEUE-DEPTH-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-QUEUE-DEPTH-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:10:05 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:46:39 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Counter64, Bits, iso, Counter32, NotificationType, MibIdentifier, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Counter64", "Bits", "iso", "Counter32", "NotificationType", "MibIdentifier", "ModuleIdentity", "Gauge32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+IpAddress, ModuleIdentity, Unsigned32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, ObjectIdentity, MibIdentifier, iso, TimeTicks, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Unsigned32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "ObjectIdentity", "MibIdentifier", "iso", "TimeTicks", "Bits", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 queueDepth = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 84))
 queueDepth.setRevisions(('2014-05-20 00:00',))
@@ -58,4 +58,4 @@ if mibBuilder.loadTexts: qdProfileMismatchAlarm.setDescription('This alarm is ra
 qdProfileMismatchAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 6), AlarmSeverityCode().clone('warningTrapEnable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: qdProfileMismatchAlarmSeverityCode.setStatus('current')
 if mibBuilder.loadTexts: qdProfileMismatchAlarmSeverityCode.setDescription('Defines the severity associated to the qdProfileMismatchAlarm\n             and enables/disables the trap generation on status change event.')
-mibBuilder.exportSymbols("SIAE-QUEUE-DEPTH-MIB", qdProfileTable=qdProfileTable, queueDepthMibVersion=queueDepthMibVersion, qdProfileDescription=qdProfileDescription, qdProfileSelect=qdProfileSelect, qdProfileMismatchAlarm=qdProfileMismatchAlarm, queueDepth=queueDepth, qdProfileIndex=qdProfileIndex, qdActualProfile=qdActualProfile, qdProfileMismatchAlarmSeverityCode=qdProfileMismatchAlarmSeverityCode, qdProfileName=qdProfileName, qdProfileEntry=qdProfileEntry, DisplayString1024=DisplayString1024, PYSNMP_MODULE_ID=queueDepth)
+mibBuilder.exportSymbols("SIAE-QUEUE-DEPTH-MIB", PYSNMP_MODULE_ID=queueDepth, qdProfileEntry=qdProfileEntry, qdActualProfile=qdActualProfile, queueDepth=queueDepth, qdProfileSelect=qdProfileSelect, qdProfileIndex=qdProfileIndex, queueDepthMibVersion=queueDepthMibVersion, qdProfileTable=qdProfileTable, qdProfileMismatchAlarm=qdProfileMismatchAlarm, qdProfileMismatchAlarmSeverityCode=qdProfileMismatchAlarmSeverityCode, qdProfileDescription=qdProfileDescription, qdProfileName=qdProfileName, DisplayString1024=DisplayString1024)

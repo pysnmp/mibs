@@ -12,28 +12,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "enterprises",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Bits",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
       "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "RowPointer",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "RowPointer",
-      "DisplayString",
       "DateAndTime",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -1270,8 +1270,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-NWA-SERIES_v1-4-2",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:11:44 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:48:53 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ZYXEL-NWA-SERIES_v1-4-2"

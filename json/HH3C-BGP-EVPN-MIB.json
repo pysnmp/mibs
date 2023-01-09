@@ -10,24 +10,24 @@
     ],
     "SNMPv2-SMI": [
       "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
       "IpAddress",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "TimeTicks",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "hh3cBgpEvpn": {
@@ -430,8 +430,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-BGP-EVPN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 11:00:22 2023",
-      "On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan  9 13:33:26 2023",
+      "On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-BGP-EVPN-MIB"

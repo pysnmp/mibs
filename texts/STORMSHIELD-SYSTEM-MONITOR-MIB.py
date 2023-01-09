@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-SYSTEM-MONITOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-SYSTEM-MONITOR-MIB
-# Produced by pysmi-1.1.8 at Mon Jan  9 11:10:28 2023
-# On host fv-az402-229 platform Linux version 5.15.0-1024-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan  9 13:47:08 2023
+# On host fv-az210-608 platform Linux version 5.15.0-1024-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, NotificationType, ModuleIdentity, Unsigned32, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, ObjectIdentity, MibIdentifier, TimeTicks, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "ModuleIdentity", "Unsigned32", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Counter32", "IpAddress")
-DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+Counter64, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, ModuleIdentity, ObjectIdentity, iso, Unsigned32, Gauge32, Counter32, Integer32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "iso", "Unsigned32", "Gauge32", "Counter32", "Integer32", "IpAddress")
+TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsSystemMonitor = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 10))
 snsSystemMonitor.setRevisions(('2017-02-20 00:00',))
@@ -105,4 +105,4 @@ if mibBuilder.loadTexts: snsBypassRunTime.setDescription('Run-Time Bypass status
 snsBypassWatchdog = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 10, 8, 1, 6), TruthValue()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsBypassWatchdog.setStatus('current')
 if mibBuilder.loadTexts: snsBypassWatchdog.setDescription('Run-Time Watchdog Timer status')
-mibBuilder.exportSymbols("STORMSHIELD-SYSTEM-MONITOR-MIB", snsBypassI2CAddress=snsBypassI2CAddress, snsDate=snsDate, snsPowerSupplyEntry=snsPowerSupplyEntry, snsCpuTemp=snsCpuTemp, snsBypassWatchdog=snsBypassWatchdog, snsBypassJustOn=snsBypassJustOn, snsDiskEntrySmartResult=snsDiskEntrySmartResult, snsSystemMonitor=snsSystemMonitor, snsPowerSupplyTable=snsPowerSupplyTable, snsBypassEntry=snsBypassEntry, snsCpuIndex=snsCpuIndex, snsBypassTable=snsBypassTable, snsDiskEntryRaidStatus=snsDiskEntryRaidStatus, snsDiskEntry=snsDiskEntry, snsBypassSystemOff=snsBypassSystemOff, snsDiskEntryPosition=snsDiskEntryPosition, snsPowerSupplyPowered=snsPowerSupplyPowered, snsDiskEntryIndex=snsDiskEntryIndex, snsDiskEntryDiskName=snsDiskEntryDiskName, snsBypassRunTime=snsBypassRunTime, snsUptime=snsUptime, snsMem=snsMem, snsBypassIndex=snsBypassIndex, snsCpuEntry=snsCpuEntry, PYSNMP_MODULE_ID=snsSystemMonitor, snsDiskTable=snsDiskTable, snsDiskEntryIsRaid=snsDiskEntryIsRaid, snsCpuTable=snsCpuTable, snsPowerSupplyIndex=snsPowerSupplyIndex, snsStatTime=snsStatTime)
+mibBuilder.exportSymbols("STORMSHIELD-SYSTEM-MONITOR-MIB", snsBypassTable=snsBypassTable, snsDiskEntryDiskName=snsDiskEntryDiskName, snsSystemMonitor=snsSystemMonitor, snsBypassEntry=snsBypassEntry, snsBypassRunTime=snsBypassRunTime, snsBypassI2CAddress=snsBypassI2CAddress, snsDiskEntryRaidStatus=snsDiskEntryRaidStatus, snsStatTime=snsStatTime, snsBypassJustOn=snsBypassJustOn, snsCpuTemp=snsCpuTemp, snsPowerSupplyIndex=snsPowerSupplyIndex, snsDiskEntry=snsDiskEntry, snsDiskEntrySmartResult=snsDiskEntrySmartResult, snsPowerSupplyEntry=snsPowerSupplyEntry, snsDate=snsDate, snsBypassWatchdog=snsBypassWatchdog, snsCpuEntry=snsCpuEntry, snsBypassIndex=snsBypassIndex, snsDiskEntryIndex=snsDiskEntryIndex, snsDiskTable=snsDiskTable, snsCpuIndex=snsCpuIndex, snsPowerSupplyTable=snsPowerSupplyTable, snsCpuTable=snsCpuTable, snsMem=snsMem, PYSNMP_MODULE_ID=snsSystemMonitor, snsUptime=snsUptime, snsDiskEntryIsRaid=snsDiskEntryIsRaid, snsBypassSystemOff=snsBypassSystemOff, snsDiskEntryPosition=snsDiskEntryPosition, snsPowerSupplyPowered=snsPowerSupplyPowered)
