@@ -62,7 +62,7 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
-            - mountPath: "/app/new_mibs/src/vendor/new"
+            - mountPath: "/app/new_mibs/src/vendor"
               name: task-pv-storage
       affinity:
         podAntiAffinity:
