@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalName",
-      "entPhysicalIndex",
       "entPhysicalContainedIn",
-      "entPhysicalClass"
+      "entPhysicalClass",
+      "entPhysicalIndex",
+      "entPhysicalName"
     ],
     "HUAWEI-FLASH-MAN-MIB": [
+      "hwStorageSpace",
       "hwStorageName",
-      "hwStorageSpaceFree",
-      "hwStorageSpace"
+      "hwStorageSpaceFree"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -24,35 +24,35 @@
       "IANAItuEventType"
     ],
     "IF-MIB": [
-      "ifOperStatus",
-      "ifName",
+      "ifIndex",
       "ifAdminStatus",
       "ifDescr",
-      "ifIndex"
+      "ifOperStatus",
+      "ifName"
     ],
     "ITU-ALARM-TC-MIB": [
       "ItuPerceivedSeverity"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
       "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "iso",
-      "Unsigned32",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
       "IpAddress",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4120,8 +4120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BASE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:07:00 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:58:01 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-BASE-TRAP-MIB"

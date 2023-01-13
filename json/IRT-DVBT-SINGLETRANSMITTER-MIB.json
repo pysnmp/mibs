@@ -8,17 +8,17 @@
       "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "MuteOk",
-      "SelectOnOff",
-      "OkNotOk",
+      "PresentNotPresent",
+      "SelectManualAuto",
       "FaultOK",
-      "dvbT",
       "SFNMFN",
       "LocalRemote",
+      "OkNotOk",
+      "dvbT",
       "Input1Input2",
-      "PresentNotPresent",
+      "SelectOnOff",
       "WarningOK",
-      "SelectManualAuto"
+      "MuteOk"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -26,25 +26,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysLocation",
       "sysDescr",
-      "sysName",
-      "sysLocation"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
       "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32"
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:13:35 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:05:58 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

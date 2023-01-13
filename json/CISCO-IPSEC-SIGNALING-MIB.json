@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
-      "CIPsecIkeHashAlgorithm",
-      "CIPsecTunnelStatus",
-      "CIPsecControlProtocol",
       "CIPsecEncryptionKeySize",
       "CIPsecEncryptAlgorithm",
-      "CIPsecPhase1PeerIdentityType",
       "CIPsecPhase1TunnelIndex",
+      "CIPsecTunnelStatus",
+      "CIPsecPhase1PeerIdentityType",
+      "CIPsecIkeHashAlgorithm",
+      "CIPsecControlProtocol",
       "CIPsecIkeAuthMethod"
     ],
     "CISCO-SMI": [
@@ -18,32 +18,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Integer32",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter64",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY"
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString",
-      "TimeInterval",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "ciscoIPsecSignalingMIB": {
@@ -2290,8 +2290,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-SIGNALING-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:03:19 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:53:55 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IPSEC-SIGNALING-MIB"

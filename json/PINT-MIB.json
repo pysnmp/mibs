@@ -5,26 +5,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
+      "Bits",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Counter64",
+      "OBJECT-IDENTITY",
       "mib-2",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PINT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 11:57:02 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:47:18 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PINT-MIB"

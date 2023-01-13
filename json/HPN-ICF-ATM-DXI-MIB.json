@@ -12,29 +12,29 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "iso",
-      "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -499,8 +499,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-ATM-DXI-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:07:49 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:59:36 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-ATM-DXI-MIB"

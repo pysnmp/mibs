@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
       "Counter32",
-      "TimeTicks"
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ibm": {
@@ -299,8 +299,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMNETU-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:08:05 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:59:09 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IBMNETU-MIB"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "Unsigned32",
+      "TRAP-TYPE",
+      "enterprises",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
       "TimeTicks",
-      "enterprises"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -269,8 +269,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ict/ICT-SINE-WAVE-INVERTER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:08:16 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:59:24 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ICT-SINE-WAVE-INVERTER-MIB"

@@ -5,29 +5,29 @@
       "dkt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
       "Gauge32",
-      "iso",
-      "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "genericMIB": {
@@ -110,8 +110,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-GENERIC-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:03:03 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:53:37 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DKT-GENERIC-MIB"

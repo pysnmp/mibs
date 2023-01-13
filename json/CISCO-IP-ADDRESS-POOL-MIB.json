@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "CISCO-IP-ADDRESS-POOL-TC-MIB": [
+      "IpAddrPoolInstanceIdentifierOrZero",
       "IpAddrPoolInstanceIdentifier",
       "IpAddressPoolGroupNameOrNull",
-      "IpAddrPoolInstanceIdentifierOrZero",
+      "IpAddressPoolThresholdUnits",
       "IpAddressPoolGroupName",
-      "IpAddressPoolNameOrNull",
-      "IpAddressPoolThresholdUnits"
+      "IpAddressPoolNameOrNull"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,34 +18,34 @@
       "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
       "Counter32",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString",
-      "RowPointer",
-      "RowStatus",
-      "TruthValue",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ciscoIpAddressPoolMIB": {
@@ -1677,8 +1677,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-ADDRESS-POOL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:03:16 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:53:52 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IP-ADDRESS-POOL-MIB"

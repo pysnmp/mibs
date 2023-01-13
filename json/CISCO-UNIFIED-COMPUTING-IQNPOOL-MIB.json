@@ -5,25 +5,25 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoAlarmSeverity",
-      "TimeIntervalSec",
+      "CiscoNetworkAddress",
       "Unsigned64",
-      "CiscoNetworkAddress"
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectId",
-      "CucsManagedObjectDn",
-      "ciscoUnifiedComputingMIBObjects"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsIqnpoolPoolAssignmentOrder",
-      "CucsIqnpoolTransportBlockFrom",
       "CucsPolicyPolicyOwner",
-      "CucsIqnpoolBlockTo",
-      "CucsIqnpoolTransportBlockTo",
+      "CucsIqnpoolPoolAssignmentOrder",
       "CucsPoolElementOwner",
-      "CucsIqnpoolBlockFrom"
+      "CucsIqnpoolBlockTo",
+      "CucsIqnpoolBlockFrom",
+      "CucsIqnpoolTransportBlockTo",
+      "CucsIqnpoolTransportBlockFrom"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -38,29 +38,29 @@
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
       "Counter32",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "RowPointer",
       "DateAndTime",
-      "MacAddress",
-      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowPointer",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TimeInterval",
+      "MacAddress"
     ]
   },
   "cucsIqnpoolObjects": {
@@ -891,8 +891,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:03:13 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:53:49 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-IQNPOOL-MIB"

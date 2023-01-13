@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSConformance",
-      "adGenAOSMef"
+      "adGenAOSMef",
+      "adGenAOSConformance"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfValidIntervals",
-      "HCPerfTotalCount",
-      "HCPerfIntervalCount",
       "HCPerfTimeElapsed",
+      "HCPerfIntervalCount",
       "HCPerfInvalidIntervals",
-      "HCPerfCurrentCount"
+      "HCPerfCurrentCount",
+      "HCPerfValidIntervals",
+      "HCPerfTotalCount"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
-      "iso",
       "Counter64",
-      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32"
+      "iso",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAosMefPerCosPerUniPerfHistoryMib": {
@@ -925,8 +925,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 11:57:19 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:47:37 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADTRAN-MEF-PER-COS-PER-UNI-PERF-HISTORY-MIB"

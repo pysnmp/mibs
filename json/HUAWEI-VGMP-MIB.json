@@ -8,31 +8,31 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
       "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "iso",
-      "Unsigned32",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
       "IpAddress",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "hwVgmpMib": {
@@ -1284,8 +1284,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VGMP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 12:07:01 2023",
-      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 13:58:02 2023",
+      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-VGMP-MIB"
