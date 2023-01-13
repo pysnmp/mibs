@@ -5,11 +5,11 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaActiveState",
-      "ArubaEnableValue",
-      "ArubaPhyType",
       "ArubaAuthenticationMethods",
+      "ArubaEnableValue",
+      "ArubaActiveState",
       "ArubaEncryptionMethods",
+      "ArubaPhyType",
       "ArubaFrameType",
       "ArubaRogueApType"
     ],
@@ -19,34 +19,34 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Integer32",
+      "iso",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
       "snmpModules",
-      "Bits"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TimeInterval",
-      "StorageType",
-      "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "PhysAddress",
-      "TDomain",
       "TruthValue",
-      "TAddress"
+      "TAddress",
+      "StorageType",
+      "TimeInterval",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TDomain"
     ]
   },
   "wlsxMobilityMIB": {
@@ -892,8 +892,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MOBILITY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan  9 14:06:33 2023",
-      "On host fv-az796-744 platform Linux version 5.15.0-1024-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 11:58:21 2023",
+      "On host fv-az218-3 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WLSX-MOBILITY-MIB"
