@@ -27,7 +27,7 @@ standard: dirs $(RFC)
 	./scripts/vendor.sh standard	
 
 vendor:
-	./scripts/vendor.sh vendorsingle.sh vendor
+	./scripts/vendor.sh vendor
 
 localmibs:
 	find src/vendor -type d -maxdepth 1 -mindepth 1   | sort >list.tmp
