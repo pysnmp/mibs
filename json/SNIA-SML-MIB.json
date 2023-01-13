@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "enterprises",
       "OBJECT-IDENTITY",
       "Counter64",
-      "Unsigned32"
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "UShortReal": {
@@ -3601,8 +3601,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/SNIA-SML-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 13:59:07 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:34:06 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SNIA-SML-MIB"

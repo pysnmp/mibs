@@ -12,31 +12,31 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "iso",
+      "Integer32",
       "Unsigned32",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "MacAddress",
       "RowStatus",
-      "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hh3cDhcpRelay": {
@@ -792,8 +792,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DHCPRELAY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 13:51:02 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:28:26 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-DHCPRELAY-MIB"

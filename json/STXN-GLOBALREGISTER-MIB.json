@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
       "Gauge32",
-      "Integer32",
-      "Counter32",
-      "enterprises",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "iso",
-      "TimeTicks"
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "stxnGlobalRegModule": {
@@ -299,8 +299,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/STXN-GLOBALREGISTER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 13:48:56 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:26:56 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "STXN-GLOBALREGISTER-MIB"

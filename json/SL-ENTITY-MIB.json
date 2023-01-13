@@ -11,36 +11,36 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter32",
-      "IpAddress",
+      "Bits",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "mib-2",
+      "IpAddress",
+      "MibIdentifier",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "mib-2",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
+      "OBJECT-TYPE",
       "iso",
-      "Gauge32"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TDomain",
-      "RowStatus",
+      "PhysAddress",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "TAddress",
-      "AutonomousType",
-      "TruthValue",
-      "PhysAddress",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TDomain",
+      "TimeStamp",
+      "AutonomousType"
     ]
   },
   "slmEntity": {
@@ -503,8 +503,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:03:42 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:36:35 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SL-ENTITY-MIB"

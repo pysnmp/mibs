@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpHelloTime",
-      "dot1dStpMaxAge",
-      "dot1dStpRootCost",
+      "dot1dStpRootPort",
       "dot1dStpPortDesignatedPort",
-      "dot1dStpPortDesignatedRoot",
-      "dot1dStpDesignatedRoot",
+      "dot1dStpRootCost",
       "dot1dStpPortDesignatedCost",
+      "dot1dStpPortDesignatedRoot",
+      "dot1dStpHelloTime",
       "dot1dStpPortState",
       "dot1dStpForwardDelay",
-      "dot1dStpPortDesignatedBridge",
-      "dot1dStpRootPort"
+      "dot1dStpMaxAge",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpPortDesignatedBridge"
     ],
     "IF-MIB": [
-      "ifOutDiscards",
       "ifInErrors",
-      "ifOutErrors"
+      "ifOutErrors",
+      "ifOutDiscards"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "TRAP-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
       "enterprises",
-      "iso"
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 13:55:02 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:31:20 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CT-ELS10-MIB"

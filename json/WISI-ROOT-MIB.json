@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "Counter32",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
       "TimeTicks",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
       "MibIdentifier",
-      "enterprises"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -95,8 +95,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:08:18 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:39:32 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WISI-ROOT-MIB"

@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "CISCO-OSPF-MIB": [
-      "cospfShamLinksRemoteIpAddrType",
       "cospfShamLinkState",
-      "cospfShamLinkNbrIpAddr",
+      "cospfShamLinksLocalIpAddr",
+      "cospfShamLinkNbrState",
+      "cospfLsdbType",
       "cospfShamLinksAreaId",
+      "cospfShamLinkNbrIpAddr",
+      "cospfShamLinksRemoteIpAddr",
+      "cospfAreaNssaTranslatorState",
       "cospfShamLinksState",
       "cospfShamLinksLocalIpAddrType",
-      "cospfShamLinkNeighborId",
-      "cospfShamLinkNbrState",
-      "cospfShamLinksRemoteIpAddr",
+      "cospfShamLinksRemoteIpAddrType",
       "cospfShamLinkNbrArea",
-      "cospfShamLinkNbrRtrId",
-      "cospfShamLinksLocalIpAddr",
       "cospfShamLinkAreaId",
-      "cospfLsdbType",
+      "cospfShamLinkNbrRtrId",
+      "cospfShamLinkLocalIpAddress",
       "cospfShamLinkNbrIpAddrType",
-      "cospfAreaNssaTranslatorState",
-      "cospfShamLinkLocalIpAddress"
+      "cospfShamLinkNeighborId"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
     ],
     "OSPF-MIB": [
-      "ospfVirtIfNeighbor",
-      "ospfNbrRtrId",
-      "ospfRouterId",
-      "ospfAddressLessIf",
-      "ospfLsdbRouterId",
-      "ospfVirtIfAreaId",
       "ospfAreaId",
+      "ospfVirtIfNeighbor",
       "ospfLsdbLsid",
       "ospfIfIpAddress",
-      "ospfLsdbAreaId"
+      "ospfLsdbRouterId",
+      "ospfLsdbAreaId",
+      "ospfRouterId",
+      "ospfAddressLessIf",
+      "ospfVirtIfAreaId",
+      "ospfNbrRtrId"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -41,20 +41,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
       "TimeTicks",
-      "iso"
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -840,8 +840,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OSPF-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 13:53:53 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:30:33 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-OSPF-TRAP-MIB"

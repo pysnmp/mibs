@@ -7,32 +7,32 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "iso",
       "Integer32",
-      "enterprises"
+      "TimeTicks",
+      "enterprises",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "atmfImaMib": {
@@ -3079,8 +3079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IMA-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 13:47:18 2023",
-      "On host fv-az178-827 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 13 14:25:35 2023",
+      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IMA-MIB"
