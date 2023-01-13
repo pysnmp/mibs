@@ -26,14 +26,18 @@ standard: dirs $(RFC)
 	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
 	./scripts/vendor.sh standard	
 
-vendor: dirs $(RFC)
+vendor:
 	./scripts/vendor.sh vendor
+
+localmibs:
+	find src/vendor -type d -maxdepth 1 -mindepth 1   | sort >list.tmp
+	while read line; do ./scripts/localmibs.sh "$$line"; done < list.tmp
 
 index: standard vendor ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
 
-index-local-mibs: vendor
+index-local-mibs: dirs $(RFC) localmibs
 	touch output/.nojekyll
 	poetry run python index.py
 
@@ -50,7 +54,7 @@ compile-changed:  ## Compile With Texts all MIBs into .py files
 compile-with-texts:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(ls mibs/asn1); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump.py \
+	  poetry run mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
@@ -61,7 +65,7 @@ compile-with-texts:  ## Compile With Texts all MIBs into .py files
 compile-with-texts-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump.py \
+	  poetry run mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
@@ -72,7 +76,7 @@ compile-with-texts-changed:  ## Compile With Texts all MIBs into .py files
 compile-json:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(ls output/asn1); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump.py \
+	  poetry run mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
@@ -84,7 +88,7 @@ compile-json:  ## Compile With Texts all MIBs into .py files
 compile-json-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump.py \
+	  poetry run mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
