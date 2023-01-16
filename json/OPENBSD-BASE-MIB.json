@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
-      "enterprises",
-      "MibIdentifier",
-      "TimeTicks",
       "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
       "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Counter32",
-      "Unsigned32"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "openBSD": {
@@ -86,8 +86,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:36:12 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:10:35 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "OPENBSD-BASE-MIB"

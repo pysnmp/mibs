@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SENSATRONICS-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sensatronics/SENSATRONICS-SMI
-# Produced by pysmi-1.1.8 at Fri Jan 13 14:38:06 2023
-# On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 16 15:12:52 2023
+# On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, IpAddress, Counter64, Gauge32, enterprises, ObjectIdentity, NotificationType, ModuleIdentity, Bits, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "IpAddress", "Counter64", "Gauge32", "enterprises", "ObjectIdentity", "NotificationType", "ModuleIdentity", "Bits", "TimeTicks", "MibIdentifier")
+MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, MibIdentifier, enterprises, TimeTicks, IpAddress, Bits, ModuleIdentity, ObjectIdentity, Integer32, Unsigned32, Counter64, Counter32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "MibIdentifier", "enterprises", "TimeTicks", "IpAddress", "Bits", "ModuleIdentity", "ObjectIdentity", "Integer32", "Unsigned32", "Counter64", "Counter32", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 sensatronics = ModuleIdentity((1, 3, 6, 1, 4, 1, 16174))
 sensatronics.setRevisions(('2004-04-20 00:00',))
@@ -44,4 +44,4 @@ if mibBuilder.loadTexts: productCRYO.setDescription('Cryomonitor root')
 productEM1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 16174, 1, 1, 3))
 if mibBuilder.loadTexts: productEM1.setStatus('current')
 if mibBuilder.loadTexts: productEM1.setDescription('Environmental Monitor 1 root')
-mibBuilder.exportSymbols("SENSATRONICS-SMI", PYSNMP_MODULE_ID=sensatronics, productEM1=productEM1, customTools=customTools, productITTM=productITTM, consumerTools=consumerTools, customProducts=customProducts, consumerProducts=consumerProducts, envMonitors=envMonitors, sensatronics=sensatronics, productCRYO=productCRYO)
+mibBuilder.exportSymbols("SENSATRONICS-SMI", consumerTools=consumerTools, envMonitors=envMonitors, customTools=customTools, sensatronics=sensatronics, productCRYO=productCRYO, productITTM=productITTM, customProducts=customProducts, PYSNMP_MODULE_ID=sensatronics, productEM1=productEM1, consumerProducts=consumerProducts)

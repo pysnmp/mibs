@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SYNOLOGY-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-SYSTEM-MIB
-# Produced by pysmi-1.1.8 at Fri Jan 13 14:38:42 2023
-# On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 16 15:13:30 2023
+# On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Gauge32, Counter32, iso, ModuleIdentity, Integer32, IpAddress, MibIdentifier, NotificationType, Bits, enterprises, ObjectIdentity, TimeTicks, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "iso", "ModuleIdentity", "Integer32", "IpAddress", "MibIdentifier", "NotificationType", "Bits", "enterprises", "ObjectIdentity", "TimeTicks", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, iso, Gauge32, ObjectIdentity, Unsigned32, Bits, enterprises, Counter32, TimeTicks, NotificationType, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "iso", "Gauge32", "ObjectIdentity", "Unsigned32", "Bits", "enterprises", "Counter32", "TimeTicks", "NotificationType", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 synoSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 1))
 synoSystem.setRevisions(('2013-09-11 00:00',))
 
@@ -62,4 +62,4 @@ systemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 1, 6, 2, 1)).setObjects(("SYN
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     systemGroup = systemGroup.setStatus('current')
 if mibBuilder.loadTexts: systemGroup.setDescription('A collection of objects providing basic information\n             of an synology system entity.')
-mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", cpuFanStatus=cpuFanStatus, systemCompliances=systemCompliances, upgradeAvailable=upgradeAvailable, systemGroups=systemGroups, version=version, powerStatus=powerStatus, temperature=temperature, PYSNMP_MODULE_ID=synoSystem, synoSystem=synoSystem, serialNumber=serialNumber, fan=fan, dsmInfo=dsmInfo, systemFanStatus=systemFanStatus, systemCompliance=systemCompliance, modelName=modelName, systemConformance=systemConformance, systemGroup=systemGroup, synology=synology, systemStatus=systemStatus)
+mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", systemGroups=systemGroups, systemFanStatus=systemFanStatus, systemGroup=systemGroup, dsmInfo=dsmInfo, synology=synology, powerStatus=powerStatus, upgradeAvailable=upgradeAvailable, cpuFanStatus=cpuFanStatus, systemCompliances=systemCompliances, systemCompliance=systemCompliance, synoSystem=synoSystem, systemConformance=systemConformance, modelName=modelName, fan=fan, systemStatus=systemStatus, serialNumber=serialNumber, temperature=temperature, PYSNMP_MODULE_ID=synoSystem, version=version)

@@ -5,9 +5,9 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
+      "PerfTotalCount",
       "PerfCurrentCount",
-      "PerfTotalCount"
+      "PerfIntervalCount"
     ],
     "SL-NE-MIB": [
       "sitelight"
@@ -16,31 +16,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
       "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
+      "IpAddress",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "slEdfa": {
@@ -625,8 +625,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-EDFA.mib",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:36:35 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:11:01 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SL-EDFA-MIB"

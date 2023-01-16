@@ -10,35 +10,35 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "zeroDotZero",
-      "IpAddress",
-      "iso",
-      "Integer32",
+      "mib-2",
+      "Unsigned32",
       "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Counter32",
       "Gauge32",
-      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter64"
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
       "TestAndIncr",
-      "DateAndTime",
       "TruthValue",
-      "DisplayString",
+      "DateAndTime",
       "TDomain",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "DisplayString"
     ],
     "SYSAPPL-MIB": [
-      "sysApplElmtRunIndex",
-      "LongUtf8String"
+      "LongUtf8String",
+      "sysApplElmtRunIndex"
     ]
   },
   "applicationMib": {
@@ -2875,8 +2875,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPLICATION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:25:35 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:58:24 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APPLICATION-MIB"

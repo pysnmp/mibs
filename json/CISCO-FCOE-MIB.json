@@ -19,33 +19,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
       "TimeTicks",
-      "iso",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "OBJECT-TYPE",
-      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "MacAddress"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -769,8 +769,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCOE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:30:34 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:03:41 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-FCOE-MIB"

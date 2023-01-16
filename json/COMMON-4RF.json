@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFImageStatus",
-      "FourRFResetType",
-      "FourRFFileSize",
-      "FourRFImageType",
       "FourRFSerialNumber",
-      "FourRFWebUserEnabled",
       "FourRFWebUserGroup",
-      "FourRFTftpFileName",
-      "FourRFTimeZone",
       "FourRFImageVersion",
-      "FourRFProcessResultType"
+      "FourRFTimeZone",
+      "FourRFWebUserEnabled",
+      "FourRFProcessResultType",
+      "FourRFFileSize",
+      "FourRFImageStatus",
+      "FourRFImageType",
+      "FourRFTftpFileName",
+      "FourRFResetType"
     ],
     "MIB-4RF": [
-      "fourRFGeneric",
-      "fourRFModules"
+      "fourRFModules",
+      "fourRFGeneric"
     ],
     "PRODUCTS-MIB-4RF": [
       "fourRFCommon"
@@ -27,25 +27,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
       "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:25:43 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:58:33 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "COMMON-4RF"

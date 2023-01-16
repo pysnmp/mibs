@@ -6,35 +6,35 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
-      "InetAddressIPv6",
       "InetAddress",
-      "InetAddressType",
-      "InetPortNumber"
+      "InetAddressIPv6",
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "mib-2",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "mib-2",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1582,8 +1582,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-IPPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:27:06 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:59:56 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BENU-IPPOOL-MIB"

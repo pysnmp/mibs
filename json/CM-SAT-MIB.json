@@ -6,18 +6,18 @@
     ],
     "CM-COMMON-MIB": [
       "CmPmBinAction",
-      "VlanPriority",
+      "OperationalState",
       "SecondaryState",
-      "VlanId",
+      "VlanPriority",
       "MepDestinationType",
-      "AdminState",
-      "OperationalState"
+      "VlanId",
+      "AdminState"
     ],
     "CM-ENTITY-MIB": [
+      "neIndex",
       "slotIndex",
-      "networkElementEntry",
       "shelfIndex",
-      "neIndex"
+      "networkElementEntry"
     ],
     "CM-FACILITY-MIB": [
       "PolicerColorMode"
@@ -31,34 +31,34 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MibIdentifier",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
       "OBJECT-TYPE",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
       "Counter64",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "DateAndTime",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "MacAddress",
       "VariablePointer",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "cmServiceActivationMIB": {
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:26:17 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:59:05 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CM-SAT-MIB"

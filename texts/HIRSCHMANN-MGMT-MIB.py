@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HIRSCHMANN-MGMT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HIRSCHMANN-MGMT-MIB
-# Produced by pysmi-1.1.8 at Fri Jan 13 14:32:31 2023
-# On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 16 15:06:02 2023
+# On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, TimeTicks, Gauge32, IpAddress, enterprises, Counter32, Integer32, ModuleIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, MibIdentifier, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "Gauge32", "IpAddress", "enterprises", "Counter32", "Integer32", "ModuleIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "MibIdentifier", "Unsigned32", "ObjectIdentity")
-TestAndIncr, DisplayString, AutonomousType, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TestAndIncr", "DisplayString", "AutonomousType", "TextualConvention")
+iso, enterprises, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, Unsigned32, Gauge32, MibIdentifier, IpAddress, Integer32, Bits, Counter32, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "enterprises", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "Unsigned32", "Gauge32", "MibIdentifier", "IpAddress", "Integer32", "Bits", "Counter32", "Counter64", "ObjectIdentity")
+TestAndIncr, AutonomousType, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TestAndIncr", "AutonomousType", "TextualConvention", "DisplayString")
 hmManagement = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 16))
 hmManagement.setRevisions(('2010-09-14 12:00',))
 

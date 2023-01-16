@@ -9,35 +9,35 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Bits",
       "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
-      "TimeInterval",
-      "StorageType",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "StorageType",
+      "DisplayString",
+      "TimeInterval",
+      "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "ciscoLwappDot11ClientCalibMIB": {
@@ -1052,8 +1052,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:30:34 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:03:42 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CLIENT-CALIB-MIB"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ELTEX-MES-HWENVIROMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-MES-HWENVIROMENT-MIB
-# Produced by pysmi-1.1.8 at Fri Jan 13 14:30:58 2023
-# On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 16 15:04:15 2023
+# On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
 RlEnvMonState, rlEnvMonFanStatusEntry = mibBuilder.importSymbols("RADLAN-HWENVIROMENT", "RlEnvMonState", "rlEnvMonFanStatusEntry")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, IpAddress, NotificationType, Counter32, ModuleIdentity, Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, ObjectIdentity, MibIdentifier, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "IpAddress", "NotificationType", "Counter32", "ModuleIdentity", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "ObjectIdentity", "MibIdentifier", "Counter64", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, IpAddress, Integer32, ObjectIdentity, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, ModuleIdentity, MibIdentifier, NotificationType, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "Integer32", "ObjectIdentity", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "ModuleIdentity", "MibIdentifier", "NotificationType", "Bits", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 eltMesEnv = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 11))
 eltMesEnv.setRevisions(('2018-07-27 00:00', '2017-10-11 00:00', '2015-06-11 00:00',))
 if mibBuilder.loadTexts: eltMesEnv.setLastUpdated('201807270000Z')
@@ -37,4 +37,4 @@ eltEnvMonFanStatusEntry.setIndexNames(*rlEnvMonFanStatusEntry.getIndexNames())
 if mibBuilder.loadTexts: eltEnvMonFanStatusEntry.setStatus('current')
 eltEnvMonFanSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 11, 3, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eltEnvMonFanSpeed.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-HWENVIROMENT-MIB", eltEnvMonBatteryStatusCharge=eltEnvMonBatteryStatusCharge, eltEnvMonFanStatusEntry=eltEnvMonFanStatusEntry, eltEnvMonFanSpeed=eltEnvMonFanSpeed, eltEnvMonFanStatusTable=eltEnvMonFanStatusTable, eltEnvResetButtonMode=eltEnvResetButtonMode, eltMesEnv=eltMesEnv, eltEnvMonBatteryStatusIndex=eltEnvMonBatteryStatusIndex, eltEnvMonBatteryStatusTable=eltEnvMonBatteryStatusTable, eltEnvMonBatteryState=eltEnvMonBatteryState, eltEnvMonBatteryStatusEntry=eltEnvMonBatteryStatusEntry, PYSNMP_MODULE_ID=eltMesEnv)
+mibBuilder.exportSymbols("ELTEX-MES-HWENVIROMENT-MIB", eltEnvMonBatteryState=eltEnvMonBatteryState, eltEnvMonBatteryStatusEntry=eltEnvMonBatteryStatusEntry, eltEnvResetButtonMode=eltEnvResetButtonMode, eltEnvMonBatteryStatusTable=eltEnvMonBatteryStatusTable, eltEnvMonFanStatusEntry=eltEnvMonFanStatusEntry, PYSNMP_MODULE_ID=eltMesEnv, eltEnvMonFanSpeed=eltEnvMonFanSpeed, eltEnvMonFanStatusTable=eltEnvMonFanStatusTable, eltEnvMonBatteryStatusIndex=eltEnvMonBatteryStatusIndex, eltMesEnv=eltMesEnv, eltEnvMonBatteryStatusCharge=eltEnvMonBatteryStatusCharge)

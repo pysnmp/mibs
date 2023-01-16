@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module APH323-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APH323-MIB
-# Produced by pysmi-1.1.8 at Fri Jan 13 14:36:17 2023
-# On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Jan 16 15:10:41 2023
+# On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-InetAddress, InetVersion, InetZoneIndex, InetAddressPrefixLength, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetVersion", "InetZoneIndex", "InetAddressPrefixLength", "InetAddressType")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ModuleIdentity, IpAddress, iso, TimeTicks, Bits, Unsigned32, Gauge32, ObjectIdentity, Counter32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ModuleIdentity", "IpAddress", "iso", "TimeTicks", "Bits", "Unsigned32", "Gauge32", "ObjectIdentity", "Counter32", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+InetZoneIndex, InetVersion, InetAddress, InetAddressType, InetAddressPrefixLength = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetZoneIndex", "InetVersion", "InetAddress", "InetAddressType", "InetAddressPrefixLength")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, MibIdentifier, Gauge32, Integer32, ObjectIdentity, TimeTicks, iso, IpAddress, Counter64, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "MibIdentifier", "Gauge32", "Integer32", "ObjectIdentity", "TimeTicks", "iso", "IpAddress", "Counter64", "ModuleIdentity", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 apH323Module = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 10))
 apH323Module.setRevisions(('2012-07-16 00:00', '2014-06-26 00:00',))
 if mibBuilder.loadTexts: apH323Module.setLastUpdated('201406260000Z')
@@ -46,4 +46,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 apH323StackNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 2, 1)).setObjects(("APH323-MIB", "apH323StackMaxCallThresholdTrap"), ("APH323-MIB", "apH323StackMaxCallThresholdClearTrap"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apH323StackNotificationsGroup = apH323StackNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("APH323-MIB", apH323MIBObjects=apH323MIBObjects, apH323NotificationPrefix=apH323NotificationPrefix, apH323StackNotificationsGroup=apH323StackNotificationsGroup, apH323Notifications=apH323Notifications, apH323StackTable=apH323StackTable, apH323Groups=apH323Groups, apH323StackCurrentCalls=apH323StackCurrentCalls, apH323StackObjectsGroup=apH323StackObjectsGroup, apH323StackMaxCallThresholdTrap=apH323StackMaxCallThresholdTrap, apH323StackName=apH323StackName, apH323StackMaxCalls=apH323StackMaxCalls, apH323NotificationGroups=apH323NotificationGroups, apH323StackMaxCallsThreshold=apH323StackMaxCallsThreshold, apH323Conformance=apH323Conformance, apH323Module=apH323Module, apH323StackEntry=apH323StackEntry, apH323StackMaxCallThresholdClearTrap=apH323StackMaxCallThresholdClearTrap, PYSNMP_MODULE_ID=apH323Module, apH323NotificationObjects=apH323NotificationObjects)
+mibBuilder.exportSymbols("APH323-MIB", apH323StackMaxCallsThreshold=apH323StackMaxCallsThreshold, apH323StackCurrentCalls=apH323StackCurrentCalls, PYSNMP_MODULE_ID=apH323Module, apH323Conformance=apH323Conformance, apH323StackMaxCallThresholdClearTrap=apH323StackMaxCallThresholdClearTrap, apH323StackNotificationsGroup=apH323StackNotificationsGroup, apH323StackName=apH323StackName, apH323NotificationPrefix=apH323NotificationPrefix, apH323StackObjectsGroup=apH323StackObjectsGroup, apH323Notifications=apH323Notifications, apH323Module=apH323Module, apH323NotificationObjects=apH323NotificationObjects, apH323Groups=apH323Groups, apH323StackEntry=apH323StackEntry, apH323MIBObjects=apH323MIBObjects, apH323StackTable=apH323StackTable, apH323StackMaxCalls=apH323StackMaxCalls, apH323StackMaxCallThresholdTrap=apH323StackMaxCallThresholdTrap, apH323NotificationGroups=apH323NotificationGroups)

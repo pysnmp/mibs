@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HUAWEI-MIB": [
-      "huaweiUtility",
-      "huaweiMgmt"
+      "huaweiMgmt",
+      "huaweiUtility"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "RMON-MIB": [
-      "EntryStatus",
-      "OwnerString"
+      "OwnerString",
+      "EntryStatus"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -18,29 +18,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "mib-2",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
       "zeroDotZero",
-      "iso"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "DateAndTime",
-      "MacAddress",
+      "RowStatus",
       "TruthValue",
+      "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -8323,8 +8323,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-XPON-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:33:19 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:06:55 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-XPON-COMMON-MIB"

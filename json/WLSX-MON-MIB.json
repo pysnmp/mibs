@@ -5,53 +5,53 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaEnableValue",
-      "ArubaAPMatchType",
-      "ArubaMonEncryptionCipher",
-      "ArubaMonAuthAlgorithm",
-      "ArubaPhyType",
-      "ArubaRogueApType",
+      "ArubaHTRate",
       "ArubaHTMode",
+      "ArubaMonAuthAlgorithm",
+      "ArubaFrameType",
+      "ArubaStationType",
       "ArubaMonEncryptionType",
       "ArubaAPMatchMethod",
-      "ArubaStationType",
-      "ArubaHTRate",
-      "ArubaFrameType"
+      "ArubaRogueApType",
+      "ArubaPhyType",
+      "ArubaEnableValue",
+      "ArubaMonEncryptionCipher",
+      "ArubaAPMatchType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "snmpModules",
-      "Gauge32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TAddress",
-      "DisplayString",
-      "StorageType",
-      "MacAddress",
-      "TruthValue",
-      "TimeInterval",
+      "TDomain",
       "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "DisplayString",
+      "PhysAddress",
+      "MacAddress",
       "TestAndIncr",
-      "TDomain"
+      "TAddress",
+      "TimeInterval"
     ]
   },
   "wlsxMonMIB": {
@@ -3113,8 +3113,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:26:39 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:59:28 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WLSX-MON-MIB"

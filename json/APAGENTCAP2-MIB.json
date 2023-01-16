@@ -10,23 +10,23 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "snmpModules",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "enterprises",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
       "Counter32",
       "Counter64",
-      "Integer32",
-      "mib-2"
+      "iso",
+      "TimeTicks",
+      "Gauge32",
+      "mib-2",
+      "Bits",
+      "IpAddress",
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -53,8 +53,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAGENTCAP2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:36:21 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:10:44 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APAGENTCAP2-MIB"

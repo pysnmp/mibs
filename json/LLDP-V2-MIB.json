@@ -5,19 +5,19 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifGeneralInformationGroup"
+      "ifGeneralInformationGroup",
+      "InterfaceIndex"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2SystemCapabilitiesMap",
       "LldpV2ChassisIdSubtype",
-      "LldpV2PortIdSubtype",
+      "ieee802dot1mibs",
+      "LldpV2ManAddress",
       "LldpV2PortId",
       "LldpV2ChassisId",
-      "LldpV2ManAddress",
-      "ieee802dot1mibs",
       "LldpV2DestAddressTableIndex",
-      "LldpV2ManAddrIfSubtype"
+      "LldpV2ManAddrIfSubtype",
+      "LldpV2PortIdSubtype",
+      "LldpV2SystemCapabilitiesMap"
     ],
     "RMON2-MIB": [
       "TimeFilter",
@@ -27,33 +27,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Integer32",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString",
-      "RowStatus"
+      "MacAddress"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:25:16 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:58:06 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LLDP-V2-MIB"

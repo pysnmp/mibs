@@ -3,13 +3,13 @@
     "class": "imports",
     "HPN-ICF-FC-TC-MIB": [
       "HpnicfFcDomainIdOrZero",
-      "HpnicfFcVsanIndex",
-      "HpnicfFcNameIdOrZero",
-      "HpnicfFcDomainPriority",
-      "HpnicfFcDomainId",
-      "HpnicfFcDomainIdList",
       "HpnicfFcDmState",
-      "HpnicfFcNameId"
+      "HpnicfFcDomainIdList",
+      "HpnicfFcNameId",
+      "HpnicfFcVsanIndex",
+      "HpnicfFcDomainId",
+      "HpnicfFcDomainPriority",
+      "HpnicfFcNameIdOrZero"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfCommon"
@@ -18,30 +18,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
       "Integer32",
+      "Gauge32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "IpAddress"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "hpnicfSan": {
@@ -697,8 +697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-VSAN-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:33:26 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:07:39 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-VSAN-MIB"

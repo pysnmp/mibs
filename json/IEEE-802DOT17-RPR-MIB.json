@@ -3,48 +3,48 @@
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
       "HCPerfCurrentCount",
-      "HCPerfIntervalCount",
-      "HCPerfTotalCount"
+      "HCPerfTotalCount",
+      "HCPerfIntervalCount"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "iso",
+      "Counter64",
       "Unsigned32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Integer32",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:25:16 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 14:58:06 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

@@ -5,39 +5,39 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "RUCKUS-ROOT-MIB": [
       "ruckusUnleashedWLANModule"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "iso",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "Integer32",
       "Bits",
+      "IpAddress",
       "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
       "PhysAddress",
       "TruthValue",
+      "RowStatus",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -188,8 +188,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-UNLEASHED-WLAN-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 13 14:37:56 2023",
-      "On host fv-az358-896 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:12:42 2023",
+      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RUCKUS-UNLEASHED-WLAN-MIB"
