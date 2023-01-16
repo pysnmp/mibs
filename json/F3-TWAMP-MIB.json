@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "CmPmBinAction",
-      "PerfCounter64",
       "OperationalState",
       "SecondaryState",
-      "VlanPriority",
+      "PerfCounter64",
+      "AdminState",
       "IpVersion",
+      "VlanPriority",
       "VlanId",
-      "AdminState"
+      "CmPmBinAction"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -25,34 +25,34 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
       "Integer32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
       "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Gauge32",
       "iso",
-      "IpAddress",
-      "Bits",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "MacAddress",
       "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "StorageType",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3TwampMIB": {
@@ -8131,8 +8131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-TWAMP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 14:59:05 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:29:50 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-TWAMP-MIB"

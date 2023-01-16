@@ -16,29 +16,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "Bits",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "TimeTicks",
       "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "AutonomousType",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "AutonomousType",
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "ptopoMIB": {
@@ -737,8 +737,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PTOPO-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 14:58:24 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:29:08 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PTOPO-MIB"

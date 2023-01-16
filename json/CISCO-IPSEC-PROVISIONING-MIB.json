@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
+      "CIPsecLifesize",
+      "CIPsecLifetime",
+      "CIPsecSecuritySuite",
+      "CIPsecDiffHellmanGrp",
       "CIPsecTunnelIdleTime",
       "CIPsecCryptomapType",
-      "CIPsecSecuritySuite",
       "CIPsecEncapMode",
-      "CIPsecDiffHellmanGrp",
-      "CIPsecLifetime",
-      "CIPsecTransform",
       "CIPsecNumCryptoMaps",
-      "CIPsecLifesize"
+      "CIPsecTransform"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -26,31 +26,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ciscoIPsecProvisioningMIB": {
@@ -1476,8 +1476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-PROVISIONING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:03:40 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:34:02 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-IPSEC-PROVISIONING-MIB"

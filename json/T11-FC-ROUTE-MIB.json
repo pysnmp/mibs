@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcAddressIdOrZero",
-      "FcDomainIdOrZero",
       "fcmSwitchIndex",
-      "fcmInstanceIndex"
+      "fcmInstanceIndex",
+      "FcDomainIdOrZero",
+      "FcAddressIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -17,28 +17,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Bits",
       "Integer32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "TimeTicks",
       "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "StorageType",
-      "DisplayString"
+      "RowStatus",
+      "TimeStamp"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -466,8 +466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-ROUTE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 14:58:23 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:29:07 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "T11-FC-ROUTE-MIB"

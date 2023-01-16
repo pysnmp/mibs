@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
       "Integer32",
       "IpAddress",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
+      "Unsigned32",
       "Bits",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -14722,8 +14722,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-NSX-MANAGER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:14:21 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:42:38 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "VMWARE-NSX-MANAGER-MIB"

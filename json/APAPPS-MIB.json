@@ -5,13 +5,13 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApPhyPortType",
-      "ApAclType",
-      "ApRedundancyState",
-      "ApServerStatus",
       "ApPresence",
+      "ApServerStatus",
+      "ApRedundancyState",
       "ApHardwareModuleFamily",
-      "ApCommMonitorState"
+      "ApAclType",
+      "ApCommMonitorState",
+      "ApPhyPortType"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -23,25 +23,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32",
-      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter32",
       "iso",
       "Counter64",
-      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Unsigned32",
-      "MibIdentifier"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "apAppsModule": {
@@ -799,8 +799,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAPPS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:10:44 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:39:39 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APAPPS-MIB"

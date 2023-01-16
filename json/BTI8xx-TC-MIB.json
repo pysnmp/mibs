@@ -9,37 +9,37 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
       "PerfCurrentCount",
+      "PerfTotalCount",
       "PerfIntervalCount"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
       "Unsigned32",
       "Counter64",
+      "TimeTicks",
       "Counter32",
-      "NOTIFICATION-TYPE",
       "Integer32",
       "iso",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "IpAddress",
       "OBJECT-TYPE",
+      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString",
-      "RowStatus",
-      "TruthValue"
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "privateManagement": {
@@ -1006,8 +1006,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bti/BTI8xx-TC-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:00:11 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:30:51 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BTI8xx-TC-MIB"

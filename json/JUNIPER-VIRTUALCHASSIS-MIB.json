@@ -11,29 +11,29 @@
       "jnxVccpNotifications"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
       "Gauge32",
       "Bits",
+      "Counter64",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32"
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "jnxVirtualChassisMemberMIB": {
@@ -640,8 +640,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-VIRTUALCHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:09:16 2023",
-      "On host fv-az587-63 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Jan 16 15:38:08 2023",
+      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-VIRTUALCHASSIS-MIB"
