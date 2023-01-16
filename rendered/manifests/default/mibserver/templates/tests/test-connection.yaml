@@ -1,9 +1,15 @@
+---
+# Source: mibserver/templates/tests/test-connection.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "mibserver.fullname" . }}-test-connection"
+  name: "default-mibserver-test-connection"
   labels:
-    {{- include "mibserver.labels" . | nindent 4 }}
+    helm.sh/chart: mibserver-1.14.10
+    app.kubernetes.io/name: mibserver
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/version: "1.14.10"
+    app.kubernetes.io/managed-by: Helm
   annotations:
     "helm.sh/hook": test
     "kube-score/ignore": "pod-probes,pod-networkpolicy"
@@ -13,7 +19,7 @@ spec:
       image: busybox:1.34.1
       imagePullPolicy: Always
       command: ['wget']
-      args: ['{{ include "mibserver.fullname" . }}:{{ (.Values.service).port | default 80 }}/index.csv']
+      args: ['default-mibserver:80/index.csv']
       securityContext:
         capabilities:
           drop:
