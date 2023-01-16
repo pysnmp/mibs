@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:1.21.6
+FROM nginxinc/nginx-unprivileged:1.23.3
 USER 10001
 
 # Copy files necessary to compile mibs
