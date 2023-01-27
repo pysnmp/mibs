@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
+      "Integer32",
+      "Gauge32",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "mdsSerialMIB": {
@@ -298,8 +298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SERIAL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:58:18 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:06:21 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MDS-SERIAL-MIB"

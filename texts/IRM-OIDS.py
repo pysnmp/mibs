@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Fri Jan 27 13:57:18 2023
-# On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan 27 14:05:23 2023
+# On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Counter32, ObjectIdentity, MibIdentifier, ModuleIdentity, Bits, Integer32, iso, Unsigned32, NotificationType, Gauge32, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Bits", "Integer32", "iso", "Unsigned32", "NotificationType", "Gauge32", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+MibIdentifier, iso, ModuleIdentity, TimeTicks, Counter64, Bits, IpAddress, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "ModuleIdentity", "TimeTicks", "Counter64", "Bits", "IpAddress", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "NotificationType", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", bridge=bridge, sysRepeaters=sysRepeaters, sysBridges=sysBridges, ups=ups, subsystem=subsystem, repeaterRev1=repeaterRev1, subSysDevice=subSysDevice, common=common, router=router, layerMgmt=layerMgmt, dl=dl, commsDevice=commsDevice, sysRouters=sysRouters, subSysMMAC=subSysMMAC, backplaneProtocol=backplaneProtocol, sysChassis=sysChassis, sysOIDs=sysOIDs, sysIntDev=sysIntDev, sysOtherType=sysOtherType, repeaterRev2=repeaterRev2, nb30Rev1=nb30Rev1, product=product, commonRev1=commonRev1, repeater=repeater)
+mibBuilder.exportSymbols("IRM-OIDS", router=router, dl=dl, sysRepeaters=sysRepeaters, sysOIDs=sysOIDs, commsDevice=commsDevice, nb30Rev1=nb30Rev1, sysIntDev=sysIntDev, repeater=repeater, repeaterRev1=repeaterRev1, subSysMMAC=subSysMMAC, subsystem=subsystem, ups=ups, bridge=bridge, subSysDevice=subSysDevice, layerMgmt=layerMgmt, commonRev1=commonRev1, sysChassis=sysChassis, sysRouters=sysRouters, product=product, repeaterRev2=repeaterRev2, backplaneProtocol=backplaneProtocol, common=common, sysBridges=sysBridges, sysOtherType=sysOtherType)

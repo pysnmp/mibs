@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fnSysSerial",
-      "fnAdminEntry",
       "FnIndex",
+      "fortinet",
+      "fnAdminEntry",
       "FnBoolState",
-      "fortinet"
+      "fnSysSerial"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
       "ifEntry",
-      "ifIndex",
-      "ifName"
+      "ifName",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
+      "InetAddressPrefixLength",
       "InetPortNumber",
       "InetAddressType"
     ],
@@ -34,27 +34,27 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
+      "iso",
       "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Bits",
-      "iso"
+      "Unsigned32",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "AutonomousType",
       "DisplayString",
+      "AutonomousType",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "DateAndTime"
     ]
   },
   "fnFortiGateMib": {
@@ -12888,8 +12888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:57:56 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:05:59 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"

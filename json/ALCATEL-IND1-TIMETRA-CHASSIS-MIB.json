@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
       "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
       "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxPortID",
-      "TmnxOperState",
-      "TmnxActionType",
       "TmnxAdminState",
+      "TmnxActionType",
       "TNamedItem",
+      "TItemDescription",
+      "TmnxPortID",
       "TNamedItemOrEmpty",
-      "TItemDescription"
+      "TmnxOperState"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
       "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress"
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "MacAddress",
-      "TimeStamp",
+      "RowStatus",
       "DisplayString",
-      "TimeInterval"
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowPointer",
+      "MacAddress"
     ]
   },
   "tmnxChassisMIBModule": {
@@ -8570,8 +8570,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:03:05 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:11:44 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-CHASSIS-MIB"

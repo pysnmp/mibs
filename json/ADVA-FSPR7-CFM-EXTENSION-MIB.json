@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "ADVA-MIB": [
-      "fspR7",
+      "neEventLogTimeStamp",
       "ServiceImpairment",
-      "neEventLogIdentityTranslation",
       "TrapAlarmSeverity",
-      "neEventLogTimeStamp"
+      "fspR7",
+      "neEventLogIdentityTranslation"
     ],
     "FspR7-LAYER2-MIB": [
-      "flowEntityIndexFlow",
-      "flowEntityIndexEth"
+      "flowEntityIndexEth",
+      "flowEntityIndexFlow"
     ],
     "IEEE8021-CFM-MIB": [
       "dot1agCfmMaIndex",
-      "dot1agCfmMepIdentifier",
-      "dot1agCfmMdIndex"
+      "dot1agCfmMdIndex",
+      "dot1agCfmMepIdentifier"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -26,25 +26,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "iso",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "cfmExtensionMIB": {
@@ -762,8 +762,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-CFM-EXTENSION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:51:46 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:00:02 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADVA-FSPR7-CFM-EXTENSION-MIB"

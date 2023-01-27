@@ -6,35 +6,35 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Counter32",
       "Integer32",
       "zeroDotZero",
-      "MODULE-IDENTITY",
       "Counter64",
+      "Bits",
+      "TimeTicks",
       "Gauge32",
-      "Bits"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "expressionMIB": {
@@ -1070,8 +1070,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/EXPRESSION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:50:58 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:20 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EXPRESSION-MIB"

@@ -13,34 +13,34 @@
       "RlSecSdAccessType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
       "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
       "Gauge32",
       "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "Counter32",
-      "iso",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlCopy": {
@@ -1678,8 +1678,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-COPY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:56:00 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:12 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Dell-COPY-MIB"

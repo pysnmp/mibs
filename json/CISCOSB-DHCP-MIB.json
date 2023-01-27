@@ -3,9 +3,9 @@
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
       "VlanList3",
-      "VlanList1",
       "VlanList4",
-      "VlanList2"
+      "VlanList2",
+      "VlanList1"
     ],
     "CISCOSB-MIB": [
       "switch001"
@@ -17,30 +17,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "iso",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Counter64",
-      "Integer32"
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsDHCP": {
@@ -1627,8 +1627,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:56:32 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:31 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-DHCP-MIB"

@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "DPS-MIB-V38": [
-      "dpsAlarmControl",
-      "tmonXM"
+      "tmonXM",
+      "dpsAlarmControl"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "iso",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "tmonV2XM": {
@@ -1667,8 +1667,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-MIB-V38-V2",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:56:21 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:32 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DPS-MIB-V38-V2"

@@ -5,29 +5,29 @@
       "packetfluxMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
       "iso",
       "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Unsigned32",
-      "Integer32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -994,8 +994,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetflux/PACKETFLUX-STANDBYPOWER",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:03:10 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:11:42 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PACKETFLUX-STANDBYPOWER"

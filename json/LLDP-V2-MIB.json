@@ -10,13 +10,13 @@
     ],
     "LLDP-V2-TC-MIB": [
       "LldpV2ManAddrIfSubtype",
-      "LldpV2SystemCapabilitiesMap",
+      "LldpV2DestAddressTableIndex",
+      "LldpV2PortIdSubtype",
       "ieee802dot1mibs",
       "LldpV2ChassisId",
+      "LldpV2SystemCapabilitiesMap",
       "LldpV2PortId",
       "LldpV2ChassisIdSubtype",
-      "LldpV2PortIdSubtype",
-      "LldpV2DestAddressTableIndex",
       "LldpV2ManAddress"
     ],
     "RMON2-MIB": [
@@ -27,33 +27,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "iso",
-      "Counter32",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
       "MibIdentifier",
-      "Integer32"
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "MacAddress",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:50:35 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:02 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LLDP-V2-MIB"

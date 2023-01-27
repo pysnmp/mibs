@@ -9,32 +9,32 @@
       "adIdentity"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
       "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TDomain",
+      "RowStatus",
       "TAddress",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAOSUnitMib": {
@@ -649,8 +649,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSUNIT",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:51:11 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:34 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADTRAN-AOSUNIT"

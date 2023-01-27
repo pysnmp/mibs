@@ -8,30 +8,30 @@
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Unsigned32",
       "iso",
-      "TimeTicks",
-      "IpAddress"
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hwHttpMIB": {
@@ -374,8 +374,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-HTTP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:34 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:07:41 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-HTTP-MIB"

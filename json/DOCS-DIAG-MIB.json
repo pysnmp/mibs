@@ -5,8 +5,8 @@
       "clabProjDocsis"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvId",
-      "docsDevEvLevel"
+      "docsDevEvLevel",
+      "docsDevEvId"
     ],
     "DOCS-IF3-MIB": [
       "docsIf3CmtsCmRegStatusId",
@@ -17,31 +17,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Counter32",
       "Integer32",
-      "MODULE-IDENTITY",
       "Counter64",
+      "Bits",
+      "TimeTicks",
       "Gauge32",
-      "Bits"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "docsDiagMib": {
@@ -879,8 +879,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-DIAG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:50:58 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:21 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DOCS-DIAG-MIB"

@@ -2,61 +2,61 @@
   "imports": {
     "class": "imports",
     "CISCO-SLB-MIB": [
-      "slbStatsTableEntry",
-      "SlbConnectionState",
-      "slbServerFarmTableEntry",
-      "slbEntity",
-      "SlbPasswordString",
       "SlbRealServerState",
-      "slbVirtualServerTableEntry",
+      "SlbConnectionState",
       "slbServerFarmName",
-      "SlbServerString"
+      "slbEntity",
+      "SlbServerString",
+      "slbStatsTableEntry",
+      "slbServerFarmTableEntry",
+      "slbVirtualServerTableEntry",
+      "SlbPasswordString"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoHTTPResponseStatusCode",
       "CiscoPort",
+      "CiscoHTTPResponseStatusCode",
       "CiscoIpProtocol"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
       "Counter64",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
       "DateAndTime",
+      "StorageType",
+      "TimeStamp",
+      "DisplayString",
+      "TimeInterval",
       "TruthValue",
-      "StorageType"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoSlbExtMIB": {
@@ -6322,8 +6322,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:56:32 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:31 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-SLB-EXT-MIB"

@@ -5,19 +5,19 @@
       "hwDatacomm"
     ],
     "IANA-RTPROTO-MIB": [
-      "IANAipMRouteProtocol",
-      "IANAipRouteProtocol"
+      "IANAipRouteProtocol",
+      "IANAipMRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
+      "InetAddress",
       "InetAddressType",
       "InetAddressPrefixLength",
       "InetZoneIndex",
-      "InetAddress"
+      "InetVersion"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Bits",
       "TimeTicks",
-      "IpAddress"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "IpAddress",
+      "mib-2",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "StorageType",
+      "TruthValue",
       "TimeStamp",
       "RowStatus",
-      "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwMcast": {
@@ -2016,8 +2016,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPMCAST-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:35 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:07:42 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-IPMCAST-MIB"

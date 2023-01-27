@@ -6,19 +6,19 @@
       "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXECardType",
       "AprisaXEPortNumber",
       "AprisaXEAlarmType",
       "AprisaXESlotNumber",
-      "AprisaXEDataStatus"
+      "AprisaXEDataStatus",
+      "AprisaXECardType"
     ],
     "COMMON-TC-4RF": [
-      "FourRFAlarmStatus",
-      "FourRFAlarmPresent",
       "FourRFAlarmEnabled",
-      "FourRFImageVersion",
       "FourRFHardwareVersion",
-      "FourRFAlarmSeverity"
+      "FourRFImageVersion",
+      "FourRFAlarmSeverity",
+      "FourRFAlarmPresent",
+      "FourRFAlarmStatus"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,25 +27,25 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "Unsigned32",
-      "Gauge32",
       "Bits",
-      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
       "IpAddress",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:51:06 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:29 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

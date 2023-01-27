@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Counter32",
+      "Unsigned32",
       "TimeTicks",
       "enterprises",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "iso",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "exceliance": {
@@ -7023,8 +7023,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/haproxy/EXCELIANCE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:58:30 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:06:40 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EXCELIANCE-MIB"

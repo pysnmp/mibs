@@ -4,46 +4,46 @@
     "CIENA-CES-PORT-MIB": [
       "cienaCesLogicalPortConfigPortName",
       "cienaCesPortPgIdMappingNotifSlotIndex",
+      "cienaCesPortPgIdMappingNotifShelfIndex",
       "cienaCesPortPgIdMappingNotifPortNumber",
-      "cienaCesPortPgIdMappingNotifChassisIndex",
-      "cienaCesPortPgIdMappingNotifShelfIndex"
+      "cienaCesPortPgIdMappingNotifChassisIndex"
     ],
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalMacAddress",
-      "cienaGlobalSeverity"
+      "cienaGlobalSeverity",
+      "cienaGlobalMacAddress"
     ],
     "CIENA-SMI": [
-      "cienaCesConfig",
-      "cienaCesNotifications"
+      "cienaCesNotifications",
+      "cienaCesConfig"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
       "Integer32",
       "IpAddress",
-      "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
       "Gauge32",
-      "TimeTicks"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "cienaCesDataplaneMIB": {
@@ -5504,8 +5504,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DATAPLANE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:53:31 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:01:44 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-DATAPLANE-MIB"

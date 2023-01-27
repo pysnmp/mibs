@@ -5,55 +5,55 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "BulkConfigResult",
-      "ConfigIterator"
+      "ConfigIterator",
+      "BulkConfigResult"
     ],
     "DS1-MIB": [
-      "dsx1FarEndCurrentEntry",
-      "dsx1TotalEntry",
-      "dsx1IntervalEntry",
-      "dsx1FarEndTotalEntry",
-      "dsx1CurrentEntry",
       "dsx1ConfigEntry",
-      "dsx1FarEndIntervalEntry"
+      "dsx1FarEndIntervalEntry",
+      "dsx1CurrentEntry",
+      "dsx1FarEndCurrentEntry",
+      "dsx1IntervalEntry",
+      "dsx1TotalEntry",
+      "dsx1FarEndTotalEntry"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
       "PerfCurrentCount",
-      "PerfTotalCount"
+      "PerfTotalCount",
+      "PerfIntervalCount"
     ],
     "RMON-MIB": [
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter64",
-      "Integer32"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:56:28 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:28 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

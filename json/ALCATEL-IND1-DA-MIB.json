@@ -8,46 +8,46 @@
       "TmnxEncapVal"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
+      "InetAddressType",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
       "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress"
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TimeStamp",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "alcatelIND1DaMIB": {
@@ -19118,8 +19118,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DA-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:03:05 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:11:44 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-DA-MIB"

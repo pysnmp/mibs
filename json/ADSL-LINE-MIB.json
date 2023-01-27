@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "ADSL-TC-MIB": [
+      "AdslLineCodingType",
       "AdslPerfTimeElapsed",
-      "AdslPerfPrevDayCount",
       "AdslPerfCurrDayCount",
-      "AdslLineCodingType"
+      "AdslPerfPrevDayCount"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
       "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
       "Gauge32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
       "transmission",
+      "MibIdentifier",
       "iso",
-      "TimeTicks"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "VariablePointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "adslMIB": {
@@ -5446,9 +5446,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ADSL-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 13:55:16 2023",
-      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:20 2023",
+      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADSL-LINE-MIB"
