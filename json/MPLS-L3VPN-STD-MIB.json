@@ -5,13 +5,13 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
       "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "MPLS-LSR-STD-MIB": [
@@ -24,33 +24,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
       "Integer32",
+      "Bits",
+      "IpAddress",
+      "Counter64",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "StorageType",
+      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ],
     "VPN-TC-STD-MIB": [
       "VPNIdOrZero"
@@ -1689,8 +1689,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-L3VPN-STD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:09:30 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:39:24 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MPLS-L3VPN-STD-MIB"

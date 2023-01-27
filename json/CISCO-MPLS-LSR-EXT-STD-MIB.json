@@ -5,35 +5,35 @@
       "ciscoExperiment"
     ],
     "MPLS-LSR-STD-MIB": [
-      "mplsLsrNotificationGroup",
-      "mplsOutSegmentGroup",
-      "mplsXCInSegmentIndex",
-      "mplsPerfGroup",
+      "mplsXCOutSegmentIndex",
       "mplsXCIndex",
-      "mplsInSegmentGroup",
       "mplsXCGroup",
-      "mplsXCOutSegmentIndex"
+      "mplsPerfGroup",
+      "mplsXCInSegmentIndex",
+      "mplsInSegmentGroup",
+      "mplsLsrNotificationGroup",
+      "mplsOutSegmentGroup"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "Integer32",
       "iso",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -217,8 +217,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MPLS-LSR-EXT-STD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:14:22 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:45:30 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-MPLS-LSR-EXT-STD-MIB"

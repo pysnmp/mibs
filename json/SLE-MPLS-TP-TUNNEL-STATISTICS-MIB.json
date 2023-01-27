@@ -8,33 +8,33 @@
       "mplsStdMIB"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "zeroDotZero",
-      "iso",
       "Counter64",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "zeroDotZero",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleMplsTpTunnelStats": {
@@ -313,8 +313,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-TUNNEL-STATISTICS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:13:14 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:44:05 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SLE-MPLS-TP-TUNNEL-STATISTICS-MIB"

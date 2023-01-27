@@ -15,29 +15,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "iso",
       "TimeTicks",
-      "Integer32",
       "Counter32",
-      "Gauge32",
-      "IpAddress",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "enterprises",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Integer32",
+      "enterprises",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "audioCodes": {
@@ -569,8 +569,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:10:48 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:41:01 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AcAlarm"

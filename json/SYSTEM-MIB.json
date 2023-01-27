@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "Counter64",
-      "enterprises",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
       "Bits",
-      "MODULE-IDENTITY",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Integer32",
+      "iso",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -50,8 +50,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:15:25 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:46:48 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SYSTEM-MIB"

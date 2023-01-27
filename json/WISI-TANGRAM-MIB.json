@@ -6,24 +6,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Counter32",
       "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
       "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32"
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "WISI-ROOT-MIB": [
       "tangram"
@@ -149,8 +149,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-TANGRAM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:22:56 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:56:13 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WISI-TANGRAM-MIB"

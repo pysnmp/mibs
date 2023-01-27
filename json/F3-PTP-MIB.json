@@ -5,16 +5,16 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "PerfCounter64",
+      "IpVersion",
+      "F3DisplayString",
+      "IpPriorityMapMode",
       "CmPmBinAction",
       "OperationalState",
       "AdminState",
       "CmPmIntervalType",
-      "SecondaryState",
-      "IpPriorityMapMode",
       "FlowSecState",
-      "F3DisplayString",
-      "IpVersion",
-      "PerfCounter64"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
       "slotIndex",
@@ -22,20 +22,20 @@
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
+      "cmEthernetAccPortEntry",
       "cmEthernetNetPortIndex",
       "cmEthernetNetPortEntry",
       "cmEthernetAccPortIndex",
-      "cmEthernetAccPortEntry",
-      "cmEthernetTrafficPortIndex",
-      "cmEthernetTrafficPortEntry"
+      "cmEthernetTrafficPortEntry",
+      "cmEthernetTrafficPortIndex"
     ],
     "CM-REDUNDANCY-MIB": [
       "CmGenPgSwitchoverReason"
     ],
     "F3-SYNC-MIB": [
-      "TimeSource",
+      "SSMQualityLevel",
       "HoldoverAccuracy",
-      "SSMQualityLevel"
+      "TimeSource"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -46,30 +46,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
       "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Counter32",
+      "MibIdentifier",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Counter64"
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "DateAndTime",
-      "VariablePointer",
-      "TruthValue",
-      "StorageType",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime",
+      "StorageType",
+      "VariablePointer",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "f3PtpMIB": {
@@ -20714,8 +20714,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PTP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:10:11 2023",
-      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 15:40:15 2023",
+      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-PTP-MIB"
