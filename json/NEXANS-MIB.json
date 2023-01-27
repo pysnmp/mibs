@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
       "enterprises",
-      "TimeTicks",
-      "Unsigned32",
+      "MibIdentifier",
       "iso",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nexans/NEXANS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:10:43 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:19:07 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NEXANS-MIB"

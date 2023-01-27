@@ -5,24 +5,24 @@
       "blueCoatMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
       "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
       "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -765,8 +765,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:01:04 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:11:09 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BLUECOAT-SG-AUTHENTICATION-MIB"

@@ -5,29 +5,29 @@
       "ssrMibs"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter64",
+      "Integer32",
       "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Unsigned32",
-      "MibIdentifier",
       "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hardwareMIB": {
@@ -1203,8 +1203,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-HARDWARE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:05:28 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:15:05 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTRON-SSR-HARDWARE-MIB"

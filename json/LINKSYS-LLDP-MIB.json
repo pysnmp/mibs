@@ -19,11 +19,11 @@
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
-      "LldpPortList",
       "LldpPortNumber",
-      "lldpRemIndex",
       "lldpRemTimeMark",
+      "LldpPortList",
+      "LldpManAddress",
+      "lldpRemIndex",
       "lldpRemLocalPortNum"
     ],
     "Q-BRIDGE-MIB": [
@@ -31,30 +31,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
       "Bits",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
+      "TimeTicks",
       "OBJECT-TYPE",
       "iso",
-      "Counter64",
-      "Counter32",
+      "IpAddress",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "rlLldp": {
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:10:07 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:18:38 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-LLDP-MIB"

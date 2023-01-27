@@ -9,30 +9,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
       "Unsigned32",
+      "Counter32",
       "Gauge32",
-      "MibIdentifier",
       "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "StorageType",
-      "TruthValue",
       "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "RowPointer",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "RowStatus",
+      "TruthValue",
+      "StorageType"
     ]
   },
   "ctFastPathDHCPServerMIB": {
@@ -1249,8 +1249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-FASTPATH-DHCPSERVER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:05:28 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:15:05 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CT-FASTPATH-DHCPSERVER-MIB"

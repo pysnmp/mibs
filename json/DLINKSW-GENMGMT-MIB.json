@@ -5,28 +5,28 @@
       "dlinkIndustrialCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Unsigned32",
-      "IpAddress"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwGenMgmtMIB": {
@@ -105,8 +105,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-GENMGMT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:28 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:14:08 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DLINKSW-GENMGMT-MIB"

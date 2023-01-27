@@ -5,34 +5,34 @@
       "alHardwareMibModule"
     ],
     "ALTIGA-MIB": [
-      "alHardwareGroup",
-      "alStatsHardware"
+      "alStatsHardware",
+      "alHardwareGroup"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "MODULE-IDENTITY",
-      "iso",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Unsigned32",
       "Bits",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
       "Gauge32",
-      "IpAddress"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "altigaHardwareStatsMibModule": {
@@ -1175,8 +1175,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-HARDWARE-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 14:04:33 2023",
-      "On host fv-az417-962 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:14:23 2023",
+      "On host fv-az613-163 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALTIGA-HARDWARE-STATS-MIB"
