@@ -40,4 +40,4 @@ localMibs:
     # copy mib files to one of the node and use nodeSelector to schedule the mibserver to that specific node
     existingClaim: ""
     storageClass: "microk8s-hostpath"
-    size: 3Gi
+    size: 1Gi
