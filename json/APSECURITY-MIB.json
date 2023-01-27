@@ -5,34 +5,34 @@
       "acmepacketMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetPortNumber"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Integer32",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "iso",
-      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -10642,8 +10642,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:39:39 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:02:57 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APSECURITY-MIB"

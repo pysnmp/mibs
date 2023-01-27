@@ -5,25 +5,25 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "AGENT-CAPABILITIES",
-      "MODULE-COMPLIANCE"
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Integer32",
       "MibIdentifier",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "Unsigned32",
       "Counter32",
-      "Counter64"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-METERING-CAPABILITY",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:34:04 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:56:28 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-CABLE-METERING-CAPABILITY"

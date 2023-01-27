@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "RAPID-CITY": [
-      "rcSvlan",
+      "EnableValue",
       "rcVlan",
-      "PortSet",
       "IdList",
-      "LPortSet",
       "RcVlanIdOrNone",
-      "EnableValue"
+      "PortSet",
+      "rcSvlan",
+      "LPortSet"
     ],
     "RC-VRF-MIB": [
       "VrfIdentifier"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "TimeTicks",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "IpAddress"
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
       "MacAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rcVlanMib": {
@@ -3530,8 +3530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:39:14 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:02:28 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RC-VLAN-MIB"

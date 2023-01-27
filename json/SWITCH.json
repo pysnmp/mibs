@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,38 +18,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
+      "Unsigned32",
       "Gauge32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "mib-2",
       "TimeTicks",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
-      "DateAndTime",
-      "RowStatus",
       "DisplayString",
-      "PhysAddress",
-      "AutonomousType",
       "TestAndIncr",
+      "MacAddress",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "AutonomousType",
+      "DateAndTime",
       "TimeStamp"
     ],
     "VRRP-MIB": [
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:35:29 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:58:12 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SWITCH"

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
       "Bits",
-      "Unsigned32",
-      "MibIdentifier",
       "IpAddress",
-      "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "enterprises",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "iso",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -561,8 +561,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/airport/AIRPORT-BASESTATION-3-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:29:29 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:51:22 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AIRPORT-BASESTATION-3-MIB"

@@ -3,8 +3,8 @@
     "class": "imports",
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "ONE4NET-MIB": [
       "one4net"
@@ -15,24 +15,24 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
       "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "Counter32",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "b100": {
@@ -1025,8 +1025,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/kemp/B100-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:37:40 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:00:42 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "B100-MIB"

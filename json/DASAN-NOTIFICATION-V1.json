@@ -2,43 +2,43 @@
   "imports": {
     "class": "imports",
     "DASAN-GEPON-MIB": [
+      "dsPonDirection",
       "dsPonOnuMacAddress",
-      "dsPonOnuIndex",
       "dsPonCount",
-      "dsPonOltIndex",
       "dsPonState",
       "dsPonQueueIndex",
-      "dsPonPortIndex",
+      "dsPonOnuIndex",
       "dsPonTaggedLabel",
-      "dsPonDirection"
+      "dsPonPortIndex",
+      "dsPonOltIndex"
     ],
     "DASAN-SMI": [
       "dasanEvents"
     ],
     "DASAN-SWITCH-MIB": [
-      "dsPowerIndex",
-      "dsTemperatureStatus",
-      "dsUserMacAddress2",
-      "dsSwitchAtNetAddress",
-      "dsPowerstatus",
-      "dsFanstatus",
-      "dsPortModuleIndex",
-      "dsUserMacAddress3",
-      "dsFreeMem",
-      "dsPortPortIndex",
-      "dsSwitchAtMacAddress",
-      "dsSubnetConfName",
-      "dsSystemUpgradePath",
       "dsPortInstallStatus",
-      "dsSystemUpgradeStorage",
-      "dsSwitchAtVID",
-      "dsUserMacAddress1",
       "dsUserMacAddress4",
-      "dsFanIndex"
+      "dsPortPortIndex",
+      "dsFreeMem",
+      "dsSystemUpgradePath",
+      "dsTemperatureStatus",
+      "dsPortModuleIndex",
+      "dsPowerIndex",
+      "dsUserMacAddress1",
+      "dsPowerstatus",
+      "dsUserMacAddress3",
+      "dsSwitchAtVID",
+      "dsSubnetConfName",
+      "dsSwitchAtNetAddress",
+      "dsUserMacAddress2",
+      "dsSwitchAtMacAddress",
+      "dsFanIndex",
+      "dsSystemUpgradeStorage",
+      "dsFanstatus"
     ],
     "DASAN-USER-MANAGEMENT-MIB": [
-      "dsUserLoginIpAddress",
-      "dsUserLoginName"
+      "dsUserLoginName",
+      "dsUserLoginIpAddress"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -52,25 +52,25 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter64",
       "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Unsigned32",
-      "MibIdentifier",
       "Bits",
+      "Counter64",
       "iso",
-      "Counter32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "portInstalledTrap": {
@@ -4565,8 +4565,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-NOTIFICATION-V1",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:32:54 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:55:16 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DASAN-NOTIFICATION-V1"

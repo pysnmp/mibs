@@ -3,19 +3,19 @@
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
       "HpnicfDot11RadioType",
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11CipherType",
+      "HpnicfDot11RadioScopeType",
       "HpnicfDot11AKMType",
       "HpnicfDot11AssocFailType",
-      "HpnicfDot11CipherType",
-      "HpnicfDot11SSIDEncryptModeType",
       "HpnicfDot11RadioType2",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11AuthenType",
       "hpnicfDot11",
-      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11SSIDStringType",
       "HpnicfDot11AuthorFailType",
+      "HpnicfDot11AuthenType",
+      "HpnicfDot11SSIDEncryptModeType",
       "HpnicfDot11SecIEStatusType",
-      "HpnicfDot11RadioScopeType",
-      "HpnicfDot11ChannelScopeType"
+      "HpnicfDot11ObjectIDType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -23,26 +23,26 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks",
-      "MibIdentifier",
+      "IpAddress",
+      "iso",
       "Counter64",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
       "MacAddress",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hpnicfDot11STATION": {
@@ -1743,8 +1743,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-STATION-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:36:45 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 13:59:40 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-DOT11-STATION-MIB"

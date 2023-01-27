@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingResultsIpTargetAddress",
-      "pingResultsMinRtt",
-      "pingResultsIpTargetAddressType",
-      "pingResultsOperStatus",
-      "pingResultsEntry",
-      "pingCtlTargetAddressType",
-      "pingProbeHistoryEntry",
-      "pingCtlTargetAddress",
-      "pingResultsMaxRtt",
       "pingResultsAverageRtt",
-      "pingResultsProbeResponses",
-      "pingResultsSentProbes",
-      "pingResultsLastGoodProbe",
       "OperationResponseStatus",
-      "pingResultsRttSumOfSquares"
+      "pingResultsEntry",
+      "pingResultsLastGoodProbe",
+      "pingResultsIpTargetAddressType",
+      "pingResultsRttSumOfSquares",
+      "pingCtlTargetAddress",
+      "pingResultsOperStatus",
+      "pingCtlTargetAddressType",
+      "pingResultsMinRtt",
+      "pingResultsMaxRtt",
+      "pingProbeHistoryEntry",
+      "pingResultsSentProbes",
+      "pingResultsIpTargetAddress",
+      "pingResultsProbeResponses"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -36,26 +36,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "iso",
+      "Counter64",
       "Counter32",
       "Gauge32",
-      "Bits",
-      "Counter64",
+      "TimeTicks",
       "Unsigned32",
-      "OBJECT-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxPingMIB": {
@@ -1957,8 +1957,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Jan 16 15:38:08 2023",
-      "On host fv-az563-718 platform Linux version 5.15.0-1030-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 27 14:01:14 2023",
+      "On host fv-az401-610 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-PING-MIB"
