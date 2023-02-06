@@ -5,45 +5,45 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
       "InetVersion",
       "InetZoneIndex",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "mib-2",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "zeroDotZero",
-      "OBJECT-TYPE",
       "Gauge32",
-      "iso",
+      "MODULE-IDENTITY",
+      "mib-2",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "zeroDotZero",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "RowStatus",
       "TimeStamp",
       "PhysAddress",
-      "RowStatus",
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "TestAndIncr"
+      "TestAndIncr",
+      "TruthValue",
+      "StorageType",
+      "RowPointer"
     ]
   },
   "ipMIB": {
@@ -4777,9 +4777,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:28:36 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IP-MIB",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:54:33 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IP-MIB"

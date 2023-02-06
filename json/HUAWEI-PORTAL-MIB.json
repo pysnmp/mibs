@@ -11,32 +11,32 @@
       "mplsVpnVrfName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "iso",
       "Integer32",
-      "Gauge32",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
       "Bits",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
       "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime",
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "hwPortal": {
@@ -1208,8 +1208,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PORTAL-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:32:08 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 15:02:02 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-PORTAL-MIB"

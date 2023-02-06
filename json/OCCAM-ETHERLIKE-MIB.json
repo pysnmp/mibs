@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "OCCAM-REG-MODULE": [
-      "occamGenericInterfaceModules",
-      "occamGenericEtherlikeModules"
+      "occamGenericEtherlikeModules",
+      "occamGenericInterfaceModules"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "iso",
+      "Unsigned32",
       "TimeTicks",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
       "Integer32",
-      "Gauge32",
-      "enterprises",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Bits",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "transmission",
-      "Counter32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "mib-2",
+      "enterprises",
+      "IpAddress",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -178,8 +178,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-ETHERLIKE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:25:42 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:56:21 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "OCCAM-ETHERLIKE-MIB"

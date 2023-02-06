@@ -15,25 +15,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "iso",
+      "MibIdentifier",
       "TimeTicks",
-      "MibIdentifier"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eqldiskModule": {
@@ -1479,8 +1479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLDISK-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:29:50 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 15:00:04 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EQLDISK-MIB"

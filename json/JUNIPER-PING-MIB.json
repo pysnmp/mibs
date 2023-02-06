@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingResultsIpTargetAddress",
+      "pingCtlTargetAddressType",
       "pingResultsIpTargetAddressType",
-      "pingProbeHistoryEntry",
-      "pingResultsAverageRtt",
-      "pingResultsSentProbes",
-      "OperationResponseStatus",
       "pingResultsEntry",
-      "pingCtlTargetAddress",
+      "pingResultsAverageRtt",
+      "pingResultsMinRtt",
+      "pingResultsMaxRtt",
+      "pingResultsProbeResponses",
       "pingResultsRttSumOfSquares",
       "pingResultsLastGoodProbe",
-      "pingResultsOperStatus",
-      "pingResultsMinRtt",
-      "pingResultsProbeResponses",
-      "pingCtlTargetAddressType",
-      "pingResultsMaxRtt"
+      "OperationResponseStatus",
+      "pingCtlTargetAddress",
+      "pingResultsIpTargetAddress",
+      "pingProbeHistoryEntry",
+      "pingResultsSentProbes",
+      "pingResultsOperStatus"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -37,24 +37,24 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "iso",
+      "IpAddress",
+      "MibIdentifier",
       "Counter64",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
       "Gauge32",
       "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue"
     ]
   },
@@ -1957,8 +1957,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:34:23 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 15:03:34 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-PING-MIB"

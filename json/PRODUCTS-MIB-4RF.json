@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "MIB-4RF": [
+      "fourRFModules",
       "fourRFExperimental",
-      "fourRFProducts",
-      "fourRFModules"
+      "fourRFProducts"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "Bits",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "Integer32",
+      "enterprises",
+      "iso",
+      "TimeTicks",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fourRFProductsModule": {
@@ -68,8 +68,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:23:51 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:54:40 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "PRODUCTS-MIB-4RF"

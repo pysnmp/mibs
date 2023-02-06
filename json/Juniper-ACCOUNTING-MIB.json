@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ACCOUNTING-CONTROL-MIB": [
-      "acctngSelectionIndex",
       "acctngSelectionEntry",
-      "acctngFileEntry"
+      "acctngFileEntry",
+      "acctngSelectionIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -17,39 +17,39 @@
     ],
     "Juniper-TC": [
       "JuniInterfaceDescrFormat",
+      "JuniAcctngOperType",
       "JuniEnable",
       "JuniInterfaceLocation",
-      "JuniAcctngAdminType",
-      "JuniAcctngOperType"
+      "JuniAcctngAdminType"
     ],
     "Juniper-UNI-IF-MIB": [
       "juniIfType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "iso",
+      "IpAddress",
+      "MibIdentifier",
       "Counter64",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
       "Gauge32",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniAcctngMIB": {
@@ -1645,8 +1645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ACCOUNTING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:34:23 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 15:03:34 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Juniper-ACCOUNTING-MIB"

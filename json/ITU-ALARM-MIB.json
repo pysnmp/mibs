@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "ALARM-MIB": [
-      "alarmModelIndex",
+      "alarmListName",
       "alarmActiveIndex",
-      "alarmActiveDateAndTime",
-      "alarmListName"
+      "alarmModelIndex",
+      "alarmActiveDateAndTime"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
       "IANAItuProbableCause",
       "IANAItuEventType"
     ],
     "ITU-ALARM-TC-MIB": [
-      "ItuTrendIndication",
-      "ItuPerceivedSeverity"
+      "ItuPerceivedSeverity",
+      "ItuTrendIndication"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -22,31 +22,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "IpAddress",
       "Gauge32",
-      "mib-2"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
       "RowPointer",
       "TEXTUAL-CONVENTION",
+      "AutonomousType",
       "DisplayString"
     ]
   },
@@ -539,8 +539,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ITU-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:23:41 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:54:31 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ITU-ALARM-MIB"

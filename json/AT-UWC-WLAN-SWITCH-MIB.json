@@ -6,31 +6,31 @@
       "wirelesslan"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
       "TimeTicks",
-      "Counter32",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "IpAddress",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Bits"
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -24886,8 +24886,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-UWC-WLAN-SWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:24:25 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:55:12 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AT-UWC-WLAN-SWITCH-MIB"

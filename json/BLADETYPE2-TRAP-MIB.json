@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "vrrpCurCfgVirtRtrAddr",
-      "ipCurCfgGwAddr",
       "vrrpCurCfgIfPasswd",
-      "vrrpCurCfgVirtRtrIndx",
+      "vrrpCurCfgVirtRtrAddr",
+      "ipCurCfgGwIndex",
       "vrrpCurCfgIfIndx",
-      "ipCurCfgGwIndex"
+      "ipCurCfgGwAddr",
+      "vrrpCurCfgVirtRtrIndx"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
+      "agChassis",
       "agSlotNumber",
-      "agRackId",
-      "agChassis"
+      "agRackId"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName",
@@ -30,25 +30,25 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "iso",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bt2Traps": {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:32:53 2023",
-      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 15:02:12 2023",
+      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"
