@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
-      "chAlarmVarSlot",
       "chAlarmVarPort",
-      "chAlarmVarString",
-      "chAlarmVarInteger"
+      "chAlarmVarInteger",
+      "chAlarmVarSlot",
+      "chAlarmVarString"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
-      "F10SwDate",
-      "F10SSeriesPortType",
-      "F10HundredthdB",
-      "F10MfgDate",
       "F10ChassisType",
-      "F10ProcessorModuleType"
+      "F10SSeriesPortType",
+      "F10ProcessorModuleType",
+      "F10SwDate",
+      "F10MfgDate",
+      "F10HundredthdB"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
-      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
       "RowStatus",
+      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "f10SSerChassisMib": {
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:44:53 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:24:09 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

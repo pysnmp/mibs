@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFFileSize",
-      "FourRFImageType",
-      "FourRFProcessResultType",
-      "FourRFWebUserEnabled",
-      "FourRFImageVersion",
-      "FourRFResetType",
+      "FourRFTftpFileName",
       "FourRFTimeZone",
-      "FourRFWebUserGroup",
-      "FourRFImageStatus",
+      "FourRFFileSize",
       "FourRFSerialNumber",
-      "FourRFTftpFileName"
+      "FourRFResetType",
+      "FourRFImageType",
+      "FourRFWebUserEnabled",
+      "FourRFImageStatus",
+      "FourRFWebUserGroup",
+      "FourRFImageVersion",
+      "FourRFProcessResultType"
     ],
     "MIB-4RF": [
       "fourRFGeneric",
@@ -23,29 +23,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
       "Counter64",
+      "MibIdentifier",
       "Counter32",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:39:33 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:19:44 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "COMMON-4RF"

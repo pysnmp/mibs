@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
       "Counter32",
       "enterprises",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "TimeTicks",
       "Counter64",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "liebertGlobalProductsRegistrationModule": {
@@ -1049,8 +1049,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-REG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:50:40 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:29:05 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LIEBERT-GP-REGISTRATION-MIB"

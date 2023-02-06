@@ -5,28 +5,28 @@
       "eltMes"
     ],
     "RADLAN-HWENVIROMENT": [
-      "RlEnvMonState",
-      "rlEnvMonFanStatusEntry"
+      "rlEnvMonFanStatusEntry",
+      "RlEnvMonState"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
       "Gauge32",
-      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
       "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64",
       "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -184,8 +184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-MES-HWENVIROMENT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:46:02 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:25:07 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ELTEX-MES-HWENVIROMENT-MIB"

@@ -6,32 +6,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "Counter32",
       "transmission",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
       "Counter64",
+      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "Bits"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "InstancePointer"
+      "InstancePointer",
+      "AutonomousType"
     ]
   },
   "char": {
@@ -816,8 +816,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/CHARACTER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:39:24 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:19:36 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CHARACTER-MIB"

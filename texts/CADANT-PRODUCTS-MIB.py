@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CADANT-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-PRODUCTS-MIB
-# Produced by pysmi-1.1.8 at Fri Jan 27 15:40:38 2023
-# On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Feb  6 14:20:38 2023
+# On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Integer32, Unsigned32, NotificationType, Gauge32, MibIdentifier, Counter64, ObjectIdentity, enterprises, iso, TimeTicks, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Unsigned32", "NotificationType", "Gauge32", "MibIdentifier", "Counter64", "ObjectIdentity", "enterprises", "iso", "TimeTicks", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, enterprises, Gauge32, ObjectIdentity, ModuleIdentity, IpAddress, MibIdentifier, TimeTicks, iso, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "enterprises", "Gauge32", "ObjectIdentity", "ModuleIdentity", "IpAddress", "MibIdentifier", "TimeTicks", "iso", "Bits", "Counter64")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cadant = ModuleIdentity((1, 3, 6, 1, 4, 1, 4998))
 cadant.setRevisions(('2000-11-18 00:00', '2002-02-01 00:00', '2002-05-07 00:00', '2002-06-26 00:00', '2002-12-10 00:00', '2003-06-30 00:00', '2007-06-04 00:00',))
 
@@ -43,4 +43,4 @@ cadNms = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 1, 2))
 c4cmts = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 2, 1))
 c4ccmts = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 2, 2))
 g2ims = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 2, 3))
-mibBuilder.exportSymbols("CADANT-PRODUCTS-MIB", cadEquipment=cadEquipment, cadLayer2=cadLayer2, g2ims=g2ims, c4cmts=c4cmts, cadAuthentication=cadAuthentication, cadNms=cadNms, cadExperimental=cadExperimental, cadTopology=cadTopology, cadNotification=cadNotification, PYSNMP_MODULE_ID=cadant, cadLayer3=cadLayer3, cadL2vpn=cadL2vpn, cadSchema=cadSchema, c4ccmts=c4ccmts, cadIke=cadIke, cadCmRemoteQuery=cadCmRemoteQuery, cadCable=cadCable, cadSubscriber=cadSubscriber, cadProducts=cadProducts, cadPolicy=cadPolicy, cadant=cadant, cadSystem=cadSystem, cadCmtsIf3=cadCmtsIf3, cadObjects=cadObjects, cadSpectrum=cadSpectrum)
+mibBuilder.exportSymbols("CADANT-PRODUCTS-MIB", cadProducts=cadProducts, c4ccmts=c4ccmts, PYSNMP_MODULE_ID=cadant, cadSchema=cadSchema, cadLayer2=cadLayer2, cadNms=cadNms, cadSubscriber=cadSubscriber, cadSystem=cadSystem, cadObjects=cadObjects, cadIke=cadIke, cadCable=cadCable, c4cmts=c4cmts, cadL2vpn=cadL2vpn, cadNotification=cadNotification, cadExperimental=cadExperimental, cadCmtsIf3=cadCmtsIf3, cadEquipment=cadEquipment, cadTopology=cadTopology, cadPolicy=cadPolicy, cadSpectrum=cadSpectrum, g2ims=g2ims, cadLayer3=cadLayer3, cadAuthentication=cadAuthentication, cadCmRemoteQuery=cadCmRemoteQuery, cadant=cadant)

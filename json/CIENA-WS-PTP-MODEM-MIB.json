@@ -5,50 +5,50 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-PTP-MIB": [
-      "cwsPtpDiagnosticsEntry",
-      "cwsPtpTransmitterEntry"
+      "cwsPtpTransmitterEntry",
+      "cwsPtpDiagnosticsEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
+      "RecoverLinkDispersionType",
+      "StringMaxl32",
+      "PtpId",
       "WlSpacing",
-      "Decimal1Dig",
       "ModemChannel",
+      "EnabledDisabledEnum",
       "StringSci",
       "ModemFrequency",
-      "StringMaxl32",
-      "TxPowerLvl",
-      "RecoverLinkDispersionType",
-      "PtpId",
       "OnOffEnum",
-      "EnabledDisabledEnum",
-      "LineSysEnum",
       "ChannelsNumber",
-      "Decimal2Dig"
+      "Decimal2Dig",
+      "Decimal1Dig",
+      "TxPowerLvl",
+      "LineSysEnum"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MibIdentifier",
       "Unsigned32",
-      "Bits",
       "Gauge32",
-      "iso"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "cienaWsPtpModemMIB": {
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:42:11 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:21:55 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-WS-PTP-MODEM-MIB"

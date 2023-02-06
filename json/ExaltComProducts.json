@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "VlanStatusT",
-      "AcmModulationT",
-      "Te1LineCodeT",
       "EthMainStatusT",
-      "EthAuxStatusT",
-      "Te1LboT",
-      "AuxNmsMode",
       "VlanGroupT",
-      "Te1LoopBackModeT",
       "FileTransferStartT",
-      "Led4ColorT",
-      "exaltcommunications",
-      "EthPortMode",
       "NtpClientEnableT",
-      "AlarmLevelT",
+      "Te1LineCodeT",
+      "AcmModulationT",
+      "Led4ColorT",
+      "FileTransferTypeT",
+      "exaltcommunications",
+      "Te1LboT",
+      "ExaltEnableT",
+      "Te1StatusT",
+      "AuxNmsMode",
       "EnableStatusT",
       "TimeZoneT",
-      "Te1StatusT",
-      "ExaltEnableT",
-      "FileTransferTypeT"
+      "EthPortMode",
+      "VlanStatusT",
+      "Te1LoopBackModeT",
+      "EthAuxStatusT",
+      "AlarmLevelT"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Unsigned32",
-      "Counter32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "MibIdentifier",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "Counter64",
+      "iso",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:46:34 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:25:32 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ExaltComProducts"

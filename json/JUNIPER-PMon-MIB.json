@@ -6,33 +6,33 @@
       "ifDescr"
     ],
     "JUNIPER-SMI": [
-      "jnxMibs",
-      "jnxPMonNotifications"
+      "jnxPMonNotifications",
+      "jnxMibs"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "Gauge32",
       "IpAddress",
-      "TimeTicks"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxPMon": {
@@ -549,8 +549,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PMon-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:50:32 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:28:58 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-PMon-MIB"

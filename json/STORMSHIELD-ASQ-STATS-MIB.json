@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
-      "iso",
+      "Integer32",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
       "Counter32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "Counter64"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ],
     "STORMSHIELD-SMI-MIB": [
       "stormshieldMIB"
@@ -570,8 +570,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-ASQ-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:55:11 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:32:52 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "STORMSHIELD-ASQ-STATS-MIB"

@@ -9,28 +9,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
       "OBJECT-TYPE",
       "Counter32",
-      "Unsigned32",
-      "Bits",
       "MODULE-IDENTITY",
-      "iso",
+      "OBJECT-IDENTITY",
       "Counter64",
       "TRAP-TYPE",
-      "OBJECT-IDENTITY",
       "enterprises",
-      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
       "IpAddress",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "EnableDisable": {
@@ -9175,8 +9175,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ceraos/MWRM-UNIT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:41:51 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:21:38 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MWRM-UNIT-MIB"

@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "Gauge32",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Bits",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "TPLINK-DDMMANAGE-MIB": [
       "tplinkDdmManageMIBObjects"
@@ -189,8 +189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-DDMRXPOWTHRESHOLD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 27 15:55:36 2023",
-      "On host fv-az551-95 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:33:13 2023",
+      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "TPLINK-DDMRXPOWTHRESHOLD-MIB"
