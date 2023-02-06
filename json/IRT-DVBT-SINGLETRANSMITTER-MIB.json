@@ -3,53 +3,53 @@
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
       "eventTimeStamp",
-      "eventCounter",
+      "mibRelease",
       "eventPriority",
-      "mibRelease"
+      "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "WarningOK",
+      "Input1Input2",
       "FaultOK",
       "MuteOk",
-      "Input1Input2",
-      "PresentNotPresent",
-      "SelectOnOff",
-      "SelectManualAuto",
-      "OkNotOk",
+      "dvbT",
       "SFNMFN",
+      "SelectOnOff",
       "LocalRemote",
-      "dvbT"
+      "WarningOK",
+      "OkNotOk",
+      "PresentNotPresent",
+      "SelectManualAuto"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
+      "sysDescr",
       "sysLocation",
-      "sysDescr"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Counter32",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
       "MibIdentifier",
       "OBJECT-TYPE",
+      "iso",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Integer32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "dvbSingleTransmitter": {
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:32:06 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:37:47 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

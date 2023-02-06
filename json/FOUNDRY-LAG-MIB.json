@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-SN-ROOT-MIB": [
-      "snTraps",
-      "snSwitch"
+      "snSwitch",
+      "snTraps"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -16,24 +16,24 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "iso",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fdryLinkAggregationGroupMIB": {
@@ -378,8 +378,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:25:43 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:30:15 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FOUNDRY-LAG-MIB"

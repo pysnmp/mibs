@@ -18,9 +18,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddressType",
       "InetAddress"
     ],
     "IP-FORWARD-MIB": [
@@ -28,38 +28,38 @@
     ],
     "IP-MIB": [
       "ipv6InterfaceEntry",
-      "ipNetToPhysicalEntry",
+      "ipv6RouterAdvertEntry",
       "ipAddressEntry",
-      "ipv6RouterAdvertEntry"
+      "ipNetToPhysicalEntry"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "zeroDotZero",
       "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Bits",
-      "mib-2",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "zeroDotZero",
-      "Counter32",
-      "MibIdentifier",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Integer32",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "RowStatus",
-      "TruthValue"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:24:35 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:29:00 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-IPv6"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "EKINOPS-MIB": [
-      "EkiOnOff",
-      "ekinops"
+      "ekinops",
+      "EkiOnOff"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -11,26 +11,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
       "IpAddress",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter32"
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "RowStatus",
       "DateAndTime",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TM": [
       "SnmpUDPAddress"
@@ -1761,8 +1761,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MGNT2-NMS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:24:57 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:29:25 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "EKINOPS-MGNT2-NMS-MIB"

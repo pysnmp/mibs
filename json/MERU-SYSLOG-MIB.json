@@ -12,31 +12,31 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "enterprises",
       "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
       "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
       "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "enterprises"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "MacAddress",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "TimeInterval"
+      "MacAddress",
+      "TimeInterval",
+      "DateAndTime",
+      "TimeStamp",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "mwSyslog": {
@@ -237,8 +237,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-SYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:25:53 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:30:26 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MERU-SYSLOG-MIB"

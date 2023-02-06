@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFTftpFileName",
-      "FourRFTimeZone",
-      "FourRFFileSize",
+      "FourRFImageStatus",
       "FourRFSerialNumber",
+      "FourRFTimeZone",
       "FourRFResetType",
       "FourRFImageType",
       "FourRFWebUserEnabled",
-      "FourRFImageStatus",
       "FourRFWebUserGroup",
+      "FourRFProcessResultType",
+      "FourRFTftpFileName",
       "FourRFImageVersion",
-      "FourRFProcessResultType"
+      "FourRFFileSize"
     ],
     "MIB-4RF": [
       "fourRFGeneric",
@@ -22,30 +22,30 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
-      "MibIdentifier",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "TimeTicks",
+      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Integer32",
-      "iso"
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:19:44 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:23:51 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "COMMON-4RF"

@@ -15,25 +15,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "Counter32",
       "OBJECT-TYPE",
       "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits"
+      "MibIdentifier",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "rosMgmtAlarmMgmt": {
@@ -634,8 +634,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/ROSMGMT-ALARM-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:31:50 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:37:22 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ROSMGMT-ALARM-MGMT-MIB"

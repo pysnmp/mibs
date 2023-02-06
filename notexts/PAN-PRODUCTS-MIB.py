@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PAN-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-PRODUCT-MIB
-# Produced by pysmi-1.1.8 at Mon Feb  6 14:30:44 2023
-# On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Mon Feb  6 14:36:12 2023
+# On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-panProductsMibs, panModules = mibBuilder.importSymbols("PAN-GLOBAL-REG", "panProductsMibs", "panModules")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+panModules, panProductsMibs = mibBuilder.importSymbols("PAN-GLOBAL-REG", "panModules", "panProductsMibs")
 TcChassisType, = mibBuilder.importSymbols("PAN-GLOBAL-TC", "TcChassisType")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, TimeTicks, ModuleIdentity, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, iso, Unsigned32, MibIdentifier, Integer32, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "ModuleIdentity", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "iso", "Unsigned32", "MibIdentifier", "Integer32", "NotificationType", "Counter32")
+IpAddress, TimeTicks, MibIdentifier, ModuleIdentity, Gauge32, Unsigned32, NotificationType, iso, Integer32, ObjectIdentity, Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Gauge32", "Unsigned32", "NotificationType", "iso", "Integer32", "ObjectIdentity", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
 DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 panProductsMibsModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 25461, 1, 1, 4))
 panProductsMibsModule.setRevisions(('2013-04-15 16:50', '2011-02-09 16:10',))
@@ -111,4 +111,4 @@ panPA_7000_100G_NPC = ObjectIdentity((1, 3, 6, 1, 4, 1, 25461, 2, 3, 100, 7)).se
 if mibBuilder.loadTexts: panPA_7000_100G_NPC.setStatus('current')
 panPA_7080_SMC_B = ObjectIdentity((1, 3, 6, 1, 4, 1, 25461, 2, 3, 100, 8)).setLabel("panPA-7080-SMC-B")
 if mibBuilder.loadTexts: panPA_7080_SMC_B.setStatus('current')
-mibBuilder.exportSymbols("PAN-PRODUCTS-MIB", panPA_4060=panPA_4060, panPA_2050=panPA_2050, panPowerSupplies=panPowerSupplies, panPA_7000_100G_NPC=panPA_7000_100G_NPC, panPA_2020=panPA_2020, panPA_5250=panPA_5250, panPA_3250=panPA_3250, panPA_220=panPA_220, panPA_7050=panPA_7050, panM_500=panM_500, panPA_7050_SMC_B=panPA_7050_SMC_B, PYSNMP_MODULE_ID=panProductsMibsModule, panPA_5020=panPA_5020, panProductsMibsModule=panProductsMibsModule, panM_100=panM_100, panPA_500=panPA_500, panPA_850=panPA_850, panPA_7080=panPA_7080, panPA_820=panPA_820, panPA_5280=panPA_5280, panPA_5220=panPA_5220, panPA_7080_SMC_B=panPA_7080_SMC_B, panFans=panFans, panPA_7000_20G_NPC=panPA_7000_20G_NPC, panPA_3200=panPA_3200, panPA_5060=panPA_5060, panPA_7080_SMC=panPA_7080_SMC, panPA_5050=panPA_5050, panPA_3260=panPA_3260, panPA_220R=panPA_220R, panPA_200=panPA_200, panPA_3050=panPA_3050, panPA_4050=panPA_4050, panPA_3060=panPA_3060, panM_600=panM_600, panPA_7000_LFC=panPA_7000_LFC, panPA_VM=panPA_VM, panPA_5260=panPA_5260, panWF_500=panWF_500, panPA_3220=panPA_3220, panM_200=panM_200, panPA_7000_SMC=panPA_7000_SMC, panPA_4020=panPA_4020, panWF_600=panWF_600, panPA_3020=panPA_3020, panGP_100=panGP_100, panPA_7000_LPC=panPA_7000_LPC, panPanorama=panPanorama, panProcessingCards=panProcessingCards)
+mibBuilder.exportSymbols("PAN-PRODUCTS-MIB", panM_200=panM_200, PYSNMP_MODULE_ID=panProductsMibsModule, panPA_3250=panPA_3250, panPA_7080_SMC_B=panPA_7080_SMC_B, panPA_3020=panPA_3020, panPA_7080=panPA_7080, panM_600=panM_600, panPA_7000_100G_NPC=panPA_7000_100G_NPC, panPA_500=panPA_500, panPA_820=panPA_820, panPA_7000_SMC=panPA_7000_SMC, panPA_VM=panPA_VM, panGP_100=panGP_100, panPA_7080_SMC=panPA_7080_SMC, panPA_7050_SMC_B=panPA_7050_SMC_B, panPA_4060=panPA_4060, panPA_4050=panPA_4050, panPA_3050=panPA_3050, panPA_5220=panPA_5220, panPA_2050=panPA_2050, panPA_7000_LFC=panPA_7000_LFC, panPA_3200=panPA_3200, panPA_5280=panPA_5280, panWF_600=panWF_600, panPA_5260=panPA_5260, panPowerSupplies=panPowerSupplies, panPA_3060=panPA_3060, panPA_7000_LPC=panPA_7000_LPC, panPA_4020=panPA_4020, panProductsMibsModule=panProductsMibsModule, panPA_7050=panPA_7050, panPA_3220=panPA_3220, panPA_7000_20G_NPC=panPA_7000_20G_NPC, panPA_2020=panPA_2020, panPA_220R=panPA_220R, panPA_5060=panPA_5060, panPanorama=panPanorama, panPA_220=panPA_220, panPA_5020=panPA_5020, panProcessingCards=panProcessingCards, panPA_3260=panPA_3260, panPA_200=panPA_200, panPA_5050=panPA_5050, panPA_850=panPA_850, panFans=panFans, panM_500=panM_500, panM_100=panM_100, panWF_500=panWF_500, panPA_5250=panPA_5250)

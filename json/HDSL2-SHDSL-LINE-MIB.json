@@ -17,26 +17,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "transmission",
+      "Unsigned32",
       "Counter64",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "transmission",
+      "iso",
       "TimeTicks",
-      "IpAddress"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hdsl2ShdslMIB": {
@@ -2986,9 +2986,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/HDSL2-SHDSL-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:19:37 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HDSL2-SHDSL-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:35:37 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HDSL2-SHDSL-LINE-MIB"

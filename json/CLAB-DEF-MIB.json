@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "enterprises",
+      "MibIdentifier",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Counter32",
       "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress"
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cableLabs": {
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/CLAB-DEF-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:19:36 2023",
-      "On host fv-az442-130 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Mon Feb  6 14:23:41 2023",
+      "On host fv-az216-339 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CLAB-DEF-MIB"
