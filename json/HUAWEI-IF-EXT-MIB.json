@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -12,13 +12,13 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifAdminStatus",
       "ifIndex",
+      "ifAdminStatus",
       "ifOperStatus",
-      "ifDescr",
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifName"
+      "ifName",
+      "InterfaceIndex",
+      "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
       "InetVersion"
@@ -31,36 +31,36 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "iso",
       "IpAddress",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
       "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "MibIdentifier",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus"
+      "PhysAddress",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwIFExtMib": {
@@ -10754,8 +10754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:25:19 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 14:00:16 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-IF-EXT-MIB"

@@ -5,40 +5,40 @@
       "fsp150cm"
     ],
     "CM-ENTITY-MIB": [
-      "CardType",
-      "neIndex"
+      "neIndex",
+      "CardType"
     ],
     "ENTITY-MIB": [
       "PhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
       "iso",
       "Counter64",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
       "StorageType",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmRedundancyMIB": {
@@ -480,8 +480,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:16:17 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:30 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CM-REDUNDANCY-MIB"

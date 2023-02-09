@@ -5,29 +5,29 @@
       "dellNetMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Gauge32"
+      "Integer32",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "dellNetBpStatsMib": {
@@ -1267,8 +1267,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-BPSTATS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:08 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:56:42 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DELL-NETWORKING-BPSTATS-MIB"

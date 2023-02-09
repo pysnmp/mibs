@@ -8,33 +8,33 @@
       "InterfaceIndex"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "iso",
       "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleDhcpSnooping": {
@@ -637,8 +637,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DHCP-SNOOPING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:20:12 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:55:55 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SLE-DHCP-SNOOPING-MIB"

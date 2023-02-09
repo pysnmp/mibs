@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ARBOR-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-SMI
-# Produced by pysmi-1.1.8 at Thu Feb  9 13:16:27 2023
-# On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Feb  9 13:52:39 2023
+# On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Unsigned32, TimeTicks, ModuleIdentity, Bits, ObjectIdentity, Gauge32, iso, enterprises, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "TimeTicks", "ModuleIdentity", "Bits", "ObjectIdentity", "Gauge32", "iso", "enterprises", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "Counter64", "MibIdentifier")
+NotificationType, Integer32, Unsigned32, ObjectIdentity, Counter32, MibIdentifier, IpAddress, Gauge32, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Counter64, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Unsigned32", "ObjectIdentity", "Counter32", "MibIdentifier", "IpAddress", "Gauge32", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Counter64", "ModuleIdentity", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 arbornetworks = ModuleIdentity((1, 3, 6, 1, 4, 1, 9694))
 arbornetworks.setRevisions(('2013-11-14 00:00', '2013-08-19 00:00', '2011-07-20 00:00', '2009-03-30 00:00', '2008-11-13 00:00', '2005-09-12 00:00',))
@@ -26,4 +26,4 @@ if mibBuilder.loadTexts: arbornetworksProducts.setDescription('arbornetworksProd
 arborExperimental = ObjectIdentity((1, 3, 6, 1, 4, 1, 9694, 2))
 if mibBuilder.loadTexts: arborExperimental.setStatus('current')
 if mibBuilder.loadTexts: arborExperimental.setDescription('arborExperimental provides a root object identifier\n\t\t from which MODULE-IDENTITY for experimental purposes\n\t\t may be assigned.')
-mibBuilder.exportSymbols("ARBOR-SMI", PYSNMP_MODULE_ID=arbornetworks, arborExperimental=arborExperimental, arbornetworks=arbornetworks, arbornetworksProducts=arbornetworksProducts)
+mibBuilder.exportSymbols("ARBOR-SMI", arbornetworksProducts=arbornetworksProducts, arborExperimental=arborExperimental, arbornetworks=arbornetworks, PYSNMP_MODULE_ID=arbornetworks)

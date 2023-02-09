@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslLineAlarmConfProfileEntry",
-      "adslLineEntry",
+      "adslMIB",
       "adslAturIntervalEntry",
       "adslAtucIntervalEntry",
-      "adslMIB",
       "adslLineConfProfileEntry",
+      "adslLineAlarmConfProfileEntry",
       "adslAturPerfDataEntry",
+      "adslLineEntry",
       "adslAtucPerfDataEntry"
     ],
     "ADSL-TC-MIB": [
-      "AdslPerfCurrDayCount",
-      "AdslPerfPrevDayCount"
+      "AdslPerfPrevDayCount",
+      "AdslPerfCurrDayCount"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -28,24 +28,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Bits",
+      "iso",
       "TimeTicks",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Unsigned32",
-      "Bits",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE",
-      "iso",
+      "MibIdentifier",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adslExtMIB": {
@@ -1192,8 +1192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:15:29 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:51:48 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ADSL-LINE-EXT-MIB"

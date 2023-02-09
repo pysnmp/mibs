@@ -9,19 +9,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Counter64",
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -240,8 +240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-TC",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:33:10 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 14:06:37 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MSERIES-TC"

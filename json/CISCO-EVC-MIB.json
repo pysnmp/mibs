@@ -8,8 +8,8 @@
       "CiscoCosList"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
@@ -20,32 +20,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Counter64",
+      "Unsigned32",
       "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Bits",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "iso",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "StorageType",
-      "TruthValue",
+      "RowStatus",
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ciscoEvcMIB": {
@@ -3055,8 +3055,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-EVC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:34 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:05 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-EVC-MIB"

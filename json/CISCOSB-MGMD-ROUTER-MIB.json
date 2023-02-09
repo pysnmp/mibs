@@ -8,43 +8,43 @@
       "NpgOperStatus"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MGMD-STD-MIB": [
       "mgmdRouterInterfaceEntry"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "mib-2",
-      "OBJECT-TYPE",
+      "Counter32",
       "Unsigned32",
+      "MibIdentifier",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Bits",
-      "IpAddress",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlIgmp": {
@@ -326,8 +326,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-MGMD-ROUTER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:29 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:01 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-MGMD-ROUTER-MIB"

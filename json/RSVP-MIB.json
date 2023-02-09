@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INTEGRATED-SERVICES-MIB": [
-      "MessageSize",
       "BitRate",
       "SessionNumber",
-      "BurstSize",
-      "Protocol",
       "intSrvFlowStatus",
-      "Port",
       "QosService",
-      "SessionType"
+      "Port",
+      "Protocol",
+      "SessionType",
+      "BurstSize",
+      "MessageSize"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -22,30 +22,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "mib-2",
+      "Gauge32",
+      "Bits",
+      "iso",
       "TimeTicks",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "mib-2",
       "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
+      "MibIdentifier",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
       "RowStatus",
-      "TestAndIncr"
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsvp": {
@@ -2976,8 +2976,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RSVP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:15:29 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:51:48 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "RSVP-MIB"

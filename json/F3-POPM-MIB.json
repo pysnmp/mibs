@@ -8,8 +8,8 @@
       "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
-      "slotIndex",
       "neIndex",
+      "slotIndex",
       "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
@@ -17,38 +17,38 @@
       "cmEthernetAccPortEntry"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmEthernetNetPortStatsEntry",
       "cmEthernetNetPortHistoryEntry",
-      "cmEthernetAccPortHistoryEntry",
-      "cmEthernetAccPortStatsEntry"
+      "cmEthernetAccPortStatsEntry",
+      "cmEthernetNetPortStatsEntry",
+      "cmEthernetAccPortHistoryEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
       "iso",
       "Counter64",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3POPMMib": {
@@ -1085,8 +1085,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-POPM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:16:15 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:29 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F3-POPM-MIB"

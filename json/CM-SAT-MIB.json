@@ -7,15 +7,15 @@
     "CM-COMMON-MIB": [
       "SecondaryState",
       "OperationalState",
-      "CmPmBinAction",
+      "VlanId",
       "AdminState",
       "VlanPriority",
-      "VlanId",
-      "MepDestinationType"
+      "MepDestinationType",
+      "CmPmBinAction"
     ],
     "CM-ENTITY-MIB": [
-      "slotIndex",
       "neIndex",
+      "slotIndex",
       "networkElementEntry",
       "shelfIndex"
     ],
@@ -30,35 +30,35 @@
       "dot1agCfmMepEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
-      "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
       "iso",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
       "StorageType",
-      "RowStatus",
-      "DateAndTime",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmServiceActivationMIB": {
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:16:17 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:30 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CM-SAT-MIB"

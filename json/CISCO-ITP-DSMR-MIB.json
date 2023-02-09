@@ -2,68 +2,68 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSCCP-MIB": [
-      "CgsccpGttGlobalTitleInd",
-      "CgsccpGttTransType"
+      "CgsccpGttTransType",
+      "CgsccpGttGlobalTitleInd"
     ],
     "CISCO-ITP-GSP-MIB": [
-      "cgspCLLICode",
       "cgspEventSequenceNumber",
-      "cgspInstNetwork"
+      "cgspInstNetwork",
+      "cgspCLLICode"
     ],
     "CISCO-ITP-MLR-MIB": [
-      "CmlrName",
-      "CmlrAddressType",
-      "CmlrRuleSetName",
       "CmlrAddressDigits",
-      "CmlrId",
-      "CmlrRuleProtocol"
+      "CmlrRuleSetName",
+      "CmlrName",
+      "CmlrRuleProtocol",
+      "CmlrAddressType",
+      "CmlrId"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcGtaLongDisplay",
+      "CItpTcURL",
+      "CItpTcSubSystemNumber",
+      "CItpTcNAI",
+      "CItpTcPointCode",
+      "CItpTcTableLoadStatus",
       "CItpTcNumberingPlan",
       "CItpTcNetworkName",
-      "CItpTcNAI",
-      "CItpTcTableLoadStatus",
-      "CItpTcSubSystemNumber",
-      "CItpTcURL",
-      "CItpTcPointCode"
+      "CItpTcGtaLongDisplay"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetPortNumber",
-      "InetAddress"
+      "InetAddress",
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "MibIdentifier",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Bits",
-      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "iso",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp"
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "ciscoItpDsmrMIB": {
@@ -2955,8 +2955,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-DSMR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:31 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:03 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ITP-DSMR-MIB"

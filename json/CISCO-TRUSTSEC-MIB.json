@@ -6,41 +6,41 @@
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
       "CtsGenerationId",
-      "CtsSecurityGroupTag",
+      "CtsCredentialRecordType",
       "CtsPasswordEncryptionType",
-      "CtsAcsAuthorityIdentity",
-      "CtsCredentialRecordType"
+      "CtsSecurityGroupTag",
+      "CtsAcsAuthorityIdentity"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "MODULE-IDENTITY",
       "Bits",
-      "IpAddress",
-      "iso",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "DateAndTime",
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ciscoTrustSecMIB": {
@@ -1680,8 +1680,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:34 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:05 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-TRUSTSEC-MIB"

@@ -3,39 +3,39 @@
     "class": "imports",
     "HPN-ICF-FC-TC-MIB": [
       "HpnicfFcNameId",
-      "HpnicfFcStartOper",
       "HpnicfFcVsanIndex",
-      "HpnicfFcAddress",
-      "HpnicfFcAddressType"
+      "HpnicfFcAddressType",
+      "HpnicfFcStartOper",
+      "HpnicfFcAddress"
     ],
     "HPN-ICF-VSAN-MIB": [
       "hpnicfSan"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
       "iso",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "hpnicfFcTraceRoute": {
@@ -373,8 +373,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FC-TRACE-ROUTE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:26:39 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 14:01:06 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-FC-TRACE-ROUTE-MIB"

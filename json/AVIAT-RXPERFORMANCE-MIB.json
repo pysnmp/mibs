@@ -8,30 +8,30 @@
       "entPhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "iso",
       "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "MibIdentifier",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "iso"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "DisplayString",
       "TruthValue"
     ],
     "STXN-GLOBALREGISTER-MIB": [
@@ -779,8 +779,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-RXPERFORMANCE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:17:01 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:53:09 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AVIAT-RXPERFORMANCE-MIB"

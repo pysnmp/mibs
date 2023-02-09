@@ -12,34 +12,34 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "zeroDotZero",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
       "mib-2",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "zeroDotZero",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "hpnicfEponDeviceMIB": {
@@ -1711,8 +1711,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EPON-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:26:37 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 14:01:05 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-EPON-DEVICE-MIB"

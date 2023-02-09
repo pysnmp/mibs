@@ -8,12 +8,12 @@
       "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
-      "PortList"
+      "PortList",
+      "VlanIndex"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -24,26 +24,26 @@
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "BITS",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
       "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "BITS",
       "iso",
       "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleEpon": {
@@ -42161,8 +42161,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-EPON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:20:13 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:55:55 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SLE-EPON-MIB"

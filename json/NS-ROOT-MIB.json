@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "MibIdentifier",
-      "enterprises",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32"
+      "Counter64",
+      "Bits",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -38005,8 +38005,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/NS-MIB-SMIV2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:18:23 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:20 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NS-ROOT-MIB"

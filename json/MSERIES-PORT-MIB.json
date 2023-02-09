@@ -5,8 +5,8 @@
       "mseries"
     ],
     "MSERIES-TC": [
-      "PortType",
       "PortMode",
+      "PortType",
       "PortStatus"
     ],
     "SNMPv2-CONF": [
@@ -15,19 +15,19 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
       "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter64",
       "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -274,8 +274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-PORT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:33:10 2023",
-      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 14:06:37 2023",
+      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MSERIES-PORT-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Thu Feb  9 13:22:26 2023
-# On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Feb  9 13:57:51 2023
+# On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Counter32, TimeTicks, MibIdentifier, IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Unsigned32, NotificationType, ObjectIdentity, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "TimeTicks", "MibIdentifier", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Unsigned32", "NotificationType", "ObjectIdentity", "Integer32", "Gauge32")
+Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, Counter64, iso, ObjectIdentity, Gauge32, IpAddress, Counter32, TimeTicks, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "Counter64", "iso", "ObjectIdentity", "Gauge32", "IpAddress", "Counter32", "TimeTicks", "ModuleIdentity", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", dl=dl, sysOtherType=sysOtherType, sysRouters=sysRouters, backplaneProtocol=backplaneProtocol, repeaterRev1=repeaterRev1, product=product, layerMgmt=layerMgmt, router=router, common=common, repeaterRev2=repeaterRev2, subsystem=subsystem, bridge=bridge, nb30Rev1=nb30Rev1, sysRepeaters=sysRepeaters, ups=ups, subSysMMAC=subSysMMAC, subSysDevice=subSysDevice, sysOIDs=sysOIDs, sysIntDev=sysIntDev, commonRev1=commonRev1, repeater=repeater, sysChassis=sysChassis, commsDevice=commsDevice, sysBridges=sysBridges)
+mibBuilder.exportSymbols("IRM-OIDS", repeater=repeater, product=product, sysBridges=sysBridges, commsDevice=commsDevice, sysRepeaters=sysRepeaters, sysOIDs=sysOIDs, sysRouters=sysRouters, subSysMMAC=subSysMMAC, commonRev1=commonRev1, common=common, bridge=bridge, router=router, subsystem=subsystem, repeaterRev1=repeaterRev1, subSysDevice=subSysDevice, layerMgmt=layerMgmt, sysOtherType=sysOtherType, sysChassis=sysChassis, backplaneProtocol=backplaneProtocol, nb30Rev1=nb30Rev1, ups=ups, dl=dl, sysIntDev=sysIntDev, repeaterRev2=repeaterRev2)
