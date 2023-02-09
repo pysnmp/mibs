@@ -3,31 +3,31 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "Counter32",
-      "enterprises",
-      "TimeTicks",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "Integer32",
       "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "TimeTicks",
+      "enterprises",
       "Counter64",
-      "BITS",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "BITS"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "simMIB": {
@@ -4853,8 +4853,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/SIM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:51 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:55 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SIM-MIB"

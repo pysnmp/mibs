@@ -5,39 +5,39 @@
       "wlsxEnterpriseMibModules"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
       "snmpModules",
       "Counter64",
-      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
       "TimeTicks",
-      "iso",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TAddress",
-      "PhysAddress",
-      "StorageType",
       "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "PhysAddress",
       "TDomain",
+      "TestAndIncr",
       "RowStatus",
       "TimeInterval",
-      "TruthValue"
+      "TAddress",
+      "StorageType"
     ]
   },
   "wlsxTunneledNodeMIB": {
@@ -136,8 +136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-TUNNELEDNODE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:53 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:52:57 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WLSX-TUNNELEDNODE-MIB"

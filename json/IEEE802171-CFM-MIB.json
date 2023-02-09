@@ -8,50 +8,50 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpPortId",
       "LldpManAddress",
-      "LldpPortIdSubtype",
+      "LldpChassisId",
       "LldpChassisIdSubtype",
-      "LldpChassisId"
+      "LldpPortIdSubtype",
+      "LldpPortId"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "iso",
-      "IpAddress",
       "Integer32",
       "MODULE-IDENTITY",
-      "Counter32",
-      "zeroDotZero",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Bits",
+      "Counter64",
+      "Counter32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "zeroDotZero",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "MacAddress",
-      "RowStatus",
       "TimeInterval",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString",
+      "TruthValue"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportDomain",
-      "TransportAddress"
+      "TransportAddress",
+      "TransportDomain"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3088,9 +3088,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 14:00:17 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:51:32 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IEEE802171-CFM-MIB"

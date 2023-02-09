@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "Integer32",
-      "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "enterprises",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1454,8 +1454,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/redlion/NTRON714FX6-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 14:05:49 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 14:07:54 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "NTRON714FX6-MIB"

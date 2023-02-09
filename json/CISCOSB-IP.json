@@ -5,63 +5,63 @@
       "switch001"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType",
+      "InetZoneIndex",
       "InetVersion",
-      "InetZoneIndex"
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
+      "ipCidrRouteNextHop",
       "ipCidrRouteDest",
       "ipCidrRouteMask",
-      "ipCidrRouteNextHop",
       "ipCidrRouteEntry",
       "ipCidrRouteTos"
     ],
     "IP-MIB": [
       "IpAddressOriginTC",
-      "ipAddrEntry",
-      "IpAddressStatusTC"
+      "IpAddressStatusTC",
+      "ipAddrEntry"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "zeroDotZero",
+      "IpAddress",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Integer32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
+      "Unsigned32",
       "Counter64",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "zeroDotZero",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "StorageType",
+      "TruthValue",
       "PhysAddress",
       "TestAndIncr",
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowPointer",
+      "RowStatus",
+      "StorageType",
       "TimeStamp",
-      "TruthValue"
+      "RowPointer"
     ]
   },
   "ipSpec": {
@@ -1900,8 +1900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IP",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:04 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:26 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-IP"

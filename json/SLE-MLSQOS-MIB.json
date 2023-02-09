@@ -17,24 +17,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "Counter32",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Gauge32",
+      "Counter64",
       "MibIdentifier",
       "TimeTicks",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "sleMlsQos": {
@@ -6974,8 +6974,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MLSQOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:55:56 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:56:16 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SLE-MLSQOS-MIB"

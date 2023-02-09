@@ -10,35 +10,35 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
-      "sysName"
+      "sysName",
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "MacAddress",
       "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ],
     "WWP-SMI": [
-      "wwpModulesLeos",
-      "wwpModules"
+      "wwpModules",
+      "wwpModulesLeos"
     ]
   },
   "wwpLeosPortMIB": {
@@ -2012,8 +2012,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WWP-LEOS-PORT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:14 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:25 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "WWP-LEOS-PORT-MIB"

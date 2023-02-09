@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CTRON-IP-ROUTER-MIB": [
-      "nwIpClientServices",
+      "nwIpComponents",
       "nwIpMibs",
-      "nwIpRouter",
-      "nwIpComponents"
+      "nwIpClientServices",
+      "nwIpRouter"
     ],
     "ROUTER-OIDS": [
       "nwRtrProtoSuites"
@@ -15,20 +15,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "OBJECT-TYPE",
       "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
       "Integer32",
-      "TimeTicks",
-      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Bits",
+      "Counter32",
       "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
@@ -538,8 +538,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:58:00 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:58:31 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CTRON-DHCP-MIB"

@@ -5,14 +5,14 @@
       "epon"
     ],
     "FD-OLT-MIB": [
-      "linkIdExhaust",
       "onuIdExhaust",
+      "linkIdExhaust",
       "linkOnLineStatus"
     ],
     "FD-ONU-MIB": [
+      "uniPortRstpState",
       "onuOnLineStatus",
-      "uniPortLink",
-      "uniPortRstpState"
+      "uniPortLink"
     ],
     "FD-PERFORMANCE-MIB": [
       "onuTrafficChangeVal",
@@ -20,48 +20,48 @@
       "oltTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
-      "sfpPlugStauts",
-      "swPortLinkState"
+      "swPortLinkState",
+      "sfpPlugStauts"
     ],
     "FD-SYSTEM-MIB": [
-      "fanStatusBit",
+      "nonAuthOnuMac",
+      "userName",
+      "userPermission",
+      "powerStatusBit",
+      "userId",
+      "userAccessDeviceMap",
       "userPassword",
       "loginTimeout",
-      "powerStatusBit",
-      "userName",
-      "userId",
-      "userPermission",
-      "nonAuthOnuMac",
       "userEntryRowStatus",
-      "userAccessDeviceMap",
-      "ponCardRunningStatus"
+      "ponCardRunningStatus",
+      "fanStatusBit"
     ],
     "RMON-MIB": [
       "alarmValue"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "TimeTicks",
       "Counter32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "iso",
-      "Gauge32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eponTraps": {
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:53:55 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:02 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "FD-TRAP-MIB"

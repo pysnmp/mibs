@@ -5,23 +5,23 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "StringMaxl32",
-      "Decimal1Dig",
-      "StringMaxl254",
-      "XcvrMode",
-      "XcvrType",
-      "StringMaxl16",
-      "ChannelsNumber",
       "XcvrId",
+      "XcvrSerdesRxEmphasis",
       "XcvrProfileId",
+      "ConnectorTypeDescEnum",
       "NameString",
       "EnabledDisabledEnum",
+      "Decimal1Dig",
+      "StringMaxl16",
+      "StringMaxl254",
+      "ChannelsNumber",
       "PtpId",
-      "StringMaxl128",
+      "XcvrMode",
       "XcvrSerdesRxAmplitude",
-      "XcvrSerdesRxEmphasis",
+      "XcvrType",
       "XcvrSerdesTxEq",
-      "ConnectorTypeDescEnum"
+      "StringMaxl128",
+      "StringMaxl32"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -29,25 +29,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "Unsigned32",
+      "iso",
       "Gauge32",
       "Integer32",
-      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsXcvrMIB": {
@@ -2210,8 +2210,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:14 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:25 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-WS-XCVR-MIB"

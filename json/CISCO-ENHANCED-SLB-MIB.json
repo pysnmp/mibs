@@ -9,10 +9,10 @@
       "CiscoProbeHealthMonState"
     ],
     "CISCO-SLB-MIB": [
-      "SlbRealServerState",
-      "slbServerFarmName",
+      "SlbServerString",
       "slbEntity",
-      "SlbServerString"
+      "SlbRealServerState",
+      "slbServerFarmName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -29,33 +29,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
       "Counter64",
-      "IpAddress"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "StorageType",
       "DateAndTime",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "StorageType"
     ]
   },
   "ciscoEnhancedSlbMIB": {
@@ -2213,8 +2213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-SLB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:04 2023",
-      "On host fv-az565-495 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:57:26 2023",
+      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ENHANCED-SLB-MIB"
