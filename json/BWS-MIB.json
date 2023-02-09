@@ -5,9 +5,9 @@
       "barracuda"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -16,24 +16,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
       "IpAddress",
-      "Gauge32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks",
       "Counter32",
-      "Bits"
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bws": {
@@ -4958,8 +4958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barracuda/BWS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:55:57 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:57:00 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BWS-MIB"

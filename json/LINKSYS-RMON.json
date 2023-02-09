@@ -5,34 +5,34 @@
       "rnd"
     ],
     "RMON-MIB": [
-      "OwnerString",
-      "EntryStatus"
+      "EntryStatus",
+      "OwnerString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "iso"
+      "Counter32",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rlRmonControl": {
@@ -434,8 +434,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-RMON",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:03:49 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:04:55 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-RMON"

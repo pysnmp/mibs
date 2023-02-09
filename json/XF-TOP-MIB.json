@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "enterprises",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "iso",
-      "TimeTicks",
-      "Integer32"
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -303,8 +303,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-TOP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:00:09 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:01:16 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "XF-TOP-MIB"

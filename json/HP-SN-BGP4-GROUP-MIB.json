@@ -5,23 +5,23 @@
       "snBgp4"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "Bits",
+      "TimeTicks",
       "Gauge32",
-      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter32",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "Bits",
+      "iso",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -4289,8 +4289,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:02:12 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:03:16 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HP-SN-BGP4-GROUP-MIB"

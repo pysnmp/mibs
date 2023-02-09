@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "enterprises",
+      "Bits",
+      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "iso",
       "TRAP-TYPE",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
       "Counter64",
-      "Integer32",
-      "Unsigned32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "wiredformgmt": {
@@ -501,8 +501,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-ASF-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:58:57 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:01 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "DELL-ASF-MIB"

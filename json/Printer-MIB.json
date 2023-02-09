@@ -2,56 +2,56 @@
   "imports": {
     "class": "imports",
     "HOST-RESOURCES-MIB": [
-      "hrStorageIndex",
-      "hrDeviceIndex"
+      "hrDeviceIndex",
+      "hrStorageIndex"
     ],
     "IANA-CHARSET-MIB": [
       "IANACharset"
     ],
     "IANA-PRINTER-MIB": [
-      "PrtInterpreterLangFamilyTC",
-      "PrtCoverStatusTC",
-      "PrtOutputTypeTC",
       "PrtMarkerSuppliesTypeTC",
-      "PrtInputTypeTC",
-      "PrtMarkerMarkTechTC",
-      "PrtConsoleColorTC",
-      "PrtConsoleDisableTC",
-      "PrtChannelTypeTC",
-      "PrtAlertTrainingLevelTC",
-      "PrtAlertCodeTC",
       "PrtMediaPathTypeTC",
+      "PrtCoverStatusTC",
+      "PrtGeneralResetTC",
+      "PrtConsoleDisableTC",
+      "PrtConsoleColorTC",
+      "PrtAlertCodeTC",
+      "PrtMarkerMarkTechTC",
       "PrtAlertGroupTC",
-      "PrtGeneralResetTC"
+      "PrtInterpreterLangFamilyTC",
+      "PrtAlertTrainingLevelTC",
+      "PrtOutputTypeTC",
+      "PrtInputTypeTC",
+      "PrtChannelTypeTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "mib-2",
       "IpAddress",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
-      "iso",
       "Unsigned32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "printmib": {
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Printer-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:54:32 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:55:32 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "Printer-MIB"

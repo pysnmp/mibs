@@ -5,20 +5,20 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
+      "dot3OamEventLogWindowHi",
       "dot3OamEventLogType",
       "dot3OamEventLogOui",
-      "dot3OamEventLogTimestamp",
-      "dot3OamEventLogThresholdHi",
-      "dot3OamEventLogWindowHi",
+      "dot3OamEntry",
       "dot3OamEventLogWindowLo",
+      "dot3OamEventLogThresholdLo",
       "dot3OamStatsEntry",
       "dot3OamEventLogValue",
-      "dot3OamEventLogThresholdLo",
-      "dot3OamEventLogLocation",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogThresholdHi",
+      "dot3OamEventLogTimestamp",
       "dot3OamLoopbackEntry",
-      "dot3OamEventLogEventTotal",
-      "dot3OamEntry",
-      "dot3OamEventLogRunningTotal"
+      "dot3OamEventLogLocation",
+      "dot3OamEventLogEventTotal"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -29,20 +29,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Bits",
       "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits"
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:05:10 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:06:17 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

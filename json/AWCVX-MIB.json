@@ -12,33 +12,33 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TRAP-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
       "Unsigned32",
+      "Bits",
       "Counter32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-SMI-v1": [
       "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
+      "DisplayString",
       "MacAddress",
       "TruthValue",
-      "DisplayString",
       "RowStatus"
     ]
   },
@@ -9221,8 +9221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/AWCVX-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:59:24 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:32 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "AWCVX-MIB"

@@ -5,29 +5,29 @@
       "jnxJsCertificates"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Integer32"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "jnxJsCertificateMIB": {
@@ -294,8 +294,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-JS-CERT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:03:34 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:04:39 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-JS-CERT-MIB"

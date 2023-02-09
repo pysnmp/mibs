@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressType",
-      "InetPortNumber",
-      "InetAddress"
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "iso",
+      "mib-2",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -905,8 +905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TCP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:54:31 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:55:32 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "TCP-MIB"

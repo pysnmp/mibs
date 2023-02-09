@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-DOT11-CLIENT-CCX-TC-MIB": [
-      "CiscoLwappDot11ClientSSId",
       "CiscoLwappDot11ClientRadioType",
-      "CiscoLwappDot11ClientTxPowerMode",
       "CiscoLwappDot11ClientAuthMethod",
+      "CiscoLwappDot11ClientEncryptionMethod",
+      "CiscoLwappDot11ClientCredentialType",
+      "CiscoLwappDot11ClientSSId",
       "CiscoLwappDot11ClientKeyMgmtMethod",
       "CiscoLwappDot11ClientReqStatus",
       "CiscoLwappDot11ClientPowerSaveMode",
       "CiscoLwappDot11ClientEAPMethod",
-      "CiscoLwappDot11ClientEncryptionMethod",
-      "CiscoLwappDot11ClientCredentialType"
+      "CiscoLwappDot11ClientTxPowerMode"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
+      "cldcClientMacAddress",
       "ciscoLwappDot11ClientCcxMIBObjects",
-      "ciscoLwappDot11ClientCCXV5ReportingMIBConform",
-      "cldcClientMacAddress"
+      "ciscoLwappDot11ClientCCXV5ReportingMIBConform"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -33,25 +33,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "IpAddress",
       "MibIdentifier",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "iso",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLwappDot11ClientCCXv5ReportingMIB": {
@@ -2649,8 +2649,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:59:20 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:27 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"

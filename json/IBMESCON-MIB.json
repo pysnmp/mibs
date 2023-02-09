@@ -10,29 +10,29 @@
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "Bits",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "iso",
+      "MODULE-IDENTITY",
       "Integer32",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-SMI-v1": [
-      "Integer32",
       "Counter32",
-      "enterprises",
-      "IpAddress"
+      "Integer32",
+      "IpAddress",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
       "MacAddress"
@@ -628,8 +628,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMESCON-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:02:50 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:04:00 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "IBMESCON-MIB"

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "enterprises",
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "iso"
+      "Counter32",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "Percents": {
@@ -785,8 +785,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/CISCOSB-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:03:49 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:04:55 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-MIB"

@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "enterprises",
       "MibIdentifier",
-      "Integer32",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64"
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Unsigned32",
+      "Counter64",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -99,8 +99,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/A4400-CPU-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:55:02 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:56:03 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "A4400-CPU-MIB"

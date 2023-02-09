@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
-      "CeRedunMode",
-      "CeRedunType",
-      "CeRedunMbrStatus",
       "CeRedunReasonCategories",
-      "CeRedunSwitchCommand",
+      "CeRedunType",
+      "CeRedunMode",
       "CeRedunArch",
+      "CeRedunMbrStatus",
       "CeRedunStateCategories",
+      "CeRedunSwitchCommand",
       "CeRedunScope"
     ],
     "CISCO-SMI": [
@@ -18,8 +18,8 @@
       "PhysicalIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -30,29 +30,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "Integer32",
+      "IpAddress",
       "MibIdentifier",
       "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "iso",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "AutonomousType",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TruthValue",
       "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "ciscoEntityRedunMIB": {
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:59:23 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:30 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-ENTITY-REDUNDANCY-MIB"

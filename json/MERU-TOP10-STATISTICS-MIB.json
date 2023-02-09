@@ -8,35 +8,35 @@
       "mwStatistics"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter64",
-      "Gauge32",
-      "enterprises",
       "Unsigned32",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "enterprises",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "MacAddress",
-      "DisplayString",
       "RowStatus",
-      "TimeInterval",
       "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "mwTop10Statistics": {
@@ -475,8 +475,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-TOP10-STATISTICS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:00:37 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:01:44 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "MERU-TOP10-STATISTICS-MIB"

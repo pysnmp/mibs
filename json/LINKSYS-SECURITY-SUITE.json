@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "LINKSYS-MIB": [
@@ -18,25 +18,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
       "MibIdentifier",
       "iso",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-TYPE",
       "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter32",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
       "TruthValue",
       "DisplayString"
     ]
@@ -729,8 +729,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SECURITY-SUITE",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:03:49 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:04:54 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-SECURITY-SUITE"

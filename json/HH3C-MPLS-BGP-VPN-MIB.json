@@ -8,41 +8,41 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "experimental",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
       "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "experimental",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32",
+      "IpAddress",
       "Counter64",
-      "Bits"
+      "Gauge32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "hh3cMplsVpn": {
@@ -758,8 +758,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MPLS-VPN-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:57:19 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:58:24 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "HH3C-MPLS-BGP-VPN-MIB"

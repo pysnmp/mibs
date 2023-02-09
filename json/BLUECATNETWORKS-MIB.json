@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
       "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "iso",
       "Counter64",
+      "IpAddress",
+      "Integer32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Gauge32",
       "enterprises",
+      "OBJECT-TYPE",
       "Counter32",
-      "IpAddress",
-      "iso"
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bluecatnetworksId": {
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BLUECATNETWORKS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:56:07 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:57:10 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BLUECATNETWORKS-MIB"

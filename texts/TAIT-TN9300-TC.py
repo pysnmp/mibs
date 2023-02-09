@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TAIT-TN9300-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-TC
-# Produced by pysmi-1.1.8 at Mon Feb  6 15:07:25 2023
-# On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Feb  9 12:08:32 2023
+# On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner
 # Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, Counter64, MibIdentifier, iso, NotificationType, IpAddress, Integer32, TimeTicks, Unsigned32, ObjectIdentity, ModuleIdentity, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "MibIdentifier", "iso", "NotificationType", "IpAddress", "Integer32", "TimeTicks", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks, Integer32, Counter32, ObjectIdentity, Unsigned32, Counter64, Gauge32, ModuleIdentity, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks", "Integer32", "Counter32", "ObjectIdentity", "Unsigned32", "Counter64", "Gauge32", "ModuleIdentity", "MibIdentifier", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 taitModules, = mibBuilder.importSymbols("TAIT-COMMON-MIB", "taitModules")
 taittn9300TC = ModuleIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1, 11, 1))
@@ -129,4 +129,4 @@ class RemoteNodeSyncState(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
     namedValues = NamedValues(("ok", 0), ("failed", 1), ("unknown", 2), ("none", 3))
 
-mibBuilder.exportSymbols("TAIT-TN9300-TC", NodeState=NodeState, SipLineRegistrationType=SipLineRegistrationType, UnitStatusMessageId=UnitStatusMessageId, RemoteNodeState=RemoteNodeState, NgwLinkState=NgwLinkState, NetworkCheckState=NetworkCheckState, DipLineState=DipLineState, PYSNMP_MODULE_ID=taittn9300TC, NodeRequestedState=NodeRequestedState, LicenseValidity=LicenseValidity, SipLineIncomingType=SipLineIncomingType, ChannelState=ChannelState, SipLineState=SipLineState, SipCallSpeechVotingPriority=SipCallSpeechVotingPriority, Mpt1327LinkState=Mpt1327LinkState, Mpt1327ChannelState=Mpt1327ChannelState, taittn9300TC=taittn9300TC, UnitAuthentication=UnitAuthentication, EventSeverity=EventSeverity, RemoteNodeSyncState=RemoteNodeSyncState)
+mibBuilder.exportSymbols("TAIT-TN9300-TC", NetworkCheckState=NetworkCheckState, LicenseValidity=LicenseValidity, NodeState=NodeState, SipLineRegistrationType=SipLineRegistrationType, RemoteNodeSyncState=RemoteNodeSyncState, NgwLinkState=NgwLinkState, DipLineState=DipLineState, Mpt1327LinkState=Mpt1327LinkState, taittn9300TC=taittn9300TC, ChannelState=ChannelState, PYSNMP_MODULE_ID=taittn9300TC, SipLineIncomingType=SipLineIncomingType, SipLineState=SipLineState, UnitStatusMessageId=UnitStatusMessageId, SipCallSpeechVotingPriority=SipCallSpeechVotingPriority, RemoteNodeState=RemoteNodeState, EventSeverity=EventSeverity, UnitAuthentication=UnitAuthentication, Mpt1327ChannelState=Mpt1327ChannelState, NodeRequestedState=NodeRequestedState)

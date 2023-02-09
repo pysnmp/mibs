@@ -3,25 +3,25 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "enterprises",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Gauge32",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
       "TimeTicks",
       "Counter64",
-      "iso",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier"
+      "enterprises",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -276,8 +276,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:07:23 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:08:30 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SYNOLOGY-SYSTEM-MIB"

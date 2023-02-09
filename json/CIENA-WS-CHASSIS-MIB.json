@@ -5,41 +5,41 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "StringMaxl16",
-      "StringMaxl254",
-      "YesNoEnum",
-      "UpDownEnum",
-      "StringMaxl50",
-      "StringMaxl32",
       "ModuleTypeBits",
+      "UpDownEnum",
+      "YesNoEnum",
       "LineModuleTypeBits",
-      "MacString",
-      "EnabledDisabledEnum"
+      "EnabledDisabledEnum",
+      "StringMaxl254",
+      "StringMaxl16",
+      "StringMaxl32",
+      "StringMaxl50",
+      "MacString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
       "Counter64",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cienaWsChassisMIB": {
@@ -2939,8 +2939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:56:46 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:57:49 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CIENA-WS-CHASSIS-MIB"

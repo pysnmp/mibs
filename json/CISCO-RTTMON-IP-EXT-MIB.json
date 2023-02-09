@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-RTTMON-MIB": [
-      "rttMonHistoryCollectionEntry",
-      "rttMonLpdGrpStatsEntry",
-      "rttMonStatsCollectEntry",
       "rttMonCtrlAdminEntry",
-      "rttMonEchoAdminEntry",
-      "rttMonEchoPathAdminEntry",
+      "rttMonStatsCollectEntry",
+      "rttMonHistoryCollectionEntry",
+      "rttMonCtrlAdminIndex",
       "rttMonCtrlOperEntry",
-      "rttMonCtrlAdminIndex"
+      "rttMonEchoAdminEntry",
+      "rttMonLpdGrpStatsEntry",
+      "rttMonEchoPathAdminEntry"
     ],
     "CISCO-RTTMON-TC-MIB": [
       "CipslaPercentileVar"
@@ -21,8 +21,8 @@
       "DscpOrAny"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IPV6-FLOW-LABEL-MIB": [
       "IPv6FlowLabelOrAny"
@@ -33,24 +33,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "IpAddress",
       "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
+      "Bits",
       "Counter32",
-      "OBJECT-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoRttMonIPExtMIB": {
@@ -1003,8 +1003,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-IP-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:59:20 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:27 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "CISCO-RTTMON-IP-EXT-MIB"

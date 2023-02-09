@@ -5,48 +5,48 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApHardwareModuleFamily",
+      "ApSipMethod",
       "ApPresence",
       "ApServerStatus",
       "ApPhyPortType",
       "ApRedundancyState",
-      "ApSipMethod"
+      "ApHardwareModuleFamily"
     ],
     "APSYSMGMT-MIB": [
-      "apSysMgmtSipInterfaceIP",
-      "apSigRealmStatsEntry",
       "apSipSessionAgentStatsEntry",
-      "apSysMgmtSipInterfaceRealmName"
+      "apSysMgmtSipInterfaceIP",
+      "apSysMgmtSipInterfaceRealmName",
+      "apSigRealmStatsEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "Integer32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64"
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "apSipModule": {
@@ -3757,8 +3757,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSIP-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 15:05:04 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 12:06:11 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "APSIP-MIB"

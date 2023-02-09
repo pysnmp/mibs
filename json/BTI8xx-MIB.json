@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
-      "enterprises",
-      "MibIdentifier",
-      "Integer32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "iso",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Integer32",
       "IpAddress",
-      "Bits"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bti/BTI8xx-MIB",
-      "Produced by pysmi-1.1.8 at Mon Feb  6 14:56:14 2023",
-      "On host fv-az357-935 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 11:57:17 2023",
+      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "BTI8xx-MIB"
