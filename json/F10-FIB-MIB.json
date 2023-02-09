@@ -8,30 +8,30 @@
       "f10Mgmt"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
       "MibIdentifier",
+      "Bits",
       "IpAddress",
+      "Unsigned32",
+      "Integer32",
       "MODULE-IDENTITY",
-      "iso",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "f10IpForwardMib": {
@@ -306,8 +306,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-FIB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:01 2023",
-      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:09 2023",
+      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "F10-FIB-MIB"

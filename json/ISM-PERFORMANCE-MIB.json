@@ -7,25 +7,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "enterprises",
-      "Counter32",
-      "Integer32",
       "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
+      "enterprises",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
       "iso",
-      "IpAddress"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwStorage": {
@@ -1317,8 +1317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/ISM-PERFORMANCE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 12:03:11 2023",
-      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:25:18 2023",
+      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "ISM-PERFORMANCE-MIB"

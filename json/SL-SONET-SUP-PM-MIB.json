@@ -13,49 +13,49 @@
       "slSonetMib"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "Integer32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "transmission",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime",
       "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetFarEndVTCurrentEntry",
-      "sonetVTIntervalEntry",
-      "sonetPathCurrentEntry",
-      "sonetLineIntervalEntry",
-      "sonetLineCurrentEntry",
-      "sonetVTCurrentEntry",
-      "sonetFarEndVTIntervalEntry",
       "sonetFarEndPathIntervalEntry",
-      "sonetSectionCurrentEntry",
-      "sonetMediumEntry",
       "sonetFarEndPathCurrentEntry",
+      "sonetSectionCurrentEntry",
       "sonetSectionIntervalEntry",
-      "sonetFarEndLineIntervalEntry",
+      "sonetFarEndVTCurrentEntry",
       "sonetFarEndLineCurrentEntry",
-      "sonetPathIntervalEntry"
+      "sonetPathCurrentEntry",
+      "sonetLineCurrentEntry",
+      "sonetFarEndLineIntervalEntry",
+      "sonetPathIntervalEntry",
+      "sonetMediumEntry",
+      "sonetVTIntervalEntry",
+      "sonetVTCurrentEntry",
+      "sonetLineIntervalEntry",
+      "sonetFarEndVTIntervalEntry"
     ]
   },
   "sonetSupPmMIB": {
@@ -2608,8 +2608,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SONET-SUP-PM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 12:06:24 2023",
-      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:30:28 2023",
+      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "SL-SONET-SUP-PM-MIB"

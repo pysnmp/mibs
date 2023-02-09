@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteTempLowerLimit",
-      "xupsEnvRemoteTemp",
-      "xupsContactState",
-      "xupsContactDescr",
-      "xupsEnvRemoteHumidity",
       "xupsContactIndex",
-      "xupsEnvRemoteTempUpperLimit",
-      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactType",
+      "xupsContactDescr",
+      "xupsEnvRemoteTempLowerLimit",
       "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactType"
+      "xupsEnvRemoteHumidity",
+      "xupsEnvRemoteTemp",
+      "xupsEnvRemoteTempUpperLimit",
+      "xupsContactState",
+      "xupsEnvRemoteHumidityLowerLimit"
     ],
     "EATON-OIDS": [
       "eaton",
       "xupsEnvironment"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "Counter32",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "Integer32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 12:00:33 2023",
-      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:21:48 2023",
+      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "XUPS-MIB"

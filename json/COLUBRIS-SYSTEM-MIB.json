@@ -5,41 +5,41 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisProfileIndexOrZero",
       "ColubrisAuthenticationMode",
+      "ColubrisProfileIndexOrZero",
       "ColubrisNotificationEnable"
     ],
     "IF-MIB": [
-      "ifOutErrors",
       "ifOutUcastPkts",
-      "ifInUcastPkts",
-      "ifInErrors"
+      "ifOutErrors",
+      "ifInErrors",
+      "ifInUcastPkts"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
       "Unsigned32",
       "Counter32",
       "Integer32",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "IpAddress"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
       "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1009,8 +1009,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SYSTEM-MIB.my",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 12:02:30 2023",
-      "On host fv-az173-80 platform Linux version 5.15.0-1031-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Feb  9 13:24:30 2023",
+      "On host fv-az255-593 platform Linux version 5.15.0-1031-azure by user runner",
       "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
     ],
     "module": "COLUBRIS-SYSTEM-MIB"
