@@ -35,9 +35,9 @@ localMibs:
   # if you're installing mibserver on a multi-node cluster, use persistence.existingClaim instead
   pathToMibs: ""
   persistence:
-    # use existingClaim when installing mibserver on a multi-nde cluster
+    # use existingClaim when installing mibserver on a multi-node cluster
     # provide an existing PersistentVolumeClaim (works only when pathToMibs is empty)
     # copy mib files to one of the node and use nodeSelector to schedule the mibserver to that specific node
     existingClaim: ""
     storageClass: "microk8s-hostpath"
-    size: 3Gi
+    size: 1Gi
