@@ -5,47 +5,47 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "XcvrSerdesRxEmphasis",
-      "XcvrSerdesTxEq",
-      "XcvrSerdesRxAmplitude",
-      "StringMaxl32",
-      "ChannelsNumber",
-      "XcvrId",
+      "StringMaxl16",
       "Decimal2Dig",
-      "StringMaxl16"
+      "XcvrSerdesRxAmplitude",
+      "ChannelsNumber",
+      "XcvrSerdesTxEq",
+      "StringMaxl32",
+      "XcvrId",
+      "XcvrSerdesRxEmphasis"
     ],
     "CIENA-WS-XCVR-MIB": [
-      "cwsXcvrVendorTransmitterEntry",
-      "cwsXcvrChannelDiagnosticsEntry",
-      "cwsXcvrVendorDiagnosticMonitoringEntry",
       "cwsXcvrVendorIdEntry",
-      "cwsXcvrDeviceIdEntry"
+      "cwsXcvrVendorDiagnosticMonitoringEntry",
+      "cwsXcvrVendorTransmitterEntry",
+      "cwsXcvrDeviceIdEntry",
+      "cwsXcvrChannelDiagnosticsEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
       "Gauge32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
       "Integer32",
-      "iso",
-      "Bits",
+      "Counter64",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "cienaWsXcvrPluggableMIB": {
@@ -1366,8 +1366,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-PLUGGABLE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:11:49 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:18:34 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CIENA-WS-XCVR-PLUGGABLE-MIB"

@@ -1,0 +1,5784 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysDescr",
+      "sysContact",
+      "sysLocation",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "TWOWCOM-COMMONVARBINDS": [
+      "eventPriority",
+      "mibRelease",
+      "FloatString",
+      "Integer32d2",
+      "commonVarbindsCompliance",
+      "FaultOK",
+      "Integer32d1",
+      "eventCounter",
+      "commonGroup",
+      "eventTimeStamp"
+    ],
+    "TWOWCOM-SMI": [
+      "dvbDecoder",
+      "encoder",
+      "other",
+      "decoder",
+      "dvbEncoder"
+    ]
+  },
+  "flexDSR04": {
+    "name": "flexDSR04",
+    "oid": "1.3.6.1.4.1.21529.3.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-11-11 13:00",
+        "description": "asciiCommand added"
+      },
+      {
+        "revision": "2017-01-30 10:00",
+        "description": "Version 1.7 - status audioTsError added - spelling aoipIcecastInputDataEvntSettings"
+      },
+      {
+        "revision": "2016-11-01 16:00",
+        "description": "Version 1.6 - obsolete etr290ConformityEvent, etr290ConformityEventEnable"
+      },
+      {
+        "revision": "2016-09-26 15:00",
+        "description": "Version 1.5 - DTE status for UECP Data"
+      },
+      {
+        "revision": "2014-06-25 17:00",
+        "description": "Version 1.4 - status for dual IP input stream"
+      },
+      {
+        "revision": "2014-05-16 12:00",
+        "description": "Version 1.3 - added optoInputTable (1.3.6.1.4.1.21529.3.2.4.4.7.10) - new event: optoInputEvent (1.3.6.1.4.1.21529.3.2.4.0.17) - new event: sfnClockEvent (1.3.6.1.4.1.21529.3.2.4.0.18)"
+      },
+      {
+        "revision": "2014-03-06 16:00",
+        "description": "Version 1.2 - added tsOverIp (1.3.6.1.4.1.21529.3.2.4.4.2.11) - added rtpUdpInputDataTabel (1.3.6.1.4.1.21529.3.2.4.4.3.3) - added OIDs in audioTable (1.3.6.1.4.1.21529.3.2.4.4.4.1.1.11-14) - added sfnState (1.3.6.1.4.1.21529.3.2.4.4.9)"
+      },
+      {
+        "revision": "2014-02-13 09:00",
+        "description": "Version 1.1 - added audioTsTable (1.3.6.1.4.1.21529.3.2.4.4.4.2)"
+      },
+      {
+        "revision": "2012-10-26 12:00",
+        "description": "Version 1.0 - Initial release"
+      }
+    ]
+  },
+  "InputSource": {
+    "name": "InputSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAssigned": 0,
+          "tsTuner": 1,
+          "tsAsi": 2,
+          "tsIp": 3,
+          "aoipUdp": 4,
+          "aoipIcecast": 5,
+          "internalStorage": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ServiceMode": {
+    "name": "ServiceMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTransportstream": 0,
+          "automatic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "flexDSR04Events": {
+    "name": "flexDSR04Events",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0",
+    "class": "objectidentity"
+  },
+  "tunerRfPowerEvent": {
+    "name": "tunerRfPowerEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "rfPowerValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerRfPowerEventValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerRfPowerEventTolerance"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "tunerCnEvent": {
+    "name": "tunerCnEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "cnValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerCnEventMinValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "tunerBerEvent": {
+    "name": "tunerBerEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "viterbiLdpcBerValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerBerEventMaxValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "tunerTsSyncEvent": {
+    "name": "tunerTsSyncEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncState"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "asiTsSyncEvent": {
+    "name": "asiTsSyncEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncState"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "ipTsSyncEvent": {
+    "name": "ipTsSyncEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncState"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "etr290ConformityEvent": {
+    "name": "etr290ConformityEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "etr290Conformity"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "etr290ConformityAlarmActive"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "aoipUdpInputDataEvent": {
+    "name": "aoipUdpInputDataEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "udpInputDataChannel"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "udpInputDataState"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "udpInputDataAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "aoipIcecastInputDataEvent": {
+    "name": "aoipIcecastInputDataEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "icecastInputDataServer"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "icecastInputDataState"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "icecastInputDataAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "audioEvent": {
+    "name": "audioEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioChannel"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioStatus"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "audioLevelEvent": {
+    "name": "audioLevelEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioChannel"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioLevel"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioLevelEventMinValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "audioLevelAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "dteEvent": {
+    "name": "dteEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "dtePort"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "dteDataAvailable"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "dteAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "internalStorageEvent": {
+    "name": "internalStorageEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "internalStorageState"
+      }
+    ],
+    "status": "current"
+  },
+  "caseTemperatureEvent": {
+    "name": "caseTemperatureEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "caseTemperature"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "caseTemperatureEventMaxValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "caseTemperatureAlarmActive"
+      }
+    ],
+    "status": "current"
+  },
+  "inputSourceEvent": {
+    "name": "inputSourceEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "outputType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "currentInputSourceOrder"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "currentInputSourceType"
+      }
+    ],
+    "status": "current"
+  },
+  "remoteControlUploadEvent": {
+    "name": "remoteControlUploadEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "remoteControlUploadType"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "remoteControlUploadError"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "remoteControlUploadGroup"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "remoteControlUploadFile"
+      }
+    ],
+    "status": "current"
+  },
+  "optoInputEvent": {
+    "name": "optoInputEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "optoInputNumber"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "optoInputState"
+      }
+    ],
+    "status": "current"
+  },
+  "sfnClockEvent": {
+    "name": "sfnClockEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "sfn1ppsErrorState"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "sfn10MHzErrorState"
+      }
+    ],
+    "status": "current"
+  },
+  "ipPerEvent": {
+    "name": "ipPerEvent",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventPriority"
+      },
+      {
+        "module": "TWOWCOM-COMMONVARBINDS",
+        "object": "eventCounter"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "ipPerEventMode"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "ipPerEventValue"
+      },
+      {
+        "module": "FLEXDSR04",
+        "object": "tsIpModePER"
+      }
+    ],
+    "status": "current"
+  },
+  "inputSourceSettings": {
+    "name": "inputSourceSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1",
+    "class": "objectidentity"
+  },
+  "audioOutput1Table": {
+    "name": "audioOutput1Table",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput1Entry": {
+    "name": "audioOutput1Entry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioOutput1Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioOutput1Index": {
+    "name": "audioOutput1Index",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput1Order": {
+    "name": "audioOutput1Order",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainSource": 1,
+          "backup1": 2,
+          "backup2": 3,
+          "backup3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioOutput1InputSource": {
+    "name": "audioOutput1InputSource",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput1InputSourceEnabled": {
+    "name": "audioOutput1InputSourceEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput2Table": {
+    "name": "audioOutput2Table",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput2Entry": {
+    "name": "audioOutput2Entry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioOutput2Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioOutput2Index": {
+    "name": "audioOutput2Index",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput2Order": {
+    "name": "audioOutput2Order",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainSource": 1,
+          "backup1": 2,
+          "backup2": 3,
+          "backup3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioOutput2InputSource": {
+    "name": "audioOutput2InputSource",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput2InputSourceEnabled": {
+    "name": "audioOutput2InputSourceEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput3Table": {
+    "name": "audioOutput3Table",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput3Entry": {
+    "name": "audioOutput3Entry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioOutput3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioOutput3Index": {
+    "name": "audioOutput3Index",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput3Order": {
+    "name": "audioOutput3Order",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainSource": 1,
+          "backup1": 2,
+          "backup2": 3,
+          "backup3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioOutput3InputSource": {
+    "name": "audioOutput3InputSource",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput3InputSourceEnabled": {
+    "name": "audioOutput3InputSourceEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput4Table": {
+    "name": "audioOutput4Table",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput4Entry": {
+    "name": "audioOutput4Entry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioOutput4Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioOutput4Index": {
+    "name": "audioOutput4Index",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioOutput4Order": {
+    "name": "audioOutput4Order",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainSource": 1,
+          "backup1": 2,
+          "backup2": 3,
+          "backup3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioOutput4InputSource": {
+    "name": "audioOutput4InputSource",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioOutput4InputSourceEnabled": {
+    "name": "audioOutput4InputSourceEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asiOutputTable": {
+    "name": "asiOutputTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asiOutputEntry": {
+    "name": "asiOutputEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "asiOutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "asiOutputIndex": {
+    "name": "asiOutputIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asiOutputOrder": {
+    "name": "asiOutputOrder",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainSource": 1,
+          "backup1": 2,
+          "backup2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asiOutputInputSource": {
+    "name": "asiOutputInputSource",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asiOutputInputSourceEnabled": {
+    "name": "asiOutputInputSourceEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipOutputTable": {
+    "name": "ipOutputTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipOutputEntry": {
+    "name": "ipOutputEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "ipOutputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipOutputIndex": {
+    "name": "ipOutputIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipOutputOrder": {
+    "name": "ipOutputOrder",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mainSource": 1,
+          "backup1": 2,
+          "backup2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipOutputInputSource": {
+    "name": "ipOutputInputSource",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipOutputInputSourceEnabled": {
+    "name": "ipOutputInputSourceEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteria": {
+    "name": "switchCriteria",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10",
+    "class": "objectidentity"
+  },
+  "switchCriteriaTunerRfPower": {
+    "name": "switchCriteriaTunerRfPower",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.1",
+    "class": "objectidentity"
+  },
+  "scTunerRfPowerEnabled": {
+    "name": "scTunerRfPowerEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerRfPowerValue": {
+    "name": "scTunerRfPowerValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerRfPowerTolerance": {
+    "name": "scTunerRfPowerTolerance",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerRfPowerT1": {
+    "name": "scTunerRfPowerT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerRfPowerT2": {
+    "name": "scTunerRfPowerT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaTunerCn": {
+    "name": "switchCriteriaTunerCn",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.2",
+    "class": "objectidentity"
+  },
+  "scTunerCnEnabled": {
+    "name": "scTunerCnEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerCnMinValue": {
+    "name": "scTunerCnMinValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerCnT1": {
+    "name": "scTunerCnT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerCnT2": {
+    "name": "scTunerCnT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaTunerBer": {
+    "name": "switchCriteriaTunerBer",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.3",
+    "class": "objectidentity"
+  },
+  "scTunerBerEnabled": {
+    "name": "scTunerBerEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerBerMaxValue": {
+    "name": "scTunerBerMaxValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerBerT1": {
+    "name": "scTunerBerT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerBerT2": {
+    "name": "scTunerBerT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaTunerTsSync": {
+    "name": "switchCriteriaTunerTsSync",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.4",
+    "class": "objectidentity"
+  },
+  "scTunerTsSyncEnabled": {
+    "name": "scTunerTsSyncEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerTsSyncT1": {
+    "name": "scTunerTsSyncT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTunerTsSyncT2": {
+    "name": "scTunerTsSyncT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaAsiTsSync": {
+    "name": "switchCriteriaAsiTsSync",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.5",
+    "class": "objectidentity"
+  },
+  "scAsiTsSyncEnabled": {
+    "name": "scAsiTsSyncEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scAsiTsSyncT1": {
+    "name": "scAsiTsSyncT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scAsiTsSyncT2": {
+    "name": "scAsiTsSyncT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaIpTsSync": {
+    "name": "switchCriteriaIpTsSync",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.6",
+    "class": "objectidentity"
+  },
+  "scIpTsSyncEnabled": {
+    "name": "scIpTsSyncEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scIpTsSyncT1": {
+    "name": "scIpTsSyncT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scIpTsSyncT2": {
+    "name": "scIpTsSyncT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaAudioOverIpUdp": {
+    "name": "switchCriteriaAudioOverIpUdp",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.7",
+    "class": "objectidentity"
+  },
+  "scAudioOverIpUdpEnabled": {
+    "name": "scAudioOverIpUdpEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scAudioOverIpUdpT1": {
+    "name": "scAudioOverIpUdpT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scAudioOverIpUdpT2": {
+    "name": "scAudioOverIpUdpT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaAudioOverIpIcecast": {
+    "name": "switchCriteriaAudioOverIpIcecast",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.8",
+    "class": "objectidentity"
+  },
+  "scAudioOverIpIcecastEnabled": {
+    "name": "scAudioOverIpIcecastEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scAudioOverIpIcecastT1": {
+    "name": "scAudioOverIpIcecastT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scAudioOverIpIcecastT2": {
+    "name": "scAudioOverIpIcecastT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaInternalStorage": {
+    "name": "switchCriteriaInternalStorage",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.9",
+    "class": "objectidentity"
+  },
+  "scInternalStorageEnabled": {
+    "name": "scInternalStorageEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchCriteriaIpPer": {
+    "name": "switchCriteriaIpPer",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.10",
+    "class": "objectidentity"
+  },
+  "scIpPerEnabled": {
+    "name": "scIpPerEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scIpPerMode": {
+    "name": "scIpPerMode",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "combinedStream": 1,
+          "mainStream": 2,
+          "bothStreams": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scIpPerValue": {
+    "name": "scIpPerValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scIpPerT1": {
+    "name": "scIpPerT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scIpPerT2": {
+    "name": "scIpPerT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.1.10.10.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "interfaceSettings": {
+    "name": "interfaceSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3",
+    "class": "objectidentity"
+  },
+  "xlrInterface": {
+    "name": "xlrInterface",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1",
+    "class": "objectidentity"
+  },
+  "xlrVolumeTable": {
+    "name": "xlrVolumeTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xlrVolumeEntry": {
+    "name": "xlrVolumeEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "xlrVolumeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xlrVolumeIndex": {
+    "name": "xlrVolumeIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xlrVolumePort": {
+    "name": "xlrVolumePort",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audio1": 1,
+          "audio2": 2,
+          "audio3": 3,
+          "audio4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xlrVolumeAnalog": {
+    "name": "xlrVolumeAnalog",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32d1",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -360,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "db",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xlrVolumeDigital": {
+    "name": "xlrVolumeDigital",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32d1",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -360,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "db",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xlrOutputType": {
+    "name": "xlrOutputType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "analog": 2,
+          "digital": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioLowPass15kHz": {
+    "name": "audioLowPass15kHz",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.1.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "headphoneInterface": {
+    "name": "headphoneInterface",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.2",
+    "class": "objectidentity"
+  },
+  "headphoneVolume": {
+    "name": "headphoneVolume",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32d1",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -360,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "headphoneAudioChannel": {
+    "name": "headphoneAudioChannel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "audio1": 1,
+          "audio2": 2,
+          "audio3": 3,
+          "audio4": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dteInterface": {
+    "name": "dteInterface",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.3",
+    "class": "objectidentity"
+  },
+  "dteInterfaceTable": {
+    "name": "dteInterfaceTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dteInterfaceEntry": {
+    "name": "dteInterfaceEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "dteInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dteInterfaceIndex": {
+    "name": "dteInterfaceIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dteInterfacePort": {
+    "name": "dteInterfacePort",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dteFront": 1,
+          "dte1": 2,
+          "dte2": 3,
+          "dte3": 4,
+          "dte4": 5,
+          "dte5": 6,
+          "dte6": 7,
+          "dte7": 8,
+          "dte8": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteInterfaceBaudrate": {
+    "name": "dteInterfaceBaudrate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1200,
+            "max": 1200
+          },
+          {
+            "min": 2400,
+            "max": 2400
+          },
+          {
+            "min": 4800,
+            "max": 4800
+          },
+          {
+            "min": 9600,
+            "max": 9600
+          },
+          {
+            "min": 19200,
+            "max": 19200
+          },
+          {
+            "min": 38400,
+            "max": 38400
+          },
+          {
+            "min": 57600,
+            "max": 57600
+          },
+          {
+            "min": 115200,
+            "max": 115200
+          }
+        ]
+      }
+    },
+    "units": "baud",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "state": {
+    "name": "state",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4",
+    "class": "objectidentity"
+  },
+  "tunerState": {
+    "name": "tunerState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1",
+    "class": "objectidentity"
+  },
+  "rfPowerValue": {
+    "name": "rfPowerValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cnValue": {
+    "name": "cnValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfoErrorValue": {
+    "name": "cfoErrorValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32d2",
+      "class": "type"
+    },
+    "units": "MHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agcState": {
+    "name": "agcState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ceState": {
+    "name": "ceState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "symTimeState": {
+    "name": "symTimeState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "carrierState": {
+    "name": "carrierState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fecLockedState": {
+    "name": "fecLockedState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lockedState": {
+    "name": "lockedState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "punctureRate": {
+    "name": "punctureRate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "viterbiLdpcBerValue": {
+    "name": "viterbiLdpcBerValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsBchBerValue": {
+    "name": "rsBchBerValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tunerAlarmTable": {
+    "name": "tunerAlarmTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tunerAlarmEntry": {
+    "name": "tunerAlarmEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "tunerAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tunerAlarmIndex": {
+    "name": "tunerAlarmIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tunerAlarmType": {
+    "name": "tunerAlarmType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfPowerAlarm": 1,
+          "cnAlarm": 2,
+          "berAlarm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tunerAlarmActive": {
+    "name": "tunerAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsState": {
+    "name": "tsState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2",
+    "class": "objectidentity"
+  },
+  "nid": {
+    "name": "nid",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tunerDatarate": {
+    "name": "tunerDatarate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asiDatarate": {
+    "name": "asiDatarate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipDatarate": {
+    "name": "ipDatarate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etr290Conformity": {
+    "name": "etr290Conformity",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "etr290ConformityAlarmActive": {
+    "name": "etr290ConformityAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsSyncTable": {
+    "name": "tsSyncTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsSyncEntry": {
+    "name": "tsSyncEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "tsSyncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tsSyncIndex": {
+    "name": "tsSyncIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tsSyncType": {
+    "name": "tsSyncType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunerTs": 1,
+          "asiTs": 2,
+          "ipTs": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsSyncState": {
+    "name": "tsSyncState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsSyncAlarmActive": {
+    "name": "tsSyncAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsOverIp": {
+    "name": "tsOverIp",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11",
+    "class": "objectidentity"
+  },
+  "tsIpSync": {
+    "name": "tsIpSync",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPacketPerIpPacket": {
+    "name": "tsIpPacketPerIpPacket",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpBufferlevel1": {
+    "name": "tsIpBufferlevel1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpBufferlevel2": {
+    "name": "tsIpBufferlevel2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpBufferlevel3": {
+    "name": "tsIpBufferlevel3",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpBufferReset": {
+    "name": "tsIpBufferReset",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPacketDropped": {
+    "name": "tsIpPacketDropped",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPacketReordered": {
+    "name": "tsIpPacketReordered",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPacketRestored": {
+    "name": "tsIpPacketRestored",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPacketUnrecoverable": {
+    "name": "tsIpPacketUnrecoverable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpFecL": {
+    "name": "tsIpFecL",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpFecD": {
+    "name": "tsIpFecD",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPacketDuplicate": {
+    "name": "tsIpPacketDuplicate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPER": {
+    "name": "tsIpPER",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpPLR": {
+    "name": "tsIpPLR",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpErroneousPacketrate": {
+    "name": "tsIpErroneousPacketrate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpDualInput": {
+    "name": "tsIpDualInput",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.17",
+    "class": "objectidentity"
+  },
+  "tsIpBackupPER": {
+    "name": "tsIpBackupPER",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpBackupPLR": {
+    "name": "tsIpBackupPLR",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpBackupErroneousPacketrate": {
+    "name": "tsIpBackupErroneousPacketrate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpCombinedPER": {
+    "name": "tsIpCombinedPER",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tsIpModePER": {
+    "name": "tsIpModePER",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.2.11.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "audioOverIpState": {
+    "name": "audioOverIpState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3",
+    "class": "objectidentity"
+  },
+  "udpInputDataTable": {
+    "name": "udpInputDataTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "udpInputDataEntry": {
+    "name": "udpInputDataEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "udpInputDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "udpInputDataIndex": {
+    "name": "udpInputDataIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "udpInputDataChannel": {
+    "name": "udpInputDataChannel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channel1": 1,
+          "channel2": 2,
+          "channel3": 3,
+          "channel4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udpInputDataState": {
+    "name": "udpInputDataState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udpInputDataAlarmActive": {
+    "name": "udpInputDataAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icecastInputDataTable": {
+    "name": "icecastInputDataTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icecastInputDataEntry": {
+    "name": "icecastInputDataEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "icecastInputDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "icecastInputDataIndex": {
+    "name": "icecastInputDataIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "icecastInputDataServer": {
+    "name": "icecastInputDataServer",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "server1": 1,
+          "server2": 2,
+          "server3": 3,
+          "server4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icecastInputDataState": {
+    "name": "icecastInputDataState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "icecastInputDataAlarmActive": {
+    "name": "icecastInputDataAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtpUdpInputDataTable": {
+    "name": "rtpUdpInputDataTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rtpUdpInputDataEntry": {
+    "name": "rtpUdpInputDataEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "rtpUdpInputDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rtpUdpInputDataIndex": {
+    "name": "rtpUdpInputDataIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rtpUdpInputDataPackets": {
+    "name": "rtpUdpInputDataPackets",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtpUdpInputDataRtpDataRate": {
+    "name": "rtpUdpInputDataRtpDataRate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtpUdpInputDataIpRawDataRate": {
+    "name": "rtpUdpInputDataIpRawDataRate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bit/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rtpUdpInputDataRtpPacketloss": {
+    "name": "rtpUdpInputDataRtpPacketloss",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioState": {
+    "name": "audioState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4",
+    "class": "objectidentity"
+  },
+  "audioTable": {
+    "name": "audioTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioEntry": {
+    "name": "audioEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioIndex": {
+    "name": "audioIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioChannel": {
+    "name": "audioChannel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audio1": 1,
+          "audio2": 2,
+          "audio3": 3,
+          "audio4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioStatus": {
+    "name": "audioStatus",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioVersion": {
+    "name": "audioVersion",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mpeg1": 1,
+          "mpeg2": 2,
+          "ac3": 3,
+          "mpeg4": 4,
+          "aptX": 5,
+          "linearPCM": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioLayer": {
+    "name": "audioLayer",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "layer1": 1,
+          "layer2": 2,
+          "layer3": 3,
+          "aac": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioBitRate": {
+    "name": "audioBitRate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioSampleRate": {
+    "name": "audioSampleRate",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioAlarmActive": {
+    "name": "audioAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioLevel": {
+    "name": "audioLevel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32d1",
+      "class": "type"
+    },
+    "units": "dBFS",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioLevelAlarmActive": {
+    "name": "audioLevelAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioNoDataAvailabe": {
+    "name": "audioNoDataAvailabe",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioDecoderResets": {
+    "name": "audioDecoderResets",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioBufferlevel": {
+    "name": "audioBufferlevel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioPLLlevel": {
+    "name": "audioPLLlevel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1000,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioTsError": {
+    "name": "audioTsError",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioTsTable": {
+    "name": "audioTsTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioTsEntry": {
+    "name": "audioTsEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioTsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioTsIndex": {
+    "name": "audioTsIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioTsMode": {
+    "name": "audioTsMode",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioTsService": {
+    "name": "audioTsService",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioTsPID": {
+    "name": "audioTsPID",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteState": {
+    "name": "dteState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5",
+    "class": "objectidentity"
+  },
+  "dteTable": {
+    "name": "dteTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dteEntry": {
+    "name": "dteEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "dteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dteIndex": {
+    "name": "dteIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtePort": {
+    "name": "dtePort",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte1": 1,
+          "dte2": 2,
+          "dte3": 3,
+          "dte4": 4,
+          "dte5": 5,
+          "dte6": 6,
+          "dte7": 7,
+          "dte8": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteDataAvailable": {
+    "name": "dteDataAvailable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteAlarmActive": {
+    "name": "dteAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpPI": {
+    "name": "dteUecpPI",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpPS": {
+    "name": "dteUecpPS",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpRT": {
+    "name": "dteUecpRT",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpTA": {
+    "name": "dteUecpTA",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpTP": {
+    "name": "dteUecpTP",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpPTY": {
+    "name": "dteUecpPTY",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteUecpCT": {
+    "name": "dteUecpCT",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputSourceState": {
+    "name": "inputSourceState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6",
+    "class": "objectidentity"
+  },
+  "currentInputSourceTable": {
+    "name": "currentInputSourceTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "currentInputSourceEntry": {
+    "name": "currentInputSourceEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "currentInputSourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "currentInputSourceIndex": {
+    "name": "currentInputSourceIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outputType": {
+    "name": "outputType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audioOutput1": 1,
+          "audioOutput2": 2,
+          "audioOutput3": 3,
+          "audioOutput4": 4,
+          "asiOutput": 5,
+          "ipOutput": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentInputSourceState": {
+    "name": "currentInputSourceState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentInputSourceOrder": {
+    "name": "currentInputSourceOrder",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "temporaryMasterSource": 1,
+          "mainSource": 2,
+          "backup1": 3,
+          "backup2": 4,
+          "backup3": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentInputSourceType": {
+    "name": "currentInputSourceType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InputSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceState": {
+    "name": "deviceState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7",
+    "class": "objectidentity"
+  },
+  "internalStorageState": {
+    "name": "internalStorageState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStorageFreeMemory": {
+    "name": "internalStorageFreeMemory",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caseTemperature": {
+    "name": "caseTemperature",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caseTemperatureAlarmActive": {
+    "name": "caseTemperatureAlarmActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optoInputTable": {
+    "name": "optoInputTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optoInputEntry": {
+    "name": "optoInputEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "optoInputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optoInputIndex": {
+    "name": "optoInputIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optoInputNumber": {
+    "name": "optoInputNumber",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optoInputState": {
+    "name": "optoInputState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStorageTable": {
+    "name": "internalStorageTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "internalStorageEntry": {
+    "name": "internalStorageEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "internalStorageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "internalStorageIndex": {
+    "name": "internalStorageIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "internalStorageSection": {
+    "name": "internalStorageSection",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "device": 1,
+          "audio1": 2,
+          "audio2": 3,
+          "audio3": 4,
+          "audio4": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStorageFree": {
+    "name": "internalStorageFree",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStorageQuota": {
+    "name": "internalStorageQuota",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStorageQuotaUsed": {
+    "name": "internalStorageQuotaUsed",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.7.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "MB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eventParams": {
+    "name": "eventParams",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.8",
+    "class": "objectidentity"
+  },
+  "remoteControlUploadEventParams": {
+    "name": "remoteControlUploadEventParams",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.8.1",
+    "class": "objectidentity"
+  },
+  "remoteControlUploadType": {
+    "name": "remoteControlUploadType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firmware": 1,
+          "configuration": 2,
+          "audio": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "remoteControlUploadError": {
+    "name": "remoteControlUploadError",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crcError": 1,
+          "storageQuotaExceeded": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "remoteControlUploadGroup": {
+    "name": "remoteControlUploadGroup",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.8.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "remoteControlUploadFile": {
+    "name": "remoteControlUploadFile",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.8.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sfnState": {
+    "name": "sfnState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9",
+    "class": "objectidentity"
+  },
+  "sfnActive": {
+    "name": "sfnActive",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfn1ppsErrorCount": {
+    "name": "sfn1ppsErrorCount",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfn10MHzErrorCount": {
+    "name": "sfn10MHzErrorCount",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfnBufferlevel": {
+    "name": "sfnBufferlevel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfnResetCount": {
+    "name": "sfnResetCount",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfnTransmissionDelay": {
+    "name": "sfnTransmissionDelay",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "us",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfnGlobalDelay": {
+    "name": "sfnGlobalDelay",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "us",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfnAccuracy": {
+    "name": "sfnAccuracy",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32d1",
+      "class": "type"
+    },
+    "units": "us",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sfn1ppsErrorState": {
+    "name": "sfn1ppsErrorState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sfn10MHzErrorState": {
+    "name": "sfn10MHzErrorState",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.4.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "flexDSR04EventSettings": {
+    "name": "flexDSR04EventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5",
+    "class": "objectidentity"
+  },
+  "tunerRfPowerEventSettings": {
+    "name": "tunerRfPowerEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.1",
+    "class": "objectidentity"
+  },
+  "tunerRfPowerEventValue": {
+    "name": "tunerRfPowerEventValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerRfPowerEventTolerance": {
+    "name": "tunerRfPowerEventTolerance",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerRfPowerEventT1": {
+    "name": "tunerRfPowerEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerRfPowerEventT2": {
+    "name": "tunerRfPowerEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerRfPowerEventEnable": {
+    "name": "tunerRfPowerEventEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerCnEventSettings": {
+    "name": "tunerCnEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.2",
+    "class": "objectidentity"
+  },
+  "tunerCnEventMinValue": {
+    "name": "tunerCnEventMinValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerCnEventT1": {
+    "name": "tunerCnEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerCnEventT2": {
+    "name": "tunerCnEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerCnEventEnable": {
+    "name": "tunerCnEventEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerBerEventSettings": {
+    "name": "tunerBerEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.3",
+    "class": "objectidentity"
+  },
+  "tunerBerEventMaxValue": {
+    "name": "tunerBerEventMaxValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerBerEventT1": {
+    "name": "tunerBerEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerBerEventT2": {
+    "name": "tunerBerEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerBerEventEnable": {
+    "name": "tunerBerEventEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerTsSyncEventSettings": {
+    "name": "tunerTsSyncEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.4",
+    "class": "objectidentity"
+  },
+  "tunerTsSyncEventT1": {
+    "name": "tunerTsSyncEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerTsSyncEventT2": {
+    "name": "tunerTsSyncEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tunerTsSyncEventEnable": {
+    "name": "tunerTsSyncEventEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asiTsSyncEventSettings": {
+    "name": "asiTsSyncEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.5",
+    "class": "objectidentity"
+  },
+  "asiTsSyncEventT1": {
+    "name": "asiTsSyncEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asiTsSyncEventT2": {
+    "name": "asiTsSyncEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asiTsSyncEventEnabled": {
+    "name": "asiTsSyncEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTsSyncEventSettings": {
+    "name": "ipTsSyncEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.6",
+    "class": "objectidentity"
+  },
+  "ipTsSyncEventT1": {
+    "name": "ipTsSyncEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTsSyncEventT2": {
+    "name": "ipTsSyncEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipTsSyncEventEnabled": {
+    "name": "ipTsSyncEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "etr290ConformityEventSettings": {
+    "name": "etr290ConformityEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.7",
+    "class": "objectidentity"
+  },
+  "etr290ConformityEventEnable": {
+    "name": "etr290ConformityEventEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "aoipUdpInputDataEventSettings": {
+    "name": "aoipUdpInputDataEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8",
+    "class": "objectidentity"
+  },
+  "aoipUdpInputDataEventTable": {
+    "name": "aoipUdpInputDataEventTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aoipUdpInputDataEventEntry": {
+    "name": "aoipUdpInputDataEventEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "aoipUdpInputDataEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aoipUdpInputDataEventIndex": {
+    "name": "aoipUdpInputDataEventIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aoipUdpInputDataEventChannel": {
+    "name": "aoipUdpInputDataEventChannel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channel1": 1,
+          "channel2": 2,
+          "channel3": 3,
+          "channel4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aoipUdpInputDataEventT1": {
+    "name": "aoipUdpInputDataEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aoipUdpInputDataEventT2": {
+    "name": "aoipUdpInputDataEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aoipUdpInputDataEventEnabled": {
+    "name": "aoipUdpInputDataEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventSettings": {
+    "name": "aoipIcecastInputDataEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9",
+    "class": "objectidentity"
+  },
+  "aoipIcecastInputDataEventTable": {
+    "name": "aoipIcecastInputDataEventTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventEntry": {
+    "name": "aoipIcecastInputDataEventEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "aoipIcecastInputDataEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventIndex": {
+    "name": "aoipIcecastInputDataEventIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventServer": {
+    "name": "aoipIcecastInputDataEventServer",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "server1": 1,
+          "server2": 2,
+          "server3": 3,
+          "server4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventT1": {
+    "name": "aoipIcecastInputDataEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventT2": {
+    "name": "aoipIcecastInputDataEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "aoipIcecastInputDataEventEnabled": {
+    "name": "aoipIcecastInputDataEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioEventSettings": {
+    "name": "audioEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10",
+    "class": "objectidentity"
+  },
+  "audioEventTable": {
+    "name": "audioEventTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioEventEntry": {
+    "name": "audioEventEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioEventIndex": {
+    "name": "audioEventIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioEventChannel": {
+    "name": "audioEventChannel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audio1": 1,
+          "audio2": 2,
+          "audio3": 3,
+          "audio4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioEventT1": {
+    "name": "audioEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioEventT2": {
+    "name": "audioEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioEventEnabled": {
+    "name": "audioEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioLevelEventSettings": {
+    "name": "audioLevelEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11",
+    "class": "objectidentity"
+  },
+  "audioLevelEventTable": {
+    "name": "audioLevelEventTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioLevelEventEntry": {
+    "name": "audioLevelEventEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "audioLevelEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "audioLevelEventIndex": {
+    "name": "audioLevelEventIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "audioLevelEventChannel": {
+    "name": "audioLevelEventChannel",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "audio1": 1,
+          "audio2": 2,
+          "audio3": 3,
+          "audio4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "audioLevelEventMinValue": {
+    "name": "audioLevelEventMinValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBFS",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioLevelEventT1": {
+    "name": "audioLevelEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioLevelEventT2": {
+    "name": "audioLevelEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "audioLevelEventEnabled": {
+    "name": "audioLevelEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dteEventSettings": {
+    "name": "dteEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12",
+    "class": "objectidentity"
+  },
+  "dteEventTable": {
+    "name": "dteEventTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dteEventEntry": {
+    "name": "dteEventEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "dteEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dteEventIndex": {
+    "name": "dteEventIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dteEventPort": {
+    "name": "dteEventPort",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte1": 1,
+          "dte2": 2,
+          "dte3": 3,
+          "dte4": 4,
+          "dte5": 5,
+          "dte6": 6,
+          "dte7": 7,
+          "dte8": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dteEventT1": {
+    "name": "dteEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "min",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dteEventT2": {
+    "name": "dteEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "min",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dteEventEnabled": {
+    "name": "dteEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "internalStorageEventSettings": {
+    "name": "internalStorageEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.13",
+    "class": "objectidentity"
+  },
+  "internalStorageEventEnabled": {
+    "name": "internalStorageEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caseTemperatureEventSettings": {
+    "name": "caseTemperatureEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.14",
+    "class": "objectidentity"
+  },
+  "caseTemperatureEventMaxValue": {
+    "name": "caseTemperatureEventMaxValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caseTemperatureEventT1": {
+    "name": "caseTemperatureEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caseTemperatureEventT2": {
+    "name": "caseTemperatureEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caseTemperatureEventEnabled": {
+    "name": "caseTemperatureEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfnClockEventSettings": {
+    "name": "sfnClockEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.18",
+    "class": "objectidentity"
+  },
+  "sfnClockEventT1": {
+    "name": "sfnClockEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfnClockEventT2": {
+    "name": "sfnClockEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.18.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sfnClockEventEnabled": {
+    "name": "sfnClockEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.18.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipPerEventSettings": {
+    "name": "ipPerEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.19",
+    "class": "objectidentity"
+  },
+  "ipPerEventMode": {
+    "name": "ipPerEventMode",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "combinedStream": 1,
+          "mainStream": 2,
+          "bothStreams": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipPerEventValue": {
+    "name": "ipPerEventValue",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.19.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FloatString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipPerEventT1": {
+    "name": "ipPerEventT1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.19.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipPerEventT2": {
+    "name": "ipPerEventT2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.19.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipPerEventEnabled": {
+    "name": "ipPerEventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.19.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "generalEventSettings": {
+    "name": "generalEventSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90",
+    "class": "objectidentity"
+  },
+  "flexDSR04EventTable": {
+    "name": "flexDSR04EventTable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flexDSR04EventEntry": {
+    "name": "flexDSR04EventEntry",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLEXDSR04",
+        "object": "flexDSR04EventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flexDSR04EventIndex": {
+    "name": "flexDSR04EventIndex",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 19
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flexDSR04EventType": {
+    "name": "flexDSR04EventType",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tunerRfPowerEvent": 1,
+          "tunerCnEvent": 2,
+          "tunerBerEvent": 3,
+          "tunerTsSyncEvent": 4,
+          "asiTsSyncEvent": 5,
+          "ipTsSyncEvent": 6,
+          "aoipUdpInputDataEvent": 8,
+          "aoipIcecastInputDataEvent": 9,
+          "audioEvent": 10,
+          "audioLevelEvent": 11,
+          "dteEvent": 12,
+          "internalStorageEvent": 13,
+          "caseTemperatureEvent": 14,
+          "inputSourceEvent": 15,
+          "remoteControlUploadEvent": 16,
+          "optoInputEvent": 17,
+          "sfnClockEvent": 18,
+          "ipPerEvent": 19
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flexDSR04EventPriority": {
+    "name": "flexDSR04EventPriority",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flexDSR04EventEnabled": {
+    "name": "flexDSR04EventEnabled",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.90.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "allEventsEnable": {
+    "name": "allEventsEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.5.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "control": {
+    "name": "control",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6",
+    "class": "objectidentity"
+  },
+  "networkSettings": {
+    "name": "networkSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1",
+    "class": "objectidentity"
+  },
+  "tcpIp": {
+    "name": "tcpIp",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1",
+    "class": "objectidentity"
+  },
+  "hostname": {
+    "name": "hostname",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ip": {
+    "name": "ip",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subnetmask": {
+    "name": "subnetmask",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "primaryDns": {
+    "name": "primaryDns",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "secondaryDns": {
+    "name": "secondaryDns",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpSettings": {
+    "name": "snmpSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.2",
+    "class": "objectidentity"
+  },
+  "snmpTrapIP1": {
+    "name": "snmpTrapIP1",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrapIP2": {
+    "name": "snmpTrapIP2",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrapIP1Enable": {
+    "name": "snmpTrapIP1Enable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrapIP2Enable": {
+    "name": "snmpTrapIP2Enable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpSettings": {
+    "name": "sntpSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.3",
+    "class": "objectidentity"
+  },
+  "sntpFirstServerIP": {
+    "name": "sntpFirstServerIP",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpSecondServerIP": {
+    "name": "sntpSecondServerIP",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpUpdateInterval": {
+    "name": "sntpUpdateInterval",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "sec",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpTimeOffset": {
+    "name": "sntpTimeOffset",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sntpUpdateEnable": {
+    "name": "sntpUpdateEnable",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpSettings": {
+    "name": "httpSettings",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.4",
+    "class": "objectidentity"
+  },
+  "httpPort": {
+    "name": "httpPort",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commands": {
+    "name": "commands",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.10",
+    "class": "objectidentity"
+  },
+  "reStartDevice": {
+    "name": "reStartDevice",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "asciiCommand": {
+    "name": "asciiCommand",
+    "oid": "1.3.6.1.4.1.21529.3.2.4.6.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:15:17 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
+    ],
+    "module": "FLEXDSR04"
+  }
+}

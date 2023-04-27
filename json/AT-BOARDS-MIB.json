@@ -5,24 +5,24 @@
       "objects"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
       "OBJECT-IDENTITY",
       "iso",
-      "Integer32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-BOARDS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:09:49 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:16:30 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "AT-BOARDS-MIB"

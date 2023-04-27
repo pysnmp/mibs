@@ -10,40 +10,40 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "snmpModules",
       "MODULE-IDENTITY",
       "Bits",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "Gauge32",
+      "snmpModules",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TDomain",
-      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "TestAndIncr",
-      "TAddress",
-      "TimeInterval",
       "RowStatus",
       "MacAddress",
-      "DisplayString",
-      "StorageType"
+      "TDomain",
+      "StorageType",
+      "TruthValue",
+      "TestAndIncr",
+      "TAddress"
     ],
     "WLSX-MON-MIB": [
-      "monPhyAddress",
       "monitoredStaPhyAddress",
-      "monitoredApBSSID",
-      "monRadioNumber"
+      "monRadioNumber",
+      "monPhyAddress",
+      "monitoredApBSSID"
     ]
   },
   "wlsxSNRMIB": {
@@ -437,8 +437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SNR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:10:16 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:16:57 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "WLSX-SNR-MIB"

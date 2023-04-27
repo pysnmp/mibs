@@ -5,49 +5,49 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
+      "OperationalState",
       "RestartType",
       "SecondaryState",
-      "F3DisplayString",
-      "OperationalState"
+      "AdminState",
+      "F3DisplayString"
     ],
     "CM-ENTITY-MIB": [
+      "shelfIndex",
       "neIndex",
-      "slotIndex",
-      "shelfIndex"
+      "slotIndex"
     ],
     "CM-REDUNDANCY-MIB": [
       "CmGenPgSwitchoverReason"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
+      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
       "VariablePointer",
       "RowStatus",
-      "DateAndTime",
-      "TruthValue"
+      "DateAndTime"
     ]
   },
   "f3SyncMIB": {
@@ -2529,8 +2529,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SYNC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:09:48 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:16:09 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "F3-SYNC-MIB"

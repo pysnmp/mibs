@@ -10,19 +10,19 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
       "iso",
-      "Integer32",
+      "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -529,8 +529,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-CHASSIS-CLUSTER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:21:25 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:27:45 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-CHASSIS-CLUSTER-MIB"

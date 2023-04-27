@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IETF-PIM-MIB": [
-      "cPimIfEntry",
-      "cPimNbrIfIndex",
-      "cPimNbrAddress",
-      "cPimInetMRouteNextHopEntry",
-      "cPimNbrEntry",
-      "cPimCRPEntry",
-      "cPimInetMRouteEntry",
       "cPimNbrAddressType",
-      "cPimIfStatus"
+      "cPimIfStatus",
+      "cPimNbrEntry",
+      "cPimNbrAddress",
+      "cPimInetMRouteEntry",
+      "cPimInetMRouteNextHopEntry",
+      "cPimCRPEntry",
+      "cPimIfEntry",
+      "cPimNbrIfIndex"
     ],
     "CISCO-PIM-MIB": [
       "cpimRPMappingChangeType"
@@ -25,35 +25,35 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
+      "InetAddressType",
       "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
       "iso",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
       "TimeTicks",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Integer32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ciscoIetfPimExtMIB": {
@@ -1882,8 +1882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PIM-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:15:10 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:22:07 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-IETF-PIM-EXT-MIB"

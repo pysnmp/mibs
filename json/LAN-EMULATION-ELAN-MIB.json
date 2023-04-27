@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "LAN-EMULATION-CLIENT-MIB": [
-      "LecDataFrameFormat",
       "VpiInteger",
+      "LecDataFrameFormat",
+      "atmfLanEmulation",
       "VciInteger",
-      "LecDataFrameSize",
-      "atmfLanEmulation"
+      "LecDataFrameSize"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -14,18 +14,18 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "Bits",
       "OBJECT-TYPE",
       "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Integer32",
+      "Unsigned32",
       "Counter64",
-      "MibIdentifier",
+      "Counter32",
+      "Integer32",
       "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -1677,9 +1677,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/LAN-EMULATION-ELAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:08:59 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LAN-EMULATION-ELAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:26:56 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "LAN-EMULATION-ELAN-MIB"

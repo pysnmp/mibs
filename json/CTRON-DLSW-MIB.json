@@ -8,28 +8,28 @@
       "ctDLSW"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "Counter32",
-      "iso",
-      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "NBName": {
@@ -1188,8 +1188,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-DLSW-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:16:15 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:23:09 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CTRON-DLSW-MIB"

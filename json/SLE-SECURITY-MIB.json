@@ -12,37 +12,37 @@
     ],
     "SLE-TC-MIB": [
       "SleControlRequestResultType",
-      "SlePermissionType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SlePermissionType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "BITS",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "Integer32",
+      "iso",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "IpAddress",
-      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "BITS",
+      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32"
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "TimeStamp",
+      "DateAndTime"
     ]
   },
   "sleSecurity": {
@@ -15337,8 +15337,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:13:47 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:20:38 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "SLE-SECURITY-MIB"

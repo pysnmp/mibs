@@ -8,22 +8,22 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlRadiusPasswordType",
-      "MwlCaptivePortalExternalServerType",
-      "MwlOnOffSwitch",
-      "MwlCaptivePortalAuthenticationType",
-      "MwlRadiusCalledStationIdType",
-      "MwlCaptivePortalAuthMethod",
-      "MwlCypherSuiteBits",
-      "MwlManagementFrameProtection",
-      "MwlRadiusMacDelimiter",
-      "MwlTunnelTerminationModeBits",
-      "MwlFirewallCapability",
-      "MwlAuthenticationType",
-      "MwlProfileOwner",
-      "MwlAclEnvState",
-      "MwlCaptivePortalMode",
       "MwlL2SecurityModeBits",
+      "MwlProfileOwner",
+      "MwlTunnelTerminationModeBits",
+      "MwlAuthenticationType",
+      "MwlCypherSuiteBits",
+      "MwlCaptivePortalAuthMethod",
+      "MwlFirewallCapability",
+      "MwlAclEnvState",
+      "MwlCaptivePortalAuthenticationType",
+      "MwlCaptivePortalMode",
+      "MwlRadiusCalledStationIdType",
+      "MwlRadiusMacDelimiter",
+      "MwlCaptivePortalExternalServerType",
+      "MwlManagementFrameProtection",
+      "MwlRadiusPasswordType",
+      "MwlOnOffSwitch",
       "MwlKDDI"
     ],
     "SNMPv2-CONF": [
@@ -31,31 +31,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Counter32",
+      "Integer32",
       "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "iso",
+      "Counter64",
       "enterprises",
       "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TimeInterval",
-      "DisplayString",
       "MacAddress",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DateAndTime",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "mwConfigSecurity": {
@@ -1724,8 +1724,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:16:52 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:23:48 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-SECURITY-MIB"

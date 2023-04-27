@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "HH3C-DOT11-REF-MIB": [
-      "Hh3cDot11RadioElementIndex",
-      "Hh3cDot11SSIDStringType",
-      "Hh3cDot11RFModeType",
-      "Hh3cDot11TxPwrLevelScopeType",
-      "Hh3cDot11MACModeType",
-      "Hh3cDot11ObjectIDType",
-      "Hh3cDot11NotifyReasonType",
-      "Hh3cDot11RadioScopeType",
-      "hh3cDot11APElementIndex",
       "Hh3cDot11ChannelScopeType",
+      "hh3cDot11APElementIndex",
+      "Hh3cDot11TxPwrLevelScopeType",
+      "Hh3cDot11RFModeType",
+      "Hh3cDot11RadioElementIndex",
+      "Hh3cDot11ServicePolicyIDType",
+      "Hh3cDot11SSIDStringType",
+      "Hh3cDot11MACModeType",
+      "Hh3cDot11RadioScopeType",
       "hh3cDot11",
-      "Hh3cDot11ServicePolicyIDType"
+      "Hh3cDot11NotifyReasonType",
+      "Hh3cDot11ObjectIDType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "MibIdentifier",
       "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "iso",
       "Unsigned32",
-      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Bits",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DisplayString",
       "TimeStamp",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "hh3cDot11APMT": {
@@ -9713,8 +9713,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:12:32 2023",
-      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:19:21 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HH3C-DOT11-APMT-MIB"
