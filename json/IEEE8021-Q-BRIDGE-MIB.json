@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePort",
       "ieee8021BridgeBasePortComponentId",
-      "ieee8021BridgeBasePortEntry",
-      "ieee8021BridgeBasePort"
+      "ieee8021BridgeBasePortEntry"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbComponentIdentifier",
       "IEEE8021PortAcceptableFrameTypes",
+      "IEEE8021PbbComponentIdentifier",
       "ieee802dot1mibs",
-      "IEEE8021VlanIndex",
-      "IEEE8021BridgePortNumberOrZero"
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021VlanIndexOrWildcard",
+      "IEEE8021VlanIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "RMON2-MIB": [
       "TimeFilter"
@@ -26,33 +26,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "StorageType",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ieee8021QBridgeMib": {
@@ -2483,8 +2483,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Q-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:15:12 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:28:22 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "IEEE8021-Q-BRIDGE-MIB"

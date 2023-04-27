@@ -9,40 +9,40 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "iso",
+      "TimeTicks",
+      "mib-2",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "iso",
       "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "mib-2",
-      "Counter64",
-      "TimeTicks",
       "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "fcipMIB": {
@@ -1206,8 +1206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FCIP-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:15:37 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:28:45 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "FCIP-MGMT-MIB"

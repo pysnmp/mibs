@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-WLAN-MIB": [
-      "cLWlanIndex",
-      "cLWlanProfileName"
+      "cLWlanProfileName",
+      "cLWlanIndex"
     ],
     "CISCO-LWAPP-WLAN-POLICY-MIB": [
       "cLWlanWlanPolicyName"
@@ -15,8 +15,8 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -25,34 +25,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "IpAddress",
+      "Unsigned32",
       "MibIdentifier",
       "Counter64",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
+      "DateAndTime",
+      "MacAddress",
       "StorageType",
-      "MacAddress"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoLwappMobilityExtMIB": {
@@ -4695,8 +4695,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MOBILITY-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:22:35 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:52 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"

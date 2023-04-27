@@ -12,40 +12,40 @@
       "ruckusZDWLANModule"
     ],
     "RUCKUS-TC-MIB": [
-      "RuckusRadioMode",
-      "RuckusRateLimiting",
+      "RuckusAdminStatus",
       "RuckusdB",
       "RuckusSSID",
-      "RuckusAdminStatus"
+      "RuckusRadioMode",
+      "RuckusRateLimiting"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
       "iso",
-      "Counter64",
-      "Integer32"
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TruthValue",
-      "DisplayString",
-      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress",
+      "RowStatus",
+      "PhysAddress",
+      "DisplayString"
     ]
   },
   "ruckusZDWLANMIB": {
@@ -3438,8 +3438,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-WLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:15 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:43:33 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "RUCKUS-ZD-WLAN-MIB"

@@ -8,49 +8,49 @@
       "CiscoVrfName"
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
-      "CtsSecurityGroupTag",
       "CtsSxpConnectionStatus",
-      "CtsPasswordEncryptionType",
-      "CtsPassword"
+      "CtsSecurityGroupTag",
+      "CtsPassword",
+      "CtsPasswordEncryptionType"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "IpAddress",
+      "Unsigned32",
       "MibIdentifier",
       "Counter64",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Unsigned32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "StorageType"
+      "StorageType",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoTrustSecSxpMIB": {
@@ -2403,8 +2403,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-SXP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:22:36 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:53 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-TRUSTSEC-SXP-MIB"

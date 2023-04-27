@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
-      "InetAddressPrefixLength",
       "InetZoneIndex",
-      "InetVersion"
+      "InetAddressType",
+      "InetVersion",
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
       "IpAddressStatusTC",
       "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "mib-2",
-      "Integer32",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "IpAddress",
+      "Unsigned32",
       "MibIdentifier",
       "Counter64",
+      "zeroDotZero",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Counter32",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "TimeStamp",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
       "TestAndIncr",
       "StorageType",
-      "RowPointer"
+      "RowStatus",
+      "RowPointer",
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:22:38 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:55 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

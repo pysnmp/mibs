@@ -8,33 +8,33 @@
       "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
-      "PortList"
+      "PortList",
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "Bits",
       "Counter64",
       "Gauge32",
       "NOTIFICATION-TYPE",
       "iso",
-      "Bits",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Integer32",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "asMaxNumOfChannels": {
@@ -682,8 +682,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-AS-ATM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:18:27 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:31:12 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "E5-111-AS-ATM-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HMRINGARC-MGMT-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmARC
-# Produced by pysmi-1.1.8 at Thu Apr 27 10:25:37 2023
-# On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:37:13 2023
+# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 hmRingRedundancy, = mibBuilder.importSymbols("HMRING-MGMT-SNMP-MIB", "hmRingRedundancy")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, TimeTicks, ModuleIdentity, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, Counter32, Counter64, iso, Gauge32, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "Counter32", "Counter64", "iso", "Gauge32", "IpAddress", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationType, TimeTicks, iso, Counter32, ModuleIdentity, Counter64, Gauge32, Integer32, Unsigned32, MibIdentifier, Bits, ObjectIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "TimeTicks", "iso", "Counter32", "ModuleIdentity", "Counter64", "Gauge32", "Integer32", "Unsigned32", "MibIdentifier", "Bits", "ObjectIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hmARC = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 5, 7))
 hmARC.setRevisions(('2010-09-01 12:00',))
 
@@ -97,4 +97,4 @@ if mibBuilder.loadTexts: hmArcClientRedGroupID.setDescription('Unique index to i
 hmArcClientRedIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 5, 7, 4, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hmArcClientRedIfIndex.setStatus('current')
 if mibBuilder.loadTexts: hmArcClientRedIfIndex.setDescription('Interface index of the to be configured redundant link.')
-mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcClientRedGroupID=hmArcClientRedGroupID, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcManagerRedGroupID=hmArcManagerRedGroupID, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, PYSNMP_MODULE_ID=hmARC, hmARC=hmARC, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcManagerConfig=hmArcManagerConfig, hmArcClientPrimGroupID=hmArcClientPrimGroupID, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcManagerActionResult=hmArcManagerActionResult, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcManagerVlanID=hmArcManagerVlanID, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcCheckResultTable=hmArcCheckResultTable, hmArcCheckStatusClassification=hmArcCheckStatusClassification, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcClientStatus=hmArcClientStatus, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcClientConfig=hmArcClientConfig, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcCheckStatusType=hmArcCheckStatusType, hmArcClientAdminStatus=hmArcClientAdminStatus, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcManagerAction=hmArcManagerAction, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerStatus=hmArcManagerStatus)
+mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcClientAdminStatus=hmArcClientAdminStatus, hmArcCheckResultTable=hmArcCheckResultTable, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcCheckStatusClassification=hmArcCheckStatusClassification, hmArcManagerRedGroupID=hmArcManagerRedGroupID, hmArcCheckStatusType=hmArcCheckStatusType, hmArcClientRedGroupID=hmArcClientRedGroupID, hmArcManagerActionResult=hmArcManagerActionResult, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, PYSNMP_MODULE_ID=hmARC, hmARC=hmARC, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerStatus=hmArcManagerStatus, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcManagerConfig=hmArcManagerConfig, hmArcManagerVlanID=hmArcManagerVlanID, hmArcClientStatus=hmArcClientStatus, hmArcManagerAction=hmArcManagerAction, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcClientPrimGroupID=hmArcClientPrimGroupID, hmArcClientConfig=hmArcClientConfig, hmArcManagerRedProtocol=hmArcManagerRedProtocol)

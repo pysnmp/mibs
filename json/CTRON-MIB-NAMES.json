@@ -5,28 +5,28 @@
       "cabletron"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mibs": {
@@ -687,8 +687,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-MIB-NAMES",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:23:49 2023",
-      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:35:49 2023",
+      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CTRON-MIB-NAMES"
