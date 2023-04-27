@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11SSIDEncryptModeType",
+      "HpnicfDot11SSIDStringType",
+      "HpnicfDot11AssocFailType",
+      "HpnicfDot11AuthorFailType",
+      "HpnicfDot11SecIEStatusType",
+      "HpnicfDot11RadioType",
+      "HpnicfDot11CipherType",
       "HpnicfDot11RadioScopeType",
-      "HpnicfDot11AKMType",
+      "HpnicfDot11ObjectIDType",
       "HpnicfDot11AuthenType",
       "hpnicfDot11",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11CipherType",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11RadioType",
-      "HpnicfDot11SSIDEncryptModeType",
-      "HpnicfDot11SecIEStatusType",
-      "HpnicfDot11AssocFailType",
-      "HpnicfDot11ChannelScopeType",
-      "HpnicfDot11RadioType2",
-      "HpnicfDot11AuthorFailType"
+      "HpnicfDot11AKMType",
+      "HpnicfDot11RadioType2"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
-      "iso",
       "Counter64",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks"
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "MacAddress",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "hpnicfDot11STATION": {
@@ -1743,8 +1743,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-STATION-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:12:07 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:15:35 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-DOT11-STATION-MIB"

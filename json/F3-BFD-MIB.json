@@ -9,11 +9,11 @@
       "bfdSessEntry"
     ],
     "CM-COMMON-MIB": [
-      "VlanPriority",
       "VlanId",
-      "OperationalState",
       "AdminState",
-      "SecondaryState"
+      "SecondaryState",
+      "OperationalState",
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "iso",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks"
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "VariablePointer",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "VariablePointer",
-      "TruthValue",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "f3BfdMIB": {
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:05:06 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:05:24 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "F3-BFD-MIB"

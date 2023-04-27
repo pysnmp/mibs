@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxAuthAlgo",
-      "JnxEncryptAlgo",
-      "JnxIkePeerRole",
-      "JnxIkeAuthMethod",
-      "JnxRemotePeerType",
-      "JnxIkePeerType",
-      "JnxIkeHashAlgo",
-      "JnxSAType",
-      "JnxDiffHellmanGrp",
       "JnxIkeNegoMode",
-      "JnxKeyType",
-      "JnxEncapMode"
+      "JnxAuthAlgo",
+      "JnxEncapMode",
+      "JnxDiffHellmanGrp",
+      "JnxRemotePeerType",
+      "JnxSAType",
+      "JnxIkeAuthMethod",
+      "JnxIkeHashAlgo",
+      "JnxEncryptAlgo",
+      "JnxIkePeerType",
+      "JnxIkePeerRole",
+      "JnxKeyType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -30,25 +30,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxIpSecMonitorMIB": {
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:13:27 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:17:11 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

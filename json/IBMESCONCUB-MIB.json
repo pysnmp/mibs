@@ -5,34 +5,34 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "iso",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
-      "Counter32",
       "MibIdentifier",
-      "TimeTicks"
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-SMI-v1": [
       "enterprises",
-      "Counter32",
+      "IpAddress",
       "Integer32",
-      "IpAddress"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
       "MacAddress"
@@ -618,8 +618,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMESCONCUB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:12:50 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:15:05 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "IBMESCONCUB-MIB"

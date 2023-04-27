@@ -11,13 +11,13 @@
       "PhysicalIndex"
     ],
     "FDDI-SMT73-MIB": [
-      "fddimibPORTSMTIndex",
-      "fddimibPORTIndex"
+      "fddimibPORTIndex",
+      "fddimibPORTSMTIndex"
     ],
     "IF-MIB": [
       "ifName",
-      "OwnerString",
-      "ifIndex"
+      "ifIndex",
+      "OwnerString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -25,27 +25,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
+      "iso",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Counter64",
-      "iso"
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ],
     "TOKEN-RING-RMON-MIB": [
       "ringStationMacAddress"
@@ -16883,8 +16883,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-STACK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:24 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:24 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-STACK-MIB"

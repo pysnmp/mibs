@@ -18,8 +18,8 @@
       "CounterBasedGauge64"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
+      "InetAddressType",
       "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -31,29 +31,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "Integer32",
-      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
       "Bits",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "iso"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TimeStamp",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
       "TimeInterval",
       "TruthValue",
+      "TimeStamp",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ]
   },
@@ -6546,8 +6546,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PFR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:23 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:23 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-PFR-MIB"

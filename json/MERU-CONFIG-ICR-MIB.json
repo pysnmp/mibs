@@ -12,31 +12,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
-      "enterprises",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Bits"
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "enterprises",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
+      "DisplayString",
       "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "DateAndTime",
-      "TimeStamp"
+      "MacAddress"
     ]
   },
   "mwConfigIcr": {
@@ -138,8 +138,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-ICR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:38 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:12:02 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-ICR-MIB"

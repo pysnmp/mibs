@@ -5,14 +5,14 @@
       "CbpElementName"
     ],
     "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
-      "DynamicTemplateType",
       "DynamicTemplateName",
+      "DynamicTemplateTargetType",
       "DynamicTemplateTargetId",
-      "DynamicTemplateTargetType"
+      "DynamicTemplateType"
     ],
     "CISCO-IP-URPF-MIB": [
-      "UnicastRpfType",
-      "UnicastRpfOptions"
+      "UnicastRpfOptions",
+      "UnicastRpfType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -25,8 +25,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
-      "InetAddressIPv4",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -37,28 +37,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
+      "iso",
       "Integer32",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Counter64",
-      "iso"
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DisplayString",
       "MacAddress",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ciscoDynamicTemplateMIB": {
@@ -3213,8 +3213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:26 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:27 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-DYNAMIC-TEMPLATE-MIB"

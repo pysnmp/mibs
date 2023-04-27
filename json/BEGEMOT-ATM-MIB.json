@@ -8,23 +8,23 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Integer32",
       "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
       "iso",
+      "Gauge32",
+      "Bits",
+      "Counter32",
       "Counter64"
     ],
     "SNMPv2-TC": [
@@ -374,8 +374,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-ATM",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:15:28 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:19:34 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "BEGEMOT-ATM-MIB"

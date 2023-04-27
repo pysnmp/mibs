@@ -5,8 +5,8 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "AgentPortMask",
-      "fastPath"
+      "fastPath",
+      "AgentPortMask"
     ],
     "IANAifType-MIB": [
       "IANAifType"
@@ -21,38 +21,38 @@
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIndex",
       "dot1qVlanIndex",
-      "dot1qFdbId"
+      "dot1qFdbId",
+      "VlanId",
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "MibIdentifier",
       "iso",
       "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "DisplayString",
-      "TruthValue",
-      "PhysAddress",
-      "MacAddress",
       "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "DateAndTime",
+      "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:34 2023",
-      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:47 2023",
+      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"
