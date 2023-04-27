@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSP-MIB": [
+      "cgspCLLICode",
       "cgspEventSequenceNumber",
       "cgspInstDisplayName",
-      "cgspCLLICode",
       "cgspInstNetwork"
     ],
     "CISCO-ITP-TC-MIB": [
+      "CItpTcURL",
       "CItpTcDisplayPC",
-      "CItpTcPointCode",
-      "CItpTcServiceIndicator",
-      "CItpTcQos",
-      "CItpTcRouteTableName",
-      "CItpTcLinksetId",
       "CItpTcTableLoadStatus",
-      "CItpTcURL"
+      "CItpTcServiceIndicator",
+      "CItpTcRouteTableName",
+      "CItpTcPointCode",
+      "CItpTcLinksetId",
+      "CItpTcQos"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoGrtMIB": {
@@ -2317,8 +2317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GRT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:48 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:21 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-ITP-GRT-MIB"

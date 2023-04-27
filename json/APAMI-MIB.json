@@ -10,24 +10,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "OBJECT-TYPE",
       "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
       "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "apAMIModule": {
@@ -152,8 +152,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAMI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:40:04 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:14:55 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "APAMI-MIB"

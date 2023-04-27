@@ -8,52 +8,52 @@
       "AddressFamilyNumbers"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "LINKSYS-MIB": [
-      "rnd",
-      "rndNotifications"
+      "rndNotifications",
+      "rnd"
     ],
     "LLDP-EXT-MED-MIB": [
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpPortList",
-      "lldpRemIndex",
-      "lldpRemLocalPortNum",
       "LldpManAddress",
+      "lldpRemIndex",
+      "lldpRemTimeMark",
       "LldpPortNumber",
-      "lldpRemTimeMark"
+      "LldpPortList",
+      "lldpRemLocalPortNum"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
       "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
       "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:38:02 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:13:41 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-LLDP-MIB"

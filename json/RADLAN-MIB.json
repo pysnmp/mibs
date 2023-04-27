@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "MacAddress",
       "dot1dBasePortEntry",
       "dot1dBasePort",
       "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "MacAddress"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthSessionStatsEntry",
@@ -22,8 +22,8 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
       "VlanIndex",
+      "dot1qFdbId",
       "PortList"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -34,25 +34,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "Integer32",
       "enterprises",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
       "Gauge32",
+      "Counter64",
+      "Counter32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter64",
+      "iso",
+      "IpAddress",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-SMI-v1": [
-      "Counter-32",
       "Unsigned-32",
+      "Counter-32",
       "Integer-32"
     ],
     "SNMPv2-TC": [
@@ -60,13 +60,13 @@
       "DisplayString"
     ],
     "SNMPv2-TC-v1": [
-      "DisplayString",
-      "RowPointer",
       "TimeInterval",
+      "RowStatus",
+      "DisplayString",
       "DateAndTime",
+      "RowPointer",
       "PhysAddress",
-      "TruthValue",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "Percents": {
@@ -8659,8 +8659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:30:46 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:52 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "RADLAN-MIB"

@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventTimeStamp",
       "eventPriority",
+      "mibRelease",
       "eventCounter",
-      "mibRelease"
+      "eventTimeStamp"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "SelectOnOff",
       "FaultOK",
-      "MuteOk",
+      "PresentNotPresent",
       "SFNMFN",
+      "MuteOk",
+      "WarningOK",
+      "SelectOnOff",
+      "OkNotOk",
       "dvbT",
       "SelectManualAuto",
       "Input1Input2",
-      "WarningOK",
-      "LocalRemote",
-      "OkNotOk",
-      "PresentNotPresent"
+      "LocalRemote"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
       "sysName",
+      "sysLocation",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Integer32",
-      "Counter32"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:42:53 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:16:23 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

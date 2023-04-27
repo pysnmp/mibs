@@ -6,24 +6,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
+      "iso",
       "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits",
       "Counter32",
-      "iso"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "VMWARE-ENV-MIB": [
       "vmwEnvIndicationTime"
@@ -111,8 +111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-CIMOM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:45:14 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:17:51 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "VMWARE-CIMOM-MIB"

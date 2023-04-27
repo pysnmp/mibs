@@ -14,34 +14,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "MacAddress",
       "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "StorageType",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DateAndTime"
     ]
   },
   "ciscoVdcMIB": {
@@ -1448,8 +1448,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VDC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:50 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:23 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-VDC-MIB"

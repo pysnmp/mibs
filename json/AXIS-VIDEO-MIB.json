@@ -9,25 +9,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "IpAddress",
+      "iso",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
       "Bits",
       "Unsigned32",
-      "Counter32",
-      "Counter64"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -929,8 +929,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/axis/AXIS-VIDEO-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:24:28 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:05:58 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "AXIS-VIDEO-MIB"

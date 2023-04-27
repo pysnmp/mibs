@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "iso",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Bits",
       "Counter64",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "productITTM": {
@@ -1418,8 +1418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sensatronics/SENSATRONICS-ITTM",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:43:10 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:16:36 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "SENSATRONICS-ITTM"

@@ -5,11 +5,11 @@
       "Counter32SinceReset"
     ],
     "CISCO-IETF-MEGACO-MIB": [
-      "cmedGatewayStatsEntry",
-      "cmedGatewayLinkId",
       "cmedGatewayId",
       "cmedGatewayConfigEntry",
-      "cmedTerminationsEntry"
+      "cmedGatewayLinkId",
+      "cmedTerminationsEntry",
+      "cmedGatewayStatsEntry"
     ],
     "CISCO-MEDIA-GATEWAY-MIB": [
       "CCallControlProfileIndexOrZero",
@@ -28,39 +28,39 @@
       "CvcSpeechCoderRate"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
       "Integer32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "Unsigned32",
+      "Bits",
       "IpAddress",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoMegacoExtMIB": {
@@ -5193,8 +5193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEGACO-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:53 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:24 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-MEGACO-EXT-MIB"

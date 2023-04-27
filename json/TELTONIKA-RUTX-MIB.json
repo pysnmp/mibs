@@ -6,28 +6,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "enterprises",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Opaque",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
+      "TimeTicks",
       "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Gauge32",
+      "iso",
+      "Counter32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "TimeTicks"
+      "Opaque",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "PhysAddress",
       "TruthValue",
-      "PhysAddress"
+      "DisplayString"
     ]
   },
   "teltonika": {
@@ -1131,8 +1131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teltonika/TELTONIKA-RUTX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:44:18 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:17:21 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "TELTONIKA-RUTX-MIB"

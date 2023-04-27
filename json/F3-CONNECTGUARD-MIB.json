@@ -6,30 +6,30 @@
     ],
     "CM-COMMON-MIB": [
       "EthernetPortSpeed",
-      "PriorityMapMode",
-      "SecondaryState",
-      "AdminState",
-      "VlanTagType",
-      "OperationalState",
-      "VlanPriority",
-      "SfpConnectorValue",
-      "TrafficDirection",
       "AfpTagControl",
-      "CmPmBinAction",
-      "F3DisplayString",
-      "PerfCounter64",
+      "SfpMediaType",
       "VlanId",
-      "CmPmIntervalType",
+      "TrafficDirection",
+      "VlanPriority",
+      "OperationalState",
+      "PerfCounter64",
       "EthernetMediaType",
+      "VlanTagType",
+      "F3DisplayString",
+      "PriorityMapMode",
+      "CmPmBinAction",
+      "AdminState",
+      "CmPmIntervalType",
+      "SfpConnectorValue",
       "VlanEthertype",
-      "SfpMediaType"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
+      "networkElementEntry",
+      "shelfIndex",
       "neIndex",
       "f3UsbHostIndex",
-      "networkElementEntry",
-      "slotIndex",
-      "shelfIndex"
+      "slotIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmFlowEntry"
@@ -45,8 +45,8 @@
       "SecySCI"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -57,31 +57,31 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "iso",
       "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Bits"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "StorageType",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer",
+      "MacAddress",
+      "TruthValue",
       "TimeStamp",
       "RowStatus",
-      "MacAddress",
-      "DateAndTime",
-      "VariablePointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DateAndTime"
     ]
   },
   "f3ConnectGuardMIB": {
@@ -3841,8 +3841,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CONNECTGUARD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:23:11 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:05:06 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "F3-CONNECTGUARD-MIB"

@@ -6,52 +6,52 @@
     ],
     "CISCO-TC": [
       "CiscoNetworkAddress",
-      "TimeIntervalSec",
-      "CiscoAlarmSeverity",
       "CiscoInetAddressMask",
+      "CiscoAlarmSeverity",
+      "TimeIntervalSec",
       "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectDn",
-      "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectId"
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "DisplayString",
-      "TimeInterval",
       "TimeStamp",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowPointer",
       "TruthValue",
-      "RowPointer"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "cucsQueryresultObjects": {
@@ -324,8 +324,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:53 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:09:25 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB"

@@ -11,30 +11,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "BITS",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "MibIdentifier"
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "BITS",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwInnerLinkMIB": {
@@ -471,8 +471,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-INNER-LINK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 11:34:25 2023",
-      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 12:12:01 2023",
+      "On host fv-az566-662 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-INNER-LINK-MIB"
