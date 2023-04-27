@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Thu Apr 27 10:35:31 2023
-# On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 11:31:04 2023
+# On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Gauge32, Counter32, ObjectIdentity, IpAddress, Integer32, Unsigned32, ModuleIdentity, NotificationType, MibIdentifier, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "Counter32", "ObjectIdentity", "IpAddress", "Integer32", "Unsigned32", "ModuleIdentity", "NotificationType", "MibIdentifier", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits")
+MibIdentifier, NotificationType, IpAddress, Counter64, Gauge32, Bits, ObjectIdentity, Integer32, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "IpAddress", "Counter64", "Gauge32", "Bits", "ObjectIdentity", "Integer32", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", product=product, sysRepeaters=sysRepeaters, common=common, repeaterRev2=repeaterRev2, commonRev1=commonRev1, sysIntDev=sysIntDev, layerMgmt=layerMgmt, dl=dl, sysRouters=sysRouters, nb30Rev1=nb30Rev1, repeaterRev1=repeaterRev1, sysOIDs=sysOIDs, ups=ups, subsystem=subsystem, bridge=bridge, sysBridges=sysBridges, router=router, sysOtherType=sysOtherType, subSysDevice=subSysDevice, sysChassis=sysChassis, backplaneProtocol=backplaneProtocol, subSysMMAC=subSysMMAC, repeater=repeater, commsDevice=commsDevice)
+mibBuilder.exportSymbols("IRM-OIDS", router=router, sysChassis=sysChassis, subsystem=subsystem, ups=ups, sysRepeaters=sysRepeaters, common=common, bridge=bridge, repeater=repeater, subSysMMAC=subSysMMAC, sysOtherType=sysOtherType, dl=dl, sysOIDs=sysOIDs, sysBridges=sysBridges, commsDevice=commsDevice, repeaterRev1=repeaterRev1, layerMgmt=layerMgmt, product=product, backplaneProtocol=backplaneProtocol, repeaterRev2=repeaterRev2, nb30Rev1=nb30Rev1, subSysDevice=subSysDevice, commonRev1=commonRev1, sysRouters=sysRouters, sysIntDev=sysIntDev)

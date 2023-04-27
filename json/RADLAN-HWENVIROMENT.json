@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Integer32",
+      "Bits",
+      "IpAddress",
       "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Gauge32",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -233,8 +233,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-HWENVIROMENT",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:35:17 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:30:46 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "RADLAN-HWENVIROMENT"

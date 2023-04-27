@@ -8,38 +8,38 @@
       "ciscoMgmt"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
-      "CvcVideoCoderRate",
-      "CvcGUid"
+      "CvcGUid",
+      "CvcVideoCoderRate"
     ],
     "DIAL-CONTROL-MIB": [
+      "callActiveIndex",
       "callActiveSetupTime",
-      "AbsoluteCounter32",
-      "callActiveIndex"
+      "AbsoluteCounter32"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "iso",
-      "IpAddress",
+      "Unsigned32",
+      "Counter64",
       "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoH324DialControlMIB": {
@@ -526,8 +526,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-H324-DIAL-CONTROL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:34 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:55 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-H324-DIAL-CONTROL-MIB"

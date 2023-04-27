@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Counter64",
       "Gauge32",
-      "iso",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Bits"
     ],
     "SNMPv2-TC": [
@@ -1484,8 +1484,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/icotera/ICOTERA-I6400-SERIES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:39:20 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:35:55 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "ICOTERA-I6400-SERIES"

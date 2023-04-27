@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "hpnicfDot11APElementIndex",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11ChannelScopeType",
       "hpnicfDot11",
-      "HpnicfDot11MACModeType",
-      "HpnicfDot11NotifyReasonType",
-      "HpnicfDot11RFModeType",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11ServicePolicyIDType",
       "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11TxPwrLevelScopeType",
+      "HpnicfDot11RFModeType",
+      "HpnicfDot11MACModeType",
       "HpnicfDot11RadioScopeType",
-      "HpnicfDot11TxPwrLevelScopeType"
+      "HpnicfDot11ServicePolicyIDType",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11NotifyReasonType",
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11SSIDStringType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter32",
-      "Bits",
-      "Counter64",
-      "iso",
-      "Gauge32",
-      "TimeTicks"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "MacAddress",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfDot11APMT": {
@@ -8424,8 +8424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:39:43 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:35:41 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-DOT11-APMT-MIB"

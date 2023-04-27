@@ -9,8 +9,8 @@
       "eqlMemberIndex"
     ],
     "EQLRAID-MIB": [
-      "eqlRAIDDeviceUUID",
-      "eqlRAIDDeviceLUNIndex"
+      "eqlRAIDDeviceLUNIndex",
+      "eqlRAIDDeviceUUID"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
@@ -30,30 +30,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
       "Opaque",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
       "enterprises",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "iso",
-      "Counter64"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "RowStatus",
       "DateAndTime",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "RowPointer",
+      "TruthValue"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:35:32 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:31:03 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

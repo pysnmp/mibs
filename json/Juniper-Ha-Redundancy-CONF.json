@@ -5,25 +5,25 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
       "Bits",
-      "MibIdentifier",
-      "iso",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "IpAddress",
-      "OBJECT-TYPE"
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-Ha-Redundancy-CONF",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:41:18 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:37:57 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "Juniper-Ha-Redundancy-CONF"

@@ -5,11 +5,11 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
       "CiscoNetworkAddress",
       "TimeIntervalSec",
-      "Unsigned64",
-      "CiscoInetAddressMask"
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
+      "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectDn",
@@ -17,29 +17,29 @@
       "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsDcxState",
-      "CucsNwctrlLldpAdminStateBitmask",
       "CucsNetworkConnectionType",
-      "CucsVnicInstantiation",
-      "CucsDcxVIfProtRole",
-      "CucsFsmLifecycle",
-      "CucsQosHostControl",
-      "CucsNetworkPortType",
-      "CucsNetworkSwitchId",
-      "CucsDcxAdminState",
-      "CucsNwctrlRegistrationMode",
-      "CucsNetworkTransport",
-      "CucsDcxNsAllocStatus",
-      "CucsDcxOperState",
-      "CucsNwctrlAdminState",
-      "CucsDcxProtState",
-      "CucsNetworkLocale",
-      "CucsAdaptorLinkState",
-      "CucsNetworkPortRole",
-      "CucsNwctrlLinkFailAction",
-      "CucsFabricTrafficDirection",
       "CucsNetworkSide",
-      "CucsDpsecForgedTransmit"
+      "CucsDcxNsAllocStatus",
+      "CucsQosHostControl",
+      "CucsNwctrlLinkFailAction",
+      "CucsNetworkLocale",
+      "CucsDpsecForgedTransmit",
+      "CucsNwctrlAdminState",
+      "CucsDcxVIfProtRole",
+      "CucsAdaptorLinkState",
+      "CucsFabricTrafficDirection",
+      "CucsNetworkTransport",
+      "CucsNetworkPortRole",
+      "CucsDcxState",
+      "CucsDcxAdminState",
+      "CucsDcxProtState",
+      "CucsNwctrlRegistrationMode",
+      "CucsDcxOperState",
+      "CucsNwctrlLldpAdminStateBitmask",
+      "CucsNetworkPortType",
+      "CucsVnicInstantiation",
+      "CucsFsmLifecycle",
+      "CucsNetworkSwitchId"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -49,34 +49,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "Counter32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
+      "Bits",
       "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TimeInterval",
       "TimeStamp",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TimeInterval",
       "TruthValue",
-      "RowPointer",
-      "DisplayString"
+      "RowPointer"
     ]
   },
   "cucsDcxObjects": {
@@ -1257,8 +1257,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DCX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:29 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:48 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-DCX-MIB"

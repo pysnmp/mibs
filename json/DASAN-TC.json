@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dasanTextualConventions": {
@@ -355,8 +355,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-TC",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:33:22 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:28:16 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "DASAN-TC"

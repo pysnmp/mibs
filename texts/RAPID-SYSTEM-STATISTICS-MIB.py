@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RAPID-SYSTEM-STATISTICS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-SYSTEM-STATISTICS-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 10:42:20 2023
-# On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 11:39:16 2023
+# On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, ObjectIdentity, Counter64, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, MibIdentifier, TimeTicks, Counter32, NotificationType, Bits, Unsigned32, Integer32, IpAddress, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "Counter64", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "MibIdentifier", "TimeTicks", "Counter32", "NotificationType", "Bits", "Unsigned32", "Integer32", "IpAddress", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, NotificationType, Gauge32, MibIdentifier, ModuleIdentity, TimeTicks, iso, enterprises, Counter32, Bits, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "NotificationType", "Gauge32", "MibIdentifier", "ModuleIdentity", "TimeTicks", "iso", "enterprises", "Counter32", "Bits", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rsInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 6))
 rsInfoModule.setRevisions(('2001-05-16 12:00', '2002-11-01 12:00',))
 
@@ -54,4 +54,4 @@ if mibBuilder.loadTexts: rsSystemCpuUtil5.setDescription('CPU utilization of the
 rsSystemCpuUtil15 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 3, 79), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rsSystemCpuUtil15.setStatus('current')
 if mibBuilder.loadTexts: rsSystemCpuUtil15.setDescription('CPU utilization of the system in last 15 minutes. The value\n            is measured in 0.01%.  For example, if the value is 234, \n            then CPU utilization is 2.34%.')
-mibBuilder.exportSymbols("RAPID-SYSTEM-STATISTICS-MIB", rsSystemStreamReqTotal=rsSystemStreamReqTotal, PYSNMP_MODULE_ID=rsInfoModule, rsSystemTotalRecvBytes=rsSystemTotalRecvBytes, rsSystemTotalSendBytes=rsSystemTotalSendBytes, rsSystemCpuUtil5=rsSystemCpuUtil5, rsSystemTotalSendPackets=rsSystemTotalSendPackets, rsInfoModule=rsInfoModule, rsSystemStreamReqDrop=rsSystemStreamReqDrop, rsSystemCpuUtil15=rsSystemCpuUtil15, rsSystemCpuUtil=rsSystemCpuUtil, rsSystemStatisticsMIB=rsSystemStatisticsMIB, rsSystemCpuUtil1=rsSystemCpuUtil1, rsSystemTotalRecvPackets=rsSystemTotalRecvPackets)
+mibBuilder.exportSymbols("RAPID-SYSTEM-STATISTICS-MIB", rsSystemStreamReqDrop=rsSystemStreamReqDrop, rsSystemTotalSendPackets=rsSystemTotalSendPackets, rsSystemStreamReqTotal=rsSystemStreamReqTotal, rsSystemCpuUtil5=rsSystemCpuUtil5, rsInfoModule=rsInfoModule, rsSystemTotalRecvBytes=rsSystemTotalRecvBytes, rsSystemTotalSendBytes=rsSystemTotalSendBytes, rsSystemCpuUtil1=rsSystemCpuUtil1, rsSystemCpuUtil15=rsSystemCpuUtil15, rsSystemCpuUtil=rsSystemCpuUtil, rsSystemStatisticsMIB=rsSystemStatisticsMIB, PYSNMP_MODULE_ID=rsInfoModule, rsSystemTotalRecvPackets=rsSystemTotalRecvPackets)

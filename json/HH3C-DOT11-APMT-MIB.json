@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "HH3C-DOT11-REF-MIB": [
-      "Hh3cDot11RadioElementIndex",
-      "hh3cDot11APElementIndex",
       "Hh3cDot11SSIDStringType",
-      "Hh3cDot11ObjectIDType",
-      "Hh3cDot11ChannelScopeType",
-      "Hh3cDot11MACModeType",
-      "Hh3cDot11ServicePolicyIDType",
-      "Hh3cDot11NotifyReasonType",
-      "Hh3cDot11TxPwrLevelScopeType",
-      "hh3cDot11",
       "Hh3cDot11RadioScopeType",
-      "Hh3cDot11RFModeType"
+      "hh3cDot11",
+      "Hh3cDot11NotifyReasonType",
+      "hh3cDot11APElementIndex",
+      "Hh3cDot11MACModeType",
+      "Hh3cDot11ObjectIDType",
+      "Hh3cDot11RadioElementIndex",
+      "Hh3cDot11TxPwrLevelScopeType",
+      "Hh3cDot11RFModeType",
+      "Hh3cDot11ServicePolicyIDType",
+      "Hh3cDot11ChannelScopeType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "TimeTicks",
       "Integer32",
-      "Counter32",
-      "MibIdentifier",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DateAndTime",
       "DisplayString",
       "TruthValue",
-      "TimeStamp",
-      "MacAddress"
+      "MacAddress",
+      "TimeStamp"
     ]
   },
   "hh3cDot11APMT": {
@@ -9713,8 +9713,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:32:10 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:26:42 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HH3C-DOT11-APMT-MIB"

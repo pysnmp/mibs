@@ -18,21 +18,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "transmission",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "iso",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "transmission",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -553,8 +553,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MIOX25-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:28:49 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:22:08 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "MIOX25-MIB"

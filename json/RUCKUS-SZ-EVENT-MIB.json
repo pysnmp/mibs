@@ -5,31 +5,31 @@
       "ruckusEvents"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "Integer32",
+      "enterprises",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "iso",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruckusSZEventMIB": {
@@ -7502,8 +7502,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-SZ-EVENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:45:15 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:42:55 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "RUCKUS-SZ-EVENT-MIB"

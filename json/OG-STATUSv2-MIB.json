@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "iso",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "ogStatus2": {
@@ -7756,8 +7756,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-STATUSv2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:42:48 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:39:56 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "OG-STATUSv2-MIB"

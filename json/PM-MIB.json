@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "enterprises",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "IpAddress",
+      "enterprises",
       "Counter64",
-      "TimeTicks"
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3939,8 +3939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avocent/PM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:30:25 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:24:25 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "PM-MIB"

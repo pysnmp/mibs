@@ -5,22 +5,22 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
       "InetAddressPrefixLength",
+      "InetAddress",
       "InetAutonomousSystemNumber"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
+      "ipv6RouterAdvertEntry",
       "ipv6InterfaceEntry",
       "ipNetToPhysicalEntry",
-      "ipv6RouterAdvertEntry",
       "ipAddressEntry"
     ],
     "LINKSYS-IP": [
@@ -30,33 +30,33 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "mib-2",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
       "zeroDotZero",
       "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "mib-2",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Bits"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:41:27 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:38:02 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-IPv6"

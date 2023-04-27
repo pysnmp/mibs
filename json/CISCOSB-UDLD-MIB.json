@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCOSB-MIB": [
-      "rndNotifications",
-      "switch001"
+      "switch001",
+      "rndNotifications"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -12,32 +12,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
+      "Bits",
+      "Counter64",
       "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "UdldString": {
@@ -379,8 +379,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-UDLD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:28 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:29:47 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCOSB-UDLD-MIB"

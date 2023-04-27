@@ -6,34 +6,34 @@
       "InetAddress"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "LINKSYS-MIB": [
-      "rndNotifications",
-      "rnd"
+      "rnd",
+      "rndNotifications"
     ],
     "LINKSYS-SECSD-MIB": [
       "RlSecSdAccessType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter64",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Gauge32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Bits"
     ],
     "SNMPv2-TC": [
@@ -1666,8 +1666,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-COPY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:41:27 2023",
-      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 11:38:02 2023",
+      "On host fv-az561-589 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-COPY-MIB"
