@@ -8,29 +8,29 @@
       "snoopers"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "dhcp": {
@@ -1378,9 +1378,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-SNOOPER-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 14:07:14 2023",
-      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
-      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:24:27 2023",
+      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "PACKETLOGIC-SNOOPER-DHCP-MIB"
   }

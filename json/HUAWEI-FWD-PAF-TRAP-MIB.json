@@ -8,25 +8,25 @@
       "hwDatacomm"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -232,9 +232,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-FWD-PAF-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 14:01:14 2023",
-      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
-      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:18:55 2023",
+      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-FWD-PAF-TRAP-MIB"
   }

@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
-      "HCPerfCurrentCount",
       "HCPerfTimeElapsed",
+      "HCPerfIntervalCount",
       "HCPerfValidIntervals",
-      "HCPerfIntervalCount"
+      "HCPerfCurrentCount"
     ],
     "IANA-PWE3-MIB": [
       "IANAPwTypeTC",
-      "IANAPwCapabilities",
-      "IANAPwPsnTypeTC"
+      "IANAPwPsnTypeTC",
+      "IANAPwCapabilities"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -20,54 +20,54 @@
       "InetAddress"
     ],
     "PW-TC-STD-MIB": [
-      "PwAttachmentIdentifierType",
+      "PwCwStatusTC",
       "PwFragSize",
-      "PwIndexType",
-      "PwStatus",
-      "PwFragStatus",
-      "PwIndexOrZeroType",
-      "PwGenIdType",
       "PwOperStatusTC",
-      "PwGroupID",
+      "PwFragStatus",
+      "PwAttachmentIdentifierType",
+      "PwStatus",
+      "PwGenIdType",
+      "PwIndexOrZeroType",
+      "PwIndexType",
       "PwIDType",
-      "PwCwStatusTC"
+      "PwGroupID"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
       "iso",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "transmission",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
-      "transmission",
+      "Integer32",
       "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
       "TimeTicks",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
-      "StorageType"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType",
+      "DisplayString"
     ]
   },
   "pwStdMIB": {
@@ -2307,9 +2307,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PW-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:51:50 2023",
-      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
-      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:08:59 2023",
+      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "PW-STD-MIB"
   }

@@ -5,9 +5,9 @@
       "hpnicfPortSecurity"
     ],
     "IEEE8021-PAE-MIB": [
-      "dot1xAuthSessionAuthenticMethod",
-      "dot1xAuthSessionTerminateCause",
       "dot1xAuthSessionUserName",
+      "dot1xAuthSessionTerminateCause",
+      "dot1xAuthSessionAuthenticMethod",
       "dot1xPaePortNumber"
     ],
     "IF-MIB": [
@@ -19,27 +19,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
+      "Counter64",
+      "Bits",
       "OBJECT-IDENTITY",
       "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Counter32",
       "MibIdentifier",
       "iso",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hpnicfPortSecurityMIB": {
@@ -950,9 +950,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-PORT-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 14:02:49 2023",
-      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
-      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:19:37 2023",
+      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-PORT-SECURITY-MIB"
   }

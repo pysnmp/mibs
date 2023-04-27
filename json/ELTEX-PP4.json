@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "mcTrapLParam3",
       "mcTrapDescr",
-      "eltrapGroup",
-      "mcTrapLParam1",
-      "elHardware",
-      "mcTrapLParam2",
       "mcTrapID",
-      "mcTrapExState"
+      "mcTrapExState",
+      "eltrapGroup",
+      "mcTrapLParam3",
+      "mcTrapLParam2",
+      "elHardware",
+      "mcTrapLParam1"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
+      "TimeTicks",
       "Counter64",
-      "IpAddress"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus",
+      "TimeInterval",
       "DisplayString",
       "MacAddress",
-      "TimeStamp",
-      "TruthValue",
-      "RowStatus",
-      "TimeInterval"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "pp4": {
@@ -6478,9 +6478,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:58:12 2023",
-      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
-      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:15:55 2023",
+      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "ELTEX-PP4"
   }

@@ -13,27 +13,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "Bits",
       "IpAddress",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "Bits",
       "OBJECT-TYPE",
-      "Counter32"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "cienaCesRsvpteMIB": {
@@ -756,9 +756,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RSVPTE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Feb  9 13:54:25 2023",
-      "On host fv-az796-878 platform Linux version 5.15.0-1031-azure by user runner",
-      "Using Python version 3.10.9 (main, Dec  7 2022, 08:16:13) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:11:49 2023",
+      "On host fv-az247-870 platform Linux version 5.15.0-1036-azure by user runner",
+      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CIENA-CES-RSVPTE-MIB"
   }
