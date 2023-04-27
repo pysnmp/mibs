@@ -5,19 +5,19 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "CmPmBinAction",
+      "AdminState",
       "OperationalState",
-      "VlanPriority",
-      "SecondaryState",
       "VlanId",
+      "VlanPriority",
+      "CmPmBinAction",
       "MepDestinationType",
-      "AdminState"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
       "slotIndex",
       "networkElementEntry",
-      "neIndex",
-      "shelfIndex"
+      "shelfIndex",
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "PolicerColorMode"
@@ -26,8 +26,8 @@
       "EsaProbePktIntervalType"
     ],
     "IEEE8021-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMepEntry",
+      "Dot1agCfmMepIdOrZero"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -37,28 +37,28 @@
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
       "TimeTicks",
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "iso",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "iso",
       "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Integer32"
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "VariablePointer",
+      "MacAddress",
+      "DateAndTime",
+      "DisplayString",
       "StorageType",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "MacAddress",
-      "RowStatus",
-      "DateAndTime"
+      "VariablePointer",
+      "RowStatus"
     ]
   },
   "cmServiceActivationMIB": {
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:29:36 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:29:32 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CM-SAT-MIB"

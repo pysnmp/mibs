@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-GTP-MIB": [
+      "cGtpPathAddressType",
+      "cGtpHistRemoteAddrType",
+      "cGtpHistRemotePort",
       "cGtpPathPort",
       "cGtpPathAddress",
       "cGtpPathStatisticsEntry",
-      "cGtpHistRemotePort",
-      "cGtpHistIndex",
-      "cGtpHistRemoteAddrType",
-      "cGtpHistRemoteAddress",
       "cGtpPathStatisticsHistEntry",
-      "cGtpPathAddressType"
+      "cGtpHistRemoteAddress",
+      "cGtpHistIndex"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -21,24 +21,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "Counter64",
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoGtpv2MIB": {
@@ -2475,8 +2475,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GTPV2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:55 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:32 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-GTPV2-MIB"

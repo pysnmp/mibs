@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpPort",
-      "dot1dStpPortEntry"
+      "dot1dStpPortEntry",
+      "dot1dStpPort"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicflswCommon"
@@ -13,25 +13,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "TimeTicks",
       "Counter32",
-      "Bits",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfdot1sMstp": {
@@ -1408,8 +1408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswMSTP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:38:14 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:39:43 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-LswMSTP-MIB"

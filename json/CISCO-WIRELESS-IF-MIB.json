@@ -5,19 +5,19 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "WirelessGauge64",
-      "CwrCollectionAction",
-      "CwrCwDegradedSecond",
-      "CwrThreshLimitType",
       "CwrRFZeroIndex",
-      "CwrCwErrorFreeSecond",
       "CwrCwSeverelyErroredSecond",
+      "CwrOscState",
+      "CwrCwErroredSecond",
+      "CwrCwDegradedSecond",
+      "CwrCwErrorFreeSecond",
       "CwrCwDegradedMinute",
       "CwrCollectionStatus",
+      "CwrThreshLimitType",
       "CwrRadioSignalAttribute",
-      "CwrCwConsecutiveSevErrSecond",
-      "CwrOscState",
-      "CwrCwErroredSecond"
+      "CwrCollectionAction",
+      "WirelessGauge64",
+      "CwrCwConsecutiveSevErrSecond"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -31,27 +31,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
-      "Gauge32",
       "Integer32",
       "Bits",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "iso",
+      "IpAddress",
       "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeInterval",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TimeInterval",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ciscoWirelessIfMIB": {
@@ -5487,8 +5487,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-IF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:55 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:34:32 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-WIRELESS-IF-MIB"

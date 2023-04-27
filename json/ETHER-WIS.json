@@ -5,45 +5,45 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
       "TimeTicks",
       "Gauge32",
-      "Integer32",
-      "transmission",
-      "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Bits",
-      "Counter32"
+      "transmission",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetMediumLineCoding",
-      "sonetSectionStuff2",
       "sonetMediumLineType",
-      "sonetFarEndPathStuff2",
-      "sonetMediumType",
-      "sonetSESthresholdSet",
-      "sonetMediumCircuitIdentifier",
-      "sonetPathStuff2",
-      "sonetMediumStuff2",
       "sonetLineStuff2",
+      "sonetSectionStuff2",
+      "sonetMediumLoopbackConfig",
       "sonetFarEndLineStuff2",
+      "sonetMediumType",
       "sonetPathCurrentWidth",
-      "sonetMediumLoopbackConfig"
+      "sonetPathStuff2",
+      "sonetSESthresholdSet",
+      "sonetFarEndPathStuff2",
+      "sonetMediumCircuitIdentifier",
+      "sonetMediumLineCoding",
+      "sonetMediumStuff2"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-WIS",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:28:45 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:28:49 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "ETHER-WIS"

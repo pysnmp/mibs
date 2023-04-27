@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlGroupId",
-      "UTFString"
+      "UTFString",
+      "eqlGroupId"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeTargetIscsiName",
-      "eqliscsiVolumeEntry"
+      "eqliscsiVolumeEntry",
+      "eqliscsiVolumeTargetIscsiName"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
       "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Integer32",
-      "MibIdentifier",
       "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "RowStatus",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "eqlApplianceModule": {
@@ -6066,8 +6066,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLAPPLIANCE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:35:44 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:35:32 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "EQLAPPLIANCE-MIB"

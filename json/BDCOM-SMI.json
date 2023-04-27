@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "enterprises",
-      "Integer32",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "enterprises",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bdcom": {
@@ -77,8 +77,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/BDCOM-SMI",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:30:48 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:30:38 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "BDCOM-SMI"

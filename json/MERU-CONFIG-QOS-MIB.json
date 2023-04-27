@@ -8,47 +8,47 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlQosAction",
-      "MwlQosProtocol",
-      "MwlQosCodec",
-      "MwlQosRulesMatchClass",
-      "MwlOnOffSwitch",
       "MwlDscpType",
-      "MwlQosRulesMatchClassBits",
+      "MwlQosCodec",
+      "MwlAdmissionControl",
+      "MwlOnOffSwitch",
       "MwlQosCodecProtocol",
       "MwlDropPolicy",
-      "MwlAdmissionControl"
+      "MwlQosProtocol",
+      "MwlQosRulesMatchClassBits",
+      "MwlQosRulesMatchClass",
+      "MwlQosAction"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
       "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "enterprises",
-      "Counter64",
-      "Counter32",
       "Gauge32",
-      "Integer32",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "enterprises",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus",
       "TimeStamp",
       "DisplayString",
-      "TruthValue",
+      "MacAddress",
       "TimeInterval",
-      "RowStatus",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "mwConfigQoS": {
@@ -991,8 +991,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:36:25 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:36:09 2023",
+      "On host fv-az988-178 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-QOS-MIB"
