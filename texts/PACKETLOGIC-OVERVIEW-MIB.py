@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PACKETLOGIC-OVERVIEW-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-OVERVIEW-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:30:58 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:11:01 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, iso, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, NotificationType, ModuleIdentity, Gauge32, Bits, ObjectIdentity, IpAddress, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "NotificationType", "ModuleIdentity", "Gauge32", "Bits", "ObjectIdentity", "IpAddress", "Unsigned32", "Integer32")
-TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, Unsigned32, Bits, iso, Integer32, Counter32, Counter64, Gauge32, TimeTicks, MibIdentifier, ModuleIdentity, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "Bits", "iso", "Integer32", "Counter32", "Counter64", "Gauge32", "TimeTicks", "MibIdentifier", "ModuleIdentity", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 systemOverview = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 40))
 systemOverview.setRevisions(('2019-09-12 15:00',))
 
@@ -43,4 +43,4 @@ if mibBuilder.loadTexts: machineId.setDescription('MACHINEID of the system')
 firmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 40, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: firmwareVersion.setStatus('current')
 if mibBuilder.loadTexts: firmwareVersion.setDescription('Firmware Version')
-mibBuilder.exportSymbols("PACKETLOGIC-OVERVIEW-MIB", overviewEntry=overviewEntry, model=model, configMd5Sum=configMd5Sum, machineId=machineId, systemOverview=systemOverview, firmwareVersion=firmwareVersion, overview=overview, overviewEntryIndex=overviewEntryIndex, PYSNMP_MODULE_ID=systemOverview)
+mibBuilder.exportSymbols("PACKETLOGIC-OVERVIEW-MIB", model=model, overviewEntryIndex=overviewEntryIndex, PYSNMP_MODULE_ID=systemOverview, systemOverview=systemOverview, firmwareVersion=firmwareVersion, overviewEntry=overviewEntry, machineId=machineId, configMd5Sum=configMd5Sum, overview=overview)

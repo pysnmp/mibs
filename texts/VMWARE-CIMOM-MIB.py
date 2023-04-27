@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-CIMOM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-CIMOM-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:33:51 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:14:18 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, IpAddress, ObjectIdentity, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, Counter64, MibIdentifier, ModuleIdentity, Gauge32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "ObjectIdentity", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "Counter64", "MibIdentifier", "ModuleIdentity", "Gauge32", "Bits", "iso")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, ObjectIdentity, NotificationType, ModuleIdentity, Integer32, Bits, IpAddress, MibIdentifier, iso, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "NotificationType", "ModuleIdentity", "Integer32", "Bits", "IpAddress", "MibIdentifier", "iso", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwEnvIndicationTime, = mibBuilder.importSymbols("VMWARE-ENV-MIB", "vmwEnvIndicationTime")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
@@ -39,4 +39,4 @@ vmwCimOmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 90, 2,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwCimOmNotificationGroup = vmwCimOmNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwCimOmNotificationGroup.setDescription('Notifications related to CIM Object Manager subsystem.')
-mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOm=vmwCimOm, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCIMOMMIB=vmwCIMOMMIB, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmHeartbeat=vmwCimOmHeartbeat)
+mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOm=vmwCimOm, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmMIBConformance=vmwCimOmMIBConformance, PYSNMP_MODULE_ID=vmwCIMOMMIB)

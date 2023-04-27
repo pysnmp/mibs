@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module EQLISCSI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLISCSI-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:23:00 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:01:32 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
 iscsiSessionAttributesEntry, iscsiSessionStatsEntry = mibBuilder.importSymbols("ISCSI-MIB", "iscsiSessionAttributesEntry", "iscsiSessionStatsEntry")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, Gauge32, enterprises, Counter32, MibIdentifier, Counter64, ModuleIdentity, Integer32, experimental, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, TimeTicks, Opaque, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "enterprises", "Counter32", "MibIdentifier", "Counter64", "ModuleIdentity", "Integer32", "experimental", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "TimeTicks", "Opaque", "IpAddress", "ObjectIdentity")
-TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Opaque, NotificationType, enterprises, TimeTicks, Gauge32, ModuleIdentity, experimental, Counter64, Bits, iso, ObjectIdentity, Unsigned32, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Opaque", "NotificationType", "enterprises", "TimeTicks", "Gauge32", "ModuleIdentity", "experimental", "Counter64", "Bits", "iso", "ObjectIdentity", "Unsigned32", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 eqliscsiExtModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 11))
 eqliscsiExtModule.setRevisions(('2002-06-26 00:00',))
 
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: eqliscsiSessionAttributesEntry.setDescription('An entry
 eqliscsiSessionAttributesType = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 11, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("external", 1), ("syncrepl", 2), ("xcopy", 3), ("replica", 4))).clone(1)).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eqliscsiSessionAttributesType.setStatus('current')
 if mibBuilder.loadTexts: eqliscsiSessionAttributesType.setDescription('Describes the src initiator of the connection as external to the array group, or one of various connection types between group members.')
-mibBuilder.exportSymbols("EQLISCSI-MIB", eqliscsiSsnLoadValue=eqliscsiSsnLoadValue, eqliscsiNodeUuid=eqliscsiNodeUuid, eqliscsiSessionAttributesEntry=eqliscsiSessionAttributesEntry, eqliscsiSsnMembers=eqliscsiSsnMembers, eqliscsiSessionAttributesType=eqliscsiSessionAttributesType, eqliscsiSsnErrorCount=eqliscsiSsnErrorCount, eqliscsiSsnTotalDataTrnsfrd=eqliscsiSsnTotalDataTrnsfrd, eqliscsiSessionStatsTable=eqliscsiSessionStatsTable, eqliscsiExtModule=eqliscsiExtModule, eqliscsiSsnRouteStats=eqliscsiSsnRouteStats, eqliscsiSessionAttributesTable=eqliscsiSessionAttributesTable, eqliscsiSsnTotalDataTrnsfrd64=eqliscsiSsnTotalDataTrnsfrd64, PYSNMP_MODULE_ID=eqliscsiExtModule, eqliscsiSessionStatsEntry=eqliscsiSessionStatsEntry, eqliscsiExtObjects=eqliscsiExtObjects, eqliscsiSsnTimeUp=eqliscsiSsnTimeUp)
+mibBuilder.exportSymbols("EQLISCSI-MIB", eqliscsiSsnRouteStats=eqliscsiSsnRouteStats, eqliscsiSessionStatsTable=eqliscsiSessionStatsTable, eqliscsiSsnTimeUp=eqliscsiSsnTimeUp, eqliscsiSsnErrorCount=eqliscsiSsnErrorCount, eqliscsiSsnTotalDataTrnsfrd=eqliscsiSsnTotalDataTrnsfrd, eqliscsiNodeUuid=eqliscsiNodeUuid, eqliscsiSsnTotalDataTrnsfrd64=eqliscsiSsnTotalDataTrnsfrd64, eqliscsiSessionAttributesType=eqliscsiSessionAttributesType, eqliscsiSsnMembers=eqliscsiSsnMembers, eqliscsiExtModule=eqliscsiExtModule, eqliscsiExtObjects=eqliscsiExtObjects, eqliscsiSessionAttributesTable=eqliscsiSessionAttributesTable, eqliscsiSessionAttributesEntry=eqliscsiSessionAttributesEntry, eqliscsiSsnLoadValue=eqliscsiSsnLoadValue, PYSNMP_MODULE_ID=eqliscsiExtModule, eqliscsiSessionStatsEntry=eqliscsiSessionStatsEntry)

@@ -5,13 +5,13 @@
       "hpnicfCommon"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-FLOW-LABEL-MIB": [
       "IPv6FlowLabelOrAny"
@@ -21,25 +21,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter32",
       "Counter64",
-      "iso",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1148,8 +1148,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-TUNNEL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:25:50 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:06:19 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HPN-ICF-TUNNEL-MIB"

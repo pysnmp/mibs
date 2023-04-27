@@ -2,56 +2,56 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-MIB": [
-      "IndexIntegerNextFree",
-      "IndexInteger"
+      "IndexInteger",
+      "IndexIntegerNextFree"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetPortNumber",
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetPortNumber"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLdpLabelType",
-      "mplsStdMIB",
-      "MplsLspType",
-      "MplsLabelDistributionMethod",
-      "MplsLsrIdentifier",
       "MplsLdpIdentifier",
-      "MplsRetentionMode"
+      "MplsRetentionMode",
+      "MplsLdpLabelType",
+      "MplsLspType",
+      "MplsLsrIdentifier",
+      "mplsStdMIB",
+      "MplsLabelDistributionMethod"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Integer32",
+      "Bits",
       "OBJECT-IDENTITY",
-      "iso",
       "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Gauge32",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "Integer32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "TruthValue",
-      "StorageType"
+      "RowStatus",
+      "TimeStamp",
+      "TimeInterval",
+      "StorageType",
+      "DisplayString"
     ]
   },
   "mplsLdpStdMIB": {
@@ -2172,9 +2172,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-LDP-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:22:12 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LDP-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:54:17 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "MPLS-LDP-STD-MIB"

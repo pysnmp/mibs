@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BEGEMOT-ATM-FREEBSD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-ATM-FREEBSD-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:30:32 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:10:41 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-begemotAtmIfEntry, begemotAtmSysGroup = mibBuilder.importSymbols("BEGEMOT-ATM-MIB", "begemotAtmIfEntry", "begemotAtmSysGroup")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+begemotAtmSysGroup, begemotAtmIfEntry = mibBuilder.importSymbols("BEGEMOT-ATM-MIB", "begemotAtmSysGroup", "begemotAtmIfEntry")
 NgNodeIdOrZero, = mibBuilder.importSymbols("BEGEMOT-NETGRAPH-MIB", "NgNodeIdOrZero")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Counter64, MibIdentifier, ModuleIdentity, Counter32, Unsigned32, Bits, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, TimeTicks, Gauge32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "MibIdentifier", "ModuleIdentity", "Counter32", "Unsigned32", "Bits", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "TimeTicks", "Gauge32", "IpAddress")
+Bits, MibIdentifier, Integer32, iso, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Unsigned32, IpAddress, Gauge32, ModuleIdentity, NotificationType, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibIdentifier", "Integer32", "iso", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Unsigned32", "IpAddress", "Gauge32", "ModuleIdentity", "NotificationType", "ObjectIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 begemotAtmFreeBSDGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 101, 1, 4, 1))
 if mibBuilder.loadTexts: begemotAtmFreeBSDGroup.setLastUpdated('200408060000Z')
@@ -30,4 +30,4 @@ if mibBuilder.loadTexts: begemotAtmNgIfEntry.setDescription('This is a table ent
 begemotAtmNgIfNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 101, 1, 4, 1, 1, 1, 1, 1), NgNodeIdOrZero()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: begemotAtmNgIfNodeId.setStatus('current')
 if mibBuilder.loadTexts: begemotAtmNgIfNodeId.setDescription('The netgraph node id of the interface. If there is no\n\t    node corresponding to the interface, this is 0.')
-mibBuilder.exportSymbols("BEGEMOT-ATM-FREEBSD-MIB", begemotAtmNgGroup=begemotAtmNgGroup, begemotAtmNgIfTable=begemotAtmNgIfTable, begemotAtmFreeBSDGroup=begemotAtmFreeBSDGroup, PYSNMP_MODULE_ID=begemotAtmFreeBSDGroup, begemotAtmNgIfEntry=begemotAtmNgIfEntry, begemotAtmNgIfNodeId=begemotAtmNgIfNodeId)
+mibBuilder.exportSymbols("BEGEMOT-ATM-FREEBSD-MIB", PYSNMP_MODULE_ID=begemotAtmFreeBSDGroup, begemotAtmNgIfEntry=begemotAtmNgIfEntry, begemotAtmFreeBSDGroup=begemotAtmFreeBSDGroup, begemotAtmNgIfTable=begemotAtmNgIfTable, begemotAtmNgIfNodeId=begemotAtmNgIfNodeId, begemotAtmNgGroup=begemotAtmNgGroup)

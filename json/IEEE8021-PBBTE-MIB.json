@@ -8,47 +8,47 @@
       "ieee8021QBridgeVlanCurrentComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbTeEsp",
+      "IEEE8021PbbTeTSidId",
+      "IEEE8021PbbTeProtectionGroupId",
       "IEEE8021PbbComponentIdentifier",
+      "IEEE8021PbbTeEsp",
+      "IEEE8021PbbTeProtectionGroupConfigAdmin",
       "IEEE8021BridgePortNumber",
-      "ieee802dot1mibs",
       "IEEE8021PbbServiceIdentifier",
       "IEEE8021PbbTeProtectionGroupActiveRequests",
-      "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021PbbTeTSidId",
-      "IEEE8021PbbTeProtectionGroupConfigAdmin",
-      "IEEE8021PbbTeProtectionGroupId"
+      "ieee802dot1mibs",
+      "IEEE8021VlanIndexOrWildcard"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "iso",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "iso",
-      "MibIdentifier"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "RowStatus",
       "StorageType",
-      "RowStatus"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021PbbTeMib": {
@@ -1079,8 +1079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:14:45 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:54:02 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "IEEE8021-PBBTE-MIB"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module EQLREPLPARTNER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLREPLPARTNER-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:22:56 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:01:30 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-eqliscsiVolumeReplSiteIndex, SiteIndex = mibBuilder.importSymbols("EQLVOLUME-MIB", "eqliscsiVolumeReplSiteIndex", "SiteIndex")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+SiteIndex, eqliscsiVolumeReplSiteIndex = mibBuilder.importSymbols("EQLVOLUME-MIB", "SiteIndex", "eqliscsiVolumeReplSiteIndex")
 equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, enterprises, Bits, ObjectIdentity, Gauge32, iso, Counter64, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, Counter32, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "enterprises", "Bits", "ObjectIdentity", "Gauge32", "iso", "Counter64", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "Counter32", "IpAddress", "Unsigned32")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
+ModuleIdentity, Bits, Gauge32, TimeTicks, enterprises, Counter32, NotificationType, ObjectIdentity, iso, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "Gauge32", "TimeTicks", "enterprises", "Counter32", "NotificationType", "ObjectIdentity", "iso", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter64", "Integer32")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 eqlReplPartnerModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 26))
 eqlReplPartnerModule.setRevisions(('2013-03-28 00:00',))
 if mibBuilder.loadTexts: eqlReplPartnerModule.setLastUpdated('201503171528Z')
@@ -48,4 +48,4 @@ eqlReplPartnerTestDelegatedSpaceUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 
 if mibBuilder.loadTexts: eqlReplPartnerTestDelegatedSpaceUsed.setStatus('current')
 eqlReplPartnerTestTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eqlReplPartnerTestTimestamp.setStatus('current')
-mibBuilder.exportSymbols("EQLREPLPARTNER-MIB", eqlReplPartnerTestDelegatedSpace=eqlReplPartnerTestDelegatedSpace, eqlReplPartnerTestIPAddrStatus=eqlReplPartnerTestIPAddrStatus, eqlReplPartnerTestRowStatus=eqlReplPartnerTestRowStatus, eqlReplPartnerTestAuthStatus=eqlReplPartnerTestAuthStatus, eqlReplPartnerTestMinorVersion=eqlReplPartnerTestMinorVersion, eqlReplPartnerTestDelegatedSpaceUsed=eqlReplPartnerTestDelegatedSpaceUsed, eqlReplPartnerTestTable=eqlReplPartnerTestTable, eqlReplPartnerTestTimestamp=eqlReplPartnerTestTimestamp, EqlReplPartnerTestStatus=EqlReplPartnerTestStatus, eqlReplPartnerTestMajorVersion=eqlReplPartnerTestMajorVersion, eqlReplPartnerTestEntry=eqlReplPartnerTestEntry, eqlReplPartnerTestMaintVersion=eqlReplPartnerTestMaintVersion, eqlReplPartnerObjects=eqlReplPartnerObjects, PYSNMP_MODULE_ID=eqlReplPartnerModule, eqlReplPartnerTestAction=eqlReplPartnerTestAction, eqlReplPartnerTestState=eqlReplPartnerTestState, eqlReplPartnerModule=eqlReplPartnerModule)
+mibBuilder.exportSymbols("EQLREPLPARTNER-MIB", eqlReplPartnerTestEntry=eqlReplPartnerTestEntry, eqlReplPartnerTestTable=eqlReplPartnerTestTable, eqlReplPartnerTestDelegatedSpace=eqlReplPartnerTestDelegatedSpace, eqlReplPartnerTestMajorVersion=eqlReplPartnerTestMajorVersion, eqlReplPartnerTestState=eqlReplPartnerTestState, EqlReplPartnerTestStatus=EqlReplPartnerTestStatus, eqlReplPartnerTestTimestamp=eqlReplPartnerTestTimestamp, eqlReplPartnerTestIPAddrStatus=eqlReplPartnerTestIPAddrStatus, eqlReplPartnerObjects=eqlReplPartnerObjects, eqlReplPartnerModule=eqlReplPartnerModule, eqlReplPartnerTestAuthStatus=eqlReplPartnerTestAuthStatus, eqlReplPartnerTestDelegatedSpaceUsed=eqlReplPartnerTestDelegatedSpaceUsed, eqlReplPartnerTestAction=eqlReplPartnerTestAction, eqlReplPartnerTestRowStatus=eqlReplPartnerTestRowStatus, eqlReplPartnerTestMaintVersion=eqlReplPartnerTestMaintVersion, eqlReplPartnerTestMinorVersion=eqlReplPartnerTestMinorVersion, PYSNMP_MODULE_ID=eqlReplPartnerModule)

@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "OBJECT-TYPE",
       "Bits",
+      "IpAddress",
       "Integer32",
       "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-IDENTITY",
       "iso",
-      "IpAddress"
+      "enterprises",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "DateAndTime"
     ]
   },
   "moxa": {
@@ -7320,8 +7320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/moxa/MOXA-EDSP510A8POE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:28:23 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:08:40 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "MOXA-EDSP510A8POE-MIB"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module AT-LOOPPROTECT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-LOOPPROTECT-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:16:24 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 09:55:14 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter32, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Counter64, ObjectIdentity, Unsigned32, IpAddress, MibIdentifier, Gauge32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Counter64", "ObjectIdentity", "Unsigned32", "IpAddress", "MibIdentifier", "Gauge32", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectIdentity, Counter32, Integer32, iso, TimeTicks, Gauge32, MibIdentifier, Unsigned32, IpAddress, ModuleIdentity, Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Integer32", "iso", "TimeTicks", "Gauge32", "MibIdentifier", "Unsigned32", "IpAddress", "ModuleIdentity", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atLoopProtect = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54))
 atLoopProtect.setRevisions(('2012-06-19 00:00', '2010-09-07 00:00', '2010-06-15 01:00', '2008-08-12 00:00',))
 if mibBuilder.loadTexts: atLoopProtect.setLastUpdated('201206190000Z')
@@ -36,4 +36,4 @@ atLoopProtectRxLDFIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 4)
 if mibBuilder.loadTexts: atLoopProtectRxLDFIfIndex.setStatus('current')
 atLoopProtectRxLDFVlanId = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 5), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atLoopProtectRxLDFVlanId.setStatus('current')
-mibBuilder.exportSymbols("AT-LOOPPROTECT-MIB", atLoopProtectRecoverLoopBlockedTrap=atLoopProtectRecoverLoopBlockedTrap, PYSNMP_MODULE_ID=atLoopProtect, atLoopProtectVlanId=atLoopProtectVlanId, atLoopProtectAction=atLoopProtectAction, atLoopProtectRxLDFIfIndex=atLoopProtectRxLDFIfIndex, atLoopProtectIfIndex=atLoopProtectIfIndex, atLoopProtectDetectedLoopBlockedTrap=atLoopProtectDetectedLoopBlockedTrap, atLoopProtectTrap=atLoopProtectTrap, atLoopProtectRxLDFVlanId=atLoopProtectRxLDFVlanId, atLoopProtect=atLoopProtect, atLoopProtectDetectedByThrashLimitTrap=atLoopProtectDetectedByThrashLimitTrap, atLoopProtectDetectedByLoopDetectionTrap=atLoopProtectDetectedByLoopDetectionTrap)
+mibBuilder.exportSymbols("AT-LOOPPROTECT-MIB", atLoopProtectDetectedByThrashLimitTrap=atLoopProtectDetectedByThrashLimitTrap, atLoopProtect=atLoopProtect, atLoopProtectDetectedLoopBlockedTrap=atLoopProtectDetectedLoopBlockedTrap, atLoopProtectRxLDFVlanId=atLoopProtectRxLDFVlanId, atLoopProtectTrap=atLoopProtectTrap, PYSNMP_MODULE_ID=atLoopProtect, atLoopProtectAction=atLoopProtectAction, atLoopProtectRxLDFIfIndex=atLoopProtectRxLDFIfIndex, atLoopProtectRecoverLoopBlockedTrap=atLoopProtectRecoverLoopBlockedTrap, atLoopProtectVlanId=atLoopProtectVlanId, atLoopProtectIfIndex=atLoopProtectIfIndex, atLoopProtectDetectedByLoopDetectionTrap=atLoopProtectDetectedByLoopDetectionTrap)

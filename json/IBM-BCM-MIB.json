@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "LAN-EMULATION-BUS-MIB": [
-      "busConfEntry",
-      "busConfIndex"
+      "busConfIndex",
+      "busConfEntry"
     ],
     "LAN-EMULATION-CLIENT-MIB": [
       "AtmLaneAddress"
@@ -12,23 +12,23 @@
       "mssServerLanE"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter64",
       "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
       "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-SMI-v1": [
@@ -41,8 +41,8 @@
     ],
     "SNMPv2-TC-v1": [
       "TruthValue",
-      "MacAddress",
-      "RowStatus"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "ibmBcmMIB": {
@@ -1265,8 +1265,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-BCM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:26:53 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:05:30 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "IBM-BCM-MIB"

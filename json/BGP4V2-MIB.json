@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
       "Bgp4V2AddressFamilyIdentifierTC",
-      "Bgp4V2IdentifierTC",
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
+      "Bgp4V2IdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
       "iso",
       "mib-2",
-      "Bits",
       "Unsigned32",
-      "Counter32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Integer32",
-      "MibIdentifier"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowPointer",
       "TimeStamp",
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bgp4V2": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:23:35 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:02:01 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "BGP4V2-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HALON-SP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/halon/HALON-SP-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:24:22 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:03:02 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, TimeTicks, enterprises, ModuleIdentity, Counter32, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter64, Integer32, NotificationType, Gauge32, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "enterprises", "ModuleIdentity", "Counter32", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter64", "Integer32", "NotificationType", "Gauge32", "iso", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TimeTicks, NotificationType, Counter64, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, IpAddress, MibIdentifier, ModuleIdentity, enterprises, ObjectIdentity, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "Counter64", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "IpAddress", "MibIdentifier", "ModuleIdentity", "enterprises", "ObjectIdentity", "Integer32", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 halonSecuritySP = ModuleIdentity((1, 3, 6, 1, 4, 1, 33234, 1, 1))
 halonSecuritySP.setRevisions(('2013-02-07 11:32',))
 if mibBuilder.loadTexts: halonSecuritySP.setLastUpdated('201302061107Z')
@@ -42,4 +42,4 @@ statCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 5), Intege
 if mibBuilder.loadTexts: statCreated.setStatus('current')
 statUpdated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: statUpdated.setStatus('current')
-mibBuilder.exportSymbols("HALON-SP-MIB", mailQueueLength=mailQueueLength, statKey1Index=statKey1Index, statCreated=statCreated, halonSecurityProducts=halonSecurityProducts, serialNumber=serialNumber, statKey3Index=statKey3Index, statCount=statCount, halonSecurity=halonSecurity, quarantinedMessages=quarantinedMessages, halonSecuritySP=halonSecuritySP, statTable=statTable, statUpdated=statUpdated, PYSNMP_MODULE_ID=halonSecuritySP, statEntry=statEntry, halonSecuritySPObjects=halonSecuritySPObjects, statKey2Index=statKey2Index, configurationRevision=configurationRevision)
+mibBuilder.exportSymbols("HALON-SP-MIB", mailQueueLength=mailQueueLength, statKey1Index=statKey1Index, statUpdated=statUpdated, halonSecurityProducts=halonSecurityProducts, halonSecuritySP=halonSecuritySP, statEntry=statEntry, PYSNMP_MODULE_ID=halonSecuritySP, statCount=statCount, quarantinedMessages=quarantinedMessages, statTable=statTable, halonSecurity=halonSecurity, configurationRevision=configurationRevision, halonSecuritySPObjects=halonSecuritySPObjects, statKey3Index=statKey3Index, statCreated=statCreated, serialNumber=serialNumber, statKey2Index=statKey2Index)

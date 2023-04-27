@@ -8,32 +8,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Counter32",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
       "iso",
       "Unsigned32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "AutonomousType",
       "StorageType",
-      "AutonomousType"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoNotificationControlMIB": {
@@ -417,8 +417,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NOTIFICATION-CONTROL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:22:10 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:00:19 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-NOTIFICATION-CONTROL-MIB"

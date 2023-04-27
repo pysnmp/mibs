@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:23:07 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:01:38 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 miniLink, = mibBuilder.importSymbols("MINI-LINK-MIB", "miniLink")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter32, ObjectIdentity, IpAddress, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, Unsigned32, iso, MibIdentifier, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "ObjectIdentity", "IpAddress", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "Unsigned32", "iso", "MibIdentifier", "Counter64", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter32, Integer32, NotificationType, Counter64, Bits, Unsigned32, iso, ModuleIdentity, ObjectIdentity, IpAddress, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter32", "Integer32", "NotificationType", "Counter64", "Bits", "Unsigned32", "iso", "ModuleIdentity", "ObjectIdentity", "IpAddress", "TimeTicks", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 pt = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223, 2))
 pt.setRevisions(('2017-01-21 12:00', '2016-03-09 12:00', '2016-02-10 12:30',))
 
@@ -36,4 +36,4 @@ ptCompleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 193, 223, 2, 8, 2, 1)).setObjec
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ptCompleteGroup = ptCompleteGroup.setStatus('current')
 if mibBuilder.loadTexts: ptCompleteGroup.setDescription('A collection of all current objects in this MIB module.')
-mibBuilder.exportSymbols("PT-MIB", PYSNMP_MODULE_ID=pt, pt=pt, ptDeviceType=ptDeviceType, ptConformance=ptConformance, ptCompliances=ptCompliances, ptCompliance=ptCompliance, ptGroups=ptGroups, ptCompleteGroup=ptCompleteGroup)
+mibBuilder.exportSymbols("PT-MIB", ptDeviceType=ptDeviceType, pt=pt, PYSNMP_MODULE_ID=pt, ptConformance=ptConformance, ptCompleteGroup=ptCompleteGroup, ptCompliances=ptCompliances, ptGroups=ptGroups, ptCompliance=ptCompliance)

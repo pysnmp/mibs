@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-OPTIC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OPTIC-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:28:25 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:08:43 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, iso, Counter32, NotificationType, Unsigned32, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "Counter32", "NotificationType", "Unsigned32", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ModuleIdentity", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, ObjectIdentity, MibIdentifier, ModuleIdentity, Integer32, Unsigned32, TimeTicks, IpAddress, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Integer32", "Unsigned32", "TimeTicks", "IpAddress", "Counter32", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsOpticMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 213))
 if mibBuilder.loadTexts: nbsOpticMib.setLastUpdated('201209260000Z')
 if mibBuilder.loadTexts: nbsOpticMib.setOrganization('NBS')
@@ -54,4 +54,4 @@ if mibBuilder.loadTexts: nbsOpticPortPolish.setDescription('This object indicate
 nbsOpticPortFiberMode = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 213, 1, 2, 1, 51), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notSupported", 1), ("reserved2", 2), ("reserved3", 3), ("singleMode", 4), ("multiMode", 5)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nbsOpticPortFiberMode.setStatus('current')
 if mibBuilder.loadTexts: nbsOpticPortFiberMode.setDescription('This object indicates the modality of the fiber.  It is an\n        alias of nbsCmmcPortMedium')
-mibBuilder.exportSymbols("NBS-OPTIC-MIB", nbsOpticPortRxStatusOper=nbsOpticPortRxStatusOper, nbsOpticPortConnector=nbsOpticPortConnector, nbsOpticMib=nbsOpticMib, nbsOpticPortNdx=nbsOpticPortNdx, nbsOpticPortGrp=nbsOpticPortGrp, nbsOpticPortTable=nbsOpticPortTable, nbsOpticPortTxStatusOper=nbsOpticPortTxStatusOper, nbsOpticPortFiberMode=nbsOpticPortFiberMode, nbsOpticPortPolish=nbsOpticPortPolish, PYSNMP_MODULE_ID=nbsOpticMib, nbsOpticPortEntry=nbsOpticPortEntry, nbsOpticPortTxStatusAdmin=nbsOpticPortTxStatusAdmin, nbsOpticPortRxStatusAdmin=nbsOpticPortRxStatusAdmin, nbsOpticPortTableSize=nbsOpticPortTableSize)
+mibBuilder.exportSymbols("NBS-OPTIC-MIB", nbsOpticPortPolish=nbsOpticPortPolish, nbsOpticPortTable=nbsOpticPortTable, nbsOpticPortTableSize=nbsOpticPortTableSize, nbsOpticPortRxStatusAdmin=nbsOpticPortRxStatusAdmin, nbsOpticPortEntry=nbsOpticPortEntry, PYSNMP_MODULE_ID=nbsOpticMib, nbsOpticPortGrp=nbsOpticPortGrp, nbsOpticPortRxStatusOper=nbsOpticPortRxStatusOper, nbsOpticPortFiberMode=nbsOpticPortFiberMode, nbsOpticPortTxStatusOper=nbsOpticPortTxStatusOper, nbsOpticPortConnector=nbsOpticPortConnector, nbsOpticMib=nbsOpticMib, nbsOpticPortTxStatusAdmin=nbsOpticPortTxStatusAdmin, nbsOpticPortNdx=nbsOpticPortNdx)

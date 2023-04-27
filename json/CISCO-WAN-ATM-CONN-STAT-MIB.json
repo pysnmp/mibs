@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-WAN-ATM-CONN-MIB": [
-      "cwaChanVpi",
-      "cwaChanVci"
+      "cwaChanVci",
+      "cwaChanVpi"
     ],
     "CISCOWAN-SMI": [
       "ciscoWan"
@@ -12,29 +12,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
       "Counter32",
-      "Integer32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -2818,8 +2818,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-ATM-CONN-STAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:22:05 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:00:16 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-WAN-ATM-CONN-STAT-MIB"

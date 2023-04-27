@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OG-UPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-UPS-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:29:38 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:09:39 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, Unsigned32, ModuleIdentity, IpAddress, Integer32, Bits, ObjectIdentity, Gauge32, MibIdentifier, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "ModuleIdentity", "IpAddress", "Integer32", "Bits", "ObjectIdentity", "Gauge32", "MibIdentifier", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Integer32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, Counter64, iso, TimeTicks, Counter32, IpAddress, MibIdentifier, ModuleIdentity, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "Counter64", "iso", "TimeTicks", "Counter32", "IpAddress", "MibIdentifier", "ModuleIdentity", "Unsigned32", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ogNetUpsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 16))
 ogNetUpsMib.setRevisions(('2013-08-11 00:00', '2010-03-22 11:27', '2008-06-13 11:00',))
 if mibBuilder.loadTexts: ogNetUpsMib.setLastUpdated('201308110000Z')
@@ -45,4 +45,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ognupsNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 16, 3, 2, 2)).setObjects(("OG-UPS-MIB", "ognupsEventOccurred"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ognupsNotificationsGroup = ognupsNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("OG-UPS-MIB", ogNetUpsMibObjects=ogNetUpsMibObjects, ognupsEventEntry=ognupsEventEntry, ognupsMibNotifications=ognupsMibNotifications, ogNetUpsMibGroups=ogNetUpsMibGroups, ogNetUpsMibGroup=ogNetUpsMibGroup, ognupsEventTable=ognupsEventTable, ogNetUpsMib=ogNetUpsMib, ognupsNotificationsGroup=ognupsNotificationsGroup, ognupsEventIndex=ognupsEventIndex, ogNetUpsMibConformance=ogNetUpsMibConformance, ognupsEventName=ognupsEventName, ogNetUpsMibCompliances=ogNetUpsMibCompliances, ognupsEventType=ognupsEventType, PYSNMP_MODULE_ID=ogNetUpsMib, ogNetUpsMibCompliance=ogNetUpsMibCompliance, ogNetUpsMibNotificationPrefix=ogNetUpsMibNotificationPrefix, ognupsEvent=ognupsEvent, ognupsEventOccurred=ognupsEventOccurred)
+mibBuilder.exportSymbols("OG-UPS-MIB", ognupsMibNotifications=ognupsMibNotifications, ogNetUpsMibGroup=ogNetUpsMibGroup, ognupsEventTable=ognupsEventTable, ognupsEventIndex=ognupsEventIndex, ognupsEvent=ognupsEvent, ognupsEventName=ognupsEventName, ogNetUpsMibGroups=ogNetUpsMibGroups, ogNetUpsMibCompliance=ogNetUpsMibCompliance, ogNetUpsMib=ogNetUpsMib, ognupsEventOccurred=ognupsEventOccurred, ogNetUpsMibCompliances=ogNetUpsMibCompliances, ogNetUpsMibObjects=ogNetUpsMibObjects, ogNetUpsMibNotificationPrefix=ogNetUpsMibNotificationPrefix, ognupsEventType=ognupsEventType, ognupsNotificationsGroup=ognupsNotificationsGroup, PYSNMP_MODULE_ID=ogNetUpsMib, ognupsEventEntry=ognupsEventEntry, ogNetUpsMibConformance=ogNetUpsMibConformance)

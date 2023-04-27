@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TEL2N-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2n/TEL2N-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:15:15 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 09:54:22 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Unsigned32, Gauge32, Integer32, Bits, enterprises, NotificationType, IpAddress, ModuleIdentity, MibIdentifier, Counter64, TimeTicks, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "Gauge32", "Integer32", "Bits", "enterprises", "NotificationType", "IpAddress", "ModuleIdentity", "MibIdentifier", "Counter64", "TimeTicks", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, Gauge32, iso, Counter32, NotificationType, Bits, IpAddress, ModuleIdentity, ObjectIdentity, enterprises, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "iso", "Counter32", "NotificationType", "Bits", "IpAddress", "ModuleIdentity", "ObjectIdentity", "enterprises", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "MibIdentifier", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tel2n = ModuleIdentity((1, 3, 6, 1, 4, 1, 6530))
 tel2n.setRevisions(('2015-05-01 10:57',))
 
@@ -57,4 +57,4 @@ if mibBuilder.loadTexts: hipRegistrationAt.setDescription('Registrar IP address'
 hipRegistrationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6530, 11, 6, 1, 5), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hipRegistrationTime.setStatus('current')
 if mibBuilder.loadTexts: hipRegistrationTime.setDescription('Registration time')
-mibBuilder.exportSymbols("TEL2N-MIB", hipPhoneNumber=hipPhoneNumber, hipRegistrationAt=hipRegistrationAt, PYSNMP_MODULE_ID=tel2n, hipProductName=hipProductName, hipState=hipState, tel2n=tel2n, hipIndex=hipIndex, heliosip=heliosip, hipSipTable=hipSipTable, hipVersion=hipVersion, hipBootVersion=hipBootVersion, hipHwVersion=hipHwVersion, hipSerial=hipSerial, hipSipEntry=hipSipEntry, hipRegistrationTime=hipRegistrationTime)
+mibBuilder.exportSymbols("TEL2N-MIB", hipRegistrationAt=hipRegistrationAt, hipState=hipState, hipRegistrationTime=hipRegistrationTime, hipIndex=hipIndex, tel2n=tel2n, PYSNMP_MODULE_ID=tel2n, hipVersion=hipVersion, hipBootVersion=hipBootVersion, hipSipEntry=hipSipEntry, hipProductName=hipProductName, hipPhoneNumber=hipPhoneNumber, hipHwVersion=hipHwVersion, hipSerial=hipSerial, hipSipTable=hipSipTable, heliosip=heliosip)

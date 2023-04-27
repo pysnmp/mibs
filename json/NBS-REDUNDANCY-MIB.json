@@ -5,9 +5,9 @@
       "InterfaceIndex"
     ],
     "NBS-CMMC-MIB": [
-      "nbsCmmcSlotIndex",
+      "nbsCmmcPortIndex",
       "nbsCmmcChassisIndex",
-      "nbsCmmcPortIndex"
+      "nbsCmmcSlotIndex"
     ],
     "NBS-MIB": [
       "nbs"
@@ -18,24 +18,24 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
       "Gauge32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "Counter32",
+      "Integer32",
       "iso",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "nbsRedundancyMib": {
@@ -512,8 +512,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:28:27 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:08:45 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "NBS-REDUNDANCY-MIB"

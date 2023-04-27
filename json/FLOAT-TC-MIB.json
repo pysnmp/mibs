@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "mib-2",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
       "iso",
-      "MODULE-IDENTITY",
       "Counter32",
-      "mib-2",
-      "Bits",
-      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "floatTcMIB": {
@@ -91,9 +91,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/FLOAT-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:30:08 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FLOAT-TC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:54:17 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "FLOAT-TC-MIB"

@@ -6,11 +6,11 @@
     ],
     "ACMEPACKET-TC": [
       "ApHardwareModuleFamily",
-      "ApPhyPortType",
+      "ApServerStatus",
       "ApThreadOverloaded",
-      "ApPresence",
       "ApRedundancyState",
-      "ApServerStatus"
+      "ApPresence",
+      "ApPhyPortType"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -22,25 +22,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "Unsigned32",
-      "TimeTicks",
-      "iso",
-      "Bits",
       "Counter64",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32"
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "apUsbcSysModule": {
@@ -1807,8 +1807,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APUSBCSYS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:29:48 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:09:47 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "APUSBCSYS-MIB"

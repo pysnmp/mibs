@@ -3,8 +3,8 @@
     "class": "imports",
     "ATM-MIB": [
       "atmVclVci",
-      "atmVplVpi",
-      "atmVclVpi"
+      "atmVclVpi",
+      "atmVplVpi"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -15,28 +15,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
+      "iso",
       "Counter64",
-      "Counter32",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "enterprises",
+      "Bits",
       "OBJECT-TYPE",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "enterprises",
-      "iso",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp",
+      "RowStatus"
     ]
   },
   "atmSoftPvcMIB": {
@@ -1226,8 +1226,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-SOFT-PVC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:14:33 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:53:47 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "ATM-SOFT-PVC-MIB"

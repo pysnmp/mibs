@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFImageType",
-      "FourRFTimeZone",
-      "FourRFImageVersion",
-      "FourRFImageStatus",
-      "FourRFWebUserEnabled",
-      "FourRFResetType",
-      "FourRFTftpFileName",
-      "FourRFFileSize",
-      "FourRFProcessResultType",
       "FourRFWebUserGroup",
-      "FourRFSerialNumber"
+      "FourRFResetType",
+      "FourRFWebUserEnabled",
+      "FourRFImageStatus",
+      "FourRFTftpFileName",
+      "FourRFSerialNumber",
+      "FourRFImageType",
+      "FourRFProcessResultType",
+      "FourRFFileSize",
+      "FourRFTimeZone",
+      "FourRFImageVersion"
     ],
     "MIB-4RF": [
-      "fourRFGeneric",
-      "fourRFModules"
+      "fourRFModules",
+      "fourRFGeneric"
     ],
     "PRODUCTS-MIB-4RF": [
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Bits",
-      "OBJECT-IDENTITY",
       "iso",
-      "Counter64",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
       "IpAddress",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:15:22 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 09:54:32 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "COMMON-4RF"

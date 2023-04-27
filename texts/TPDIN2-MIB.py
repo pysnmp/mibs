@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TPDIN2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tycon/TPDIN2-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:33:19 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 10:13:42 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, MibIdentifier, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, Gauge32, iso, Integer32, TimeTicks, ObjectIdentity, Counter64, Counter32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "Gauge32", "iso", "Integer32", "TimeTicks", "ObjectIdentity", "Counter64", "Counter32", "enterprises")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, Integer32, Bits, Gauge32, NotificationType, Counter32, TimeTicks, MibIdentifier, enterprises, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "Bits", "Gauge32", "NotificationType", "Counter32", "TimeTicks", "MibIdentifier", "enterprises", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tpdin2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 45621, 2))
 if mibBuilder.loadTexts: tpdin2.setLastUpdated('201703031251Z')
 if mibBuilder.loadTexts: tpdin2.setOrganization('Tycon Systems')
@@ -76,4 +76,4 @@ if mibBuilder.loadTexts: temperature1.setDescription('External Temp')
 temperature2 = MibScalar((1, 3, 6, 1, 4, 1, 45621, 2, 2, 14), Tenths()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: temperature2.setStatus('current')
 if mibBuilder.loadTexts: temperature2.setDescription('Internal Temp')
-mibBuilder.exportSymbols("TPDIN2-MIB", voltage3=voltage3, current3=current3, builddate=builddate, current2=current2, relay4=relay4, relay3=relay3, tpdin2=tpdin2, relay1=relay1, version=version, voltage2=voltage2, monitor=monitor, current1=current1, Tenths=Tenths, relay2=relay2, current4=current4, voltage1=voltage1, temperature2=temperature2, tycon=tycon, PYSNMP_MODULE_ID=tpdin2, product=product, name=name, voltage4=voltage4, temperature1=temperature1)
+mibBuilder.exportSymbols("TPDIN2-MIB", temperature2=temperature2, version=version, relay2=relay2, tycon=tycon, current2=current2, relay4=relay4, relay1=relay1, voltage3=voltage3, voltage4=voltage4, PYSNMP_MODULE_ID=tpdin2, voltage1=voltage1, tpdin2=tpdin2, monitor=monitor, relay3=relay3, name=name, current3=current3, current1=current1, temperature1=temperature1, builddate=builddate, product=product, Tenths=Tenths, current4=current4, voltage2=voltage2)

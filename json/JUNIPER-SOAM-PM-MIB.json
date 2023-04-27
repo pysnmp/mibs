@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepIdentifier",
       "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMaIndex",
-      "dot1agCfmMepEntry",
       "Dot1afCfmIndexIntegerNextFree",
+      "dot1agCfmMepEntry",
+      "dot1agCfmMaIndex",
+      "dot1agCfmMepIdentifier",
       "dot1agCfmMdIndex"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PriorityValue",
       "ieee802dot1mibs",
+      "IEEE8021PriorityValue",
       "IEEE8021VlanIndex"
     ],
     "IF-MIB": [
@@ -22,8 +22,8 @@
       "jnxMibs"
     ],
     "LLDP-MIB": [
-      "LldpPortId",
       "LldpChassisIdSubtype",
+      "LldpPortId",
       "LldpChassisId",
       "LldpPortIdSubtype"
     ],
@@ -33,32 +33,32 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Bits",
       "MODULE-IDENTITY",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter64",
+      "Integer32",
+      "Counter32",
       "Unsigned32",
+      "IpAddress",
       "iso",
       "TimeTicks",
-      "OBJECT-TYPE",
+      "Counter64",
       "Gauge32",
-      "Bits",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "DisplayString",
-      "TimeStamp",
-      "DateAndTime",
-      "RowStatus",
       "TDomain",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp",
       "TAddress",
       "MacAddress",
-      "TruthValue"
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxSoamPmMib": {
@@ -4808,8 +4808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-SOAM-PM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:27:45 2023",
-      "On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:07:51 2023",
+      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-SOAM-PM-MIB"

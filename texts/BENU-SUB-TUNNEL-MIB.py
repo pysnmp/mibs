@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BENU-SUB-TUNNEL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-SUB-TUNNEL-MIB
-# Produced by pysmi-1.1.8 at Thu Apr 27 09:17:32 2023
-# On host fv-az590-874 platform Linux version 5.15.0-1036-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Apr 27 09:56:05 2023
+# On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner
 # Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, NotificationType, Counter32, IpAddress, Gauge32, TimeTicks, MibIdentifier, iso, Bits, Unsigned32, Counter64, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "Counter32", "IpAddress", "Gauge32", "TimeTicks", "MibIdentifier", "iso", "Bits", "Unsigned32", "Counter64", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, IpAddress, ModuleIdentity, Gauge32, NotificationType, Unsigned32, MibIdentifier, iso, TimeTicks, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "IpAddress", "ModuleIdentity", "Gauge32", "NotificationType", "Unsigned32", "MibIdentifier", "iso", "TimeTicks", "ObjectIdentity", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 benuWagSubTunMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 2))
 benuWagSubTunMIB.setRevisions(('2015-11-13 00:00', '2015-01-02 00:00', '2012-12-12 00:00',))
 
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: bWagTunHighThresholdReached.setDescription('This notifi
 bWagTunLowThresholdReached = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 2, 0, 4)).setObjects(("BENU-SUB-TUNNEL-MIB", "bWagTunMaxNumOfTunnels"), ("BENU-SUB-TUNNEL-MIB", "bWagTunLowThreshold"))
 if mibBuilder.loadTexts: bWagTunLowThresholdReached.setStatus('current')
 if mibBuilder.loadTexts: bWagTunLowThresholdReached.setDescription('This notification signifies that the current number of\n        tunnels has fallen below the  value of\n        bWagTunLowThreshold.')
-mibBuilder.exportSymbols("BENU-SUB-TUNNEL-MIB", bWagSubMIBObjects=bWagSubMIBObjects, bWagTunnelMIBNotifObjects=bWagTunnelMIBNotifObjects, bWagSubMIBNotifObjects=bWagSubMIBNotifObjects, benuWagSubTunMIB=benuWagSubTunMIB, bWagTunnelMIBObjects=bWagTunnelMIBObjects, bWagTunMaxNumOfTunnels=bWagTunMaxNumOfTunnels, bWagSubHighThresholdReached=bWagSubHighThresholdReached, bWagTunHighThresholdReached=bWagTunHighThresholdReached, bWagSubMaxNumOfSubscribers=bWagSubMaxNumOfSubscribers, bWagSubHighThreshold=bWagSubHighThreshold, bWagSubLowThreshold=bWagSubLowThreshold, bWagSubLowThresholdReached=bWagSubLowThresholdReached, bWagTunHighThreshold=bWagTunHighThreshold, bWagTunLowThresholdReached=bWagTunLowThresholdReached, bWagTunLowThreshold=bWagTunLowThreshold, bWagSubTunnelMIBNotifications=bWagSubTunnelMIBNotifications, PYSNMP_MODULE_ID=benuWagSubTunMIB)
+mibBuilder.exportSymbols("BENU-SUB-TUNNEL-MIB", bWagSubHighThresholdReached=bWagSubHighThresholdReached, benuWagSubTunMIB=benuWagSubTunMIB, bWagSubLowThreshold=bWagSubLowThreshold, bWagSubHighThreshold=bWagSubHighThreshold, bWagSubTunnelMIBNotifications=bWagSubTunnelMIBNotifications, bWagTunnelMIBNotifObjects=bWagTunnelMIBNotifObjects, bWagTunLowThreshold=bWagTunLowThreshold, bWagTunHighThreshold=bWagTunHighThreshold, bWagTunLowThresholdReached=bWagTunLowThresholdReached, bWagSubMIBNotifObjects=bWagSubMIBNotifObjects, bWagTunHighThresholdReached=bWagTunHighThresholdReached, bWagSubLowThresholdReached=bWagSubLowThresholdReached, bWagSubMIBObjects=bWagSubMIBObjects, bWagTunnelMIBObjects=bWagTunnelMIBObjects, PYSNMP_MODULE_ID=benuWagSubTunMIB, bWagTunMaxNumOfTunnels=bWagTunMaxNumOfTunnels, bWagSubMaxNumOfSubscribers=bWagSubMaxNumOfSubscribers)
