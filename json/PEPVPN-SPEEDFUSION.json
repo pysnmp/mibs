@@ -7,28 +7,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "enterprises",
       "iso",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Counter64",
       "Bits",
-      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TruthValue",
-      "MacAddress"
+      "RowStatus"
     ]
   },
   "peplink": {
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/PEPVPN-SPEEDFUSION",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:10:37 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:32:31 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "PEPVPN-SPEEDFUSION"

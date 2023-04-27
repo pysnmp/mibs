@@ -5,64 +5,64 @@
       "dot3OamLoopbackStatus"
     ],
     "FOUNDRY-SN-AGENT-MIB": [
-      "snChasFanDescription",
-      "snAgentBrdModuleStatus",
-      "snChasPwrSupplyStatus",
-      "snAgGblTrapMessage",
-      "fdryLicenseType",
-      "snChasPwrSupplyDescription",
       "snChasPwrSupplyIndex",
+      "snChasFanDescription",
+      "snChasPwrSupplyStatus",
+      "snAgentBrdIndex",
+      "snAgGblTrapMessage",
+      "snChasPwrSupplyDescription",
+      "snAgentBrdModuleStatus",
       "snChasFanIndex",
-      "snChasUnitIndex",
-      "snAgentBrdIndex"
+      "fdryLicenseType",
+      "snChasUnitIndex"
     ],
     "FOUNDRY-SN-OSPF-GROUP-MIB": [
-      "snOspfLsdbRouterId",
-      "snOspfExtLsdbLimit",
-      "snOspfVirtIfStatusNeighbor",
+      "snOspfPacketType",
       "snOspfConfigErrorType",
-      "snOspfIfStatusIpAddress",
-      "snOspfVirtIfStatusState",
-      "snOspfIfStatusState",
-      "snOspfLsdbLsId",
-      "snOspfRouterId",
-      "snOspfLsdbType",
-      "snOspfVirtNbrRtrId",
-      "snOspfNbrIpAddr",
+      "snOspfExtLsdbLimit",
       "snOspfPacketSrc",
-      "snOspfVirtNbrArea",
+      "snOspfLsdbType",
       "snOspfVirtNbrState",
-      "snOspfVirtIfStatusAreaID",
       "snOspfLsdbAreaId",
-      "snOspfNbrState",
+      "snOspfVirtNbrArea",
       "snOspfNbrRtrId",
-      "snOspfPacketType"
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfLsdbRouterId",
+      "snOspfLsdbLsId",
+      "snOspfNbrState",
+      "snOspfIfStatusIpAddress",
+      "snOspfVirtNbrRtrId",
+      "snOspfVirtIfStatusState",
+      "snOspfRouterId",
+      "snOspfNbrIpAddr",
+      "snOspfIfStatusState"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "foundry"
     ],
     "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
-      "snL4TcpSynLimit",
-      "snL4TrapRealServerCurConnections",
-      "snL4LinkVirtualInterface",
-      "snL4MaxSessionLimit",
-      "snL4TrapRealServerName",
-      "snL4TrapLinkName",
+      "snL4TrapRealServerIP",
       "snL4TrapRealServerPort",
-      "snL4TrapRealServerIP"
+      "snL4TrapRealServerCurConnections",
+      "snL4TrapLinkName",
+      "snL4TrapRealServerName",
+      "snL4MaxSessionLimit",
+      "snL4TcpSynLimit",
+      "snL4LinkVirtualInterface"
     ],
     "FOUNDRY-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
-      "snVLanByPortCfgVLanId",
-      "snSwViolatorMacAddress"
+      "snSwViolatorMacAddress",
+      "snVLanByPortCfgVLanId"
     ],
     "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
       "wgPnPStatus"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepDbRMepState",
       "dot1agCfmMdName",
-      "dot1agCfmMaNetName"
+      "dot1agCfmMaNetName",
+      "dot1agCfmMepDbRMepState"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -72,24 +72,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Integer32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
       "Counter64",
-      "Integer32"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snTraps": {
@@ -3166,8 +3166,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:02:01 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:24:14 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "FOUNDRY-SN-NOTIFICATION-MIB"

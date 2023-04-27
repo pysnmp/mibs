@@ -8,50 +8,50 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpPortId",
-      "LldpChassisIdSubtype",
       "LldpPortIdSubtype",
       "LldpManAddress",
-      "LldpChassisId"
+      "LldpChassisIdSubtype",
+      "LldpChassisId",
+      "LldpPortId"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
       "Counter32",
-      "MibIdentifier",
-      "Gauge32",
       "zeroDotZero",
-      "TimeTicks"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "MacAddress",
       "TruthValue",
-      "DisplayString",
+      "MacAddress",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeInterval"
+      "DisplayString",
+      "TimeInterval",
+      "RowStatus"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportDomain",
-      "TransportAddress"
+      "TransportAddress",
+      "TransportDomain"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:54:02 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:15:12 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "IEEE802171-CFM-MIB"

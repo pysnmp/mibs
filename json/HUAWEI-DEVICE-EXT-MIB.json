@@ -8,30 +8,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "iso",
-      "IpAddress",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "Integer32",
+      "TimeTicks",
       "Counter64",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "DateAndTime"
     ]
   },
@@ -173,8 +173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DEVICE-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:04:31 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:26:45 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-DEVICE-EXT-MIB"

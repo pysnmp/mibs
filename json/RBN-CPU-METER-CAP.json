@@ -5,25 +5,25 @@
       "rbnCapabilities"
     ],
     "SNMPv2-CONF": [
-      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Integer32",
       "Counter32",
-      "Unsigned32",
+      "Integer32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
       "Gauge32",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -114,8 +114,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/RBN-CPU-METER-CAP",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:01:39 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:23:48 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "RBN-CPU-METER-CAP"

@@ -8,33 +8,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "IpAddress",
       "iso",
-      "TimeTicks",
+      "Counter32",
+      "Integer32",
       "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "transmission",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ],
     "VPN-TC-STD-MIB": [
       "VPNIdOrZero"
@@ -845,8 +845,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/VPLS-GENERIC-DRAFT-01-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:07:51 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:29:48 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "VPLS-GENERIC-DRAFT-01-MIB"

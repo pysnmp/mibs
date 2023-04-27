@@ -6,47 +6,47 @@
     ],
     "DOT3-OAM-MIB": [
       "dot3OamEventLogThresholdLo",
-      "dot3OamEventLogRunningTotal",
       "dot3OamEventLogEventTotal",
+      "dot3OamEventLogValue",
+      "dot3OamEventLogOui",
       "dot3OamStatsEntry",
+      "dot3OamEventLogWindowLo",
       "dot3OamEventLogTimestamp",
       "dot3OamLoopbackEntry",
-      "dot3OamEventLogOui",
-      "dot3OamEventLogValue",
       "dot3OamEventLogThresholdHi",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEntry",
       "dot3OamEventLogType",
       "dot3OamEventLogLocation",
-      "dot3OamEventLogWindowHi",
-      "dot3OamEventLogWindowLo",
-      "dot3OamEntry"
+      "dot3OamEventLogWindowHi"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "iso",
       "Bits",
       "MibIdentifier",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32"
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:10:12 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:32:01 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

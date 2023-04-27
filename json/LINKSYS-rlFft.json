@@ -14,27 +14,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "iso",
       "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "TimeTicks",
       "MibIdentifier",
-      "Integer32"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "RowStatus"
     ]
   },
   "Percents": {
@@ -2463,8 +2463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlFft",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:08:29 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:29:55 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-rlFft"

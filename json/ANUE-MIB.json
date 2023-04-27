@@ -3,51 +3,51 @@
     "class": "imports",
     "HCNUM-TC": [
       "CounterBasedGauge64",
-      "ZeroBasedCounter64",
-      "hcnumTC"
+      "hcnumTC",
+      "ZeroBasedCounter64"
     ],
     "IF-MIB": [
-      "ifTable",
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
       "ifEntry",
-      "ifIndex"
+      "InterfaceIndex",
+      "ifTable"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "MibIdentifier",
-      "Gauge32",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Counter64",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "iso",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits"
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "enterprises",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DateAndTime",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "DateAndTime",
+      "TimeStamp"
     ],
     "SNMPv2-TM": [
       "SnmpUDPAddress",
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:06:22 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:28:37 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "ANUE-MIB"

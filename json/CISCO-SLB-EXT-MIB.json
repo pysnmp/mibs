@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "CISCO-SLB-MIB": [
-      "SlbServerString",
-      "slbVirtualServerTableEntry",
-      "slbServerFarmName",
       "slbEntity",
+      "slbServerFarmName",
+      "slbVirtualServerTableEntry",
       "slbServerFarmTableEntry",
-      "SlbRealServerState",
       "slbStatsTableEntry",
       "SlbPasswordString",
-      "SlbConnectionState"
+      "SlbConnectionState",
+      "SlbServerString",
+      "SlbRealServerState"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoHTTPResponseStatusCode",
       "CiscoIpProtocol",
-      "CiscoPort"
+      "CiscoPort",
+      "CiscoHTTPResponseStatusCode"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -33,30 +33,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "MibIdentifier",
       "Counter64",
-      "TimeTicks"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TimeStamp",
       "TruthValue",
       "RowStatus",
-      "DateAndTime",
+      "DisplayString",
       "StorageType",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TimeStamp",
-      "DisplayString"
+      "TimeInterval"
     ]
   },
   "ciscoSlbExtMIB": {
@@ -6322,8 +6322,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:00:15 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:22:34 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-SLB-EXT-MIB"

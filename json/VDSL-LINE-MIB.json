@@ -3,10 +3,10 @@
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
       "HCPerfValidIntervals",
-      "HCPerfCurrentCount",
       "HCPerfInvalidIntervals",
-      "HCPerfIntervalThreshold",
+      "HCPerfCurrentCount",
       "HCPerfIntervalCount",
+      "HCPerfIntervalThreshold",
       "HCPerfTimeElapsed"
     ],
     "HCNUM-TC": [
@@ -20,31 +20,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "transmission",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
+      "Counter32",
       "OBJECT-TYPE",
       "iso",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "transmission",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "vdslMIB": {
@@ -3517,8 +3517,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/VDSL-LINE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 09:54:17 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:15:37 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "VDSL-LINE-MIB"

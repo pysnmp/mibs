@@ -12,20 +12,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
       "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1064,8 +1064,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-CHANNEL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:11:08 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:33:09 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "PACKETLOGIC-CHANNEL-MIB"

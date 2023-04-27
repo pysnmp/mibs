@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
+      "CIPsecDiffHellmanGrp",
       "CIPsecNumCryptoMaps",
-      "CIPsecEncapMode",
-      "CIPsecTransform",
-      "CIPsecLifesize",
       "CIPsecSecuritySuite",
       "CIPsecLifetime",
-      "CIPsecTunnelIdleTime",
       "CIPsecCryptomapType",
-      "CIPsecDiffHellmanGrp"
+      "CIPsecTunnelIdleTime",
+      "CIPsecEncapMode",
+      "CIPsecLifesize",
+      "CIPsecTransform"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -19,8 +19,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -31,24 +31,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "MibIdentifier",
       "Counter64",
-      "TimeTicks"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
@@ -1476,8 +1476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-PROVISIONING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:00:16 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:22:34 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "CISCO-IPSEC-PROVISIONING-MIB"

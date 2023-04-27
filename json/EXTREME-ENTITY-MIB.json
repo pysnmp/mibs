@@ -12,24 +12,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Integer32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
       "Counter64",
-      "Integer32"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "extremeEntity": {
@@ -105,8 +105,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 10:02:01 2023",
-      "On host fv-az338-106 platform Linux version 5.15.0-1036-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Apr 27 10:24:14 2023",
+      "On host fv-az842-726 platform Linux version 5.15.0-1036-azure by user runner",
       "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
     ],
     "module": "EXTREME-ENTITY-MIB"
