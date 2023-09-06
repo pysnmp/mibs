@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-FIBER-MONITORING-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-FIBER-MONITORING-MIB
-# Produced by pysmi-1.1.8 at Wed Sep  6 13:26:04 2023
-# On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner
-# Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
+# Produced by pysmi-1.1.8 at Wed Sep  6 13:42:16 2023
+# On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner
+# Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 sysinfo, = mibBuilder.importSymbols("AT-SYSINFO-MIB", "sysinfo")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, TimeTicks, Integer32, IpAddress, iso, ObjectIdentity, Bits, Counter32, Gauge32, MibIdentifier, Counter64, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "Integer32", "IpAddress", "iso", "ObjectIdentity", "Bits", "Counter32", "Gauge32", "MibIdentifier", "Counter64", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, Gauge32, ObjectIdentity, Counter32, NotificationType, MibIdentifier, Integer32, iso, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "Gauge32", "ObjectIdentity", "Counter32", "NotificationType", "MibIdentifier", "Integer32", "iso", "ModuleIdentity", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atFiberMon = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 27))
 atFiberMon.setRevisions(('2015-09-08 00:00',))
 
@@ -86,4 +86,4 @@ if mibBuilder.loadTexts: atFiberMonMinReading.setDescription('The minimum readin
 atFiberMonMaxReading = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 27, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atFiberMonMaxReading.setStatus('current')
 if mibBuilder.loadTexts: atFiberMonMaxReading.setDescription('The maximum reading of rx power, in units of 0.0001mW.')
-mibBuilder.exportSymbols("AT-FIBER-MONITORING-MIB", atFiberMonMaxReading=atFiberMonMaxReading, atFiberMonlIfDescription=atFiberMonlIfDescription, atFiberMonTrapVariable=atFiberMonTrapVariable, PYSNMP_MODULE_ID=atFiberMon, atFiberMonAlarmAction=atFiberMonAlarmAction, atFiberMonChannel=atFiberMonChannel, atFiberMonAlarmSetNotify=atFiberMonAlarmSetNotify, atFiberMonIfindex=atFiberMonIfindex, atFiberMonEnable=atFiberMonEnable, atFiberMonConfigTable=atFiberMonConfigTable, atFiberMonNotifications=atFiberMonNotifications, atFiberMonThreshold=atFiberMonThreshold, atFiberMonStateEntry=atFiberMonStateEntry, atFiberMon=atFiberMon, atFiberMonReading=atFiberMonReading, atFiberMonMinReading=atFiberMonMinReading, atFiberMonSensitivity=atFiberMonSensitivity, atFiberMonReadingHistory=atFiberMonReadingHistory, atFiberMonConfigEntry=atFiberMonConfigEntry, atFiberMonStateTable=atFiberMonStateTable, atFiberMonIfname=atFiberMonIfname, atFiberMonActualBaseline=atFiberMonActualBaseline, atFiberMonInterval=atFiberMonInterval, atFiberMonAlarmClearedNotify=atFiberMonAlarmClearedNotify, atFiberMonBaseline=atFiberMonBaseline)
+mibBuilder.exportSymbols("AT-FIBER-MONITORING-MIB", atFiberMonActualBaseline=atFiberMonActualBaseline, atFiberMonlIfDescription=atFiberMonlIfDescription, atFiberMonConfigEntry=atFiberMonConfigEntry, atFiberMonIfindex=atFiberMonIfindex, atFiberMonReading=atFiberMonReading, atFiberMonConfigTable=atFiberMonConfigTable, PYSNMP_MODULE_ID=atFiberMon, atFiberMonThreshold=atFiberMonThreshold, atFiberMonAlarmAction=atFiberMonAlarmAction, atFiberMonStateTable=atFiberMonStateTable, atFiberMonStateEntry=atFiberMonStateEntry, atFiberMonReadingHistory=atFiberMonReadingHistory, atFiberMonTrapVariable=atFiberMonTrapVariable, atFiberMonSensitivity=atFiberMonSensitivity, atFiberMonNotifications=atFiberMonNotifications, atFiberMonAlarmClearedNotify=atFiberMonAlarmClearedNotify, atFiberMonAlarmSetNotify=atFiberMonAlarmSetNotify, atFiberMonChannel=atFiberMonChannel, atFiberMonEnable=atFiberMonEnable, atFiberMon=atFiberMon, atFiberMonBaseline=atFiberMonBaseline, atFiberMonMinReading=atFiberMonMinReading, atFiberMonIfname=atFiberMonIfname, atFiberMonInterval=atFiberMonInterval, atFiberMonMaxReading=atFiberMonMaxReading)

@@ -5,41 +5,41 @@
       "ifIndex"
     ],
     "IPSEC-ISAKMP-IKE-DOI-TC": [
-      "IpsecDoiEncapsulationMode",
-      "IpsecDoiAhTransform",
-      "IpsecDoiSecProtocolId",
-      "IpsecDoiIpcompTransform",
-      "IpsecDoiEspTransform",
       "IpsecDoiAuthAlgorithm",
-      "IpsecDoiIdentType"
+      "IpsecDoiEncapsulationMode",
+      "IpsecDoiIpcompTransform",
+      "IpsecDoiIdentType",
+      "IpsecDoiAhTransform",
+      "IpsecDoiEspTransform",
+      "IpsecDoiSecProtocolId"
     ],
     "RAPID-MIB": [
       "rapidstream"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -2543,9 +2543,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-IPSEC-SA-MON-MIB-EXT",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:35:42 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:55:17 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "RAPID-IPSEC-SA-MON-MIB-EXT"
   }

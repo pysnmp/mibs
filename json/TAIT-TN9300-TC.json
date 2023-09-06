@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "iso",
       "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
       "Counter64",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "TAIT-COMMON-MIB": [
       "taitModules"
@@ -409,9 +409,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-TC",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:38:35 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:59:07 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "TAIT-TN9300-TC"
   }

@@ -9,29 +9,29 @@
       "JuniEnable"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
       "Gauge32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks"
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "juniPppoeProfileMIB": {
@@ -758,9 +758,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-PPPOE-PROFILE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:34:39 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:54:10 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "Juniper-PPPOE-PROFILE-MIB"
   }

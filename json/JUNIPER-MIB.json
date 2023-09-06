@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "JUNIPER-SMI": [
+      "jnxMibs",
       "jnxChassisTraps",
-      "jnxChassisOKTraps",
-      "jnxMibs"
+      "jnxChassisOKTraps"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
       "Integer32",
-      "Gauge32"
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval",
+      "DateAndTime"
     ]
   },
   "jnxBoxAnatomy": {
@@ -2927,9 +2927,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:34:39 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:54:10 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "JUNIPER-MIB"
   }

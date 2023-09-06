@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dBasePort",
-      "BridgeId",
+      "dot1dStpPort",
       "Timeout",
-      "dot1dStpPort"
+      "dot1dBasePort",
+      "BridgeId"
     ],
     "Dell-VRTX-MIB": [
       "rnd"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -26,25 +26,25 @@
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
       "Integer32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Gauge32",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "VlanList1": {
@@ -2573,9 +2573,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-VRTX-BRIDGEMIBOBJECTS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:29:54 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:46:56 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "Dell-VRTX-BRIDGEMIBOBJECTS-MIB"
   }

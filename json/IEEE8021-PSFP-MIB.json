@@ -12,29 +12,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
-      "Counter32",
       "Unsigned32",
-      "IpAddress",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32"
+      "TimeTicks",
+      "iso",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -1261,9 +1261,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PSFP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:24:52 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:40:56 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "IEEE8021-PSFP-MIB"
   }

@@ -8,35 +8,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
       "mib-2",
       "OBJECT-IDENTITY",
       "iso",
-      "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "zeroDotZero"
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "zeroDotZero",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DateAndTime",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "docsDev": {
@@ -2037,9 +2037,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-CABLE-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:25:10 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:41:16 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-MIB"
   }

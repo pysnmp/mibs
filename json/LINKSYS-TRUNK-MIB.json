@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "IEEE8023-LAG-MIB": [
-      "dot3adAggPortIndex",
-      "dot3adAggIndex"
+      "dot3adAggIndex",
+      "dot3adAggPortIndex"
     ],
     "LINKSYS-MIB": [
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "iso",
       "Integer32",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlDot3adAgg": {
@@ -592,9 +592,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:34:54 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:54:10 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "LINKSYS-TRUNK-MIB"
   }

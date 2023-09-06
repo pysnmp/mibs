@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslAtucChanIntervalNumber",
-      "adslAturChanIntervalNumber",
-      "adslLineConfProfileName",
       "adslLineAlarmConfProfileName",
-      "adslAtucIntervalNumber"
+      "adslAtucIntervalNumber",
+      "adslAtucChanIntervalNumber",
+      "adslLineConfProfileName",
+      "adslAturChanIntervalNumber"
     ],
     "DASAN-SMI": [
       "dasanMgmt"
@@ -19,27 +19,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "mib-2",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
       "Counter64",
-      "Unsigned32",
       "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "mib-2",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -4004,9 +4004,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ADSL-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:29:13 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:46:02 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "DASAN-ADSL-MIB"
   }

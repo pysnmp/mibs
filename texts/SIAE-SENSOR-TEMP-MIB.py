@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-SENSOR-TEMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SENSOR-TEMP-MIB
-# Produced by pysmi-1.1.8 at Wed Sep  6 13:38:03 2023
-# On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner
-# Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
+# Produced by pysmi-1.1.8 at Wed Sep  6 13:58:31 2023
+# On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner
+# Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, iso, TimeTicks, Integer32, Gauge32, Counter64, Bits, ObjectIdentity, IpAddress, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "iso", "TimeTicks", "Integer32", "Gauge32", "Counter64", "Bits", "ObjectIdentity", "IpAddress", "Counter32", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, Unsigned32, Integer32, ModuleIdentity, MibIdentifier, Gauge32, NotificationType, Counter64, IpAddress, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "Integer32", "ModuleIdentity", "MibIdentifier", "Gauge32", "NotificationType", "Counter64", "IpAddress", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 sensorTemp = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 77))
 sensorTemp.setRevisions(('2016-05-03 00:00', '2014-03-31 00:00',))
 
@@ -94,4 +94,4 @@ if mibBuilder.loadTexts: sensorTempMonitorAverageTemp.setDescription('The averag
 sensorTempMonitorSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2))).clone('shutdown')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: sensorTempMonitorSystemControl.setStatus('current')
 if mibBuilder.loadTexts: sensorTempMonitorSystemControl.setDescription("The administrative system control status requested by management\n             for the TEMP-MONITOR feature. The value 'start'(1) indicates that\n             TEMP-MONITOR should be supported in the device on all temperature\n             sensors that have this capability (Those shown in \n             sensorTempMonitorTable). The value shutdown(2) indicates\n             that TEMP-MONITOR should be shutdown in the device on all\n             temperature sensors.\n            ")
-mibBuilder.exportSymbols("SIAE-SENSOR-TEMP-MIB", sensorTempThreshold2=sensorTempThreshold2, sensorTempAlarmThreshold1=sensorTempAlarmThreshold1, sensorTempEntry=sensorTempEntry, sensorTempHysteresis2=sensorTempHysteresis2, sensorTempAlarmThreshold1Severity=sensorTempAlarmThreshold1Severity, sensorTempMonitorAdminStatus=sensorTempMonitorAdminStatus, PYSNMP_MODULE_ID=sensorTemp, sensorTempAlarmThreshold2=sensorTempAlarmThreshold2, sensorTemp=sensorTemp, sensorTempValue=sensorTempValue, sensorTempMonitorSystemControl=sensorTempMonitorSystemControl, sensorTempHysteresis1=sensorTempHysteresis1, sensorTempMibVersion=sensorTempMibVersion, sensorTempThreshold1=sensorTempThreshold1, sensorTempMonitorMaxTemp=sensorTempMonitorMaxTemp, sensorTempMonitorMinTemp=sensorTempMonitorMinTemp, sensorTempIndex=sensorTempIndex, sensorTempMonitorOperStatus=sensorTempMonitorOperStatus, sensorTempStatus2=sensorTempStatus2, sensorTempAlarmThreshold2Severity=sensorTempAlarmThreshold2Severity, sensorTempMonitorTable=sensorTempMonitorTable, sensorTempTable=sensorTempTable, sensorTempMonitorAverageTemp=sensorTempMonitorAverageTemp, sensorTempLabel=sensorTempLabel, sensorTempMonitorEntry=sensorTempMonitorEntry, sensorTempStatus1=sensorTempStatus1)
+mibBuilder.exportSymbols("SIAE-SENSOR-TEMP-MIB", sensorTempMonitorMinTemp=sensorTempMonitorMinTemp, sensorTempMonitorSystemControl=sensorTempMonitorSystemControl, sensorTempStatus2=sensorTempStatus2, sensorTempThreshold1=sensorTempThreshold1, sensorTempEntry=sensorTempEntry, sensorTemp=sensorTemp, sensorTempAlarmThreshold2=sensorTempAlarmThreshold2, sensorTempThreshold2=sensorTempThreshold2, sensorTempMonitorEntry=sensorTempMonitorEntry, sensorTempMonitorMaxTemp=sensorTempMonitorMaxTemp, sensorTempAlarmThreshold1=sensorTempAlarmThreshold1, sensorTempValue=sensorTempValue, sensorTempMonitorAdminStatus=sensorTempMonitorAdminStatus, sensorTempMonitorTable=sensorTempMonitorTable, sensorTempAlarmThreshold1Severity=sensorTempAlarmThreshold1Severity, sensorTempMonitorOperStatus=sensorTempMonitorOperStatus, sensorTempTable=sensorTempTable, PYSNMP_MODULE_ID=sensorTemp, sensorTempLabel=sensorTempLabel, sensorTempStatus1=sensorTempStatus1, sensorTempHysteresis2=sensorTempHysteresis2, sensorTempMibVersion=sensorTempMibVersion, sensorTempIndex=sensorTempIndex, sensorTempMonitorAverageTemp=sensorTempMonitorAverageTemp, sensorTempAlarmThreshold2Severity=sensorTempAlarmThreshold2Severity, sensorTempHysteresis1=sensorTempHysteresis1)

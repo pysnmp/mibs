@@ -5,8 +5,8 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "ifCounterDiscontinuityGroup",
       "ifGeneralInformationGroup",
+      "ifCounterDiscontinuityGroup",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
@@ -14,42 +14,42 @@
       "InetAddress"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLabel",
-      "MplsOwner",
       "mplsStdMIB",
-      "MplsBitRate",
-      "MplsLSPID"
+      "MplsOwner",
+      "MplsLSPID",
+      "MplsLabel",
+      "MplsBitRate"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "iso",
-      "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "zeroDotZero"
+      "Counter64",
+      "zeroDotZero",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowPointer",
       "StorageType",
       "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mplsLsrStdMIB": {
@@ -1830,9 +1830,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:25:11 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:41:16 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "MPLS-LSR-STD-MIB"
   }

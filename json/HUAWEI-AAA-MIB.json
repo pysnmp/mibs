@@ -5,38 +5,38 @@
       "huaweiMgmt"
     ],
     "IPV6-TC": [
-      "Ipv6AddressPrefix",
+      "Ipv6AddressIfIdentifier",
       "Ipv6Address",
-      "Ipv6AddressIfIdentifier"
+      "Ipv6AddressPrefix"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "iso",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "hwAaa": {
@@ -21786,9 +21786,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-AAA-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:33:04 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:51:03 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "HUAWEI-AAA-MIB"
   }

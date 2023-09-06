@@ -11,24 +11,24 @@
     "SNMPv2-SMI": [
       "TimeTicks",
       "Integer32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Bits",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "iso"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmDhcps": {
@@ -1025,9 +1025,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmdhcps",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:32:20 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:50:12 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "HMDHCPS-SNMP-MIB"
   }

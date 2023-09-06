@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
       "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "IpAddress",
-      "TRAP-TYPE",
+      "iso",
       "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "MibIdentifier"
+      "Unsigned32",
+      "Bits",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rielloMIB": {
@@ -173,9 +173,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riello/SENSORTRAP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:37:36 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:57:56 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "SENSORTRAP-MIB"
   }

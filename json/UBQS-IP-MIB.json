@@ -5,38 +5,38 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "Unsigned32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Counter64"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "PhysAddress",
-      "RowStatus"
+      "TimeStamp",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -1035,9 +1035,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-IP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:39:07 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 14:00:03 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "UBQS-IP-MIB"
   }

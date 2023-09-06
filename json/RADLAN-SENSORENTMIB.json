@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entityPhysicalGroup",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entityPhysicalGroup"
     ],
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorValue",
-      "entPhySensorEntry"
+      "entPhySensorEntry",
+      "EntitySensorValue"
     ],
     "RADLAN-HWENVIROMENT": [
       "rlEnv"
@@ -16,31 +16,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "IpAddress",
+      "iso",
       "Bits",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "mib-2",
       "MibIdentifier",
-      "TimeTicks",
+      "Integer32",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32"
+      "mib-2"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rlSensor": {
@@ -114,9 +114,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-SENSORENTMIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:37:15 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:57:12 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "RADLAN-SENSORENTMIB"
   }

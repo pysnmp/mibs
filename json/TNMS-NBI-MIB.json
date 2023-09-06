@@ -6,31 +6,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "enterprises",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "RowStatus",
       "VariablePointer",
-      "TimeStamp",
+      "TruthValue",
       "AutonomousType",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "coriant": {
@@ -16540,9 +16540,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TNMS-NBI-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:25:10 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:41:15 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "TNMS-NBI-MIB"
   }

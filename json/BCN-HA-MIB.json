@@ -8,29 +8,29 @@
       "BcnAlarmSeverity"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "iso",
+      "Counter64",
       "OBJECT-IDENTITY",
       "Bits",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "Unsigned32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -379,9 +379,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-HA-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:27:00 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:43:20 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "BCN-HA-MIB"
   }

@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
+      "mib-2",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
       "IpAddress",
       "MibIdentifier",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Counter32",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snmpUsmHmacSha2MIB": {
@@ -72,9 +72,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-USM-HMAC-SHA2-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:25:11 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:41:17 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "SNMP-USM-HMAC-SHA2-MIB"
   }

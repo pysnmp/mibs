@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "enterprises",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "Integer32",
-      "TimeTicks",
       "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "enterprises",
-      "Counter64",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hp": {
@@ -337,9 +337,9 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/HPOV-NNM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:25:57 2023",
-      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:42:08 2023",
+      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "HPOV-NNM-MIB"
   }
