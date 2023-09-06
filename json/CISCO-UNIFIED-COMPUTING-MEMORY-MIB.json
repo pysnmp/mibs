@@ -5,10 +5,10 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "Unsigned64",
+      "CiscoInetAddressMask",
       "CiscoNetworkAddress",
       "TimeIntervalSec",
-      "CiscoInetAddressMask",
-      "Unsigned64",
       "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
@@ -17,30 +17,30 @@
       "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsMemoryType",
+      "CucsMemoryRuntimeThresholded",
+      "CucsMemoryErrorCorrection",
+      "CucsMemoryBufferUnitId",
+      "CucsMemoryUnitId",
+      "CucsMemoryArrayEnvStatsHistThresholded",
       "CucsMemoryBufferUnitEnvStatsThresholded",
       "CucsMemoryUnitOperability",
-      "CucsMemoryType",
-      "CucsMemoryVisibility",
-      "CucsMemoryRuntimeThresholded",
-      "CucsMemoryArrayEnvStatsThresholded",
-      "CucsMemoryArrayId",
-      "CucsMemoryArrayEnvStatsHistThresholded",
-      "CucsMemoryBufferUnitEnvStatsHistThresholded",
-      "CucsMemoryAdminState",
-      "CucsMemoryUnitId",
-      "CucsEquipmentSensorThresholdStatus",
-      "CucsMemoryBufferUnitId",
-      "CucsMemoryIssues",
-      "CucsMemoryErrorStatsThresholded",
-      "CucsEquipmentPresence",
-      "CucsEquipmentOperability",
       "CucsMemoryFormFactor",
+      "CucsMemoryArrayEnvStatsThresholded",
       "CucsMemoryRuntimeHistThresholded",
-      "CucsMemoryUnitEnvStatsHistThresholded",
       "CucsEquipmentPowerState",
-      "CucsMemoryRuntimeType",
+      "CucsMemoryArrayId",
+      "CucsMemoryIssues",
       "CucsMemoryUnitEnvStatsThresholded",
-      "CucsMemoryErrorCorrection"
+      "CucsEquipmentPresence",
+      "CucsMemoryErrorStatsThresholded",
+      "CucsMemoryUnitEnvStatsHistThresholded",
+      "CucsMemoryVisibility",
+      "CucsEquipmentSensorThresholdStatus",
+      "CucsMemoryBufferUnitEnvStatsHistThresholded",
+      "CucsMemoryRuntimeType",
+      "CucsEquipmentOperability",
+      "CucsMemoryAdminState"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -50,34 +50,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
       "OBJECT-TYPE",
+      "IpAddress",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
       "TimeTicks",
-      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "RowPointer",
-      "TruthValue",
       "TimeStamp",
-      "DateAndTime"
+      "TimeInterval",
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "cucsMemoryObjects": {
@@ -3339,9 +3339,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MEMORY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:21 2023",
-      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
-      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:30:16 2023",
+      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-MEMORY-MIB"
   }

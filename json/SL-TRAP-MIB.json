@@ -5,11 +5,11 @@
       "tftpStatus"
     ],
     "SL-ALARM-MIB": [
-      "slAlarmIfIndex",
-      "slAlarmSeverity",
+      "slAlarmServiceAffect",
       "slAlarmType",
+      "slAlarmSeverity",
       "slAlarmActive",
-      "slAlarmServiceAffect"
+      "slAlarmIfIndex"
     ],
     "SL-EDFA-MIB": [
       "edfaIfIndex",
@@ -18,18 +18,18 @@
     ],
     "SL-EVENT-MIB": [
       "slEventUser",
-      "slGenEventVal",
-      "slEventType",
+      "slEventInventoryPartnum",
+      "slEventInventorySerial",
       "slEventInventoryType",
       "slEventVal",
-      "slEventInventoryAction",
-      "slEventIfIndex",
-      "slGenEventType",
-      "slEventInventoryIfIndex",
-      "slEventInventoryPartnum",
       "slGenEventIfIndex",
-      "slEventInventorySerial",
-      "slGenEventUser"
+      "slGenEventUser",
+      "slGenEventVal",
+      "slEventInventoryAction",
+      "slEventType",
+      "slEventIfIndex",
+      "slEventInventoryIfIndex",
+      "slGenEventType"
     ],
     "SL-NE-MIB": [
       "packetlight"
@@ -39,8 +39,8 @@
       "optApsConfigUserWorkingIndex"
     ],
     "SL-TESTS-MIB": [
-      "slTestsIfLoopType",
       "slTestsIfLoopIfIndex",
+      "slTestsIfLoopType",
       "slTestsTrapsLoopbackActive"
     ],
     "SNMPv2-CONF": [
@@ -48,20 +48,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter64",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
       "Bits",
-      "Gauge32",
-      "IpAddress"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -246,9 +246,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:19:03 2023",
-      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
-      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:36:23 2023",
+      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-TRAP-MIB"
   }

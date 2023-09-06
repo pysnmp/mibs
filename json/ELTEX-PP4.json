@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "elHardware",
-      "mcTrapID",
-      "mcTrapDescr",
-      "mcTrapLParam3",
+      "mcTrapLParam2",
       "mcTrapLParam1",
-      "eltrapGroup",
       "mcTrapExState",
-      "mcTrapLParam2"
+      "mcTrapDescr",
+      "mcTrapID",
+      "elHardware",
+      "eltrapGroup",
+      "mcTrapLParam3"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
+      "Gauge32",
       "Integer32",
-      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "iso",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
       "Counter32",
-      "Bits",
       "Unsigned32",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "DisplayString",
-      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress",
       "TruthValue",
-      "TimeStamp"
+      "TimeInterval"
     ]
   },
   "pp4": {
@@ -6478,9 +6478,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:11:10 2023",
-      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
-      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:30:49 2023",
+      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ELTEX-PP4"
   }

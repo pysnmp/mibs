@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,38 +18,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
       "enterprises",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
-      "mib-2",
-      "Integer32",
-      "Gauge32",
+      "iso",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Counter64",
+      "mib-2",
+      "IpAddress",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
+      "RowStatus",
+      "TimeStamp",
+      "PhysAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus",
+      "TestAndIncr",
       "AutonomousType",
-      "TimeStamp",
-      "DateAndTime",
       "DisplayString",
-      "PhysAddress",
       "TruthValue"
     ],
     "VRRP-MIB": [
@@ -93201,9 +93201,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:12:49 2023",
-      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
-      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:31:51 2023",
+      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SWITCH"
   }

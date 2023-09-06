@@ -5,10 +5,10 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "Unsigned64",
+      "CiscoInetAddressMask",
       "CiscoNetworkAddress",
       "TimeIntervalSec",
-      "CiscoInetAddressMask",
-      "Unsigned64",
       "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
@@ -18,14 +18,14 @@
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
       "CucsFcpoolInitiatorPurpose",
-      "CucsFcpoolInitiatorEpPurpose",
-      "CucsPolicyPolicyOwner",
-      "CucsAddressWWNMask",
-      "CucsFcpoolBootTargetType",
-      "CucsFcpoolInitiatorsMaxPortsPerNode",
-      "CucsPoolElementOwner",
       "CucsFcpoolInitiatorsPurpose",
-      "CucsFcpoolInitiatorsAssignmentOrder"
+      "CucsFcpoolInitiatorsAssignmentOrder",
+      "CucsFcpoolInitiatorEpPurpose",
+      "CucsPoolElementOwner",
+      "CucsAddressWWNMask",
+      "CucsFcpoolInitiatorsMaxPortsPerNode",
+      "CucsFcpoolBootTargetType",
+      "CucsPolicyPolicyOwner"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -35,34 +35,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
       "OBJECT-TYPE",
+      "IpAddress",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
       "TimeTicks",
-      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "RowPointer",
-      "TruthValue",
       "TimeStamp",
-      "DateAndTime"
+      "TimeInterval",
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "cucsFcpoolObjects": {
@@ -1036,9 +1036,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FCPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Apr 27 12:10:24 2023",
-      "On host fv-az741-387 platform Linux version 5.15.0-1036-azure by user runner",
-      "Using Python version 3.10.11 (main, Apr  6 2023, 07:59:08) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Wed Sep  6 13:30:19 2023",
+      "On host fv-az361-883 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-FCPOOL-MIB"
   }
