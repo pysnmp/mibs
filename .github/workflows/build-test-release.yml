@@ -30,6 +30,9 @@ jobs:
     needs:
       - pre-commit
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v2
         with:
@@ -126,7 +129,7 @@ jobs:
           extra_plugins: |
             @semantic-release/exec
             @semantic-release/git
-            @google/semantic-release-replace-plugin
+            @google/semantic-release-replace-plugin@1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.SEMREL_TOKEN }} #
   update-semver:
