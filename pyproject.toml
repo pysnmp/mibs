@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pysnmp-mibs"
-version = "1.15.2"
+version = "1.15.3-beta.1"
 description = ""
 authors = ["rfaircloth-splunk <rfaircloth@splunk.com>"]
 license = "BSD-2-Clause"
