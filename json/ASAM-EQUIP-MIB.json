@@ -5,12 +5,12 @@
       "AsamAlarmSeverityType"
     ],
     "ASAM-TC-MIB": [
-      "NetworkTimeInSeconds",
-      "AsamProfilePointer",
-      "AsamProfileName",
+      "AsamProfileIndex",
       "AsamNextProfileIndex",
       "AsamProfileRefCount",
-      "AsamProfileIndex"
+      "AsamProfilePointer",
+      "AsamProfileName",
+      "NetworkTimeInSeconds"
     ],
     "ITF-MIB": [
       "InterfaceIndex"
@@ -20,26 +20,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
       "Bits",
-      "Counter64",
+      "Counter32",
       "TimeTicks",
-      "iso",
-      "IpAddress",
+      "Counter64",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ],
     "SYSTEM-MIB": [
       "asam"
@@ -3838,8 +3838,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ASAM-EQUIP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:21:42 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:29:35 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ASAM-EQUIP-MIB"

@@ -5,28 +5,28 @@
       "hh3cCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "IpAddress",
-      "Bits",
-      "Integer32",
+      "Unsigned32",
       "Counter32",
       "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
       "MibIdentifier",
+      "iso",
+      "Bits",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cSecHigh": {
@@ -667,8 +667,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SECHIGH-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:11:16 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:21:33 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-SECHIGH-MIB"

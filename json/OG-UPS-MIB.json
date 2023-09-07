@@ -5,29 +5,29 @@
       "ogMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
+      "Counter32",
       "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ogNetUpsMib": {
@@ -214,8 +214,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-UPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:21:28 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:29:24 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OG-UPS-MIB"

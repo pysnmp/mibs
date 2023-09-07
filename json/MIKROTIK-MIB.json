@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -12,27 +12,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "enterprises",
-      "Counter32",
+      "Bits",
+      "iso",
       "Integer32",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "enterprises",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "MacAddress",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "mikrotikExperimentalModule": {
@@ -6136,8 +6136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mikrotik/MIKROTIK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:20:00 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:28:19 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MIKROTIK-MIB"

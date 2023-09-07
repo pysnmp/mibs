@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
       "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
       "Bits",
-      "enterprises"
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3147,8 +3147,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/efficientip/EIP-MON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:14:25 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:59 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EIP-MON-MIB"

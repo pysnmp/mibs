@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "iso",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
       "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
-      "Counter32",
-      "Bits"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -115,8 +115,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/datacom/DATACOM-SMI.mib",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:12:45 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:22:42 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DATACOM-SMI"

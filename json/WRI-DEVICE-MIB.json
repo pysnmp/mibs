@@ -7,28 +7,28 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
       "Counter32",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "PhysAddress"
+      "DisplayString"
     ],
     "WRI-SMI": [
-      "wriProducts",
-      "wriProtocol"
+      "wriProtocol",
+      "wriProducts"
     ]
   },
   "PortList": {
@@ -1149,8 +1149,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:15:35 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:24:52 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WRI-DEVICE-MIB"

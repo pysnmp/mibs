@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "IpAddress",
       "MibIdentifier",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Bits"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "TPLINK-DDMMANAGE-MIB": [
       "tplinkDdmManageMIBObjects"
@@ -189,8 +189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-DDMVOLTHRESHOLD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:25:07 2023",
-      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:32:08 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TPLINK-DDMVOLTHRESHOLD-MIB"
