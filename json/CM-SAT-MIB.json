@@ -5,13 +5,13 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
+      "MepDestinationType",
       "CmPmBinAction",
       "VlanPriority",
-      "SecondaryState",
-      "MepDestinationType",
+      "AdminState",
+      "VlanId",
       "OperationalState",
-      "VlanId"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
       "networkElementEntry",
@@ -26,8 +26,8 @@
       "EsaProbePktIntervalType"
     ],
     "IEEE8021-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMepEntry",
+      "Dot1agCfmMepIdOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -35,29 +35,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Gauge32",
       "Integer32",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
       "Counter64",
       "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "VariablePointer",
-      "StorageType",
       "DateAndTime",
-      "DisplayString",
+      "StorageType",
+      "MacAddress",
       "RowStatus",
+      "VariablePointer",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:36:19 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:55:08 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-SAT-MIB"

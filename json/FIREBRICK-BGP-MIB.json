@@ -13,21 +13,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Bits",
-      "Unsigned32",
       "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-TYPE",
-      "enterprises",
-      "iso",
-      "OBJECT-IDENTITY",
       "IpAddress",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -232,8 +232,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/firebrick/FIREBRICK-BGP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:43:11 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:01:02 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FIREBRICK-BGP-MIB"

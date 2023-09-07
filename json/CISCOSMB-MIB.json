@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "IpAddress",
-      "Unsigned32",
-      "enterprises",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "enterprises",
       "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cisco": {
@@ -61,8 +61,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSMB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:41:44 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:59:46 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSMB-MIB"

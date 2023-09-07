@@ -5,16 +5,16 @@
       "systemConfig"
     ],
     "ExaltComm": [
-      "AcmPowerBoostEnableT",
-      "BandwidthT",
-      "RadioSourceT",
-      "DiplexerConfigG2T",
-      "BuzTimeoutT",
-      "AcmBaseModulationT",
-      "AcmTargetModulationT",
-      "AcmPolicyT",
-      "ExaltEnableT",
       "RadioTxPwr11gT",
+      "BuzTimeoutT",
+      "ExaltEnableT",
+      "AcmTargetModulationT",
+      "AcmBaseModulationT",
+      "RadioSourceT",
+      "AcmPolicyT",
+      "DiplexerConfigG2T",
+      "BandwidthT",
+      "AcmPowerBoostEnableT",
       "ModulationT"
     ],
     "SNMPv2-CONF": [
@@ -23,20 +23,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "MODULE-IDENTITY",
       "Gauge32",
-      "Counter32"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -242,8 +242,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExtendAirG2",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:42:49 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:00:43 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ExtendAirG2"

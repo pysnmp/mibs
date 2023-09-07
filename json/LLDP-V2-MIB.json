@@ -5,19 +5,19 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifGeneralInformationGroup"
+      "ifGeneralInformationGroup",
+      "InterfaceIndex"
     ],
     "LLDP-V2-TC-MIB": [
+      "LldpV2ChassisId",
+      "LldpV2ManAddrIfSubtype",
+      "LldpV2ChassisIdSubtype",
+      "LldpV2DestAddressTableIndex",
       "LldpV2PortId",
       "LldpV2ManAddress",
-      "LldpV2DestAddressTableIndex",
       "LldpV2SystemCapabilitiesMap",
-      "ieee802dot1mibs",
-      "LldpV2ManAddrIfSubtype",
-      "LldpV2ChassisId",
-      "LldpV2ChassisIdSubtype",
-      "LldpV2PortIdSubtype"
+      "LldpV2PortIdSubtype",
+      "ieee802dot1mibs"
     ],
     "RMON2-MIB": [
       "TimeFilter",
@@ -28,30 +28,30 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Bits",
+      "Counter32",
+      "Integer32",
       "Unsigned32",
       "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
       "iso",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "MacAddress",
+      "RowStatus",
       "TruthValue",
       "DisplayString"
     ]
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:35:04 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:54:04 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

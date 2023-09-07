@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "LINKSYS-IP": [
-      "rip2Spec",
-      "rlIpRoutingProtPreference",
+      "ipRipFilter",
       "ipSpec",
+      "ipRedundancy",
+      "rip2Spec",
       "ipRouteLeaking",
       "rlOspf",
-      "ipRedundancy",
-      "ipRipFilter"
+      "rlIpRoutingProtPreference"
     ],
     "OSPF-MIB": [
-      "ospfVirtIfEntry",
       "RouterID",
-      "AreaID",
-      "ospfIfEntry"
+      "ospfVirtIfEntry",
+      "ospfIfEntry",
+      "AreaID"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
@@ -24,26 +24,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIpRouter": {
@@ -2215,8 +2215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IpRouter",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:47:05 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:04:29 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IpRouter"

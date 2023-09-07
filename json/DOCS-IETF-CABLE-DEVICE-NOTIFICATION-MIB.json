@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvLevel",
-      "docsDevEvText",
       "docsDevEvId",
-      "docsDevServerDhcp",
+      "docsDevSwFilename",
+      "docsDevEvLevel",
       "docsDevServerTime",
-      "docsDevSwServer",
-      "docsDevSwFilename"
+      "docsDevEvText",
+      "docsDevServerDhcp",
+      "docsDevSwServer"
     ],
     "DOCS-IF-MIB": [
       "docsIfCmStatusModulationType",
-      "docsIfDocsisBaseCapability",
-      "docsIfCmtsCmStatusModulationType",
-      "docsIfCmStatusDocsisOperMode",
       "docsIfCmtsCmStatusMacAddress",
       "docsIfCmCmtsAddress",
-      "docsIfCmtsCmStatusDocsisRegMode"
+      "docsIfCmStatusDocsisOperMode",
+      "docsIfDocsisBaseCapability",
+      "docsIfCmtsCmStatusDocsisRegMode",
+      "docsIfCmtsCmStatusModulationType"
     ],
     "IF-MIB": [
       "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "mib-2",
-      "Bits",
-      "TimeTicks",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "mib-2",
+      "TimeTicks",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "docsDevNotifMIB": {
@@ -1485,8 +1485,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:35:28 2023",
-      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:54:24 2023",
+      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB"
