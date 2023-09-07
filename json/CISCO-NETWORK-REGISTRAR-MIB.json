@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "iso",
-      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Gauge32",
-      "Unsigned32",
-      "TimeTicks"
+      "Counter32",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoNetworkRegistrarMIB": {
@@ -1678,8 +1678,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NETWORK-REGISTRAR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:59:47 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:02:40 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-NETWORK-REGISTRAR-MIB"

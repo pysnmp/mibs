@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PACKETLOGIC-RAID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-RAID-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  7 12:06:43 2023
-# On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 12:09:17 2023
+# On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, iso, Bits, ModuleIdentity, Counter32, IpAddress, MibIdentifier, TimeTicks, Counter64, NotificationType, Integer32, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "Bits", "ModuleIdentity", "Counter32", "IpAddress", "MibIdentifier", "TimeTicks", "Counter64", "NotificationType", "Integer32", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, MibIdentifier, iso, Gauge32, Bits, Counter64, Counter32, ModuleIdentity, IpAddress, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "MibIdentifier", "iso", "Gauge32", "Bits", "Counter64", "Counter32", "ModuleIdentity", "IpAddress", "ObjectIdentity", "NotificationType")
+TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "DisplayString")
 raid = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1))
 raid.setRevisions(('2019-09-12 15:00',))
 
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: diskState.setDescription('Disk State')
 diskLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: diskLabel.setStatus('current')
 if mibBuilder.loadTexts: diskLabel.setDescription('Disk Label')
-mibBuilder.exportSymbols("PACKETLOGIC-RAID-MIB", adpNumber=adpNumber, diskNumber=diskNumber, ldState=ldState, disk=disk, diskEntryIndex=diskEntryIndex, PYSNMP_MODULE_ID=raid, diskEntry=diskEntry, ldNumber=ldNumber, diskState=diskState, ldEntry=ldEntry, raidCfg=raidCfg, diskId=diskId, ld=ld, raid=raid, diskLabel=diskLabel, ldId=ldId, ldEntryIndex=ldEntryIndex)
+mibBuilder.exportSymbols("PACKETLOGIC-RAID-MIB", raidCfg=raidCfg, diskEntry=diskEntry, ld=ld, diskNumber=diskNumber, diskEntryIndex=diskEntryIndex, ldEntryIndex=ldEntryIndex, adpNumber=adpNumber, raid=raid, ldNumber=ldNumber, ldState=ldState, diskState=diskState, ldId=ldId, PYSNMP_MODULE_ID=raid, ldEntry=ldEntry, diskLabel=diskLabel, diskId=diskId, disk=disk)

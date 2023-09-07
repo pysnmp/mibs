@@ -7,35 +7,35 @@
       "Hh3cDot11RadioScopeType"
     ],
     "INET-ADDRESS-MIB": [
+      "InetVersion",
       "InetAddressType",
-      "InetAddress",
-      "InetVersion"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Counter32",
       "IpAddress",
-      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "iso",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "hh3cDot11SAVI": {
@@ -378,8 +378,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-SAVI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:57:34 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:00:31 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-DOT11-SAVI-MIB"

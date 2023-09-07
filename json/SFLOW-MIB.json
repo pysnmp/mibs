@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -12,26 +12,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "iso",
+      "Integer32",
       "Counter32",
       "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Gauge32",
       "MibIdentifier",
       "TimeTicks",
-      "Bits",
-      "enterprises"
+      "enterprises",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -581,8 +581,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SFLOW-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:05:58 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:08:34 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SFLOW-MIB"

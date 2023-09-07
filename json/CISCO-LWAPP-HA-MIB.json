@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-RF-MIB": [
-      "cRFStatusPeerUnitState",
-      "cRFStatusUnitState"
+      "cRFStatusUnitState",
+      "cRFStatusPeerUnitState"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -17,34 +17,34 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
       "Bits",
       "MODULE-IDENTITY",
-      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter32",
       "Gauge32",
-      "Unsigned32",
-      "TimeTicks"
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "ciscoLwappHaMIB": {
@@ -1784,8 +1784,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-HA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:59:48 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:02:41 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-HA-MIB"

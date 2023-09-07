@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
       "Gauge32",
-      "TimeTicks",
-      "enterprises",
-      "Counter32",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "OBJECT-IDENTITY",
       "Bits",
+      "IpAddress",
+      "Integer32",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "enterprises",
+      "iso",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fokus": {
@@ -35,8 +35,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/FOKUS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:06:26 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:09:01 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FOKUS-MIB"

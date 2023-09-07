@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "CIENA-CES-PORT-MIB": [
+      "cienaCesPortPgIdMappingNotifChassisIndex",
       "cienaCesPortPgIdMappingNotifShelfIndex",
-      "cienaCesLogicalPortConfigPortName",
       "cienaCesPortPgIdMappingNotifSlotIndex",
       "cienaCesPortPgIdMappingNotifPortNumber",
-      "cienaCesPortPgIdMappingNotifChassisIndex"
+      "cienaCesLogicalPortConfigPortName"
     ],
     "CIENA-GLOBAL-MIB": [
       "cienaGlobalSeverity",
       "cienaGlobalMacAddress"
     ],
     "CIENA-SMI": [
-      "cienaCesNotifications",
-      "cienaCesConfig"
+      "cienaCesConfig",
+      "cienaCesNotifications"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "iso",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
+      "MibIdentifier",
       "Integer32",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "cienaCesDataplaneMIB": {
@@ -5504,8 +5504,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DATAPLANE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:57:00 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:59:57 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-DATAPLANE-MIB"

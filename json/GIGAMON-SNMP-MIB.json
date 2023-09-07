@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "enterprises",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "enterprises",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
-      "PhysAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "gigamonSnmp": {
@@ -1363,8 +1363,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gigamon/GIGAMON-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:01:30 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:04:20 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GIGAMON-SNMP-MIB"

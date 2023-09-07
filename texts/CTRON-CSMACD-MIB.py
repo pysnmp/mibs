@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-CSMACD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-CSMACD-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  7 12:00:30 2023
-# On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 12:03:21 2023
+# On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 ctCSMACD, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctCSMACD")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, ObjectIdentity, TimeTicks, Bits, ModuleIdentity, Counter32, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, iso, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "TimeTicks", "Bits", "ModuleIdentity", "Counter32", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "iso", "Integer32", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Bits, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, ModuleIdentity, MibIdentifier, iso, Counter32, Unsigned32, Counter64, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "ModuleIdentity", "MibIdentifier", "iso", "Counter32", "Unsigned32", "Counter64", "TimeTicks", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctFnbCSMACD = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 1))
 ctFnbPortConnect = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 2))
 ctFnbCSMACDTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 1, 1), )
@@ -50,4 +50,4 @@ if mibBuilder.loadTexts: ctFnbPortCompID.setDescription('This is the component I
 ctFnbPortConnectionChanges = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 4, 1, 2, 2), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctFnbPortConnectionChanges.setStatus('mandatory')
 if mibBuilder.loadTexts: ctFnbPortConnectionChanges.setDescription("Maintains the number of times any port within\n                        the mangement domain of this MIM changes it's\n                        port assignment.")
-mibBuilder.exportSymbols("CTRON-CSMACD-MIB", ctFnbPortConnectEntry=ctFnbPortConnectEntry, ctFnbPortConnect=ctFnbPortConnect, ctFnbPortCompID=ctFnbPortCompID, ctFnbPortConnectTable=ctFnbPortConnectTable, ctFnbPortConnectPortIndex=ctFnbPortConnectPortIndex, ctFnbCSMACDTable=ctFnbCSMACDTable, ctFnbCSMACD=ctFnbCSMACD, ctFnbCSMACDIndex=ctFnbCSMACDIndex, ctFnbPortConnectBoardIndex=ctFnbPortConnectBoardIndex, ctFnbPortConnectPortAssignment=ctFnbPortConnectPortAssignment, ctFnbPortChanges=ctFnbPortChanges, ctFnbConnect=ctFnbConnect, ctFnbCSMACDEntry=ctFnbCSMACDEntry, ctFnbPortConnectionChanges=ctFnbPortConnectionChanges)
+mibBuilder.exportSymbols("CTRON-CSMACD-MIB", ctFnbCSMACDTable=ctFnbCSMACDTable, ctFnbConnect=ctFnbConnect, ctFnbPortConnectionChanges=ctFnbPortConnectionChanges, ctFnbPortConnectPortIndex=ctFnbPortConnectPortIndex, ctFnbCSMACDIndex=ctFnbCSMACDIndex, ctFnbPortConnectPortAssignment=ctFnbPortConnectPortAssignment, ctFnbPortConnect=ctFnbPortConnect, ctFnbPortConnectEntry=ctFnbPortConnectEntry, ctFnbPortConnectBoardIndex=ctFnbPortConnectBoardIndex, ctFnbCSMACD=ctFnbCSMACD, ctFnbPortCompID=ctFnbPortCompID, ctFnbCSMACDEntry=ctFnbCSMACDEntry, ctFnbPortChanges=ctFnbPortChanges, ctFnbPortConnectTable=ctFnbPortConnectTable)

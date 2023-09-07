@@ -9,29 +9,29 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
+      "iso",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "Gauge32",
       "Counter64",
-      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
-      "Integer32",
-      "Counter32"
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-RA-GUARD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:59:34 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:02:28 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-RA-GUARD-MIB"

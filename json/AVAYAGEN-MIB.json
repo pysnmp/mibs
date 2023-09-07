@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
       "Counter64",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "enterprises",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -100,8 +100,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/AVAYAGEN-MIB.mib",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:55:58 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:58:58 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AVAYAGEN-MIB"

@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "iso",
+      "Integer32",
       "Counter32",
-      "TRAP-TYPE",
       "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "TRAP-TYPE",
+      "Gauge32",
       "MibIdentifier",
       "TimeTicks",
-      "Bits",
-      "enterprises"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "DisplayString"
     ]
   },
@@ -1810,8 +1810,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/IPX",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:05:57 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:08:33 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPX"

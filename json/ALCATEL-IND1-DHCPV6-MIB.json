@@ -5,48 +5,48 @@
       "softentIND1Ipv6"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-MIB": [
       "ipv6IfIndex"
     ],
     "IPV6-TC": [
-      "Ipv6IfIndexOrZero",
-      "Ipv6Address"
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "iso",
+      "Integer32",
       "Counter32",
-      "Unsigned32",
       "Counter64",
-      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Gauge32",
       "MibIdentifier",
       "TimeTicks",
-      "Bits"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "RowStatus",
+      "TimeStamp",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DHCPv6MIB": {
@@ -553,8 +553,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DHCPV6-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:05:55 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:08:32 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-DHCPV6-MIB"

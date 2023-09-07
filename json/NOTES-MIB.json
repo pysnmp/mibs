@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "iso",
-      "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "Counter32",
-      "TRAP-TYPE",
       "Counter64",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "enterprises",
       "Unsigned32",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -14368,8 +14368,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/NOTES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:03:29 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:06:13 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NOTES-MIB"

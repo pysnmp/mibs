@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "HUAWEI-DEVICE-MIB": [
-      "hwFrameIndex",
-      "hwSlotIndex"
+      "hwSlotIndex",
+      "hwFrameIndex"
     ],
     "HUAWEI-MIB": [
       "hwMA5200Mib"
     ],
     "HUAWEI-TC-MIB": [
-      "HWSubPCBType",
-      "HWPCBType",
       "HWPortType",
-      "HWFrameType"
+      "HWSubPCBType",
+      "HWFrameType",
+      "HWPCBType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
       "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "RowStatus"
+      "MacAddress"
     ]
   },
   "hwMA5200Device": {
@@ -969,8 +969,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MA5200-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:02:37 2023",
-      "On host fv-az1032-868 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 12:05:25 2023",
+      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MA5200-DEVICE-MIB"
