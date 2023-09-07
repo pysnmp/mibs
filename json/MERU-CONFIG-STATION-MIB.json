@@ -8,44 +8,44 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlVpnStatus",
-      "MwlApIfModeType",
-      "MwlAddressAssignmentType",
-      "MwlL2SecurityMode",
-      "MwlIpMode",
       "MwlIpv6AddrType",
-      "MwlDeviceType"
+      "MwlDeviceType",
+      "MwlAddressAssignmentType",
+      "MwlIpMode",
+      "MwlApIfModeType",
+      "MwlL2SecurityMode",
+      "MwlVpnStatus"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "enterprises",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Counter64",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "Counter32",
+      "Bits",
+      "MibIdentifier",
+      "enterprises",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TruthValue",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TimeInterval",
-      "MacAddress"
+      "DateAndTime",
+      "TimeStamp",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "mwConfigStation": {
@@ -510,8 +510,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-STATION-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:24:59 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:25:07 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-STATION-MIB"

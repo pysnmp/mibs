@@ -9,34 +9,34 @@
     ],
     "IF-MIB": [
       "ifDescr",
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
       "IpAddress",
       "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
       "MibIdentifier",
-      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "hh3cIfExt": {
@@ -3668,8 +3668,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:21:33 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:21:37 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-IF-EXT-MIB"

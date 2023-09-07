@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
       "OBJECT-TYPE",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "TPRowStatus": {
@@ -63,8 +63,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:32:08 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:32:35 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TPLINK-TC-MIB"

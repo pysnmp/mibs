@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
-      "cerentModules",
-      "cerentProducts"
+      "cerentProducts",
+      "cerentModules"
     ],
     "CERENT-TC": [
       "CerentAlarmSeverity",
-      "CerentMonitorType",
-      "CerentPeriod",
-      "CerentAlarmStatus",
-      "CerentLocation",
       "CerentNotificationClass",
+      "CerentAlarmStatus",
+      "CerentPeriod",
       "CerentPortNumber",
-      "CerentAlarmServiceAffecting"
+      "CerentAlarmServiceAffecting",
+      "CerentMonitorType",
+      "CerentLocation"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -21,26 +21,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Unsigned32",
       "iso",
-      "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Integer32",
-      "Bits",
-      "TimeTicks"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "cerent454MibModule": {
@@ -51426,8 +51426,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-454-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:41 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:43 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CERENT-454-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Thu Sep  7 14:24:24 2023
-# On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 14:24:29 2023
+# On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, NotificationType, iso, ModuleIdentity, ObjectIdentity, MibIdentifier, Gauge32, Integer32, Counter32, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "NotificationType", "iso", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "Gauge32", "Integer32", "Counter32", "Unsigned32", "Bits")
+Bits, ModuleIdentity, Unsigned32, Integer32, TimeTicks, IpAddress, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Counter64, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Unsigned32", "Integer32", "TimeTicks", "IpAddress", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Counter64", "Gauge32", "ObjectIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", repeater=repeater, repeaterRev2=repeaterRev2, commsDevice=commsDevice, sysIntDev=sysIntDev, ups=ups, subSysDevice=subSysDevice, router=router, layerMgmt=layerMgmt, dl=dl, bridge=bridge, sysOtherType=sysOtherType, subsystem=subsystem, repeaterRev1=repeaterRev1, backplaneProtocol=backplaneProtocol, subSysMMAC=subSysMMAC, sysRepeaters=sysRepeaters, nb30Rev1=nb30Rev1, sysBridges=sysBridges, sysOIDs=sysOIDs, sysChassis=sysChassis, sysRouters=sysRouters, product=product, common=common, commonRev1=commonRev1)
+mibBuilder.exportSymbols("IRM-OIDS", sysBridges=sysBridges, bridge=bridge, sysChassis=sysChassis, sysRouters=sysRouters, repeater=repeater, ups=ups, layerMgmt=layerMgmt, sysOtherType=sysOtherType, subsystem=subsystem, sysOIDs=sysOIDs, dl=dl, sysRepeaters=sysRepeaters, repeaterRev2=repeaterRev2, common=common, commsDevice=commsDevice, subSysMMAC=subSysMMAC, commonRev1=commonRev1, backplaneProtocol=backplaneProtocol, sysIntDev=sysIntDev, nb30Rev1=nb30Rev1, repeaterRev1=repeaterRev1, product=product, router=router, subSysDevice=subSysDevice)

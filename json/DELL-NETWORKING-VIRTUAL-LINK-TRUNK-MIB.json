@@ -8,34 +8,34 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Bits",
+      "MibIdentifier",
+      "Integer32",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
       "IpAddress",
-      "Counter64"
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TimeInterval",
       "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1024,8 +1024,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:15 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:21 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-VIRTUAL-LINK-TRUNK-MIB"

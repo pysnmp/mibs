@@ -8,8 +8,8 @@
       "alaVirtualRouterName"
     ],
     "IPV6-MIB": [
-      "ipv6RouteEntry",
-      "ipv6IfIndex"
+      "ipv6IfIndex",
+      "ipv6RouteEntry"
     ],
     "IPV6-TC": [
       "Ipv6Address",
@@ -24,29 +24,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Counter32",
       "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "OBJECT-IDENTITY",
       "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "RowStatus",
-      "DisplayString",
       "TimeStamp",
+      "DisplayString",
       "DateAndTime",
-      "TruthValue"
+      "PhysAddress",
+      "RowStatus"
     ]
   },
   "alcatelIND1IPv6MIB": {
@@ -2979,8 +2979,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPV6-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:29:36 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:29:58 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-IPV6-MIB"

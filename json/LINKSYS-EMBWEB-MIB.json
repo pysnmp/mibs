@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "Counter32",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter64",
       "MODULE-IDENTITY",
+      "Gauge32",
       "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
       "Unsigned32",
       "Integer32",
-      "Bits"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "rlEmbWeb": {
@@ -845,8 +845,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-EMBWEB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:28:12 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:28:35 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-EMBWEB-MIB"

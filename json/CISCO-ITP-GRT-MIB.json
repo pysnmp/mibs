@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSP-MIB": [
-      "cgspEventSequenceNumber",
       "cgspInstNetwork",
-      "cgspInstDisplayName",
-      "cgspCLLICode"
+      "cgspCLLICode",
+      "cgspEventSequenceNumber",
+      "cgspInstDisplayName"
     ],
     "CISCO-ITP-TC-MIB": [
+      "CItpTcRouteTableName",
       "CItpTcTableLoadStatus",
-      "CItpTcServiceIndicator",
-      "CItpTcPointCode",
-      "CItpTcQos",
       "CItpTcDisplayPC",
-      "CItpTcLinksetId",
       "CItpTcURL",
-      "CItpTcRouteTableName"
+      "CItpTcQos",
+      "CItpTcPointCode",
+      "CItpTcServiceIndicator",
+      "CItpTcLinksetId"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -26,27 +26,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
       "Unsigned32",
-      "MODULE-IDENTITY",
       "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Gauge32",
-      "Integer32",
-      "Bits",
-      "TimeTicks"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus",
       "TruthValue",
-      "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoGrtMIB": {
@@ -2317,8 +2317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GRT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:37 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:40 2023",
+      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-GRT-MIB"
