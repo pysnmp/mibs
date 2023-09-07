@@ -10,13 +10,13 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - uses: actions/checkout@v2
       - run: |
           git fetch --prune --unshallow --tags
-      - uses: snyk/release-notes-preview@v1.6.1
+      - uses: snyk/release-notes-preview@v1.6.2
         with:
           releaseBranch: main
         env:
