@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module IFOTEC-PRODUCTLIST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ifotec/IFOTEC-PRODUCTLIST-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  7 13:29:14 2023
-# On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 14:00:06 2023
+# On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 ifotec, = mibBuilder.importSymbols("IFOTEC-SMI", "ifotec")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, IpAddress, NotificationType, ModuleIdentity, ObjectIdentity, MibIdentifier, Integer32, Bits, Counter64, Gauge32, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "NotificationType", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "Integer32", "Bits", "Counter64", "Gauge32", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, ModuleIdentity, Counter64, ObjectIdentity, NotificationType, iso, Counter32, IpAddress, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "Counter64", "ObjectIdentity", "NotificationType", "iso", "Counter32", "IpAddress", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ifotecProductList = ModuleIdentity((1, 3, 6, 1, 4, 1, 21362, 100))
 if mibBuilder.loadTexts: ifotecProductList.setLastUpdated('202007290000Z')
 if mibBuilder.loadTexts: ifotecProductList.setOrganization('IFOTEC')
@@ -23,4 +23,4 @@ INET_2GP2GF_AS_101 = MibIdentifier((1, 3, 6, 1, 4, 1, 21362, 100, 1, 4, 3, 2)).s
 INET_4GE2GF_KS_001 = MibIdentifier((1, 3, 6, 1, 4, 1, 21362, 100, 1, 4, 3, 3)).setLabel("INET-4GE2GF-KS-001")
 INET_4GP2GF_AS_001 = MibIdentifier((1, 3, 6, 1, 4, 1, 21362, 100, 1, 4, 3, 4)).setLabel("INET-4GP2GF-AS-001")
 INET_4GE2GF2XF_R1_001 = MibIdentifier((1, 3, 6, 1, 4, 1, 21362, 100, 1, 4, 3, 5)).setLabel("INET-4GE2GF2XF-R1-001")
-mibBuilder.exportSymbols("IFOTEC-PRODUCTLIST-MIB", INET_4GE2GF2XF_R1_001=INET_4GE2GF2XF_R1_001, INET_4GE2GF_KS_001=INET_4GE2GF_KS_001, INET_4GP2GF_AS_001=INET_4GP2GF_AS_001, ifotecINETFamilly=ifotecINETFamilly, ifotecEthernetProducts=ifotecEthernetProducts, INET_2GP2GF_AS_101=INET_2GP2GF_AS_101, PYSNMP_MODULE_ID=ifotecProductList, ifotecProductList=ifotecProductList, INET_2GE2GF_AS_101=INET_2GE2GF_AS_101, ifotecL2ManagedSwitches=ifotecL2ManagedSwitches)
+mibBuilder.exportSymbols("IFOTEC-PRODUCTLIST-MIB", PYSNMP_MODULE_ID=ifotecProductList, ifotecL2ManagedSwitches=ifotecL2ManagedSwitches, INET_2GE2GF_AS_101=INET_2GE2GF_AS_101, ifotecINETFamilly=ifotecINETFamilly, ifotecEthernetProducts=ifotecEthernetProducts, ifotecProductList=ifotecProductList, INET_2GP2GF_AS_101=INET_2GP2GF_AS_101, INET_4GP2GF_AS_001=INET_4GP2GF_AS_001, INET_4GE2GF_KS_001=INET_4GE2GF_KS_001, INET_4GE2GF2XF_R1_001=INET_4GE2GF2XF_R1_001)

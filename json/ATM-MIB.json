@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmAddr",
-      "atmNoClpNoScr",
       "AtmVorXAdminStatus",
-      "AtmConnCastType",
       "AtmVorXLastChange",
       "AtmVorXOperStatus",
-      "AtmVpIdentifier",
-      "AtmConnKind",
-      "AtmVcIdentifier",
       "AtmServiceCategory",
-      "AtmTrafficDescrParamIndex"
+      "AtmConnKind",
+      "AtmConnCastType",
+      "atmNoClpNoScr",
+      "AtmAddr",
+      "AtmTrafficDescrParamIndex",
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -24,21 +24,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "Integer32",
-      "IpAddress",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Counter32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:25:40 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:57:35 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"

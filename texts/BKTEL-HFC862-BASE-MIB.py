@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BKTEL-HFC862-BASE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bktel/BKTEL-HFC862-BASE-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  7 13:20:48 2023
-# On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 13:53:10 2023
+# On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 iso, = mibBuilder.importSymbols("RFC1155-SMI", "iso")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, Unsigned32, TimeTicks, ModuleIdentity, IpAddress, Gauge32, Counter64, Bits, Counter32, Integer32, MibIdentifier, ObjectIdentity, experimental = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "Unsigned32", "TimeTicks", "ModuleIdentity", "IpAddress", "Gauge32", "Counter64", "Bits", "Counter32", "Integer32", "MibIdentifier", "ObjectIdentity", "experimental")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Counter32, Gauge32, ModuleIdentity, NotificationType, IpAddress, Integer32, ObjectIdentity, MibIdentifier, Unsigned32, Bits, experimental, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "Gauge32", "ModuleIdentity", "NotificationType", "IpAddress", "Integer32", "ObjectIdentity", "MibIdentifier", "Unsigned32", "Bits", "experimental", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class DisplayString(OctetString):
     pass
 
@@ -39,4 +39,4 @@ bktelSystems = MibIdentifier((1, 3, 6, 1, 4, 1, 7501))
 hfc = MibIdentifier((1, 3, 6, 1, 4, 1, 7501, 1))
 ne = MibIdentifier((1, 3, 6, 1, 4, 1, 7501, 1, 1))
 modules = MibIdentifier((1, 3, 6, 1, 4, 1, 7501, 1, 2))
-mibBuilder.exportSymbols("BKTEL-HFC862-BASE-MIB", DisplayString=DisplayString, PerceivedSeverityValue=PerceivedSeverityValue, enterprises=enterprises, NESlotValue=NESlotValue, TruthValue=TruthValue, org=org, hfc=hfc, ModuleWidthValue=ModuleWidthValue, dod=dod, ne=ne, private=private, bktelSystems=bktelSystems, mgmt=mgmt, modules=modules, internet=internet)
+mibBuilder.exportSymbols("BKTEL-HFC862-BASE-MIB", hfc=hfc, internet=internet, dod=dod, TruthValue=TruthValue, org=org, enterprises=enterprises, NESlotValue=NESlotValue, ModuleWidthValue=ModuleWidthValue, mgmt=mgmt, PerceivedSeverityValue=PerceivedSeverityValue, bktelSystems=bktelSystems, ne=ne, DisplayString=DisplayString, private=private, modules=modules)

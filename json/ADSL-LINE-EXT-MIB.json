@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslAtucIntervalEntry",
+      "adslAturIntervalEntry",
       "adslAtucPerfDataEntry",
       "adslLineConfProfileEntry",
-      "adslLineEntry",
-      "adslAturIntervalEntry",
-      "adslLineAlarmConfProfileEntry",
+      "adslAturPerfDataEntry",
       "adslMIB",
-      "adslAturPerfDataEntry"
+      "adslLineAlarmConfProfileEntry",
+      "adslAtucIntervalEntry",
+      "adslLineEntry"
     ],
     "ADSL-TC-MIB": [
-      "AdslPerfCurrDayCount",
-      "AdslPerfPrevDayCount"
+      "AdslPerfPrevDayCount",
+      "AdslPerfCurrDayCount"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
       "NOTIFICATION-TYPE",
       "Unsigned32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adslExtMIB": {
@@ -1192,8 +1192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:18:50 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:51:17 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADSL-LINE-EXT-MIB"

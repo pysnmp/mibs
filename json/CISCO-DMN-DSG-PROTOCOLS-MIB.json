@@ -5,29 +5,29 @@
       "ciscoDSGUtilities"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
       "iso",
-      "Unsigned32",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "Bits",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoDSGProtocols": {
@@ -249,8 +249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DMN-DSG-PROTOCOLS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:24:41 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:56:46 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-DMN-DSG-PROTOCOLS-MIB"

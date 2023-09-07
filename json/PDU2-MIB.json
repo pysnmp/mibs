@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
+      "InetAddress",
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
@@ -12,33 +12,33 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
       "sysContact",
-      "sysName"
+      "sysName",
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
       "enterprises",
       "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowPointer",
       "MacAddress",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "raritan": {
@@ -18244,8 +18244,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raritan/PDU2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:33:49 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:04:27 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PDU2-MIB"

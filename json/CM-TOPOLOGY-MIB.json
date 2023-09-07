@@ -10,31 +10,31 @@
       "neIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Integer32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Bits",
-      "IpAddress",
-      "iso",
-      "Counter32"
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "cmTopologyMIB": {
@@ -305,8 +305,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-TOPOLOGY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:19:38 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:52:03 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-TOPOLOGY-MIB"

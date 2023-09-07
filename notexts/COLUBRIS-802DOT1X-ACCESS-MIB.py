@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module COLUBRIS-802DOT1X-ACCESS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-802DOT1X-MIB.my
-# Produced by pysmi-1.1.8 at Thu Sep  7 13:27:17 2023
-# On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 13:58:54 2023
+# On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, IpAddress, iso, Counter32, ModuleIdentity, NotificationType, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, Integer32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "IpAddress", "iso", "Counter32", "ModuleIdentity", "NotificationType", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "Integer32", "TimeTicks", "Counter64")
-TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+TimeTicks, iso, Gauge32, Unsigned32, Counter64, Counter32, ModuleIdentity, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Gauge32", "Unsigned32", "Counter64", "Counter32", "ModuleIdentity", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "MibIdentifier", "ObjectIdentity")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 colubris802Dot1xMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 8))
 if mibBuilder.loadTexts: colubris802Dot1xMIB.setLastUpdated('200601090000Z')
 if mibBuilder.loadTexts: colubris802Dot1xMIB.setOrganization('Colubris Networks, Inc.')
@@ -53,4 +53,4 @@ coDot1xPaeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 8744, 5, 8, 2, 2, 1))
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     coDot1xPaeCompliance = coDot1xPaeCompliance.setStatus('current')
-mibBuilder.exportSymbols("COLUBRIS-802DOT1X-ACCESS-MIB", coDot1xPaeAuthenticator=coDot1xPaeAuthenticator, coDot1xAuthReAuthMax=coDot1xAuthReAuthMax, colubris802Dot1xMIB=colubris802Dot1xMIB, coDot1xPaeSystem=coDot1xPaeSystem, coPaeMIBObjects=coPaeMIBObjects, coDot1xPaeCompliance=coDot1xPaeCompliance, coDot1xPaeCompliances=coDot1xPaeCompliances, coDot1xAuthTxPeriod=coDot1xAuthTxPeriod, coDot1xAuthReAuthEnabled=coDot1xAuthReAuthEnabled, coDot1xPaeConformance=coDot1xPaeConformance, coDot1xPaeSystemModifyKeyInterval=coDot1xPaeSystemModifyKeyInterval, coDot1xAuthKeyTxEnabled=coDot1xAuthKeyTxEnabled, PYSNMP_MODULE_ID=colubris802Dot1xMIB, coDot1xPaeAuthenticatorGroup=coDot1xPaeAuthenticatorGroup, coDot1xPaeSystemGroup=coDot1xPaeSystemGroup, coDot1xAuthServerTimeout=coDot1xAuthServerTimeout, coDot1xAuthSuppTimeout=coDot1xAuthSuppTimeout, coDot1xAuthReAuthPeriod=coDot1xAuthReAuthPeriod, coDot1xAuthMaxReq=coDot1xAuthMaxReq, coDot1xPaeSystemModifyKey=coDot1xPaeSystemModifyKey, coDot1xAuthQuietPeriod=coDot1xAuthQuietPeriod, coDot1xPaeGroups=coDot1xPaeGroups)
+mibBuilder.exportSymbols("COLUBRIS-802DOT1X-ACCESS-MIB", coDot1xPaeAuthenticatorGroup=coDot1xPaeAuthenticatorGroup, coDot1xPaeSystem=coDot1xPaeSystem, coPaeMIBObjects=coPaeMIBObjects, coDot1xPaeCompliances=coDot1xPaeCompliances, coDot1xPaeSystemGroup=coDot1xPaeSystemGroup, coDot1xPaeGroups=coDot1xPaeGroups, coDot1xAuthReAuthPeriod=coDot1xAuthReAuthPeriod, colubris802Dot1xMIB=colubris802Dot1xMIB, coDot1xAuthSuppTimeout=coDot1xAuthSuppTimeout, coDot1xAuthMaxReq=coDot1xAuthMaxReq, coDot1xPaeAuthenticator=coDot1xPaeAuthenticator, coDot1xPaeCompliance=coDot1xPaeCompliance, PYSNMP_MODULE_ID=colubris802Dot1xMIB, coDot1xPaeSystemModifyKeyInterval=coDot1xPaeSystemModifyKeyInterval, coDot1xAuthServerTimeout=coDot1xAuthServerTimeout, coDot1xAuthTxPeriod=coDot1xAuthTxPeriod, coDot1xAuthReAuthEnabled=coDot1xAuthReAuthEnabled, coDot1xAuthKeyTxEnabled=coDot1xAuthKeyTxEnabled, coDot1xPaeConformance=coDot1xPaeConformance, coDot1xAuthReAuthMax=coDot1xAuthReAuthMax, coDot1xAuthQuietPeriod=coDot1xAuthQuietPeriod, coDot1xPaeSystemModifyKey=coDot1xPaeSystemModifyKey)

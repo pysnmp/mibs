@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "TRAP-TYPE",
-      "Gauge32",
+      "Integer32",
+      "Counter64",
+      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "enterprises"
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hitachi": {
@@ -924,8 +924,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hitachi/HM800MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:27:16 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:58:49 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HM800MIB"

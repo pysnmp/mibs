@@ -16,34 +16,34 @@
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "BITS",
-      "IpAddress",
       "Gauge32",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "BITS",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "sleEpon": {
@@ -42161,8 +42161,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-EPON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:23:27 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:55:34 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-EPON-MIB"

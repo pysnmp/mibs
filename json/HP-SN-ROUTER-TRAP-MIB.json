@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "HP-SN-OSPF-GROUP-MIB": [
-      "snOspfLsdbType",
-      "snOspfVirtIfStatusAreaID",
-      "snOspfConfigErrorType",
-      "snOspfNbrState",
       "snOspfVirtNbrState",
-      "snOspfLsdbAreaId",
-      "snOspfNbrIpAddr",
-      "snOspfVirtIfStatusState",
-      "snOspfPacketSrc",
-      "snOspfIfStatusState",
       "snOspfPacketType",
-      "snOspfLsdbLsId",
-      "snOspfNbrRtrId",
-      "snOspfExtLsdbLimit",
-      "snOspfVirtIfStatusNeighbor",
-      "snOspfVirtNbrRtrId",
-      "snOspfVirtNbrArea",
       "snOspfRouterId",
+      "snOspfIfStatusState",
+      "snOspfIfStatusIpAddress",
+      "snOspfConfigErrorType",
+      "snOspfExtLsdbLimit",
+      "snOspfNbrRtrId",
+      "snOspfVirtIfStatusAreaID",
       "snOspfLsdbRouterId",
-      "snOspfIfStatusIpAddress"
+      "snOspfNbrIpAddr",
+      "snOspfVirtNbrRtrId",
+      "snOspfLsdbType",
+      "snOspfVirtIfStatusState",
+      "snOspfNbrState",
+      "snOspfLsdbAreaId",
+      "snOspfPacketSrc",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfVirtNbrArea",
+      "snOspfLsdbLsId"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
@@ -31,25 +31,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Integer32",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
       "Counter32",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snTrapOspfIfStateChange": {
@@ -451,8 +451,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:28:52 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:59:50 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-ROUTER-TRAP-MIB"

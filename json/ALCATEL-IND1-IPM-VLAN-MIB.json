@@ -9,34 +9,34 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
       "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Bits",
-      "TimeTicks"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1IPMVlanMIB": {
@@ -593,8 +593,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPM-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:32:23 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:03:10 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-IPM-VLAN-MIB"

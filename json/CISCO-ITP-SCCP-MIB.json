@@ -6,47 +6,47 @@
       "cItpSpCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcTableLoadStatus",
-      "CItpTcNAI",
-      "CItpTcNumberingPlan",
       "CItpTcGtaDisplay",
+      "CItpTcGtaAddr",
       "CItpTcSubSystemNumber",
+      "CItpTcXuaName",
       "CItpTcDisplayPC",
       "CItpTcTranslationType",
-      "CItpTcPointCode",
+      "CItpTcNAI",
+      "CItpTcTableLoadStatus",
+      "CItpTcNumberingPlan",
       "CItpTcGtaDisplayZB",
-      "CItpTcXuaName",
-      "CItpTcGtaAddr"
+      "CItpTcPointCode"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
       "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoItpSccpMIB": {
@@ -2955,8 +2955,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-SCCP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:24:36 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:56:41 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-SCCP-MIB"

@@ -12,20 +12,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
       "OBJECT-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4343,8 +4343,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-BGP4-GROUP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:26:01 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:57:56 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-BGP4-GROUP-MIB"

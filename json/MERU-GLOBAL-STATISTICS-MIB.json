@@ -9,39 +9,39 @@
     ],
     "MERU-TC": [
       "MwlNodeType",
-      "MwlOnOffSwitch",
-      "MwlBandType"
+      "MwlBandType",
+      "MwlOnOffSwitch"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
       "enterprises",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "IpAddress",
       "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MibIdentifier",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Counter64",
-      "iso"
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TimeInterval",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
       "RowStatus",
       "TimeStamp",
-      "DateAndTime",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwGlobalStatistics": {
@@ -5451,8 +5451,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-GLOBAL-STATISTICS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:26:15 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:58:06 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MERU-GLOBAL-STATISTICS-MIB"

@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "DASAN-SMI": [
-      "dasanMgmt",
-      "dasanEvents"
+      "dasanEvents",
+      "dasanMgmt"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
       "Gauge32",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -78,8 +78,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-GFAST-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:23:28 2023",
-      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:55:35 2023",
+      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DASAN-GFAST-MIB"
