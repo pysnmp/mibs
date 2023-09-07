@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "RS-XX8000-COMMON-MIB": [
-      "ReadableString",
-      "FailDelayStatus",
+      "LogbookEntryMessagesExcTv",
+      "FailDelayMode",
+      "ProdInfoModuleNameTv",
+      "InputSource",
+      "LogbookMaxEntryNumber",
+      "eventAlarmClass",
+      "EventClass",
+      "IndexAB",
+      "EqualizerCalibrationState",
       "Trigger",
-      "rsXx8000",
+      "EventPriority",
+      "FloatingPoint",
       "IndexRack",
+      "SwitchOnOff",
+      "EventMask",
       "indexRack",
       "EventState",
-      "eventAlarmClass",
-      "eventEvent",
-      "FailDelayMode",
+      "rsXx8000",
       "LogbookEntrySlope",
-      "EventMaxEntryNumber",
-      "rsXx8000MibModule",
-      "eventAlarmPriority",
-      "IndexAmplifier",
-      "EventClass",
-      "LogbookEntryMessagesNetCCU",
-      "indexAB",
-      "FloatingPoint",
-      "EqualizerCalibrationState",
       "indexAmplifier",
-      "TvStandard",
-      "SwitchOnOff",
-      "TimeOfDay",
-      "ProdInfoModuleNameTv",
+      "EventMaxEntryNumber",
+      "IndexAmplifier",
       "LogbookEntryMessagesOST",
-      "EventMask",
-      "LogbookEntryMessagesExcTv",
       "Sx801AmplifierState",
-      "IndexAB",
-      "EventPriority",
-      "LogbookMaxEntryNumber",
-      "InputSource"
+      "indexAB",
+      "TimeOfDay",
+      "TvStandard",
+      "eventAlarmPriority",
+      "ReadableString",
+      "eventEvent",
+      "rsXx8000MibModule",
+      "LogbookEntryMessagesNetCCU",
+      "FailDelayStatus"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -42,27 +42,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Bits",
       "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
       "IpAddress",
-      "MibIdentifier",
       "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Counter64"
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TruthValue",
       "DateAndTime",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "rsXx8000DvbTxMibModule": {
@@ -11720,9 +11720,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX8000-DVB-TX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:24:17 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:22:35 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RS-XX8000-DVB-TX-MIB"
   }

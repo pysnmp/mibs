@@ -8,33 +8,33 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
       "Counter64",
-      "iso"
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfIpAddrMIB": {
@@ -500,9 +500,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-IP-ADDRESS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:19:21 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:17:51 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-IP-ADDRESS-MIB"
   }

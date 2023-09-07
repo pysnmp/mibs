@@ -8,13 +8,13 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2RemTimeMark",
-      "lldpV2PortConfigEntry",
-      "lldpV2RemIndex",
-      "lldpV2Extensions",
       "lldpV2RemLocalIfIndex",
+      "lldpV2PortConfigEntry",
+      "lldpV2LocPortIfIndex",
+      "lldpV2RemTimeMark",
+      "lldpV2RemIndex",
       "lldpV2RemLocalDestMACAddress",
-      "lldpV2LocPortIfIndex"
+      "lldpV2Extensions"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -23,29 +23,29 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
       "Integer32",
       "Counter32",
-      "TimeTicks",
+      "MibIdentifier",
       "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -4340,10 +4340,10 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-EXT-DOT1-V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:22:37 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-V2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:08:58 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-V2-MIB"
   }

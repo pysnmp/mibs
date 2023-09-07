@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "mcTrapLParam3",
-      "eltrapGroup",
-      "mcTrapDescr",
+      "mcTrapExState",
+      "mcTrapLParam2",
       "elHardware",
       "mcTrapLParam1",
-      "mcTrapLParam2",
+      "mcTrapLParam3",
+      "eltrapGroup",
       "mcTrapID",
-      "mcTrapExState"
+      "mcTrapDescr"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "Integer32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Gauge32",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
       "iso",
       "Counter32",
       "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-TYPE",
-      "IpAddress"
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "MacAddress",
-      "RowStatus",
-      "TimeStamp",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "pp4": {
@@ -6478,9 +6478,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:16:04 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:15:17 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ELTEX-PP4"
   }

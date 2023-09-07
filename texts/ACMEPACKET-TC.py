@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ACMEPACKET-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-TC
-# Produced by pysmi-1.1.8 at Thu Sep  7 09:22:22 2023
-# On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner
-# Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]
+# Produced by pysmi-1.1.8 at Thu Sep  7 10:20:54 2023
+# On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner
+# Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 acmepacket, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacket")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Bits, NotificationType, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, TimeTicks, iso, ObjectIdentity, IpAddress, Unsigned32, Integer32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "TimeTicks", "iso", "ObjectIdentity", "IpAddress", "Unsigned32", "Integer32", "ModuleIdentity")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+iso, Bits, TimeTicks, Counter32, ObjectIdentity, MibIdentifier, ModuleIdentity, Gauge32, Integer32, NotificationType, IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "TimeTicks", "Counter32", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Gauge32", "Integer32", "NotificationType", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 apTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 0))
 apTextualConventions.setRevisions(('2012-02-06 23:05', '2012-05-05 23:05', '2014-06-26 00:00',))
 
@@ -92,4 +92,4 @@ class ApAclType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("untrusted", 0), ("trusted", 1))
 
-mibBuilder.exportSymbols("ACMEPACKET-TC", PYSNMP_MODULE_ID=apTextualConventions, ApPercentage=ApPercentage, ApAclType=ApAclType, ApPhyPortType=ApPhyPortType, ApPresence=ApPresence, ApServerStatus=ApServerStatus, ApSipMethod=ApSipMethod, ApTransportType=ApTransportType, ApDiamResultCode=ApDiamResultCode, ApThreadOverloaded=ApThreadOverloaded, ApCommMonitorState=ApCommMonitorState, apTextualConventions=apTextualConventions, ApHardwareModuleFamily=ApHardwareModuleFamily, ApRedundancyState=ApRedundancyState)
+mibBuilder.exportSymbols("ACMEPACKET-TC", ApPercentage=ApPercentage, apTextualConventions=apTextualConventions, ApPhyPortType=ApPhyPortType, ApPresence=ApPresence, ApThreadOverloaded=ApThreadOverloaded, ApServerStatus=ApServerStatus, ApCommMonitorState=ApCommMonitorState, ApRedundancyState=ApRedundancyState, ApSipMethod=ApSipMethod, ApHardwareModuleFamily=ApHardwareModuleFamily, PYSNMP_MODULE_ID=apTextualConventions, ApTransportType=ApTransportType, ApAclType=ApAclType, ApDiamResultCode=ApDiamResultCode)

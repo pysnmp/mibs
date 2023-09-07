@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "CISCO-CBP-TARGET-TC-MIB": [
-      "CcbptPolicyIdentifier",
-      "CcbptTargetDirection",
-      "CcbptPolicySourceType",
-      "CcbptTargetId",
       "CcbptPolicyIdentifierOrZero",
-      "CcbptTargetType"
+      "CcbptPolicySourceType",
+      "CcbptPolicyIdentifier",
+      "CcbptTargetType",
+      "CcbptTargetDirection",
+      "CcbptTargetId"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64",
-      "iso",
-      "Counter32",
+      "Unsigned32",
       "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "Counter64",
       "MibIdentifier",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "RowStatus",
       "DisplayString",
+      "RowPointer",
       "StorageType",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "RowPointer"
+      "TimeStamp"
     ]
   },
   "ciscoCbpTargetMIB": {
@@ -329,9 +329,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CBP-TARGET-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:15:25 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:14:45 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-CBP-TARGET-MIB"
   }

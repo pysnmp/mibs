@@ -8,31 +8,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Unsigned32",
       "iso",
-      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
       "Gauge32",
-      "Counter64",
-      "Bits",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "dlinkSwDhcp6GuardMIB": {
@@ -408,9 +408,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP6-GUARD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:15:21 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:14:33 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP6-GUARD-MIB"
   }

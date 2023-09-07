@@ -12,28 +12,28 @@
       "InetAddressIPv4"
     ],
     "MPLS-LSR-MIB": [
-      "MplsObjectOwner",
-      "MplsLabel"
+      "MplsLabel",
+      "MplsObjectOwner"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
+      "Bits",
       "MibIdentifier",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
       "Counter32",
       "TimeTicks",
-      "Gauge32",
       "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -511,9 +511,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-STATIC-FRR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:22:35 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:21:02 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-STATIC-FRR-MIB"
   }

@@ -4,10 +4,10 @@
     "HP-SN-MPLS-TC-MIB": [
       "mplsMIB",
       "MplsBurstSize",
+      "MplsLabel",
       "MplsBitRate",
       "MplsInitialCreationSource",
-      "MplsLSPID",
-      "MplsLabel"
+      "MplsLSPID"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -20,9 +20,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -30,29 +30,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "Unsigned32",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter64",
-      "iso"
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "StorageType",
       "TEXTUAL-CONVENTION",
       "RowPointer",
+      "RowStatus",
+      "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "TruthValue",
+      "StorageType"
     ]
   },
   "mplsLsrMIB": {
@@ -1832,9 +1832,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:19:22 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:17:51 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-LSR-MIB"
   }

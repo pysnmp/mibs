@@ -5,21 +5,21 @@
       "clabProjDocsis"
     ],
     "DOCS-IETF-BPI2-MIB": [
-      "DocsBpkmDataEncryptAlg",
-      "DocsSAId"
+      "DocsSAId",
+      "DocsBpkmDataEncryptAlg"
     ],
     "DOCS-IF3-MIB": [
-      "Dsid",
-      "ChSetId"
+      "ChSetId",
+      "Dsid"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -30,25 +30,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
       "Gauge32",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1154,9 +1154,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-MCAST-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:09:57 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:09:18 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-MCAST-MIB"
   }

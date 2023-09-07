@@ -15,18 +15,18 @@
     "SNMPv2-SMI": [
       "Counter64",
       "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
       "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -995,9 +995,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-LPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 09:14:17 2023",
-      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
-      "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Sep  7 10:13:34 2023",
+      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-LPS-MIB"
   }
