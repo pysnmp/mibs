@@ -5,29 +5,29 @@
       "alFtpMibModule"
     ],
     "ALTIGA-MIB": [
-      "alFtpGroup",
-      "alStatsFtp"
+      "alStatsFtp",
+      "alFtpGroup"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
+      "Counter32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Unsigned32",
       "MibIdentifier",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "Bits",
       "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -300,8 +300,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-FTP-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:56:42 2023",
-      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:13:58 2023",
+      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALTIGA-FTP-STATS-MIB"

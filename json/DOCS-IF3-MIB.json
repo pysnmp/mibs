@@ -8,26 +8,26 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvText",
       "docsDevEvLevel",
-      "docsDevEvId",
-      "docsDevEvLastTime"
+      "docsDevEvLastTime",
+      "docsDevEvText",
+      "docsDevEvId"
     ],
     "DOCS-IF-MIB": [
       "DocsisQosVersion",
-      "TenthdB",
-      "TenthdBmV",
       "DocsEqualizerData",
+      "TenthdBmV",
+      "TenthdB",
       "DocsisUpstreamType"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -45,28 +45,28 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
+      "Integer32",
       "iso",
-      "IpAddress",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
       "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "StorageType",
       "TruthValue",
-      "DisplayString",
-      "MacAddress",
+      "DateAndTime",
       "RowStatus",
-      "DateAndTime"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:51:17 2023",
-      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:07:12 2023",
+      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF3-MIB"

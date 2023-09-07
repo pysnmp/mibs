@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "enterprises",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
-      "Counter64",
+      "Unsigned32",
       "IpAddress",
       "MibIdentifier",
       "OBJECT-IDENTITY",
       "iso",
-      "Unsigned32"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "force10": {
@@ -75,8 +75,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-SMI",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:56:17 2023",
-      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:13:27 2023",
+      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FORCE10-SMI"

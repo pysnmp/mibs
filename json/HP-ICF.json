@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMP-REPEATER-MIB": [
-      "rptrPortAdminStatus",
-      "rptrAddrTrackLastSourceAddress"
+      "rptrAddrTrackLastSourceAddress",
+      "rptrPortAdminStatus"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "iso",
-      "Integer32",
-      "TRAP-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "enterprises",
-      "Counter32",
       "Counter64",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
       "IpAddress",
-      "OBJECT-TYPE"
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -6900,8 +6900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-ICF",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:59:49 2023",
-      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:17:39 2023",
+      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-ICF"

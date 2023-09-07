@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSConformance",
-      "adGenAOSCommon"
+      "adGenAOSCommon",
+      "adGenAOSConformance"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfTotalCount",
-      "HCPerfValidIntervals",
-      "HCPerfInvalidIntervals",
       "HCPerfIntervalCount",
+      "HCPerfInvalidIntervals",
       "HCPerfTimeElapsed",
-      "HCPerfCurrentCount"
+      "HCPerfTotalCount",
+      "HCPerfCurrentCount",
+      "HCPerfValidIntervals"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
       "Counter64",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "iso",
       "Integer32",
-      "TimeTicks"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adGenAosIfPerfHistoryMib": {
@@ -1170,8 +1170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-IF-PERF-HISTORY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:51:33 2023",
-      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:07:32 2023",
+      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-IF-PERF-HISTORY-MIB"

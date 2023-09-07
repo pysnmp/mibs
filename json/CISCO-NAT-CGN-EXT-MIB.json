@@ -5,35 +5,35 @@
       "ciscoMgmt"
     ],
     "NAT-MIB": [
-      "NatBehaviorType",
-      "NatPoolingType",
-      "natInstanceIndex",
       "natInstanceEntry",
-      "natCountersEntry"
+      "NatBehaviorType",
+      "natCountersEntry",
+      "NatPoolingType",
+      "natInstanceIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Integer32",
-      "Counter32"
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1189,8 +1189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NAT-CGN-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 13:56:44 2023",
-      "On host fv-az444-965 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 14:14:00 2023",
+      "On host fv-az548-537 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-NAT-CGN-EXT-MIB"
