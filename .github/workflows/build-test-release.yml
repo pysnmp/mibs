@@ -28,7 +28,7 @@ jobs:
       - pre-commit
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       pages: write
     steps:
