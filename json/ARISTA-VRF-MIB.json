@@ -8,25 +8,25 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter64"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -264,8 +264,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-VRF-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:42:29 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:11:06 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "ARISTA-VRF-MIB"

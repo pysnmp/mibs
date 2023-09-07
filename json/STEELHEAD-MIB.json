@@ -5,29 +5,29 @@
       "products"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
       "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "MibIdentifier",
       "Integer32",
-      "MibIdentifier"
+      "iso",
+      "Bits",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "steelhead": {
@@ -2961,8 +2961,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riverbed/STEELHEAD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:58:04 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:24:13 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "STEELHEAD-MIB"

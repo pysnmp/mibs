@@ -7,25 +7,25 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
       "TimeTicks",
       "Counter64",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "experimental"
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
+      "experimental",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "clns": {
@@ -1448,8 +1448,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/CLNS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:41:17 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:09:58 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "CLNS-MIB"

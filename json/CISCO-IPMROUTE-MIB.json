@@ -9,8 +9,8 @@
     ],
     "IPMROUTE-STD-MIB": [
       "ipMRouteInterfaceEntry",
-      "ipMRouteNextHopEntry",
-      "ipMRouteEntry"
+      "ipMRouteEntry",
+      "ipMRouteNextHopEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -19,26 +19,26 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
       "Integer32",
-      "iso",
       "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Bits",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
       "TimeTicks",
       "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TimeStamp",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "ciscoIpMRouteMIB": {
@@ -1213,8 +1213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPMROUTE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:47:21 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:15:27 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "CISCO-IPMROUTE-MIB"

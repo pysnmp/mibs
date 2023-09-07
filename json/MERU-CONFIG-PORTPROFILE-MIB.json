@@ -8,44 +8,44 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlProfileOwner",
-      "MwlBridgedVlanType",
-      "MwlDataplaneMode",
       "MwlOnOffSwitch",
+      "MwlBridgedVlanType",
       "MwlIfAdministrativeState",
-      "MwlOperationalState",
-      "MwlEnableDisableOption"
+      "MwlProfileOwner",
+      "MwlEnableDisableOption",
+      "MwlDataplaneMode",
+      "MwlOperationalState"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "enterprises",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "Bits",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
       "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
-      "TruthValue",
+      "RowStatus",
       "MacAddress",
+      "TruthValue",
+      "DisplayString",
       "TimeInterval",
       "DateAndTime",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "mwConfigPortProfile": {
@@ -466,8 +466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-PORTPROFILE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:48:59 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:16:52 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "MERU-CONFIG-PORTPROFILE-MIB"

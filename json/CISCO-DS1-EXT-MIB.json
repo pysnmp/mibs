@@ -9,21 +9,21 @@
       "BulkConfigResult"
     ],
     "DS1-MIB": [
+      "dsx1FarEndIntervalEntry",
+      "dsx1FarEndCurrentEntry",
+      "dsx1ConfigEntry",
+      "dsx1TotalEntry",
       "dsx1FarEndTotalEntry",
       "dsx1IntervalEntry",
-      "dsx1ConfigEntry",
-      "dsx1FarEndIntervalEntry",
-      "dsx1CurrentEntry",
-      "dsx1FarEndCurrentEntry",
-      "dsx1TotalEntry"
+      "dsx1CurrentEntry"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
+      "PerfCurrentCount",
       "PerfTotalCount",
-      "PerfCurrentCount"
+      "PerfIntervalCount"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -35,25 +35,25 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
       "Integer32",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
       "TimeTicks",
       "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:47:18 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:15:24 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

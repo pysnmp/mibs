@@ -6,13 +6,13 @@
       "Percent"
     ],
     "CISCO-QOS-TC-MIB": [
-      "QosThresholdNumber",
-      "QosMutationMapName",
-      "QosMplsExpValue",
-      "QosMutationMapNameOrEmpty",
+      "QosIpPrecedence",
       "QosQueueNumber",
       "QosPolicerType",
-      "QosIpPrecedence"
+      "QosThresholdNumber",
+      "QosMplsExpValue",
+      "QosMutationMapName",
+      "QosMutationMapNameOrEmpty"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -39,25 +39,25 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
       "Integer32",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ciscoSwitchQosMIB": {
@@ -4882,8 +4882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:47:20 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:15:26 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "CISCO-SWITCH-QOS-MIB"

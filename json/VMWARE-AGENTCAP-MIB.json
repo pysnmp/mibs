@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "AGENT-CAPABILITIES",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter32",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "TimeTicks",
-      "iso"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "VMWARE-ROOT-MIB": [
       "vmwareAgentCapabilities"
@@ -63,8 +63,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-AGENTCAP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:59:58 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:25:59 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "VMWARE-AGENTCAP-MIB"

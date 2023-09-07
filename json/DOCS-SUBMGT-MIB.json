@@ -7,25 +7,25 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
+      "Bits",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "iso",
       "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "experimental"
+      "experimental",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -1324,8 +1324,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-SUBMGT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep  6 13:41:16 2023",
-      "On host fv-az254-698 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 09:09:57 2023",
+      "On host fv-az1234-541 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.12 (main, Jun  7 2023, 13:43:11) [GCC 11.3.0]"
     ],
     "module": "DOCS-SUBMGT-MIB"
