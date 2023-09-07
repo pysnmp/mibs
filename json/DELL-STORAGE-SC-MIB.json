@@ -5,34 +5,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "enterprises",
       "IpAddress",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
       "OBJECT-TYPE",
       "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso",
+      "Integer32",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -5554,8 +5554,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-STORAGE-SC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:14:17 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:41:12 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELL-STORAGE-SC-MIB"

@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
-      "Bits",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "enterprises",
+      "Integer32",
       "IpAddress",
-      "Integer32"
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2731,8 +2731,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/SDX-MIB-SMIV2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:12:02 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:38:36 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MIB"

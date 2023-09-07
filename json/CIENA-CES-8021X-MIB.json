@@ -6,8 +6,8 @@
       "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
-      "cienaCesNotifications",
-      "cienaCesConfig"
+      "cienaCesConfig",
+      "cienaCesNotifications"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xPaeSystemAuthControl"
@@ -17,25 +17,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
       "IpAddress",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
-      "Counter64",
-      "Integer32",
-      "Bits"
+      "Bits",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaCes8021xMIB": {
@@ -677,8 +677,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-8021X-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:11:56 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:38:29 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-8021X-MIB"

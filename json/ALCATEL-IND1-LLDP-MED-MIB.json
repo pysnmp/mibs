@@ -12,31 +12,31 @@
       "LldpPortNumber"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "iso",
-      "Counter64",
-      "OBJECT-TYPE",
       "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "IpAddress",
+      "Counter64",
       "Unsigned32",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "alcatelIND1LLDPMEDMIB": {
@@ -355,8 +355,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-LLDP-MED-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:21:03 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:48:45 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-LLDP-MED-MIB"

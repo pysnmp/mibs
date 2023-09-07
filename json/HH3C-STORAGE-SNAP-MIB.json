@@ -5,12 +5,12 @@
       "entPhysicalIndex"
     ],
     "HH3C-STORAGE-REF-MIB": [
-      "Hh3cExtendSelectPolicy",
+      "Hh3cStorageEnableState",
+      "Hh3cStorageOnlineState",
       "Hh3cLvIDType",
       "hh3cStorageRef",
-      "Hh3cStorageOnlineState",
-      "Hh3cStorageEnableState",
       "Hh3cRaidIDType",
+      "Hh3cExtendSelectPolicy",
       "Hh3cStorageActionType"
     ],
     "INET-ADDRESS-MIB": [
@@ -22,26 +22,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "iso",
-      "Integer32",
+      "Gauge32",
+      "Counter32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DateAndTime",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TruthValue"
     ]
   },
@@ -2212,8 +2212,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-STORAGE-SNAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:12:31 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:39:11 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-STORAGE-SNAP-MIB"

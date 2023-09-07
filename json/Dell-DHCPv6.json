@@ -5,40 +5,40 @@
       "rnd"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "TimeTicks",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
       "OBJECT-TYPE",
       "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter32",
-      "Bits"
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlDhcpv6": {
@@ -84,8 +84,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DHCPv6",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:14:17 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:41:12 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-DHCPv6"

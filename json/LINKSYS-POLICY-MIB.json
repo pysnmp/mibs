@@ -5,51 +5,51 @@
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
       "VlanList4",
       "VlanList1",
-      "VlanList2"
+      "VlanList2",
+      "VlanList3"
     ],
     "LINKSYS-MIB": [
-      "rnd",
       "Percents",
-      "VlanPriority"
+      "VlanPriority",
+      "rnd"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
       "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
       "zeroDotZero",
       "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "iso",
-      "Bits"
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
-      "DisplayString",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "InterfaceType": {
@@ -5400,8 +5400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:19:35 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:47:04 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-POLICY-MIB"

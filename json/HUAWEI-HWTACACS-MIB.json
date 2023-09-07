@@ -5,31 +5,31 @@
       "hwDatacomm"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwTACACS": {
@@ -5084,8 +5084,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-HWTACACS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:17:41 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:45:01 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-HWTACACS-MIB"

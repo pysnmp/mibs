@@ -3,33 +3,33 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "iso",
       "Counter64",
+      "Unsigned32",
+      "IpAddress",
       "Counter32",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ],
     "UBNT-MIB": [
-      "ubntAFLTUGroups",
-      "ubntAFLTU"
+      "ubntAFLTU",
+      "ubntAFLTUGroups"
     ]
   },
   "afLTUMIB": {
@@ -1286,8 +1286,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-AFLTU-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 10:23:48 2023",
-      "On host fv-az627-713 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 11:51:51 2023",
+      "On host fv-az174-692 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UBNT-AFLTU-MIB"
