@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-DSCP-TC": [
-      "Dscp",
-      "DscpOrAny"
+      "DscpOrAny",
+      "Dscp"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
-      "InetAddressType",
       "InetPortNumber",
+      "InetAddressType",
       "InetAddress"
     ],
     "INTEGRATED-SERVICES-MIB": [
@@ -24,30 +24,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "mib-2",
-      "Counter64",
       "iso",
-      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
       "Integer32",
-      "zeroDotZero"
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "zeroDotZero",
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowPointer",
-      "RowStatus"
+      "AutonomousType",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowPointer"
     ]
   },
   "diffServMib": {
@@ -2956,8 +2956,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 11:57:28 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:18:49 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DIFFSERV-MIB"

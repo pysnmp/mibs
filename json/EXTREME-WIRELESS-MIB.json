@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "WPACipherSet",
-      "WirelessRemoteConnectBindingType",
-      "extremeAP",
-      "WPAKeyMgmtSet",
-      "extremeLAC",
-      "extremeV2Traps",
       "extremeAgent",
+      "extremeLAC",
+      "WirelessRemoteConnectBindingType",
+      "extremeV2Traps",
+      "ClientAuthType",
+      "WPACipherSet",
+      "WPAKeyMgmtSet",
       "ExtremeDeviceId",
-      "ClientAuthType"
+      "extremeAP"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -21,31 +21,31 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
       "Bits",
       "Counter64",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue",
       "RowStatus",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeWireless": {
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:03:46 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:26:01 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

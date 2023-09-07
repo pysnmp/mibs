@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlGroupId",
-      "UTFString"
+      "UTFString",
+      "eqlGroupId"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLRAID-MIB": [
-      "eqlRAIDDeviceLUNIndex",
-      "eqlRAIDDeviceUUID"
+      "eqlRAIDDeviceUUID",
+      "eqlRAIDDeviceLUNIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiLocalMemberId",
-      "eqliscsiVolumeIndex"
+      "eqliscsiVolumeIndex",
+      "eqliscsiLocalMemberId"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -26,34 +26,34 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "enterprises",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Opaque",
+      "MibIdentifier",
       "Counter64",
+      "TimeTicks",
       "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "TimeTicks"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
       "RowPointer",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:03:22 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:25:35 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

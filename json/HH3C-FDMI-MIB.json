@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "fcmInstanceIndex",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "fcmInstanceIndex"
     ],
     "HH3C-VSAN-MIB": [
       "hh3cSan"
@@ -16,20 +16,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -386,8 +386,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FDMI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:00:32 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:22:19 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-FDMI-MIB"

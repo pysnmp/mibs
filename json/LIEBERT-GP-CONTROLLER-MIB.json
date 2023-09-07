@@ -6,28 +6,28 @@
       "liebertControllerModuleReg"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "Gauge32",
       "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
       "Bits",
       "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "liebertControllerModule": {
@@ -113,8 +113,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-CONTROLLER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:07:02 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:30:27 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LIEBERT-GP-CONTROLLER-MIB"

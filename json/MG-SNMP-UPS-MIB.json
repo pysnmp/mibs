@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Integer32",
       "Counter32",
-      "IpAddress",
-      "Counter64",
       "Gauge32",
       "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
+      "TRAP-TYPE",
       "iso",
-      "Bits",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "TRAP-TYPE",
-      "OBJECT-TYPE"
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "merlinGerin": {
@@ -4097,8 +4097,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/MG-SNMP-UPS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:02:45 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:24:54 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MG-SNMP-UPS-MIB"

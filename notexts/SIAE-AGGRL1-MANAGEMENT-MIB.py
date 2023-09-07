@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SIAE-AGGRL1-MANAGEMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-AGGRL1-MANAGEMENT-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  7 12:10:18 2023
-# On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Sep  7 13:34:32 2023
+# On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
+AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, IpAddress, ModuleIdentity, Counter64, Gauge32, TimeTicks, MibIdentifier, Bits, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "IpAddress", "ModuleIdentity", "Counter64", "Gauge32", "TimeTicks", "MibIdentifier", "Bits", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "NotificationType")
-RowStatus, StorageType, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "StorageType", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, TimeTicks, Counter64, IpAddress, Integer32, ObjectIdentity, Unsigned32, Bits, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "Counter64", "IpAddress", "Integer32", "ObjectIdentity", "Unsigned32", "Bits", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "ModuleIdentity", "Counter32")
+TextualConvention, StorageType, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "StorageType", "DisplayString", "RowStatus")
 aggregationL1 = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 83))
 aggregationL1.setRevisions(('2014-09-29 00:00', '2014-05-26 00:00',))
 if mibBuilder.loadTexts: aggregationL1.setLastUpdated('201409290000Z')
@@ -77,4 +77,4 @@ aggrL1ConnAggregableType = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 83, 8, 
 if mibBuilder.loadTexts: aggrL1ConnAggregableType.setStatus('current')
 aggrL1ConnAggregatorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 83, 8, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: aggrL1ConnAggregatorIndex.setStatus('current')
-mibBuilder.exportSymbols("SIAE-AGGRL1-MANAGEMENT-MIB", aggrL1CapabilityAggregableIndex=aggrL1CapabilityAggregableIndex, aggrL1Table=aggrL1Table, aggrL1AlarmEntry=aggrL1AlarmEntry, aggrL1ConnAggregatorIndex=aggrL1ConnAggregatorIndex, PYSNMP_MODULE_ID=aggregationL1, aggrL1CapabilityEntry=aggrL1CapabilityEntry, aggregationL1=aggregationL1, aggrL1AggregatorIndex=aggrL1AggregatorIndex, aggrL1AlarmTable=aggrL1AlarmTable, aggrL1FailAlarm=aggrL1FailAlarm, aggrL1ConnAggregableType=aggrL1ConnAggregableType, aggrL1ConnAggregableIndex=aggrL1ConnAggregableIndex, aggrL1RealignmentAlarmSeverityCode=aggrL1RealignmentAlarmSeverityCode, aggrL1ConnectionTable=aggrL1ConnectionTable, aggrL1StorageType=aggrL1StorageType, aggrL1AggregableType=aggrL1AggregableType, aggrL1CapabilityTable=aggrL1CapabilityTable, aggrL1RealignmentAlarm=aggrL1RealignmentAlarm, aggrL1ConnectionEntry=aggrL1ConnectionEntry, aggrL1DegradeAlarm=aggrL1DegradeAlarm, aggrL1DegradeAlarmSeverityCode=aggrL1DegradeAlarmSeverityCode, aggrL1Entry=aggrL1Entry, aggrL1AlarmAggregatorIndex=aggrL1AlarmAggregatorIndex, aggrL1FailAlarmSeverityCode=aggrL1FailAlarmSeverityCode, aggrL1MibVersion=aggrL1MibVersion, aggrL1AggregableIndex=aggrL1AggregableIndex, aggrL1Rowstatus=aggrL1Rowstatus, aggrL1CapabilityAggregableType=aggrL1CapabilityAggregableType, AggregableType=AggregableType, aggrL1CapabilityAggregatorIndex=aggrL1CapabilityAggregatorIndex)
+mibBuilder.exportSymbols("SIAE-AGGRL1-MANAGEMENT-MIB", aggrL1RealignmentAlarmSeverityCode=aggrL1RealignmentAlarmSeverityCode, aggrL1FailAlarm=aggrL1FailAlarm, aggrL1CapabilityAggregableIndex=aggrL1CapabilityAggregableIndex, aggrL1ConnAggregableType=aggrL1ConnAggregableType, aggrL1StorageType=aggrL1StorageType, aggrL1Entry=aggrL1Entry, aggrL1ConnAggregatorIndex=aggrL1ConnAggregatorIndex, aggrL1AlarmEntry=aggrL1AlarmEntry, aggrL1RealignmentAlarm=aggrL1RealignmentAlarm, aggrL1CapabilityTable=aggrL1CapabilityTable, aggrL1DegradeAlarm=aggrL1DegradeAlarm, aggrL1AggregableIndex=aggrL1AggregableIndex, aggrL1MibVersion=aggrL1MibVersion, aggrL1AggregableType=aggrL1AggregableType, AggregableType=AggregableType, aggrL1CapabilityAggregatorIndex=aggrL1CapabilityAggregatorIndex, aggrL1ConnectionTable=aggrL1ConnectionTable, aggrL1CapabilityAggregableType=aggrL1CapabilityAggregableType, aggregationL1=aggregationL1, aggrL1FailAlarmSeverityCode=aggrL1FailAlarmSeverityCode, aggrL1AlarmAggregatorIndex=aggrL1AlarmAggregatorIndex, aggrL1CapabilityEntry=aggrL1CapabilityEntry, PYSNMP_MODULE_ID=aggregationL1, aggrL1AlarmTable=aggrL1AlarmTable, aggrL1DegradeAlarmSeverityCode=aggrL1DegradeAlarmSeverityCode, aggrL1ConnectionEntry=aggrL1ConnectionEntry, aggrL1ConnAggregableIndex=aggrL1ConnAggregableIndex, aggrL1Rowstatus=aggrL1Rowstatus, aggrL1AggregatorIndex=aggrL1AggregatorIndex, aggrL1Table=aggrL1Table)

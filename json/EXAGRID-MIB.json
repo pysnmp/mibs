@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
+      "Unsigned32",
       "IpAddress",
-      "TimeTicks",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
+      "enterprises",
       "Bits",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Gauge32",
+      "TimeTicks",
       "Integer32",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "exagrid": {
@@ -859,8 +859,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exagrid/EXAGRID-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:03:32 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:25:46 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EXAGRID-MIB"

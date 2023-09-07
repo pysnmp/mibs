@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "AtmTrafficDescrParamIndex",
-      "atmVclVpi",
       "atmVplVpi",
-      "atmVclVci"
+      "atmVclVpi",
+      "atmVclVci",
+      "AtmTrafficDescrParamIndex"
     ],
     "CISCO-ATM-IF-MIB": [
       "NsapAtmAddr"
@@ -17,39 +17,39 @@
       "ciscoExperiment"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
       "Counter64",
-      "iso"
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoAtmConnMIB": {
@@ -3827,8 +3827,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-CONN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:02:37 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:24:39 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ATM-CONN-MIB"

@@ -11,16 +11,16 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifName",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
@@ -28,26 +28,26 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
       "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32"
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DateAndTime",
       "TruthValue",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -4958,8 +4958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VPLS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:05:24 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:28:04 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VPLS-EXT-MIB"

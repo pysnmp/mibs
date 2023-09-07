@@ -5,24 +5,24 @@
       "begemotIp"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Unsigned32",
-      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter32",
-      "TimeTicks"
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -103,8 +103,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-MIB2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 12:09:01 2023",
-      "On host fv-az407-692 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Sep  7 13:32:53 2023",
+      "On host fv-az422-951 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BEGEMOT-MIB2-MIB"
