@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ipoProdMIB": {
@@ -1176,8 +1176,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/IPO-PROD-MIB.mib",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:29:38 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:56:25 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPO-PROD-MIB"

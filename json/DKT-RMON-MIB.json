@@ -5,29 +5,29 @@
       "dkt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "Counter64",
       "Gauge32",
-      "Integer32"
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rmonMIB": {
@@ -3253,8 +3253,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-RMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:34:51 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:59:47 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DKT-RMON-MIB"

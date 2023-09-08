@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Integer32",
       "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "enterprises",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hiPathWireless": {
@@ -76,8 +76,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ewc/HIPATH-WIRELESS-SMI",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:36:31 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:01:01 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HIPATH-WIRELESS-SMI"

@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module F3-EOTDM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOTDM-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 07:28:18 2023
-# On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 07:55:23 2023
+# On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-OperationalState, AdminState, SecondaryState = mibBuilder.importSymbols("CM-COMMON-MIB", "OperationalState", "AdminState", "SecondaryState")
-slotIndex, shelfIndex, neIndex = mibBuilder.importSymbols("CM-ENTITY-MIB", "slotIndex", "shelfIndex", "neIndex")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+AdminState, SecondaryState, OperationalState = mibBuilder.importSymbols("CM-COMMON-MIB", "AdminState", "SecondaryState", "OperationalState")
+neIndex, slotIndex, shelfIndex = mibBuilder.importSymbols("CM-ENTITY-MIB", "neIndex", "slotIndex", "shelfIndex")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter64, IpAddress, TimeTicks, iso, ObjectIdentity, Unsigned32, Gauge32, ModuleIdentity, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter64", "IpAddress", "TimeTicks", "iso", "ObjectIdentity", "Unsigned32", "Gauge32", "ModuleIdentity", "Bits", "MibIdentifier")
-TruthValue, RowStatus, StorageType, TextualConvention, VariablePointer, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "StorageType", "TextualConvention", "VariablePointer", "DisplayString")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Counter32, Gauge32, MibIdentifier, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, Bits, iso, TimeTicks, NotificationType, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "Gauge32", "MibIdentifier", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "Bits", "iso", "TimeTicks", "NotificationType", "IpAddress")
+RowStatus, TruthValue, DisplayString, StorageType, TextualConvention, VariablePointer = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TruthValue", "DisplayString", "StorageType", "TextualConvention", "VariablePointer")
 f3EOTDMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 17))
 f3EOTDMMIB.setRevisions(('2012-05-10 00:00',))
 
@@ -161,4 +161,4 @@ f3EotdmObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 17, 2, 2, 1)).s
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     f3EotdmObjectGroup = f3EotdmObjectGroup.setStatus('current')
 if mibBuilder.loadTexts: f3EotdmObjectGroup.setDescription('A collection of objects used to manage the f3 Tdm\n             group.')
-mibBuilder.exportSymbols("F3-EOTDM-MIB", vcgAssociatedEthernetPort=vcgAssociatedEthernetPort, f3EotdmObjects=f3EotdmObjects, vcgTable=vcgTable, vcgWtrTimer=vcgWtrTimer, vcgMemberSkLcasSendMst=vcgMemberSkLcasSendMst, vcgIfIndex=vcgIfIndex, WtrTime=WtrTime, LcasSoState=LcasSoState, vcgType=vcgType, vcgClearWtrTimer=vcgClearWtrTimer, vcgEntry=vcgEntry, vcgMemberSoSendSeq=vcgMemberSoSendSeq, vcgIndex=vcgIndex, vcgMemberEntry=vcgMemberEntry, f3EotdmObjectGroup=f3EotdmObjectGroup, f3EotdmConformance=f3EotdmConformance, vcgMemberIfIndex=vcgMemberIfIndex, vcgSecondaryState=vcgSecondaryState, vcgMemberTable=vcgMemberTable, vcgMemberSkLcasState=vcgMemberSkLcasState, f3EOTDMMIB=f3EOTDMMIB, f3EotdmGroups=f3EotdmGroups, VcgType=VcgType, PYSNMP_MODULE_ID=f3EOTDMMIB, CtrlState=CtrlState, MstState=MstState, vcgAdminState=vcgAdminState, vcgMemberSoLcasState=vcgMemberSoLcasState, vcgMemberSkRecvSeq=vcgMemberSkRecvSeq, f3EotdmCompliance=f3EotdmCompliance, vcgMemberSoLcasRecvMst=vcgMemberSoLcasRecvMst, vcgLcasEnabled=vcgLcasEnabled, vcgHoldOffTimer=vcgHoldOffTimer, vcgMemberIndex=vcgMemberIndex, vcgMemberSkLcasRecvCtrl=vcgMemberSkLcasRecvCtrl, vcgMemberRowStatus=vcgMemberRowStatus, vcgOperationalState=vcgOperationalState, f3EotdmCompliances=f3EotdmCompliances, vcgMemberSoLcasSendCtrl=vcgMemberSoLcasSendCtrl, HoldOffTime=HoldOffTime, LcasSkState=LcasSkState, vcgRowStatus=vcgRowStatus, vcgMemberSkRecvExpectSeq=vcgMemberSkRecvExpectSeq)
+mibBuilder.exportSymbols("F3-EOTDM-MIB", vcgMemberSkRecvExpectSeq=vcgMemberSkRecvExpectSeq, vcgMemberSkLcasState=vcgMemberSkLcasState, vcgMemberSoSendSeq=vcgMemberSoSendSeq, f3EotdmCompliances=f3EotdmCompliances, vcgMemberSkLcasRecvCtrl=vcgMemberSkLcasRecvCtrl, PYSNMP_MODULE_ID=f3EOTDMMIB, vcgEntry=vcgEntry, vcgAssociatedEthernetPort=vcgAssociatedEthernetPort, vcgMemberTable=vcgMemberTable, LcasSoState=LcasSoState, f3EotdmObjectGroup=f3EotdmObjectGroup, vcgWtrTimer=vcgWtrTimer, f3EOTDMMIB=f3EOTDMMIB, vcgOperationalState=vcgOperationalState, vcgMemberSoLcasState=vcgMemberSoLcasState, VcgType=VcgType, vcgMemberIfIndex=vcgMemberIfIndex, WtrTime=WtrTime, f3EotdmObjects=f3EotdmObjects, vcgMemberSoLcasSendCtrl=vcgMemberSoLcasSendCtrl, vcgIndex=vcgIndex, f3EotdmGroups=f3EotdmGroups, HoldOffTime=HoldOffTime, vcgType=vcgType, f3EotdmCompliance=f3EotdmCompliance, MstState=MstState, LcasSkState=LcasSkState, vcgAdminState=vcgAdminState, vcgMemberEntry=vcgMemberEntry, f3EotdmConformance=f3EotdmConformance, vcgLcasEnabled=vcgLcasEnabled, vcgTable=vcgTable, vcgMemberSkRecvSeq=vcgMemberSkRecvSeq, vcgMemberSoLcasRecvMst=vcgMemberSoLcasRecvMst, vcgHoldOffTimer=vcgHoldOffTimer, vcgRowStatus=vcgRowStatus, CtrlState=CtrlState, vcgIfIndex=vcgIfIndex, vcgMemberIndex=vcgMemberIndex, vcgClearWtrTimer=vcgClearWtrTimer, vcgMemberSkLcasSendMst=vcgMemberSkLcasSendMst, vcgSecondaryState=vcgSecondaryState, vcgMemberRowStatus=vcgMemberRowStatus)

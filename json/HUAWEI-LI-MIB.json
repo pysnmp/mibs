@@ -6,38 +6,38 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Integer32",
-      "BITS",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter64",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
       "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "BITS",
       "iso",
-      "Unsigned32"
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus",
       "DisplayString",
-      "DateAndTime"
+      "RowStatus"
     ]
   },
   "hwLiMib": {
@@ -1230,8 +1230,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-LI-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:39:42 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:02:55 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-LI-MIB"

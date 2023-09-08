@@ -5,30 +5,30 @@
       "mdsServices"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Bits",
+      "Counter32",
       "MODULE-IDENTITY",
       "Counter64",
-      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Gauge32",
+      "MibIdentifier",
       "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
       "iso",
-      "Bits",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "mdsGpsMIB": {
@@ -470,8 +470,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SERVICE-GPS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:37:42 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:01:44 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MDS-SERVICE-GPS-MIB"

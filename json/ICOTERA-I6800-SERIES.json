@@ -10,21 +10,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter64",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "enterprises",
       "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter32",
+      "Bits",
+      "Gauge32",
       "Integer32",
-      "enterprises"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -639,8 +639,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/icotera/ICOTERA-I6800-SERIES-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:41:08 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:03:06 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ICOTERA-I6800-SERIES"

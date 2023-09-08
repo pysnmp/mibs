@@ -5,8 +5,8 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -18,10 +18,10 @@
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipNetToPhysicalEntry",
       "ipv6InterfaceEntry",
-      "ipv6RouterAdvertEntry",
-      "ipAddressEntry"
+      "ipNetToPhysicalEntry",
+      "ipAddressEntry",
+      "ipv6RouterAdvertEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -35,27 +35,27 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Gauge32",
+      "mib-2",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
       "IpAddress",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "zeroDotZero",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "mib-2",
-      "Counter64"
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TimeInterval",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus"
     ]
   },
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:43:20 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:04:39 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"

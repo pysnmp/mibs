@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module RAPID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 07:44:22 2023
-# On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 08:05:17 2023
+# On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, MibIdentifier, Counter32, Unsigned32, TimeTicks, NotificationType, enterprises, ModuleIdentity, IpAddress, iso, Bits, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "MibIdentifier", "Counter32", "Unsigned32", "TimeTicks", "NotificationType", "enterprises", "ModuleIdentity", "IpAddress", "iso", "Bits", "Integer32", "Gauge32")
+IpAddress, TimeTicks, ModuleIdentity, Integer32, Bits, NotificationType, Counter32, MibIdentifier, iso, Unsigned32, Gauge32, Counter64, ObjectIdentity, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "ModuleIdentity", "Integer32", "Bits", "NotificationType", "Counter32", "MibIdentifier", "iso", "Unsigned32", "Gauge32", "Counter64", "ObjectIdentity", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rapidstream = MibIdentifier((1, 3, 6, 1, 4, 1, 4355))
 rsProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 4355, 1))
@@ -28,4 +28,4 @@ fbX6500e = MibIdentifier((1, 3, 6, 1, 4, 1, 4355, 1, 4, 11))
 fbX8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 4355, 1, 4, 12))
 fbX8500e = MibIdentifier((1, 3, 6, 1, 4, 1, 4355, 1, 4, 13))
 fbX8500e_F = MibIdentifier((1, 3, 6, 1, 4, 1, 4355, 1, 4, 14)).setLabel("fbX8500e-F")
-mibBuilder.exportSymbols("RAPID-MIB", fbX5500e=fbX5500e, fbX1000=fbX1000, fbX8500e_F=fbX8500e_F, fbX6000=fbX6000, fbX1250e=fbX1250e, rsProducts=rsProducts, fbXSeries=fbXSeries, fbX8500e=fbX8500e, fbX2500=fbX2500, fbX700=fbX700, fbX8000=fbX8000, fbX550e=fbX550e, rapidstream=rapidstream, fbX750e=fbX750e, fbX500=fbX500, fbX5000=fbX5000, fbX6500e=fbX6500e)
+mibBuilder.exportSymbols("RAPID-MIB", rapidstream=rapidstream, fbX6000=fbX6000, fbX750e=fbX750e, fbX8000=fbX8000, fbX550e=fbX550e, fbX8500e=fbX8500e, fbX5000=fbX5000, rsProducts=rsProducts, fbX500=fbX500, fbX1000=fbX1000, fbXSeries=fbXSeries, fbX2500=fbX2500, fbX700=fbX700, fbX5500e=fbX5500e, fbX1250e=fbX1250e, fbX6500e=fbX6500e, fbX8500e_F=fbX8500e_F)

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TEL2N-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2n/TEL2N-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 07:27:37 2023
-# On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 07:54:54 2023
+# On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Integer32, ModuleIdentity, NotificationType, MibIdentifier, Gauge32, IpAddress, ObjectIdentity, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, Unsigned32, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "ModuleIdentity", "NotificationType", "MibIdentifier", "Gauge32", "IpAddress", "ObjectIdentity", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "Unsigned32", "Counter64", "iso")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, Bits, Gauge32, enterprises, ModuleIdentity, Unsigned32, Integer32, TimeTicks, Counter64, iso, NotificationType, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "Bits", "Gauge32", "enterprises", "ModuleIdentity", "Unsigned32", "Integer32", "TimeTicks", "Counter64", "iso", "NotificationType", "ObjectIdentity", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tel2n = ModuleIdentity((1, 3, 6, 1, 4, 1, 6530))
 tel2n.setRevisions(('2015-05-01 10:57',))
@@ -57,4 +57,4 @@ if mibBuilder.loadTexts: hipRegistrationAt.setDescription('Registrar IP address'
 hipRegistrationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6530, 11, 6, 1, 5), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hipRegistrationTime.setStatus('current')
 if mibBuilder.loadTexts: hipRegistrationTime.setDescription('Registration time')
-mibBuilder.exportSymbols("TEL2N-MIB", hipSipEntry=hipSipEntry, tel2n=tel2n, hipSerial=hipSerial, hipState=hipState, hipBootVersion=hipBootVersion, hipHwVersion=hipHwVersion, heliosip=heliosip, hipProductName=hipProductName, hipRegistrationAt=hipRegistrationAt, hipRegistrationTime=hipRegistrationTime, hipPhoneNumber=hipPhoneNumber, hipSipTable=hipSipTable, PYSNMP_MODULE_ID=tel2n, hipVersion=hipVersion, hipIndex=hipIndex)
+mibBuilder.exportSymbols("TEL2N-MIB", hipVersion=hipVersion, hipHwVersion=hipHwVersion, hipProductName=hipProductName, hipIndex=hipIndex, heliosip=heliosip, hipSipEntry=hipSipEntry, hipBootVersion=hipBootVersion, tel2n=tel2n, hipState=hipState, hipRegistrationTime=hipRegistrationTime, hipRegistrationAt=hipRegistrationAt, hipSipTable=hipSipTable, hipSerial=hipSerial, hipPhoneNumber=hipPhoneNumber, PYSNMP_MODULE_ID=tel2n)

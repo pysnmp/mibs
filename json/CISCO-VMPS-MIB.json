@@ -8,33 +8,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "IpAddress",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
       "Bits",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
       "MacAddress",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ciscoVmpsMIB": {
@@ -868,8 +868,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VMPS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:35:03 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:07 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-VMPS-MIB"

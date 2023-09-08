@@ -15,31 +15,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "iso",
-      "TimeTicks",
-      "Integer32",
       "Bits",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "alcatelIND1UDPRelayMIB": {
@@ -2964,8 +2964,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-UDP-RELAY-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:45:39 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:06:05 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-UDP-RELAY-MIB"

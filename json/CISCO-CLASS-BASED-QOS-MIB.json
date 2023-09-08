@@ -8,8 +8,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "EntPhysicalIndexOrZero",
-      "Unsigned64"
+      "Unsigned64",
+      "EntPhysicalIndexOrZero"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -19,39 +19,39 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
       "TimeTicks",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "dod",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Gauge32",
       "Opaque",
+      "Unsigned32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Bits",
+      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "dod",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -11993,8 +11993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CLASS-BASED-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:35:00 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:06 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-CLASS-BASED-QOS-MIB"

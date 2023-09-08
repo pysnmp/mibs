@@ -3,33 +3,33 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Counter64",
-      "enterprises",
-      "Integer32",
+      "IpAddress",
       "iso",
+      "Bits",
+      "Counter32",
       "snmpModules",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
+      "enterprises",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "mib-2",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "TestAndIncr",
-      "DisplayString"
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xg6846": {
@@ -1226,8 +1226,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/inteno/XAVI-XG6846-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:41:46 2023",
-      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:03:35 2023",
+      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "XAVI-XG6846-MIB"
