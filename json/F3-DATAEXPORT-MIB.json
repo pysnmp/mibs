@@ -5,8 +5,8 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "IpVersion",
-      "PerfCounter64"
+      "PerfCounter64",
+      "IpVersion"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -17,27 +17,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Gauge32",
       "IpAddress",
-      "Bits"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "VariablePointer"
+      "DisplayString",
+      "StorageType"
     ]
   },
   "f3DataExportMIB": {
@@ -391,8 +391,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-DATAEXPORT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:54 2023",
-      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:02:27 2023",
+      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-DATAEXPORT-MIB"

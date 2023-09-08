@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysDescr",
       "sysContact",
+      "sysLocation",
       "sysName",
-      "sysLocation"
+      "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "iso",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
       "Counter64",
       "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "mibRelease",
-      "commonVarbindsCompliance",
-      "eventPriority",
-      "eventTimeStamp",
-      "Integer32d1",
       "Integer32d2",
-      "eventCounter",
+      "mibRelease",
+      "Integer32d1",
+      "commonVarbindsCompliance",
       "FloatString",
+      "commonGroup",
+      "eventCounter",
       "FaultOK",
-      "commonGroup"
+      "eventTimeStamp",
+      "eventPriority"
     ],
     "TWOWCOM-SMI": [
-      "decoder",
       "encoder",
       "dvbEncoder",
+      "decoder",
       "dvbDecoder",
       "other"
     ]
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:12 2023",
-      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:36 2023",
+      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
-      "IpAddress",
       "MibIdentifier",
-      "TRAP-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "enterprises",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "enterprises",
       "TimeTicks",
-      "iso"
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "serverscheck": {
@@ -5808,8 +5808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/serverscheck/ServersCheck",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:14:23 2023",
-      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:20:49 2023",
+      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ServersCheck"

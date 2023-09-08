@@ -5,21 +5,21 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "IpVersion",
-      "SecondaryState",
+      "CmPmIntervalType",
       "VlanId",
-      "AdminState",
       "OperationalState",
-      "PerfCounter64",
+      "IpPriorityMapMode",
       "CmPmBinAction",
       "VlanPriority",
-      "IpPriorityMapMode",
-      "CmPmIntervalType"
+      "AdminState",
+      "PerfCounter64",
+      "IpVersion",
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
       "shelfIndex",
-      "slotIndex",
-      "neIndex"
+      "neIndex",
+      "slotIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetAccPortIndex",
@@ -31,30 +31,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Gauge32",
       "IpAddress",
-      "Bits"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DateAndTime",
-      "TruthValue",
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString",
       "RowStatus",
-      "VariablePointer"
+      "MacAddress",
+      "DateAndTime",
+      "DisplayString",
+      "StorageType",
+      "TruthValue"
     ]
   },
   "f3Pwe3MIB": {
@@ -2081,8 +2081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PWE3-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:55 2023",
-      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:02:28 2023",
+      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-PWE3-MIB"

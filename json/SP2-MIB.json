@@ -10,25 +10,25 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter64",
+      "IpAddress",
       "enterprises",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eNexus": {
@@ -24677,8 +24677,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltek/SP2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:06:56 2023",
-      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:09:09 2023",
+      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SP2-MIB"

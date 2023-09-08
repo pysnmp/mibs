@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "HpnicfDot11TunnelSecSchemType",
-      "HpnicfDot11SSIDEncryptModeType",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11RadioElementIndex",
-      "HpnicfDot11ServicePolicyIDType",
-      "HpnicfDot11WorkMode",
-      "HpnicfDot11ChannelScopeType",
-      "hpnicfDot11APElementIndex",
-      "HpnicfDot11TruthValueCM",
-      "HpnicfDot11CirMode",
-      "HpnicfDot11RadioType2",
       "HpnicfDot11AuthenType",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11RadioType",
-      "HpnicfDot11PreambleType",
-      "HpnicfDot11SecIEStatusType",
-      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11TruthValueCM",
+      "HpnicfDot11RadioType2",
+      "HpnicfDot11SSIDEncryptModeType",
+      "HpnicfDot11RadioElementIndex",
       "hpnicfDot11",
-      "HpnicfDot11TxPwrLevelScopeType"
+      "HpnicfDot11RadioType",
+      "HpnicfDot11WorkMode",
+      "HpnicfDot11SecIEStatusType",
+      "HpnicfDot11CirMode",
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11ServicePolicyIDType",
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11SSIDStringType",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11TxPwrLevelScopeType",
+      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11TunnelSecSchemType",
+      "HpnicfDot11PreambleType"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -33,28 +33,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "Integer32",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "MacAddress",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfDot11CFG": {
@@ -5372,8 +5372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-CFG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:09:27 2023",
-      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:14:01 2023",
+      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-CFG-MIB"
