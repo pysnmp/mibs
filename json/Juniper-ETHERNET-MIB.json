@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -12,31 +12,31 @@
       "JuniNextIfIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
       "MibIdentifier",
-      "Integer32",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY",
-      "TimeTicks"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "juniEthernetMIB": {
@@ -1213,8 +1213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ETHERNET-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:28:18 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:36:54 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-ETHERNET-MIB"

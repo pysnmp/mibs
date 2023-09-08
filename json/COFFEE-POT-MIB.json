@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "transmission",
-      "Bits",
-      "Unsigned32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "Gauge32"
+      "transmission",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "DisplayString"
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "coffee": {
@@ -204,8 +204,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/COFFEE-POT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:18:33 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:23 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "COFFEE-POT-MIB"

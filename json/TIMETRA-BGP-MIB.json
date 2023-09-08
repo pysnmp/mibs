@@ -2,77 +2,77 @@
   "imports": {
     "class": "imports",
     "BGP4-MIB": [
-      "bgp4PathAttrIpAddrPrefix",
       "bgp4PathAttrPeer",
-      "bgp4PathAttrIpAddrPrefixLen"
+      "bgp4PathAttrIpAddrPrefixLen",
+      "bgp4PathAttrIpAddrPrefix"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddressType",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "iso",
       "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32"
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DisplayString",
-      "TestAndIncr",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TestAndIncr"
     ],
     "TIMETRA-FILTER-MIB": [
       "TFilterLogId"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "tmnxSRConfs",
-      "tmnxSRNotifyPrefix",
       "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxBGPFamilyType",
-      "TResolveStatus",
-      "TmnxCreateOrigin",
-      "BgpHoldTime",
       "TmnxHigh32",
-      "TXLPolicyNameOrExpOrEmpty",
-      "TmnxOperState",
-      "TLPolicyStatementNameOrEmpty",
       "TmnxBgpAutonomousSystem",
-      "TmnxLow32",
-      "TNamedItemOrEmpty",
-      "TmnxVRtrID",
-      "TmnxBgpLocalPreference",
       "TmnxVPNRouteDistinguisher",
-      "TmnxAdminStateTruthValue",
-      "TPolicyStatementNameOrEmpty",
-      "TNamedItem",
+      "TmnxBGPFamilyType",
       "BgpConnectRetryTime",
-      "TLPolicyNameOrExpOrEmpty",
-      "TmnxAdminState",
+      "TmnxEnabledDisabled",
+      "TmnxLow32",
+      "TXLPolicyNameOrExpOrEmpty",
+      "TmnxVRtrID",
+      "TPolicyStatementNameOrEmpty",
       "TmnxBgpPreference",
-      "TmnxEnabledDisabled"
+      "TmnxOperState",
+      "TmnxBgpLocalPreference",
+      "TNamedItem",
+      "TResolveStatus",
+      "TLPolicyNameOrExpOrEmpty",
+      "TmnxAdminStateTruthValue",
+      "TLPolicyStatementNameOrEmpty",
+      "TNamedItemOrEmpty",
+      "TmnxAdminState",
+      "TmnxCreateOrigin",
+      "BgpHoldTime"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -34968,8 +34968,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-BGP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:29:56 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:38:33 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-BGP-MIB"

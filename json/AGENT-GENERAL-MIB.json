@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "DLINK-ID-REC-MIB": [
-      "AgentNotifyLevel",
-      "dlink-common-mgmt"
+      "dlink-common-mgmt",
+      "AgentNotifyLevel"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
       "IpAddress",
-      "Bits"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus",
       "TruthValue",
-      "MacAddress"
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "agentGeneralMgmt": {
@@ -4626,8 +4626,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/AGENT-GENERAL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:37 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:32:27 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AGENT-GENERAL-MIB"

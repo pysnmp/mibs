@@ -9,42 +9,42 @@
       "DomainId"
     ],
     "CISCO-TC": [
-      "TimeIntervalMin",
       "CiscoMilliSeconds",
+      "TimeIntervalMin",
       "TimeIntervalSec"
     ],
     "CISCO-VSAN-MIB": [
-      "vsanIndex",
-      "notifyVsanIndex"
+      "notifyVsanIndex",
+      "vsanIndex"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Integer32",
-      "Unsigned32",
+      "Gauge32",
       "iso",
       "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter32"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1934,8 +1934,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FSPF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:23:42 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:32:37 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-FSPF-MIB"

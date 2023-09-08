@@ -6,31 +6,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "TimeTicks",
       "Counter64",
-      "iso",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "MibIdentifier",
-      "IpAddress",
-      "Gauge32",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "MacAddress",
+      "RowStatus",
       "TruthValue",
       "DisplayString"
     ],
@@ -3795,8 +3795,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPC200",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:20:45 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:29:38 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SPC200"

@@ -3,50 +3,50 @@
     "class": "imports",
     "ExaltComm": [
       "ExaltEnableT",
-      "AcmModulationT",
-      "Te1LboT",
-      "AlarmLevelT",
-      "FileTransferTypeT",
-      "Te1StatusT",
-      "TimeZoneT",
-      "NtpClientEnableT",
-      "EthMainStatusT",
-      "FileTransferStartT",
-      "EnableStatusT",
       "EthPortMode",
-      "Te1LineCodeT",
-      "exaltcommunications",
-      "Te1LoopBackModeT",
-      "VlanStatusT",
+      "NtpClientEnableT",
+      "Led4ColorT",
+      "TimeZoneT",
+      "FileTransferTypeT",
       "VlanGroupT",
       "EthAuxStatusT",
+      "Te1LoopBackModeT",
+      "exaltcommunications",
       "AuxNmsMode",
-      "Led4ColorT"
+      "VlanStatusT",
+      "Te1StatusT",
+      "FileTransferStartT",
+      "AlarmLevelT",
+      "EthMainStatusT",
+      "Te1LboT",
+      "AcmModulationT",
+      "EnableStatusT",
+      "Te1LineCodeT"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
       "iso",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Bits",
-      "TimeTicks"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "productsMIB": {
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:24:42 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:33:34 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"

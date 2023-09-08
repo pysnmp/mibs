@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/STE-MIB
-# Produced by pysmi-1.1.8 at Thu Sep  7 14:26:40 2023
-# On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 07:35:28 2023
+# On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, iso, Counter32, Gauge32, enterprises, Unsigned32, IpAddress, ModuleIdentity, TimeTicks, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Counter32", "Gauge32", "enterprises", "Unsigned32", "IpAddress", "ModuleIdentity", "TimeTicks", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Bits")
+NotificationType, ModuleIdentity, Counter32, ObjectIdentity, TimeTicks, IpAddress, enterprises, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Unsigned32, iso, MibIdentifier, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ModuleIdentity", "Counter32", "ObjectIdentity", "TimeTicks", "IpAddress", "enterprises", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Unsigned32", "iso", "MibIdentifier", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class PositiveInteger(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
@@ -103,4 +103,4 @@ if mibBuilder.loadTexts: sensUnit.setDescription('The sensor unit.')
 sensID = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 8), UnitType()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sensID.setStatus('mandatory')
 if mibBuilder.loadTexts: sensID.setDescription('The sensor ID.')
-mibBuilder.exportSymbols("STE-MIB", sensName=sensName, sensIndex=sensIndex, inpTable=inpTable, sensString=sensString, sensUnit=sensUnit, sensTable=sensTable, infoAddressMAC=infoAddressMAC, inpIndex=inpIndex, IOName=IOName, sensSN=sensSN, SensorName=SensorName, sensID=sensID, ste=ste, SensorString=SensorString, inpName=inpName, SensorValue=SensorValue, OnOff=OnOff, hwgroup=hwgroup, inpAlarmState=inpAlarmState, x390=x390, PositiveInteger=PositiveInteger, info=info, sensEntry=sensEntry, InputAlarmState=InputAlarmState, UnitType=UnitType, SensorSN=SensorSN, SensorID=SensorID, sensValue=sensValue, sensState=sensState, SensorState=SensorState, inpValue=inpValue, inpEntry=inpEntry)
+mibBuilder.exportSymbols("STE-MIB", sensID=sensID, inpIndex=inpIndex, sensUnit=sensUnit, SensorID=SensorID, ste=ste, x390=x390, PositiveInteger=PositiveInteger, inpValue=inpValue, sensName=sensName, sensState=sensState, sensSN=sensSN, SensorSN=SensorSN, hwgroup=hwgroup, SensorName=SensorName, IOName=IOName, sensTable=sensTable, inpName=inpName, sensString=sensString, sensEntry=sensEntry, sensValue=sensValue, UnitType=UnitType, inpAlarmState=inpAlarmState, OnOff=OnOff, SensorValue=SensorValue, SensorState=SensorState, info=info, inpEntry=inpEntry, sensIndex=sensIndex, inpTable=inpTable, SensorString=SensorString, InputAlarmState=InputAlarmState, infoAddressMAC=infoAddressMAC)

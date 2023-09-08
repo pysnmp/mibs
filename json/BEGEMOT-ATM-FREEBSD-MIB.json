@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BEGEMOT-ATM-MIB": [
-      "begemotAtmSysGroup",
-      "begemotAtmIfEntry"
+      "begemotAtmIfEntry",
+      "begemotAtmSysGroup"
     ],
     "BEGEMOT-NETGRAPH-MIB": [
       "NgNodeIdOrZero"
@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "iso",
       "MibIdentifier",
+      "Bits",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -79,8 +79,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-ATM-FREEBSD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:30:25 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:39:02 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BEGEMOT-ATM-FREEBSD-MIB"

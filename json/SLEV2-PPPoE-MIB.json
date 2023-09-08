@@ -10,24 +10,24 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "MibIdentifier",
-      "Integer32",
       "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2017,8 +2017,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-PPPoE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:22:39 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:31:31 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLEV2-PPPoE-MIB"

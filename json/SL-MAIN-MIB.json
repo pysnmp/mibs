@@ -18,29 +18,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "iso",
       "Counter64",
-      "Opaque"
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Opaque",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DateAndTime",
-      "DisplayString",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "slMain": {
@@ -1760,8 +1760,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-MAIN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:30:05 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:38:43 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-MAIN-MIB"

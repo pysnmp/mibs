@@ -11,29 +11,29 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
       "Gauge32",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "axMgmt": {
@@ -13336,8 +13336,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/a10/A10-AX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:18:43 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:33 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "A10-AX-MIB"

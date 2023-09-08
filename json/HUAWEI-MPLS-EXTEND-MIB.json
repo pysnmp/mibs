@@ -5,8 +5,8 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -16,10 +16,10 @@
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsTunnelInstanceIndex",
-      "MplsExtendedTunnelId",
       "MplsLsrIdentifier",
-      "MplsTunnelIndex"
+      "MplsTunnelIndex",
+      "MplsTunnelInstanceIndex",
+      "MplsExtendedTunnelId"
     ],
     "MPLS-TE-STD-MIB": [
       "mplsTunnelOperStatus",
@@ -34,24 +34,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "Gauge32",
       "TimeTicks",
       "Unsigned32",
-      "IpAddress",
       "Counter64",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwMplsExtendMib": {
@@ -5631,8 +5631,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MPLS-EXTEND-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:26:36 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:35:23 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MPLS-EXTEND-MIB"

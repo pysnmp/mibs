@@ -2,67 +2,67 @@
   "imports": {
     "class": "imports",
     "IANA-GMPLS-TC-MIB": [
+      "IANAGmplsSwitchingTypeTC",
       "IANAGmplsLSPEncodingTypeTC",
-      "IANAGmplsGeneralizedPidTC",
       "IANAGmplsAdminStatusInformationTC",
-      "IANAGmplsSwitchingTypeTC"
+      "IANAGmplsGeneralizedPidTC"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
     ],
     "MPLS-TE-STD-MIB": [
       "mplsTunnelIndex",
-      "mplsTunnelAdminStatus",
-      "mplsTunnelARHopListIndex",
-      "mplsTunnelEntry",
-      "mplsTunnelInstance",
-      "mplsTunnelIngressLSRId",
-      "mplsTunnelEgressLSRId",
-      "mplsTunnelHopPathOptionIndex",
-      "mplsTunnelCHopListIndex",
-      "mplsTunnelOperStatus",
       "mplsTunnelScalarGroup",
-      "mplsTunnelHopListIndex",
-      "mplsTunnelCHopIndex",
+      "mplsTunnelInstance",
+      "mplsTunnelOperStatus",
       "mplsTunnelHopIndex",
+      "mplsTunnelHopListIndex",
+      "mplsTunnelHopPathOptionIndex",
+      "mplsTunnelARHopListIndex",
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelCHopListIndex",
+      "mplsTunnelCHopIndex",
+      "mplsTunnelGroup",
       "mplsTunnelARHopIndex",
-      "mplsTunnelGroup"
+      "mplsTunnelEntry",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelAdminStatus"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "zeroDotZero",
-      "Bits",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
       "MibIdentifier",
-      "Integer32",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY",
-      "TimeTicks"
+      "zeroDotZero",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowPointer",
       "TimeStamp",
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowPointer"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gmplsTeStdMIB": {
@@ -1391,8 +1391,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-TE-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:28:18 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:36:55 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GMPLS-TE-STD-MIB"

@@ -10,19 +10,19 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -699,8 +699,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Thu Sep  7 14:26:53 2023",
-      "On host fv-az448-504 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:35:28 2023",
+      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-POS-GROUP-MIB"
