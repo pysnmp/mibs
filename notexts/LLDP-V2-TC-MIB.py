@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LLDP-V2-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-V2-TC-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 07:55:20 2023
-# On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 11:01:30 2023
+# On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Bits, Counter32, Integer32, Counter64, NotificationType, org, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, MibIdentifier, IpAddress, Gauge32, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "Counter32", "Integer32", "Counter64", "NotificationType", "org", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "MibIdentifier", "IpAddress", "Gauge32", "Unsigned32", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, org, MibIdentifier, Integer32, Gauge32, Counter64, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Counter32, Unsigned32, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "org", "MibIdentifier", "Integer32", "Gauge32", "Counter64", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Counter32", "Unsigned32", "ObjectIdentity", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lldpV2TcMIB = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 12))
 lldpV2TcMIB.setRevisions(('2009-06-08 00:00',))
 if mibBuilder.loadTexts: lldpV2TcMIB.setLastUpdated('200906080000Z')
@@ -65,4 +65,4 @@ class LldpV2PowerPortClass(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
     namedValues = NamedValues(("pClassPSE", 1), ("pClassPD", 2))
 
-mibBuilder.exportSymbols("LLDP-V2-TC-MIB", ieee802dot1mibs=ieee802dot1mibs, LldpV2PortId=LldpV2PortId, LldpV2DestAddressTableIndex=LldpV2DestAddressTableIndex, lldpV2TcMIB=lldpV2TcMIB, LldpV2ManAddrIfSubtype=LldpV2ManAddrIfSubtype, LldpV2LinkAggStatusMap=LldpV2LinkAggStatusMap, LldpV2ManAddress=LldpV2ManAddress, LldpV2PowerPortClass=LldpV2PowerPortClass, PYSNMP_MODULE_ID=lldpV2TcMIB, LldpV2PortIdSubtype=LldpV2PortIdSubtype, LldpV2ChassisIdSubtype=LldpV2ChassisIdSubtype, LldpV2ChassisId=LldpV2ChassisId, LldpV2SystemCapabilitiesMap=LldpV2SystemCapabilitiesMap)
+mibBuilder.exportSymbols("LLDP-V2-TC-MIB", LldpV2DestAddressTableIndex=LldpV2DestAddressTableIndex, LldpV2LinkAggStatusMap=LldpV2LinkAggStatusMap, LldpV2ChassisId=LldpV2ChassisId, LldpV2PowerPortClass=LldpV2PowerPortClass, PYSNMP_MODULE_ID=lldpV2TcMIB, LldpV2ChassisIdSubtype=LldpV2ChassisIdSubtype, lldpV2TcMIB=lldpV2TcMIB, LldpV2PortId=LldpV2PortId, LldpV2SystemCapabilitiesMap=LldpV2SystemCapabilitiesMap, LldpV2PortIdSubtype=LldpV2PortIdSubtype, ieee802dot1mibs=ieee802dot1mibs, LldpV2ManAddress=LldpV2ManAddress, LldpV2ManAddrIfSubtype=LldpV2ManAddrIfSubtype)

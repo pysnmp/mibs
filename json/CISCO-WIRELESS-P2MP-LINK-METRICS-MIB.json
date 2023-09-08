@@ -5,17 +5,17 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrCwConsecutiveSevErrSecond",
-      "CwrCwErroredSecond",
-      "WirelessGauge64",
-      "CwrCwDegradedSecond",
-      "CwrUpdateTime",
-      "CwrCwSeverelyErroredSecond",
       "CwrFixedPointPrecision",
-      "CwrFixedPointValue",
+      "CwrCwDegradedSecond",
+      "CwrCwSeverelyErroredSecond",
+      "WirelessGauge64",
       "CwrCwErrorFreeSecond",
       "CwrFixedPointScale",
-      "CwrPercentageValue"
+      "CwrUpdateTime",
+      "CwrCwConsecutiveSevErrSecond",
+      "CwrPercentageValue",
+      "CwrFixedPointValue",
+      "CwrCwErroredSecond"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -26,26 +26,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
       "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TimeInterval",
-      "MacAddress"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoWirelessLinkMetricsMIB": {
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:31 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:06:27 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"

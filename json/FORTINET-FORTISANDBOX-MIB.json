@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
+      "fnSysSerial",
+      "FnIndex",
       "FnBoolState",
       "fnAdminEntry",
-      "fnSysSerial",
-      "fortinet",
-      "FnIndex"
+      "fortinet"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifEntry",
-      "ifName"
+      "ifName",
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressPrefixLength",
       "InetPortNumber",
+      "InetAddress",
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
@@ -31,24 +31,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "TimeTicks",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Integer32",
       "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "AutonomousType"
     ]
   },
   "fnFortiSandboxMib": {
@@ -1187,8 +1187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTISANDBOX-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:02:09 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:07:50 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTISANDBOX-MIB"

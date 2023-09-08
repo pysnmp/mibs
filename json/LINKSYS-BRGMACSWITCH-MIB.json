@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
+      "OBJECT-TYPE",
       "Bits",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter32",
       "MibIdentifier",
-      "TimeTicks",
       "Gauge32",
-      "OBJECT-TYPE"
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlBrgMacSwitch": {
@@ -222,8 +222,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-BRGMACSWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:06:34 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:11:10 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-BRGMACSWITCH-MIB"

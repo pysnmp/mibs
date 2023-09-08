@@ -8,20 +8,20 @@
       "ciscoMgmt"
     ],
     "CISCO-VIDEO-TC": [
-      "CvcVideoCodecAnnexMap",
       "CvcVideoRtpPayloadFormat",
-      "CvcVideoLevel",
-      "CvcVideoProfile"
+      "CvcVideoCodecAnnexMap",
+      "CvcVideoProfile",
+      "CvcVideoLevel"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
-      "CvcGUid",
+      "CvcCallReferenceIdOrZero",
       "CvcVideoCoderRate",
-      "CvcCallReferenceIdOrZero"
+      "CvcGUid"
     ],
     "DIAL-CONTROL-MIB": [
-      "callActiveSetupTime",
       "AbsoluteCounter32",
-      "callActiveIndex"
+      "callActiveIndex",
+      "callActiveSetupTime"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -29,24 +29,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
       "Unsigned32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoVideoSessionMIB": {
@@ -2747,8 +2747,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VIDEO-SESSION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:35 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:06:32 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-VIDEO-SESSION-MIB"

@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
+      "dot1dStpPort",
       "dot1dStpPortEntry",
       "BridgeId",
-      "dot1dStpPort",
       "Timeout"
     ],
     "IEEE8021-CFM-MIB": [
+      "dot1agCfmMaIndex",
       "Dot1agCfmMepId",
-      "dot1agCfmMepIdentifier",
       "dot1agCfmMepDbRMepIdentifier",
-      "dot1agCfmMdIndex",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMepIdentifier",
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
     ],
     "IF-MIB": [
+      "ifOperStatus",
       "InterfaceIndex",
-      "ifIndex",
-      "ifOperStatus"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetAddressIPv6"
     ],
     "P-BRIDGE-MIB": [
@@ -33,36 +33,36 @@
     "Q-BRIDGE-MIB": [
       "VlanIndex",
       "VlanId",
-      "dot1qVlanStaticEntry",
-      "PortList"
+      "PortList",
+      "dot1qVlanStaticEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter32",
+      "enterprises",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Bits",
       "Gauge32",
       "TimeTicks",
       "MibIdentifier",
-      "enterprises",
-      "iso",
-      "Bits",
-      "Unsigned32"
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "RowStatus",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ecs3510_28tMIB": {
@@ -29346,8 +29346,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS3510-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:01:08 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:06:53 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ECS3510-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-ETWMIM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ETWMIM-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 08:01:27 2023
-# On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 11:07:14 2023
+# On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ctPModuleETWMIM, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPModuleETWMIM")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Integer32, NotificationType, Bits, TimeTicks, Counter64, ObjectIdentity, iso, ModuleIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "NotificationType", "Bits", "TimeTicks", "Counter64", "ObjectIdentity", "iso", "ModuleIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter64, iso, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Gauge32, Bits, Unsigned32, TimeTicks, Integer32, NotificationType, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Gauge32", "Bits", "Unsigned32", "TimeTicks", "Integer32", "NotificationType", "ModuleIdentity", "MibIdentifier")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 etwDbExist = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("exists", 1), ("no-exists", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: etwDbExist.setStatus('mandatory')
 if mibBuilder.loadTexts: etwDbExist.setDescription('Denotes whether a T1 daughter board is attached to the \n                         Etwmim card being managed')
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: etwEpimLink.setDescription('This object will indicate w
 etwClearNvramOnBoot = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 4, 1, 9), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: etwClearNvramOnBoot.setStatus('mandatory')
 if mibBuilder.loadTexts: etwClearNvramOnBoot.setDescription('When set to a 1, the system will clear all persistant\n                         objects, except for the download objects,  from nvram \n                         on the next system boot')
-mibBuilder.exportSymbols("CTRON-ETWMIM-MIB", etwFWRev=etwFWRev, etwClearNvramOnBoot=etwClearNvramOnBoot, etwEpimType=etwEpimType, etwEpimEnabled=etwEpimEnabled, etwDbExist=etwDbExist, etwHWRev=etwHWRev, etwEpimLink=etwEpimLink, etwDbEnabled=etwDbEnabled, etwDbFracToggle=etwDbFracToggle)
+mibBuilder.exportSymbols("CTRON-ETWMIM-MIB", etwEpimEnabled=etwEpimEnabled, etwHWRev=etwHWRev, etwClearNvramOnBoot=etwClearNvramOnBoot, etwEpimType=etwEpimType, etwFWRev=etwFWRev, etwEpimLink=etwEpimLink, etwDbFracToggle=etwDbFracToggle, etwDbEnabled=etwDbEnabled, etwDbExist=etwDbExist)

@@ -8,42 +8,42 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IPV6-TC": [
-      "Ipv6IfIndexOrZero",
-      "Ipv6Address"
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "IpAddress",
+      "TimeTicks",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
+      "Counter64",
       "MODULE-IDENTITY",
+      "Integer32",
       "iso"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alaQoSMIB": {
@@ -17770,8 +17770,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:08:13 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:12:35 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-QOS-MIB"

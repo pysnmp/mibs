@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CIENA-CES-PORT-MIB": [
-      "cienaCesPortPgIdMappingNotifChassisIndex",
-      "cienaCesPortPgIdMappingNotifSlotIndex",
       "cienaCesPortPgIdMappingNotifShelfIndex",
       "cienaCesLogicalPortConfigPortName",
-      "cienaCesPortPgIdMappingNotifPortNumber"
+      "cienaCesPortPgIdMappingNotifChassisIndex",
+      "cienaCesPortPgIdMappingNotifPortNumber",
+      "cienaCesPortPgIdMappingNotifSlotIndex"
     ],
     "CIENA-GLOBAL-MIB": [
       "cienaGlobalMacAddress",
       "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
-      "cienaCesConfig",
-      "cienaCesNotifications"
+      "cienaCesNotifications",
+      "cienaCesConfig"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
@@ -24,26 +24,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Counter32",
       "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "MibIdentifier",
       "Integer32",
-      "Gauge32"
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "cienaCesDataplaneMIB": {
@@ -5504,8 +5504,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DATAPLANE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:57:43 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:03:45 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-DATAPLANE-MIB"

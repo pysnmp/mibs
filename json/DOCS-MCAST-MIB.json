@@ -5,8 +5,8 @@
       "clabProjDocsis"
     ],
     "DOCS-IETF-BPI2-MIB": [
-      "DocsSAId",
-      "DocsBpkmDataEncryptAlg"
+      "DocsBpkmDataEncryptAlg",
+      "DocsSAId"
     ],
     "DOCS-IF3-MIB": [
       "ChSetId",
@@ -17,8 +17,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -31,25 +31,25 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
-      "Counter32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "docsMcastMib": {
@@ -1154,8 +1154,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-MCAST-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:54:56 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:08 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-MCAST-MIB"

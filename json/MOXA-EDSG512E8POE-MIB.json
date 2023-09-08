@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
       "Gauge32",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "TimeTicks",
       "Counter32",
-      "iso",
+      "Counter64",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "enterprises",
       "OBJECT-IDENTITY",
       "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Bits",
-      "enterprises",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "MacAddress",
+      "DateAndTime",
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
@@ -9923,8 +9923,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/moxa/MOXA-EDSG512E8POE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:06:55 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:11:25 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MOXA-EDSG512E8POE-MIB"

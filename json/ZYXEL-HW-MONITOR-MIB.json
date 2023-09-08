@@ -6,20 +6,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "MibIdentifier",
-      "IpAddress"
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -683,8 +683,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-HW-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:12:15 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:16:09 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-HW-MONITOR-MIB"

@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "Counter32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter32",
-      "Bits",
+      "iso",
       "OBJECT-TYPE",
-      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
       "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -502,8 +502,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-LAG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:11:30 2023",
-      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 11:15:29 2023",
+      "On host fv-az590-991 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UBQS-LAG-MIB"
