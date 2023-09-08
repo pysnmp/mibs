@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
       "TimeTicks",
       "enterprises",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -83,8 +83,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-REG-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:34:15 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:36:25 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MDS-REG-MIB"

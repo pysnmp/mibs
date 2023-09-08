@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "NETWORK-SERVICES-MIB": [
-      "applIndex",
-      "applGroups"
+      "applGroups",
+      "applIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
       "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "Bits",
       "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
       "TimeTicks",
-      "mib-2"
+      "Bits",
+      "mib-2",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime",
+      "AutonomousType"
     ]
   },
   "rdbmsMIB": {
@@ -1330,8 +1330,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RDBMS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:23 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:39 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RDBMS-MIB"

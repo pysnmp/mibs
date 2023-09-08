@@ -12,21 +12,21 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
       "Bits",
       "Integer32",
-      "iso",
-      "Counter64",
       "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "Unsigned32"
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1231,8 +1231,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FASTHUB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:32:36 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:34:18 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-FASTHUB-MIB"

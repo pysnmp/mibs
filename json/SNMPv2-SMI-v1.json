@@ -6,24 +6,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Counter32",
-      "TimeTicks"
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "Counter_32": {
@@ -123,9 +123,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMPv2-SMI-v1",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:23 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMPv2-SMI-v1",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:34:25 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SNMPv2-SMI-v1"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ESO-CONSORTIUM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eso/ESO-CONSORTIUM-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 07:33:27 2023
-# On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 07:35:23 2023
+# On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, Bits, Gauge32, ObjectIdentity, snmpModules, IpAddress, MibIdentifier, enterprises, Counter64, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "Bits", "Gauge32", "ObjectIdentity", "snmpModules", "IpAddress", "MibIdentifier", "enterprises", "Counter64", "Integer32", "iso")
-AutonomousType, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "TextualConvention", "DisplayString")
+ObjectIdentity, Counter32, Unsigned32, Counter64, ModuleIdentity, NotificationType, IpAddress, MibIdentifier, TimeTicks, Integer32, Gauge32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, snmpModules = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Unsigned32", "Counter64", "ModuleIdentity", "NotificationType", "IpAddress", "MibIdentifier", "TimeTicks", "Integer32", "Gauge32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "snmpModules")
+TextualConvention, AutonomousType, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "AutonomousType", "DisplayString")
 esoConsortiumMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14832))
 esoConsortiumMIB.setRevisions(('2004-06-23 00:00', '2003-02-03 00:00', '2003-02-03 00:00',))
 
@@ -37,4 +37,4 @@ usmAESCfb256PrivProtocol = ObjectIdentity((1, 3, 6, 1, 4, 1, 14832, 1, 4))
 if mibBuilder.loadTexts: usmAESCfb256PrivProtocol.setStatus('current')
 if mibBuilder.loadTexts: usmAESCfb256PrivProtocol.setDescription('The CFB128-AES-256 Privacy Protocol.\n\n                 Note that this object replaces the usmAesCfb256Protocol\n                 OBJECT-IDENTITY of draft-blumenthal-aes-usm-04.\n                 (available at http://www.snmp.com/eso).\n                 This assignment is made separately here, as the\n                 assignments in draft-blumenthal-aes-usm-04\n                 are transient.')
 if mibBuilder.loadTexts: usmAESCfb256PrivProtocol.setReference('See References for usmAESCfb128PrivProtocol (above)')
-mibBuilder.exportSymbols("ESO-CONSORTIUM-MIB", esoConsortiumMIB=esoConsortiumMIB, usmAESCfb256PrivProtocol=usmAESCfb256PrivProtocol, usmAESCfb128PrivProtocol=usmAESCfb128PrivProtocol, usm3DESPrivProtocol=usm3DESPrivProtocol, PYSNMP_MODULE_ID=esoConsortiumMIB, usmAESCfb192PrivProtocol=usmAESCfb192PrivProtocol, esoConsortiumMIBObjectIdentities=esoConsortiumMIBObjectIdentities)
+mibBuilder.exportSymbols("ESO-CONSORTIUM-MIB", esoConsortiumMIB=esoConsortiumMIB, usmAESCfb256PrivProtocol=usmAESCfb256PrivProtocol, esoConsortiumMIBObjectIdentities=esoConsortiumMIBObjectIdentities, usmAESCfb192PrivProtocol=usmAESCfb192PrivProtocol, usm3DESPrivProtocol=usm3DESPrivProtocol, PYSNMP_MODULE_ID=esoConsortiumMIB, usmAESCfb128PrivProtocol=usmAESCfb128PrivProtocol)

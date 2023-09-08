@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
-      "snmpPrivProtocols",
+      "SnmpAdminString",
       "snmpAuthProtocols",
       "SnmpEngineID",
-      "SnmpAdminString"
+      "snmpPrivProtocols"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "snmpModules",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Counter32",
-      "TimeTicks"
+      "snmpModules",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "AutonomousType",
+      "TEXTUAL-CONVENTION",
       "TestAndIncr",
-      "DisplayString",
       "StorageType",
-      "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "DisplayString",
+      "AutonomousType",
+      "RowPointer"
     ]
   },
   "snmpUsmMIB": {
@@ -549,9 +549,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-USER-BASED-SM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:23 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-USER-BASED-SM-MIB",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:28:37 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SNMP-USER-BASED-SM-MIB"

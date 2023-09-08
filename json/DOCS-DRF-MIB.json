@@ -8,39 +8,39 @@
       "docsIfDownstreamChannelEntry"
     ],
     "ENTITY-MIB": [
-      "PhysicalIndex",
-      "PhysicalIndexOrZero"
+      "PhysicalIndexOrZero",
+      "PhysicalIndex"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
       "iso",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Integer32",
       "Counter32",
-      "TimeTicks"
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "AutonomousType",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "AutonomousType"
     ]
   },
   "docsDrfMib": {
@@ -655,8 +655,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-DRF-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:23 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:38 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-DRF-MIB"

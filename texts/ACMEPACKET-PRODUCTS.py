@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ACMEPACKET-PRODUCTS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-PRODUCTS
-# Produced by pysmi-1.1.8 at Fri Sep  8 07:38:26 2023
-# On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 07:41:48 2023
+# On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 acmepacket, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacket")
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, IpAddress, NotificationType, Gauge32, iso, Counter32, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Bits, Counter64, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "IpAddress", "NotificationType", "Gauge32", "iso", "Counter32", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Bits", "Counter64", "ModuleIdentity", "Unsigned32")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, Integer32, iso, Unsigned32, TimeTicks, ModuleIdentity, Counter32, ObjectIdentity, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "Integer32", "iso", "Unsigned32", "TimeTicks", "ModuleIdentity", "Counter32", "ObjectIdentity", "Counter64", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 acmepacketProducts = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 1))
 acmepacketProducts.setRevisions(('2012-07-16 00:00', '2007-04-03 15:00', '2014-06-26 00:00', '2017-03-29 00:00', '2019-05-04 00:00',))
@@ -81,4 +81,4 @@ if mibBuilder.loadTexts: apNetNet1000Series.setDescription('This is subtree cont
 apNetNet1100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 9148, 1, 6, 1))
 if mibBuilder.loadTexts: apNetNet1100.setStatus('current')
 if mibBuilder.loadTexts: apNetNet1100.setDescription('The Net-Net 1100 product.')
-mibBuilder.exportSymbols("ACMEPACKET-PRODUCTS", acmepacketProducts=acmepacketProducts, apNetNet1100=apNetNet1100, apNetNet9200=apNetNet9200, apNetNet4250=apNetNet4250, apNetNet3800=apNetNet3800, apNetNetOSVM=apNetNetOSVM, apNetNetOSSeries=apNetNetOSSeries, apNetNet6350=apNetNet6350, apNetNet3000Series=apNetNet3000Series, apNetNet1000Series=apNetNet1000Series, apNetNet4600=apNetNet4600, apNetNet9000Series=apNetNet9000Series, apNetNet3900=apNetNet3900, apNetNet4500=apNetNet4500, apNetNet6000Series=apNetNet6000Series, apNetNet4900=apNetNet4900, apNetNetOS=apNetNetOS, apNetNet3820=apNetNet3820, apNetNet4000Series=apNetNet4000Series, apNetNet6300=apNetNet6300, apNetNet6100=apNetNet6100, PYSNMP_MODULE_ID=acmepacketProducts)
+mibBuilder.exportSymbols("ACMEPACKET-PRODUCTS", apNetNet6350=apNetNet6350, apNetNet6000Series=apNetNet6000Series, apNetNet1100=apNetNet1100, apNetNet1000Series=apNetNet1000Series, apNetNet4000Series=apNetNet4000Series, apNetNet3900=apNetNet3900, apNetNetOSVM=apNetNetOSVM, apNetNet4900=apNetNet4900, apNetNet6300=apNetNet6300, apNetNet4250=apNetNet4250, apNetNetOSSeries=apNetNetOSSeries, acmepacketProducts=acmepacketProducts, apNetNetOS=apNetNetOS, apNetNet3000Series=apNetNet3000Series, apNetNet3820=apNetNet3820, apNetNet4600=apNetNet4600, apNetNet9200=apNetNet9200, apNetNet4500=apNetNet4500, apNetNet9000Series=apNetNet9000Series, apNetNet6100=apNetNet6100, PYSNMP_MODULE_ID=acmepacketProducts, apNetNet3800=apNetNet3800)

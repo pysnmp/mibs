@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlStorageGroupAdminAccountName",
+      "eqlLdapLoginAccessType",
       "eqlGroupId",
       "UTFString",
-      "eqlLdapLoginAccessType",
       "eqlStorageGroupAdminAccountIndex",
-      "eqlLdapLoginAccessName"
+      "eqlLdapLoginAccessName",
+      "eqlStorageGroupAdminAccountName"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -17,29 +17,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "Counter32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
+      "iso",
+      "Counter64",
+      "Gauge32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
+      "MibIdentifier",
       "enterprises",
-      "MibIdentifier"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DateAndTime",
+      "RowPointer",
       "DisplayString",
-      "RowPointer"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eqlStoragePoolModule": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLSTORAGEPOOL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:33:21 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:35:17 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLSTORAGEPOOL-MIB"

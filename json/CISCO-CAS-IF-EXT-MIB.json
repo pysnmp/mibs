@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-CAS-IF-MIB": [
-      "ccasVoiceCfgEntry",
-      "ccasGrpCfgEntry"
+      "ccasGrpCfgEntry",
+      "ccasVoiceCfgEntry"
     ],
     "CISCO-MEDIA-GATEWAY-MIB": [
       "CCallControlProfileIndexOrZero",
@@ -34,30 +34,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "Counter64",
       "IpAddress",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "Unsigned32"
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -4852,8 +4852,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CAS-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:32:35 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:34:16 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-CAS-IF-EXT-MIB"

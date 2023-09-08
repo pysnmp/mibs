@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Gauge32",
       "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
       "TimeTicks",
-      "mib-2"
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -98,9 +98,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SYSLOG-TC-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:23 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SYSLOG-TC-MIB",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:34:08 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SYSLOG-TC-MIB"

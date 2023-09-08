@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
+      "entPhysicalContainedIn",
       "entPhysicalName",
       "entPhysicalIndex",
-      "entPhysicalClass",
-      "entPhysicalContainedIn"
+      "entPhysicalClass"
     ],
     "HUAWEI-FLASH-MAN-MIB": [
-      "hwStorageName",
+      "hwStorageSpace",
       "hwStorageSpaceFree",
-      "hwStorageSpace"
+      "hwStorageName"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "HUAWEI-SECURITY-STAT-MIB": [
-      "hwSecStatTrapSlot",
-      "hwSecStatTrapCPU"
+      "hwSecStatTrapCPU",
+      "hwSecStatTrapSlot"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
       "IANAItuProbableCause",
       "IANAItuEventType"
     ],
     "IF-MIB": [
-      "ifOperStatus",
-      "ifName",
       "ifIndex",
-      "ifAdminStatus",
-      "ifDescr"
+      "ifName",
+      "ifOperStatus",
+      "ifDescr",
+      "ifAdminStatus"
     ],
     "ITU-ALARM-TC-MIB": [
       "ItuPerceivedSeverity"
@@ -39,24 +39,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
       "Unsigned32",
       "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hwBaseTrapMIB": {
@@ -4120,8 +4120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BASE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:35:24 2023",
-      "On host fv-az362-181 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:37:53 2023",
+      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-BASE-TRAP-MIB"
