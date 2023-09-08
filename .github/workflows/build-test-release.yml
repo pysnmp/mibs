@@ -18,18 +18,19 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - name: Install actionlint
-        run: |
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/v1.6.3/scripts/download-actionlint.bash)
-      - uses: pre-commit/action@v2.0.3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+      - uses: pre-commit/action@v3.0.0
 
   build:
     name: Build Release
     needs:
       - pre-commit
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pages: write
     steps:
       - uses: actions/checkout@v2
         with:
@@ -126,7 +127,7 @@ jobs:
           extra_plugins: |
             @semantic-release/exec
             @semantic-release/git
-            @google/semantic-release-replace-plugin
+            @google/semantic-release-replace-plugin@1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.SEMREL_TOKEN }} #
   update-semver:

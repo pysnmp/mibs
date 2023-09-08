@@ -6,6 +6,9 @@ on:
 jobs:
   release-chart:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     steps:
       - uses: actions/checkout@v2
       - name: Publish Helm chart
