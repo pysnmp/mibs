@@ -6,9 +6,9 @@
       "EntitySensorValue"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
       "rndErrorSeverity",
@@ -29,25 +29,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
       "iso",
       "Gauge32",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter32",
       "Bits",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter64",
+      "TimeTicks",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "PhysAddress",
+      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
@@ -1520,8 +1520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:40:09 2023",
-      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:43:19 2023",
+      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-Physicaldescription-MIB"

@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "ATM-FORUM-TC-MIB": [
-      "atmfAddressGroup",
-      "atmfNetPrefixGroup",
-      "NetPrefix",
       "AtmAddress",
-      "atmfAddressRegistrationAdminGroup"
+      "atmfAddressRegistrationAdminGroup",
+      "NetPrefix",
+      "atmfNetPrefixGroup",
+      "atmfAddressGroup"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -284,8 +284,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-ADDR-REG",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:27:00 2023",
-      "On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:26:55 2023",
+      "On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-ADDR-REG"

@@ -2,18 +2,18 @@
 # PySNMP MIB module ARISTA-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-IF-MIB
 # Produced by pysmi-1.1.8 at Fri Sep  8 07:29:06 2023
-# On host fv-az437-489 platform Linux version 5.15.0-1041-azure by user runner
+# On host fv-az268-298 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, TimeTicks, IpAddress, ModuleIdentity, ObjectIdentity, Gauge32, Integer32, Unsigned32, Counter32, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "TimeTicks", "IpAddress", "ModuleIdentity", "ObjectIdentity", "Gauge32", "Integer32", "Unsigned32", "Counter32", "Counter64", "Bits")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, IpAddress, ModuleIdentity, TimeTicks, ObjectIdentity, Counter32, NotificationType, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Unsigned32, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "Counter32", "NotificationType", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Unsigned32", "Counter64", "MibIdentifier")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 aristaIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 15))
 aristaIfMIB.setRevisions(('2014-10-09 00:00',))
 
@@ -69,4 +69,4 @@ aristaIfAdditionalInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 15
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaIfAdditionalInformationGroup = aristaIfAdditionalInformationGroup.setStatus('current')
 if mibBuilder.loadTexts: aristaIfAdditionalInformationGroup.setDescription('A collection of objects providing additional information\n        above and beyond what the IF-MIB provides, applicable to\n        all network interfaces.')
-mibBuilder.exportSymbols("ARISTA-IF-MIB", aristaIfMIB=aristaIfMIB, PYSNMP_MODULE_ID=aristaIfMIB, aristaIfInOctetRate=aristaIfInOctetRate, aristaIfTable=aristaIfTable, aristaIfInPktRate=aristaIfInPktRate, aristaIfGroups=aristaIfGroups, aristaIfRateInterval=aristaIfRateInterval, aristaIfCompliance=aristaIfCompliance, aristaIfAdditionalInformationGroup=aristaIfAdditionalInformationGroup, aristaIfInAclDrops=aristaIfInAclDrops, aristaIfCounterLastUpdated=aristaIfCounterLastUpdated, aristaIfConformance=aristaIfConformance, aristaIfCompliances=aristaIfCompliances, aristaIfEntry=aristaIfEntry, aristaIf=aristaIf, aristaIfRatesLastUpdated=aristaIfRatesLastUpdated, aristaIfOperStatusChanges=aristaIfOperStatusChanges, aristaIfOutPktRate=aristaIfOutPktRate, aristaIfOutOctetRate=aristaIfOutOctetRate)
+mibBuilder.exportSymbols("ARISTA-IF-MIB", aristaIfOperStatusChanges=aristaIfOperStatusChanges, PYSNMP_MODULE_ID=aristaIfMIB, aristaIfCompliance=aristaIfCompliance, aristaIfRateInterval=aristaIfRateInterval, aristaIfOutOctetRate=aristaIfOutOctetRate, aristaIf=aristaIf, aristaIfInAclDrops=aristaIfInAclDrops, aristaIfCompliances=aristaIfCompliances, aristaIfEntry=aristaIfEntry, aristaIfInOctetRate=aristaIfInOctetRate, aristaIfConformance=aristaIfConformance, aristaIfMIB=aristaIfMIB, aristaIfGroups=aristaIfGroups, aristaIfTable=aristaIfTable, aristaIfRatesLastUpdated=aristaIfRatesLastUpdated, aristaIfOutPktRate=aristaIfOutPktRate, aristaIfCounterLastUpdated=aristaIfCounterLastUpdated, aristaIfInPktRate=aristaIfInPktRate, aristaIfAdditionalInformationGroup=aristaIfAdditionalInformationGroup)
