@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsLSPID",
-      "MplsBitRate",
-      "MplsLabel",
       "MplsInitialCreationSource",
+      "mplsMIB",
+      "MplsLSPID",
+      "MplsLabel",
       "MplsBurstSize",
-      "mplsMIB"
+      "MplsBitRate"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -20,39 +20,39 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddressType",
+      "InetAddressIPv6",
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Gauge32",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
       "RowStatus",
+      "RowPointer",
+      "TimeStamp",
       "StorageType",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "RowPointer"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mplsLsrMIB": {
@@ -1832,8 +1832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:02:58 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:04:38 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-LSR-MIB"

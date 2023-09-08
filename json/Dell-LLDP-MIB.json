@@ -9,8 +9,8 @@
       "rndErrorDesc"
     ],
     "Dell-MIB": [
-      "rndNotifications",
-      "rnd"
+      "rnd",
+      "rndNotifications"
     ],
     "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
       "AddressFamilyNumbers"
@@ -19,41 +19,41 @@
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "lldpRemIndex",
-      "lldpRemTimeMark",
       "LldpPortNumber",
       "LldpPortList",
-      "LldpManAddress",
-      "lldpRemLocalPortNum"
+      "lldpRemTimeMark",
+      "lldpRemLocalPortNum",
+      "lldpRemIndex",
+      "LldpManAddress"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
+      "iso",
       "IpAddress",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
       "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:59:41 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:12 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-LLDP-MIB"

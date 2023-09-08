@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysDescr",
-      "sysName",
+      "sysLocation",
       "sysContact",
-      "sysLocation"
+      "sysDescr",
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "iso",
-      "MibIdentifier",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "Integer32d2",
-      "Integer32d1",
-      "FaultOK",
-      "mibRelease",
-      "commonGroup",
-      "eventTimeStamp",
       "eventPriority",
+      "mibRelease",
       "FloatString",
+      "Integer32d2",
+      "eventTimeStamp",
+      "Integer32d1",
+      "commonVarbindsCompliance",
       "eventCounter",
-      "commonVarbindsCompliance"
+      "FaultOK",
+      "commonGroup"
     ],
     "TWOWCOM-SMI": [
       "encoder",
-      "dvbDecoder",
-      "dvbEncoder",
       "other",
-      "decoder"
+      "dvbDecoder",
+      "decoder",
+      "dvbEncoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:54:55 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:55:01 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

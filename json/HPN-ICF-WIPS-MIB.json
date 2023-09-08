@@ -5,31 +5,31 @@
       "hpnicfCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "IpAddress",
       "Unsigned32",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfWIPS": {
@@ -6236,8 +6236,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-WIPS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:02:58 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:04:39 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-WIPS-MIB"

@@ -5,29 +5,29 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "AGENT-CAPABILITIES",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Integer32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLwappWebauthCapability": {
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-WEBAUTH-CAPABILITY",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:05 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:32 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-WEBAUTH-CAPABILITY"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module APOCAO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APOCAO-MIB
-# Produced by pysmi-1.1.8 at Fri Sep  8 08:05:56 2023
-# On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Sep  8 08:07:59 2023
+# On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
 apEMSModule, = mibBuilder.importSymbols("APEMS-MIB", "apEMSModule")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, ObjectIdentity, Counter64, Bits, iso, Unsigned32, Integer32, Counter32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "ObjectIdentity", "Counter64", "Bits", "iso", "Unsigned32", "Integer32", "Counter32", "TimeTicks")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+ModuleIdentity, TimeTicks, ObjectIdentity, Integer32, Unsigned32, Counter32, NotificationType, Bits, iso, Gauge32, IpAddress, Counter64, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "Integer32", "Unsigned32", "Counter32", "NotificationType", "Bits", "iso", "Gauge32", "IpAddress", "Counter64", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 apOCAOModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 8, 7))
 apOCAOModule.setRevisions(('2015-03-20 09:00', '2015-07-10 00:00',))
 
@@ -71,4 +71,4 @@ apOCAODeploymentStatusObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 8, 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apOCAODeploymentStatusObjectsGroup = apOCAODeploymentStatusObjectsGroup.setStatus('current')
 if mibBuilder.loadTexts: apOCAODeploymentStatusObjectsGroup.setDescription('Objects for deployment status notifications.')
-mibBuilder.exportSymbols("APOCAO-MIB", apOCAOCapacityPlannerNotifications=apOCAOCapacityPlannerNotifications, apOCAONFName=apOCAONFName, apOCAOCapacityPlannerNotificationsPrefix=apOCAOCapacityPlannerNotificationsPrefix, apOCAONotificationObjects=apOCAONotificationObjects, apOCAONFcDUAvailabilityFailure=apOCAONFcDUAvailabilityFailure, apOCAODeploymentStatusNotificationsGroup=apOCAODeploymentStatusNotificationsGroup, apOCAONFcGroupName=apOCAONFcGroupName, apOCAONFcDUAvailabilityFailureClear=apOCAONFcDUAvailabilityFailureClear, apOCAOMIBObjects=apOCAOMIBObjects, apOCAODeploymentStatusObjectsGroup=apOCAODeploymentStatusObjectsGroup, apOCAOFailureReason=apOCAOFailureReason, apOCAONFcDeploymentFailure=apOCAONFcDeploymentFailure, apOCAONFcDeploymentStatusNotifications=apOCAONFcDeploymentStatusNotifications, PYSNMP_MODULE_ID=apOCAOModule, apOCAOSourceServerAddress=apOCAOSourceServerAddress, apOCAOModule=apOCAOModule, apOCAONotificationsGroups=apOCAONotificationsGroups, apOCAONotificationObjectsGroups=apOCAONotificationObjectsGroups, apOCAONFcDeploymentStatusNotificationsPrefix=apOCAONFcDeploymentStatusNotificationsPrefix, apOCAOGroups=apOCAOGroups, apOCAOSourceServerName=apOCAOSourceServerName, apOCAONFcDeploymentFailureClear=apOCAONFcDeploymentFailureClear, apOCAODUName=apOCAODUName, apOCAONotifications=apOCAONotifications, apOCAOModuleConformance=apOCAOModuleConformance)
+mibBuilder.exportSymbols("APOCAO-MIB", apOCAOFailureReason=apOCAOFailureReason, apOCAONFcDeploymentFailureClear=apOCAONFcDeploymentFailureClear, apOCAOCapacityPlannerNotificationsPrefix=apOCAOCapacityPlannerNotificationsPrefix, apOCAONFcDUAvailabilityFailureClear=apOCAONFcDUAvailabilityFailureClear, apOCAONFcDeploymentStatusNotifications=apOCAONFcDeploymentStatusNotifications, apOCAONotifications=apOCAONotifications, apOCAODUName=apOCAODUName, apOCAOSourceServerName=apOCAOSourceServerName, PYSNMP_MODULE_ID=apOCAOModule, apOCAOGroups=apOCAOGroups, apOCAONFcDeploymentStatusNotificationsPrefix=apOCAONFcDeploymentStatusNotificationsPrefix, apOCAONFName=apOCAONFName, apOCAODeploymentStatusObjectsGroup=apOCAODeploymentStatusObjectsGroup, apOCAONotificationObjectsGroups=apOCAONotificationObjectsGroups, apOCAODeploymentStatusNotificationsGroup=apOCAODeploymentStatusNotificationsGroup, apOCAOModule=apOCAOModule, apOCAONotificationObjects=apOCAONotificationObjects, apOCAONFcDeploymentFailure=apOCAONFcDeploymentFailure, apOCAOSourceServerAddress=apOCAOSourceServerAddress, apOCAOMIBObjects=apOCAOMIBObjects, apOCAONFcDUAvailabilityFailure=apOCAONFcDUAvailabilityFailure, apOCAONFcGroupName=apOCAONFcGroupName, apOCAOCapacityPlannerNotifications=apOCAOCapacityPlannerNotifications, apOCAOModuleConformance=apOCAOModuleConformance, apOCAONotificationsGroups=apOCAONotificationsGroups)

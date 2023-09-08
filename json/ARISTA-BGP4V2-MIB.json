@@ -3,42 +3,42 @@
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
       "AristaBgp4V2AddressFamilyIdentifierTC",
-      "AristaBgp4V2IdentifierTC",
-      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC"
+      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
+      "AristaBgp4V2IdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAddressPrefixLength",
       "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetAddressType"
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
       "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -1865,8 +1865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 07:56:01 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 07:56:08 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ARISTA-BGP4V2-MIB"

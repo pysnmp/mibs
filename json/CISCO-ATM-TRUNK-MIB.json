@@ -9,8 +9,8 @@
       "BulkConfigResult"
     ],
     "CISCO-VOICE-AALX-PROFILE-MIB": [
-      "CiscoAal2ProfileNumber",
-      "CiscoAal2ProfileType"
+      "CiscoAal2ProfileType",
+      "CiscoAal2ProfileNumber"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
       "CvcCoderTypeRate",
@@ -24,32 +24,32 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
       "Gauge32",
-      "Unsigned32",
-      "iso",
-      "Bits",
       "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoAtmTrunkMIB": {
@@ -1711,8 +1711,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:05 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:00:31 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ATM-TRUNK-MIB"

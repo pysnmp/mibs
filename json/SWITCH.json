@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "enterprises",
-      "Bits",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "IpAddress",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "mib-2"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "enterprises",
+      "mib-2",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "AutonomousType",
-      "RowStatus",
-      "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "DateAndTime",
+      "RowStatus",
+      "TestAndIncr",
+      "AutonomousType",
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 08:01:39 2023",
-      "On host fv-az887-856 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Sep  8 08:02:38 2023",
+      "On host fv-az256-323 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SWITCH"
