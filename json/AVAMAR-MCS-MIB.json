@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TRAP-TYPE",
-      "iso",
       "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "enterprises",
+      "TRAP-TYPE",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "avamar": {
@@ -771,8 +771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avamar/AVAMAR-MCS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:21:18 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:58:24 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AVAMAR-MCS-MIB"

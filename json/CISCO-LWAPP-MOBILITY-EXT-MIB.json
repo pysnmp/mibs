@@ -25,34 +25,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
       "Unsigned32",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32"
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
-      "DateAndTime",
-      "DisplayString",
       "MacAddress",
+      "StorageType",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "ciscoLwappMobilityExtMIB": {
@@ -4695,8 +4695,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MOBILITY-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:24:55 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:41 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"

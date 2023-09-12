@@ -13,26 +13,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
       "Bits",
       "Counter64",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Gauge32",
-      "Integer32"
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "DirectionType": {
@@ -706,8 +706,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-FR-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:27:43 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:06:35 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-FR-QOS-MIB"

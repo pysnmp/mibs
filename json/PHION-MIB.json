@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "Counter32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "enterprises",
-      "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "phion": {
@@ -1774,8 +1774,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barracuda/PHION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:21:31 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:58:38 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PHION-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TELDAT-SW-STRUCTURE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-SW-STRUCTURE-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 07:33:10 2023
-# On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 08:14:42 2023
+# On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, NotificationType, Counter64, ObjectIdentity, Gauge32, Unsigned32, IpAddress, Counter32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "NotificationType", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "IpAddress", "Counter32", "Bits", "iso")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, IpAddress, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks, Integer32, Counter32, ObjectIdentity, Unsigned32, iso, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks", "Integer32", "Counter32", "ObjectIdentity", "Unsigned32", "iso", "Counter64", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 telproducts, = mibBuilder.importSymbols("TELDAT-MIB", "telproducts")
 telProductsNucleox = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1))
@@ -24,4 +24,4 @@ telProdNpMonFeatures = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 4))
 telProdNpMonInterfRouter = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 2, 2))
 telProdNpMonInterfNodo = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 2, 3))
 telProdNpMonProtIP = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 3, 1))
-mibBuilder.exportSymbols("TELDAT-SW-STRUCTURE-MIB", telProductsNpConfig=telProductsNpConfig, telProductsNpMonit=telProductsNpMonit, telProdNpMonitSistema=telProdNpMonitSistema, telProdNpConfInterface=telProdNpConfInterface, telProdNpConfProtocol=telProdNpConfProtocol, telProdNpMonFeatures=telProdNpMonFeatures, telProdNpMonInterface=telProdNpMonInterface, telProdNpMonProtocols=telProdNpMonProtocols, telProdNpMonInterfNodo=telProdNpMonInterfNodo, telProdNpMonInterfRouter=telProdNpMonInterfRouter, telProductsNucleox=telProductsNucleox, telProdNpMonProtIP=telProdNpMonProtIP)
+mibBuilder.exportSymbols("TELDAT-SW-STRUCTURE-MIB", telProdNpMonitSistema=telProdNpMonitSistema, telProdNpConfProtocol=telProdNpConfProtocol, telProdNpMonProtIP=telProdNpMonProtIP, telProdNpMonInterfNodo=telProdNpMonInterfNodo, telProductsNucleox=telProductsNucleox, telProductsNpConfig=telProductsNpConfig, telProdNpMonProtocols=telProdNpMonProtocols, telProdNpMonInterfRouter=telProdNpMonInterfRouter, telProdNpMonInterface=telProdNpMonInterface, telProductsNpMonit=telProductsNpMonit, telProdNpMonFeatures=telProdNpMonFeatures, telProdNpConfInterface=telProdNpConfInterface)

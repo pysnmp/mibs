@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
       "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "enterprises",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Gauge32",
       "Counter64",
-      "iso",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits"
+      "TimeTicks",
+      "iso",
+      "enterprises",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "MacAddress",
-      "TruthValue"
+      "DateAndTime",
+      "MacAddress"
     ]
   },
   "payShieldMIB": {
@@ -3333,8 +3333,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/thales/THALES-ESECURITY-PAYSHIELD-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:33:18 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:14:50 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "THALES-ESECURITY-PAYSHIELD-MIB"

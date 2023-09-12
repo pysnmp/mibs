@@ -10,29 +10,29 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
       "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "iso"
+      "Counter64",
+      "iso",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "lldpXdcbxMIB": {
@@ -1159,8 +1159,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DCBX-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:33 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:56:37 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DCBX-MIB"

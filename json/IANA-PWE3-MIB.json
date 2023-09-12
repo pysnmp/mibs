@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Bits",
       "mib-2",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "IpAddress",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
       "Gauge32",
-      "iso"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaPwe3MIB": {
@@ -113,8 +113,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-PWE3-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:22 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:56:24 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IANA-PWE3-MIB"

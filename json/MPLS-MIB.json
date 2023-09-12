@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
+      "Counter64",
       "IpAddress",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
       "iso",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Gauge32",
+      "MibIdentifier",
+      "Bits",
       "OBJECT-IDENTITY",
-      "Counter64"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/MPLS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:29:14 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:09:43 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MPLS-MIB"

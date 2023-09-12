@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
+      "IpAddress",
       "TimeTicks",
       "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "iso",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Integer32",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "deviceSensorMIB": {
@@ -337,8 +337,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-SENSOR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:21:45 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:58:56 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLUECOAT-SG-SENSOR-MIB"

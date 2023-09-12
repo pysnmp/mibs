@@ -8,31 +8,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
       "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCopsClientMIB": {
@@ -698,8 +698,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-COPS-CLIENT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:24:55 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:41 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-COPS-CLIENT-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-CIMOM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-CIMOM-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 07:33:44 2023
-# On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 08:15:27 2023
+# On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, MibIdentifier, Integer32, IpAddress, Counter64, Bits, iso, Counter32, NotificationType, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "MibIdentifier", "Integer32", "IpAddress", "Counter64", "Bits", "iso", "Counter32", "NotificationType", "Unsigned32", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, Bits, Counter64, Counter32, Gauge32, IpAddress, ObjectIdentity, Unsigned32, MibIdentifier, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "Bits", "Counter64", "Counter32", "Gauge32", "IpAddress", "ObjectIdentity", "Unsigned32", "MibIdentifier", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwEnvIndicationTime, = mibBuilder.importSymbols("VMWARE-ENV-MIB", "vmwEnvIndicationTime")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
 vmwCIMOMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 90, 10))
@@ -31,4 +31,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 vmwCimOmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 90, 2, 2, 2)).setObjects(("VMWARE-CIMOM-MIB", "vmwCimOmHeartbeat"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwCimOmNotificationGroup = vmwCimOmNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOm=vmwCimOm, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCimOmNotifications=vmwCimOmNotifications)
+mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCimOm=vmwCimOm, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances)

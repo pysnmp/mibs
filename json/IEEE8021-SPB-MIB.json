@@ -5,54 +5,54 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
       "dot1agCfmMaIndex",
+      "dot1agCfmMdIndex",
       "dot1agCfmMepEntry"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PbbTeEsp",
-      "IEEE8021PbbIngressEgress",
       "IEEE8021PbbServiceIdentifier",
-      "IEEE8021BridgePortNumber",
-      "ieee802dot1mibs"
+      "IEEE8021PbbIngressEgress",
+      "ieee802dot1mibs",
+      "IEEE8021BridgePortNumber"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrAny",
       "VlanIdOrNone",
-      "VlanId"
+      "VlanId",
+      "VlanIdOrAny"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
       "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "iso"
+      "Counter64",
+      "iso",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus",
       "TruthValue"
     ]
   },
@@ -3153,8 +3153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:33 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:56:37 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-DHCPSN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-DHCPSN-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 07:20:46 2023
-# On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 07:57:52 2023
+# On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Bits, IpAddress, ModuleIdentity, Counter64, NotificationType, Integer32, Gauge32, Unsigned32, TimeTicks, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "IpAddress", "ModuleIdentity", "Counter64", "NotificationType", "Integer32", "Gauge32", "Unsigned32", "TimeTicks", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, NotificationType, Bits, Integer32, TimeTicks, Counter64, Gauge32, ObjectIdentity, Unsigned32, Counter32, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "NotificationType", "Bits", "Integer32", "TimeTicks", "Counter64", "Gauge32", "ObjectIdentity", "Unsigned32", "Counter32", "iso", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atDhcpsn = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537))
 atDhcpsn.setRevisions(('2010-09-07 00:00', '2010-06-14 04:45', '2010-02-09 01:30', '2009-12-10 01:30',))
 
@@ -85,4 +85,4 @@ if mibBuilder.loadTexts: atArpsecVid.setDescription('VLAN ID of the port that th
 atArpsecVioType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("srcIpNotFound", 1), ("badVLAN", 2), ("badPort", 3), ("srcIpNotAllocated", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atArpsecVioType.setStatus('current')
 if mibBuilder.loadTexts: atArpsecVioType.setDescription('The reason that the trap was generated. srcIpNotFound(1) indicates\n                that the Sender IP address of the ARP packet was not found in the\n                DHCP Snooping database. badVLAN(2) indicates that the VLAN of the\n                DHCP Snooping binding entry associated with the Sender IP address\n                of the ARP packet does not match the VLAN that the ARP packet was\n                received on. badPort(3) indicates that the port of the DHCP\n                Snooping binding entry associated with the Sender IP address of the\n                ARP packet does not match the port that the ARP packet was received\n                on. srcIpNotAllocated(4) indicates that the CHADDR of the DHCP\n                Snooping binding entry associated with the Sender IP address of\n                the ARP packet does not match the Source MAC and/or the ARP source\n                MAC of the ARP packet.')
-mibBuilder.exportSymbols("AT-DHCPSN-MIB", atDhcpsnOpcode=atDhcpsnOpcode, atDhcpsnTrap=atDhcpsnTrap, atArpsecClientIP=atArpsecClientIP, atDhcpsnSmac=atDhcpsnSmac, atArpsecTrap=atArpsecTrap, atDhcpsnVid=atDhcpsnVid, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atArpsecVioType=atArpsecVioType, atArpsecVariablesEntry=atArpsecVariablesEntry, atDhcpsnVioType=atDhcpsnVioType, atArpsecSrcMac=atArpsecSrcMac, PYSNMP_MODULE_ID=atDhcpsn, atDhcpsnYiaddr=atDhcpsnYiaddr, atDhcpsn=atDhcpsn, atDhcpsnEvents=atDhcpsnEvents, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnSiaddr=atDhcpsnSiaddr, atDhcpsnIfIndex=atDhcpsnIfIndex, atArpsecVariablesTable=atArpsecVariablesTable, atDhcpsnChaddr=atDhcpsnChaddr, atArpsecVid=atArpsecVid, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry)
+mibBuilder.exportSymbols("AT-DHCPSN-MIB", atDhcpsnOpcode=atDhcpsnOpcode, atDhcpsnVid=atDhcpsnVid, atArpsecVariablesEntry=atArpsecVariablesEntry, atDhcpsn=atDhcpsn, atArpsecSrcMac=atArpsecSrcMac, atDhcpsnIfIndex=atDhcpsnIfIndex, atDhcpsnChaddr=atDhcpsnChaddr, atDhcpsnTrap=atDhcpsnTrap, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnGiaddr=atDhcpsnGiaddr, PYSNMP_MODULE_ID=atDhcpsn, atArpsecVid=atArpsecVid, atDhcpsnEvents=atDhcpsnEvents, atDhcpsnVioType=atDhcpsnVioType, atDhcpsnSmac=atDhcpsnSmac, atDhcpsnYiaddr=atDhcpsnYiaddr, atDhcpsnSiaddr=atDhcpsnSiaddr, atArpsecIfIndex=atArpsecIfIndex, atArpsecVioType=atArpsecVioType, atArpsecClientIP=atArpsecClientIP, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atArpsecTrap=atArpsecTrap, atArpsecVariablesTable=atArpsecVariablesTable)

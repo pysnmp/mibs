@@ -8,17 +8,17 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvText",
-      "docsDevEvLastTime",
+      "docsDevEvLevel",
       "docsDevEvId",
-      "docsDevEvLevel"
+      "docsDevEvLastTime",
+      "docsDevEvText"
     ],
     "DOCS-IF-MIB": [
+      "DocsisQosVersion",
       "DocsisUpstreamType",
       "DocsEqualizerData",
-      "TenthdB",
       "TenthdBmV",
-      "DocsisQosVersion"
+      "TenthdB"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -44,29 +44,29 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
       "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "RowStatus",
-      "DisplayString",
+      "StorageType",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "StorageType",
-      "MacAddress"
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:52 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:56:55 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF3-MIB"

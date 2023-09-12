@@ -5,50 +5,50 @@
       "cItpSpCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcSubSystemNumber",
-      "CItpTcPointCode",
       "CItpTcNetworkName",
       "CItpTcServiceIndicator",
+      "CItpTcPointCode",
+      "CItpTcQos",
       "CItpTcXuaName",
-      "CItpTcQos"
+      "CItpTcSubSystemNumber"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
+      "InetPortNumber",
       "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
       "TimeTicks",
-      "IpAddress",
-      "Integer32"
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoItpXuaMIB": {
@@ -4605,8 +4605,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-XUA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:24:59 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:46 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-XUA-MIB"

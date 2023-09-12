@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "TRAP-TYPE",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-IDENTITY",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Unsigned32",
       "Bits",
+      "iso",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
-      "enterprises",
       "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress"
+      "IpAddress",
+      "MibIdentifier",
+      "enterprises",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "avtech": {
@@ -1143,8 +1143,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/ROOMALERT12E-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:21:28 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:58:35 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ROOMALERT12E-MIB"

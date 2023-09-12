@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Gauge32",
+      "Counter32",
       "TimeTicks",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
       "Bits",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ctTimedResetMIB": {
@@ -117,8 +117,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-TIMED-RESET-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:25:46 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:03:50 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-TIMED-RESET-MIB"

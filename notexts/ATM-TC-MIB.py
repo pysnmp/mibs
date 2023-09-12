@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ATM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-TC-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 07:30:06 2023
-# On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 08:10:41 2023
+# On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, Unsigned32, Gauge32, mib_2, Integer32, ModuleIdentity, iso, Counter64, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "Unsigned32", "Gauge32", "mib-2", "Integer32", "ModuleIdentity", "iso", "Counter64", "Bits", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, Counter32, Gauge32, IpAddress, mib_2, Bits, NotificationType, ModuleIdentity, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "Gauge32", "IpAddress", "mib-2", "Bits", "NotificationType", "ModuleIdentity", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "TimeTicks", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atmTCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 37, 3))
 if mibBuilder.loadTexts: atmTCMIB.setLastUpdated('9810190200Z')
 if mibBuilder.loadTexts: atmTCMIB.setOrganization('IETF AToMMIB Working Group')
@@ -105,4 +105,4 @@ atmClpNoTaggingScrCdvt = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 14))
 if mibBuilder.loadTexts: atmClpNoTaggingScrCdvt.setStatus('current')
 atmClpTaggingScrCdvt = ObjectIdentity((1, 3, 6, 1, 2, 1, 37, 1, 1, 15))
 if mibBuilder.loadTexts: atmClpTaggingScrCdvt.setStatus('current')
-mibBuilder.exportSymbols("ATM-TC-MIB", atmClpTransparentScr=atmClpTransparentScr, atmTCMIB=atmTCMIB, atmClpTaggingNoScr=atmClpTaggingNoScr, atmClpNoTaggingNoScr=atmClpNoTaggingNoScr, AtmAddr=AtmAddr, atmNoClpNoScrCdvt=atmNoClpNoScrCdvt, atmClpTransparentNoScr=atmClpTransparentNoScr, AtmVpIdentifier=AtmVpIdentifier, AtmInterfaceType=AtmInterfaceType, atmNoClpNoScr=atmNoClpNoScr, atmClpNoTaggingMcr=atmClpNoTaggingMcr, atmNoClpTaggingNoScr=atmNoClpTaggingNoScr, AtmVorXLastChange=AtmVorXLastChange, atmNoTrafficDescriptor=atmNoTrafficDescriptor, AtmServiceCategory=AtmServiceCategory, AtmTrafficDescrParamIndex=AtmTrafficDescrParamIndex, AtmConnCastType=AtmConnCastType, atmNoClpScr=atmNoClpScr, atmClpNoTaggingScrCdvt=atmClpNoTaggingScrCdvt, AtmSigDescrParamIndex=AtmSigDescrParamIndex, AtmVorXAdminStatus=AtmVorXAdminStatus, AtmIlmiNetworkPrefix=AtmIlmiNetworkPrefix, atmClpTaggingScr=atmClpTaggingScr, atmObjectIdentities=atmObjectIdentities, PYSNMP_MODULE_ID=atmTCMIB, atmClpNoTaggingScr=atmClpNoTaggingScr, atmNoClpScrCdvt=atmNoClpScrCdvt, atmTrafficDescriptorTypes=atmTrafficDescriptorTypes, AtmConnKind=AtmConnKind, AtmVorXOperStatus=AtmVorXOperStatus, atmClpTaggingScrCdvt=atmClpTaggingScrCdvt, AtmVcIdentifier=AtmVcIdentifier)
+mibBuilder.exportSymbols("ATM-TC-MIB", atmClpNoTaggingScrCdvt=atmClpNoTaggingScrCdvt, AtmSigDescrParamIndex=AtmSigDescrParamIndex, AtmVorXOperStatus=AtmVorXOperStatus, AtmIlmiNetworkPrefix=AtmIlmiNetworkPrefix, atmObjectIdentities=atmObjectIdentities, PYSNMP_MODULE_ID=atmTCMIB, AtmInterfaceType=AtmInterfaceType, AtmTrafficDescrParamIndex=AtmTrafficDescrParamIndex, atmClpNoTaggingNoScr=atmClpNoTaggingNoScr, atmClpTaggingNoScr=atmClpTaggingNoScr, atmClpTransparentNoScr=atmClpTransparentNoScr, atmNoClpNoScr=atmNoClpNoScr, atmClpNoTaggingScr=atmClpNoTaggingScr, atmClpTaggingScrCdvt=atmClpTaggingScrCdvt, atmClpTaggingScr=atmClpTaggingScr, atmTCMIB=atmTCMIB, AtmVcIdentifier=AtmVcIdentifier, AtmAddr=AtmAddr, atmNoClpNoScrCdvt=atmNoClpNoScrCdvt, atmNoClpScrCdvt=atmNoClpScrCdvt, AtmConnKind=AtmConnKind, AtmVorXLastChange=AtmVorXLastChange, AtmVorXAdminStatus=AtmVorXAdminStatus, atmNoClpTaggingNoScr=atmNoClpTaggingNoScr, atmNoClpScr=atmNoClpScr, atmClpNoTaggingMcr=atmClpNoTaggingMcr, atmClpTransparentScr=atmClpTransparentScr, atmTrafficDescriptorTypes=atmTrafficDescriptorTypes, AtmConnCastType=AtmConnCastType, atmNoTrafficDescriptor=atmNoTrafficDescriptor, AtmServiceCategory=AtmServiceCategory, AtmVpIdentifier=AtmVpIdentifier)

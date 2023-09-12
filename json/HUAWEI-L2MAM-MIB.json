@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalName",
       "PhysicalIndex",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalName"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
-      "hwBaseTrapEventType",
       "hwBaseTrapSeverity",
+      "hwBaseTrapEventType",
       "hwBaseTrapProbableCause"
     ],
     "HUAWEI-L2IF-MIB": [
@@ -22,8 +22,8 @@
     ],
     "IF-MIB": [
       "ifDescr",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "NQA-MIB": [
       "EnableValue"
@@ -32,8 +32,8 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -41,26 +41,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "iso",
       "MODULE-IDENTITY",
-      "Unsigned32",
       "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "OBJECT-TYPE",
+      "Bits",
       "Counter64",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Gauge32",
-      "Integer32"
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "hwL2Mgmt": {
@@ -8121,8 +8121,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2MAM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:27:43 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:06:35 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-L2MAM-MIB"

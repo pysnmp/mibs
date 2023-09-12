@@ -7,36 +7,36 @@
     "CISCO-TC": [
       "CiscoAlarmSeverity",
       "CiscoNetworkAddress",
-      "TimeIntervalSec",
       "Unsigned64",
-      "CiscoInetAddressMask"
+      "CiscoInetAddressMask",
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectDn",
-      "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsFsmCompletion",
-      "CucsConditionRemoteInvRslt",
-      "CucsStatsThresholdDirection",
-      "CucsStatsCollectionPolicyFsmTaskItem",
       "CucsPolicyPolicyOwner",
-      "CucsFsmFsmStageStatus",
-      "CucsStatsThr64DefinitionPropType",
-      "CucsStatsCollectionPolicyFsmStageName",
-      "CucsStatsThrFloatDefinitionPropType",
-      "CucsStatsReportingInterval",
-      "CucsStatsThr32ValuePropType",
-      "CucsStatsCollectionDomain",
-      "CucsStatsThr32DefinitionPropType",
-      "CucsStatsThrFloatValuePropType",
-      "CucsFsmFlags",
-      "CucsStatsCollectionInterval",
       "CucsConditionSeverity",
+      "CucsFsmCompletion",
+      "CucsStatsReportingInterval",
+      "CucsStatsThresholdDefinitionAutoRecovery",
+      "CucsStatsCollectionPolicyFsmTaskItem",
+      "CucsStatsThrFloatValuePropType",
+      "CucsStatsThresholdDirection",
+      "CucsStatsThr32ValuePropType",
       "CucsStatsThr64ValuePropType",
-      "CucsStatsCollectionPolicyFsmCurrentFsm",
-      "CucsStatsThresholdDefinitionAutoRecovery"
+      "CucsStatsThr32DefinitionPropType",
+      "CucsFsmFsmStageStatus",
+      "CucsConditionRemoteInvRslt",
+      "CucsStatsThrFloatDefinitionPropType",
+      "CucsStatsCollectionInterval",
+      "CucsStatsCollectionPolicyFsmStageName",
+      "CucsStatsThr64DefinitionPropType",
+      "CucsFsmFlags",
+      "CucsStatsCollectionDomain",
+      "CucsStatsCollectionPolicyFsmCurrentFsm"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -46,34 +46,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
       "Gauge32",
       "iso",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
       "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowPointer",
-      "TimeInterval",
-      "DateAndTime",
-      "DisplayString",
       "MacAddress",
+      "TimeInterval",
+      "RowPointer",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "cucsStatsObjects": {
@@ -2147,8 +2147,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:24:55 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:41 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-STATS-MIB"

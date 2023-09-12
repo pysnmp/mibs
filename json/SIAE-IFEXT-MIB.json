@@ -5,8 +5,8 @@
       "InterfaceIndex"
     ],
     "SIAE-ALARM-MIB": [
-      "AlarmSeverityCode",
-      "AlarmStatus"
+      "AlarmStatus",
+      "AlarmSeverityCode"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
@@ -16,25 +16,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
       "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "MibIdentifier",
       "TimeTicks",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
       "iso",
-      "Bits",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ifext": {
@@ -380,8 +380,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-IFEXT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:32:39 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:14:09 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-IFEXT-MIB"

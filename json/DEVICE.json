@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "IpAddress",
-      "iso",
       "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "TimeTicks",
       "Bits",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "peplink": {
@@ -433,8 +433,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/DEVICE",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:31:15 2023",
-      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 08:12:06 2023",
+      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DEVICE"

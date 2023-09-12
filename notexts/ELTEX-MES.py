@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ELTEX-MES (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-MES
-# Produced by pysmi-1.1.8 at Tue Sep 12 07:25:24 2023
-# On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 08:03:26 2023
+# On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-elHardware, eltexLtd = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "elHardware", "eltexLtd")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+eltexLtd, elHardware = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd", "elHardware")
 ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, ModuleIdentity, Integer32, iso, Unsigned32, Bits, TimeTicks, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "ModuleIdentity", "Integer32", "iso", "Unsigned32", "Bits", "TimeTicks", "IpAddress", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, Unsigned32, IpAddress, Bits, ObjectIdentity, Integer32, Gauge32, iso, MibIdentifier, TimeTicks, Counter64, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "Unsigned32", "IpAddress", "Bits", "ObjectIdentity", "Integer32", "Gauge32", "iso", "MibIdentifier", "TimeTicks", "Counter64", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 eltMes = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23))
 eltMes.setRevisions(('2015-11-17 00:00',))
 if mibBuilder.loadTexts: eltMes.setLastUpdated('201511170000Z')
@@ -56,4 +56,4 @@ eltMesIpSpec = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 91))
 eltMesDot1x = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 95))
 eltMesBridgeSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 112))
 eltMesEndOfMibGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1000))
-mibBuilder.exportSymbols("ELTEX-MES", eltMesHardwareMib=eltMesHardwareMib, Percents=Percents, eltMesNotifications=eltMesNotifications, eltMesSsh=eltMesSsh, eltMesPhdTransceiver=eltMesPhdTransceiver, eltMesQosTailDropMib=eltMesQosTailDropMib, eltMesSwInterfaces=eltMesSwInterfaces, eltMesBridgeSecurity=eltMesBridgeSecurity, eltMesStormCtrl=eltMesStormCtrl, eltMesDhcp=eltMesDhcp, eltMesTacacs=eltMesTacacs, eltMesRadius=eltMesRadius, eltMesMacMulticast=eltMesMacMulticast, eltMesIpUnnumbered=eltMesIpUnnumbered, NetNumber=NetNumber, eltMesLinkAgg=eltMesLinkAgg, VlanPriority=VlanPriority, eltMesEndOfMibGroup=eltMesEndOfMibGroup, eltMesMng=eltMesMng, eltMesSecuritySuiteMIB=eltMesSecuritySuiteMIB, PYSNMP_MODULE_ID=eltMes, eltMesCopy=eltMesCopy, eltMesPhy=eltMesPhy, eltMesIpOspfMtu=eltMesIpOspfMtu, eltMesDot1x=eltMesDot1x, eltMesTuning=eltMesTuning, eltMesIpSpec=eltMesIpSpec, eltMesAAA=eltMesAAA, eltMesIpMulticast=eltMesIpMulticast, eltMesQosCliMib=eltMesQosCliMib, eltMes=eltMes, eltMesIpBfd=eltMesIpBfd, eltMesDevParams=eltMesDevParams, eltMesSmon=eltMesSmon)
+mibBuilder.exportSymbols("ELTEX-MES", NetNumber=NetNumber, eltMesIpSpec=eltMesIpSpec, eltMesIpOspfMtu=eltMesIpOspfMtu, eltMesEndOfMibGroup=eltMesEndOfMibGroup, eltMesDhcp=eltMesDhcp, eltMesStormCtrl=eltMesStormCtrl, eltMesRadius=eltMesRadius, PYSNMP_MODULE_ID=eltMes, eltMesSmon=eltMesSmon, Percents=Percents, eltMesAAA=eltMesAAA, eltMesPhy=eltMesPhy, VlanPriority=VlanPriority, eltMesNotifications=eltMesNotifications, eltMesTacacs=eltMesTacacs, eltMesIpBfd=eltMesIpBfd, eltMesBridgeSecurity=eltMesBridgeSecurity, eltMesHardwareMib=eltMesHardwareMib, eltMesDot1x=eltMesDot1x, eltMesQosCliMib=eltMesQosCliMib, eltMesSecuritySuiteMIB=eltMesSecuritySuiteMIB, eltMesSsh=eltMesSsh, eltMesSwInterfaces=eltMesSwInterfaces, eltMesPhdTransceiver=eltMesPhdTransceiver, eltMesLinkAgg=eltMesLinkAgg, eltMesTuning=eltMesTuning, eltMesMng=eltMesMng, eltMesIpMulticast=eltMesIpMulticast, eltMesIpUnnumbered=eltMesIpUnnumbered, eltMesMacMulticast=eltMesMacMulticast, eltMes=eltMes, eltMesDevParams=eltMesDevParams, eltMesCopy=eltMesCopy, eltMesQosTailDropMib=eltMesQosTailDropMib)
