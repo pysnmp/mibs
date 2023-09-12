@@ -5,14 +5,14 @@
       "CbpElementName"
     ],
     "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
+      "DynamicTemplateTargetType",
       "DynamicTemplateName",
       "DynamicTemplateType",
-      "DynamicTemplateTargetType",
       "DynamicTemplateTargetId"
     ],
     "CISCO-IP-URPF-MIB": [
-      "UnicastRpfOptions",
-      "UnicastRpfType"
+      "UnicastRpfType",
+      "UnicastRpfOptions"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -24,8 +24,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddressPrefixLength",
+      "InetAddressIPv6",
       "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -37,28 +37,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
       "IpAddress",
-      "Unsigned32",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
-      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "StorageType"
     ]
   },
   "ciscoDynamicTemplateMIB": {
@@ -3213,8 +3213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:37:26 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:09:58 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-DYNAMIC-TEMPLATE-MIB"

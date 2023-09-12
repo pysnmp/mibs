@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HWg-WLD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/HWg-WLD-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 09:41:39 2023
-# On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:14:34 2023
+# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-NotificationType, Integer32, TimeTicks, NotificationType, MibIdentifier, ModuleIdentity, IpAddress, Counter64, enterprises, Gauge32, iso, Unsigned32, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "TimeTicks", "NotificationType", "MibIdentifier", "ModuleIdentity", "IpAddress", "Counter64", "enterprises", "Gauge32", "iso", "Unsigned32", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits")
+TimeTicks, Gauge32, iso, Counter32, MibIdentifier, NotificationType, Unsigned32, IpAddress, NotificationType, Bits, Integer32, ModuleIdentity, ObjectIdentity, enterprises, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "iso", "Counter32", "MibIdentifier", "NotificationType", "Unsigned32", "IpAddress", "NotificationType", "Bits", "Integer32", "ModuleIdentity", "ObjectIdentity", "enterprises", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class PositiveInteger(Integer32):
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
@@ -69,4 +69,4 @@ wldStateToNormal = NotificationType((1, 3, 6, 1, 4, 1, 21796, 4, 5) + (0,2)).set
 if mibBuilder.loadTexts: wldStateToNormal.setDescription('Sensor n changed to Normal state.')
 wldPeriodicAlarm = NotificationType((1, 3, 6, 1, 4, 1, 21796, 4, 5) + (0,3)).setObjects(("SNMPv2-MIB", "sysName"), ("HWg-WLD-MIB", "infoAddressMAC"), ("HWg-WLD-MIB", "wldIndex"), ("HWg-WLD-MIB", "wldName"), ("HWg-WLD-MIB", "wldState"), ("HWg-WLD-MIB", "wldSN"), ("HWg-WLD-MIB", "wldID"), ("HWg-WLD-MIB", "wldValue"))
 if mibBuilder.loadTexts: wldPeriodicAlarm.setDescription('Sensor n periodic Alarm.')
-mibBuilder.exportSymbols("HWg-WLD-MIB", x390=x390, SensorSN=SensorSN, hwgroup=hwgroup, wldEntry=wldEntry, infoAddressMAC=infoAddressMAC, wldValue=wldValue, SensorState=SensorState, wldState=wldState, wldID=wldID, wldIndex=wldIndex, SensorID=SensorID, wldPeriodicAlarm=wldPeriodicAlarm, wldStateToAlarm=wldStateToAlarm, wldStateToNormal=wldStateToNormal, wldSN=wldSN, SensorName=SensorName, hwgwld=hwgwld, PositiveInteger=PositiveInteger, info=info, wldName=wldName, SensorValue=SensorValue, wldTable=wldTable)
+mibBuilder.exportSymbols("HWg-WLD-MIB", SensorName=SensorName, wldStateToAlarm=wldStateToAlarm, wldEntry=wldEntry, wldSN=wldSN, wldTable=wldTable, hwgroup=hwgroup, wldIndex=wldIndex, wldPeriodicAlarm=wldPeriodicAlarm, SensorID=SensorID, PositiveInteger=PositiveInteger, wldID=wldID, wldState=wldState, SensorState=SensorState, infoAddressMAC=infoAddressMAC, wldValue=wldValue, x390=x390, wldName=wldName, SensorValue=SensorValue, hwgwld=hwgwld, info=info, wldStateToNormal=wldStateToNormal, SensorSN=SensorSN)

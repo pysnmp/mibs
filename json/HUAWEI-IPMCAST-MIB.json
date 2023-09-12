@@ -5,19 +5,19 @@
       "hwDatacomm"
     ],
     "IANA-RTPROTO-MIB": [
-      "IANAipMRouteProtocol",
-      "IANAipRouteProtocol"
+      "IANAipRouteProtocol",
+      "IANAipMRouteProtocol"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
-      "InetZoneIndex",
       "InetAddressPrefixLength",
+      "InetZoneIndex",
+      "InetAddressType",
       "InetAddress",
-      "InetAddressType"
+      "InetVersion"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Integer32",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
       "NOTIFICATION-TYPE",
       "Unsigned32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier",
-      "iso"
+      "iso",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "StorageType",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "hwMcast": {
@@ -2016,8 +2016,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPMCAST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:41:34 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:14:28 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-IPMCAST-MIB"

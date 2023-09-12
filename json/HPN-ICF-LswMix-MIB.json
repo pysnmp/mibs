@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-LSW-DEV-ADM-MIB": [
-      "hpnicfLswSlotIndex",
-      "hpnicfLswFrameIndex"
+      "hpnicfLswFrameIndex",
+      "hpnicfLswSlotIndex"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicflswCommon"
@@ -13,20 +13,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Bits",
+      "iso",
       "Counter32",
+      "IpAddress",
       "TimeTicks",
-      "iso"
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -176,8 +176,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswMix-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:55 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:15:50 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LswMix-MIB"

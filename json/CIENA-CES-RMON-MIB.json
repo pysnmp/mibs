@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "CIENA-SMI": [
-      "cienaCesConfig",
-      "cienaCommon"
+      "cienaCommon",
+      "cienaCesConfig"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter64",
+      "Counter32",
+      "Bits",
       "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Gauge32",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "cienaCesRmonMIB": {
@@ -569,8 +569,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RMON-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:34:00 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:06:08 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-RMON-MIB"

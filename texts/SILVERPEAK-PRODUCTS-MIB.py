@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SILVERPEAK-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/silverpeak/SILVERPEAK-PRODUCTS-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 09:49:38 2023
-# On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:23:21 2023
+# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-silverpeakProducts, silverpeakModules = mibBuilder.importSymbols("SILVERPEAK-SMI", "silverpeakProducts", "silverpeakModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Bits, TimeTicks, Unsigned32, Counter64, Gauge32, ObjectIdentity, ModuleIdentity, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Bits", "TimeTicks", "Unsigned32", "Counter64", "Gauge32", "ObjectIdentity", "ModuleIdentity", "Counter32", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+silverpeakModules, silverpeakProducts = mibBuilder.importSymbols("SILVERPEAK-SMI", "silverpeakModules", "silverpeakProducts")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Counter64, Counter32, MibIdentifier, Unsigned32, Gauge32, NotificationType, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Counter32", "MibIdentifier", "Unsigned32", "Gauge32", "NotificationType", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 silverpeakProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 23867, 1, 2))
 if mibBuilder.loadTexts: silverpeakProductsMIB.setLastUpdated('201101240000Z')
 if mibBuilder.loadTexts: silverpeakProductsMIB.setOrganization('Silver Peak Systems, Inc.')
@@ -75,4 +75,4 @@ spsECLB = MibIdentifier((1, 3, 6, 1, 4, 1, 23867, 1, 2, 55))
 spsECLP = MibIdentifier((1, 3, 6, 1, 4, 1, 23867, 1, 2, 56))
 spsECXLB = MibIdentifier((1, 3, 6, 1, 4, 1, 23867, 1, 2, 57))
 spsECXLP = MibIdentifier((1, 3, 6, 1, 4, 1, 23867, 1, 2, 58))
-mibBuilder.exportSymbols("SILVERPEAK-PRODUCTS-MIB", spsECXLP=spsECXLP, spsNX3700=spsNX3700, spsNX2700=spsNX2700, spsNX5500=spsNX5500, spsVX9000=spsVX9000, spsNX2610=spsNX2610, spsNX1700=spsNX1700, spsECXS=spsECXS, spsNX9610=spsNX9610, spsNX9700=spsNX9700, spsECXLB=spsECXLB, spsECL=spsECL, spsVX8000=spsVX8000, spsVRX4=spsVRX4, spsECMP=spsECMP, spsECS=spsECS, spsNX3500=spsNX3500, spsNX10700=spsNX10700, spsVX3000=spsVX3000, spsVX500=spsVX500, spsNX700=spsNX700, spsVX5000=spsVX5000, spsVRX6=spsVRX6, spsNX5504=spsNX5504, spsVXUnlicensed=spsVXUnlicensed, spsCPX=spsCPX, spsECXL=spsECXL, spsVRX8=spsVRX8, spsECUS=spsECUS, spsNX7504=spsNX7504, spsNX2500=spsNX2500, spsECLB=spsECLB, spsVX0100=spsVX0100, spsNX7700=spsNX7700, PYSNMP_MODULE_ID=silverpeakProductsMIB, spsVX7000=spsVX7000, spsECV=spsECV, spsVX2000=spsVX2000, spsNX3600=spsNX3600, spsNX7500=spsNX7500, spsNX6700=spsNX6700, spsNX5600=spsNX5600, spsVX6000=spsVX6000, spsNX8504=spsNX8504, spsVX1000=spsVX1000, spsNX8500=spsNX8500, spsNX11700=spsNX11700, spsNX7600=spsNX7600, spsNX8600=spsNX8600, spsVXXpress=spsVXXpress, silverpeakProductsMIB=silverpeakProductsMIB, spsNX5700=spsNX5700, spsECLP=spsECLP, spsNX12700=spsNX12700, spsVX0000=spsVX0000, spsNX8700=spsNX8700, spsNX2600=spsNX2600, spsVRX2=spsVRX2, spsECM=spsECM, spsECMB=spsECMB)
+mibBuilder.exportSymbols("SILVERPEAK-PRODUCTS-MIB", spsNX8700=spsNX8700, spsVX500=spsVX500, spsVRX2=spsVRX2, spsECXLB=spsECXLB, spsVX3000=spsVX3000, spsVXXpress=spsVXXpress, spsECV=spsECV, spsNX8500=spsNX8500, PYSNMP_MODULE_ID=silverpeakProductsMIB, spsNX3500=spsNX3500, spsVRX6=spsVRX6, spsNX7700=spsNX7700, spsVRX8=spsVRX8, spsNX5504=spsNX5504, spsNX2600=spsNX2600, spsECXLP=spsECXLP, spsECLB=spsECLB, spsVX9000=spsVX9000, spsNX11700=spsNX11700, spsNX12700=spsNX12700, spsECL=spsECL, spsNX1700=spsNX1700, spsVX7000=spsVX7000, spsVX0100=spsVX0100, spsNX7500=spsNX7500, spsNX5700=spsNX5700, spsVRX4=spsVRX4, spsNX9610=spsNX9610, spsVX1000=spsVX1000, spsVX6000=spsVX6000, spsECLP=spsECLP, spsVX0000=spsVX0000, spsVX5000=spsVX5000, spsECMB=spsECMB, spsNX2700=spsNX2700, spsNX8504=spsNX8504, spsNX5500=spsNX5500, spsNX3700=spsNX3700, spsNX7504=spsNX7504, spsNX700=spsNX700, spsECS=spsECS, spsNX8600=spsNX8600, spsNX2610=spsNX2610, spsNX2500=spsNX2500, spsNX3600=spsNX3600, spsECUS=spsECUS, spsCPX=spsCPX, silverpeakProductsMIB=silverpeakProductsMIB, spsNX9700=spsNX9700, spsVXUnlicensed=spsVXUnlicensed, spsECXS=spsECXS, spsECMP=spsECMP, spsNX7600=spsNX7600, spsNX6700=spsNX6700, spsNX10700=spsNX10700, spsNX5600=spsNX5600, spsECXL=spsECXL, spsVX2000=spsVX2000, spsECM=spsECM, spsVX8000=spsVX8000)

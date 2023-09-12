@@ -13,24 +13,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter64",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
       "iso",
       "IpAddress",
+      "Counter64",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bcnDnsMIB": {
@@ -448,8 +448,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-DNS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:33:06 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:05:05 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BCN-DNS-MIB"

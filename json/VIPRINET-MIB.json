@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "enterprises",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "enterprises",
       "Counter64",
-      "Gauge32",
-      "IpAddress"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1432,8 +1432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/viprinet/VIPRINET-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:51:02 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:24:54 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VIPRINET-MIB"

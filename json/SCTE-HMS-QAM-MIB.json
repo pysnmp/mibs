@@ -12,30 +12,30 @@
       "InetAddress"
     ],
     "SCTE-HMS-HEADENDIDENT-TC-MIB": [
-      "QAMChannelInterleaveMode",
-      "QAMChannelModulationFormat"
+      "QAMChannelModulationFormat",
+      "QAMChannelInterleaveMode"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "Counter32",
       "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "enterprises",
-      "Gauge32",
+      "IpAddress",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -625,8 +625,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/scte/SCTE-HMS-QAM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:30:31 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:02:13 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SCTE-HMS-QAM-MIB"

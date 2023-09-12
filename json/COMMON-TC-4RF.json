@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "MIB-4RF": [
-      "fourRFModules",
-      "fourRFGeneric"
+      "fourRFGeneric",
+      "fourRFModules"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -12,18 +12,18 @@
     "SNMPv2-SMI": [
       "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
+      "OBJECT-TYPE",
       "Unsigned32",
+      "Counter64",
       "iso",
       "Bits",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "Counter32",
       "MibIdentifier",
-      "Counter32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -652,8 +652,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/COMMON-TC-4RF",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:30:57 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:02:40 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "COMMON-TC-4RF"

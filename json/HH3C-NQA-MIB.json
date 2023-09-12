@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingCtlOwnerIndex",
       "pingCtlDescr",
       "pingCtlTestName",
-      "pingCtlType",
       "pingCtlTargetAddressType",
-      "pingCtlEntry",
-      "pingCtlTargetAddress"
+      "pingCtlOwnerIndex",
+      "pingCtlType",
+      "pingCtlTargetAddress",
+      "pingCtlEntry"
     ],
     "HH3C-OID-MIB": [
       "hh3cRhw"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,25 +25,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "Gauge32",
       "Bits",
       "Counter32",
-      "IpAddress",
-      "Counter64",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "TimeTicks",
-      "MibIdentifier"
+      "iso",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
       "DateAndTime",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -3670,8 +3670,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-NQA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:34:43 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:06:58 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-NQA-MIB"

@@ -11,29 +11,29 @@
       "packetlogic2"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
+      "Bits",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "IpAddress",
       "iso",
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "sensors": {
@@ -232,8 +232,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-HW-SENSORS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:47:56 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:21:32 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PACKETLOGIC-HW-SENSORS-MIB"

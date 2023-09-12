@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "Counter32",
       "Unsigned32",
+      "enterprises",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
       "Counter64",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "Bits",
       "IpAddress",
+      "Bits",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -21228,8 +21228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netbotz/NETBOTZV2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:45:27 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:18:46 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETBOTZV2-MIB"

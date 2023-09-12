@@ -5,17 +5,17 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrFixedPointValue",
-      "CwrCwDegradedSecond",
-      "CwrCwErrorFreeSecond",
-      "CwrPercentageValue",
-      "CwrCwConsecutiveSevErrSecond",
       "CwrFixedPointPrecision",
-      "CwrCwErroredSecond",
-      "CwrUpdateTime",
       "WirelessGauge64",
+      "CwrCwDegradedSecond",
+      "CwrPercentageValue",
+      "CwrUpdateTime",
+      "CwrCwErroredSecond",
+      "CwrCwSeverelyErroredSecond",
+      "CwrCwConsecutiveSevErrSecond",
       "CwrFixedPointScale",
-      "CwrCwSeverelyErroredSecond"
+      "CwrFixedPointValue",
+      "CwrCwErrorFreeSecond"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -26,25 +26,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
       "IpAddress",
-      "Unsigned32",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
-      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "MacAddress",
       "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:37:19 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:09:51 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"

@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-DSCP-TC": [
-      "Dscp",
-      "DscpOrAny"
+      "DscpOrAny",
+      "Dscp"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetPortNumber",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetAddressType"
     ],
     "INTEGRATED-SERVICES-MIB": [
       "BurstSize"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
-      "zeroDotZero",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "mib-2",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
       "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "mib-2",
+      "MibIdentifier",
+      "Bits",
       "Counter32",
       "Unsigned32",
-      "Integer32"
+      "TimeTicks",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
-      "RowPointer",
       "AutonomousType",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowPointer",
+      "RowStatus",
+      "StorageType"
     ]
   },
   "diffServMib": {
@@ -2955,9 +2955,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:32:36 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIFFSERV-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:02:27 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DIFFSERV-MIB"

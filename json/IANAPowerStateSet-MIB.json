@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "iso",
+      "Unsigned32",
+      "MibIdentifier",
       "Counter64",
-      "Bits",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Integer32",
+      "Counter32",
+      "mib-2",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ianaPowerStateSet": {
@@ -89,8 +89,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANAPowerStateSet-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:30:06 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:01:45 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IANAPowerStateSet-MIB"

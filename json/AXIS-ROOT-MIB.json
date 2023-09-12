@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "enterprises",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Counter64",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Gauge32",
-      "IpAddress"
+      "Bits",
+      "iso",
+      "enterprises",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -47,8 +47,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/axis/AXIS-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:32:46 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:04:44 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AXIS-ROOT-MIB"

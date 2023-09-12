@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "enterprises",
       "IpAddress",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "Counter32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "enterprises",
       "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -10294,8 +10294,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tegile/TEGILE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 09:50:14 2023",
-      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:24:02 2023",
+      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TEGILE-MIB"
