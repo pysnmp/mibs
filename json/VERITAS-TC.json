@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Opaque",
       "iso",
-      "enterprises",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Counter64",
+      "Counter32",
       "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "Opaque"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "VERITAS-REG": [
       "veritasModules"
@@ -119,8 +119,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-TC.mib",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:22:15 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:06:57 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VERITAS-TC"

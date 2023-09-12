@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsATMPorts",
-      "sfpsATMPortsMgr",
-      "sfpsSystemPool",
-      "sfpsSystemConfig",
+      "sfpsSystemStats",
       "sfpsATMAnibIfoStats",
-      "sfpsATMResolver",
-      "sfpsMemHeapStats",
       "sfpsATMElan",
-      "sfpsATMSvcHistoryMgr",
+      "sfpsATMResolver",
       "sfpsATMSvcHistoryEvent",
+      "sfpsATMSvcHistoryMgr",
+      "sfpsATMPorts",
       "sfpsATMResolverCounters",
-      "sfpsSystemStats"
+      "sfpsSystemPool",
+      "sfpsMemHeapStats",
+      "sfpsATMPortsMgr",
+      "sfpsSystemConfig"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1941,8 +1941,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-ESYS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:09:40 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:58:59 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-ESYS-MIB"

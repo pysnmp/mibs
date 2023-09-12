@@ -9,9 +9,9 @@
     ],
     "CM-FACILITY-MIB": [
       "FlowTagControl",
-      "cmEthernetAccPortEntry",
+      "cmFlowEntry",
       "cmEthernetNetPortEntry",
-      "cmFlowEntry"
+      "cmEthernetAccPortEntry"
     ],
     "CM-IP-MIB": [
       "ipManagementTunnelEntry"
@@ -21,32 +21,32 @@
       "cmEthernetNetPortHistoryEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "MibIdentifier",
       "iso",
-      "Counter64",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "MacAddress",
-      "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "VariablePointer",
+      "DisplayString"
     ]
   },
   "f3PBBMIB": {
@@ -662,8 +662,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PBB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:02:27 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:53:48 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-PBB-MIB"

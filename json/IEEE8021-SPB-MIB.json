@@ -10,48 +10,48 @@
       "dot1agCfmMdIndex"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbTeEsp",
-      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbIngressEgress",
       "ieee802dot1mibs",
+      "IEEE8021PbbServiceIdentifier",
       "IEEE8021BridgePortNumber",
-      "IEEE8021PbbIngressEgress"
+      "IEEE8021PbbTeEsp"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
       "VlanIdOrAny",
+      "VlanId",
       "VlanIdOrNone"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Integer32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Counter64"
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
       "DisplayString",
+      "RowStatus",
       "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
@@ -3152,9 +3152,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:07 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-SPB-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:56:08 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

@@ -8,12 +8,12 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2RemIndex",
-      "lldpV2RemTimeMark",
-      "lldpV2LocPortIfIndex",
-      "lldpV2PortConfigEntry",
-      "lldpV2RemLocalIfIndex",
       "lldpV2Extensions",
+      "lldpV2PortConfigEntry",
+      "lldpV2LocPortIfIndex",
+      "lldpV2RemTimeMark",
+      "lldpV2RemLocalIfIndex",
+      "lldpV2RemIndex",
       "lldpV2RemLocalDestMACAddress"
     ],
     "Q-BRIDGE-MIB": [
@@ -28,20 +28,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
+      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
+      "Counter64",
       "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -4340,9 +4340,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-V2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:01:07 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-EXT-DOT1-V2-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:04:09 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-V2-MIB"

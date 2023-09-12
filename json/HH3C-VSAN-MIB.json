@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HH3C-FC-TC-MIB": [
+      "Hh3cFcDomainIdOrZero",
+      "Hh3cFcDomainId",
       "Hh3cFcVsanIndex",
       "Hh3cFcNameId",
-      "Hh3cFcDmState",
-      "Hh3cFcAddressId",
-      "Hh3cFcDomainPriority",
       "Hh3cFcNameIdOrZero",
-      "Hh3cFcDomainIdOrZero",
+      "Hh3cFcAddressId",
       "Hh3cFcDomainIdList",
-      "Hh3cFcDomainId"
+      "Hh3cFcDmState",
+      "Hh3cFcDomainPriority"
     ],
     "HH3C-OID-MIB": [
       "hh3cCommon"
@@ -22,29 +22,29 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
+      "Integer32",
       "IpAddress",
       "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -924,8 +924,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-VSAN-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:05:36 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:56:07 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-VSAN-MIB"

@@ -5,94 +5,94 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "CiscoInetAddressMask",
       "CiscoAlarmSeverity",
-      "TimeIntervalSec",
       "CiscoNetworkAddress",
-      "Unsigned64",
-      "CiscoInetAddressMask"
+      "TimeIntervalSec",
+      "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsLsAssocState",
-      "CucsFabricVConTransportPref",
-      "CucsConditionRemoteInvRslt",
-      "CucsLsConfigWarnings",
-      "CucsServerConfigIssues",
-      "CucsNetworkSwitchId",
-      "CucsLsPowerState",
-      "CucsVnicOrderScheme",
-      "CucsLsOwner",
-      "CucsLsResolveFromRemoteServer",
-      "CucsNetworkConfigIssues",
-      "CucsLsFcZoneGroupSwitchId",
-      "CucsLsOperState",
-      "CucsLsServerFsmTaskFlags",
-      "CucsVnicConfigIssues",
-      "CucsLsServerFsmStageName",
-      "CucsStorageFcZoningType",
-      "CucsLsServerFsmCurrentFsm",
-      "CucsLsServerFsmTaskItem",
-      "CucsLsConfigState",
-      "CucsStorageConfigIssues",
-      "CucsLsAgentCapability",
-      "CucsLsUUIDIdentityState",
-      "CucsFsmCompletion",
-      "CucsLsConfigIssues",
       "CucsFabricHostPortId",
       "CucsLsComputeBindingOperState",
-      "CucsLsAgentMode",
-      "CucsPolicyPolicyOwner",
-      "CucsLsApply",
-      "CucsVnicPlacement",
+      "CucsLsServerFsmTaskItem",
+      "CucsLsConfigIssues",
       "CucsFabricVConMappingScheme",
-      "CucsVnicExternalMgmtIPMode",
-      "CucsVnicIScsiConfigIssues",
-      "CucsVnicMezzMappingScheme",
-      "CucsFsmFsmStageStatus",
+      "CucsPolicyPolicyOwner",
+      "CucsNetworkConfigIssues",
+      "CucsStorageConfigIssues",
+      "CucsLsResolveFromRemoteServer",
+      "CucsLsFcZoneGroupSwitchId",
+      "CucsVnicPlacement",
       "CucsLsAssignment",
+      "CucsLsOwner",
+      "CucsFsmFsmStageStatus",
+      "CucsVnicConfigIssues",
+      "CucsVnicMezzMappingScheme",
+      "CucsLsUUIDIdentityState",
+      "CucsStorageFcZoningType",
+      "CucsLsConfigWarnings",
+      "CucsLsServerFsmCurrentFsm",
+      "CucsFsmCompletion",
+      "CucsConditionRemoteInvRslt",
+      "CucsLsAgentMode",
+      "CucsVnicOrderScheme",
+      "CucsLsOperState",
+      "CucsLsPowerState",
+      "CucsVnicIScsiConfigIssues",
       "CucsLsType",
-      "CucsLsFcZoneState"
+      "CucsVnicExternalMgmtIPMode",
+      "CucsLsConfigState",
+      "CucsNetworkSwitchId",
+      "CucsLsAgentCapability",
+      "CucsFabricVConTransportPref",
+      "CucsLsAssocState",
+      "CucsLsServerFsmStageName",
+      "CucsLsFcZoneState",
+      "CucsLsServerFsmTaskFlags",
+      "CucsServerConfigIssues",
+      "CucsLsApply"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
       "Unsigned32",
       "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "Integer32",
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TimeStamp",
-      "TruthValue",
-      "RowPointer",
-      "DateAndTime",
       "MacAddress",
+      "RowPointer",
+      "DisplayString",
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "cucsLsObjects": {
@@ -3370,8 +3370,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:08:26 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:58:12 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-LS-MIB"

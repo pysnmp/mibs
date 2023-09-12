@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2AddressFamilyIdentifierTC",
+      "Bgp4V2IdentifierTC",
       "Bgp4V2SubsequentAddressFamilyIdentifierTC",
-      "Bgp4V2IdentifierTC"
+      "Bgp4V2AddressFamilyIdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetAddressType",
       "InetAddressPrefixLength",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressType",
+      "InetAddress",
+      "InetAutonomousSystemNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "mib-2",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "Counter64",
+      "iso",
+      "Gauge32",
       "Bits",
       "IpAddress",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "MibIdentifier",
+      "mib-2"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
-      "DisplayString"
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bgp4V2": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:10:06 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:59:19 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BGP4V2-MIB"

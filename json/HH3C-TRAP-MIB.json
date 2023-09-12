@@ -5,42 +5,42 @@
       "hh3cCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
       "ifDescr",
+      "ifIndex",
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "Bits",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Unsigned32",
       "Counter32",
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
-      "TAddress",
       "DisplayString",
+      "RowStatus",
+      "TAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1074,8 +1074,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:05:37 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 06:56:07 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-TRAP-MIB"

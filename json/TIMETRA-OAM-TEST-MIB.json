@@ -13,10 +13,10 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAddress",
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "MPLS-LDP-MIB": [
       "MplsLabel"
@@ -28,41 +28,41 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
       "Counter32",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TimeStamp",
-      "StorageType",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "StorageType",
+      "TimeStamp",
+      "MacAddress"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
-      "tmnxSRObjs",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRConfs",
+      "tmnxSRObjs"
     ],
     "TIMETRA-SERV-MIB": [
       "SdpBindVcType",
@@ -72,39 +72,39 @@
       "TmnxMobGwId"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxBfdOnLspSessFecType",
-      "TmnxIgpInstance",
-      "TmnxVRtrIDOrZero",
-      "TmnxServId",
-      "TDSCPNameOrEmpty",
-      "TNamedItemOrEmpty",
       "TmnxEnabledDisabledAdminState",
-      "TmnxEncapVal",
-      "TItemDescription",
-      "TmnxVcId",
-      "TmnxSpokeSdpIdOrZero",
-      "TmnxVRtrID",
-      "TmnxBgpRouteTarget",
-      "TmnxHigh32",
-      "TmnxMplsTpGlobalID",
-      "SdpBindId",
-      "TNamedItem",
-      "TmnxTunnelType",
-      "TmnxLow32",
       "TmnxPwGlobalIdOrZero",
-      "TmnxMplsTpNodeID",
-      "TmnxAdminState",
-      "TFCName",
-      "TLNamedItemOrEmpty",
-      "TmnxVcIdOrNone",
-      "TProfile",
-      "TmnxVPNRouteDistinguisher",
+      "TmnxEnabledDisabled",
+      "TmnxEncapVal",
       "TmnxStrSapId",
+      "TmnxBgpRouteTarget",
+      "TmnxTunnelType",
       "TmnxTunnelID",
-      "IpAddressPrefixLength",
-      "TmnxPortID",
       "TPolicyStatementNameOrEmpty",
-      "TmnxEnabledDisabled"
+      "TmnxVRtrIDOrZero",
+      "TmnxIgpInstance",
+      "IpAddressPrefixLength",
+      "TFCName",
+      "TmnxSpokeSdpIdOrZero",
+      "TmnxHigh32",
+      "TmnxVcIdOrNone",
+      "TmnxAdminState",
+      "TmnxLow32",
+      "TmnxMplsTpNodeID",
+      "TmnxVRtrID",
+      "TNamedItemOrEmpty",
+      "TmnxPortID",
+      "TmnxServId",
+      "TmnxBfdOnLspSessFecType",
+      "TDSCPNameOrEmpty",
+      "TmnxVPNRouteDistinguisher",
+      "TLNamedItemOrEmpty",
+      "TmnxVcId",
+      "TNamedItem",
+      "TmnxMplsTpGlobalID",
+      "TItemDescription",
+      "SdpBindId",
+      "TProfile"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -27865,8 +27865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-OAM-TEST-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:18:14 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:04:09 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-OAM-TEST-MIB"

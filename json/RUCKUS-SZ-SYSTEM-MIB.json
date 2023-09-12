@@ -9,32 +9,32 @@
       "ruckusSZSystemModule"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32",
       "Bits",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "RowStatus",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "ruckusSZSystemMIB": {
@@ -192,8 +192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-SZ-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:20:30 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:05:37 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-SZ-SYSTEM-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "cpqHoTrapFlags",
-      "compaq"
+      "compaq",
+      "cpqHoTrapFlags"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -13,25 +13,25 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "iso",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "TRAP-TYPE",
       "MibIdentifier",
-      "Unsigned32"
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cpqSystemInfo": {
@@ -4300,8 +4300,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQSINFO-MIB",
-      "Produced by pysmi-1.1.8 at Fri Sep  8 11:14:02 2023",
-      "On host fv-az343-374 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:01:08 2023",
+      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CPQSINFO-MIB"
