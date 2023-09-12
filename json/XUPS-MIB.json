@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteTempUpperLimit",
       "xupsEnvRemoteHumidityLowerLimit",
-      "xupsContactState",
-      "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactDescr",
-      "xupsContactIndex",
       "xupsEnvRemoteHumidity",
-      "xupsEnvRemoteTempLowerLimit",
+      "xupsContactType",
+      "xupsContactState",
+      "xupsContactDescr",
+      "xupsEnvRemoteTempUpperLimit",
+      "xupsEnvRemoteHumidityUpperLimit",
       "xupsEnvRemoteTemp",
-      "xupsContactType"
+      "xupsContactIndex",
+      "xupsEnvRemoteTempLowerLimit"
     ],
     "EATON-OIDS": [
       "eaton",
       "xupsEnvironment"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE",
       "Gauge32",
       "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "iso",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:03:03 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:37:42 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "XUPS-MIB"

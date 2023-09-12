@@ -8,30 +8,30 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
       "Integer32",
-      "Gauge32",
-      "Unsigned32",
       "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "f10LinkAggMib": {
@@ -737,8 +737,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-LINK-AGGREGATION-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:28 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:37:02 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F10-LINK-AGGREGATION-MIB"

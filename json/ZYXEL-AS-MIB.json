@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
+      "Timeout",
       "MacAddress",
-      "BridgeId",
-      "Timeout"
+      "BridgeId"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -17,28 +17,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
+      "enterprises",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
       "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter64",
-      "Integer32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "iso",
-      "enterprises"
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "DisplayString"
+      "PhysAddress"
     ]
   },
   "zyxel": {
@@ -1220,8 +1220,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-AS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:16:22 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:51:58 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-AS-MIB"

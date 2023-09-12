@@ -1,0 +1,1362 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-NETWORKING-OID": [
+      "wndFeatures"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalIndex"
+    ],
+    "LLDP-MIB": [
+      "lldpRemIndex",
+      "lldpRemLocalPortNum",
+      "lldpRemTimeMark",
+      "lldpLocPortNum"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaWiredLldpMIB": {
+    "name": "arubaWiredLldpMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-04-15 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "arubaWiredLldpXdot3Objects": {
+    "name": "arubaWiredLldpXdot3Objects",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredLldpXdot3LocalData": {
+    "name": "arubaWiredLldpXdot3LocalData",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredLldpXdot3RemoteData": {
+    "name": "arubaWiredLldpXdot3RemoteData",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredLldpXdot3LocPowerTable": {
+    "name": "arubaWiredLldpXdot3LocPowerTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerEntry": {
+    "name": "arubaWiredLldpXdot3LocPowerEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerPortClass": {
+    "name": "arubaWiredLldpXdot3LocPowerPortClass",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pClassPSE": 1,
+          "pClassPD": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerMDISupported": {
+    "name": "arubaWiredLldpXdot3LocPowerMDISupported",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerMDIEnabled": {
+    "name": "arubaWiredLldpXdot3LocPowerMDIEnabled",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerPairControlable": {
+    "name": "arubaWiredLldpXdot3LocPowerPairControlable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerPairs": {
+    "name": "arubaWiredLldpXdot3LocPowerPairs",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pairSignal": 1,
+          "pairSpare": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerClass": {
+    "name": "arubaWiredLldpXdot3LocPowerClass",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class0": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerType": {
+    "name": "arubaWiredLldpXdot3LocPowerType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type2PSE": 1,
+          "type2PD": 2,
+          "type1PSE": 3,
+          "type1PD": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerSource": {
+    "name": "arubaWiredLldpXdot3LocPowerSource",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "primary": 2,
+          "backup": 3,
+          "reserved": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerPriority": {
+    "name": "arubaWiredLldpXdot3LocPowerPriority",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "critical": 2,
+          "high": 3,
+          "low": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPDRequestedPowerValue": {
+    "name": "arubaWiredLldpXdot3LocPDRequestedPowerValue",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPDRequestedPowerValueA": {
+    "name": "arubaWiredLldpXdot3LocPDRequestedPowerValueA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPDRequestedPowerValueB": {
+    "name": "arubaWiredLldpXdot3LocPDRequestedPowerValueB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPSEAllocatedPowerValue": {
+    "name": "arubaWiredLldpXdot3LocPSEAllocatedPowerValue",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPSEAllocatedPowerValueA": {
+    "name": "arubaWiredLldpXdot3LocPSEAllocatedPowerValueA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPSEAllocatedPowerValueB": {
+    "name": "arubaWiredLldpXdot3LocPSEAllocatedPowerValueB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPSEPoweringStatus": {
+    "name": "arubaWiredLldpXdot3LocPSEPoweringStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoPair": 1,
+          "fourPsinglesigPD": 2,
+          "fourPdualsigPD": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerPairsExt": {
+    "name": "arubaWiredLldpXdot3LocPowerPairsExt",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "altA": 1,
+          "altB": 2,
+          "both": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerClassExtA": {
+    "name": "arubaWiredLldpXdot3LocPowerClassExtA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlesig": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerClassExtB": {
+    "name": "arubaWiredLldpXdot3LocPowerClassExtB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlesig": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerClassExt": {
+    "name": "arubaWiredLldpXdot3LocPowerClassExt",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dualsig": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6,
+          "class6": 7,
+          "class7": 8,
+          "class8": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPowerTypeExt": {
+    "name": "arubaWiredLldpXdot3LocPowerTypeExt",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type3PSE": 1,
+          "type4PSE": 2,
+          "type3singlesigPD": 3,
+          "type3dualsigPD": 4,
+          "type4singlesigPD": 5,
+          "type4dualsigPD": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPDLoad": {
+    "name": "arubaWiredLldpXdot3LocPDLoad",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPSEMaxAvailPower": {
+    "name": "arubaWiredLldpXdot3LocPSEMaxAvailPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocPSEAutoclassSupport": {
+    "name": "arubaWiredLldpXdot3LocPSEAutoclassSupport",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocAutoclassCompleted": {
+    "name": "arubaWiredLldpXdot3LocAutoclassCompleted",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpLocPseTlvSentType": {
+    "name": "arubaWiredLldpLocPseTlvSentType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "med": 1,
+          "dot3": 2,
+          "dot3-ext": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpLocPdTlvSentType": {
+    "name": "arubaWiredLldpLocPdTlvSentType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "med": 1,
+          "dot3": 2,
+          "dot3-ext": 3,
+          "medanddot3": 4,
+          "medanddot3-ext": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerTable": {
+    "name": "arubaWiredLldpXdot3RemPowerTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerEntry": {
+    "name": "arubaWiredLldpXdot3RemPowerEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerPortClass": {
+    "name": "arubaWiredLldpXdot3RemPowerPortClass",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pClassPSE": 1,
+          "pClassPD": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerMDISupported": {
+    "name": "arubaWiredLldpXdot3RemPowerMDISupported",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerMDIEnabled": {
+    "name": "arubaWiredLldpXdot3RemPowerMDIEnabled",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerPairControlable": {
+    "name": "arubaWiredLldpXdot3RemPowerPairControlable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerPairs": {
+    "name": "arubaWiredLldpXdot3RemPowerPairs",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pairSignal": 1,
+          "pairSpare": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerClass": {
+    "name": "arubaWiredLldpXdot3RemPowerClass",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class0": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerType": {
+    "name": "arubaWiredLldpXdot3RemPowerType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type2PSE": 1,
+          "type2PD": 2,
+          "type1PSE": 3,
+          "type1PD": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerSource": {
+    "name": "arubaWiredLldpXdot3RemPowerSource",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "pse": 2,
+          "local": 3,
+          "pseAndLocal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerPriority": {
+    "name": "arubaWiredLldpXdot3RemPowerPriority",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "critical": 2,
+          "high": 3,
+          "low": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPDRequestedPowerValue": {
+    "name": "arubaWiredLldpXdot3RemPDRequestedPowerValue",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPDRequestedPowerValueA": {
+    "name": "arubaWiredLldpXdot3RemPDRequestedPowerValueA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPDRequestedPowerValueB": {
+    "name": "arubaWiredLldpXdot3RemPDRequestedPowerValueB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPSEAllocatedPowerValue": {
+    "name": "arubaWiredLldpXdot3RemPSEAllocatedPowerValue",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPSEAllocatedPowerValueA": {
+    "name": "arubaWiredLldpXdot3RemPSEAllocatedPowerValueA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPSEAllocatedPowerValueB": {
+    "name": "arubaWiredLldpXdot3RemPSEAllocatedPowerValueB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 499
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPDPoweredStatus": {
+    "name": "arubaWiredLldpXdot3RemPDPoweredStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlesigPD": 1,
+          "twoPdualsigPD": 2,
+          "fourPdualsigPD": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerClassExtA": {
+    "name": "arubaWiredLldpXdot3RemPowerClassExtA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlesig": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerClassExtB": {
+    "name": "arubaWiredLldpXdot3RemPowerClassExtB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlesig": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerClassExt": {
+    "name": "arubaWiredLldpXdot3RemPowerClassExt",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dualsig": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6,
+          "class6": 7,
+          "class7": 8,
+          "class8": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerTypeExt": {
+    "name": "arubaWiredLldpXdot3RemPowerTypeExt",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type3PSE": 1,
+          "type4PSE": 2,
+          "type3singlesigPD": 3,
+          "type3dualsigPD": 4,
+          "type4singlesigPD": 5,
+          "type4dualsigPD": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPDLoad": {
+    "name": "arubaWiredLldpXdot3RemPDLoad",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPD4PID": {
+    "name": "arubaWiredLldpXdot3RemPD4PID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPSEMaxAvailPower": {
+    "name": "arubaWiredLldpXdot3RemPSEMaxAvailPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemAutoclassRequest": {
+    "name": "arubaWiredLldpXdot3RemAutoclassRequest",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerDownRequest": {
+    "name": "arubaWiredLldpXdot3RemPowerDownRequest",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemPowerDownTime": {
+    "name": "arubaWiredLldpXdot3RemPowerDownTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredLldpConformance": {
+    "name": "arubaWiredLldpConformance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredLldpCompliances": {
+    "name": "arubaWiredLldpCompliances",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.2.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredLldpGroups": {
+    "name": "arubaWiredLldpGroups",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.2.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredLldpXdot3Compliance": {
+    "name": "arubaWiredLldpXdot3Compliance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredLldpXdot3LocSysGroup",
+        "module": "ARUBAWIRED-LLDP-MIB"
+      },
+      {
+        "object": "arubaWiredLldpXdot3RemSysGroup",
+        "module": "ARUBAWIRED-LLDP-MIB"
+      },
+      {
+        "object": "arubaWiredLldpXdot3LocSysGroup",
+        "module": "ARUBAWIRED-LLDP-MIB"
+      },
+      {
+        "object": "arubaWiredLldpXdot3RemSysGroup",
+        "module": "ARUBAWIRED-LLDP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3LocSysGroup": {
+    "name": "arubaWiredLldpXdot3LocSysGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerPortClass"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerMDISupported"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerMDIEnabled"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerPairControlable"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerPairs"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerClass"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerType"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerSource"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerPriority"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPDRequestedPowerValue"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPDRequestedPowerValueA"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPDRequestedPowerValueB"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPSEAllocatedPowerValue"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPSEAllocatedPowerValueA"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPSEAllocatedPowerValueB"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPSEPoweringStatus"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerPairsExt"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerClassExtA"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerClassExtB"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerClassExt"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPowerTypeExt"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPDLoad"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPSEMaxAvailPower"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocPSEAutoclassSupport"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3LocAutoclassCompleted"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpLocPseTlvSentType"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpLocPdTlvSentType"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredLldpXdot3RemSysGroup": {
+    "name": "arubaWiredLldpXdot3RemSysGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.9.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerPortClass"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerMDISupported"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerMDIEnabled"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerPairControlable"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerPairs"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerClass"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerType"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerSource"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerPriority"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPDRequestedPowerValue"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPDRequestedPowerValueA"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPDRequestedPowerValueB"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPSEAllocatedPowerValue"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPSEAllocatedPowerValueA"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPSEAllocatedPowerValueB"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPDPoweredStatus"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerClassExtA"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerClassExtB"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerClassExt"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerTypeExt"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPDLoad"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPD4PID"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPSEMaxAvailPower"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemAutoclassRequest"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerDownRequest"
+      },
+      {
+        "module": "ARUBAWIRED-LLDP-MIB",
+        "object": "arubaWiredLldpXdot3RemPowerDownTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-LLDP-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:54 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ARUBAWIRED-LLDP-MIB"
+  }
+}

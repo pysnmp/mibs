@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePort",
       "ieee8021BridgeTrafficClass",
-      "ieee8021BridgeBaseComponentId"
+      "ieee8021BridgeBaseComponentId",
+      "ieee8021BridgeBasePort"
     ],
     "IEEE8021-Q-BRIDGE-MIB": [
       "ieee8021QBridgeVlanIndex"
@@ -14,31 +14,31 @@
       "IEEE8021BridgePortNumber"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "Unsigned32",
-      "Bits",
+      "iso",
       "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "Counter32",
-      "IpAddress"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021TsnRemoteMgmtMib": {
@@ -504,8 +504,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-TSN-REMOTE-MANAGEMENT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:56:37 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:30:23 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-TSN-REMOTE-MANAGEMENT-MIB"

@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
-      "CiscoIpProtocol"
+      "CiscoIpProtocol",
+      "Unsigned64"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -15,31 +15,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "OBJECT-TYPE",
+      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
       "TimeTicks",
+      "IpAddress",
       "Unsigned32",
       "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress"
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCidsMIB": {
@@ -2743,8 +2743,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CIDS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:44 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:37:22 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-CIDS-MIB"

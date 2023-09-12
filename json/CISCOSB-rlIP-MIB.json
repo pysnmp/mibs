@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetZoneIndex",
-      "InetAddressPrefixLength",
-      "InetVersion",
+      "InetAddressType",
       "InetAddress",
-      "InetAddressType"
+      "InetZoneIndex",
+      "InetVersion",
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "zeroDotZero",
       "mib-2",
-      "IpAddress"
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "zeroDotZero",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "StorageType",
-      "RowStatus",
-      "RowPointer",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "TestAndIncr"
+      "RowPointer",
+      "DisplayString",
+      "TimeStamp",
+      "TestAndIncr",
+      "RowStatus",
+      "StorageType",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:02:42 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:37:19 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

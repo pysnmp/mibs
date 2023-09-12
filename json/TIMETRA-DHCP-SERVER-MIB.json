@@ -7,54 +7,54 @@
       "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "Gauge32",
+      "Unsigned32",
       "iso",
-      "Counter64",
-      "TimeTicks",
       "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Bits",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "TruthValue",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DateAndTime",
-      "MacAddress"
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "tmnxSRObjs",
-      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
+      "tmnxSRNotifyPrefix",
       "tmnxSRConfs"
     ],
     "TIMETRA-TC-MIB": [
-      "TNamedItemOrEmpty",
       "TmnxDhcpOptionDisplay",
-      "TmnxPppoeUserNameOrEmpty",
-      "TmnxAdminState",
-      "TmnxVRtrID",
-      "TmnxCreateOrigin",
-      "TmnxVRtrIDOrZero",
-      "TItemDescription",
       "TNamedItem",
+      "TmnxAdminState",
       "TmnxDhcpServerDUIDTypeCode",
+      "TmnxCreateOrigin",
+      "TItemDescription",
       "TmnxActionType",
-      "TmnxDhcpOptionType"
+      "TmnxVRtrIDOrZero",
+      "TmnxDhcpOptionType",
+      "TNamedItemOrEmpty",
+      "TmnxVRtrID",
+      "TmnxPppoeUserNameOrEmpty"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -15325,8 +15325,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-DHCP-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:11:43 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:46:57 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-DHCP-SERVER-MIB"

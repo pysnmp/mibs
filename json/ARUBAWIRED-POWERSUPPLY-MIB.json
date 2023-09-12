@@ -1,0 +1,379 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-CHASSIS-MIB": [
+      "arubaWiredChassisMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaWiredPowerSupply": {
+    "name": "arubaWiredPowerSupply",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-01-07 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "arubaWiredPSUNotifications": {
+    "name": "arubaWiredPSUNotifications",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.0",
+    "class": "objectidentity"
+  },
+  "arubaWiredPSUStateNotification": {
+    "name": "arubaWiredPSUStateNotification",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUGroupIndex"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUSlotIndex"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUState"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPowerSupplyTable": {
+    "name": "arubaWiredPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPowerSupplyEntry": {
+    "name": "arubaWiredPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPSUGroupIndex": {
+    "name": "arubaWiredPSUGroupIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUSlotIndex": {
+    "name": "arubaWiredPSUSlotIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUName": {
+    "name": "arubaWiredPSUName",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUState": {
+    "name": "arubaWiredPSUState",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUProductName": {
+    "name": "arubaWiredPSUProductName",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUSerialNumber": {
+    "name": "arubaWiredPSUSerialNumber",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUInstantaneousPower": {
+    "name": "arubaWiredPSUInstantaneousPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUMaximumPower": {
+    "name": "arubaWiredPSUMaximumPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUNumberFailures": {
+    "name": "arubaWiredPSUNumberFailures",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPSUAirflowDirection": {
+    "name": "arubaWiredPSUAirflowDirection",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPowerSupplyConformance": {
+    "name": "arubaWiredPowerSupplyConformance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.99",
+    "class": "objectidentity"
+  },
+  "arubaWiredPowerSupplyCompliances": {
+    "name": "arubaWiredPowerSupplyCompliances",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.99.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredPowerSupplyGroups": {
+    "name": "arubaWiredPowerSupplyGroups",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.99.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredPowerSupplyCompliance": {
+    "name": "arubaWiredPowerSupplyCompliance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.99.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredPowerSupplyTable",
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB"
+      },
+      {
+        "object": "arubaWiredPSUNotificationsGroup",
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB"
+      },
+      {
+        "object": "arubaWiredPowerSupplyTableGroup",
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPowerSupplyTableGroup": {
+    "name": "arubaWiredPowerSupplyTableGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.99.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUGroupIndex"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUSlotIndex"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUName"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUState"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUProductName"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUSerialNumber"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUInstantaneousPower"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUMaximumPower"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUNumberFailures"
+      },
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUAirflowDirection"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPSUNotificationsGroup": {
+    "name": "arubaWiredPSUNotificationsGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.11.2.99.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POWERSUPPLY-MIB",
+        "object": "arubaWiredPSUStateNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-POWERSUPPLY-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:55 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ARUBAWIRED-POWERSUPPLY-MIB"
+  }
+}

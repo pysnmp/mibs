@@ -1,0 +1,1722 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-NETWORKING-OID": [
+      "wndFeatures"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString"
+    ]
+  },
+  "arubaWiredRpvstMIB": {
+    "name": "arubaWiredRpvstMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-29 00:00",
+        "description": "arubaWiredRpvstPortVlanId & arubaWiredRpvstPortVlanIndex mib objects are added to arubaWiredRpvstPortVlan table."
+      },
+      {
+        "revision": "2018-01-18 00:00",
+        "description": "Initial version of this MIB module"
+      }
+    ]
+  },
+  "PointToPoint": {
+    "name": "PointToPoint",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceTrue": 1,
+          "forceFalse": 2,
+          "auto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "arubaWiredRpvstNotifications": {
+    "name": "arubaWiredRpvstNotifications",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.0",
+    "class": "objectidentity"
+  },
+  "arubaWiredRpvstObjects": {
+    "name": "arubaWiredRpvstObjects",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredRpvstConformance": {
+    "name": "arubaWiredRpvstConformance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredRpvstGeneralGroup": {
+    "name": "arubaWiredRpvstGeneralGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredRpvstResetCounters": {
+    "name": "arubaWiredRpvstResetCounters",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstExtendedSystemID": {
+    "name": "arubaWiredRpvstExtendedSystemID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstIgnorePVIDInconsistency": {
+    "name": "arubaWiredRpvstIgnorePVIDInconsistency",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPathCostMode": {
+    "name": "arubaWiredRpvstPathCostMode",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pathCost8021d": 1,
+          "pathCost8021t": 2,
+          "proprietary": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanTable": {
+    "name": "arubaWiredRpvstVlanTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanEntry": {
+    "name": "arubaWiredRpvstVlanEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanId": {
+    "name": "arubaWiredRpvstVlanId",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanHelloTime": {
+    "name": "arubaWiredRpvstVlanHelloTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanForwardDelay": {
+    "name": "arubaWiredRpvstVlanForwardDelay",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanMaxAge": {
+    "name": "arubaWiredRpvstVlanMaxAge",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanPriority": {
+    "name": "arubaWiredRpvstVlanPriority",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRoot": {
+    "name": "arubaWiredRpvstVlanRoot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRpvstAdminStatus": {
+    "name": "arubaWiredRpvstVlanRpvstAdminStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanResetCounters": {
+    "name": "arubaWiredRpvstVlanResetCounters",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanOperHelloTime": {
+    "name": "arubaWiredRpvstVlanOperHelloTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRootPriority": {
+    "name": "arubaWiredRpvstVlanRootPriority",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32768,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRootPort": {
+    "name": "arubaWiredRpvstVlanRootPort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRootPathCost": {
+    "name": "arubaWiredRpvstVlanRootPathCost",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRootMacAddress": {
+    "name": "arubaWiredRpvstVlanRootMacAddress",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanRootChangeCounter": {
+    "name": "arubaWiredRpvstVlanRootChangeCounter",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanTimeSinceLastTopoChange": {
+    "name": "arubaWiredRpvstVlanTimeSinceLastTopoChange",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanTopoChangeCount": {
+    "name": "arubaWiredRpvstVlanTopoChangeCount",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanSendTopoChangeCtrl": {
+    "name": "arubaWiredRpvstVlanSendTopoChangeCtrl",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanLogPortStateTransitions": {
+    "name": "arubaWiredRpvstVlanLogPortStateTransitions",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortTable": {
+    "name": "arubaWiredRpvstPortTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortEntry": {
+    "name": "arubaWiredRpvstPortEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstPortIndex": {
+    "name": "arubaWiredRpvstPortIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortAdminEdge": {
+    "name": "arubaWiredRpvstPortAdminEdge",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortAdminPointToPoint": {
+    "name": "arubaWiredRpvstPortAdminPointToPoint",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PointToPoint",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortAutoEdge": {
+    "name": "arubaWiredRpvstPortAutoEdge",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortBpduFiltering": {
+    "name": "arubaWiredRpvstPortBpduFiltering",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortRestrictedTcn": {
+    "name": "arubaWiredRpvstPortRestrictedTcn",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortRootGuard": {
+    "name": "arubaWiredRpvstPortRootGuard",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortLoopGuard": {
+    "name": "arubaWiredRpvstPortLoopGuard",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortBpduProtection": {
+    "name": "arubaWiredRpvstPortBpduProtection",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanTable": {
+    "name": "arubaWiredRpvstPortVlanTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanEntry": {
+    "name": "arubaWiredRpvstPortVlanEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanId",
+        "implied": 0
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanId": {
+    "name": "arubaWiredRpvstPortVlanId",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanIndex": {
+    "name": "arubaWiredRpvstPortVlanIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanPathCost": {
+    "name": "arubaWiredRpvstPortVlanPathCost",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanPriority": {
+    "name": "arubaWiredRpvstPortVlanPriority",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 128,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanResetCounters": {
+    "name": "arubaWiredRpvstPortVlanResetCounters",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanRole": {
+    "name": "arubaWiredRpvstPortVlanRole",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "root": 1,
+          "alternate": 2,
+          "designated": 3,
+          "backup": 4,
+          "master": 5,
+          "disabled": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanState": {
+    "name": "arubaWiredRpvstPortVlanState",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "blocking": 2,
+          "listening": 3,
+          "learning": 4,
+          "forwarding": 5,
+          "broken": 6,
+          "bpduError": 7,
+          "loopInconsistent": 8,
+          "pvidInconsistent": 9,
+          "rootGuard": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanDesigBridge": {
+    "name": "arubaWiredRpvstPortVlanDesigBridge",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanOperPointToPoint": {
+    "name": "arubaWiredRpvstPortVlanOperPointToPoint",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanOperEdge": {
+    "name": "arubaWiredRpvstPortVlanOperEdge",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanInconsistencyReason": {
+    "name": "arubaWiredRpvstPortVlanInconsistencyReason",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rootProtected": 1,
+          "loopProtected": 2,
+          "inconsistentPvidProtected": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredRpvstNotificationTable": {
+    "name": "arubaWiredRpvstNotificationTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstNotificationEntry": {
+    "name": "arubaWiredRpvstNotificationEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstPortName": {
+    "name": "arubaWiredRpvstPortName",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanIndex": {
+    "name": "arubaWiredRpvstVlanIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4097
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanErrantBpduRxCount": {
+    "name": "arubaWiredRpvstPortVlanErrantBpduRxCount",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstErrantBpduSrcMac": {
+    "name": "arubaWiredRpvstErrantBpduSrcMac",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstSuperiorBpduSrcPort": {
+    "name": "arubaWiredRpvstSuperiorBpduSrcPort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstSuperiorBpduSrcMac": {
+    "name": "arubaWiredRpvstSuperiorBpduSrcMac",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstErrantBpduDetector": {
+    "name": "arubaWiredRpvstErrantBpduDetector",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpduFilter": 1,
+          "bpduProtection": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstDesignatedPort": {
+    "name": "arubaWiredRpvstDesignatedPort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstOldPortRole": {
+    "name": "arubaWiredRpvstOldPortRole",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstNewPortRole": {
+    "name": "arubaWiredRpvstNewPortRole",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstTopoChangeTime": {
+    "name": "arubaWiredRpvstTopoChangeTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstPreviousRootBridgeID": {
+    "name": "arubaWiredRpvstPreviousRootBridgeID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstNewRootBridgeID": {
+    "name": "arubaWiredRpvstNewRootBridgeID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstRootBridgeChangeTimeStamp": {
+    "name": "arubaWiredRpvstRootBridgeChangeTimeStamp",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "arubaWiredRpvstId": {
+    "name": "arubaWiredRpvstId",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4097
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredRpvstErrantBpduReceived": {
+    "name": "arubaWiredRpvstErrantBpduReceived",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanIndex"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortName"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanErrantBpduRxCount"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanState"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanDesigBridge"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstDesignatedPort"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstErrantBpduSrcMac"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstErrantBpduDetector"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstNewRoot": {
+    "name": "arubaWiredRpvstNewRoot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanIndex"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstNewRootBridgeID"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPreviousRootBridgeID"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstRootBridgeChangeTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstRootGuardInconsistency": {
+    "name": "arubaWiredRpvstRootGuardInconsistency",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanIndex"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortName"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstSuperiorBpduSrcMac"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstSuperiorBpduSrcPort"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstLoopGuardInconsistency": {
+    "name": "arubaWiredRpvstLoopGuardInconsistency",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanIndex"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortName"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanDesigBridge"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstTopologyChange": {
+    "name": "arubaWiredRpvstTopologyChange",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanIndex"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortName"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstOldPortRole"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstNewPortRole"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstTopoChangeTime"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstGroups": {
+    "name": "arubaWiredRpvstGroups",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredRpvstCompliances": {
+    "name": "arubaWiredRpvstCompliances",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredRpvstCompliance1": {
+    "name": "arubaWiredRpvstCompliance1",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredRpvstGroup",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      },
+      {
+        "object": "arubaWiredRpvstVlanGroup",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      },
+      {
+        "object": "arubaWiredRpvstPortVlanGroup",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      },
+      {
+        "object": "arubaWiredRpvstPortGroup",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstCompliance2": {
+    "name": "arubaWiredRpvstCompliance2",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredRpvstPvst1",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstNotificationCompliance": {
+    "name": "arubaWiredRpvstNotificationCompliance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredRpvstNotificationObjectGrp",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      },
+      {
+        "object": "arubaWiredRpvstNotificationGroup",
+        "module": "ARUBAWIRED-RPVST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstGroup": {
+    "name": "arubaWiredRpvstGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstResetCounters"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstExtendedSystemID"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstIgnorePVIDInconsistency"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstVlanGroup": {
+    "name": "arubaWiredRpvstVlanGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanHelloTime"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanForwardDelay"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanMaxAge"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanPriority"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRoot"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRpvstAdminStatus"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanResetCounters"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanOperHelloTime"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRootPriority"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRootPort"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRootPathCost"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRootMacAddress"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanRootChangeCounter"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanTimeSinceLastTopoChange"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanTopoChangeCount"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstPortVlanGroup": {
+    "name": "arubaWiredRpvstPortVlanGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanPathCost"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanPriority"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanResetCounters"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanRole"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanState"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanDesigBridge"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanOperPointToPoint"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanOperEdge"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstPortGroup": {
+    "name": "arubaWiredRpvstPortGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortAdminEdge"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortAdminPointToPoint"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortAutoEdge"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortBpduFiltering"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortRestrictedTcn"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortRootGuard"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortLoopGuard"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortBpduProtection"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstPvst1": {
+    "name": "arubaWiredRpvstPvst1",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPathCostMode"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanSendTopoChangeCtrl"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanLogPortStateTransitions"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanInconsistencyReason"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstNotificationObjectGrp": {
+    "name": "arubaWiredRpvstNotificationObjectGrp",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortName"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstVlanIndex"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPortVlanErrantBpduRxCount"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstErrantBpduSrcMac"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstSuperiorBpduSrcPort"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstSuperiorBpduSrcMac"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstErrantBpduDetector"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstDesignatedPort"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstOldPortRole"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstNewPortRole"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstTopoChangeTime"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstPreviousRootBridgeID"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstNewRootBridgeID"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstRootBridgeChangeTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredRpvstNotificationGroup": {
+    "name": "arubaWiredRpvstNotificationGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.5.2.1.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstErrantBpduReceived"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstNewRoot"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstRootGuardInconsistency"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstLoopGuardInconsistency"
+      },
+      {
+        "module": "ARUBAWIRED-RPVST-MIB",
+        "object": "arubaWiredRpvstTopologyChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-RPVST-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:54 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ARUBAWIRED-RPVST-MIB"
+  }
+}

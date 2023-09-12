@@ -4,10 +4,10 @@
     "IANATn3270eTC-MIB": [
       "IANATn3270eClientType",
       "IANATn3270eAddrType",
-      "IANATn3270Functions",
-      "IANATn3270eAddress",
-      "IANATn3270eLogData",
       "IANATn3270ResourceType",
+      "IANATn3270eAddress",
+      "IANATn3270Functions",
+      "IANATn3270eLogData",
       "IANATn3270DeviceType"
     ],
     "SNA-NAU-MIB": [
@@ -17,33 +17,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "Gauge32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ],
     "SYSAPPL-MIB": [
       "Utf8String"
@@ -1994,8 +1994,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TN3270E-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:56:55 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:30:44 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TN3270E-MIB"

@@ -1,0 +1,482 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-NETWORKING-OID": [
+      "wndFeatures"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaWiredCiptMIB": {
+    "name": "arubaWiredCiptMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-02-07 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "VidList": {
+    "name": "VidList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "512x",
+    "status": "current"
+  },
+  "arubaWiredCiptConfig": {
+    "name": "arubaWiredCiptConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptClients": {
+    "name": "arubaWiredCiptClients",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptGlobalConfig": {
+    "name": "arubaWiredCiptGlobalConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptEnable": {
+    "name": "arubaWiredCiptEnable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredCiptProbeEnable": {
+    "name": "arubaWiredCiptProbeEnable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredCiptVlanConfig": {
+    "name": "arubaWiredCiptVlanConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptVidList": {
+    "name": "arubaWiredCiptVidList",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredCiptPortConfig": {
+    "name": "arubaWiredCiptPortConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptPortTable": {
+    "name": "arubaWiredCiptPortTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredCiptPortEntry": {
+    "name": "arubaWiredCiptPortEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredCiptPortIfIndex": {
+    "name": "arubaWiredCiptPortIfIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredCiptPortEnable": {
+    "name": "arubaWiredCiptPortEnable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "auto": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredCiptPortUpdateInterval": {
+    "name": "arubaWiredCiptPortUpdateInterval",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 28800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredCiptPortClientLimit": {
+    "name": "arubaWiredCiptPortClientLimit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredCiptTrackedClients": {
+    "name": "arubaWiredCiptTrackedClients",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptClientTable": {
+    "name": "arubaWiredCiptClientTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredCiptClientEntry": {
+    "name": "arubaWiredCiptClientEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptClientMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptClientVlanId",
+        "implied": 0
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptClientIpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredCiptClientMacAddress": {
+    "name": "arubaWiredCiptClientMacAddress",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredCiptClientVlanId": {
+    "name": "arubaWiredCiptClientVlanId",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredCiptClientIpIndex": {
+    "name": "arubaWiredCiptClientIpIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredCiptClientIpAddrType": {
+    "name": "arubaWiredCiptClientIpAddrType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredCiptClientIpAddress": {
+    "name": "arubaWiredCiptClientIpAddress",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredCiptClientPortIfIndex": {
+    "name": "arubaWiredCiptClientPortIfIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredCiptConformance": {
+    "name": "arubaWiredCiptConformance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptGroups": {
+    "name": "arubaWiredCiptGroups",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptCompliances": {
+    "name": "arubaWiredCiptCompliances",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredCiptConfigGlobalGroup": {
+    "name": "arubaWiredCiptConfigGlobalGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptEnable"
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptProbeEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredCiptVlanConfigGroup": {
+    "name": "arubaWiredCiptVlanConfigGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptVidList"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredCiptPortConfigGroup": {
+    "name": "arubaWiredCiptPortConfigGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptPortEnable"
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptPortUpdateInterval"
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptPortClientLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredCiptTrackedClientsGroup": {
+    "name": "arubaWiredCiptTrackedClientsGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptClientIpAddrType"
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptClientIpAddress"
+      },
+      {
+        "module": "ARUBAWIRED-CIPT-MIB",
+        "object": "arubaWiredCiptClientPortIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredCiptCompliance": {
+    "name": "arubaWiredCiptCompliance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.12.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredCiptConfigGlobalGroup",
+        "module": "ARUBAWIRED-CIPT-MIB"
+      },
+      {
+        "object": "arubaWiredCiptVlanConfigGroup",
+        "module": "ARUBAWIRED-CIPT-MIB"
+      },
+      {
+        "object": "arubaWiredCiptPortConfigGroup",
+        "module": "ARUBAWIRED-CIPT-MIB"
+      },
+      {
+        "object": "arubaWiredCiptTrackedClientsGroup",
+        "module": "ARUBAWIRED-CIPT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-CIPT-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:55 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ARUBAWIRED-CIPT-MIB"
+  }
+}

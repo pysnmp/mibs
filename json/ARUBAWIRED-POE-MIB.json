@@ -1,0 +1,943 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-NETWORKING-OID": [
+      "wndFeatures"
+    ],
+    "POWER-ETHERNET-MIB": [
+      "pethMainPseEntry",
+      "pethPsePortEntry"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaWiredPoeMIB": {
+    "name": "arubaWiredPoeMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-06-24 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "arubaWiredPoePethPsePort": {
+    "name": "arubaWiredPoePethPsePort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredPoeConformance": {
+    "name": "arubaWiredPoeConformance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredPoePethMainPse": {
+    "name": "arubaWiredPoePethMainPse",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.3",
+    "class": "objectidentity"
+  },
+  "arubaWiredPoePethPseModule": {
+    "name": "arubaWiredPoePethPseModule",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.4",
+    "class": "objectidentity"
+  },
+  "arubaWiredPoePethPsePortTable": {
+    "name": "arubaWiredPoePethPsePortTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortEntry": {
+    "name": "arubaWiredPoePethPsePortEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "arubaWiredPoePethPsePortEntry",
+      "module": "ARUBAWIRED-POE-MIB",
+      "object": "pethPsePortEntry"
+    },
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerAllocateBy": {
+    "name": "arubaWiredPoePethPsePortPowerAllocateBy",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "usage": 1,
+          "class": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPreStdDetect": {
+    "name": "arubaWiredPoePethPsePortPreStdDetect",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortRpd": {
+    "name": "arubaWiredPoePethPsePortRpd",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortCurrent": {
+    "name": "arubaWiredPoePethPsePortCurrent",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliamperes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortVoltage": {
+    "name": "arubaWiredPoePethPsePortVoltage",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "deciVolts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortReservedPower": {
+    "name": "arubaWiredPoePethPsePortReservedPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerDrawn": {
+    "name": "arubaWiredPoePethPsePortPowerDrawn",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortAveragePower": {
+    "name": "arubaWiredPoePethPsePortAveragePower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPeakPower": {
+    "name": "arubaWiredPoePethPsePortPeakPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliwatts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortOperStatus": {
+    "name": "arubaWiredPoePethPsePortOperStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPdSignature": {
+    "name": "arubaWiredPoePethPsePortPdSignature",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownSignature": 0,
+          "singleSignature": 1,
+          "dualSignature": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerClassification": {
+    "name": "arubaWiredPoePethPsePortPowerClassification",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class0": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6,
+          "class6": 7,
+          "class7": 8,
+          "class8": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPseAssignedClass": {
+    "name": "arubaWiredPoePethPsePortPseAssignedClass",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class0": 1,
+          "class1": 2,
+          "class2": 3,
+          "class3": 4,
+          "class4": 5,
+          "class5": 6,
+          "class6": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPseFourPairPortTable": {
+    "name": "arubaWiredPoePethPseFourPairPortTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPoePethPseFourPairPortEntry": {
+    "name": "arubaWiredPoePethPseFourPairPortEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "arubaWiredPoePethPseFourPairPortEntry",
+      "module": "ARUBAWIRED-POE-MIB",
+      "object": "pethPsePortEntry"
+    },
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortDetectionStatusPairA": {
+    "name": "arubaWiredPoePethPsePortDetectionStatusPairA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "searchingAltA": 1,
+          "deliveringPowerAltA": 2,
+          "faultAltA": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortDetectionStatusPairB": {
+    "name": "arubaWiredPoePethPsePortDetectionStatusPairB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "searchingAltB": 1,
+          "deliveringPowerAltB": 2,
+          "faultAltB": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerClassificationPairA": {
+    "name": "arubaWiredPoePethPsePortPowerClassificationPairA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class1": 1,
+          "class2": 2,
+          "class3": 3,
+          "class4": 4,
+          "class5": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerClassificationPairB": {
+    "name": "arubaWiredPoePethPsePortPowerClassificationPairB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class1": 1,
+          "class2": 2,
+          "class3": 3,
+          "class4": 4,
+          "class5": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPseAssignedClassA": {
+    "name": "arubaWiredPoePethPsePortPseAssignedClassA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class1": 1,
+          "class2": 2,
+          "class3": 3,
+          "class4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPseAssignedClassB": {
+    "name": "arubaWiredPoePethPsePortPseAssignedClassB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "class1": 1,
+          "class2": 2,
+          "class3": 3,
+          "class4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortInvalidSignatureCounterPairA": {
+    "name": "arubaWiredPoePethPsePortInvalidSignatureCounterPairA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortInvalidSignatureCounterPairB": {
+    "name": "arubaWiredPoePethPsePortInvalidSignatureCounterPairB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerDeniedCounterPairA": {
+    "name": "arubaWiredPoePethPsePortPowerDeniedCounterPairA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortPowerDeniedCounterPairB": {
+    "name": "arubaWiredPoePethPsePortPowerDeniedCounterPairB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortOverLoadCounterPairA": {
+    "name": "arubaWiredPoePethPsePortOverLoadCounterPairA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortOverLoadCounterPairB": {
+    "name": "arubaWiredPoePethPsePortOverLoadCounterPairB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortMPSAbsentCounterPairA": {
+    "name": "arubaWiredPoePethPsePortMPSAbsentCounterPairA",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortMPSAbsentCounterPairB": {
+    "name": "arubaWiredPoePethPsePortMPSAbsentCounterPairB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethMainPseTable": {
+    "name": "arubaWiredPoePethMainPseTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPoePethMainPseEntry": {
+    "name": "arubaWiredPoePethMainPseEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "arubaWiredPoePethMainPseEntry",
+      "module": "ARUBAWIRED-POE-MIB",
+      "object": "pethMainPseEntry"
+    },
+    "status": "current"
+  },
+  "arubaWiredPoePethMainPseReservedPower": {
+    "name": "arubaWiredPoePethMainPseReservedPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethMainPseFailoverPower": {
+    "name": "arubaWiredPoePethMainPseFailoverPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethMainPseRedundantPower": {
+    "name": "arubaWiredPoePethMainPseRedundantPower",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoePethPseModuleTable": {
+    "name": "arubaWiredPoePethPseModuleTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPoePethPseModuleEntry": {
+    "name": "arubaWiredPoePethPseModuleEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPseModuleGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPseModuleSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPoePethPseModuleGroupIndex": {
+    "name": "arubaWiredPoePethPseModuleGroupIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPoePethPseModuleSlotIndex": {
+    "name": "arubaWiredPoePethPseModuleSlotIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredPoePethPseModuleAlwaysOnPoe": {
+    "name": "arubaWiredPoePethPseModuleAlwaysOnPoe",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredPoeCompliances": {
+    "name": "arubaWiredPoeCompliances",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredPoeGroups": {
+    "name": "arubaWiredPoeGroups",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredPoeCompliance": {
+    "name": "arubaWiredPoeCompliance",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "arubaWiredPoePethPsePortTable",
+        "module": "ARUBAWIRED-POE-MIB"
+      },
+      {
+        "object": "arubaWiredPoePethMainPseTable",
+        "module": "ARUBAWIRED-POE-MIB"
+      },
+      {
+        "object": "arubaWiredPoePethPseModuleTable",
+        "module": "ARUBAWIRED-POE-MIB"
+      },
+      {
+        "object": "arubaWiredPoePethPsePortTableGroup",
+        "module": "ARUBAWIRED-POE-MIB"
+      },
+      {
+        "object": "arubaWiredPoePethPseFourPairPortTableGroup",
+        "module": "ARUBAWIRED-POE-MIB"
+      },
+      {
+        "object": "arubaWiredPoePethMainPseTableGroup",
+        "module": "ARUBAWIRED-POE-MIB"
+      },
+      {
+        "object": "arubaWiredPoePethPseModuleTableGroup",
+        "module": "ARUBAWIRED-POE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPoePethPsePortTableGroup": {
+    "name": "arubaWiredPoePethPsePortTableGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerAllocateBy"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPreStdDetect"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortRpd"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortCurrent"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortVoltage"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortReservedPower"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerDrawn"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortAveragePower"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPeakPower"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortOperStatus"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPdSignature"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerClassification"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPseAssignedClass"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPoePethPseFourPairPortTableGroup": {
+    "name": "arubaWiredPoePethPseFourPairPortTableGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortDetectionStatusPairA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortDetectionStatusPairB"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerClassificationPairA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerClassificationPairB"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPseAssignedClassA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPseAssignedClassB"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortInvalidSignatureCounterPairA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortInvalidSignatureCounterPairB"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerDeniedCounterPairA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortPowerDeniedCounterPairB"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortOverLoadCounterPairA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortOverLoadCounterPairB"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortMPSAbsentCounterPairA"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPsePortMPSAbsentCounterPairB"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPoePethMainPseTableGroup": {
+    "name": "arubaWiredPoePethMainPseTableGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethMainPseReservedPower"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethMainPseFailoverPower"
+      },
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethMainPseRedundantPower"
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredPoePethPseModuleTableGroup": {
+    "name": "arubaWiredPoePethPseModuleTableGroup",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.8.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ARUBAWIRED-POE-MIB",
+        "object": "arubaWiredPoePethPseModuleAlwaysOnPoe"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-POE-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:54 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ARUBAWIRED-POE-MIB"
+  }
+}

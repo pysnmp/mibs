@@ -13,11 +13,11 @@
       "InetAddressPrefixLength"
     ],
     "OSPF-MIB": [
-      "BigMetric",
+      "DesignatedRouterPriority",
       "HelloRange",
       "Status",
-      "Metric",
-      "DesignatedRouterPriority"
+      "BigMetric",
+      "Metric"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -25,26 +25,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
       "mib-2",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
       "TimeTicks",
-      "Gauge32"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -4963,8 +4963,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-OSPFV3-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 08:06:36 2023",
-      "On host fv-az447-19 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:41:33 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-OSPFV3-MIB"

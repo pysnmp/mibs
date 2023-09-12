@@ -1,0 +1,822 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBAWIRED-NETWORKING-OID": [
+      "wndFeatures"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "arubaWiredVsxMIB": {
+    "name": "arubaWiredVsxMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-09-05 00:00",
+        "description": "Config-sync MIB implementation for VSX feature"
+      },
+      {
+        "revision": "2018-06-08 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "VidList": {
+    "name": "VidList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 512,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "512x",
+    "status": "current"
+  },
+  "arubaWiredVsxConfig": {
+    "name": "arubaWiredVsxConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxStatus": {
+    "name": "arubaWiredVsxStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxNotifications": {
+    "name": "arubaWiredVsxNotifications",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.3",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxIslConfig": {
+    "name": "arubaWiredVsxIslConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxIslPort": {
+    "name": "arubaWiredVsxIslPort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxIslHelloInterval": {
+    "name": "arubaWiredVsxIslHelloInterval",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxIslHoldTime": {
+    "name": "arubaWiredVsxIslHoldTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxIslHelloTimeout": {
+    "name": "arubaWiredVsxIslHelloTimeout",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxIslSystemID": {
+    "name": "arubaWiredVsxIslSystemID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslPlatformName": {
+    "name": "arubaWiredVsxIslPlatformName",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslSwVersion": {
+    "name": "arubaWiredVsxIslSwVersion",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslVIDList": {
+    "name": "arubaWiredVsxIslVIDList",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveConfig": {
+    "name": "arubaWiredVsxKeepAliveConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxKeepAliveSrcIPAddrType": {
+    "name": "arubaWiredVsxKeepAliveSrcIPAddrType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveSrcIPAddr": {
+    "name": "arubaWiredVsxKeepAliveSrcIPAddr",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveVrf": {
+    "name": "arubaWiredVsxKeepAliveVrf",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveUdpPort": {
+    "name": "arubaWiredVsxKeepAliveUdpPort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1024,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAlivePeerIPAddrType": {
+    "name": "arubaWiredVsxKeepAlivePeerIPAddrType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAlivePeerIPAddr": {
+    "name": "arubaWiredVsxKeepAlivePeerIPAddr",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveHelloInterval": {
+    "name": "arubaWiredVsxKeepAliveHelloInterval",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveHelloTimeout": {
+    "name": "arubaWiredVsxKeepAliveHelloTimeout",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveSystemID": {
+    "name": "arubaWiredVsxKeepAliveSystemID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAlivePlatformName": {
+    "name": "arubaWiredVsxKeepAlivePlatformName",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveSwVersion": {
+    "name": "arubaWiredVsxKeepAliveSwVersion",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxAggregatorConfig": {
+    "name": "arubaWiredVsxAggregatorConfig",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxAggregatorTable": {
+    "name": "arubaWiredVsxAggregatorTable",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredVsxAggregatorEntry": {
+    "name": "arubaWiredVsxAggregatorEntry",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ARUBAWIRED-VSX-MIB",
+        "object": "arubaWiredVsxAggregatorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "arubaWiredVsxAggregatorIndex": {
+    "name": "arubaWiredVsxAggregatorIndex",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "arubaWiredVsxAggregatorType": {
+    "name": "arubaWiredVsxAggregatorType",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "point2Point": 1,
+          "multiChassis": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "arubaWiredVsxVlanList": {
+    "name": "arubaWiredVsxVlanList",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VidList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxLoopProtectEnabled": {
+    "name": "arubaWiredVsxLoopProtectEnabled",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxLoadBalanceScheme": {
+    "name": "arubaWiredVsxLoadBalanceScheme",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2-Src-Dst": 1,
+          "l3-Src-Dst": 2,
+          "l4-Src-Dst": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxCosOverride": {
+    "name": "arubaWiredVsxCosOverride",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxDscpOverride": {
+    "name": "arubaWiredVsxDscpOverride",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxQoSTrust": {
+    "name": "arubaWiredVsxQoSTrust",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxGlobalConfiguration": {
+    "name": "arubaWiredVsxGlobalConfiguration",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.4",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxDeviceRole": {
+    "name": "arubaWiredVsxDeviceRole",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "notConfigured": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxConfigSync": {
+    "name": "arubaWiredVsxConfigSync",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslStatus": {
+    "name": "arubaWiredVsxIslStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxIslOperState": {
+    "name": "arubaWiredVsxIslOperState",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "outSync": 2,
+          "inSync": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslPduTx": {
+    "name": "arubaWiredVsxIslPduTx",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslPduRx": {
+    "name": "arubaWiredVsxIslPduRx",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslHelloTx": {
+    "name": "arubaWiredVsxIslHelloTx",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxIslHelloRx": {
+    "name": "arubaWiredVsxIslHelloRx",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxDeviceOperSystemID": {
+    "name": "arubaWiredVsxDeviceOperSystemID",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveStatus": {
+    "name": "arubaWiredVsxKeepAliveStatus",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsxKeepAliveOperState": {
+    "name": "arubaWiredVsxKeepAliveOperState",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "configured": 2,
+          "inSyncEstablished": 3,
+          "outofSyncEstablished": 4,
+          "initEstablished": 5,
+          "failed": 6,
+          "stopped": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAlivePacketsTx": {
+    "name": "arubaWiredVsxKeepAlivePacketsTx",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAlivePacketsRx": {
+    "name": "arubaWiredVsxKeepAlivePacketsRx",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAlivePacketsDrop": {
+    "name": "arubaWiredVsxKeepAlivePacketsDrop",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveTimeoutCount": {
+    "name": "arubaWiredVsxKeepAliveTimeoutCount",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveLastEstablishedTime": {
+    "name": "arubaWiredVsxKeepAliveLastEstablishedTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxKeepAliveLastFailedTime": {
+    "name": "arubaWiredVsxKeepAliveLastFailedTime",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "arubaWiredVsxTraps": {
+    "name": "arubaWiredVsxTraps",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.3.1",
+    "class": "objectidentity"
+  },
+  "islUp": {
+    "name": "islUp",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.3.1.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "islDown": {
+    "name": "islDown",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.3.1.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "keepAliveUp": {
+    "name": "keepAliveUp",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.3.1.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "keepAliveDown": {
+    "name": "keepAliveDown",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.7.3.1.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-VSX-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 09:42:55 2023",
+      "On host fv-az502-117 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ARUBAWIRED-VSX-MIB"
+  }
+}
